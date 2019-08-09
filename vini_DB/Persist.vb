@@ -2746,7 +2746,7 @@ Public MustInherit Class Persist
     'Détails    :  
     'Retour : une collection triée
     '=======================================================================
-    Protected Shared Function ListeMVTSTK2(ByVal pddeb As Date, ByVal pdfin As Date, ByVal pFournisseur As Fournisseur, Optional ByVal pEtat As vncEtatMVTSTK = vncEtatMVTSTK.vncMVTSTK_Tous) As Collection
+    Protected Shared Function ListeMVTSTK2(ByVal pddeb As Date, ByVal pdfin As Date, ByVal pFournisseur As Fournisseur, Optional ByVal pEtat As vncEtatMVTSTK = vncEtatMVTSTK.vncMVTSTK_Tous, Optional pDossier As String = "") As Collection
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
 
         Dim objCommand As OleDbCommand
@@ -2767,8 +2767,8 @@ Public MustInherit Class Persist
 
 
 
-        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM]," & _
-                                  " STK_ETAT, STK_IDFACTCOLISAGE " & _
+        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM]," &
+                                  " STK_ETAT, STK_IDFACTCOLISAGE " &
                                   " FROM MVT_STOCK  INNER JOIN PRODUIT ON MVT_STOCK.STK_PRD_ID = PRODUIT.PRD_ID"
         Dim strOrder As String = " STK_DATE ASC, MVT_STOCK.STK_TYPE DESC"
         Dim strWhere As String = " MVT_STOCK.STK_DATE >= ? AND  " _
@@ -2778,8 +2778,13 @@ Public MustInherit Class Persist
         If pEtat <> vncEtatMVTSTK.vncMVTSTK_Tous Then
             strWhere = strWhere & " AND  MVT_STOCK.STK_ETAT = ? "
         End If
+        If (pDossier <> "") Then
+            strWhere = strWhere & " AND PRODUIT.PRD_DOSSIER = ? "
+
+        End If
 
         strWhere = strWhere & " AND PRODUIT.PRD_FRN_ID = ? "
+
 
 
         sqlString = sqlString & " WHERE " & strWhere & " ORDER BY " & strOrder
@@ -2797,6 +2802,9 @@ Public MustInherit Class Persist
             objParam = objCommand.Parameters.AddWithValue("?", pdfin)
             If pEtat <> vncEtatMVTSTK.vncMVTSTK_Tous Then
                 objParam = objCommand.Parameters.AddWithValue("?", pEtat)
+            End If
+            If (pDossier <> "") Then
+                objParam = objCommand.Parameters.AddWithValue("?", pDossier)
             End If
 
             objParam = objCommand.Parameters.AddWithValue("?", pFournisseur.id)

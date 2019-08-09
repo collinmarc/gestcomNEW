@@ -334,7 +334,7 @@ Public Class mvtStock
         Return colReturn
     End Function 'getListe
 
-    Public Shared Function getListe2(ByVal pDateDebut As Date, ByVal pDateFin As Date, Optional ByVal pFournisseur As Fournisseur = Nothing, Optional ByVal pEtat As vncEtatMVTSTK = vncEtatMVTSTK.vncMVTSTK_Tous) As Collection
+    Public Shared Function getListe2(ByVal pDateDebut As Date, ByVal pDateFin As Date, Optional ByVal pFournisseur As Fournisseur = Nothing, Optional ByVal pEtat As vncEtatMVTSTK = vncEtatMVTSTK.vncMVTSTK_Tous, Optional pdossier As String = "") As Collection
         '=======================================================================
         'Fonction : getListe()
         'Description : Rend une liste des mvt de stocks pour les produits en Stock avec un filtre éventuel sur l'ID du fournisseur
@@ -344,7 +344,7 @@ Public Class mvtStock
         Dim colReturn As Collection
 
         Persist.shared_connect()
-        colReturn = Persist.ListeMVTSTK2(pDateDebut, pDateFin, pFournisseur, pEtat)
+        colReturn = Persist.ListeMVTSTK2(pDateDebut, pDateFin, pFournisseur, pEtat, pdossier)
         Persist.shared_disconnect()
         Return colReturn
     End Function 'getListe

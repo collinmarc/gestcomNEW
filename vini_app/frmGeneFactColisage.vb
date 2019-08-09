@@ -514,6 +514,8 @@ Public Class frmGeneFactColisage
                 oFRN = Fournisseur.createandload(codeFournisseur)
                 If Not oFRN Is Nothing Then
                     'Recupération de la liste des Mouvements de stocks
+                    '                    col = mvtStock.getListe2(ddeb, dfin, oFRN, vncEtatMVTSTK.vncMVTSTK_nFact, strDossier)
+                    'A Discuter avec Mme Mathurin
                     col = mvtStock.getListe2(ddeb, dfin, oFRN, vncEtatMVTSTK.vncMVTSTK_nFact)
                 End If
             End If
