@@ -363,7 +363,6 @@ Public Class clsFTPVinicom
     ''' Download All Files from Remote Directory
     ''' </summary>
     ''' <param name="strLocalDirName"></param>
-    ''' <param name="strFileName"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Function downloadDirToDir(ByVal strLocalDirName As String) As Boolean

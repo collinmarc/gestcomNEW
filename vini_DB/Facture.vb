@@ -233,7 +233,7 @@ Public MustInherit Class Facture
         End Try
     End Sub
 
-    Public Function getAttributeValue(ByVal pstrAttributeName As String, ByVal pDTConstantes As dsVinicom.CONSTANTESDataTable) As String
+    Public Overloads Function getAttributeValue(ByVal pstrAttributeName As String, ByVal pDTConstantes As dsVinicom.CONSTANTESDataTable) As String
         Dim strReturn As String
         strReturn = String.Empty
 
@@ -318,7 +318,7 @@ Public MustInherit Class Facture
                         End If
                     Next
 
- 
+
                 Case "MODEREGLEMENT4"
                     Dim oParam As New ParamModeReglement
                     oParam.load(Me.idModeReglement)

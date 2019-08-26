@@ -322,8 +322,6 @@ Friend Class dlgLgFactColisage
         Dim colProduit As Collection
         Dim objProduit As Produit = Nothing
         Dim frm As frmRechercheDB
-        Dim objClient As Client
-        Dim objLgPrecom As lgPrecomm
         Dim qte As Decimal = 0
         Dim prixU As Decimal = 0
 

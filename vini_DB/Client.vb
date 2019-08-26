@@ -191,7 +191,7 @@ Public Class Client
     ''' <summary>
     ''' Constructeur pour Chargement par la clé
     ''' </summary>
-    ''' <param name="pCode"> Code Fournisseur</param>
+    ''' <param name="pIdPrestashop"> Code Fournisseur</param>
     ''' <returns>Objet Fournisseur ou null</returns>
     ''' <remarks></remarks>
     Public Shared Function createandloadPrestashop(ByVal pIdPrestashop As String) As Client

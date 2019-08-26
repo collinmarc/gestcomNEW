@@ -129,7 +129,7 @@ Public Class frmFournisseurTab
     Friend WithEvents cbStockFournisseur As System.Windows.Forms.Button
     Friend WithEvents cbCommissions As System.Windows.Forms.Button
     Friend WithEvents Label27 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label4b As System.Windows.Forms.Label
     Friend WithEvents ckIntermediaire As System.Windows.Forms.CheckBox
     Friend WithEvents cbxDossier As System.Windows.Forms.ComboBox
     Friend WithEvents cbxExportBaf As System.Windows.Forms.ComboBox
@@ -139,7 +139,7 @@ Public Class frmFournisseurTab
         Me.cbCommissions = New System.Windows.Forms.Button()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.cbxExportBaf = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label4b = New System.Windows.Forms.Label()
         Me.ckIntermediaire = New System.Windows.Forms.CheckBox()
         Me.cbxDossier = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
@@ -199,12 +199,12 @@ Public Class frmFournisseurTab
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(510, 11)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(82, 13)
-        Me.Label4.TabIndex = 76
-        Me.Label4.Text = "Export des Baf :"
+        Me.Label4b.AutoSize = True
+        Me.Label4b.Location = New System.Drawing.Point(510, 11)
+        Me.Label4b.Name = "Label4"
+        Me.Label4b.Size = New System.Drawing.Size(82, 13)
+        Me.Label4b.TabIndex = 76
+        Me.Label4b.Text = "Export des Baf :"
         '
         'ckIntermediaire
         '
@@ -232,7 +232,7 @@ Public Class frmFournisseurTab
         Me.ClientSize = New System.Drawing.Size(968, 734)
         Me.Controls.Add(Me.cbxDossier)
         Me.Controls.Add(Me.ckIntermediaire)
-        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label4b)
         Me.Controls.Add(Me.cbxExportBaf)
         Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.cbCommissions)
@@ -249,7 +249,7 @@ Public Class frmFournisseurTab
         Me.Controls.SetChildIndex(Me.cbCommissions, 0)
         Me.Controls.SetChildIndex(Me.Label27, 0)
         Me.Controls.SetChildIndex(Me.cbxExportBaf, 0)
-        Me.Controls.SetChildIndex(Me.Label4, 0)
+        Me.Controls.SetChildIndex(Me.Label4b, 0)
         Me.Controls.SetChildIndex(Me.ckIntermediaire, 0)
         Me.Controls.SetChildIndex(Me.cbxDossier, 0)
         Me.ResumeLayout(False)

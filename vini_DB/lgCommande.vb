@@ -751,7 +751,7 @@ Public Class LgCommande
     ''' <returns></returns>
     Private Function getTypeClient(pstrOrigine As String) As String
         Dim objCMD As CommandeClient
-        Dim objCLT As Client
+        Dim objCLT As Client = Nothing
         Dim objParam As Param
         Dim strTypeClt As String = ""
 

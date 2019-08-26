@@ -155,8 +155,6 @@ Public Class mvtEDI
     ''' <summary>
     ''' 
     ''' </summary>
-    ''' <param name="pFilePath"></param>
-    ''' <param name="pbRenameFile"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Shared Function getFilesFromFTP(pSRV As String, pPort As String, pUser As String, pPassword As String, pRepDistant As String, pRepLocal As String) As Boolean

@@ -171,9 +171,6 @@ Imports vini_App
         'Test de l'export avec la zone observation agrandie à 100 car et le nom du transoprteur à la fin sur 50 car
         'Verification que L'export WebEDI supprime bien les retours chariots dans les commantaires de livraison
         Dim objCMD As CommandeClient
-        Dim nFile As Integer
-        Dim strResult As String
-        Dim nLineNumber As Integer
 
         'Creation d'une Commande
         objCMD = New CommandeClient(m_objCLT)

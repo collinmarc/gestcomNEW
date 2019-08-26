@@ -65,20 +65,6 @@ Public Class ImportPrestashop
             m_Port = value
         End Set
     End Property
-    ''' <summary>
-    ''' Nbre de secondes d'attentes entre 2 boucles (mode service uniquement)
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    'Public Property nSec As Integer
-    '    Get
-    '        Return m_nSec
-    '    End Get
-    '    Set(value As Integer)
-    '        m_nSec = value
-    '    End Set
-    'End Property
 
     Public Sub New(pHost As String, pUser As String, pPassword As String, Optional pPort As Integer = 993, Optional pSSL As Boolean = True)
         HostName = pHost
@@ -88,19 +74,6 @@ Public Class ImportPrestashop
         bSSL = pSSL
         '        nSec = My.Settings.ImapNSec
     End Sub
-    ''' <summary>
-    ''' Initialisation par défaut à partir des informations  du .config
-    ''' </summary>
-    ''' <remarks></remarks>
-    'Public Sub New()
-    '    HostName = My.Settings.ImapHost
-    '    UserName = My.Settings.ImapUser
-    '    Password = My.Settings.ImapPassword
-    '    Port = My.Settings.ImapPort
-    '    bSSL = My.Settings.ImapSSL
-    '    MSGFolderName = My.Settings.IMAPMSGfolder
-    '    nSec = My.Settings.ImapNSec
-    'End Sub
 
     Public Overrides Function toString() As String
         Return Me.GetType().ToString() & "(Host:[" & HostName & "],port:[" & Port & "],user:[" & UserName & "],Pwd:[" & Password & "]"
@@ -174,7 +147,6 @@ Public Class ImportPrestashop
     ''' Création d'une commande Client à partir d'un mail
     ''' </summary>
     ''' <param name="pMsg">Message conteant la commande</param>
-    ''' <param name="pCheck">Vérification préalable oui ou non (Oui par defaut)</param>
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Function createCMDCLT(pMsg As System.Net.Mail.MailMessage, Optional pbCheck As Boolean = True) As CommandeClient

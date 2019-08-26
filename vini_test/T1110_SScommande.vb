@@ -160,7 +160,7 @@ Imports System.IO
         objSCMD2.totalHTFacture = 2
         Assert.IsFalse(objSCMD2.Equals(objSCMD22), "Egal à un Différent")
 
-        Dim obj As Object
+        Dim obj As New Object()
         Assert.IsFalse(objSCMD2.Equals(obj), "Egal autrecjhose")
 
 

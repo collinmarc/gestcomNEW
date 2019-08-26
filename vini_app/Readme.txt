@@ -1,7 +1,8 @@
-﻿Version 5.9.7.4b
+﻿Version 6.0.0.0
 Date 
 0001025: Récapitutif Colisage pour tous les fournisseurs
 0001026: Generation des FactCom : tri sur RefFact
+0001027: PASSAGE EN V4.7.1 .NET
 
 Version 5.9.7.4
 Date 05/08/2019

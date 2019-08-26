@@ -113,8 +113,6 @@ Public Class T0100_vini_base
     <TestMethod(), Ignore()>
     Public Sub T10_LoadSaveImage()
         Dim oImage As vini_Image = New vini_Image()
-        Dim obj As vini_Image
-        Dim nId As Integer
 
         oImage.IdObject = 10
         oImage.Type = "IMG"
