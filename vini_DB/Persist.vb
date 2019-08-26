@@ -6513,7 +6513,8 @@ Public MustInherit Class Persist
         If strWhere <> "" Then
             sqlString = sqlString & " WHERE " & strWhere
         End If
-        sqlString = sqlString & " ORDER BY FOURNISSEUR.FRN_CODE ASC, SOUSCOMMANDE.SCMD_CODE ASC"
+        '        sqlString = sqlString & " ORDER BY FOURNISSEUR.FRN_CODE ASC, SOUSCOMMANDE.SCMD_CODE ASC"
+        sqlString = sqlString & " ORDER BY FOURNISSEUR.FRN_CODE ASC, SOUSCOMMANDE.SCMD_FACT_REF ASC"
 
         objCommand.CommandText = sqlString
 
