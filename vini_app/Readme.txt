@@ -1,4 +1,8 @@
-﻿Version 5.9.7.4
+﻿Version 5.9.7.4b
+Date 
+0001025: Récapitutif Colisage pour tous les fournisseurs
+
+Version 5.9.7.4
 Date 05/08/2019
 0001024: Le récapitulatif colisage par facture ne prend pas en compte les gratuités
 

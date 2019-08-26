@@ -166,10 +166,7 @@ Public Class frmcrRecapColisage
 
     Private Sub cbAfficher_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbAfficher.Click
 
-        Dim objReport As ReportDocument
         Dim oDS As vini_DB.dsVinicom
-        Dim r1 As New crRecapColisageJournalier()
-        Dim strReportName As String = r1.ResourceName
         Dim strCodeFourn As String
         Dim nCout As Decimal
         Dim pNumFactCol As String = ""
@@ -178,15 +175,16 @@ Public Class frmcrRecapColisage
         Dim nbJour As Integer
 
         Me.Cursor = Cursors.WaitCursor
-        objReport = New ReportDocument
-        objReport.Load(PATHTOREPORTS & strReportName)
         strCodeFourn = tbCodeFourn.Text.Replace("*", "%")
+        If strCodeFourn = "%" Then
+            strCodeFourn = ""
+        End If
         nCout = CDec(Param.getConstante("CST_FACT_COL_PU_COLIS"))
         If tbIdFacture.Text <> "" Then
             pNumFactCol = tbIdFacture.Text
         End If
 
-        debAffiche()
+
         If String.IsNullOrEmpty(pNumFactCol) Then
             Dim dDeb As Date = CDate("01/" & Me.dtMois.Value.Month & "/" & Me.dtMois.Value.Year)
             periode = dDeb.ToString("MMMM yyyy")
@@ -200,16 +198,23 @@ Public Class frmcrRecapColisage
             nbJour = CDate(periode).AddMonths(1).AddDays(-1).Day
             oDS = FactColisageJ.GenereDataSetRecapColisage(oFacCol.id, nCout, oFacCol.dossierFact)
         End If
-        setReportConnection(objReport)
-        objReport.SetDataSource(oDS)
-        'Les paramètres sont passé juste pour informations car ils ne sont pas utilisé
 
-        objReport.SetParameterValue("Periode", periode)
-        objReport.SetParameterValue("NbJour", nbJour)
-        objReport.SetParameterValue("NbJour", nbJour)
+        Dim objReport As New ReportDocument
+        Dim strReportName As String
+            Using r1 As New crRecapColisageJournalier()
+                strReportName = r1.ResourceName
+            End Using
 
-        CrystalReportViewer1.ReportSource = objReport
-        finAffiche()
+            objReport.Load(PATHTOREPORTS & strReportName)
+                setReportConnection(objReport)
+                objReport.SetDataSource(oDS)
+                'Les paramètres sont passé juste pour informations car ils ne sont pas utilisé
+
+                objReport.SetParameterValue("Periode", periode)
+                objReport.SetParameterValue("NbJour", nbJour)
+                objReport.SetParameterValue("NbJour", nbJour)
+
+                CrystalReportViewer1.ReportSource = objReport
         Me.Cursor = Cursors.Default
 
     End Sub

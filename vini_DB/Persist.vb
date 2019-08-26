@@ -1957,51 +1957,51 @@ Public MustInherit Class Persist
                                 " WHERE " &
                                 " PRD_ID = ?"
 
-        Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
         Dim objPRD As Produit
         Dim bReturn As Boolean
 
-        objOLeDBCommand = New OleDbCommand
-        objOLeDBCommand.Connection = m_dbconn.Connection
-        objOLeDBCommand.CommandText = sqlString
+        Using objOLeDBCommand As OleDbCommand = m_dbconn.Connection.CreateCommand()
+
+            objOLeDBCommand.CommandText = sqlString
 
 
 
-        'Si le paramètre existe on ne met à jour que sa valeur
-        'Autrement on le crée
-        CreateParameterP_ID(objOLeDBCommand)
+            'Si le paramètre existe on ne met à jour que sa valeur
+            'Autrement on le crée
+            CreateParameterP_ID(objOLeDBCommand)
 
-        Try
-            'objRS = objOLeDBCommand.ExecuteNonQuery()
-            objRS = objOLeDBCommand.ExecuteReader()
+            Try
+                objRS = objOLeDBCommand.ExecuteReader()
 
-            If Not objRS.HasRows Then
+                If Not objRS.HasRows Then
+                    objRS.Close()
+                    setError("LoadPRD", "Produit Id" & m_id & "non trouvé")
+                    Return False
+                End If
+                objRS.Read()
+                objPRD = CType(Me, Produit)
+                objPRD.Fill(objRS)
+                objPRD.libConditionnement = GetString(objRS, "CONDITIONNEMENT")
+                objPRD.libContenant = GetString(objRS, "CONTENANT")
+                objPRD.libCouleur = GetString(objRS, "COULEUR")
+                objPRD.libRegion = GetString(objRS, "REGION")
+                objPRD.libTVA = CStr(GetString(objRS, "TVA"))
+                objPRD.nomFournisseur = GetString(objRS, "FRN_NOM")
+
+                cleanErreur()
+                bReturn = True
                 objRS.Close()
-                setError("LoadPRD", "Produit Id" & m_id & "non trouvé")
-                Return False
-            End If
-            objRS.Read()
-            objPRD = CType(Me, Produit)
-            objPRD.Fill(objRS)
-            objPRD.libConditionnement = GetString(objRS, "CONDITIONNEMENT")
-            objPRD.libContenant = GetString(objRS, "CONTENANT")
-            objPRD.libCouleur = GetString(objRS, "COULEUR")
-            objPRD.libRegion = GetString(objRS, "REGION")
-            objPRD.libTVA = CStr(GetString(objRS, "TVA"))
-            objPRD.nomFournisseur = GetString(objRS, "FRN_NOM")
+                objRS = Nothing
 
-            cleanErreur()
-            bReturn = True
-            objRS.Close()
-            objRS = Nothing
 
-        Catch ex As Exception
-            setError("LoadPRD", ex.ToString())
+            Catch ex As Exception
+                setError("LoadPRD", ex.ToString())
 
-            bReturn = False
-        End Try
-        Debug.Assert(bReturn, getErreur())
+                bReturn = False
+            End Try
+            Debug.Assert(bReturn, getErreur())
+        End Using
 
         Return bReturn
     End Function 'LoadPRD
