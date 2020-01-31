@@ -1,4 +1,7 @@
-﻿Version 6.0.0.0
+﻿
+0001167: Le total de la liste des factures de colisage n'est pas assez large
+
+Version 6.0.0.0
 Date 
 0001025: Récapitutif Colisage pour tous les fournisseurs
 0001026: Generation des FactCom : tri sur RefFact
