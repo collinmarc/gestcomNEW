@@ -185,11 +185,6 @@ Imports System.Globalization
 
         Return bReturn
     End Function
-    <TestMethod(), Ignore()> Sub T00_Base()
-        Dim obj As Fournisseur
-        obj = New Fournisseur("TST", "nom")
-        Assert.IsTrue(obj.Save)
-    End Sub
 End Class
 
 

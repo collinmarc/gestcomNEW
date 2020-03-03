@@ -1,5 +1,6 @@
 Imports System.IO
 Imports System.Data.OleDb
+Imports vini_DB
 
 Public MustInherit Class Facture
     Inherits Commande
@@ -212,7 +213,7 @@ Public MustInherit Class Facture
                         End If
                         If Trim(oRow.EXP_TYPECHAMPS).Equals("V") Then
                             'Exportation d'une Valeur
-                            strValeur = getAttributeValue(oRow.EXP_VALEUR, oDTConstantes)
+                            strValeur = GetAttributeValue(oRow.EXP_VALEUR, oDTConstantes)
                             'Si la longueur est égale à 0 => Trim
                             If oRow.EXP_LONGUEUR = 0 Then
                                 strLine = strLine + Trim(strValeur)
@@ -233,7 +234,7 @@ Public MustInherit Class Facture
         End Try
     End Sub
 
-    Public Overloads Function getAttributeValue(ByVal pstrAttributeName As String, ByVal pDTConstantes As dsVinicom.CONSTANTESDataTable) As String
+    Public Overridable Overloads Function GetAttributeValue(ByVal pstrAttributeName As String, ByVal pDTConstantes As dsVinicom.CONSTANTESDataTable) As String
         Dim strReturn As String
         strReturn = String.Empty
 
@@ -288,6 +289,12 @@ Public MustInherit Class Facture
                     If pDTConstantes IsNot Nothing Then
                         If (Not pDTConstantes.Rows(0).IsNull("CST_SOC2_COMPTEPRODUIT_COL")) Then
                             strReturn = pDTConstantes.Rows(0)("CST_SOC2_COMPTEPRODUIT_COL")
+                        End If
+                    End If
+                Case "COMPTETAXEGO"
+                    If pDTConstantes IsNot Nothing Then
+                        If (Not pDTConstantes.Rows(0).IsNull("CST_SOC2_COMPTEPRODUIT_TAXEGO")) Then
+                            strReturn = pDTConstantes.Rows(0)("CST_SOC2_COMPTEPRODUIT_TAXEGO")
                         End If
                     End If
 

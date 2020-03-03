@@ -145,7 +145,7 @@ Imports System.IO
         objCMD.qtePalettesNonPreparees = 11.5
         objCMD.qtePalettesPreparees = 12.5
         objCMD.poids = 13.5
-        objCMD.montantTransport = 1234.56
+        objCMD.SetMontantTransport(1234.56)
         objCMD.puPalettesNonPreparees = 14.5
         objCMD.puPalettesPreparees = 15.5
         objCMD.bFactTransport = True
@@ -211,7 +211,7 @@ Imports System.IO
         objCMD2.qtePalettesNonPreparees = 11.5
         objCMD2.qtePalettesPreparees = 12.5
         objCMD2.poids = 13.5
-        objCMD2.montantTransport = 1234.56
+        objCMD2.SetMontantTransport(1234.56)
         objCMD2.puPalettesNonPreparees = 14.5
         objCMD2.puPalettesPreparees = 15.5
         objCMD2.bFactTransport = True
@@ -227,9 +227,9 @@ Imports System.IO
         objCMD2.refLivraison = "BL0002"
         Assert.IsFalse(objCMD.Equals(objCMD2), "Egal à un Différent")
         objCMD2.refLivraison = objCMD.refLivraison
-        objCMD2.montantTransport = 9876.67
+        objCMD2.SetMontantTransport(9876.67)
         Assert.IsFalse(objCMD.Equals(objCMD2), "Egal à un Différent")
-        objCMD2.montantTransport = objCMD.montantTransport
+        objCMD2.SetMontantTransport(objCMD.montantTransport)
         objCMD2.qteColis = 9876.67
         Assert.IsFalse(objCMD.Equals(objCMD2), "Egal à un Différent")
         objCMD2.qteColis = objCMD.qteColis
@@ -477,7 +477,7 @@ Imports System.IO
         objCMDCLT.typeCommande = vncEnums.vncTypeCommande.vncCmdClientDirecte
         objCMDCLT.typeTransport = vncEnums.vncTypeTransport.vncTrpFranco
         objCMDCLT.refLivraison = "BL0001"
-        objCMDCLT.montantTransport = 12345.67
+        objCMDCLT.SetMontantTransport(12345.67)
         objCMDCLT.qteColis = 123.1
         objCMDCLT.qtePalettesNonPreparees = 234.2
         objCMDCLT.qtePalettesPreparees = 345.3
@@ -884,7 +884,7 @@ Imports System.IO
         objCMD.qtePalettesNonPreparees = 11.5
         objCMD.qtePalettesPreparees = 12.5
         objCMD.poids = 13.5
-        objCMD.montantTransport = 1234.56
+        objCMD.SetMontantTransport(1234.56)
         objCMD.puPalettesNonPreparees = 14.5
         objCMD.puPalettesPreparees = 15.5
         objCMD.bFactTransport = True
@@ -951,7 +951,7 @@ Imports System.IO
         objCMD.qtePalettesNonPreparees = 11.5
         objCMD.qtePalettesPreparees = 12.5
         objCMD.poids = 13.5
-        objCMD.montantTransport = 1234.56
+        objCMD.SetMontantTransport(1234.56)
         objCMD.puPalettesNonPreparees = 14.5
         objCMD.puPalettesPreparees = 15.5
         objCMD.bFactTransport = True

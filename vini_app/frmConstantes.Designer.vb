@@ -99,6 +99,8 @@ Partial Class frmConstantes
         Me.CST_SOC_ADRESSE_RUE1TextBox = New System.Windows.Forms.TextBox()
         Me.CST_SOC_NOMSOCTextBox = New System.Windows.Forms.TextBox()
         Me.TabVinidis = New System.Windows.Forms.TabPage()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.tbSOC2COMPTPROD2 = New System.Windows.Forms.TextBox()
         Me.tbCodeBanque2 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -145,6 +147,8 @@ Partial Class frmConstantes
         Me.CST_DERN_NUM_SCMDTextBox = New System.Windows.Forms.TextBox()
         Me.CST_DERN_NUM_CMD_CLTTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.CST_FACT_COL_PU_COLISTextBox = New System.Windows.Forms.TextBox()
         Me.CST_FACT_COL_TAXESTextBox = New System.Windows.Forms.TextBox()
         Me.CST_COL_IDMODEREGLEMENTTextBox = New System.Windows.Forms.TextBox()
@@ -561,9 +565,9 @@ Partial Class frmConstantes
         Me.CST_SOC2_CMPT_PRODLabel.AutoSize = True
         Me.CST_SOC2_CMPT_PRODLabel.Location = New System.Drawing.Point(6, 316)
         Me.CST_SOC2_CMPT_PRODLabel.Name = "CST_SOC2_CMPT_PRODLabel"
-        Me.CST_SOC2_CMPT_PRODLabel.Size = New System.Drawing.Size(113, 13)
+        Me.CST_SOC2_CMPT_PRODLabel.Size = New System.Drawing.Size(88, 13)
         Me.CST_SOC2_CMPT_PRODLabel.TabIndex = 23
-        Me.CST_SOC2_CMPT_PRODLabel.Text = "Compte Produit TRP : "
+        Me.CST_SOC2_CMPT_PRODLabel.Text = "Compte Produit : "
         '
         'CST_VERSION_BDLabel
         '
@@ -587,11 +591,11 @@ Partial Class frmConstantes
         'CST_TAXES_TRPLabel
         '
         Me.CST_TAXES_TRPLabel.AutoSize = True
-        Me.CST_TAXES_TRPLabel.Location = New System.Drawing.Point(8, 44)
+        Me.CST_TAXES_TRPLabel.Location = New System.Drawing.Point(8, 47)
         Me.CST_TAXES_TRPLabel.Name = "CST_TAXES_TRPLabel"
-        Me.CST_TAXES_TRPLabel.Size = New System.Drawing.Size(90, 13)
+        Me.CST_TAXES_TRPLabel.Size = New System.Drawing.Size(136, 13)
         Me.CST_TAXES_TRPLabel.TabIndex = 2
-        Me.CST_TAXES_TRPLabel.Text = "Taxe de transport"
+        Me.CST_TAXES_TRPLabel.Text = "Taxe Frais d'enregistrement"
         '
         'CST_TRP_IDMODEREGLEMENTLabel
         '
@@ -605,7 +609,7 @@ Partial Class frmConstantes
         'CST_TRP_TXGAZOLELabel
         '
         Me.CST_TRP_TXGAZOLELabel.AutoSize = True
-        Me.CST_TRP_TXGAZOLELabel.Location = New System.Drawing.Point(8, 67)
+        Me.CST_TRP_TXGAZOLELabel.Location = New System.Drawing.Point(8, 96)
         Me.CST_TRP_TXGAZOLELabel.Name = "CST_TRP_TXGAZOLELabel"
         Me.CST_TRP_TXGAZOLELabel.Size = New System.Drawing.Size(67, 13)
         Me.CST_TRP_TXGAZOLELabel.TabIndex = 6
@@ -614,7 +618,7 @@ Partial Class frmConstantes
         'CST_PU_PALL_PREPLabel
         '
         Me.CST_PU_PALL_PREPLabel.AutoSize = True
-        Me.CST_PU_PALL_PREPLabel.Location = New System.Drawing.Point(8, 96)
+        Me.CST_PU_PALL_PREPLabel.Location = New System.Drawing.Point(8, 125)
         Me.CST_PU_PALL_PREPLabel.Name = "CST_PU_PALL_PREPLabel"
         Me.CST_PU_PALL_PREPLabel.Size = New System.Drawing.Size(150, 13)
         Me.CST_PU_PALL_PREPLabel.TabIndex = 8
@@ -623,7 +627,7 @@ Partial Class frmConstantes
         'CST_PU_PALL_NONPREPLabel
         '
         Me.CST_PU_PALL_NONPREPLabel.AutoSize = True
-        Me.CST_PU_PALL_NONPREPLabel.Location = New System.Drawing.Point(8, 122)
+        Me.CST_PU_PALL_NONPREPLabel.Location = New System.Drawing.Point(8, 151)
         Me.CST_PU_PALL_NONPREPLabel.Name = "CST_PU_PALL_NONPREPLabel"
         Me.CST_PU_PALL_NONPREPLabel.Size = New System.Drawing.Size(171, 13)
         Me.CST_PU_PALL_NONPREPLabel.TabIndex = 10
@@ -634,14 +638,14 @@ Partial Class frmConstantes
         Me.CST_COL_IDMODEREGLEMENTLabel.AutoSize = True
         Me.CST_COL_IDMODEREGLEMENTLabel.Location = New System.Drawing.Point(344, 70)
         Me.CST_COL_IDMODEREGLEMENTLabel.Name = "CST_COL_IDMODEREGLEMENTLabel"
-        Me.CST_COL_IDMODEREGLEMENTLabel.Size = New System.Drawing.Size(151, 13)
+        Me.CST_COL_IDMODEREGLEMENTLabel.Size = New System.Drawing.Size(149, 13)
         Me.CST_COL_IDMODEREGLEMENTLabel.TabIndex = 12
-        Me.CST_COL_IDMODEREGLEMENTLabel.Text = "Mode de reglement coilisage : "
+        Me.CST_COL_IDMODEREGLEMENTLabel.Text = "Mode de reglement colisage : "
         '
         'CST_FACT_COL_TAXESLabel
         '
         Me.CST_FACT_COL_TAXESLabel.AutoSize = True
-        Me.CST_FACT_COL_TAXESLabel.Location = New System.Drawing.Point(8, 148)
+        Me.CST_FACT_COL_TAXESLabel.Location = New System.Drawing.Point(8, 177)
         Me.CST_FACT_COL_TAXESLabel.Name = "CST_FACT_COL_TAXESLabel"
         Me.CST_FACT_COL_TAXESLabel.Size = New System.Drawing.Size(80, 13)
         Me.CST_FACT_COL_TAXESLabel.TabIndex = 14
@@ -650,7 +654,7 @@ Partial Class frmConstantes
         'CST_FACT_COL_PU_COLISLabel
         '
         Me.CST_FACT_COL_PU_COLISLabel.AutoSize = True
-        Me.CST_FACT_COL_PU_COLISLabel.Location = New System.Drawing.Point(8, 174)
+        Me.CST_FACT_COL_PU_COLISLabel.Location = New System.Drawing.Point(8, 203)
         Me.CST_FACT_COL_PU_COLISLabel.Name = "CST_FACT_COL_PU_COLISLabel"
         Me.CST_FACT_COL_PU_COLISLabel.Size = New System.Drawing.Size(94, 13)
         Me.CST_FACT_COL_PU_COLISLabel.TabIndex = 16
@@ -928,6 +932,8 @@ Partial Class frmConstantes
         '
         'TabVinidis
         '
+        Me.TabVinidis.Controls.Add(Me.TextBox4)
+        Me.TabVinidis.Controls.Add(Me.Label24)
         Me.TabVinidis.Controls.Add(Me.tbSOC2COMPTPROD2)
         Me.TabVinidis.Controls.Add(Me.Label4)
         Me.TabVinidis.Controls.Add(Me.tbCodeBanque2)
@@ -964,6 +970,23 @@ Partial Class frmConstantes
         Me.TabVinidis.TabIndex = 1
         Me.TabVinidis.Text = "Vinidis"
         Me.TabVinidis.UseVisualStyleBackColor = True
+        '
+        'TextBox4
+        '
+        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_COMPTEPRODUIT_TAXEGO", True))
+        Me.TextBox4.Location = New System.Drawing.Point(549, 340)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox4.TabIndex = 30
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(383, 343)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(143, 13)
+        Me.Label24.TabIndex = 29
+        Me.Label24.Text = "Compte Produit taxe Gasoil : "
         '
         'tbSOC2COMPTPROD2
         '
@@ -1406,6 +1429,8 @@ Partial Class frmConstantes
         'TabPage4
         '
         Me.TabPage4.AutoScroll = True
+        Me.TabPage4.Controls.Add(Me.Label23)
+        Me.TabPage4.Controls.Add(Me.TextBox3)
         Me.TabPage4.Controls.Add(Me.CST_FACT_COL_PU_COLISLabel)
         Me.TabPage4.Controls.Add(Me.CST_FACT_COL_PU_COLISTextBox)
         Me.TabPage4.Controls.Add(Me.CST_FACT_COL_TAXESLabel)
@@ -1432,10 +1457,27 @@ Partial Class frmConstantes
         Me.TabPage4.Text = "Taxes et Taux"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(8, 73)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(110, 13)
+        Me.Label23.TabIndex = 18
+        Me.Label23.Text = "Part Gazole Transport"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_TRP_PARTTRP", True))
+        Me.TextBox3.Location = New System.Drawing.Point(194, 70)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox3.TabIndex = 19
+        '
         'CST_FACT_COL_PU_COLISTextBox
         '
         Me.CST_FACT_COL_PU_COLISTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FACT_COL_PU_COLIS", True))
-        Me.CST_FACT_COL_PU_COLISTextBox.Location = New System.Drawing.Point(194, 171)
+        Me.CST_FACT_COL_PU_COLISTextBox.Location = New System.Drawing.Point(194, 200)
         Me.CST_FACT_COL_PU_COLISTextBox.Name = "CST_FACT_COL_PU_COLISTextBox"
         Me.CST_FACT_COL_PU_COLISTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CST_FACT_COL_PU_COLISTextBox.TabIndex = 17
@@ -1443,7 +1485,7 @@ Partial Class frmConstantes
         'CST_FACT_COL_TAXESTextBox
         '
         Me.CST_FACT_COL_TAXESTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FACT_COL_TAXES", True))
-        Me.CST_FACT_COL_TAXESTextBox.Location = New System.Drawing.Point(194, 145)
+        Me.CST_FACT_COL_TAXESTextBox.Location = New System.Drawing.Point(194, 174)
         Me.CST_FACT_COL_TAXESTextBox.Name = "CST_FACT_COL_TAXESTextBox"
         Me.CST_FACT_COL_TAXESTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CST_FACT_COL_TAXESTextBox.TabIndex = 15
@@ -1459,7 +1501,7 @@ Partial Class frmConstantes
         'CST_PU_PALL_NONPREPTextBox
         '
         Me.CST_PU_PALL_NONPREPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PU_PALL_NONPREP", True))
-        Me.CST_PU_PALL_NONPREPTextBox.Location = New System.Drawing.Point(194, 119)
+        Me.CST_PU_PALL_NONPREPTextBox.Location = New System.Drawing.Point(194, 148)
         Me.CST_PU_PALL_NONPREPTextBox.Name = "CST_PU_PALL_NONPREPTextBox"
         Me.CST_PU_PALL_NONPREPTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CST_PU_PALL_NONPREPTextBox.TabIndex = 11
@@ -1467,7 +1509,7 @@ Partial Class frmConstantes
         'CST_PU_PALL_PREPTextBox
         '
         Me.CST_PU_PALL_PREPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PU_PALL_PREP", True))
-        Me.CST_PU_PALL_PREPTextBox.Location = New System.Drawing.Point(194, 93)
+        Me.CST_PU_PALL_PREPTextBox.Location = New System.Drawing.Point(194, 122)
         Me.CST_PU_PALL_PREPTextBox.Name = "CST_PU_PALL_PREPTextBox"
         Me.CST_PU_PALL_PREPTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CST_PU_PALL_PREPTextBox.TabIndex = 9
@@ -1475,7 +1517,7 @@ Partial Class frmConstantes
         'CST_TRP_TXGAZOLETextBox
         '
         Me.CST_TRP_TXGAZOLETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_TRP_TXGAZOLE", True))
-        Me.CST_TRP_TXGAZOLETextBox.Location = New System.Drawing.Point(194, 67)
+        Me.CST_TRP_TXGAZOLETextBox.Location = New System.Drawing.Point(194, 96)
         Me.CST_TRP_TXGAZOLETextBox.Name = "CST_TRP_TXGAZOLETextBox"
         Me.CST_TRP_TXGAZOLETextBox.Size = New System.Drawing.Size(100, 20)
         Me.CST_TRP_TXGAZOLETextBox.TabIndex = 7
@@ -1491,7 +1533,7 @@ Partial Class frmConstantes
         'CST_TAXES_TRPTextBox
         '
         Me.CST_TAXES_TRPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_TAXES_TRP", True))
-        Me.CST_TAXES_TRPTextBox.Location = New System.Drawing.Point(194, 41)
+        Me.CST_TAXES_TRPTextBox.Location = New System.Drawing.Point(194, 44)
         Me.CST_TAXES_TRPTextBox.Name = "CST_TAXES_TRPTextBox"
         Me.CST_TAXES_TRPTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CST_TAXES_TRPTextBox.TabIndex = 3
@@ -2219,4 +2261,8 @@ Partial Class frmConstantes
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents tbFTPEDIRepLocal As System.Windows.Forms.TextBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Label24 As Label
 End Class

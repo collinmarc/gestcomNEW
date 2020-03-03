@@ -48,7 +48,7 @@ Module constants
     Public Const DATE_DEFAUT As Date = #1/1/2000#
 
     Public Const CST_LGFACTTRP_NUM_GO As String = "999999" ' Numéro de ligne pour la ligne GO
-    Public Const CST_LGFACTTRP_LIB_GO As String = "MAJORATION GAZOLE "
+    Public Const CST_LGFACTTRP_LIB_GO As String = "MAJORATION GAZOLE (Part = {0}% , Taux = {1}%)"
 
     Public Sub WaitnSeconds(ByVal n As Integer)
         System.Threading.Thread.Sleep(n * 1000)

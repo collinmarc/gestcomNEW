@@ -74,14 +74,14 @@ Imports vini_DB
         'Creation d'une Commande
         objCMD = New BonAppro(m_objFRN)
         objCMD.dateCommande = "06/02/2000"
-        objCMD.montantTransport = 150.55
+        objCMD.SetMontantTransport(150.55)
         Assert.IsTrue(objCMD.save())
         nIdCmd = objCMD.id
 
         objCMD = BonAppro.createandload(nIdCmd)
 
         Assert.AreEqual(CDec(150.55), objCMD.montantTransport, "Mont de transport non lu")
-        objCMD.montantTransport = 250.55
+        objCMD.SetMontantTransport(250.55)
         Assert.IsTrue(objCMD.save())
         objCMD = BonAppro.createandload(nIdCmd)
         Assert.AreEqual(CDec(250.55), objCMD.montantTransport, "Mont de transport non lu")

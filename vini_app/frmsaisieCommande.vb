@@ -4610,7 +4610,7 @@ Public Class frmSaisieCommande
     End Sub
 
     '***********************************************************************************************************************************************************************
-    Protected Sub calculMontantTransport()
+    Protected Sub CalculMontantTransport()
         'Dim nQtePalPrep As Decimal
         'Dim nQtePalNonPrep As Decimal
         'Dim npuPalPrep As Decimal
