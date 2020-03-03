@@ -20,6 +20,7 @@ Imports vini_App
         Dim oRow As dsVinicom.TRANSPORTEURRow
 
         oTA = New dsVinicomTableAdapters.TRANSPORTEURTableAdapter()
+        oTA.Connection = New Data.OleDb.OleDbConnection(My.Settings.ConnectionString)
         oDT = oTA.GetData()
         For Each oRow In oDT.Rows
             If oRow.TRP_CODE = "TRPTEST" Then
@@ -58,6 +59,7 @@ Imports vini_App
         Dim oRow As dsVinicom.TRANSPORTEURRow
 
         oTA = New dsVinicomTableAdapters.TRANSPORTEURTableAdapter()
+        oTA.Connection = New Data.OleDb.OleDbConnection(My.Settings.ConnectionString)
         oDt = oTA.GetData()
         oRow = oDt.NewTRANSPORTEURRow()
         oRow.TRP_CODE = "TRPTEST"

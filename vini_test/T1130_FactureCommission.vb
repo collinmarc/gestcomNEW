@@ -888,8 +888,8 @@ Imports CrystalDecisions.CrystalReports.Engine
 
         ''Assert.AreEqual("LC", oFact.getAttributeValue("MODEREGLEMENT2", Nothing))
         '        Assert.AreEqual("LCR", oFact.getAttributeValue("MODEREGLEMENT4", Nothing))
-        Assert.AreEqual("TA", oFact.getAttributeValue("MODEREGLEMENT2", Nothing))
-        Assert.AreEqual("TRA", oFact.getAttributeValue("MODEREGLEMENT4", Nothing))
+        Assert.AreEqual("TA", oFact.GetAttributeValue("MODEREGLEMENT2", Nothing))
+        Assert.AreEqual("TRA", oFact.GetAttributeValue("MODEREGLEMENT4", Nothing))
 
         oParam = New ParamModeReglement()
         oParam.code = "CHQ30NETS"
@@ -900,8 +900,8 @@ Imports CrystalDecisions.CrystalReports.Engine
         oFact = New FactCom(m_oFourn)
         oFact.idModeReglement = oParam.id
 
-        Assert.AreEqual("CH", oFact.getAttributeValue("MODEREGLEMENT2", Nothing))
-        Assert.AreEqual("CHQ", oFact.getAttributeValue("MODEREGLEMENT4", Nothing))
+        Assert.AreEqual("CH", oFact.GetAttributeValue("MODEREGLEMENT2", Nothing))
+        Assert.AreEqual("CHQ", oFact.GetAttributeValue("MODEREGLEMENT4", Nothing))
 
     End Sub
 
@@ -960,7 +960,7 @@ Imports CrystalDecisions.CrystalReports.Engine
         Dim strReport As String = ""
         Dim objReport As ReportDocument
         Dim tabIds As ArrayList
-        strReport = "V:\V5\vini_app/crFactCom_Releve.rpt"
+        strReport = "..\..\..\vini_app/crFactCom_Releve.rpt"
 
         If strReport = "" Then
             Exit Sub
@@ -1070,7 +1070,7 @@ Imports CrystalDecisions.CrystalReports.Engine
 
         Dim strReport As String = ""
         Dim objReport As ReportDocument
-        strReport = "V:\V5\vini_app/crFactCom_Releve.rpt"
+        strReport = "..\..\..\vini_app/crFactCom_Releve.rpt"
 
         If strReport = "" Then
             Exit Sub

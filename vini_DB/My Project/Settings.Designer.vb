@@ -56,9 +56,18 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+        Public ReadOnly Property CODEDEPOTQUADRA() As String
+            Get
+                Return CType(Me("CODEDEPOTQUADRA"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=SQLOLEDB.1;Data Source=localhost\SQLEXPRESS;Initial Catalog=vnc5;Persist"& _ 
-            " Security Info=True;User ID=vinicom;Password=vinicom")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=SQLOLEDB.1;Data Source=localhost\SQLEXPRESS;Persist Security Info=True;U"& _ 
+            "ser ID=vinicom;Initial Catalog=vnc5")>  _
         Public ReadOnly Property ConnectString() As String
             Get
                 Return CType(Me("ConnectString"),String)
@@ -67,10 +76,12 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
-        Public ReadOnly Property CODEDEPOTQUADRA() As String
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=BUREAU-DELL\SQLEXPRESS;Initial Catalog=vnc5;Persist Security Info=Tru"& _ 
+            "e;User ID=vinicom;Password=vinicom")>  _
+        Public ReadOnly Property vnc5ConnectionString() As String
             Get
-                Return CType(Me("CODEDEPOTQUADRA"),String)
+                Return CType(Me("vnc5ConnectionString"),String)
             End Get
         End Property
     End Class

@@ -1,6 +1,9 @@
 ﻿
 0001167: Le total de la liste des factures de colisage n'est pas assez large
 
+Version 6.0.0.2
+0001177: Modification du calcul de la taxes transport
+
 Version 6.0.0.0
 Date 
 0001025: Récapitutif Colisage pour tous les fournisseurs

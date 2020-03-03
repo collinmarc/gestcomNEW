@@ -95,6 +95,7 @@ Imports System.IO
 
         Dim oTA As dsVinicomTableAdapters.REGLEMENTTableAdapter
         oTA = New dsVinicomTableAdapters.REGLEMENTTableAdapter()
+        oTA.Connection = New Data.OleDb.OleDbConnection(My.Settings.ConnectionString)
         oTA.DeleteBy_IDFACT(15)
         oTA.DeleteBy_IDFACT(16)
 
@@ -182,6 +183,7 @@ Imports System.IO
 
 
         oTA = New dsVinicomTableAdapters.REGLEMENTTableAdapter()
+        oTA.Connection = New Data.OleDb.OleDbConnection(My.Settings.ConnectionString)
         oDT = oTA.GetDataBy_ID(nId)
         '        Assert.AreEqual(1, oDT.Count, "1 Row in datatable")
 

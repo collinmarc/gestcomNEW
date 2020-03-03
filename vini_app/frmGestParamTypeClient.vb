@@ -1,5 +1,6 @@
 Imports vini_DB
 Public Class frmGestParamTypeClient
+    Inherits FrmVinicom
     Private m_DeletedRows As Collection
 
     Protected Overrides Sub EnableControls(ByVal bEnabled As Boolean)
@@ -40,6 +41,7 @@ Public Class frmGestParamTypeClient
         Catch ex As Exception
 
         End Try
+        setfrmUpdated()
     End Sub
 
     Private Sub DataGridView1_UserDeletingRow(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowCancelEventArgs) Handles DataGridView1.UserDeletingRow
@@ -49,7 +51,7 @@ Public Class frmGestParamTypeClient
             objParam.bDeleted = True
             m_DeletedRows.Add(objParam)
         End If
-
+        setfrmUpdated()
     End Sub
 
     Public Sub New()
@@ -61,4 +63,20 @@ Public Class frmGestParamTypeClient
         m_DeletedRows = New Collection()
 
     End Sub
+
+    Protected Overrides Function frmSave() As Boolean
+        Dim objParam As Param
+
+        'Sauvegarde des lignes "supprimées"
+        For Each objParam In m_DeletedRows
+            objParam.Save()
+        Next
+        'Sauvegarde des autres lignes 
+        For Each objParam In m_bsrcParam
+            objParam.Save()
+        Next
+        Param.LoadcolParams()
+        Me.Close()
+    End Function
+
 End Class

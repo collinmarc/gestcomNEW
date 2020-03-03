@@ -636,13 +636,16 @@ Public MustInherit Class Commande
             Debug.Assert(Not m_bResume, "Objet de type resumé")
             Return m_MontantTransport
         End Get
-        Set(ByVal Value As Decimal)
+        Private Set(ByVal Value As Decimal)
             If Value <> m_MontantTransport Then
                 m_MontantTransport = Value
                 RaiseUpdated()
             End If
         End Set
     End Property
+    Public Sub SetMontantTransport(pMt As Decimal)
+        m_MontantTransport = pMt
+    End Sub
     Public Property coutTransport() As Decimal
         Get
             Return m_CoutTransport
@@ -1178,7 +1181,7 @@ Public MustInherit Class Commande
                         End If
                         If Trim(oRow.EXP_TYPECHAMPS).Equals("V") Then
                             'Exportation d'une Valeur
-                            strValeur = getAttributeValue(oRow.EXP_VALEUR, objLgCommande, pType)
+                            strValeur = GetAttributeValue(oRow.EXP_VALEUR, objLgCommande, pType)
                         End If
 
                         'Si la longueur est égale à 0 => Trim
@@ -1211,7 +1214,7 @@ Public MustInherit Class Commande
         Return bReturn
     End Function 'ToCSVQuadra
 
-    Public Function getAttributeValue(ByVal pstrAttributeName As String, pLgCommande As LgCommande, pType As vncTypeExportQuadra) As String
+    Public Overridable Function GetAttributeValue(ByVal pstrAttributeName As String, pLgCommande As LgCommande, pType As vncTypeExportQuadra) As String
         Dim strReturn As String
         strReturn = String.Empty
 

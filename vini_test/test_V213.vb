@@ -69,25 +69,27 @@ Imports vini_DB
     End Sub
     <TestMethod()> Public Sub T20_MtTransportBonAppro()
         'Ajout du montant de transport sur les bons Appro
-        Dim objCMD As BonAppro
-        Dim nIdCmd As Long
+        Dim objBA As BonAppro
+        Dim nIDBA As Long
         'Creation d'une Commande
-        objCMD = New BonAppro(m_objFRN)
-        objCMD.dateCommande = "06/02/2000"
-        objCMD.montantTransport = 150.55
-        Assert.IsTrue(objCMD.save())
-        nIdCmd = objCMD.id
+        objBA = New BonAppro(m_objFRN)
+        objBA.dateCommande = "06/02/2000"
+        objBA.SetMontantTransport(150.55)
+        Assert.IsTrue(objBA.save())
+        nIDBA = objBA.id
 
-        objCMD = BonAppro.createandload(nIdCmd)
+        objBA = BonAppro.createandload(nIDBA)
 
-        Assert.AreEqual(CDec(150.55), objCMD.montantTransport, "Mont de transport non lu")
-        objCMD.montantTransport = 250.55
-        Assert.IsTrue(objCMD.save())
-        objCMD = BonAppro.createandload(nIdCmd)
-        Assert.AreEqual(CDec(250.55), objCMD.montantTransport, "Mont de transport non lu")
+        Assert.AreEqual(CDec(150.55), objBA.montantTransport, "Mont de transport non lu")
+        objBA.SetMontantTransport(250.55)
+        objBA.CommentaireLibreText = "rien"
+        objBA.update()
+        Assert.IsTrue(objBA.save())
+        objBA = BonAppro.createandload(nIDBA)
+        Assert.AreEqual(CDec(250.55), objBA.montantTransport, "Mont de transport non lu")
 
-        objCMD.bDeleted = True
-        Assert.IsTrue(objCMD.save(), "Destruction du bon Appro")
+        objBA.bDeleted = True
+        Assert.IsTrue(objBA.save(), "Destruction du bon Appro")
     End Sub
 
 End Class

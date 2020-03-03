@@ -8,6 +8,7 @@ Imports System.IO
     Inherits test_Base
 
     Private m_nTXGO As Decimal
+    Private m_nPartTxGO As Decimal
     Private m_oProduit As Produit
     Private m_oFourn As Fournisseur
     Private m_oClient As Client
@@ -174,7 +175,7 @@ Imports System.IO
 
         objCMDCLT = New CommandeClient(m_oClient)
 
-        objCMDCLT.montantTransport = 50
+        objCMDCLT.SetMontantTransport(50)
         objCMDCLT.oTransporteur.nom = "TRP TEST"
         objCMDCLT.dateCommande = CDate("06/02/05")
         objCMDCLT.dateLivraison = CDate("07/02/05")
@@ -294,7 +295,7 @@ Imports System.IO
         'Creation de 2 commandes Transport
         objCMDCLT = New CommandeClient(m_oClient)
         objCMDCLT.bFactTransport = True
-        objCMDCLT.montantTransport = 100.3
+        objCMDCLT.SetMontantTransport(100.3)
         objCMDCLT.dateCommande = "06/02/1964"
         objCMDCLT.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         objCMDCLT.dateLivraison = "06/02/1964"
@@ -303,7 +304,7 @@ Imports System.IO
 
         objCMDCLT = New CommandeClient(m_oClient)
         objCMDCLT.bFactTransport = True
-        objCMDCLT.montantTransport = 110.4
+        objCMDCLT.SetMontantTransport(110.4)
         objCMDCLT.dateCommande = "06/02/1964"
         objCMDCLT.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         objCMDCLT.dateLivraison = "06/02/1964"
@@ -313,7 +314,7 @@ Imports System.IO
         'Creation de 1 commandes sans Transport
         objCMDCLT2 = New CommandeClient(m_oClient)
         objCMDCLT2.bFactTransport = False
-        objCMDCLT2.montantTransport = 0.0
+        objCMDCLT2.SetMontantTransport(0.0)
         objCMDCLT2.dateCommande = "06/02/1964"
         objCMDCLT2.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         objCMDCLT2.dateLivraison = "06/02/1964"
@@ -441,7 +442,7 @@ Imports System.IO
         objCMDCLT1 = New CommandeClient(oCLT1)
         objCMDCLT1.dateLivraison = "06/02/1964"
         objCMDCLT1.bFactTransport = True
-        objCMDCLT1.montantTransport = 101.5
+        objCMDCLT1.SetMontantTransport(101.5)
         objCMDCLT1.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDCLT1.save(), "Sauvegarde de la premieère commande")
         nIdCMDCLT1 = objCMDCLT1.id
@@ -449,7 +450,7 @@ Imports System.IO
         objCMDCLT2 = New CommandeClient(oCLT1)
         objCMDCLT2.dateLivraison = "06/02/1964"
         objCMDCLT2.bFactTransport = True
-        objCMDCLT2.montantTransport = 201.5
+        objCMDCLT2.SetMontantTransport(201.5)
         objCMDCLT2.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDCLT2.save(), "Sauvegarde de la 2eme commande")
         nIdCMDCLT2 = objCMDCLT2.id
@@ -457,7 +458,7 @@ Imports System.IO
         objCMDCLT3 = New CommandeClient(oCLT1)
         objCMDCLT3.dateLivraison = "06/02/1964"
         objCMDCLT3.bFactTransport = False
-        objCMDCLT3.montantTransport = 301.5
+        objCMDCLT3.SetMontantTransport(301.5)
         objCMDCLT3.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDCLT3.save(), "Sauvegarde de la 3eme commande")
         nIdCMDCLT3 = objCMDCLT3.id
@@ -466,7 +467,7 @@ Imports System.IO
         objCMDCLT4 = New CommandeClient(oCLT2)
         objCMDCLT4.dateLivraison = "06/02/1964"
         objCMDCLT4.bFactTransport = True
-        objCMDCLT4.montantTransport = 401.5
+        objCMDCLT4.SetMontantTransport(401.5)
         objCMDCLT4.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDCLT4.save(), "Sauvegarde de la 4eme commande")
         nIdCMDCLT4 = objCMDCLT4.id
@@ -474,7 +475,7 @@ Imports System.IO
         objCMDCLT5 = New CommandeClient(oCLT2)
         objCMDCLT5.dateLivraison = "06/02/1964"
         objCMDCLT5.bFactTransport = True
-        objCMDCLT5.montantTransport = 501.5
+        objCMDCLT5.SetMontantTransport(501.5)
         objCMDCLT5.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDCLT5.save(), "Sauvegarde de la 5eme commande")
         nIdCMDCLT5 = objCMDCLT5.id
@@ -483,7 +484,7 @@ Imports System.IO
         objCMDCLT6 = New CommandeClient(oCLT3)
         objCMDCLT6.dateLivraison = "06/02/1964"
         objCMDCLT6.bFactTransport = True
-        objCMDCLT6.montantTransport = 601.5
+        objCMDCLT6.SetMontantTransport(601.5)
         objCMDCLT6.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDCLT6.save(), "Sauvegarde de la 5eme commande")
         nIdCMDCLT6 = objCMDCLT6.id
@@ -492,7 +493,7 @@ Imports System.IO
         objCMDCLT7 = New CommandeClient(oCLT3)
         objCMDCLT7.dateLivraison = "06/02/1964"
         objCMDCLT7.bFactTransport = True
-        objCMDCLT7.montantTransport = 601.5
+        objCMDCLT7.SetMontantTransport(601.5)
         Assert.IsTrue(objCMDCLT7.save(), "Sauvegarde de la 5eme commande")
         nIdCMDCLT7 = objCMDCLT7.id
 
@@ -661,7 +662,7 @@ Imports System.IO
         Assert.IsTrue(objFact3.Save(), "Suppression de facture3")
 
     End Sub
-    <TestMethod(), Ignore()> Public Sub T70_CALCULTAXEGO()
+    <TestMethod()> Public Sub T70_CALCULTAXEGO()
         Dim objFact As FactTRP
         Dim objLgFact1 As LgFactTRP
         Dim objLgFact2 As LgFactTRP
@@ -669,7 +670,7 @@ Imports System.IO
         Dim objLgFact As LgFactTRP
         Dim nidFact As Integer
 
-        setTaxeGO(51 / 10)
+        setTaxeGO(51 / 10, 80)
 
         objFact = New FactTRP(m_oClient)
         Assert.IsTrue(objFact.Save(), "Sauvegarde de la facture")
@@ -697,7 +698,7 @@ Imports System.IO
 
         objLgFact = objFact.colLignes(3)
         '            Assert.IsTrue(Decimal.Round(objLgFact.prixHT, 2) = Decimal.Round((objLgFact1.prixHT + objLgFact2.prixHT) * (Param.getConstante("CST_TRP_TXGAZOLE") / 100), 2), "Montant Gasoil")
-        Assert.IsTrue(Decimal.Round(objLgFact.prixHT, 2) = Decimal.Round(CDec((objLgFact1.prixHT + objLgFact2.prixHT) * (Param.getConstante("CST_TRP_TXGAZOLE") / 100)), 2), "Montant Gasoil")
+        Assert.AreEqual(objLgFact.prixHT, CDec((objLgFact1.prixHT + objLgFact2.prixHT) * (Param.getConstante("CST_TRP_TXGAZOLE") / 100) * (Param.getConstante("CST_TRP_PARTTRP") / 100)), "Montant Gasoil")
 
         'Ajout d'une Troisième ligne avec recalcul automatique
         objLgFact3 = New LgFactTRP
@@ -710,7 +711,7 @@ Imports System.IO
         Assert.IsTrue(objFact.colLignes.Count = 4, "Après le calcul ,4 lignes sur la facture")
 
         objLgFact = objFact.colLignes(3)
-        Assert.IsTrue(Decimal.Round(objLgFact.prixHT, 2) = Decimal.Round(CDec((objLgFact1.prixHT + objLgFact2.prixHT + objLgFact3.prixHT) * (Param.getConstante("CST_TRP_TXGAZOLE") / 100)), 2), "Montant Gasoil")
+        Assert.AreEqual(objLgFact.prixHT, CDec((objLgFact1.prixHT + objLgFact2.prixHT + objLgFact3.prixHT) * (Param.getConstante("CST_TRP_TXGAZOLE") / 100) * (Param.getConstante("CST_TRP_PARTTRP") / 100)), "Montant Gasoil")
 
 
         'Sauvegarde de la facture avec ses lignes
@@ -724,7 +725,18 @@ Imports System.IO
         Assert.AreEqual(objLgFact.num, CInt("999999"), "Numero de ligne GO")
 
         objFact.bDeleted = True
-        Assert.IsTrue(objFact.Save(), "Suppression de la commande")
+        Assert.IsTrue(objFact.Save(), "Suppression de la facture de transport")
+
+
+    End Sub
+    <TestMethod()> Public Sub T70_CALCULTAXEGO_Zero()
+        Dim objFact As FactTRP
+        Dim objLgFact1 As LgFactTRP
+        Dim objLgFact2 As LgFactTRP
+        Dim objLgFact3 As LgFactTRP
+        Dim objLgFact As LgFactTRP
+        Dim nidFact As Integer
+
 
         '=================================================================================
         ' Test avec la Constante = 0
@@ -751,12 +763,24 @@ Imports System.IO
         objFact.calculPrixTotal()
         Assert.IsTrue(objFact.colLignes.Count = 2, "Après le calcul ,2 lignes sur la facture")
 
-        Assert.IsTrue(Decimal.Round(objFact.totalHT, 2) = Decimal.Round((objLgFact1.prixHT + objLgFact2.prixHT) + objFact.montantTaxes, 2), "Montant Facture = Montants Lignes + taxes")
+        Assert.AreEqual(0, objFact.montantTaxes, 0)
+        Assert.AreEqual(objLgFact1.prixHT + objLgFact2.prixHT, objFact.totalHT, "Montant Facture = Montants Lignes")
 
         objFact.bDeleted = True
         Assert.IsTrue(objFact.Save(), "Suppression de la commande")
-        resetTaxeGO()
 
+
+
+    End Sub
+    <TestMethod()> Public Sub T70_CALCULTAXEGO_Generation()
+        Dim objFact As FactTRP
+        Dim objLgFact1 As LgFactTRP
+        Dim objLgFact2 As LgFactTRP
+        Dim objLgFact3 As LgFactTRP
+        Dim objLgFact As LgFactTRP
+        Dim nidFact As Integer
+
+        setTaxeGO(0.5D, 80)
         '======================================================================
         ' Test calsult Taxe Gazole avec génération
         '======================================================================
@@ -770,19 +794,24 @@ Imports System.IO
         Dim oColCMD As Collection
         Dim oColFactTRP As ColEvent
 
-        '2+1 Commandes pour le Client1
+        '2 Commandes pour le Client1
         objCMDCLT1 = New CommandeClient(m_oClient)
         objCMDCLT1.dateLivraison = "06/02/1964"
-        objCMDCLT1.bFactTransport = True
-        objCMDCLT1.montantTransport = 101.5
+
         objCMDCLT1.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
+        objCMDCLT1.bFactTransport = True
+        objCMDCLT1.qtePalettesPreparees = 10
+        objCMDCLT1.puPalettesPreparees = 10
+        objCMDCLT1.CalcMontantTransport()
         Assert.IsTrue(objCMDCLT1.save(), "Sauvegarde de la premieère commande")
         nidCMDCLT1 = objCMDCLT1.id
 
         objCMDCLT2 = New CommandeClient(m_oClient)
         objCMDCLT2.dateLivraison = "06/02/1964"
         objCMDCLT2.bFactTransport = True
-        objCMDCLT2.montantTransport = 201.5
+        objCMDCLT2.qtePalettesPreparees = 11
+        objCMDCLT2.puPalettesPreparees = 11
+        objCMDCLT2.CalcMontantTransport()
         objCMDCLT2.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDCLT2.save(), "Sauvegarde de la 2eme commande")
         nidCMDCLT2 = objCMDCLT2.id
@@ -801,12 +830,12 @@ Imports System.IO
         objFact = oColFactTRP(m_oClient.code)
         Assert.IsTrue(Not objFact Is Nothing, "Facture du client1")
         Assert.IsTrue(objFact.colLignes.Count = 3, "3 lignes de factures dans la Commande 1")
-        Assert.IsTrue(objFact.montantTaxes = Param.getConstante("CST_TAXES_TRP") * 2, "Montant des taxes ")
+        Assert.AreEqual(CDec(Param.getConstante("CST_TAXES_TRP") * 2), objFact.montantTaxes, "Montant des taxes ")
 
         'Controle de la ligne GO
         objLgFact = objFact.colLignes("999999")
-        Assert.AreEqual(Decimal.Round(objLgFact.prixHT, 2), Decimal.Round(CDec((objCMDCLT1.montantTransport + objCMDCLT2.montantTransport) * (Param.getConstante("CST_TRP_TXGAZOLE") / 100)), 2), "Montant Gasoil")
-        Assert.AreEqual(Decimal.Round(objFact.totalHT, 2), Decimal.Round(objCMDCLT1.montantTransport + objCMDCLT2.montantTransport + objFact.montantTaxes + objLgFact.prixHT, 2), "Montant HT de la commande")
+        Assert.AreEqual(Math.Round((objCMDCLT1.montantTransport + objCMDCLT2.montantTransport) * Param.getConstante("CST_TRP_TXGAZOLE") / 100 * Param.getConstante("CST_TRP_PARTTRP") / 100, 2), Math.Round(CDbl(objLgFact.prixHT), 2), "Montant Gasoil")
+        Assert.AreEqual(Math.Round(objCMDCLT1.montantTransport + objCMDCLT2.montantTransport + objFact.montantTaxes + objLgFact.prixHT, 2), objFact.totalHT, "Montant HT de la commande")
 
 
         'Suppression des commandes
@@ -827,25 +856,33 @@ Imports System.IO
 
     Private Sub setTaxeGOEqualZero()
         m_nTXGO = Param.getConstante("CST_TRP_TXGAZOLE")
+        m_nTXGO = Param.getConstante("CST_TRP_PARTTRP")
         'CONSTANTE GO = 0
         Persist.shared_connect()
         Persist.executeSQLNonQuery("UPDATE CONSTANTES SET CST_TRP_TXGAZOLE = 0")
+        Persist.executeSQLNonQuery("UPDATE CONSTANTES SET CST_TRP_PARTTRP = 0")
         Persist.shared_disconnect()
         Param.LoadcolParams()
     End Sub
-    Private Sub setTaxeGO(ByVal pValue As Decimal)
+    Private Sub setTaxeGO(ByVal pTaxe As Decimal, pPartTaxeGO As Decimal)
         m_nTXGO = Param.getConstante("CST_TRP_TXGAZOLE")
         'CONSTANTE GO = 0
         Persist.shared_connect()
         Dim strSQL As String
         Dim strValue As String
-        strValue = pValue
+        strValue = pTaxe
         strValue = strValue.Replace(",", ".")
 
         strSQL = "UPDATE CONSTANTES SET CST_TRP_TXGAZOLE = " & strValue
 
         Call Persist.executeSQLNonQuery(strSQL)
 
+        strValue = pTaxe
+        strValue = strValue.Replace(",", ".")
+
+        strSQL = "UPDATE CONSTANTES SET CST_TRP_PARTTRP = " & pPartTaxeGO
+
+        Call Persist.executeSQLNonQuery(strSQL)
         Persist.shared_disconnect()
         Param.LoadcolParams()
     End Sub
@@ -853,11 +890,16 @@ Imports System.IO
         'CONSTANTE GO = 0
         Dim strSQL As String
         Dim strValue As String
+        Persist.shared_connect()
         strValue = m_nTXGO
         strValue = strValue.Replace(",", ".")
 
         strSQL = "UPDATE CONSTANTES SET CST_TRP_TXGAZOLE = " & strValue
-        Persist.shared_connect()
+        Persist.executeSQLNonQuery(strSQL)
+        strValue = m_nPartTxGO
+        strValue = strValue.Replace(",", ".")
+
+        strSQL = "UPDATE CONSTANTES SET CST_TRP_PARTTRP = " & strValue
         Persist.executeSQLNonQuery(strSQL)
         Persist.shared_disconnect()
         Param.LoadcolParams()
@@ -873,6 +915,7 @@ Imports System.IO
         Dim strLine1 As String
         Dim strLine5 As String
         Dim strLine6 As String
+        Dim strLine7 As String
 
         Dim oParam As ParamModeReglement
         'Création d'un mode de reglement 30 fin de mois
@@ -890,9 +933,12 @@ Imports System.IO
         objFact.dEcheance = "01/04/1964"
         objFact.idModeReglement = oParam.id
 
+        Dim oLg As New LgFactTRP()
+        oLg.num = CST_LGFACTTRP_NUM_GO
+        oLg.nomTransporteur = CST_LGFACTTRP_LIB_GO
+        oLg.prixHT = 100
 
-
-
+        objFact.AjouteLigneFactTRP(oLg, False)
 
         Assert.IsTrue(objFact.Save(), objFact.getErreur())
 
@@ -909,11 +955,12 @@ Imports System.IO
 
         Assert.IsTrue(File.Exists("./T20_EXPORT.txt"), "le fichier d'export n'existe pas")
         strLines = File.ReadAllLines("./T20_EXPORT.txt")
-        Assert.AreEqual(6, strLines.Length, "3 lignes d'export")
+        Assert.AreEqual(7, strLines.Length, "7 lignes d'export")
 
         strLine1 = strLines(0)
         strLine5 = strLines(4)
         strLine6 = strLines(5)
+        strLine7 = strLines(6)
 
         Assert.AreEqual(231, strLine1.Length)
         Assert.AreEqual("M", strLine1.Substring(0, 1))
@@ -955,7 +1002,7 @@ Imports System.IO
         Assert.AreEqual(Trim(Param.getConstante("CST_SOC2_COMPTETVA")), Trim(strLine5.Substring(1, 8)))
         Assert.AreEqual("VE", Trim(strLine5.Substring(9, 2)))
         Assert.AreEqual("060264", strLine5.Substring(14, 6))
-        Assert.AreEqual(("F:" + objFact.code + " " + m_oClient.rs + Space(21)).Substring(0, 20), Trim(strLine1.Substring(21, 20)))
+        Assert.AreEqual(("F:" + objFact.code + " " + m_oClient.rs + Space(21)).Substring(0, 20), Trim(strLine5.Substring(21, 20)))
         Assert.AreEqual("C", strLine5.Substring(41, 1))
         Assert.AreEqual((180.89 - 150.56).ToString("0000000000.00").Replace(".", ""), Trim(strLine5.Substring(42, 13)))
 
@@ -964,9 +1011,18 @@ Imports System.IO
         Assert.AreEqual(Trim(Param.getConstante("CST_SOC2_COMPTEPRODUIT")), Trim(strLine6.Substring(1, 8)))
         Assert.AreEqual("VE", Trim(strLine6.Substring(9, 2)))
         Assert.AreEqual("060264", strLine6.Substring(14, 6))
-        Assert.AreEqual(("F:" + objFact.code + " " + m_oClient.rs + Space(21)).Substring(0, 20), Trim(strLine1.Substring(21, 20)))
+        Assert.AreEqual(("F:" + objFact.code + " " + m_oClient.rs + Space(21)).Substring(0, 20), Trim(strLine6.Substring(21, 20)))
         Assert.AreEqual("C", strLine6.Substring(41, 1))
-        Assert.AreEqual((150.56).ToString("0000000000.00").Replace(".", ""), Trim(strLine6.Substring(42, 13)))
+        Assert.AreEqual((50.56).ToString("0000000000.00").Replace(".", ""), Trim(strLine6.Substring(42, 13)))
+
+        Assert.AreEqual(231, strLine7.Length)
+        Assert.AreEqual("M", strLine7.Substring(0, 1))
+        Assert.AreEqual(Trim(Param.getConstante("CST_SOC2_COMPTEPRODUIT_TAXEGO")), Trim(strLine7.Substring(1, 8)))
+        Assert.AreEqual("VE", Trim(strLine7.Substring(9, 2)))
+        Assert.AreEqual("060264", strLine7.Substring(14, 6))
+        Assert.AreEqual(("F:" + objFact.code + " " + m_oClient.rs + Space(21)).Substring(0, 20), Trim(strLine7.Substring(21, 20)))
+        Assert.AreEqual("C", strLine7.Substring(41, 1))
+        Assert.AreEqual((100.0).ToString("0000000000.00").Replace(".", ""), Trim(strLine7.Substring(42, 13)))
 
         objFact.bDeleted = True
         Assert.IsTrue(objFact.Save())
@@ -982,6 +1038,7 @@ Imports System.IO
         Dim strLine1 As String
         Dim strLine5 As String
         Dim strLine6 As String
+        Dim strLine7 As String
 
 
         Dim oParam As ParamModeReglement
@@ -992,7 +1049,7 @@ Imports System.IO
         oParam.valeur2 = 30
         Assert.IsTrue(oParam.Save())
 
-
+        'C'est un avoir car les montants sont négatifs
         objFact = New FactTRP(m_oClient)
         objFact.periode = "1er Timestre 1964"
         objFact.dateFacture = CDate("06/02/1964")
@@ -1002,6 +1059,12 @@ Imports System.IO
         objFact.idModeReglement = oParam.id
 
 
+        Dim oLg As New LgFactTRP()
+        oLg.num = CST_LGFACTTRP_NUM_GO
+        oLg.nomTransporteur = CST_LGFACTTRP_LIB_GO
+        oLg.prixHT = 100
+
+        objFact.AjouteLigneFactTRP(oLg, False)
 
 
         Assert.IsTrue(objFact.Save(), objFact.getErreur())
@@ -1019,11 +1082,12 @@ Imports System.IO
 
         Assert.IsTrue(File.Exists("./T20_EXPORT.txt"), "le fichier d'export n'existe pas")
         strLines = File.ReadAllLines("./T20_EXPORT.txt")
-        Assert.AreEqual(6, strLines.Length, "3 lignes d'export")
+        Assert.AreEqual(7, strLines.Length, "3 lignes d'export")
 
         strLine1 = strLines(0)
         strLine5 = strLines(4)
         strLine6 = strLines(5)
+        strLine7 = strLines(6)
 
         Assert.AreEqual(231, strLine1.Length)
         Assert.AreEqual("M", strLine1.Substring(0, 1))
@@ -1076,7 +1140,17 @@ Imports System.IO
         Assert.AreEqual("060264", strLine6.Substring(14, 6))
         Assert.AreEqual(("A:" + objFact.code + " " + m_oClient.rs + Space(21)).Substring(0, 20), Trim(strLine1.Substring(21, 20)))
         Assert.AreEqual("D", strLine6.Substring(41, 1))
-        Assert.AreEqual((150.56).ToString("0000000000.00").Replace(".", ""), Trim(strLine6.Substring(42, 13)))
+        Assert.AreEqual((50.56).ToString("0000000000.00").Replace(".", ""), Trim(strLine6.Substring(42, 13)))
+
+
+        Assert.AreEqual(231, strLine7.Length)
+        Assert.AreEqual("M", strLine7.Substring(0, 1))
+        Assert.AreEqual(Trim(Param.getConstante("CST_SOC2_COMPTEPRODUIT_TAXEGO")), Trim(strLine7.Substring(1, 8)))
+        Assert.AreEqual("VE", Trim(strLine7.Substring(9, 2)))
+        Assert.AreEqual("060264", strLine7.Substring(14, 6))
+        Assert.AreEqual(("A:" + objFact.code + " " + m_oClient.rs + Space(21)).Substring(0, 20), Trim(strLine7.Substring(21, 20)))
+        Assert.AreEqual("D", strLine7.Substring(41, 1))
+        Assert.AreEqual((100.0).ToString("0000000000.00").Replace(".", ""), Trim(strLine7.Substring(42, 13)))
 
         objFact.bDeleted = True
         Assert.IsTrue(objFact.Save())
@@ -1187,7 +1261,7 @@ Imports System.IO
         objCMDVNC = New CommandeClient(oCLT1)
         objCMDVNC.dateLivraison = "06/02/1964"
         objCMDVNC.bFactTransport = True
-        objCMDVNC.montantTransport = 101.5
+        objCMDVNC.SetMontantTransport(101.5)
         objCMDVNC.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDVNC.save(), "Sauvegarde de la premieère commande")
         nIdCMDVNC1 = objCMDVNC.id
@@ -1196,7 +1270,7 @@ Imports System.IO
         objCMDHBV.Origine = Dossier.HOBIVIN
         objCMDHBV.dateLivraison = "06/02/1964"
         objCMDHBV.bFactTransport = True
-        objCMDHBV.montantTransport = 201.5
+        objCMDHBV.SetMontantTransport(201.5)
         objCMDHBV.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDHBV.save())
         nIdCMDHBV1 = objCMDHBV.id
@@ -1205,7 +1279,7 @@ Imports System.IO
         objCMDVNC2 = New CommandeClient(oCLT2)
         objCMDVNC2.dateLivraison = "06/02/1964"
         objCMDVNC2.bFactTransport = True
-        objCMDVNC2.montantTransport = 101.5
+        objCMDVNC2.SetMontantTransport(101.5)
         objCMDVNC2.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDVNC2.save())
         nIdCMDVNC2 = objCMDVNC2.id
@@ -1214,7 +1288,7 @@ Imports System.IO
         objCMDHBV2.Origine = Dossier.HOBIVIN
         objCMDHBV2.dateLivraison = "06/02/1964"
         objCMDHBV2.bFactTransport = True
-        objCMDHBV2.montantTransport = 201.5
+        objCMDHBV2.SetMontantTransport(201.5)
         objCMDHBV2.changeEtat(vncEnums.vncActionEtatCommande.vncActionLivrer)
         Assert.IsTrue(objCMDHBV2.save())
         nIdCMDHBV2 = objCMDHBV2.id

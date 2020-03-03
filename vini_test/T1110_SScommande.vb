@@ -1185,7 +1185,7 @@ Imports System.IO
             If System.IO.File.Exists("./TEMP/" & oSCmd.code & ".PDF") Then
                 System.IO.File.Delete("./TEMP/" & oSCmd.code & ".PDF")
             End If
-            oSCmd.genererPDF("V:\V5\vini_app/", "./TEMP/" & oSCmd.code & ".PDF")
+            oSCmd.genererPDF("..\..\..\vini_app/", "./TEMP/" & oSCmd.code & ".PDF")
             Assert.IsTrue(System.IO.File.Exists("./TEMP/" & oSCmd.code & ".PDF"), "Fichier PDF existant")
         Next oSCmd
         m_oCmd.changeEtat(vncEnums.vncActionEtatCommande.vncActionAnnEclater)

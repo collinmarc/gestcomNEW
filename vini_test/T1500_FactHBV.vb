@@ -773,7 +773,7 @@ Imports CrystalDecisions.CrystalReports.Engine
         Dim strReportName As String
 
         objReport = New ReportDocument
-        strReportName = "V:\V5\vini_app/crFactHobivin.rpt"
+        strReportName = "V:\V6\GestcomNew\vini_app/crFactHobivin.rpt"
         objReport.Load(strReportName)
         objReport.SetParameterValue("IDCOMMANDE", oFactHBV.id)
         Persist.setReportConnection(objReport)

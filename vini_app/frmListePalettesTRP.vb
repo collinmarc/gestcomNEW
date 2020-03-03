@@ -41,14 +41,14 @@ Public Class frmListePalettesTRP
     Friend WithEvents tbcodeClient As System.Windows.Forms.TextBox
     Friend WithEvents ckDetail As System.Windows.Forms.CheckBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.dtdeb = New System.Windows.Forms.DateTimePicker
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.dtFin = New System.Windows.Forms.DateTimePicker
-        Me.cbAfficher = New System.Windows.Forms.Button
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.tbcodeClient = New System.Windows.Forms.TextBox
-        Me.ckDetail = New System.Windows.Forms.CheckBox
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dtdeb = New System.Windows.Forms.DateTimePicker()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dtFin = New System.Windows.Forms.DateTimePicker()
+        Me.cbAfficher = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.tbcodeClient = New System.Windows.Forms.TextBox()
+        Me.ckDetail = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -128,8 +128,7 @@ Public Class frmListePalettesTRP
         Me.Controls.Add(Me.dtdeb)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmListePalettesTRP"
-        Me.Text = "Liste des commandes avec transport"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.Text = "Liste des transports de palettes effectués"
         Me.Controls.SetChildIndex(Me.Label1, 0)
         Me.Controls.SetChildIndex(Me.dtdeb, 0)
         Me.Controls.SetChildIndex(Me.Label2, 0)

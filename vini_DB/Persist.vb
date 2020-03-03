@@ -203,7 +203,7 @@ Public MustInherit Class Persist
             objRS = Nothing
             Return colReturn
         Catch ex As Exception
-            setError("getListeParam", ex.ToString())
+            setError("getListeParam(" & strType & ")", ex.ToString())
             If Not objRS Is Nothing Then
                 objRS.Close()
             End If
@@ -5197,7 +5197,7 @@ Public MustInherit Class Persist
             objCMDCLT.CommCommande.comment = GetString(objRS, "CMD_COM_COM")
             objCMDCLT.CommLivraison.comment = GetString(objRS, "CMD_COM_LIV")
             objCMDCLT.CommFacturation.comment = GetString(objRS, "CMD_COM_FACT")
-            objCMDCLT.montantTransport = GetValue(objRS, "CMD_MT_TRANSPORT")
+            objCMDCLT.SetMontantTransport(GetValue(objRS, "CMD_MT_TRANSPORT"))
             objCMDCLT.qteColis = GetValue(objRS, "CMD_QTE_COLIS")
             objCMDCLT.qtePalettesNonPreparees = GetValue(objRS, "CMD_QTE_PAL_NONPREP")
             objCMDCLT.qtePalettesPreparees = GetValue(objRS, "CMD_QTE_PAL_PREP")
@@ -8984,9 +8984,9 @@ Public MustInherit Class Persist
                 objBA.puPalettesPreparees = 0
             End Try
             Try 'Montant du transport
-                objBA.montantTransport = GetString(objRS, "CMD_MT_TRANSPORT")
+                objBA.SetMontantTransport(GetString(objRS, "CMD_MT_TRANSPORT"))
             Catch ex As InvalidCastException
-                objBA.montantTransport = 0
+                objBA.SetMontantTransport(0)
             End Try
             Try 'Lettre Voiture
                 objBA.lettreVoiture = GetString(objRS, "CMD_LETTREVOITURE")
