@@ -1377,7 +1377,7 @@
     <Content Include="Requetes\V5.xTOV6.0.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Requetes\VxxTOV5.6.sql">
+    <Content Include="Requetes\VxxTOV6.0.0.2.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="crFactHobivin.rpt">
