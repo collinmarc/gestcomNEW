@@ -1135,14 +1135,15 @@ Public MustInherit Class Persist
     ''' </summary>
     ''' <returns>ID du Client ou -1</returns>
     ''' <remarks></remarks>
-    Protected Shared Function getCLTIDByPrestashopId(ByVal pIdPrestashop As String) As Integer
-        Debug.Assert(Not String.IsNullOrEmpty(pIdPrestashop), "strKey must ne set")
+    Protected Shared Function getCLTIDByPrestashopId(ByVal pIdPrestashop As String, pDossier As String) As Integer
+        Debug.Assert(Not String.IsNullOrEmpty(pIdPrestashop), "pIDPrestashop must be set")
+        Debug.Assert(Not String.IsNullOrEmpty(pDossier), "pDossier must ne set")
         Dim strResult As String
         Dim nReturn As Integer
 
         shared_connect()
         Try
-            strResult = executeSQLQuery(" SELECT CLT_ID FROM CLIENT WHERE CLT_IDPRESTASHOP = " & pIdPrestashop & "")
+            strResult = executeSQLQuery(" SELECT CLT_ID FROM CLIENT WHERE CLT_IDPRESTASHOP = " & pIdPrestashop & " AND CLT_ORIGINE = '" & pDossier & "'")
             nReturn = CInt(strResult)
         Catch ex As Exception
             nReturn = -1

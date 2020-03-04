@@ -157,6 +157,7 @@
     <Compile Include="TestExportQuadra.vb" />
     <Compile Include="testmvtEDI.vb" />
     <Compile Include="TestFactCol.vb" />
+    <Compile Include="UnitTest1.vb" />
   </ItemGroup>
   <ItemGroup>
     <Shadow Include="Références de test\vini_DB.accessor" />

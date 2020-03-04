@@ -194,7 +194,7 @@ Public Class Client
     ''' <param name="pIdPrestashop"> Code Fournisseur</param>
     ''' <returns>Objet Fournisseur ou null</returns>
     ''' <remarks></remarks>
-    Public Shared Function createandloadPrestashop(ByVal pIdPrestashop As String) As Client
+    Public Shared Function createandloadPrestashop(ByVal pIdPrestashop As String, pdossier As String) As Client
         Dim oClt As Client
         Dim bReturn As Boolean
         Dim nId As Integer
@@ -202,7 +202,7 @@ Public Class Client
         oClt = New Client
         Try
             If Not String.IsNullOrEmpty(pIdPrestashop) Then
-                nId = Client.getCLTIDByPrestashopId(pIdPrestashop)
+                nId = Client.getCLTIDByPrestashopId(pIdPrestashop, pdossier)
                 If nId <> -1 Then
                     bReturn = oClt.load(nId)
                     If Not bReturn Then

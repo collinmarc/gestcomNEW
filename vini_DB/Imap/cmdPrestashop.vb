@@ -130,7 +130,7 @@ Public Class cmdprestashop
             If bReturn Then
                 If Not String.IsNullOrEmpty(customer_id) Then
                     Dim oClient As Client
-                    oClient = Client.createandloadPrestashop(customer_id)
+                    oClient = Client.createandloadPrestashop(customer_id, origine)
                     If oClient Is Nothing Then
                         motif = "Client Inconnu (" + customer_id + ") "
                         bReturn = False
@@ -168,7 +168,7 @@ Public Class cmdprestashop
             Dim oClient As Client
             Dim oProduit As Produit
             Dim nLigne As Integer
-            oClient = Client.createandloadPrestashop(customer_id)
+            oClient = Client.createandloadPrestashop(customer_id, origine)
             If oClient IsNot Nothing Then
                 oReturn = New CommandeClient(oClient)
                 oReturn.IDPrestashop = id
