@@ -507,7 +507,7 @@ Public Class frmGeneFactColisage
         setcursorWait()
         Try
 
-            ddeb = dtDatedeb.Value
+            ddeb = CDate("01/" & dtDatedeb.Value.Month & "/" & dtDatedeb.Value.Year)
             dfin = ddeb.AddMonths(1).AddDays(-1)
             col = Nothing
             If strDossier = Dossier.VINICOM Then

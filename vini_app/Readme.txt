@@ -4,6 +4,7 @@
 Version 6.0.0.2
 0001177: Modification du calcul de la taxes transport
 0001181: ID client prestashop identique entre vinicom et Hobivin
+0001184: ReActualisation des entêtes de Fact du transport, colisage, Commission
 
 Version 6.0.0.0
 Date 
