@@ -300,13 +300,13 @@ Public Class frmClient
     Public Function changeTypeClient() As Boolean
         Dim bReturn As Boolean
         Try
-            If cboTypeClient.Text = "Intermédiaire" Then
-                laOrigine.Visible = True
-                cbxOrigine.Visible = True
-            Else
-                laOrigine.Visible = False
-                cbxOrigine.Visible = False
-            End If
+            'If cboTypeClient.Text = "Intermédiaire" Then
+            '    laOrigine.Visible = True
+            '    cbxOrigine.Visible = True
+            'Else
+            '    laOrigine.Visible = False
+            '    cbxOrigine.Visible = False
+            'End If
         Catch ex As Exception
             bReturn = False
         End Try

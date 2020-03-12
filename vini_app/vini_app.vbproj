@@ -1363,6 +1363,9 @@
     <Content Include="Requetes\TOV5.9.7.SQL">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Requetes\V6002-UpdateCLT_ORIGINE.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Requetes\V5.6To5.7.sql" />
     <Content Include="Requetes\V5.6TOV5.7.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

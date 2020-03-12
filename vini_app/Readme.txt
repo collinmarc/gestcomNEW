@@ -1,10 +1,11 @@
 ﻿
-0001167: Le total de la liste des factures de colisage n'est pas assez large
 
 Version 6.0.0.2
 0001177: Modification du calcul de la taxes transport
 0001181: ID client prestashop identique entre vinicom et Hobivin
 0001184: ReActualisation des entêtes de Fact du transport, colisage, Commission
+0001186: Gestion des clients : Ajout de l'origine
+0001167: Le total de la liste des factures de colisage n'est pas assez large
 
 Version 6.0.0.0
 Date 
