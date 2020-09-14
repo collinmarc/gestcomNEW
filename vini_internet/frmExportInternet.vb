@@ -170,13 +170,15 @@ Public Class frmExportInternet
         '
         'ckFTP
         '
+        Me.ckFTP.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ckFTP.AutoSize = True
         Me.ckFTP.Checked = CType(configurationAppSettings.GetValue("ckFTP.Checked", GetType(Boolean)), Boolean)
         Me.ckFTP.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ckFTP.Location = New System.Drawing.Point(761, 8)
+        Me.ckFTP.Location = New System.Drawing.Point(638, 7)
         Me.ckFTP.Name = "ckFTP"
-        Me.ckFTP.Size = New System.Drawing.Size(104, 24)
+        Me.ckFTP.Size = New System.Drawing.Size(213, 17)
         Me.ckFTP.TabIndex = 128
-        Me.ckFTP.Text = "ckFTP"
+        Me.ckFTP.Text = "Transmission au site internet fournisseur"
         '
         'Label1
         '
@@ -344,18 +346,20 @@ Public Class frmExportInternet
         '
         'lnkFTP
         '
+        Me.lnkFTP.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lnkFTP.AutoSize = True
-        Me.lnkFTP.Location = New System.Drawing.Point(511, 39)
+        Me.lnkFTP.Location = New System.Drawing.Point(662, 39)
         Me.lnkFTP.Name = "lnkFTP"
         Me.lnkFTP.Size = New System.Drawing.Size(59, 13)
         Me.lnkFTP.TabIndex = 139
         Me.lnkFTP.TabStop = True
         Me.lnkFTP.Text = "LinkLabel1"
+        Me.lnkFTP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(438, 39)
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.Location = New System.Drawing.Point(662, 26)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(68, 13)
         Me.Label4.TabIndex = 140
@@ -427,7 +431,7 @@ Public Class frmExportInternet
         ckPDFs.Enabled = True
         ckPDFs.Checked = True
         cbExporter.Enabled = False
-        lnkFTP.Text = Param.getConstante("FTP_HOSTNAME")
+        lnkFTP.Text = Trim(Param.getConstante("FTP_HOSTNAME"))
 
     End Sub
 
@@ -583,7 +587,7 @@ Public Class frmExportInternet
 
             Next
             FileClose(nFile)
-
+            bReturn = True
             DisplayStatus("Nombre de commandes préparées : " & nSousCommandesPreparees)
             If ckFTP.Checked Then
                 DisplayStatus("Transferts des fichiers vers " + Param.getConstante("FTP_HOSTNAME"))

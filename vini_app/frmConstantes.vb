@@ -13,7 +13,7 @@ Partial Public Class frmConstantes
         Me.Validate()
         Me.CONSTANTESBindingSource.EndEdit()
         Me.CONSTANTESTableAdapter.Update(Me.DsVinicom.CONSTANTES)
-
+        Param.LoadcolParams()
     End Function
 
     Private Sub frmConstantes_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed

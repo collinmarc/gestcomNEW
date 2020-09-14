@@ -209,6 +209,8 @@ Partial Class frmConstantes
         Me.Label9 = New System.Windows.Forms.Label()
         Me.CST_VERSION_BDTextBox = New System.Windows.Forms.TextBox()
         Me.CONSTANTESTableAdapter = New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
         CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2043,12 +2045,34 @@ Partial Class frmConstantes
         '
         Me.CONSTANTESTableAdapter.ClearBeforeFill = True
         '
+        'Label25
+        '
+        Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(458, 9)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(39, 13)
+        Me.Label25.TabIndex = 3
+        Me.Label25.Text = "Date : "
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_DATE_UPDATE", True))
+        Me.TextBox5.Location = New System.Drawing.Point(494, 6)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.ReadOnly = True
+        Me.TextBox5.Size = New System.Drawing.Size(119, 20)
+        Me.TextBox5.TabIndex = 4
+        '
         'frmConstantes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(788, 496)
+        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.CST_VERSION_BDLabel)
         Me.Controls.Add(Me.CST_VERSION_BDTextBox)
         Me.Controls.Add(Me.TabControl1)
@@ -2265,4 +2289,6 @@ Partial Class frmConstantes
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label24 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents TextBox5 As TextBox
 End Class

@@ -46,7 +46,7 @@ Public Class Param
     Private Shared m_RegionDefaut As New Param
     Private Shared m_ConditionnementDefaut As New Param
     Private Shared m_TVADefaut As New Param
-
+    Private Shared m_dateUpdate As DateTime
     '=======================================================================
     '                           METHODE DE CLASSE                          |  
     'Fonction : LoadcolParams 
@@ -100,13 +100,14 @@ Public Class Param
         Next
 
         m_colConstantes = Persist.getListeConstantes()
+        m_DateUpdate = CDate(Persist.executeSQLQuery("SELECT CST_DATE_UPDATE FROM CONSTANTES"))
 
         m_bcolparamsLoad = True
         Persist.shared_disconnect()
     End Sub 'LoadColParams
     Public Shared ReadOnly Property colModeReglement() As Collection
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_colModeReglement
@@ -114,7 +115,7 @@ Public Class Param
     End Property
     Public Shared ReadOnly Property colTypeClient() As Collection
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_colTypeClient
@@ -122,7 +123,7 @@ Public Class Param
     End Property
     Public Shared ReadOnly Property colCouleur() As Collection
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_colCouleur
@@ -130,7 +131,7 @@ Public Class Param
     End Property
     Public Shared ReadOnly Property colRegion() As Collection
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_colRegion
@@ -138,7 +139,7 @@ Public Class Param
     End Property
     Public Shared ReadOnly Property colConditionnement() As Collection
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_colConditionnement
@@ -146,7 +147,7 @@ Public Class Param
     End Property
     Public Shared ReadOnly Property colTVA() As Collection
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_colTVA
@@ -161,7 +162,7 @@ Public Class Param
     '=======================================================================
     Public Shared ReadOnly Property couleurdefaut() As Param
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_CouleurDefaut
@@ -176,7 +177,7 @@ Public Class Param
     '=======================================================================
     Public Shared ReadOnly Property ModeReglementdefaut() As Param
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_ModeReglementDefaut
@@ -191,7 +192,7 @@ Public Class Param
     '=======================================================================
     Public Shared ReadOnly Property typeclientdefaut() As Param
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_TypeClientDefaut
@@ -207,7 +208,7 @@ Public Class Param
     '=======================================================================
     Public Shared ReadOnly Property regiondefaut() As Param
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_RegionDefaut
@@ -222,7 +223,7 @@ Public Class Param
     '=======================================================================
     Public Shared ReadOnly Property conditionnementdefaut() As Param
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_ConditionnementDefaut
@@ -238,7 +239,7 @@ Public Class Param
     '=======================================================================
     Public Shared ReadOnly Property TVAdefaut() As Param
         Get
-            If Not m_bcolparamsLoad Then
+            If Not IsColParamOK() Then
                 LoadcolParams()
             End If
             Return m_TVADefaut
@@ -252,7 +253,7 @@ Public Class Param
     'Retour : un Paramétre
     '=======================================================================
     Public Shared Function getConstante(ByVal strNom As String) As String
-        If Not m_bcolparamsLoad Then
+        If Not IsColParamOK() Then
             LoadcolParams()
         End If
         Try
@@ -490,5 +491,27 @@ Public Class Param
             End If
         Next
         Return oReturn
+    End Function
+    Public Shared Function getDateUpdate() As DateTime
+        If Not IsColParamOK() Then
+            LoadcolParams()
+        End If
+        Try
+            Return m_dateUpdate
+        Catch ex As Exception
+            Return ""
+        End Try
+    End Function
+
+
+    Public Shared Function IsColParamOK() As Boolean
+        Dim bReturn As Boolean = False
+        If m_bcolparamsLoad Then
+            Dim dConstant As DateTime = CDate(Persist.executeSQLScalar("SELECT CST_DATE_UPDATE FROM CONSTANTES"))
+            If dConstant = m_dateUpdate Then
+                bReturn = True
+            End If
+        End If
+        Return bReturn
     End Function
 End Class

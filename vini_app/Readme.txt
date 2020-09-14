@@ -1,4 +1,6 @@
 ﻿
+Version 6.0.0.3
+	0001273: Rechargement des constantes après modification (UpdateSQL)
 
 Version 6.0.0.2
 0001177: Modification du calcul de la taxes transport

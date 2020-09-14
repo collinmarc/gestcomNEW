@@ -15054,6 +15054,32 @@ Public MustInherit Class Persist
         Return sReturn
 
     End Function
+    ''' <summary>
+    ''' Retourne la Premiere valeur de la La Premiere Colonne de l'Ordre SQL
+    ''' </summary>
+    ''' <param name="strSQL"></param>
+    ''' <returns></returns>
+    Public Shared Function executeSQLScalar(ByVal strSQL As String) As String
+
+        Dim objCommand As OleDbCommand
+        Dim sReturn As String
+        Try
+            shared_connect()
+            objCommand = New OleDbCommand(strSQL, m_dbconn.Connection)
+            Dim obj As Object = objCommand.ExecuteScalar()
+            If obj <> Nothing Then
+                sReturn = objCommand.ExecuteScalar().ToString
+            Else
+                sReturn = ""
+            End If
+            shared_disconnect()
+        Catch e As Exception
+            sReturn = String.Empty
+        End Try
+
+        Return sReturn
+
+    End Function
     Friend Sub resetBooleans()
         m_bNew = False
         setUpdatedFalse()
