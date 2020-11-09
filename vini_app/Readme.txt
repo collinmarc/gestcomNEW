@@ -1,4 +1,7 @@
-﻿
+﻿Version 20201109
+	0001295: Récapitulatif Colisage : Le Nombre de colis n'est pas remis à 0 entre 2 Fournisseurs
+
+
 Version 6.0.0.3
 	0001273: Rechargement des constantes après modification (UpdateSQL)
 
