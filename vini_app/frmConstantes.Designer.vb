@@ -181,6 +181,8 @@ Partial Class frmConstantes
         Me.FTP_USERNAMETextBox = New System.Windows.Forms.TextBox()
         Me.FTP_HOSTNAMETextBox = New System.Windows.Forms.TextBox()
         Me.tbEDI_Destinataire = New System.Windows.Forms.TabPage()
+        Me.tbWEBEDI_Destinataire = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
         Me.tbWEBEDI_SMTPPWD = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.tbWEBEDI_SMTPuser = New System.Windows.Forms.TextBox()
@@ -200,7 +202,6 @@ Partial Class frmConstantes
         Me.Label13 = New System.Windows.Forms.Label()
         Me.tbImapFolder = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.tbSave = New System.Windows.Forms.Button()
         Me.tbImport = New System.Windows.Forms.Button()
         Me.tbImapPwd = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -215,8 +216,6 @@ Partial Class frmConstantes
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
         Me.CONSTANTESTableAdapter = New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.tbWEBEDI_Destinataire = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
         CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1795,6 +1794,22 @@ Partial Class frmConstantes
         Me.tbEDI_Destinataire.Text = "WEBEDI"
         Me.tbEDI_Destinataire.UseVisualStyleBackColor = True
         '
+        'tbWEBEDI_Destinataire
+        '
+        Me.tbWEBEDI_Destinataire.Location = New System.Drawing.Point(120, 231)
+        Me.tbWEBEDI_Destinataire.Name = "tbWEBEDI_Destinataire"
+        Me.tbWEBEDI_Destinataire.Size = New System.Drawing.Size(415, 20)
+        Me.tbWEBEDI_Destinataire.TabIndex = 14
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(13, 234)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(101, 13)
+        Me.Label28.TabIndex = 13
+        Me.Label28.Text = "Destinataire de test "
+        '
         'tbWEBEDI_SMTPPWD
         '
         Me.tbWEBEDI_SMTPPWD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_PWD", True))
@@ -1914,7 +1929,6 @@ Partial Class frmConstantes
         Me.TabPage7.Controls.Add(Me.Label13)
         Me.TabPage7.Controls.Add(Me.tbImapFolder)
         Me.TabPage7.Controls.Add(Me.Label14)
-        Me.TabPage7.Controls.Add(Me.tbSave)
         Me.TabPage7.Controls.Add(Me.tbImport)
         Me.TabPage7.Controls.Add(Me.tbImapPwd)
         Me.TabPage7.Controls.Add(Me.Label12)
@@ -1948,11 +1962,12 @@ Partial Class frmConstantes
         '
         'tbImapNSec
         '
+        Me.tbImapNSec.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_NSEC", True))
         Me.tbImapNSec.Location = New System.Drawing.Point(186, 135)
         Me.tbImapNSec.Name = "tbImapNSec"
         Me.tbImapNSec.Size = New System.Drawing.Size(45, 20)
         Me.tbImapNSec.TabIndex = 15
-        Me.tbImapNSec.Text = Global.vini_app.My.MySettings.Default.ImapNsec
+        Me.tbImapNSec.Text = "30"
         '
         'Label13
         '
@@ -1965,11 +1980,12 @@ Partial Class frmConstantes
         '
         'tbImapFolder
         '
+        Me.tbImapFolder.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_MSGFOLDER", True))
         Me.tbImapFolder.Location = New System.Drawing.Point(169, 102)
         Me.tbImapFolder.Name = "tbImapFolder"
         Me.tbImapFolder.Size = New System.Drawing.Size(243, 20)
         Me.tbImapFolder.TabIndex = 13
-        Me.tbImapFolder.Text = Global.vini_app.My.MySettings.Default.ImapMSGFolder
+        Me.tbImapFolder.Text = "MSGTRAITES"
         '
         'Label14
         '
@@ -1979,15 +1995,6 @@ Partial Class frmConstantes
         Me.Label14.Size = New System.Drawing.Size(151, 13)
         Me.Label14.TabIndex = 12
         Me.Label14.Text = "Dossiers Commandes traitées :"
-        '
-        'tbSave
-        '
-        Me.tbSave.Location = New System.Drawing.Point(312, 183)
-        Me.tbSave.Name = "tbSave"
-        Me.tbSave.Size = New System.Drawing.Size(100, 23)
-        Me.tbSave.TabIndex = 10
-        Me.tbSave.Text = "save Settings"
-        Me.tbSave.UseVisualStyleBackColor = True
         '
         'tbImport
         '
@@ -2000,11 +2007,12 @@ Partial Class frmConstantes
         '
         'tbImapPwd
         '
+        Me.tbImapPwd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_PWD", True))
         Me.tbImapPwd.Location = New System.Drawing.Point(312, 46)
         Me.tbImapPwd.Name = "tbImapPwd"
         Me.tbImapPwd.Size = New System.Drawing.Size(100, 20)
         Me.tbImapPwd.TabIndex = 8
-        Me.tbImapPwd.Text = Global.vini_app.My.MySettings.Default.ImapPassword
+        Me.tbImapPwd.Text = "vinicom35760"
         '
         'Label12
         '
@@ -2030,11 +2038,12 @@ Partial Class frmConstantes
         '
         'tbImapUser
         '
+        Me.tbImapUser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_USER", True))
         Me.tbImapUser.Location = New System.Drawing.Point(131, 46)
         Me.tbImapUser.Name = "tbImapUser"
         Me.tbImapUser.Size = New System.Drawing.Size(100, 20)
         Me.tbImapUser.TabIndex = 5
-        Me.tbImapUser.Text = Global.vini_app.My.MySettings.Default.ImapUser
+        Me.tbImapUser.Text = "cmdprestashop@vinicom.fr"
         '
         'Label11
         '
@@ -2056,19 +2065,21 @@ Partial Class frmConstantes
         '
         'tbImapPort
         '
+        Me.tbImapPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_PORT", True))
         Me.tbImapPort.Location = New System.Drawing.Point(275, 16)
         Me.tbImapPort.Name = "tbImapPort"
         Me.tbImapPort.Size = New System.Drawing.Size(29, 20)
         Me.tbImapPort.TabIndex = 2
-        Me.tbImapPort.Text = Global.vini_app.My.MySettings.Default.ImapPort
+        Me.tbImapPort.Text = "143"
         '
         'tbImapHost
         '
+        Me.tbImapHost.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_HOST", True))
         Me.tbImapHost.Location = New System.Drawing.Point(131, 16)
         Me.tbImapHost.Name = "tbImapHost"
         Me.tbImapHost.Size = New System.Drawing.Size(100, 20)
         Me.tbImapHost.TabIndex = 1
-        Me.tbImapHost.Text = Global.vini_app.My.MySettings.Default.ImapHost
+        Me.tbImapHost.Text = "192.168.0.240"
         '
         'Label9
         '
@@ -2111,22 +2122,6 @@ Partial Class frmConstantes
         'CONSTANTESTableAdapter
         '
         Me.CONSTANTESTableAdapter.ClearBeforeFill = True
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(13, 234)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(101, 13)
-        Me.Label28.TabIndex = 13
-        Me.Label28.Text = "Destinataire de test "
-        '
-        'tbWEBEDI_Destinataire
-        '
-        Me.tbWEBEDI_Destinataire.Location = New System.Drawing.Point(120, 231)
-        Me.tbWEBEDI_Destinataire.Name = "tbWEBEDI_Destinataire"
-        Me.tbWEBEDI_Destinataire.Size = New System.Drawing.Size(415, 20)
-        Me.tbWEBEDI_Destinataire.TabIndex = 14
         '
         'frmConstantes
         '
@@ -2329,7 +2324,6 @@ Partial Class frmConstantes
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents tbImapFolder As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents tbSave As System.Windows.Forms.Button
     Friend WithEvents tbImport As System.Windows.Forms.Button
     Friend WithEvents ckCheck As System.Windows.Forms.CheckBox
     Friend WithEvents Label15 As System.Windows.Forms.Label

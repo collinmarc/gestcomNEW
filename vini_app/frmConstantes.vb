@@ -225,10 +225,6 @@ Partial Public Class frmConstantes
 
     End Sub
 
-    Private Sub tbSave_Click(sender As Object, e As EventArgs) Handles tbSave.Click
-        My.Settings.Save()
-        My.Settings.Reload()
-    End Sub
 
     Private Sub cbTestFTPEDI_Click(sender As Object, e As EventArgs) Handles cbTestFTPEDI.Click
         TestFTPEDI()

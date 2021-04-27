@@ -1655,6 +1655,18 @@ Partial Public Class dsVinicom
         
         Private columnCST_EDI_PWD As Global.System.Data.DataColumn
         
+        Private columnCST_IMAP_USER As Global.System.Data.DataColumn
+        
+        Private columnCST_IMAP_PWD As Global.System.Data.DataColumn
+        
+        Private columnCST_IMAP_NSEC As Global.System.Data.DataColumn
+        
+        Private columnCST_IMAP_MSGFOLDER As Global.System.Data.DataColumn
+        
+        Private columnCST_IMAP_PORT As Global.System.Data.DataColumn
+        
+        Private columnCST_IMAP_HOST As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -2403,6 +2415,54 @@ Partial Public Class dsVinicom
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CST_IMAP_USERColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCST_IMAP_USER
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CST_IMAP_PWDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCST_IMAP_PWD
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CST_IMAP_NSECColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCST_IMAP_NSEC
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CST_IMAP_MSGFOLDERColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCST_IMAP_MSGFOLDER
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CST_IMAP_PORTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCST_IMAP_PORT
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CST_IMAP_HOSTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCST_IMAP_HOST
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2528,9 +2588,15 @@ Partial Public Class dsVinicom
                     ByVal CST_SOC2_COMPTEPRODUIT_TAXEGO As Double,  _
                     ByVal CST_DATE_UPDATE As Date,  _
                     ByVal CST_EDI_USER As String,  _
-                    ByVal CST_EDI_PWD As String) As CONSTANTESRow
+                    ByVal CST_EDI_PWD As String,  _
+                    ByVal CST_IMAP_USER As String,  _
+                    ByVal CST_IMAP_PWD As String,  _
+                    ByVal CST_IMAP_NSEC As String,  _
+                    ByVal CST_IMAP_MSGFOLDER As String,  _
+                    ByVal CST_IMAP_PORT As String,  _
+                    ByVal CST_IMAP_HOST As String) As CONSTANTESRow
             Dim rowCONSTANTESRow As CONSTANTESRow = CType(Me.NewRow,CONSTANTESRow)
-            Dim columnValuesArray() As Object = New Object() {CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC_ADRESSE_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_SOC_EMAIL, CST_FAX_PAGE_GARDE, CST_FAX_ENVOI_PAGE_GARDE, CST_FAX_SERVERNAME, CST_DERN_NUM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA, CST_VERSION_BD, CST_FAX_PREFIX, CST_TX_COMMISSION, CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP, CST_TAXES_TRP, CST_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST_SOC2_ADRESSE_RUE1, CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2_ADRESSE_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_PLTFRM_NOM, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, CST_PLTFRM_CP, CST_PLTFRM_VILLE, CST_PLTFRM_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_PLTFRM_PORT, CST_TRP_TXGAZOLE, CST_PU_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD, FTP_REMOTEDIR, FTP_LOCKFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE, CST_COL_IDMODEREGLEMENT, CST_FACT_COL_TAXES, CST_FACT_COL_PU_COLIS, CST_SOC_RCS, CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, CST_SOC2_LICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, CST_SOC_COMPTEPRODUIT, CST_SOC_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2_COMPTEPRODUIT, CST_SOC2_COMPTEBANQUE, CST_SOC2_COMPTEPRODUIT_COL, CST_ID, CST_EDI_HOST, CST_EDI_PORT, CST_EDI_FROM, CST_EDI_TEMP, CST_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_FTPEDI_SRV, CST_FTPEDI_USER, CST_FTPEDI_PWD, CST_FTPEDI_PORT, CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRODUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD}
+            Dim columnValuesArray() As Object = New Object() {CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC_ADRESSE_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_SOC_EMAIL, CST_FAX_PAGE_GARDE, CST_FAX_ENVOI_PAGE_GARDE, CST_FAX_SERVERNAME, CST_DERN_NUM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA, CST_VERSION_BD, CST_FAX_PREFIX, CST_TX_COMMISSION, CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP, CST_TAXES_TRP, CST_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST_SOC2_ADRESSE_RUE1, CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2_ADRESSE_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_PLTFRM_NOM, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, CST_PLTFRM_CP, CST_PLTFRM_VILLE, CST_PLTFRM_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_PLTFRM_PORT, CST_TRP_TXGAZOLE, CST_PU_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD, FTP_REMOTEDIR, FTP_LOCKFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE, CST_COL_IDMODEREGLEMENT, CST_FACT_COL_TAXES, CST_FACT_COL_PU_COLIS, CST_SOC_RCS, CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, CST_SOC2_LICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, CST_SOC_COMPTEPRODUIT, CST_SOC_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2_COMPTEPRODUIT, CST_SOC2_COMPTEBANQUE, CST_SOC2_COMPTEPRODUIT_COL, CST_ID, CST_EDI_HOST, CST_EDI_PORT, CST_EDI_FROM, CST_EDI_TEMP, CST_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_FTPEDI_SRV, CST_FTPEDI_USER, CST_FTPEDI_PWD, CST_FTPEDI_PORT, CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRODUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP_PWD, CST_IMAP_NSEC, CST_IMAP_MSGFOLDER, CST_IMAP_PORT, CST_IMAP_HOST}
             rowCONSTANTESRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCONSTANTESRow)
             Return rowCONSTANTESRow
@@ -2648,6 +2714,12 @@ Partial Public Class dsVinicom
             Me.columnCST_DATE_UPDATE = MyBase.Columns("CST_DATE_UPDATE")
             Me.columnCST_EDI_USER = MyBase.Columns("CST_EDI_USER")
             Me.columnCST_EDI_PWD = MyBase.Columns("CST_EDI_PWD")
+            Me.columnCST_IMAP_USER = MyBase.Columns("CST_IMAP_USER")
+            Me.columnCST_IMAP_PWD = MyBase.Columns("CST_IMAP_PWD")
+            Me.columnCST_IMAP_NSEC = MyBase.Columns("CST_IMAP_NSEC")
+            Me.columnCST_IMAP_MSGFOLDER = MyBase.Columns("CST_IMAP_MSGFOLDER")
+            Me.columnCST_IMAP_PORT = MyBase.Columns("CST_IMAP_PORT")
+            Me.columnCST_IMAP_HOST = MyBase.Columns("CST_IMAP_HOST")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2831,6 +2903,18 @@ Partial Public Class dsVinicom
             MyBase.Columns.Add(Me.columnCST_EDI_USER)
             Me.columnCST_EDI_PWD = New Global.System.Data.DataColumn("CST_EDI_PWD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCST_EDI_PWD)
+            Me.columnCST_IMAP_USER = New Global.System.Data.DataColumn("CST_IMAP_USER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCST_IMAP_USER)
+            Me.columnCST_IMAP_PWD = New Global.System.Data.DataColumn("CST_IMAP_PWD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCST_IMAP_PWD)
+            Me.columnCST_IMAP_NSEC = New Global.System.Data.DataColumn("CST_IMAP_NSEC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCST_IMAP_NSEC)
+            Me.columnCST_IMAP_MSGFOLDER = New Global.System.Data.DataColumn("CST_IMAP_MSGFOLDER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCST_IMAP_MSGFOLDER)
+            Me.columnCST_IMAP_PORT = New Global.System.Data.DataColumn("CST_IMAP_PORT", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCST_IMAP_PORT)
+            Me.columnCST_IMAP_HOST = New Global.System.Data.DataColumn("CST_IMAP_HOST", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCST_IMAP_HOST)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCST_ID}, true))
             Me.columnCST_SOC_NOMSOC.DefaultValue = CType("""""",String)
             Me.columnCST_SOC_NOMSOC.MaxLength = 50
@@ -2938,6 +3022,7 @@ Partial Public Class dsVinicom
             Me.columnCST_SRVCE_PATH.MaxLength = 100
             Me.columnCST_SRVCE_NBSEC.MaxLength = 10
             Me.columnCST_SRVCE_PATHERROR.MaxLength = 100
+            Me.columnCST_IMAP_HOST.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9642,6 +9727,97 @@ Partial Public Class dsVinicom
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CST_IMAP_USER() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCONSTANTES.CST_IMAP_USERColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'CST_IMAP_USER' dans la table 'CONSTANTES' est DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCONSTANTES.CST_IMAP_USERColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CST_IMAP_PWD() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCONSTANTES.CST_IMAP_PWDColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'CST_IMAP_PWD' dans la table 'CONSTANTES' est DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCONSTANTES.CST_IMAP_PWDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CST_IMAP_NSEC() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCONSTANTES.CST_IMAP_NSECColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'CST_IMAP_NSEC' dans la table 'CONSTANTES' est DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCONSTANTES.CST_IMAP_NSECColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CST_IMAP_MSGFOLDER() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCONSTANTES.CST_IMAP_MSGFOLDERColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'CST_IMAP_MSGFOLDER' dans la table 'CONSTANTES' est DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCONSTANTES.CST_IMAP_MSGFOLDERColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CST_IMAP_PORT() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCONSTANTES.CST_IMAP_PORTColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'CST_IMAP_PORT' dans la table 'CONSTANTES' est DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCONSTANTES.CST_IMAP_PORTColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CST_IMAP_HOST() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCONSTANTES.CST_IMAP_HOSTColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'CST_IMAP_HOST' dans la table 'CONSTANTES' est DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCONSTANTES.CST_IMAP_HOSTColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsCST_SOC_NOMSOCNull() As Boolean
             Return Me.IsNull(Me.tableCONSTANTES.CST_SOC_NOMSOCColumn)
         End Function
@@ -10694,6 +10870,78 @@ Partial Public Class dsVinicom
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetCST_EDI_PWDNull()
             Me(Me.tableCONSTANTES.CST_EDI_PWDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCST_IMAP_USERNull() As Boolean
+            Return Me.IsNull(Me.tableCONSTANTES.CST_IMAP_USERColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCST_IMAP_USERNull()
+            Me(Me.tableCONSTANTES.CST_IMAP_USERColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCST_IMAP_PWDNull() As Boolean
+            Return Me.IsNull(Me.tableCONSTANTES.CST_IMAP_PWDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCST_IMAP_PWDNull()
+            Me(Me.tableCONSTANTES.CST_IMAP_PWDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCST_IMAP_NSECNull() As Boolean
+            Return Me.IsNull(Me.tableCONSTANTES.CST_IMAP_NSECColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCST_IMAP_NSECNull()
+            Me(Me.tableCONSTANTES.CST_IMAP_NSECColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCST_IMAP_MSGFOLDERNull() As Boolean
+            Return Me.IsNull(Me.tableCONSTANTES.CST_IMAP_MSGFOLDERColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCST_IMAP_MSGFOLDERNull()
+            Me(Me.tableCONSTANTES.CST_IMAP_MSGFOLDERColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCST_IMAP_PORTNull() As Boolean
+            Return Me.IsNull(Me.tableCONSTANTES.CST_IMAP_PORTColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCST_IMAP_PORTNull()
+            Me(Me.tableCONSTANTES.CST_IMAP_PORTColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCST_IMAP_HOSTNull() As Boolean
+            Return Me.IsNull(Me.tableCONSTANTES.CST_IMAP_HOSTColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCST_IMAP_HOSTNull()
+            Me(Me.tableCONSTANTES.CST_IMAP_HOSTColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -16163,252 +16411,18 @@ Namespace dsVinicomTableAdapters
             tableMapping.ColumnMappings.Add("CST_EDI_USER", "CST_EDI_USER")
             tableMapping.ColumnMappings.Add("CST_EDIT_PWD", "CST_EDI_PWD")
             tableMapping.ColumnMappings.Add("CST_EDI_PWD", "CST_EDI_PWD")
+            tableMapping.ColumnMappings.Add("CST_IMAP_USER", "CST_IMAP_USER")
+            tableMapping.ColumnMappings.Add("CST_IMAP_PWD", "CST_IMAP_PWD")
+            tableMapping.ColumnMappings.Add("CST_IMAP_NSEC", "CST_IMAP_NSEC")
+            tableMapping.ColumnMappings.Add("CST_IMAP_MSGFOLDER", "CST_IMAP_MSGFOLDER")
+            tableMapping.ColumnMappings.Add("CST_IMAP_PORT", "CST_IMAP_PORT")
+            tableMapping.ColumnMappings.Add("CST_IMAP_HOST", "CST_IMAP_HOST")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [CONSTANTES] WHERE (((? = 1 AND [CST_SOC_NOMSOC] IS NULL) OR ([CST_SO"& _ 
-                "C_NOMSOC] = ?)) AND ((? = 1 AND [CST_SOC_ADRESSE_RUE1] IS NULL) OR ([CST_SOC_ADR"& _ 
-                "ESSE_RUE1] = ?)) AND ((? = 1 AND [CST_SOC_ADRESSE_RUE2] IS NULL) OR ([CST_SOC_AD"& _ 
-                "RESSE_RUE2] = ?)) AND ((? = 1 AND [CST_SOC_ADRESSE_CP] IS NULL) OR ([CST_SOC_ADR"& _ 
-                "ESSE_CP] = ?)) AND ((? = 1 AND [CST_SOC_ADRESSE_VILLE] IS NULL) OR ([CST_SOC_ADR"& _ 
-                "ESSE_VILLE] = ?)) AND ((? = 1 AND [CST_SOC_TEL] IS NULL) OR ([CST_SOC_TEL] = ?))"& _ 
-                " AND ((? = 1 AND [CST_SOC_FAX] IS NULL) OR ([CST_SOC_FAX] = ?)) AND ((? = 1 AND "& _ 
-                "[CST_SOC_PORT] IS NULL) OR ([CST_SOC_PORT] = ?)) AND ((? = 1 AND [CST_SOC_EMAIL]"& _ 
-                " IS NULL) OR ([CST_SOC_EMAIL] = ?)) AND ((? = 1 AND [CST_FAX_PAGE_GARDE] IS NULL"& _ 
-                ") OR ([CST_FAX_PAGE_GARDE] = ?)) AND ((? = 1 AND [CST_FAX_ENVOI_PAGE_GARDE] IS N"& _ 
-                "ULL) OR ([CST_FAX_ENVOI_PAGE_GARDE] = ?)) AND ((? = 1 AND [CST_FAX_SERVERNAME] I"& _ 
-                "S NULL) OR ([CST_FAX_SERVERNAME] = ?)) AND ((? = 1 AND [CST_DERN_NUM_CMD_CLT] IS"& _ 
-                " NULL) OR ([CST_DERN_NUM_CMD_CLT] = ?)) AND ((? = 1 AND [CST_DERN_NUM_SCMD] IS N"& _ 
-                "ULL) OR ([CST_DERN_NUM_SCMD] = ?)) AND ((? = 1 AND [CST_DERN_NUM_BA] IS NULL) OR"& _ 
-                " ([CST_DERN_NUM_BA] = ?)) AND ((? = 1 AND [CST_VERSION_BD] IS NULL) OR ([CST_VER"& _ 
-                "SION_BD] = ?)) AND ((? = 1 AND [CST_FAX_PREFIX] IS NULL) OR ([CST_FAX_PREFIX] = "& _ 
-                "?)) AND ((? = 1 AND [CST_TX_COMMISSION] IS NULL) OR ([CST_TX_COMMISSION] = ?)) A"& _ 
-                "ND ((? = 1 AND [CST_DERN_NUM_FACTCOM] IS NULL) OR ([CST_DERN_NUM_FACTCOM] = ?)) "& _ 
-                "AND ((? = 1 AND [CST_PATH_FACTCOM] IS NULL) OR ([CST_PATH_FACTCOM] = ?)) AND ((?"& _ 
-                " = 1 AND [CST_DERN_NUM_FACT_TRP] IS NULL) OR ([CST_DERN_NUM_FACT_TRP] = ?)) AND "& _ 
-                "((? = 1 AND [CST_TAXES_TRP] IS NULL) OR ([CST_TAXES_TRP] = ?)) AND ((? = 1 AND ["& _ 
-                "CST_PATH_FACTTRP] IS NULL) OR ([CST_PATH_FACTTRP] = ?)) AND ((? = 1 AND [CST_TRP"& _ 
-                "_IDMODEREGLEMENT] IS NULL) OR ([CST_TRP_IDMODEREGLEMENT] = ?)) AND ((? = 1 AND ["& _ 
-                "CST_SOC2_NOMSOC] IS NULL) OR ([CST_SOC2_NOMSOC] = ?)) AND ((? = 1 AND [CST_SOC2_"& _ 
-                "ADRESSE_RUE1] IS NULL) OR ([CST_SOC2_ADRESSE_RUE1] = ?)) AND ((? = 1 AND [CST_SO"& _ 
-                "C2_ADRESSE_RUE2] IS NULL) OR ([CST_SOC2_ADRESSE_RUE2] = ?)) AND ((? = 1 AND [CST"& _ 
-                "_SOC2_ADRESSE_CP] IS NULL) OR ([CST_SOC2_ADRESSE_CP] = ?)) AND ((? = 1 AND [CST_"& _ 
-                "SOC2_ADRESSE_VILLE] IS NULL) OR ([CST_SOC2_ADRESSE_VILLE] = ?)) AND ((? = 1 AND "& _ 
-                "[CST_SOC2_TEL] IS NULL) OR ([CST_SOC2_TEL] = ?)) AND ((? = 1 AND [CST_SOC2_FAX] "& _ 
-                "IS NULL) OR ([CST_SOC2_FAX] = ?)) AND ((? = 1 AND [CST_SOC2_EMAIL] IS NULL) OR ("& _ 
-                "[CST_SOC2_EMAIL] = ?)) AND ((? = 1 AND [CST_SOC2_PORT] IS NULL) OR ([CST_SOC2_PO"& _ 
-                "RT] = ?)) AND ((? = 1 AND [CST_PLTFRM_NOM] IS NULL) OR ([CST_PLTFRM_NOM] = ?)) A"& _ 
-                "ND ((? = 1 AND [CST_PLTFRM_RUE1] IS NULL) OR ([CST_PLTFRM_RUE1] = ?)) AND ((? = "& _ 
-                "1 AND [CST_PLTFRM_RUE2] IS NULL) OR ([CST_PLTFRM_RUE2] = ?)) AND ((? = 1 AND [CS"& _ 
-                "T_PLTFRM_CP] IS NULL) OR ([CST_PLTFRM_CP] = ?)) AND ((? = 1 AND [CST_PLTFRM_VILL"& _ 
-                "E] IS NULL) OR ([CST_PLTFRM_VILLE] = ?)) AND ((? = 1 AND [CST_PLTFRM_TEL] IS NUL"& _ 
-                "L) OR ([CST_PLTFRM_TEL] = ?)) AND ((? = 1 AND [CST_PLTFRM_FAX] IS NULL) OR ([CST"& _ 
-                "_PLTFRM_FAX] = ?)) AND ((? = 1 AND [CST_PLTFRM_EMAIL] IS NULL) OR ([CST_PLTFRM_E"& _ 
-                "MAIL] = ?)) AND ((? = 1 AND [CST_PLTFRM_PORT] IS NULL) OR ([CST_PLTFRM_PORT] = ?"& _ 
-                ")) AND ((? = 1 AND [CST_TRP_TXGAZOLE] IS NULL) OR ([CST_TRP_TXGAZOLE] = ?)) AND "& _ 
-                "((? = 1 AND [CST_PU_PALL_PREP] IS NULL) OR ([CST_PU_PALL_PREP] = ?)) AND ((? = 1"& _ 
-                " AND [CST_PU_PALL_NONPREP] IS NULL) OR ([CST_PU_PALL_NONPREP] = ?)) AND ((? = 1 "& _ 
-                "AND [FTP_HOSTNAME] IS NULL) OR ([FTP_HOSTNAME] = ?)) AND ((? = 1 AND [FTP_USERNA"& _ 
-                "ME] IS NULL) OR ([FTP_USERNAME] = ?)) AND ((? = 1 AND [FTP_PASSWORD] IS NULL) OR"& _ 
-                " ([FTP_PASSWORD] = ?)) AND ((? = 1 AND [FTP_REMOTEDIR] IS NULL) OR ([FTP_REMOTED"& _ 
-                "IR] = ?)) AND ((? = 1 AND [FTP_LOCKFROMFILENAME] IS NULL) OR ([FTP_LOCKFROMFILEN"& _ 
-                "AME] = ?)) AND ((? = 1 AND [FTP_LOCKTOFILENAME] IS NULL) OR ([FTP_LOCKTOFILENAME"& _ 
-                "] = ?)) AND ((? = 1 AND [CST_DERN_NUM_FACT_COLISAGE] IS NULL) OR ([CST_DERN_NUM_"& _ 
-                "FACT_COLISAGE] = ?)) AND ((? = 1 AND [CST_COL_IDMODEREGLEMENT] IS NULL) OR ([CST"& _ 
-                "_COL_IDMODEREGLEMENT] = ?)) AND ((? = 1 AND [CST_FACT_COL_TAXES] IS NULL) OR ([C"& _ 
-                "ST_FACT_COL_TAXES] = ?)) AND ((? = 1 AND [CST_FACT_COL_PU_COLIS] IS NULL) OR ([C"& _ 
-                "ST_FACT_COL_PU_COLIS] = ?)) AND ((? = 1 AND [CST_SOC_RCS] IS NULL) OR ([CST_SOC_"& _ 
-                "RCS] = ?)) AND ((? = 1 AND [CST_SOC_TVAINTRA] IS NULL) OR ([CST_SOC_TVAINTRA] = "& _ 
-                "?)) AND ((? = 1 AND [CST_SOC_LICENCE] IS NULL) OR ([CST_SOC_LICENCE] = ?)) AND ("& _ 
-                "(? = 1 AND [CST_SOC2_RCS] IS NULL) OR ([CST_SOC2_RCS] = ?)) AND ((? = 1 AND [CST"& _ 
-                "_SOC2_TVAINTRA] IS NULL) OR ([CST_SOC2_TVAINTRA] = ?)) AND ((? = 1 AND [CST_SOC2"& _ 
-                "_LICENCE] IS NULL) OR ([CST_SOC2_LICENCE] = ?)) AND ((? = 1 AND [CST_EXPORT_COMP"& _ 
-                "TA_PATH] IS NULL) OR ([CST_EXPORT_COMPTA_PATH] = ?)) AND ((? = 1 AND [CST_SOC_CO"& _ 
-                "MPTETVA] IS NULL) OR ([CST_SOC_COMPTETVA] = ?)) AND ((? = 1 AND [CST_SOC_COMPTEP"& _ 
-                "RODUIT] IS NULL) OR ([CST_SOC_COMPTEPRODUIT] = ?)) AND ((? = 1 AND [CST_SOC_COMP"& _ 
-                "TEBANQUE] IS NULL) OR ([CST_SOC_COMPTEBANQUE] = ?)) AND ((? = 1 AND [CST_SOC2_CO"& _ 
-                "MPTETVA] IS NULL) OR ([CST_SOC2_COMPTETVA] = ?)) AND ((? = 1 AND [CST_SOC2_COMPT"& _ 
-                "EPRODUIT] IS NULL) OR ([CST_SOC2_COMPTEPRODUIT] = ?)) AND ((? = 1 AND [CST_SOC2_"& _ 
-                "COMPTEBANQUE] IS NULL) OR ([CST_SOC2_COMPTEBANQUE] = ?)) AND ([CST_ID] = ?) AND "& _ 
-                "((? = 1 AND [CST_SOC2_COMPTEPRODUIT_COL] IS NULL) OR ([CST_SOC2_COMPTEPRODUIT_CO"& _ 
-                "L] = ?)) AND ((? = 1 AND [CST_EDI_HOST] IS NULL) OR ([CST_EDI_HOST] = ?)) AND (("& _ 
-                "? = 1 AND [CST_EDI_PORT] IS NULL) OR ([CST_EDI_PORT] = ?)) AND ((? = 1 AND [CST_"& _ 
-                "EDI_FROM] IS NULL) OR ([CST_EDI_FROM] = ?)) AND ((? = 1 AND [CST_EDI_TEMP] IS NU"& _ 
-                "LL) OR ([CST_EDI_TEMP] = ?)) AND ((? = 1 AND [CST_SRVCE_PATH] IS NULL) OR ([CST_"& _ 
-                "SRVCE_PATH] = ?)) AND ((? = 1 AND [CST_SRVCE_NBSEC] IS NULL) OR ([CST_SRVCE_NBSE"& _ 
-                "C] = ?)) AND ((? = 1 AND [CST_SRVCE_PATHERROR] IS NULL) OR ([CST_SRVCE_PATHERROR"& _ 
-                "] = ?)) AND ((? = 1 AND [CST_DERN_NUM_FACT_HBV] IS NULL) OR ([CST_DERN_NUM_FACT_"& _ 
-                "HBV] = ?)) AND ((? = 1 AND [CST_TRP_PARTTRP] IS NULL) OR ([CST_TRP_PARTTRP] = ?)"& _ 
-                ") AND ((? = 1 AND [CST_SOC2_COMPTEPRODUIT_TAXEGO] IS NULL) OR ([CST_SOC2_COMPTEP"& _ 
-                "RODUIT_TAXEGO] = ?)) AND ((? = 1 AND [CST_DATE_UPDATE] IS NULL) OR ([CST_DATE_UP"& _ 
-                "DATE] = ?)) AND ((? = 1 AND [CST_EDI_USER] IS NULL) OR ([CST_EDI_USER] = ?)) AND"& _ 
-                " ((? = 1 AND [CST_EDI_PWD] IS NULL) OR ([CST_EDI_PWD] = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [CONSTANTES] WHERE (([CST_ID] = ?))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_NOMSOC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_NOMSOC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_NOMSOC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_NOMSOC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_ADRESSE_RUE2", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE2", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_ADRESSE_RUE2", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE2", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_ADRESSE_CP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_CP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_ADRESSE_CP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_CP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_ADRESSE_VILLE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_VILLE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_ADRESSE_VILLE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_VILLE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_TEL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_TEL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_TEL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_TEL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_FAX", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_FAX", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_FAX", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_FAX", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_PORT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_PORT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_PORT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FAX_PAGE_GARDE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_PAGE_GARDE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FAX_PAGE_GARDE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_PAGE_GARDE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FAX_ENVOI_PAGE_GARDE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_ENVOI_PAGE_GARDE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FAX_ENVOI_PAGE_GARDE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_ENVOI_PAGE_GARDE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FAX_SERVERNAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_SERVERNAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FAX_SERVERNAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_SERVERNAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_CMD_CLT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_CMD_CLT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_CMD_CLT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_CMD_CLT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_SCMD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_SCMD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_SCMD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_SCMD", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_BA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_BA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_BA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_BA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_VERSION_BD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_VERSION_BD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_VERSION_BD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_VERSION_BD", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FAX_PREFIX", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_PREFIX", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FAX_PREFIX", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_PREFIX", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TX_COMMISSION", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TX_COMMISSION", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TX_COMMISSION", Global.System.Data.OleDb.OleDbType.[Single], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TX_COMMISSION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_FACTCOM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACTCOM", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_FACTCOM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACTCOM", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PATH_FACTCOM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PATH_FACTCOM", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PATH_FACTCOM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PATH_FACTCOM", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_FACT_TRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_TRP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_FACT_TRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_TRP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TAXES_TRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TAXES_TRP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TAXES_TRP", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TAXES_TRP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PATH_FACTTRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PATH_FACTTRP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PATH_FACTTRP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PATH_FACTTRP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TRP_IDMODEREGLEMENT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_IDMODEREGLEMENT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TRP_IDMODEREGLEMENT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_IDMODEREGLEMENT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_NOMSOC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_NOMSOC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_NOMSOC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_NOMSOC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_ADRESSE_RUE2", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_RUE2", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_ADRESSE_RUE2", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_RUE2", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_ADRESSE_CP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_CP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_ADRESSE_CP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_CP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_ADRESSE_VILLE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_VILLE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_ADRESSE_VILLE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_VILLE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_TEL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_TEL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_TEL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_TEL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_FAX", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_FAX", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_FAX", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_FAX", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_PORT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_PORT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_PORT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_NOM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_NOM", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_NOM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_NOM", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_RUE1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_RUE1", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_RUE1", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_RUE2", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_RUE2", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_RUE2", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_RUE2", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_CP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_CP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_CP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_CP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_VILLE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_VILLE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_VILLE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_VILLE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_TEL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_TEL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_TEL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_TEL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_FAX", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_FAX", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_FAX", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_FAX", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_PORT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_PORT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_PORT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TRP_TXGAZOLE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_TXGAZOLE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TRP_TXGAZOLE", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_TXGAZOLE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PU_PALL_PREP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PU_PALL_PREP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PU_PALL_PREP", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PU_PALL_PREP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PU_PALL_NONPREP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PU_PALL_NONPREP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PU_PALL_NONPREP", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PU_PALL_NONPREP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_HOSTNAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_HOSTNAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_HOSTNAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_HOSTNAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_USERNAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_USERNAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_USERNAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_USERNAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_PASSWORD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_PASSWORD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_PASSWORD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_PASSWORD", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_REMOTEDIR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_REMOTEDIR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_REMOTEDIR", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_REMOTEDIR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_LOCKFROMFILENAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_LOCKFROMFILENAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_LOCKFROMFILENAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_LOCKFROMFILENAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_LOCKTOFILENAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_LOCKTOFILENAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_LOCKTOFILENAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_LOCKTOFILENAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_FACT_COLISAGE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_COLISAGE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_FACT_COLISAGE", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_COLISAGE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_COL_IDMODEREGLEMENT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_COL_IDMODEREGLEMENT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_COL_IDMODEREGLEMENT", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_COL_IDMODEREGLEMENT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FACT_COL_TAXES", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FACT_COL_TAXES", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FACT_COL_TAXES", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FACT_COL_TAXES", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FACT_COL_PU_COLIS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FACT_COL_PU_COLIS", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FACT_COL_PU_COLIS", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FACT_COL_PU_COLIS", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_RCS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_RCS", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_RCS", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_RCS", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_TVAINTRA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_TVAINTRA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_TVAINTRA", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_TVAINTRA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_LICENCE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_LICENCE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_LICENCE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_LICENCE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_RCS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_RCS", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_RCS", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_RCS", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_TVAINTRA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_TVAINTRA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_TVAINTRA", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_TVAINTRA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_LICENCE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_LICENCE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_LICENCE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_LICENCE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EXPORT_COMPTA_PATH", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EXPORT_COMPTA_PATH", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EXPORT_COMPTA_PATH", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EXPORT_COMPTA_PATH", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_COMPTETVA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTETVA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_COMPTETVA", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTETVA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_COMPTEPRODUIT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTEPRODUIT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_COMPTEPRODUIT", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTEPRODUIT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_COMPTEBANQUE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTEBANQUE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_COMPTEBANQUE", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTEBANQUE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTETVA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTETVA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTETVA", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTETVA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTEPRODUIT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTEPRODUIT", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTEBANQUE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEBANQUE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTEBANQUE", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEBANQUE", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_ID", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTEPRODUIT_COL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT_COL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTEPRODUIT_COL", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT_COL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_HOST", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_HOST", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_HOST", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_HOST", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_PORT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PORT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PORT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_FROM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_FROM", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_FROM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_FROM", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_TEMP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_TEMP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_TEMP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_TEMP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SRVCE_PATH", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_PATH", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SRVCE_PATH", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_PATH", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SRVCE_NBSEC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_NBSEC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SRVCE_NBSEC", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_NBSEC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SRVCE_PATHERROR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_PATHERROR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SRVCE_PATHERROR", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_PATHERROR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_FACT_HBV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_HBV", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_FACT_HBV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_HBV", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TRP_PARTTRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_PARTTRP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TRP_PARTTRP", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_PARTTRP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTEPRODUIT_TAXEGO", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT_TAXEGO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTEPRODUIT_TAXEGO", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT_TAXEGO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DATE_UPDATE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DATE_UPDATE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DATE_UPDATE", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DATE_UPDATE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_USER", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_USER", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_USER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_USER", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_PWD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PWD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_PWD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PWD", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [CONSTANTES] ([CST_SOC_NOMSOC], [CST_SOC_ADRESSE_RUE1], [CST_SOC_ADRE"& _ 
@@ -16434,10 +16448,12 @@ Namespace dsVinicomTableAdapters
                 ", [CST_DERN_NUM_FACT_HBV], [CST_FTPEDI_USER], [CST_FTPEDI_SRV], [CST_FTPEDI_PWD]"& _ 
                 ", [CST_FTPEDI_PORT], [CST_FTPEDI_REP], [CST_FTPEDI_REPLOCAL], [CST_TRP_PARTTRP],"& _ 
                 " [CST_SOC2_COMPTEPRODUIT_TAXEGO], [CST_DATE_UPDATE], [CST_EDI_USER], [CST_EDI_PW"& _ 
-                "D]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
+                "D], [CST_IMAP_USER], [CST_IMAP_PWD], [CST_IMAP_NSEC], [CST_IMAP_MSGFOLDER], [CST"& _ 
+                "_IMAP_PORT], [CST_IMAP_HOST]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
+                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
                 " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"& _ 
                 ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
-                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                "?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_SOC_NOMSOC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_NOMSOC", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_SOC_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -16528,6 +16544,12 @@ Namespace dsVinicomTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_DATE_UPDATE", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DATE_UPDATE", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_EDI_USER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_USER", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_EDI_PWD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PWD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_USER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_USER", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_PWD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_PWD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_NSEC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_NSEC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_MSGFOLDER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_MSGFOLDER", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_PORT", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_HOST", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_HOST", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [CONSTANTES] SET [CST_SOC_NOMSOC] = ?, [CST_SOC_ADRESSE_RUE1] = ?, [CST_SO"& _ 
@@ -16557,83 +16579,9 @@ Namespace dsVinicomTableAdapters
                 "M_FACT_HBV] = ?, [CST_FTPEDI_USER] = ?, [CST_FTPEDI_SRV] = ?, [CST_FTPEDI_PWD] ="& _ 
                 " ?, [CST_FTPEDI_PORT] = ?, [CST_FTPEDI_REP] = ?, [CST_FTPEDI_REPLOCAL] = ?, [CST"& _ 
                 "_TRP_PARTTRP] = ?, [CST_SOC2_COMPTEPRODUIT_TAXEGO] = ?, [CST_DATE_UPDATE] = ?, ["& _ 
-                "CST_EDI_USER] = ?, [CST_EDI_PWD] = ? WHERE (((? = 1 AND [CST_SOC_NOMSOC] IS NULL"& _ 
-                ") OR ([CST_SOC_NOMSOC] = ?)) AND ((? = 1 AND [CST_SOC_ADRESSE_RUE1] IS NULL) OR "& _ 
-                "([CST_SOC_ADRESSE_RUE1] = ?)) AND ((? = 1 AND [CST_SOC_ADRESSE_RUE2] IS NULL) OR"& _ 
-                " ([CST_SOC_ADRESSE_RUE2] = ?)) AND ((? = 1 AND [CST_SOC_ADRESSE_CP] IS NULL) OR "& _ 
-                "([CST_SOC_ADRESSE_CP] = ?)) AND ((? = 1 AND [CST_SOC_ADRESSE_VILLE] IS NULL) OR "& _ 
-                "([CST_SOC_ADRESSE_VILLE] = ?)) AND ((? = 1 AND [CST_SOC_TEL] IS NULL) OR ([CST_S"& _ 
-                "OC_TEL] = ?)) AND ((? = 1 AND [CST_SOC_FAX] IS NULL) OR ([CST_SOC_FAX] = ?)) AND"& _ 
-                " ((? = 1 AND [CST_SOC_PORT] IS NULL) OR ([CST_SOC_PORT] = ?)) AND ((? = 1 AND [C"& _ 
-                "ST_SOC_EMAIL] IS NULL) OR ([CST_SOC_EMAIL] = ?)) AND ((? = 1 AND [CST_FAX_PAGE_G"& _ 
-                "ARDE] IS NULL) OR ([CST_FAX_PAGE_GARDE] = ?)) AND ((? = 1 AND [CST_FAX_ENVOI_PAG"& _ 
-                "E_GARDE] IS NULL) OR ([CST_FAX_ENVOI_PAGE_GARDE] = ?)) AND ((? = 1 AND [CST_FAX_"& _ 
-                "SERVERNAME] IS NULL) OR ([CST_FAX_SERVERNAME] = ?)) AND ((? = 1 AND [CST_DERN_NU"& _ 
-                "M_CMD_CLT] IS NULL) OR ([CST_DERN_NUM_CMD_CLT] = ?)) AND ((? = 1 AND [CST_DERN_N"& _ 
-                "UM_SCMD] IS NULL) OR ([CST_DERN_NUM_SCMD] = ?)) AND ((? = 1 AND [CST_DERN_NUM_BA"& _ 
-                "] IS NULL) OR ([CST_DERN_NUM_BA] = ?)) AND ((? = 1 AND [CST_VERSION_BD] IS NULL)"& _ 
-                " OR ([CST_VERSION_BD] = ?)) AND ((? = 1 AND [CST_FAX_PREFIX] IS NULL) OR ([CST_F"& _ 
-                "AX_PREFIX] = ?)) AND ((? = 1 AND [CST_TX_COMMISSION] IS NULL) OR ([CST_TX_COMMIS"& _ 
-                "SION] = ?)) AND ((? = 1 AND [CST_DERN_NUM_FACTCOM] IS NULL) OR ([CST_DERN_NUM_FA"& _ 
-                "CTCOM] = ?)) AND ((? = 1 AND [CST_PATH_FACTCOM] IS NULL) OR ([CST_PATH_FACTCOM] "& _ 
-                "= ?)) AND ((? = 1 AND [CST_DERN_NUM_FACT_TRP] IS NULL) OR ([CST_DERN_NUM_FACT_TR"& _ 
-                "P] = ?)) AND ((? = 1 AND [CST_TAXES_TRP] IS NULL) OR ([CST_TAXES_TRP] = ?)) AND "& _ 
-                "((? = 1 AND [CST_PATH_FACTTRP] IS NULL) OR ([CST_PATH_FACTTRP] = ?)) AND ((? = 1"& _ 
-                " AND [CST_TRP_IDMODEREGLEMENT] IS NULL) OR ([CST_TRP_IDMODEREGLEMENT] = ?)) AND "& _ 
-                "((? = 1 AND [CST_SOC2_NOMSOC] IS NULL) OR ([CST_SOC2_NOMSOC] = ?)) AND ((? = 1 A"& _ 
-                "ND [CST_SOC2_ADRESSE_RUE1] IS NULL) OR ([CST_SOC2_ADRESSE_RUE1] = ?)) AND ((? = "& _ 
-                "1 AND [CST_SOC2_ADRESSE_RUE2] IS NULL) OR ([CST_SOC2_ADRESSE_RUE2] = ?)) AND ((?"& _ 
-                " = 1 AND [CST_SOC2_ADRESSE_CP] IS NULL) OR ([CST_SOC2_ADRESSE_CP] = ?)) AND ((? "& _ 
-                "= 1 AND [CST_SOC2_ADRESSE_VILLE] IS NULL) OR ([CST_SOC2_ADRESSE_VILLE] = ?)) AND"& _ 
-                " ((? = 1 AND [CST_SOC2_TEL] IS NULL) OR ([CST_SOC2_TEL] = ?)) AND ((? = 1 AND [C"& _ 
-                "ST_SOC2_FAX] IS NULL) OR ([CST_SOC2_FAX] = ?)) AND ((? = 1 AND [CST_SOC2_EMAIL] "& _ 
-                "IS NULL) OR ([CST_SOC2_EMAIL] = ?)) AND ((? = 1 AND [CST_SOC2_PORT] IS NULL) OR "& _ 
-                "([CST_SOC2_PORT] = ?)) AND ((? = 1 AND [CST_PLTFRM_NOM] IS NULL) OR ([CST_PLTFRM"& _ 
-                "_NOM] = ?)) AND ((? = 1 AND [CST_PLTFRM_RUE1] IS NULL) OR ([CST_PLTFRM_RUE1] = ?"& _ 
-                ")) AND ((? = 1 AND [CST_PLTFRM_RUE2] IS NULL) OR ([CST_PLTFRM_RUE2] = ?)) AND (("& _ 
-                "? = 1 AND [CST_PLTFRM_CP] IS NULL) OR ([CST_PLTFRM_CP] = ?)) AND ((? = 1 AND [CS"& _ 
-                "T_PLTFRM_VILLE] IS NULL) OR ([CST_PLTFRM_VILLE] = ?)) AND ((? = 1 AND [CST_PLTFR"& _ 
-                "M_TEL] IS NULL) OR ([CST_PLTFRM_TEL] = ?)) AND ((? = 1 AND [CST_PLTFRM_FAX] IS N"& _ 
-                "ULL) OR ([CST_PLTFRM_FAX] = ?)) AND ((? = 1 AND [CST_PLTFRM_EMAIL] IS NULL) OR ("& _ 
-                "[CST_PLTFRM_EMAIL] = ?)) AND ((? = 1 AND [CST_PLTFRM_PORT] IS NULL) OR ([CST_PLT"& _ 
-                "FRM_PORT] = ?)) AND ((? = 1 AND [CST_TRP_TXGAZOLE] IS NULL) OR ([CST_TRP_TXGAZOL"& _ 
-                "E] = ?)) AND ((? = 1 AND [CST_PU_PALL_PREP] IS NULL) OR ([CST_PU_PALL_PREP] = ?)"& _ 
-                ") AND ((? = 1 AND [CST_PU_PALL_NONPREP] IS NULL) OR ([CST_PU_PALL_NONPREP] = ?))"& _ 
-                " AND ((? = 1 AND [FTP_HOSTNAME] IS NULL) OR ([FTP_HOSTNAME] = ?)) AND ((? = 1 AN"& _ 
-                "D [FTP_USERNAME] IS NULL) OR ([FTP_USERNAME] = ?)) AND ((? = 1 AND [FTP_PASSWORD"& _ 
-                "] IS NULL) OR ([FTP_PASSWORD] = ?)) AND ((? = 1 AND [FTP_REMOTEDIR] IS NULL) OR "& _ 
-                "([FTP_REMOTEDIR] = ?)) AND ((? = 1 AND [FTP_LOCKFROMFILENAME] IS NULL) OR ([FTP_"& _ 
-                "LOCKFROMFILENAME] = ?)) AND ((? = 1 AND [FTP_LOCKTOFILENAME] IS NULL) OR ([FTP_L"& _ 
-                "OCKTOFILENAME] = ?)) AND ((? = 1 AND [CST_DERN_NUM_FACT_COLISAGE] IS NULL) OR (["& _ 
-                "CST_DERN_NUM_FACT_COLISAGE] = ?)) AND ((? = 1 AND [CST_COL_IDMODEREGLEMENT] IS N"& _ 
-                "ULL) OR ([CST_COL_IDMODEREGLEMENT] = ?)) AND ((? = 1 AND [CST_FACT_COL_TAXES] IS"& _ 
-                " NULL) OR ([CST_FACT_COL_TAXES] = ?)) AND ((? = 1 AND [CST_FACT_COL_PU_COLIS] IS"& _ 
-                " NULL) OR ([CST_FACT_COL_PU_COLIS] = ?)) AND ((? = 1 AND [CST_SOC_RCS] IS NULL) "& _ 
-                "OR ([CST_SOC_RCS] = ?)) AND ((? = 1 AND [CST_SOC_TVAINTRA] IS NULL) OR ([CST_SOC"& _ 
-                "_TVAINTRA] = ?)) AND ((? = 1 AND [CST_SOC_LICENCE] IS NULL) OR ([CST_SOC_LICENCE"& _ 
-                "] = ?)) AND ((? = 1 AND [CST_SOC2_RCS] IS NULL) OR ([CST_SOC2_RCS] = ?)) AND ((?"& _ 
-                " = 1 AND [CST_SOC2_TVAINTRA] IS NULL) OR ([CST_SOC2_TVAINTRA] = ?)) AND ((? = 1 "& _ 
-                "AND [CST_SOC2_LICENCE] IS NULL) OR ([CST_SOC2_LICENCE] = ?)) AND ((? = 1 AND [CS"& _ 
-                "T_EXPORT_COMPTA_PATH] IS NULL) OR ([CST_EXPORT_COMPTA_PATH] = ?)) AND ((? = 1 AN"& _ 
-                "D [CST_SOC_COMPTETVA] IS NULL) OR ([CST_SOC_COMPTETVA] = ?)) AND ((? = 1 AND [CS"& _ 
-                "T_SOC_COMPTEPRODUIT] IS NULL) OR ([CST_SOC_COMPTEPRODUIT] = ?)) AND ((? = 1 AND "& _ 
-                "[CST_SOC_COMPTEBANQUE] IS NULL) OR ([CST_SOC_COMPTEBANQUE] = ?)) AND ((? = 1 AND"& _ 
-                " [CST_SOC2_COMPTETVA] IS NULL) OR ([CST_SOC2_COMPTETVA] = ?)) AND ((? = 1 AND [C"& _ 
-                "ST_SOC2_COMPTEPRODUIT] IS NULL) OR ([CST_SOC2_COMPTEPRODUIT] = ?)) AND ((? = 1 A"& _ 
-                "ND [CST_SOC2_COMPTEBANQUE] IS NULL) OR ([CST_SOC2_COMPTEBANQUE] = ?)) AND ([CST_"& _ 
-                "ID] = ?) AND ((? = 1 AND [CST_SOC2_COMPTEPRODUIT_COL] IS NULL) OR ([CST_SOC2_COM"& _ 
-                "PTEPRODUIT_COL] = ?)) AND ((? = 1 AND [CST_EDI_HOST] IS NULL) OR ([CST_EDI_HOST]"& _ 
-                " = ?)) AND ((? = 1 AND [CST_EDI_PORT] IS NULL) OR ([CST_EDI_PORT] = ?)) AND ((? "& _ 
-                "= 1 AND [CST_EDI_FROM] IS NULL) OR ([CST_EDI_FROM] = ?)) AND ((? = 1 AND [CST_ED"& _ 
-                "I_TEMP] IS NULL) OR ([CST_EDI_TEMP] = ?)) AND ((? = 1 AND [CST_SRVCE_PATH] IS NU"& _ 
-                "LL) OR ([CST_SRVCE_PATH] = ?)) AND ((? = 1 AND [CST_SRVCE_NBSEC] IS NULL) OR ([C"& _ 
-                "ST_SRVCE_NBSEC] = ?)) AND ((? = 1 AND [CST_SRVCE_PATHERROR] IS NULL) OR ([CST_SR"& _ 
-                "VCE_PATHERROR] = ?)) AND ((? = 1 AND [CST_DERN_NUM_FACT_HBV] IS NULL) OR ([CST_D"& _ 
-                "ERN_NUM_FACT_HBV] = ?)) AND ((? = 1 AND [CST_TRP_PARTTRP] IS NULL) OR ([CST_TRP_"& _ 
-                "PARTTRP] = ?)) AND ((? = 1 AND [CST_SOC2_COMPTEPRODUIT_TAXEGO] IS NULL) OR ([CST"& _ 
-                "_SOC2_COMPTEPRODUIT_TAXEGO] = ?)) AND ((? = 1 AND [CST_DATE_UPDATE] IS NULL) OR "& _ 
-                "([CST_DATE_UPDATE] = ?)) AND ((? = 1 AND [CST_EDI_USER] IS NULL) OR ([CST_EDI_US"& _ 
-                "ER] = ?)) AND ((? = 1 AND [CST_EDI_PWD] IS NULL) OR ([CST_EDI_PWD] = ?)))"
+                "CST_EDI_USER] = ?, [CST_EDI_PWD] = ?, [CST_IMAP_USER] = ?, [CST_IMAP_PWD] = ?, ["& _ 
+                "CST_IMAP_NSEC] = ?, [CST_IMAP_MSGFOLDER] = ?, [CST_IMAP_PORT] = ?, [CST_IMAP_HOS"& _ 
+                "T] = ? WHERE (([CST_ID] = ?))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_SOC_NOMSOC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_NOMSOC", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_SOC_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -16724,171 +16672,13 @@ Namespace dsVinicomTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_DATE_UPDATE", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DATE_UPDATE", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_EDI_USER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_USER", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_EDI_PWD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PWD", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_NOMSOC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_NOMSOC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_NOMSOC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_NOMSOC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_ADRESSE_RUE2", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE2", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_ADRESSE_RUE2", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE2", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_ADRESSE_CP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_CP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_ADRESSE_CP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_CP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_ADRESSE_VILLE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_VILLE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_ADRESSE_VILLE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_VILLE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_TEL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_TEL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_TEL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_TEL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_FAX", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_FAX", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_FAX", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_FAX", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_PORT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_PORT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_PORT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FAX_PAGE_GARDE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_PAGE_GARDE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FAX_PAGE_GARDE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_PAGE_GARDE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FAX_ENVOI_PAGE_GARDE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_ENVOI_PAGE_GARDE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FAX_ENVOI_PAGE_GARDE", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_ENVOI_PAGE_GARDE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FAX_SERVERNAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_SERVERNAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FAX_SERVERNAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_SERVERNAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_CMD_CLT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_CMD_CLT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_CMD_CLT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_CMD_CLT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_SCMD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_SCMD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_SCMD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_SCMD", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_BA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_BA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_BA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_BA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_VERSION_BD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_VERSION_BD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_VERSION_BD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_VERSION_BD", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FAX_PREFIX", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_PREFIX", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FAX_PREFIX", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FAX_PREFIX", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TX_COMMISSION", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TX_COMMISSION", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TX_COMMISSION", Global.System.Data.OleDb.OleDbType.[Single], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TX_COMMISSION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_FACTCOM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACTCOM", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_FACTCOM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACTCOM", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PATH_FACTCOM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PATH_FACTCOM", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PATH_FACTCOM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PATH_FACTCOM", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_FACT_TRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_TRP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_FACT_TRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_TRP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TAXES_TRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TAXES_TRP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TAXES_TRP", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TAXES_TRP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PATH_FACTTRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PATH_FACTTRP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PATH_FACTTRP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PATH_FACTTRP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TRP_IDMODEREGLEMENT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_IDMODEREGLEMENT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TRP_IDMODEREGLEMENT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_IDMODEREGLEMENT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_NOMSOC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_NOMSOC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_NOMSOC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_NOMSOC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_ADRESSE_RUE2", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_RUE2", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_ADRESSE_RUE2", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_RUE2", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_ADRESSE_CP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_CP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_ADRESSE_CP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_CP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_ADRESSE_VILLE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_VILLE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_ADRESSE_VILLE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_ADRESSE_VILLE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_TEL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_TEL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_TEL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_TEL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_FAX", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_FAX", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_FAX", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_FAX", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_PORT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_PORT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_PORT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_NOM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_NOM", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_NOM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_NOM", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_RUE1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_RUE1", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_RUE1", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_RUE2", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_RUE2", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_RUE2", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_RUE2", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_CP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_CP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_CP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_CP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_VILLE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_VILLE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_VILLE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_VILLE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_TEL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_TEL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_TEL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_TEL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_FAX", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_FAX", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_FAX", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_FAX", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PLTFRM_PORT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_PORT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PLTFRM_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PLTFRM_PORT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TRP_TXGAZOLE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_TXGAZOLE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TRP_TXGAZOLE", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_TXGAZOLE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PU_PALL_PREP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PU_PALL_PREP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PU_PALL_PREP", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PU_PALL_PREP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_PU_PALL_NONPREP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PU_PALL_NONPREP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_PU_PALL_NONPREP", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_PU_PALL_NONPREP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_HOSTNAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_HOSTNAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_HOSTNAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_HOSTNAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_USERNAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_USERNAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_USERNAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_USERNAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_PASSWORD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_PASSWORD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_PASSWORD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_PASSWORD", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_REMOTEDIR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_REMOTEDIR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_REMOTEDIR", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_REMOTEDIR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_LOCKFROMFILENAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_LOCKFROMFILENAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_LOCKFROMFILENAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_LOCKFROMFILENAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FTP_LOCKTOFILENAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_LOCKTOFILENAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FTP_LOCKTOFILENAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FTP_LOCKTOFILENAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_FACT_COLISAGE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_COLISAGE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_FACT_COLISAGE", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_COLISAGE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_COL_IDMODEREGLEMENT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_COL_IDMODEREGLEMENT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_COL_IDMODEREGLEMENT", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_COL_IDMODEREGLEMENT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FACT_COL_TAXES", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FACT_COL_TAXES", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FACT_COL_TAXES", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FACT_COL_TAXES", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_FACT_COL_PU_COLIS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FACT_COL_PU_COLIS", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_FACT_COL_PU_COLIS", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FACT_COL_PU_COLIS", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_RCS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_RCS", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_RCS", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_RCS", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_TVAINTRA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_TVAINTRA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_TVAINTRA", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_TVAINTRA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_LICENCE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_LICENCE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_LICENCE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_LICENCE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_RCS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_RCS", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_RCS", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_RCS", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_TVAINTRA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_TVAINTRA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_TVAINTRA", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_TVAINTRA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_LICENCE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_LICENCE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_LICENCE", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_LICENCE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EXPORT_COMPTA_PATH", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EXPORT_COMPTA_PATH", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EXPORT_COMPTA_PATH", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EXPORT_COMPTA_PATH", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_COMPTETVA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTETVA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_COMPTETVA", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTETVA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_COMPTEPRODUIT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTEPRODUIT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_COMPTEPRODUIT", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTEPRODUIT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC_COMPTEBANQUE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTEBANQUE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC_COMPTEBANQUE", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_COMPTEBANQUE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTETVA", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTETVA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTETVA", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTETVA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTEPRODUIT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTEPRODUIT", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTEBANQUE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEBANQUE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTEBANQUE", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEBANQUE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_USER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_USER", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_PWD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_PWD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_NSEC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_NSEC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_MSGFOLDER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_MSGFOLDER", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_PORT", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_IMAP_HOST", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_IMAP_HOST", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_ID", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTEPRODUIT_COL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT_COL", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTEPRODUIT_COL", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT_COL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_HOST", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_HOST", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_HOST", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_HOST", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_PORT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PORT", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_PORT", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PORT", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_FROM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_FROM", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_FROM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_FROM", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_TEMP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_TEMP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_TEMP", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_TEMP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SRVCE_PATH", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_PATH", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SRVCE_PATH", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_PATH", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SRVCE_NBSEC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_NBSEC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SRVCE_NBSEC", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_NBSEC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SRVCE_PATHERROR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_PATHERROR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SRVCE_PATHERROR", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SRVCE_PATHERROR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DERN_NUM_FACT_HBV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_HBV", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DERN_NUM_FACT_HBV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DERN_NUM_FACT_HBV", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_TRP_PARTTRP", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_PARTTRP", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_TRP_PARTTRP", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_TRP_PARTTRP", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_SOC2_COMPTEPRODUIT_TAXEGO", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT_TAXEGO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_SOC2_COMPTEPRODUIT_TAXEGO", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC2_COMPTEPRODUIT_TAXEGO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_DATE_UPDATE", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DATE_UPDATE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_DATE_UPDATE", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_DATE_UPDATE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_USER", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_USER", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_USER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_USER", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CST_EDI_PWD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PWD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_EDI_PWD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_EDI_PWD", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16928,8 +16718,9 @@ Namespace dsVinicomTableAdapters
                 "T_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_F"& _ 
                 "TPEDI_USER, CST_FTPEDI_SRV, CST_FTPEDI_PWD, CST_FTPEDI_PORT, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
                 "        CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRO"& _ 
-                "DUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONSTAN"& _ 
-                "TES"
+                "DUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP"& _ 
+                "_PWD, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CST_IMAP_NSEC, CST_IMAP_MSGFOLDER, CST_IMAP_POR"& _ 
+                "T, CST_IMAP_HOST"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONSTANTES"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.vini_DB.My.MySettings.Default.ConnectString)
@@ -17016,2621 +16807,6 @@ Namespace dsVinicomTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete( _
-                    ByVal Original_CST_SOC_NOMSOC As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_RUE1 As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_RUE2 As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_CP As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_VILLE As String,  _
-                    ByVal Original_CST_SOC_TEL As String,  _
-                    ByVal Original_CST_SOC_FAX As String,  _
-                    ByVal Original_CST_SOC_PORT As String,  _
-                    ByVal Original_CST_SOC_EMAIL As String,  _
-                    ByVal Original_CST_FAX_PAGE_GARDE As String,  _
-                    ByVal Original_CST_FAX_ENVOI_PAGE_GARDE As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_CST_FAX_SERVERNAME As String,  _
-                    ByVal Original_CST_DERN_NUM_CMD_CLT As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_DERN_NUM_SCMD As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_DERN_NUM_BA As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_VERSION_BD As String,  _
-                    ByVal Original_CST_FAX_PREFIX As String,  _
-                    ByVal Original_CST_TX_COMMISSION As Global.System.Nullable(Of Single),  _
-                    ByVal Original_CST_DERN_NUM_FACTCOM As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_PATH_FACTCOM As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_TRP As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_TAXES_TRP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PATH_FACTTRP As String,  _
-                    ByVal Original_CST_TRP_IDMODEREGLEMENT As String,  _
-                    ByVal Original_CST_SOC2_NOMSOC As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_RUE1 As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_RUE2 As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_CP As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_VILLE As String,  _
-                    ByVal Original_CST_SOC2_TEL As String,  _
-                    ByVal Original_CST_SOC2_FAX As String,  _
-                    ByVal Original_CST_SOC2_EMAIL As String,  _
-                    ByVal Original_CST_SOC2_PORT As String,  _
-                    ByVal Original_CST_PLTFRM_NOM As String,  _
-                    ByVal Original_CST_PLTFRM_RUE1 As String,  _
-                    ByVal Original_CST_PLTFRM_RUE2 As String,  _
-                    ByVal Original_CST_PLTFRM_CP As String,  _
-                    ByVal Original_CST_PLTFRM_VILLE As String,  _
-                    ByVal Original_CST_PLTFRM_TEL As String,  _
-                    ByVal Original_CST_PLTFRM_FAX As String,  _
-                    ByVal Original_CST_PLTFRM_EMAIL As String,  _
-                    ByVal Original_CST_PLTFRM_PORT As String,  _
-                    ByVal Original_CST_TRP_TXGAZOLE As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PU_PALL_PREP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PU_PALL_NONPREP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_FTP_HOSTNAME As String,  _
-                    ByVal Original_FTP_USERNAME As String,  _
-                    ByVal Original_FTP_PASSWORD As String,  _
-                    ByVal Original_FTP_REMOTEDIR As String,  _
-                    ByVal Original_FTP_LOCKFROMFILENAME As String,  _
-                    ByVal Original_FTP_LOCKTOFILENAME As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_COLISAGE As Global.System.Nullable(Of Short),  _
-                    ByVal Original_CST_COL_IDMODEREGLEMENT As Global.System.Nullable(Of Short),  _
-                    ByVal Original_CST_FACT_COL_TAXES As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_FACT_COL_PU_COLIS As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_SOC_RCS As String,  _
-                    ByVal Original_CST_SOC_TVAINTRA As String,  _
-                    ByVal Original_CST_SOC_LICENCE As String,  _
-                    ByVal Original_CST_SOC2_RCS As String,  _
-                    ByVal Original_CST_SOC2_TVAINTRA As String,  _
-                    ByVal Original_CST_SOC2_LICENCE As String,  _
-                    ByVal Original_CST_EXPORT_COMPTA_PATH As String,  _
-                    ByVal Original_CST_SOC_COMPTETVA As String,  _
-                    ByVal Original_CST_SOC_COMPTEPRODUIT As String,  _
-                    ByVal Original_CST_SOC_COMPTEBANQUE As String,  _
-                    ByVal Original_CST_SOC2_COMPTETVA As String,  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT As String,  _
-                    ByVal Original_CST_SOC2_COMPTEBANQUE As String,  _
-                    ByVal Original_CST_ID As Short,  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT_COL As String,  _
-                    ByVal Original_CST_EDI_HOST As String,  _
-                    ByVal Original_CST_EDI_PORT As String,  _
-                    ByVal Original_CST_EDI_FROM As String,  _
-                    ByVal Original_CST_EDI_TEMP As String,  _
-                    ByVal Original_CST_SRVCE_PATH As String,  _
-                    ByVal Original_CST_SRVCE_NBSEC As String,  _
-                    ByVal Original_CST_SRVCE_PATHERROR As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_HBV As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_TRP_PARTTRP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT_TAXEGO As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_DATE_UPDATE As Global.System.Nullable(Of Date),  _
-                    ByVal Original_CST_EDI_USER As String,  _
-                    ByVal Original_CST_EDI_PWD As String) As Integer
-            If (Original_CST_SOC_NOMSOC Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CST_SOC_NOMSOC,String)
-            End If
-            If (Original_CST_SOC_ADRESSE_RUE1 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_CST_SOC_ADRESSE_RUE1,String)
-            End If
-            If (Original_CST_SOC_ADRESSE_RUE2 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_CST_SOC_ADRESSE_RUE2,String)
-            End If
-            If (Original_CST_SOC_ADRESSE_CP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_CST_SOC_ADRESSE_CP,String)
-            End If
-            If (Original_CST_SOC_ADRESSE_VILLE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_CST_SOC_ADRESSE_VILLE,String)
-            End If
-            If (Original_CST_SOC_TEL Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_CST_SOC_TEL,String)
-            End If
-            If (Original_CST_SOC_FAX Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_CST_SOC_FAX,String)
-            End If
-            If (Original_CST_SOC_PORT Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_CST_SOC_PORT,String)
-            End If
-            If (Original_CST_SOC_EMAIL Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_CST_SOC_EMAIL,String)
-            End If
-            If (Original_CST_FAX_PAGE_GARDE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_CST_FAX_PAGE_GARDE,String)
-            End If
-            If (Original_CST_FAX_ENVOI_PAGE_GARDE.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_CST_FAX_ENVOI_PAGE_GARDE.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(21).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_FAX_SERVERNAME Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(Original_CST_FAX_SERVERNAME,String)
-            End If
-            If (Original_CST_DERN_NUM_CMD_CLT.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(Original_CST_DERN_NUM_CMD_CLT.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(25).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_DERN_NUM_SCMD.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(Original_CST_DERN_NUM_SCMD.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(27).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_DERN_NUM_BA.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(Original_CST_DERN_NUM_BA.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(29).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_VERSION_BD Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(Original_CST_VERSION_BD,String)
-            End If
-            If (Original_CST_FAX_PREFIX Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(Original_CST_FAX_PREFIX,String)
-            End If
-            If (Original_CST_TX_COMMISSION.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(Original_CST_TX_COMMISSION.Value,Single)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(35).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_DERN_NUM_FACTCOM.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(Original_CST_DERN_NUM_FACTCOM.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(37).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_PATH_FACTCOM Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(Original_CST_PATH_FACTCOM,String)
-            End If
-            If (Original_CST_DERN_NUM_FACT_TRP.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(41).Value = CType(Original_CST_DERN_NUM_FACT_TRP.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(41).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_TAXES_TRP.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(43).Value = CType(Original_CST_TAXES_TRP.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(42).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(43).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_PATH_FACTTRP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(45).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(45).Value = CType(Original_CST_PATH_FACTTRP,String)
-            End If
-            If (Original_CST_TRP_IDMODEREGLEMENT Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(47).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(46).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(47).Value = CType(Original_CST_TRP_IDMODEREGLEMENT,String)
-            End If
-            If (Original_CST_SOC2_NOMSOC Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(49).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(48).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(49).Value = CType(Original_CST_SOC2_NOMSOC,String)
-            End If
-            If (Original_CST_SOC2_ADRESSE_RUE1 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(50).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(51).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(50).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(51).Value = CType(Original_CST_SOC2_ADRESSE_RUE1,String)
-            End If
-            If (Original_CST_SOC2_ADRESSE_RUE2 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(52).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(53).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(52).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(53).Value = CType(Original_CST_SOC2_ADRESSE_RUE2,String)
-            End If
-            If (Original_CST_SOC2_ADRESSE_CP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(54).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(54).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(Original_CST_SOC2_ADRESSE_CP,String)
-            End If
-            If (Original_CST_SOC2_ADRESSE_VILLE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(56).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(57).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(56).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(Original_CST_SOC2_ADRESSE_VILLE,String)
-            End If
-            If (Original_CST_SOC2_TEL Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(58).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(59).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(58).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(59).Value = CType(Original_CST_SOC2_TEL,String)
-            End If
-            If (Original_CST_SOC2_FAX Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(60).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(60).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(61).Value = CType(Original_CST_SOC2_FAX,String)
-            End If
-            If (Original_CST_SOC2_EMAIL Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(62).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(63).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(62).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(63).Value = CType(Original_CST_SOC2_EMAIL,String)
-            End If
-            If (Original_CST_SOC2_PORT Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(64).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(65).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(64).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(65).Value = CType(Original_CST_SOC2_PORT,String)
-            End If
-            If (Original_CST_PLTFRM_NOM Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(66).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(67).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(66).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(67).Value = CType(Original_CST_PLTFRM_NOM,String)
-            End If
-            If (Original_CST_PLTFRM_RUE1 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(68).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(69).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(68).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(69).Value = CType(Original_CST_PLTFRM_RUE1,String)
-            End If
-            If (Original_CST_PLTFRM_RUE2 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(70).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(71).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(70).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(71).Value = CType(Original_CST_PLTFRM_RUE2,String)
-            End If
-            If (Original_CST_PLTFRM_CP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(72).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(73).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(72).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(73).Value = CType(Original_CST_PLTFRM_CP,String)
-            End If
-            If (Original_CST_PLTFRM_VILLE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(74).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(75).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(74).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(75).Value = CType(Original_CST_PLTFRM_VILLE,String)
-            End If
-            If (Original_CST_PLTFRM_TEL Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(76).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(77).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(76).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(77).Value = CType(Original_CST_PLTFRM_TEL,String)
-            End If
-            If (Original_CST_PLTFRM_FAX Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(78).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(79).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(78).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(79).Value = CType(Original_CST_PLTFRM_FAX,String)
-            End If
-            If (Original_CST_PLTFRM_EMAIL Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(80).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(81).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(80).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(Original_CST_PLTFRM_EMAIL,String)
-            End If
-            If (Original_CST_PLTFRM_PORT Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(82).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(83).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(82).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(83).Value = CType(Original_CST_PLTFRM_PORT,String)
-            End If
-            If (Original_CST_TRP_TXGAZOLE.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(84).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(85).Value = CType(Original_CST_TRP_TXGAZOLE.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(84).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(85).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_PU_PALL_PREP.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(86).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(87).Value = CType(Original_CST_PU_PALL_PREP.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(86).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(87).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_PU_PALL_NONPREP.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(88).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(89).Value = CType(Original_CST_PU_PALL_NONPREP.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(88).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(89).Value = Global.System.DBNull.Value
-            End If
-            If (Original_FTP_HOSTNAME Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(90).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(91).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(90).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(91).Value = CType(Original_FTP_HOSTNAME,String)
-            End If
-            If (Original_FTP_USERNAME Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(92).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(93).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(92).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(93).Value = CType(Original_FTP_USERNAME,String)
-            End If
-            If (Original_FTP_PASSWORD Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(94).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(95).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(94).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(95).Value = CType(Original_FTP_PASSWORD,String)
-            End If
-            If (Original_FTP_REMOTEDIR Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(96).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(97).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(96).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(Original_FTP_REMOTEDIR,String)
-            End If
-            If (Original_FTP_LOCKFROMFILENAME Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(98).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(99).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(98).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(Original_FTP_LOCKFROMFILENAME,String)
-            End If
-            If (Original_FTP_LOCKTOFILENAME Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(100).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(101).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(100).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(101).Value = CType(Original_FTP_LOCKTOFILENAME,String)
-            End If
-            If (Original_CST_DERN_NUM_FACT_COLISAGE.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(102).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(103).Value = CType(Original_CST_DERN_NUM_FACT_COLISAGE.Value,Short)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(102).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(103).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_COL_IDMODEREGLEMENT.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(104).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(105).Value = CType(Original_CST_COL_IDMODEREGLEMENT.Value,Short)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(104).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(105).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_FACT_COL_TAXES.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(106).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(107).Value = CType(Original_CST_FACT_COL_TAXES.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(106).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(107).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_FACT_COL_PU_COLIS.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(108).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(109).Value = CType(Original_CST_FACT_COL_PU_COLIS.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(108).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(109).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_SOC_RCS Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(110).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(111).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(110).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(111).Value = CType(Original_CST_SOC_RCS,String)
-            End If
-            If (Original_CST_SOC_TVAINTRA Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(112).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(113).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(112).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(113).Value = CType(Original_CST_SOC_TVAINTRA,String)
-            End If
-            If (Original_CST_SOC_LICENCE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(114).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(115).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(114).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(115).Value = CType(Original_CST_SOC_LICENCE,String)
-            End If
-            If (Original_CST_SOC2_RCS Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(116).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(117).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(116).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(117).Value = CType(Original_CST_SOC2_RCS,String)
-            End If
-            If (Original_CST_SOC2_TVAINTRA Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(118).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(119).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(118).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(119).Value = CType(Original_CST_SOC2_TVAINTRA,String)
-            End If
-            If (Original_CST_SOC2_LICENCE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(120).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(121).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(120).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(121).Value = CType(Original_CST_SOC2_LICENCE,String)
-            End If
-            If (Original_CST_EXPORT_COMPTA_PATH Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(122).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(123).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(122).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(123).Value = CType(Original_CST_EXPORT_COMPTA_PATH,String)
-            End If
-            If (Original_CST_SOC_COMPTETVA Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(124).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(125).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(124).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(125).Value = CType(Original_CST_SOC_COMPTETVA,String)
-            End If
-            If (Original_CST_SOC_COMPTEPRODUIT Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(126).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(127).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(126).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(127).Value = CType(Original_CST_SOC_COMPTEPRODUIT,String)
-            End If
-            If (Original_CST_SOC_COMPTEBANQUE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(128).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(129).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(128).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(129).Value = CType(Original_CST_SOC_COMPTEBANQUE,String)
-            End If
-            If (Original_CST_SOC2_COMPTETVA Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(130).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(131).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(130).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(131).Value = CType(Original_CST_SOC2_COMPTETVA,String)
-            End If
-            If (Original_CST_SOC2_COMPTEPRODUIT Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(132).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(133).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(132).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(133).Value = CType(Original_CST_SOC2_COMPTEPRODUIT,String)
-            End If
-            If (Original_CST_SOC2_COMPTEBANQUE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(134).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(135).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(134).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(135).Value = CType(Original_CST_SOC2_COMPTEBANQUE,String)
-            End If
-            Me.Adapter.DeleteCommand.Parameters(136).Value = CType(Original_CST_ID,Short)
-            If (Original_CST_SOC2_COMPTEPRODUIT_COL Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(137).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(138).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(137).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(138).Value = CType(Original_CST_SOC2_COMPTEPRODUIT_COL,String)
-            End If
-            If (Original_CST_EDI_HOST Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(139).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(140).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(139).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(140).Value = CType(Original_CST_EDI_HOST,String)
-            End If
-            If (Original_CST_EDI_PORT Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(141).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(142).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(141).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(142).Value = CType(Original_CST_EDI_PORT,String)
-            End If
-            If (Original_CST_EDI_FROM Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(143).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(144).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(143).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(144).Value = CType(Original_CST_EDI_FROM,String)
-            End If
-            If (Original_CST_EDI_TEMP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(145).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(146).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(145).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(146).Value = CType(Original_CST_EDI_TEMP,String)
-            End If
-            If (Original_CST_SRVCE_PATH Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(147).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(148).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(147).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(148).Value = CType(Original_CST_SRVCE_PATH,String)
-            End If
-            If (Original_CST_SRVCE_NBSEC Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(149).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(150).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(149).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(150).Value = CType(Original_CST_SRVCE_NBSEC,String)
-            End If
-            If (Original_CST_SRVCE_PATHERROR Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(151).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(152).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(151).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(152).Value = CType(Original_CST_SRVCE_PATHERROR,String)
-            End If
-            If (Original_CST_DERN_NUM_FACT_HBV.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(153).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(154).Value = CType(Original_CST_DERN_NUM_FACT_HBV.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(153).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(154).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_TRP_PARTTRP.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(155).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(156).Value = CType(Original_CST_TRP_PARTTRP.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(155).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(156).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_SOC2_COMPTEPRODUIT_TAXEGO.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(157).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(158).Value = CType(Original_CST_SOC2_COMPTEPRODUIT_TAXEGO.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(157).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(158).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_DATE_UPDATE.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(159).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(160).Value = CType(Original_CST_DATE_UPDATE.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(159).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(160).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_EDI_USER Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(161).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(162).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(161).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(162).Value = CType(Original_CST_EDI_USER,String)
-            End If
-            If (Original_CST_EDI_PWD Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(163).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(164).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(163).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(164).Value = CType(Original_CST_EDI_PWD,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert( _
-                    ByVal CST_SOC_NOMSOC As String,  _
-                    ByVal CST_SOC_ADRESSE_RUE1 As String,  _
-                    ByVal CST_SOC_ADRESSE_RUE2 As String,  _
-                    ByVal CST_SOC_ADRESSE_CP As String,  _
-                    ByVal CST_SOC_ADRESSE_VILLE As String,  _
-                    ByVal CST_SOC_TEL As String,  _
-                    ByVal CST_SOC_FAX As String,  _
-                    ByVal CST_SOC_PORT As String,  _
-                    ByVal CST_SOC_EMAIL As String,  _
-                    ByVal CST_FAX_PAGE_GARDE As String,  _
-                    ByVal CST_FAX_ENVOI_PAGE_GARDE As Global.System.Nullable(Of Boolean),  _
-                    ByVal CST_FAX_SERVERNAME As String,  _
-                    ByVal CST_DERN_NUM_CMD_CLT As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_DERN_NUM_SCMD As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_DERN_NUM_BA As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_VERSION_BD As String,  _
-                    ByVal CST_FAX_PREFIX As String,  _
-                    ByVal CST_TX_COMMISSION As Global.System.Nullable(Of Single),  _
-                    ByVal CST_DERN_NUM_FACTCOM As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_PATH_FACTCOM As String,  _
-                    ByVal CST_DERN_NUM_FACT_TRP As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_TAXES_TRP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PATH_FACTTRP As String,  _
-                    ByVal CST_TRP_IDMODEREGLEMENT As String,  _
-                    ByVal CST_SOC2_NOMSOC As String,  _
-                    ByVal CST_SOC2_ADRESSE_RUE1 As String,  _
-                    ByVal CST_SOC2_ADRESSE_RUE2 As String,  _
-                    ByVal CST_SOC2_ADRESSE_CP As String,  _
-                    ByVal CST_SOC2_ADRESSE_VILLE As String,  _
-                    ByVal CST_SOC2_TEL As String,  _
-                    ByVal CST_SOC2_FAX As String,  _
-                    ByVal CST_SOC2_EMAIL As String,  _
-                    ByVal CST_SOC2_PORT As String,  _
-                    ByVal CST_PLTFRM_NOM As String,  _
-                    ByVal CST_PLTFRM_RUE1 As String,  _
-                    ByVal CST_PLTFRM_RUE2 As String,  _
-                    ByVal CST_PLTFRM_CP As String,  _
-                    ByVal CST_PLTFRM_VILLE As String,  _
-                    ByVal CST_PLTFRM_TEL As String,  _
-                    ByVal CST_PLTFRM_FAX As String,  _
-                    ByVal CST_PLTFRM_EMAIL As String,  _
-                    ByVal CST_PLTFRM_PORT As String,  _
-                    ByVal CST_TRP_TXGAZOLE As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PU_PALL_PREP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PU_PALL_NONPREP As Global.System.Nullable(Of Double),  _
-                    ByVal FTP_HOSTNAME As String,  _
-                    ByVal FTP_USERNAME As String,  _
-                    ByVal FTP_PASSWORD As String,  _
-                    ByVal FTP_REMOTEDIR As String,  _
-                    ByVal FTP_LOCKFROMFILENAME As String,  _
-                    ByVal FTP_LOCKTOFILENAME As String,  _
-                    ByVal CST_DERN_NUM_FACT_COLISAGE As Global.System.Nullable(Of Short),  _
-                    ByVal CST_COL_IDMODEREGLEMENT As Global.System.Nullable(Of Short),  _
-                    ByVal CST_FACT_COL_TAXES As Global.System.Nullable(Of Double),  _
-                    ByVal CST_FACT_COL_PU_COLIS As Global.System.Nullable(Of Double),  _
-                    ByVal CST_SOC_RCS As String,  _
-                    ByVal CST_SOC_TVAINTRA As String,  _
-                    ByVal CST_SOC_LICENCE As String,  _
-                    ByVal CST_SOC2_RCS As String,  _
-                    ByVal CST_SOC2_TVAINTRA As String,  _
-                    ByVal CST_SOC2_LICENCE As String,  _
-                    ByVal CST_EXPORT_COMPTA_PATH As String,  _
-                    ByVal CST_SOC_COMPTETVA As String,  _
-                    ByVal CST_SOC_COMPTEPRODUIT As String,  _
-                    ByVal CST_SOC_COMPTEBANQUE As String,  _
-                    ByVal CST_SOC2_COMPTETVA As String,  _
-                    ByVal CST_SOC2_COMPTEPRODUIT As String,  _
-                    ByVal CST_SOC2_COMPTEBANQUE As String,  _
-                    ByVal CST_ID As Short,  _
-                    ByVal CST_SOC2_COMPTEPRODUIT_COL As String,  _
-                    ByVal CST_EDI_HOST As String,  _
-                    ByVal CST_EDI_PORT As String,  _
-                    ByVal CST_EDI_FROM As String,  _
-                    ByVal CST_EDI_TEMP As String,  _
-                    ByVal CST_SRVCE_PATH As String,  _
-                    ByVal CST_SRVCE_NBSEC As String,  _
-                    ByVal CST_SRVCE_PATHERROR As String,  _
-                    ByVal CST_DERN_NUM_FACT_HBV As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_FTPEDI_USER As String,  _
-                    ByVal CST_FTPEDI_SRV As String,  _
-                    ByVal CST_FTPEDI_PWD As String,  _
-                    ByVal CST_FTPEDI_PORT As String,  _
-                    ByVal CST_FTPEDI_REP As String,  _
-                    ByVal CST_FTPEDI_REPLOCAL As String,  _
-                    ByVal CST_TRP_PARTTRP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_SOC2_COMPTEPRODUIT_TAXEGO As Global.System.Nullable(Of Double),  _
-                    ByVal CST_DATE_UPDATE As Global.System.Nullable(Of Date),  _
-                    ByVal CST_EDI_USER As String,  _
-                    ByVal CST_EDI_PWD As String) As Integer
-            If (CST_SOC_NOMSOC Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CST_SOC_NOMSOC,String)
-            End If
-            If (CST_SOC_ADRESSE_RUE1 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CST_SOC_ADRESSE_RUE1,String)
-            End If
-            If (CST_SOC_ADRESSE_RUE2 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(CST_SOC_ADRESSE_RUE2,String)
-            End If
-            If (CST_SOC_ADRESSE_CP Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(CST_SOC_ADRESSE_CP,String)
-            End If
-            If (CST_SOC_ADRESSE_VILLE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(CST_SOC_ADRESSE_VILLE,String)
-            End If
-            If (CST_SOC_TEL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(CST_SOC_TEL,String)
-            End If
-            If (CST_SOC_FAX Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(CST_SOC_FAX,String)
-            End If
-            If (CST_SOC_PORT Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(CST_SOC_PORT,String)
-            End If
-            If (CST_SOC_EMAIL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(CST_SOC_EMAIL,String)
-            End If
-            If (CST_FAX_PAGE_GARDE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(CST_FAX_PAGE_GARDE,String)
-            End If
-            If (CST_FAX_ENVOI_PAGE_GARDE.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(CST_FAX_ENVOI_PAGE_GARDE.Value,Boolean)
-            Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (CST_FAX_SERVERNAME Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(CST_FAX_SERVERNAME,String)
-            End If
-            If (CST_DERN_NUM_CMD_CLT.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(CST_DERN_NUM_CMD_CLT.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (CST_DERN_NUM_SCMD.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(CST_DERN_NUM_SCMD.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (CST_DERN_NUM_BA.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(CST_DERN_NUM_BA.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (CST_VERSION_BD Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(CST_VERSION_BD,String)
-            End If
-            If (CST_FAX_PREFIX Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(CST_FAX_PREFIX,String)
-            End If
-            If (CST_TX_COMMISSION.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(CST_TX_COMMISSION.Value,Single)
-            Else
-                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
-            End If
-            If (CST_DERN_NUM_FACTCOM.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(CST_DERN_NUM_FACTCOM.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
-            End If
-            If (CST_PATH_FACTCOM Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(CST_PATH_FACTCOM,String)
-            End If
-            If (CST_DERN_NUM_FACT_TRP.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(CST_DERN_NUM_FACT_TRP.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
-            End If
-            If (CST_TAXES_TRP.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(CST_TAXES_TRP.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
-            End If
-            If (CST_PATH_FACTTRP Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(22).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(22).Value = CType(CST_PATH_FACTTRP,String)
-            End If
-            If (CST_TRP_IDMODEREGLEMENT Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(23).Value = CType(CST_TRP_IDMODEREGLEMENT,String)
-            End If
-            If (CST_SOC2_NOMSOC Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(24).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(24).Value = CType(CST_SOC2_NOMSOC,String)
-            End If
-            If (CST_SOC2_ADRESSE_RUE1 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(25).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(25).Value = CType(CST_SOC2_ADRESSE_RUE1,String)
-            End If
-            If (CST_SOC2_ADRESSE_RUE2 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(26).Value = CType(CST_SOC2_ADRESSE_RUE2,String)
-            End If
-            If (CST_SOC2_ADRESSE_CP Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(27).Value = CType(CST_SOC2_ADRESSE_CP,String)
-            End If
-            If (CST_SOC2_ADRESSE_VILLE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(28).Value = CType(CST_SOC2_ADRESSE_VILLE,String)
-            End If
-            If (CST_SOC2_TEL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(29).Value = CType(CST_SOC2_TEL,String)
-            End If
-            If (CST_SOC2_FAX Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(30).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(30).Value = CType(CST_SOC2_FAX,String)
-            End If
-            If (CST_SOC2_EMAIL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(31).Value = CType(CST_SOC2_EMAIL,String)
-            End If
-            If (CST_SOC2_PORT Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(32).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(32).Value = CType(CST_SOC2_PORT,String)
-            End If
-            If (CST_PLTFRM_NOM Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(33).Value = CType(CST_PLTFRM_NOM,String)
-            End If
-            If (CST_PLTFRM_RUE1 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(34).Value = CType(CST_PLTFRM_RUE1,String)
-            End If
-            If (CST_PLTFRM_RUE2 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(35).Value = CType(CST_PLTFRM_RUE2,String)
-            End If
-            If (CST_PLTFRM_CP Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(36).Value = CType(CST_PLTFRM_CP,String)
-            End If
-            If (CST_PLTFRM_VILLE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(37).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(37).Value = CType(CST_PLTFRM_VILLE,String)
-            End If
-            If (CST_PLTFRM_TEL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(38).Value = CType(CST_PLTFRM_TEL,String)
-            End If
-            If (CST_PLTFRM_FAX Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(39).Value = CType(CST_PLTFRM_FAX,String)
-            End If
-            If (CST_PLTFRM_EMAIL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(40).Value = CType(CST_PLTFRM_EMAIL,String)
-            End If
-            If (CST_PLTFRM_PORT Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(41).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(41).Value = CType(CST_PLTFRM_PORT,String)
-            End If
-            If (CST_TRP_TXGAZOLE.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(42).Value = CType(CST_TRP_TXGAZOLE.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
-            End If
-            If (CST_PU_PALL_PREP.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(43).Value = CType(CST_PU_PALL_PREP.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(43).Value = Global.System.DBNull.Value
-            End If
-            If (CST_PU_PALL_NONPREP.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(44).Value = CType(CST_PU_PALL_NONPREP.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(44).Value = Global.System.DBNull.Value
-            End If
-            If (FTP_HOSTNAME Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(45).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(45).Value = CType(FTP_HOSTNAME,String)
-            End If
-            If (FTP_USERNAME Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(46).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(46).Value = CType(FTP_USERNAME,String)
-            End If
-            If (FTP_PASSWORD Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(47).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(47).Value = CType(FTP_PASSWORD,String)
-            End If
-            If (FTP_REMOTEDIR Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(48).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(48).Value = CType(FTP_REMOTEDIR,String)
-            End If
-            If (FTP_LOCKFROMFILENAME Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(49).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(49).Value = CType(FTP_LOCKFROMFILENAME,String)
-            End If
-            If (FTP_LOCKTOFILENAME Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(50).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(50).Value = CType(FTP_LOCKTOFILENAME,String)
-            End If
-            If (CST_DERN_NUM_FACT_COLISAGE.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(51).Value = CType(CST_DERN_NUM_FACT_COLISAGE.Value,Short)
-            Else
-                Me.Adapter.InsertCommand.Parameters(51).Value = Global.System.DBNull.Value
-            End If
-            If (CST_COL_IDMODEREGLEMENT.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(52).Value = CType(CST_COL_IDMODEREGLEMENT.Value,Short)
-            Else
-                Me.Adapter.InsertCommand.Parameters(52).Value = Global.System.DBNull.Value
-            End If
-            If (CST_FACT_COL_TAXES.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(53).Value = CType(CST_FACT_COL_TAXES.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
-            End If
-            If (CST_FACT_COL_PU_COLIS.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(54).Value = CType(CST_FACT_COL_PU_COLIS.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(54).Value = Global.System.DBNull.Value
-            End If
-            If (CST_SOC_RCS Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(55).Value = CType(CST_SOC_RCS,String)
-            End If
-            If (CST_SOC_TVAINTRA Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(56).Value = CType(CST_SOC_TVAINTRA,String)
-            End If
-            If (CST_SOC_LICENCE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(57).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(57).Value = CType(CST_SOC_LICENCE,String)
-            End If
-            If (CST_SOC2_RCS Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(58).Value = CType(CST_SOC2_RCS,String)
-            End If
-            If (CST_SOC2_TVAINTRA Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(59).Value = CType(CST_SOC2_TVAINTRA,String)
-            End If
-            If (CST_SOC2_LICENCE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(60).Value = CType(CST_SOC2_LICENCE,String)
-            End If
-            If (CST_EXPORT_COMPTA_PATH Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(61).Value = CType(CST_EXPORT_COMPTA_PATH,String)
-            End If
-            If (CST_SOC_COMPTETVA Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(62).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(62).Value = CType(CST_SOC_COMPTETVA,String)
-            End If
-            If (CST_SOC_COMPTEPRODUIT Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(63).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(63).Value = CType(CST_SOC_COMPTEPRODUIT,String)
-            End If
-            If (CST_SOC_COMPTEBANQUE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(64).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(64).Value = CType(CST_SOC_COMPTEBANQUE,String)
-            End If
-            If (CST_SOC2_COMPTETVA Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(65).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(65).Value = CType(CST_SOC2_COMPTETVA,String)
-            End If
-            If (CST_SOC2_COMPTEPRODUIT Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(66).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(66).Value = CType(CST_SOC2_COMPTEPRODUIT,String)
-            End If
-            If (CST_SOC2_COMPTEBANQUE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(67).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(67).Value = CType(CST_SOC2_COMPTEBANQUE,String)
-            End If
-            Me.Adapter.InsertCommand.Parameters(68).Value = CType(CST_ID,Short)
-            If (CST_SOC2_COMPTEPRODUIT_COL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(69).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(69).Value = CType(CST_SOC2_COMPTEPRODUIT_COL,String)
-            End If
-            If (CST_EDI_HOST Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(70).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(70).Value = CType(CST_EDI_HOST,String)
-            End If
-            If (CST_EDI_PORT Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(71).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(71).Value = CType(CST_EDI_PORT,String)
-            End If
-            If (CST_EDI_FROM Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(72).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(72).Value = CType(CST_EDI_FROM,String)
-            End If
-            If (CST_EDI_TEMP Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(73).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(73).Value = CType(CST_EDI_TEMP,String)
-            End If
-            If (CST_SRVCE_PATH Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(74).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(74).Value = CType(CST_SRVCE_PATH,String)
-            End If
-            If (CST_SRVCE_NBSEC Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(75).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(75).Value = CType(CST_SRVCE_NBSEC,String)
-            End If
-            If (CST_SRVCE_PATHERROR Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(76).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(76).Value = CType(CST_SRVCE_PATHERROR,String)
-            End If
-            If (CST_DERN_NUM_FACT_HBV.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(77).Value = CType(CST_DERN_NUM_FACT_HBV.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(77).Value = Global.System.DBNull.Value
-            End If
-            If (CST_FTPEDI_USER Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(78).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(78).Value = CType(CST_FTPEDI_USER,String)
-            End If
-            If (CST_FTPEDI_SRV Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(79).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(79).Value = CType(CST_FTPEDI_SRV,String)
-            End If
-            If (CST_FTPEDI_PWD Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(80).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(80).Value = CType(CST_FTPEDI_PWD,String)
-            End If
-            If (CST_FTPEDI_PORT Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(81).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(81).Value = CType(CST_FTPEDI_PORT,String)
-            End If
-            If (CST_FTPEDI_REP Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(82).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(82).Value = CType(CST_FTPEDI_REP,String)
-            End If
-            If (CST_FTPEDI_REPLOCAL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(83).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(83).Value = CType(CST_FTPEDI_REPLOCAL,String)
-            End If
-            If (CST_TRP_PARTTRP.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(84).Value = CType(CST_TRP_PARTTRP.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(84).Value = Global.System.DBNull.Value
-            End If
-            If (CST_SOC2_COMPTEPRODUIT_TAXEGO.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(85).Value = CType(CST_SOC2_COMPTEPRODUIT_TAXEGO.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(85).Value = Global.System.DBNull.Value
-            End If
-            If (CST_DATE_UPDATE.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(86).Value = CType(CST_DATE_UPDATE.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(86).Value = Global.System.DBNull.Value
-            End If
-            If (CST_EDI_USER Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(87).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(87).Value = CType(CST_EDI_USER,String)
-            End If
-            If (CST_EDI_PWD Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(88).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(88).Value = CType(CST_EDI_PWD,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal CST_SOC_NOMSOC As String,  _
-                    ByVal CST_SOC_ADRESSE_RUE1 As String,  _
-                    ByVal CST_SOC_ADRESSE_RUE2 As String,  _
-                    ByVal CST_SOC_ADRESSE_CP As String,  _
-                    ByVal CST_SOC_ADRESSE_VILLE As String,  _
-                    ByVal CST_SOC_TEL As String,  _
-                    ByVal CST_SOC_FAX As String,  _
-                    ByVal CST_SOC_PORT As String,  _
-                    ByVal CST_SOC_EMAIL As String,  _
-                    ByVal CST_FAX_PAGE_GARDE As String,  _
-                    ByVal CST_FAX_ENVOI_PAGE_GARDE As Global.System.Nullable(Of Boolean),  _
-                    ByVal CST_FAX_SERVERNAME As String,  _
-                    ByVal CST_DERN_NUM_CMD_CLT As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_DERN_NUM_SCMD As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_DERN_NUM_BA As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_VERSION_BD As String,  _
-                    ByVal CST_FAX_PREFIX As String,  _
-                    ByVal CST_TX_COMMISSION As Global.System.Nullable(Of Single),  _
-                    ByVal CST_DERN_NUM_FACTCOM As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_PATH_FACTCOM As String,  _
-                    ByVal CST_DERN_NUM_FACT_TRP As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_TAXES_TRP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PATH_FACTTRP As String,  _
-                    ByVal CST_TRP_IDMODEREGLEMENT As String,  _
-                    ByVal CST_SOC2_NOMSOC As String,  _
-                    ByVal CST_SOC2_ADRESSE_RUE1 As String,  _
-                    ByVal CST_SOC2_ADRESSE_RUE2 As String,  _
-                    ByVal CST_SOC2_ADRESSE_CP As String,  _
-                    ByVal CST_SOC2_ADRESSE_VILLE As String,  _
-                    ByVal CST_SOC2_TEL As String,  _
-                    ByVal CST_SOC2_FAX As String,  _
-                    ByVal CST_SOC2_EMAIL As String,  _
-                    ByVal CST_SOC2_PORT As String,  _
-                    ByVal CST_PLTFRM_NOM As String,  _
-                    ByVal CST_PLTFRM_RUE1 As String,  _
-                    ByVal CST_PLTFRM_RUE2 As String,  _
-                    ByVal CST_PLTFRM_CP As String,  _
-                    ByVal CST_PLTFRM_VILLE As String,  _
-                    ByVal CST_PLTFRM_TEL As String,  _
-                    ByVal CST_PLTFRM_FAX As String,  _
-                    ByVal CST_PLTFRM_EMAIL As String,  _
-                    ByVal CST_PLTFRM_PORT As String,  _
-                    ByVal CST_TRP_TXGAZOLE As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PU_PALL_PREP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PU_PALL_NONPREP As Global.System.Nullable(Of Double),  _
-                    ByVal FTP_HOSTNAME As String,  _
-                    ByVal FTP_USERNAME As String,  _
-                    ByVal FTP_PASSWORD As String,  _
-                    ByVal FTP_REMOTEDIR As String,  _
-                    ByVal FTP_LOCKFROMFILENAME As String,  _
-                    ByVal FTP_LOCKTOFILENAME As String,  _
-                    ByVal CST_DERN_NUM_FACT_COLISAGE As Global.System.Nullable(Of Short),  _
-                    ByVal CST_COL_IDMODEREGLEMENT As Global.System.Nullable(Of Short),  _
-                    ByVal CST_FACT_COL_TAXES As Global.System.Nullable(Of Double),  _
-                    ByVal CST_FACT_COL_PU_COLIS As Global.System.Nullable(Of Double),  _
-                    ByVal CST_SOC_RCS As String,  _
-                    ByVal CST_SOC_TVAINTRA As String,  _
-                    ByVal CST_SOC_LICENCE As String,  _
-                    ByVal CST_SOC2_RCS As String,  _
-                    ByVal CST_SOC2_TVAINTRA As String,  _
-                    ByVal CST_SOC2_LICENCE As String,  _
-                    ByVal CST_EXPORT_COMPTA_PATH As String,  _
-                    ByVal CST_SOC_COMPTETVA As String,  _
-                    ByVal CST_SOC_COMPTEPRODUIT As String,  _
-                    ByVal CST_SOC_COMPTEBANQUE As String,  _
-                    ByVal CST_SOC2_COMPTETVA As String,  _
-                    ByVal CST_SOC2_COMPTEPRODUIT As String,  _
-                    ByVal CST_SOC2_COMPTEBANQUE As String,  _
-                    ByVal CST_ID As Short,  _
-                    ByVal CST_SOC2_COMPTEPRODUIT_COL As String,  _
-                    ByVal CST_EDI_HOST As String,  _
-                    ByVal CST_EDI_PORT As String,  _
-                    ByVal CST_EDI_FROM As String,  _
-                    ByVal CST_EDI_TEMP As String,  _
-                    ByVal CST_SRVCE_PATH As String,  _
-                    ByVal CST_SRVCE_NBSEC As String,  _
-                    ByVal CST_SRVCE_PATHERROR As String,  _
-                    ByVal CST_DERN_NUM_FACT_HBV As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_FTPEDI_USER As String,  _
-                    ByVal CST_FTPEDI_SRV As String,  _
-                    ByVal CST_FTPEDI_PWD As String,  _
-                    ByVal CST_FTPEDI_PORT As String,  _
-                    ByVal CST_FTPEDI_REP As String,  _
-                    ByVal CST_FTPEDI_REPLOCAL As String,  _
-                    ByVal CST_TRP_PARTTRP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_SOC2_COMPTEPRODUIT_TAXEGO As Global.System.Nullable(Of Double),  _
-                    ByVal CST_DATE_UPDATE As Global.System.Nullable(Of Date),  _
-                    ByVal CST_EDI_USER As String,  _
-                    ByVal CST_EDI_PWD As String,  _
-                    ByVal Original_CST_SOC_NOMSOC As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_RUE1 As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_RUE2 As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_CP As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_VILLE As String,  _
-                    ByVal Original_CST_SOC_TEL As String,  _
-                    ByVal Original_CST_SOC_FAX As String,  _
-                    ByVal Original_CST_SOC_PORT As String,  _
-                    ByVal Original_CST_SOC_EMAIL As String,  _
-                    ByVal Original_CST_FAX_PAGE_GARDE As String,  _
-                    ByVal Original_CST_FAX_ENVOI_PAGE_GARDE As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_CST_FAX_SERVERNAME As String,  _
-                    ByVal Original_CST_DERN_NUM_CMD_CLT As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_DERN_NUM_SCMD As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_DERN_NUM_BA As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_VERSION_BD As String,  _
-                    ByVal Original_CST_FAX_PREFIX As String,  _
-                    ByVal Original_CST_TX_COMMISSION As Global.System.Nullable(Of Single),  _
-                    ByVal Original_CST_DERN_NUM_FACTCOM As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_PATH_FACTCOM As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_TRP As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_TAXES_TRP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PATH_FACTTRP As String,  _
-                    ByVal Original_CST_TRP_IDMODEREGLEMENT As String,  _
-                    ByVal Original_CST_SOC2_NOMSOC As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_RUE1 As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_RUE2 As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_CP As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_VILLE As String,  _
-                    ByVal Original_CST_SOC2_TEL As String,  _
-                    ByVal Original_CST_SOC2_FAX As String,  _
-                    ByVal Original_CST_SOC2_EMAIL As String,  _
-                    ByVal Original_CST_SOC2_PORT As String,  _
-                    ByVal Original_CST_PLTFRM_NOM As String,  _
-                    ByVal Original_CST_PLTFRM_RUE1 As String,  _
-                    ByVal Original_CST_PLTFRM_RUE2 As String,  _
-                    ByVal Original_CST_PLTFRM_CP As String,  _
-                    ByVal Original_CST_PLTFRM_VILLE As String,  _
-                    ByVal Original_CST_PLTFRM_TEL As String,  _
-                    ByVal Original_CST_PLTFRM_FAX As String,  _
-                    ByVal Original_CST_PLTFRM_EMAIL As String,  _
-                    ByVal Original_CST_PLTFRM_PORT As String,  _
-                    ByVal Original_CST_TRP_TXGAZOLE As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PU_PALL_PREP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PU_PALL_NONPREP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_FTP_HOSTNAME As String,  _
-                    ByVal Original_FTP_USERNAME As String,  _
-                    ByVal Original_FTP_PASSWORD As String,  _
-                    ByVal Original_FTP_REMOTEDIR As String,  _
-                    ByVal Original_FTP_LOCKFROMFILENAME As String,  _
-                    ByVal Original_FTP_LOCKTOFILENAME As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_COLISAGE As Global.System.Nullable(Of Short),  _
-                    ByVal Original_CST_COL_IDMODEREGLEMENT As Global.System.Nullable(Of Short),  _
-                    ByVal Original_CST_FACT_COL_TAXES As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_FACT_COL_PU_COLIS As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_SOC_RCS As String,  _
-                    ByVal Original_CST_SOC_TVAINTRA As String,  _
-                    ByVal Original_CST_SOC_LICENCE As String,  _
-                    ByVal Original_CST_SOC2_RCS As String,  _
-                    ByVal Original_CST_SOC2_TVAINTRA As String,  _
-                    ByVal Original_CST_SOC2_LICENCE As String,  _
-                    ByVal Original_CST_EXPORT_COMPTA_PATH As String,  _
-                    ByVal Original_CST_SOC_COMPTETVA As String,  _
-                    ByVal Original_CST_SOC_COMPTEPRODUIT As String,  _
-                    ByVal Original_CST_SOC_COMPTEBANQUE As String,  _
-                    ByVal Original_CST_SOC2_COMPTETVA As String,  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT As String,  _
-                    ByVal Original_CST_SOC2_COMPTEBANQUE As String,  _
-                    ByVal Original_CST_ID As Short,  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT_COL As String,  _
-                    ByVal Original_CST_EDI_HOST As String,  _
-                    ByVal Original_CST_EDI_PORT As String,  _
-                    ByVal Original_CST_EDI_FROM As String,  _
-                    ByVal Original_CST_EDI_TEMP As String,  _
-                    ByVal Original_CST_SRVCE_PATH As String,  _
-                    ByVal Original_CST_SRVCE_NBSEC As String,  _
-                    ByVal Original_CST_SRVCE_PATHERROR As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_HBV As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_TRP_PARTTRP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT_TAXEGO As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_DATE_UPDATE As Global.System.Nullable(Of Date),  _
-                    ByVal Original_CST_EDI_USER As String,  _
-                    ByVal Original_CST_EDI_PWD As String) As Integer
-            If (CST_SOC_NOMSOC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CST_SOC_NOMSOC,String)
-            End If
-            If (CST_SOC_ADRESSE_RUE1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CST_SOC_ADRESSE_RUE1,String)
-            End If
-            If (CST_SOC_ADRESSE_RUE2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CST_SOC_ADRESSE_RUE2,String)
-            End If
-            If (CST_SOC_ADRESSE_CP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(CST_SOC_ADRESSE_CP,String)
-            End If
-            If (CST_SOC_ADRESSE_VILLE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(CST_SOC_ADRESSE_VILLE,String)
-            End If
-            If (CST_SOC_TEL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(CST_SOC_TEL,String)
-            End If
-            If (CST_SOC_FAX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(CST_SOC_FAX,String)
-            End If
-            If (CST_SOC_PORT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(CST_SOC_PORT,String)
-            End If
-            If (CST_SOC_EMAIL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(CST_SOC_EMAIL,String)
-            End If
-            If (CST_FAX_PAGE_GARDE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(CST_FAX_PAGE_GARDE,String)
-            End If
-            If (CST_FAX_ENVOI_PAGE_GARDE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(CST_FAX_ENVOI_PAGE_GARDE.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (CST_FAX_SERVERNAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(CST_FAX_SERVERNAME,String)
-            End If
-            If (CST_DERN_NUM_CMD_CLT.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(CST_DERN_NUM_CMD_CLT.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (CST_DERN_NUM_SCMD.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(CST_DERN_NUM_SCMD.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (CST_DERN_NUM_BA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(CST_DERN_NUM_BA.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (CST_VERSION_BD Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(CST_VERSION_BD,String)
-            End If
-            If (CST_FAX_PREFIX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(CST_FAX_PREFIX,String)
-            End If
-            If (CST_TX_COMMISSION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(CST_TX_COMMISSION.Value,Single)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
-            End If
-            If (CST_DERN_NUM_FACTCOM.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(CST_DERN_NUM_FACTCOM.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
-            End If
-            If (CST_PATH_FACTCOM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(CST_PATH_FACTCOM,String)
-            End If
-            If (CST_DERN_NUM_FACT_TRP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(CST_DERN_NUM_FACT_TRP.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
-            End If
-            If (CST_TAXES_TRP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(CST_TAXES_TRP.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            End If
-            If (CST_PATH_FACTTRP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(CST_PATH_FACTTRP,String)
-            End If
-            If (CST_TRP_IDMODEREGLEMENT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(CST_TRP_IDMODEREGLEMENT,String)
-            End If
-            If (CST_SOC2_NOMSOC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(CST_SOC2_NOMSOC,String)
-            End If
-            If (CST_SOC2_ADRESSE_RUE1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(CST_SOC2_ADRESSE_RUE1,String)
-            End If
-            If (CST_SOC2_ADRESSE_RUE2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(CST_SOC2_ADRESSE_RUE2,String)
-            End If
-            If (CST_SOC2_ADRESSE_CP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(CST_SOC2_ADRESSE_CP,String)
-            End If
-            If (CST_SOC2_ADRESSE_VILLE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(CST_SOC2_ADRESSE_VILLE,String)
-            End If
-            If (CST_SOC2_TEL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(CST_SOC2_TEL,String)
-            End If
-            If (CST_SOC2_FAX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(CST_SOC2_FAX,String)
-            End If
-            If (CST_SOC2_EMAIL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(CST_SOC2_EMAIL,String)
-            End If
-            If (CST_SOC2_PORT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(CST_SOC2_PORT,String)
-            End If
-            If (CST_PLTFRM_NOM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(CST_PLTFRM_NOM,String)
-            End If
-            If (CST_PLTFRM_RUE1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(CST_PLTFRM_RUE1,String)
-            End If
-            If (CST_PLTFRM_RUE2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(CST_PLTFRM_RUE2,String)
-            End If
-            If (CST_PLTFRM_CP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(CST_PLTFRM_CP,String)
-            End If
-            If (CST_PLTFRM_VILLE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(CST_PLTFRM_VILLE,String)
-            End If
-            If (CST_PLTFRM_TEL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(CST_PLTFRM_TEL,String)
-            End If
-            If (CST_PLTFRM_FAX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(CST_PLTFRM_FAX,String)
-            End If
-            If (CST_PLTFRM_EMAIL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(CST_PLTFRM_EMAIL,String)
-            End If
-            If (CST_PLTFRM_PORT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(CST_PLTFRM_PORT,String)
-            End If
-            If (CST_TRP_TXGAZOLE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(CST_TRP_TXGAZOLE.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
-            End If
-            If (CST_PU_PALL_PREP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(CST_PU_PALL_PREP.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
-            End If
-            If (CST_PU_PALL_NONPREP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(CST_PU_PALL_NONPREP.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
-            End If
-            If (FTP_HOSTNAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(FTP_HOSTNAME,String)
-            End If
-            If (FTP_USERNAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(FTP_USERNAME,String)
-            End If
-            If (FTP_PASSWORD Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(FTP_PASSWORD,String)
-            End If
-            If (FTP_REMOTEDIR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(FTP_REMOTEDIR,String)
-            End If
-            If (FTP_LOCKFROMFILENAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(FTP_LOCKFROMFILENAME,String)
-            End If
-            If (FTP_LOCKTOFILENAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(FTP_LOCKTOFILENAME,String)
-            End If
-            If (CST_DERN_NUM_FACT_COLISAGE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(CST_DERN_NUM_FACT_COLISAGE.Value,Short)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
-            End If
-            If (CST_COL_IDMODEREGLEMENT.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(CST_COL_IDMODEREGLEMENT.Value,Short)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
-            End If
-            If (CST_FACT_COL_TAXES.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(CST_FACT_COL_TAXES.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
-            End If
-            If (CST_FACT_COL_PU_COLIS.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(CST_FACT_COL_PU_COLIS.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
-            End If
-            If (CST_SOC_RCS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(CST_SOC_RCS,String)
-            End If
-            If (CST_SOC_TVAINTRA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(CST_SOC_TVAINTRA,String)
-            End If
-            If (CST_SOC_LICENCE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(CST_SOC_LICENCE,String)
-            End If
-            If (CST_SOC2_RCS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(CST_SOC2_RCS,String)
-            End If
-            If (CST_SOC2_TVAINTRA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(CST_SOC2_TVAINTRA,String)
-            End If
-            If (CST_SOC2_LICENCE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(CST_SOC2_LICENCE,String)
-            End If
-            If (CST_EXPORT_COMPTA_PATH Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(CST_EXPORT_COMPTA_PATH,String)
-            End If
-            If (CST_SOC_COMPTETVA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(CST_SOC_COMPTETVA,String)
-            End If
-            If (CST_SOC_COMPTEPRODUIT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(CST_SOC_COMPTEPRODUIT,String)
-            End If
-            If (CST_SOC_COMPTEBANQUE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(CST_SOC_COMPTEBANQUE,String)
-            End If
-            If (CST_SOC2_COMPTETVA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(65).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(CST_SOC2_COMPTETVA,String)
-            End If
-            If (CST_SOC2_COMPTEPRODUIT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(CST_SOC2_COMPTEPRODUIT,String)
-            End If
-            If (CST_SOC2_COMPTEBANQUE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(CST_SOC2_COMPTEBANQUE,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(68).Value = CType(CST_ID,Short)
-            If (CST_SOC2_COMPTEPRODUIT_COL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(CST_SOC2_COMPTEPRODUIT_COL,String)
-            End If
-            If (CST_EDI_HOST Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(CST_EDI_HOST,String)
-            End If
-            If (CST_EDI_PORT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(CST_EDI_PORT,String)
-            End If
-            If (CST_EDI_FROM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(CST_EDI_FROM,String)
-            End If
-            If (CST_EDI_TEMP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(CST_EDI_TEMP,String)
-            End If
-            If (CST_SRVCE_PATH Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(CST_SRVCE_PATH,String)
-            End If
-            If (CST_SRVCE_NBSEC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(CST_SRVCE_NBSEC,String)
-            End If
-            If (CST_SRVCE_PATHERROR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(CST_SRVCE_PATHERROR,String)
-            End If
-            If (CST_DERN_NUM_FACT_HBV.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(CST_DERN_NUM_FACT_HBV.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(77).Value = Global.System.DBNull.Value
-            End If
-            If (CST_FTPEDI_USER Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(CST_FTPEDI_USER,String)
-            End If
-            If (CST_FTPEDI_SRV Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(79).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(CST_FTPEDI_SRV,String)
-            End If
-            If (CST_FTPEDI_PWD Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(CST_FTPEDI_PWD,String)
-            End If
-            If (CST_FTPEDI_PORT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(81).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(CST_FTPEDI_PORT,String)
-            End If
-            If (CST_FTPEDI_REP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(CST_FTPEDI_REP,String)
-            End If
-            If (CST_FTPEDI_REPLOCAL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(83).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(CST_FTPEDI_REPLOCAL,String)
-            End If
-            If (CST_TRP_PARTTRP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(CST_TRP_PARTTRP.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
-            End If
-            If (CST_SOC2_COMPTEPRODUIT_TAXEGO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(CST_SOC2_COMPTEPRODUIT_TAXEGO.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(85).Value = Global.System.DBNull.Value
-            End If
-            If (CST_DATE_UPDATE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(CST_DATE_UPDATE.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
-            End If
-            If (CST_EDI_USER Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(87).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(CST_EDI_USER,String)
-            End If
-            If (CST_EDI_PWD Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(CST_EDI_PWD,String)
-            End If
-            If (Original_CST_SOC_NOMSOC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_CST_SOC_NOMSOC,String)
-            End If
-            If (Original_CST_SOC_ADRESSE_RUE1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_CST_SOC_ADRESSE_RUE1,String)
-            End If
-            If (Original_CST_SOC_ADRESSE_RUE2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_CST_SOC_ADRESSE_RUE2,String)
-            End If
-            If (Original_CST_SOC_ADRESSE_CP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_CST_SOC_ADRESSE_CP,String)
-            End If
-            If (Original_CST_SOC_ADRESSE_VILLE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_CST_SOC_ADRESSE_VILLE,String)
-            End If
-            If (Original_CST_SOC_TEL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_CST_SOC_TEL,String)
-            End If
-            If (Original_CST_SOC_FAX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_CST_SOC_FAX,String)
-            End If
-            If (Original_CST_SOC_PORT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_CST_SOC_PORT,String)
-            End If
-            If (Original_CST_SOC_EMAIL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_CST_SOC_EMAIL,String)
-            End If
-            If (Original_CST_FAX_PAGE_GARDE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_CST_FAX_PAGE_GARDE,String)
-            End If
-            If (Original_CST_FAX_ENVOI_PAGE_GARDE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_CST_FAX_ENVOI_PAGE_GARDE.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_FAX_SERVERNAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_CST_FAX_SERVERNAME,String)
-            End If
-            If (Original_CST_DERN_NUM_CMD_CLT.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_CST_DERN_NUM_CMD_CLT.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_DERN_NUM_SCMD.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_CST_DERN_NUM_SCMD.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_DERN_NUM_BA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_CST_DERN_NUM_BA.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_VERSION_BD Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_CST_VERSION_BD,String)
-            End If
-            If (Original_CST_FAX_PREFIX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_CST_FAX_PREFIX,String)
-            End If
-            If (Original_CST_TX_COMMISSION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_CST_TX_COMMISSION.Value,Single)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_DERN_NUM_FACTCOM.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_CST_DERN_NUM_FACTCOM.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_PATH_FACTCOM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(128).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(Original_CST_PATH_FACTCOM,String)
-            End If
-            If (Original_CST_DERN_NUM_FACT_TRP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(Original_CST_DERN_NUM_FACT_TRP.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(130).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_TAXES_TRP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(Original_CST_TAXES_TRP.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(132).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_PATH_FACTTRP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(134).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(Original_CST_PATH_FACTTRP,String)
-            End If
-            If (Original_CST_TRP_IDMODEREGLEMENT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(136).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(Original_CST_TRP_IDMODEREGLEMENT,String)
-            End If
-            If (Original_CST_SOC2_NOMSOC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(Original_CST_SOC2_NOMSOC,String)
-            End If
-            If (Original_CST_SOC2_ADRESSE_RUE1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_CST_SOC2_ADRESSE_RUE1,String)
-            End If
-            If (Original_CST_SOC2_ADRESSE_RUE2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_CST_SOC2_ADRESSE_RUE2,String)
-            End If
-            If (Original_CST_SOC2_ADRESSE_CP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_CST_SOC2_ADRESSE_CP,String)
-            End If
-            If (Original_CST_SOC2_ADRESSE_VILLE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_CST_SOC2_ADRESSE_VILLE,String)
-            End If
-            If (Original_CST_SOC2_TEL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(148).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(Original_CST_SOC2_TEL,String)
-            End If
-            If (Original_CST_SOC2_FAX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(150).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_CST_SOC2_FAX,String)
-            End If
-            If (Original_CST_SOC2_EMAIL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(152).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_CST_SOC2_EMAIL,String)
-            End If
-            If (Original_CST_SOC2_PORT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(154).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(Original_CST_SOC2_PORT,String)
-            End If
-            If (Original_CST_PLTFRM_NOM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(156).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_CST_PLTFRM_NOM,String)
-            End If
-            If (Original_CST_PLTFRM_RUE1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(158).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_CST_PLTFRM_RUE1,String)
-            End If
-            If (Original_CST_PLTFRM_RUE2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(160).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(Original_CST_PLTFRM_RUE2,String)
-            End If
-            If (Original_CST_PLTFRM_CP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(162).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(Original_CST_PLTFRM_CP,String)
-            End If
-            If (Original_CST_PLTFRM_VILLE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(164).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(Original_CST_PLTFRM_VILLE,String)
-            End If
-            If (Original_CST_PLTFRM_TEL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(166).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(Original_CST_PLTFRM_TEL,String)
-            End If
-            If (Original_CST_PLTFRM_FAX Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(168).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(Original_CST_PLTFRM_FAX,String)
-            End If
-            If (Original_CST_PLTFRM_EMAIL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(170).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(Original_CST_PLTFRM_EMAIL,String)
-            End If
-            If (Original_CST_PLTFRM_PORT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(172).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(Original_CST_PLTFRM_PORT,String)
-            End If
-            If (Original_CST_TRP_TXGAZOLE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(174).Value = CType(Original_CST_TRP_TXGAZOLE.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(173).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(174).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_PU_PALL_PREP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(176).Value = CType(Original_CST_PU_PALL_PREP.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(175).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(176).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_PU_PALL_NONPREP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(178).Value = CType(Original_CST_PU_PALL_NONPREP.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(177).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(178).Value = Global.System.DBNull.Value
-            End If
-            If (Original_FTP_HOSTNAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(180).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(179).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(180).Value = CType(Original_FTP_HOSTNAME,String)
-            End If
-            If (Original_FTP_USERNAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(182).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(181).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(182).Value = CType(Original_FTP_USERNAME,String)
-            End If
-            If (Original_FTP_PASSWORD Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(184).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(183).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(184).Value = CType(Original_FTP_PASSWORD,String)
-            End If
-            If (Original_FTP_REMOTEDIR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(186).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(185).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(186).Value = CType(Original_FTP_REMOTEDIR,String)
-            End If
-            If (Original_FTP_LOCKFROMFILENAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(188).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(187).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(188).Value = CType(Original_FTP_LOCKFROMFILENAME,String)
-            End If
-            If (Original_FTP_LOCKTOFILENAME Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(190).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(189).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(190).Value = CType(Original_FTP_LOCKTOFILENAME,String)
-            End If
-            If (Original_CST_DERN_NUM_FACT_COLISAGE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(192).Value = CType(Original_CST_DERN_NUM_FACT_COLISAGE.Value,Short)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(191).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(192).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_COL_IDMODEREGLEMENT.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(194).Value = CType(Original_CST_COL_IDMODEREGLEMENT.Value,Short)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(193).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(194).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_FACT_COL_TAXES.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(196).Value = CType(Original_CST_FACT_COL_TAXES.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(195).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(196).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_FACT_COL_PU_COLIS.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(197).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(198).Value = CType(Original_CST_FACT_COL_PU_COLIS.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(197).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(198).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_SOC_RCS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(199).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(200).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(199).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(200).Value = CType(Original_CST_SOC_RCS,String)
-            End If
-            If (Original_CST_SOC_TVAINTRA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(201).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(202).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(201).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(202).Value = CType(Original_CST_SOC_TVAINTRA,String)
-            End If
-            If (Original_CST_SOC_LICENCE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(203).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(204).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(203).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(204).Value = CType(Original_CST_SOC_LICENCE,String)
-            End If
-            If (Original_CST_SOC2_RCS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(205).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(206).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(205).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(206).Value = CType(Original_CST_SOC2_RCS,String)
-            End If
-            If (Original_CST_SOC2_TVAINTRA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(207).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(208).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(207).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(208).Value = CType(Original_CST_SOC2_TVAINTRA,String)
-            End If
-            If (Original_CST_SOC2_LICENCE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(209).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(210).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(209).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(210).Value = CType(Original_CST_SOC2_LICENCE,String)
-            End If
-            If (Original_CST_EXPORT_COMPTA_PATH Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(211).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(212).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(211).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(212).Value = CType(Original_CST_EXPORT_COMPTA_PATH,String)
-            End If
-            If (Original_CST_SOC_COMPTETVA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(213).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(214).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(213).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(214).Value = CType(Original_CST_SOC_COMPTETVA,String)
-            End If
-            If (Original_CST_SOC_COMPTEPRODUIT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(215).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(216).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(215).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(216).Value = CType(Original_CST_SOC_COMPTEPRODUIT,String)
-            End If
-            If (Original_CST_SOC_COMPTEBANQUE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(217).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(218).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(217).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(218).Value = CType(Original_CST_SOC_COMPTEBANQUE,String)
-            End If
-            If (Original_CST_SOC2_COMPTETVA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(219).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(220).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(219).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(220).Value = CType(Original_CST_SOC2_COMPTETVA,String)
-            End If
-            If (Original_CST_SOC2_COMPTEPRODUIT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(221).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(222).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(221).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(222).Value = CType(Original_CST_SOC2_COMPTEPRODUIT,String)
-            End If
-            If (Original_CST_SOC2_COMPTEBANQUE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(223).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(224).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(223).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(224).Value = CType(Original_CST_SOC2_COMPTEBANQUE,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(225).Value = CType(Original_CST_ID,Short)
-            If (Original_CST_SOC2_COMPTEPRODUIT_COL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(226).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(227).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(226).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(227).Value = CType(Original_CST_SOC2_COMPTEPRODUIT_COL,String)
-            End If
-            If (Original_CST_EDI_HOST Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(228).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(229).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(228).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(229).Value = CType(Original_CST_EDI_HOST,String)
-            End If
-            If (Original_CST_EDI_PORT Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(230).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(231).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(230).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(231).Value = CType(Original_CST_EDI_PORT,String)
-            End If
-            If (Original_CST_EDI_FROM Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(232).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(233).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(232).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(233).Value = CType(Original_CST_EDI_FROM,String)
-            End If
-            If (Original_CST_EDI_TEMP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(234).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(235).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(234).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(235).Value = CType(Original_CST_EDI_TEMP,String)
-            End If
-            If (Original_CST_SRVCE_PATH Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(236).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(237).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(236).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(237).Value = CType(Original_CST_SRVCE_PATH,String)
-            End If
-            If (Original_CST_SRVCE_NBSEC Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(238).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(239).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(238).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(239).Value = CType(Original_CST_SRVCE_NBSEC,String)
-            End If
-            If (Original_CST_SRVCE_PATHERROR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(240).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(241).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(240).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(241).Value = CType(Original_CST_SRVCE_PATHERROR,String)
-            End If
-            If (Original_CST_DERN_NUM_FACT_HBV.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(242).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(243).Value = CType(Original_CST_DERN_NUM_FACT_HBV.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(242).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(243).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_TRP_PARTTRP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(244).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(245).Value = CType(Original_CST_TRP_PARTTRP.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(244).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(245).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_SOC2_COMPTEPRODUIT_TAXEGO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(246).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(247).Value = CType(Original_CST_SOC2_COMPTEPRODUIT_TAXEGO.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(246).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(247).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_DATE_UPDATE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(248).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(249).Value = CType(Original_CST_DATE_UPDATE.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(248).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(249).Value = Global.System.DBNull.Value
-            End If
-            If (Original_CST_EDI_USER Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(250).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(251).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(250).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(251).Value = CType(Original_CST_EDI_USER,String)
-            End If
-            If (Original_CST_EDI_PWD Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(252).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(253).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(252).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(253).Value = CType(Original_CST_EDI_PWD,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal CST_SOC_NOMSOC As String,  _
-                    ByVal CST_SOC_ADRESSE_RUE1 As String,  _
-                    ByVal CST_SOC_ADRESSE_RUE2 As String,  _
-                    ByVal CST_SOC_ADRESSE_CP As String,  _
-                    ByVal CST_SOC_ADRESSE_VILLE As String,  _
-                    ByVal CST_SOC_TEL As String,  _
-                    ByVal CST_SOC_FAX As String,  _
-                    ByVal CST_SOC_PORT As String,  _
-                    ByVal CST_SOC_EMAIL As String,  _
-                    ByVal CST_FAX_PAGE_GARDE As String,  _
-                    ByVal CST_FAX_ENVOI_PAGE_GARDE As Global.System.Nullable(Of Boolean),  _
-                    ByVal CST_FAX_SERVERNAME As String,  _
-                    ByVal CST_DERN_NUM_CMD_CLT As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_DERN_NUM_SCMD As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_DERN_NUM_BA As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_VERSION_BD As String,  _
-                    ByVal CST_FAX_PREFIX As String,  _
-                    ByVal CST_TX_COMMISSION As Global.System.Nullable(Of Single),  _
-                    ByVal CST_DERN_NUM_FACTCOM As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_PATH_FACTCOM As String,  _
-                    ByVal CST_DERN_NUM_FACT_TRP As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_TAXES_TRP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PATH_FACTTRP As String,  _
-                    ByVal CST_TRP_IDMODEREGLEMENT As String,  _
-                    ByVal CST_SOC2_NOMSOC As String,  _
-                    ByVal CST_SOC2_ADRESSE_RUE1 As String,  _
-                    ByVal CST_SOC2_ADRESSE_RUE2 As String,  _
-                    ByVal CST_SOC2_ADRESSE_CP As String,  _
-                    ByVal CST_SOC2_ADRESSE_VILLE As String,  _
-                    ByVal CST_SOC2_TEL As String,  _
-                    ByVal CST_SOC2_FAX As String,  _
-                    ByVal CST_SOC2_EMAIL As String,  _
-                    ByVal CST_SOC2_PORT As String,  _
-                    ByVal CST_PLTFRM_NOM As String,  _
-                    ByVal CST_PLTFRM_RUE1 As String,  _
-                    ByVal CST_PLTFRM_RUE2 As String,  _
-                    ByVal CST_PLTFRM_CP As String,  _
-                    ByVal CST_PLTFRM_VILLE As String,  _
-                    ByVal CST_PLTFRM_TEL As String,  _
-                    ByVal CST_PLTFRM_FAX As String,  _
-                    ByVal CST_PLTFRM_EMAIL As String,  _
-                    ByVal CST_PLTFRM_PORT As String,  _
-                    ByVal CST_TRP_TXGAZOLE As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PU_PALL_PREP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PU_PALL_NONPREP As Global.System.Nullable(Of Double),  _
-                    ByVal FTP_HOSTNAME As String,  _
-                    ByVal FTP_USERNAME As String,  _
-                    ByVal FTP_PASSWORD As String,  _
-                    ByVal FTP_REMOTEDIR As String,  _
-                    ByVal FTP_LOCKFROMFILENAME As String,  _
-                    ByVal FTP_LOCKTOFILENAME As String,  _
-                    ByVal CST_DERN_NUM_FACT_COLISAGE As Global.System.Nullable(Of Short),  _
-                    ByVal CST_COL_IDMODEREGLEMENT As Global.System.Nullable(Of Short),  _
-                    ByVal CST_FACT_COL_TAXES As Global.System.Nullable(Of Double),  _
-                    ByVal CST_FACT_COL_PU_COLIS As Global.System.Nullable(Of Double),  _
-                    ByVal CST_SOC_RCS As String,  _
-                    ByVal CST_SOC_TVAINTRA As String,  _
-                    ByVal CST_SOC_LICENCE As String,  _
-                    ByVal CST_SOC2_RCS As String,  _
-                    ByVal CST_SOC2_TVAINTRA As String,  _
-                    ByVal CST_SOC2_LICENCE As String,  _
-                    ByVal CST_EXPORT_COMPTA_PATH As String,  _
-                    ByVal CST_SOC_COMPTETVA As String,  _
-                    ByVal CST_SOC_COMPTEPRODUIT As String,  _
-                    ByVal CST_SOC_COMPTEBANQUE As String,  _
-                    ByVal CST_SOC2_COMPTETVA As String,  _
-                    ByVal CST_SOC2_COMPTEPRODUIT As String,  _
-                    ByVal CST_SOC2_COMPTEBANQUE As String,  _
-                    ByVal CST_SOC2_COMPTEPRODUIT_COL As String,  _
-                    ByVal CST_EDI_HOST As String,  _
-                    ByVal CST_EDI_PORT As String,  _
-                    ByVal CST_EDI_FROM As String,  _
-                    ByVal CST_EDI_TEMP As String,  _
-                    ByVal CST_SRVCE_PATH As String,  _
-                    ByVal CST_SRVCE_NBSEC As String,  _
-                    ByVal CST_SRVCE_PATHERROR As String,  _
-                    ByVal CST_DERN_NUM_FACT_HBV As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_FTPEDI_USER As String,  _
-                    ByVal CST_FTPEDI_SRV As String,  _
-                    ByVal CST_FTPEDI_PWD As String,  _
-                    ByVal CST_FTPEDI_PORT As String,  _
-                    ByVal CST_FTPEDI_REP As String,  _
-                    ByVal CST_FTPEDI_REPLOCAL As String,  _
-                    ByVal CST_TRP_PARTTRP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_SOC2_COMPTEPRODUIT_TAXEGO As Global.System.Nullable(Of Double),  _
-                    ByVal CST_DATE_UPDATE As Global.System.Nullable(Of Date),  _
-                    ByVal CST_EDI_USER As String,  _
-                    ByVal CST_EDI_PWD As String,  _
-                    ByVal Original_CST_SOC_NOMSOC As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_RUE1 As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_RUE2 As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_CP As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_VILLE As String,  _
-                    ByVal Original_CST_SOC_TEL As String,  _
-                    ByVal Original_CST_SOC_FAX As String,  _
-                    ByVal Original_CST_SOC_PORT As String,  _
-                    ByVal Original_CST_SOC_EMAIL As String,  _
-                    ByVal Original_CST_FAX_PAGE_GARDE As String,  _
-                    ByVal Original_CST_FAX_ENVOI_PAGE_GARDE As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_CST_FAX_SERVERNAME As String,  _
-                    ByVal Original_CST_DERN_NUM_CMD_CLT As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_DERN_NUM_SCMD As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_DERN_NUM_BA As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_VERSION_BD As String,  _
-                    ByVal Original_CST_FAX_PREFIX As String,  _
-                    ByVal Original_CST_TX_COMMISSION As Global.System.Nullable(Of Single),  _
-                    ByVal Original_CST_DERN_NUM_FACTCOM As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_PATH_FACTCOM As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_TRP As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_TAXES_TRP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PATH_FACTTRP As String,  _
-                    ByVal Original_CST_TRP_IDMODEREGLEMENT As String,  _
-                    ByVal Original_CST_SOC2_NOMSOC As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_RUE1 As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_RUE2 As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_CP As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_VILLE As String,  _
-                    ByVal Original_CST_SOC2_TEL As String,  _
-                    ByVal Original_CST_SOC2_FAX As String,  _
-                    ByVal Original_CST_SOC2_EMAIL As String,  _
-                    ByVal Original_CST_SOC2_PORT As String,  _
-                    ByVal Original_CST_PLTFRM_NOM As String,  _
-                    ByVal Original_CST_PLTFRM_RUE1 As String,  _
-                    ByVal Original_CST_PLTFRM_RUE2 As String,  _
-                    ByVal Original_CST_PLTFRM_CP As String,  _
-                    ByVal Original_CST_PLTFRM_VILLE As String,  _
-                    ByVal Original_CST_PLTFRM_TEL As String,  _
-                    ByVal Original_CST_PLTFRM_FAX As String,  _
-                    ByVal Original_CST_PLTFRM_EMAIL As String,  _
-                    ByVal Original_CST_PLTFRM_PORT As String,  _
-                    ByVal Original_CST_TRP_TXGAZOLE As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PU_PALL_PREP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PU_PALL_NONPREP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_FTP_HOSTNAME As String,  _
-                    ByVal Original_FTP_USERNAME As String,  _
-                    ByVal Original_FTP_PASSWORD As String,  _
-                    ByVal Original_FTP_REMOTEDIR As String,  _
-                    ByVal Original_FTP_LOCKFROMFILENAME As String,  _
-                    ByVal Original_FTP_LOCKTOFILENAME As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_COLISAGE As Global.System.Nullable(Of Short),  _
-                    ByVal Original_CST_COL_IDMODEREGLEMENT As Global.System.Nullable(Of Short),  _
-                    ByVal Original_CST_FACT_COL_TAXES As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_FACT_COL_PU_COLIS As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_SOC_RCS As String,  _
-                    ByVal Original_CST_SOC_TVAINTRA As String,  _
-                    ByVal Original_CST_SOC_LICENCE As String,  _
-                    ByVal Original_CST_SOC2_RCS As String,  _
-                    ByVal Original_CST_SOC2_TVAINTRA As String,  _
-                    ByVal Original_CST_SOC2_LICENCE As String,  _
-                    ByVal Original_CST_EXPORT_COMPTA_PATH As String,  _
-                    ByVal Original_CST_SOC_COMPTETVA As String,  _
-                    ByVal Original_CST_SOC_COMPTEPRODUIT As String,  _
-                    ByVal Original_CST_SOC_COMPTEBANQUE As String,  _
-                    ByVal Original_CST_SOC2_COMPTETVA As String,  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT As String,  _
-                    ByVal Original_CST_SOC2_COMPTEBANQUE As String,  _
-                    ByVal Original_CST_ID As Short,  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT_COL As String,  _
-                    ByVal Original_CST_EDI_HOST As String,  _
-                    ByVal Original_CST_EDI_PORT As String,  _
-                    ByVal Original_CST_EDI_FROM As String,  _
-                    ByVal Original_CST_EDI_TEMP As String,  _
-                    ByVal Original_CST_SRVCE_PATH As String,  _
-                    ByVal Original_CST_SRVCE_NBSEC As String,  _
-                    ByVal Original_CST_SRVCE_PATHERROR As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_HBV As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_TRP_PARTTRP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT_TAXEGO As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_DATE_UPDATE As Global.System.Nullable(Of Date),  _
-                    ByVal Original_CST_EDI_USER As String,  _
-                    ByVal Original_CST_EDI_PWD As String) As Integer
-            Return Me.Update(CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC_ADRESSE_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_SOC_EMAIL, CST_FAX_PAGE_GARDE, CST_FAX_ENVOI_PAGE_GARDE, CST_FAX_SERVERNAME, CST_DERN_NUM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA, CST_VERSION_BD, CST_FAX_PREFIX, CST_TX_COMMISSION, CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP, CST_TAXES_TRP, CST_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST_SOC2_ADRESSE_RUE1, CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2_ADRESSE_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_PLTFRM_NOM, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, CST_PLTFRM_CP, CST_PLTFRM_VILLE, CST_PLTFRM_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_PLTFRM_PORT, CST_TRP_TXGAZOLE, CST_PU_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD, FTP_REMOTEDIR, FTP_LOCKFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE, CST_COL_IDMODEREGLEMENT, CST_FACT_COL_TAXES, CST_FACT_COL_PU_COLIS, CST_SOC_RCS, CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, CST_SOC2_LICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, CST_SOC_COMPTEPRODUIT, CST_SOC_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2_COMPTEPRODUIT, CST_SOC2_COMPTEBANQUE, Original_CST_ID, CST_SOC2_COMPTEPRODUIT_COL, CST_EDI_HOST, CST_EDI_PORT, CST_EDI_FROM, CST_EDI_TEMP, CST_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_FTPEDI_USER, CST_FTPEDI_SRV, CST_FTPEDI_PWD, CST_FTPEDI_PORT, CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRODUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, Original_CST_SOC_NOMSOC, Original_CST_SOC_ADRESSE_RUE1, Original_CST_SOC_ADRESSE_RUE2, Original_CST_SOC_ADRESSE_CP, Original_CST_SOC_ADRESSE_VILLE, Original_CST_SOC_TEL, Original_CST_SOC_FAX, Original_CST_SOC_PORT, Original_CST_SOC_EMAIL, Original_CST_FAX_PAGE_GARDE, Original_CST_FAX_ENVOI_PAGE_GARDE, Original_CST_FAX_SERVERNAME, Original_CST_DERN_NUM_CMD_CLT, Original_CST_DERN_NUM_SCMD, Original_CST_DERN_NUM_BA, Original_CST_VERSION_BD, Original_CST_FAX_PREFIX, Original_CST_TX_COMMISSION, Original_CST_DERN_NUM_FACTCOM, Original_CST_PATH_FACTCOM, Original_CST_DERN_NUM_FACT_TRP, Original_CST_TAXES_TRP, Original_CST_PATH_FACTTRP, Original_CST_TRP_IDMODEREGLEMENT, Original_CST_SOC2_NOMSOC, Original_CST_SOC2_ADRESSE_RUE1, Original_CST_SOC2_ADRESSE_RUE2, Original_CST_SOC2_ADRESSE_CP, Original_CST_SOC2_ADRESSE_VILLE, Original_CST_SOC2_TEL, Original_CST_SOC2_FAX, Original_CST_SOC2_EMAIL, Original_CST_SOC2_PORT, Original_CST_PLTFRM_NOM, Original_CST_PLTFRM_RUE1, Original_CST_PLTFRM_RUE2, Original_CST_PLTFRM_CP, Original_CST_PLTFRM_VILLE, Original_CST_PLTFRM_TEL, Original_CST_PLTFRM_FAX, Original_CST_PLTFRM_EMAIL, Original_CST_PLTFRM_PORT, Original_CST_TRP_TXGAZOLE, Original_CST_PU_PALL_PREP, Original_CST_PU_PALL_NONPREP, Original_FTP_HOSTNAME, Original_FTP_USERNAME, Original_FTP_PASSWORD, Original_FTP_REMOTEDIR, Original_FTP_LOCKFROMFILENAME, Original_FTP_LOCKTOFILENAME, Original_CST_DERN_NUM_FACT_COLISAGE, Original_CST_COL_IDMODEREGLEMENT, Original_CST_FACT_COL_TAXES, Original_CST_FACT_COL_PU_COLIS, Original_CST_SOC_RCS, Original_CST_SOC_TVAINTRA, Original_CST_SOC_LICENCE, Original_CST_SOC2_RCS, Original_CST_SOC2_TVAINTRA, Original_CST_SOC2_LICENCE, Original_CST_EXPORT_COMPTA_PATH, Original_CST_SOC_COMPTETVA, Original_CST_SOC_COMPTEPRODUIT, Original_CST_SOC_COMPTEBANQUE, Original_CST_SOC2_COMPTETVA, Original_CST_SOC2_COMPTEPRODUIT, Original_CST_SOC2_COMPTEBANQUE, Original_CST_ID, Original_CST_SOC2_COMPTEPRODUIT_COL, Original_CST_EDI_HOST, Original_CST_EDI_PORT, Original_CST_EDI_FROM, Original_CST_EDI_TEMP, Original_CST_SRVCE_PATH, Original_CST_SRVCE_NBSEC, Original_CST_SRVCE_PATHERROR, Original_CST_DERN_NUM_FACT_HBV, Original_CST_TRP_PARTTRP, Original_CST_SOC2_COMPTEPRODUIT_TAXEGO, Original_CST_DATE_UPDATE, Original_CST_EDI_USER, Original_CST_EDI_PWD)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
