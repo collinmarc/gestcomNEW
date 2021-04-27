@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -74,15 +74,6 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("ANTEC\SQLEXPRESS")>  _
-        Public ReadOnly Property dbDataSource() As String
-            Get
-                Return CType(Me("dbDataSource"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("vinicom")>  _
         Public ReadOnly Property ReportCnxUser() As String
             Get
@@ -111,204 +102,12 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
-        Public Property frmGestSCMD_COL1_WIDTH() As String
-            Get
-                Return CType(Me("frmGestSCMD_COL1_WIDTH"),String)
-            End Get
-            Set
-                Me("frmGestSCMD_COL1_WIDTH") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
-        Public Property frmGestSCMD_COL2_WIDTH() As String
-            Get
-                Return CType(Me("frmGestSCMD_COL2_WIDTH"),String)
-            End Get
-            Set
-                Me("frmGestSCMD_COL2_WIDTH") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
-        Public Property frmGestSCMD_COL3_WIDTH() As String
-            Get
-                Return CType(Me("frmGestSCMD_COL3_WIDTH"),String)
-            End Get
-            Set
-                Me("frmGestSCMD_COL3_WIDTH") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
-        Public Property frmGestSCMD_COL4_WIDTH() As String
-            Get
-                Return CType(Me("frmGestSCMD_COL4_WIDTH"),String)
-            End Get
-            Set
-                Me("frmGestSCMD_COL4_WIDTH") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
-        Public Property frmGestSCMD_COL5_WIDTH() As String
-            Get
-                Return CType(Me("frmGestSCMD_COL5_WIDTH"),String)
-            End Get
-            Set
-                Me("frmGestSCMD_COL5_WIDTH") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
-        Public Property frmGestSCMD_COL6_WIDTH() As String
-            Get
-                Return CType(Me("frmGestSCMD_COL6_WIDTH"),String)
-            End Get
-            Set
-                Me("frmGestSCMD_COL6_WIDTH") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
-        Public Property frmGestSCMD_COL7_WIDTH() As String
-            Get
-                Return CType(Me("frmGestSCMD_COL7_WIDTH"),String)
-            End Get
-            Set
-                Me("frmGestSCMD_COL7_WIDTH") = value
-            End Set
-        End Property
-        
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Settings")>  _
         Public ReadOnly Property PreCommandeFolder() As String
             Get
                 Return CType(Me("PreCommandeFolder"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("587")>  _
-        Public ReadOnly Property SMTPPort() As Integer
-            Get
-                Return CType(Me("SMTPPort"),Integer)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("marccollin.com@gmail.com")>  _
-        Public ReadOnly Property SMTPuser() As String
-            Get
-                Return CType(Me("SMTPuser"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("tphhgv3.")>  _
-        Public ReadOnly Property SMTPpassword() As String
-            Get
-                Return CType(Me("SMTPpassword"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
-        Public ReadOnly Property SMTPbSSL() As Boolean
-            Get
-                Return CType(Me("SMTPbSSL"),Boolean)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("smtp.googlemail.com")>  _
-        Public ReadOnly Property SMTPHost() As String
-            Get
-                Return CType(Me("SMTPHost"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("192.168.0.240")>  _
-        Public ReadOnly Property ImapHost() As String
-            Get
-                Return CType(Me("ImapHost"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("cmdprestashop@vinicom.fr")>  _
-        Public ReadOnly Property ImapUser() As String
-            Get
-                Return CType(Me("ImapUser"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("vinicom35760")>  _
-        Public ReadOnly Property ImapPassword() As String
-            Get
-                Return CType(Me("ImapPassword"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("143")>  _
-        Public ReadOnly Property ImapPort() As String
-            Get
-                Return CType(Me("ImapPort"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public ReadOnly Property ImapSSL() As Boolean
-            Get
-                Return CType(Me("ImapSSL"),Boolean)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("MSGTRAITES")>  _
-        Public ReadOnly Property ImapMSGFolder() As String
-            Get
-                Return CType(Me("ImapMSGFolder"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("30")>  _
-        Public ReadOnly Property ImapNsec() As String
-            Get
-                Return CType(Me("ImapNsec"),String)
             End Get
         End Property
         
@@ -324,19 +123,19 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5.9.4.0")>  _
-        Public ReadOnly Property AppVersion() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+        Public ReadOnly Property CODEDEPOTQUADRA() As String
             Get
-                Return CType(Me("AppVersion"),String)
+                Return CType(Me("CODEDEPOTQUADRA"),String)
             End Get
         End Property
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
-        Public ReadOnly Property CODEDEPOTQUADRA() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("202105010000")>  _
+        Public ReadOnly Property AppVersion() As String
             Get
-                Return CType(Me("CODEDEPOTQUADRA"),String)
+                Return CType(Me("AppVersion"),String)
             End Get
         End Property
     End Class

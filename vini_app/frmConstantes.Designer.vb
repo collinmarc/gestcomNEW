@@ -2027,7 +2027,7 @@ Partial Class frmConstantes
         '
         Me.ckImapSSL.AutoSize = True
         Me.ckImapSSL.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ckImapSSL.Checked = Global.vini_app.My.MySettings.Default.ImapSSL
+        Me.ckImapSSL.Checked = True
         Me.ckImapSSL.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ckImapSSL.Location = New System.Drawing.Point(322, 18)
         Me.ckImapSSL.Name = "ckImapSSL"
