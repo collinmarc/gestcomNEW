@@ -1,6 +1,7 @@
 Imports vini_DB
-Imports System.Net.Mail
 Imports System.ServiceProcess
+Imports MailKit.Net.Smtp
+Imports MimeKit
 
 Partial Public Class frmConstantes
     Inherits vini_app.FrmVinicom
@@ -10,9 +11,12 @@ Partial Public Class frmConstantes
     End Sub
 
     Protected Overrides Function frmSave() As Boolean
+
         Me.Validate()
+        Me.DsVinicom.CONSTANTES(0).CST_DATE_UPDATE = DateTime.Now
         Me.CONSTANTESBindingSource.EndEdit()
         Me.CONSTANTESTableAdapter.Update(Me.DsVinicom.CONSTANTES)
+
         Param.LoadcolParams()
     End Function
 
@@ -29,6 +33,7 @@ Partial Public Class frmConstantes
         Me.CONSTANTESTableAdapter.Connection = Persist.oleDBConnection
         Me.CONSTANTESTableAdapter.Fill(Me.DsVinicom.CONSTANTES)
 
+
         Call init_vini_service()
 
     End Sub
@@ -36,40 +41,44 @@ Partial Public Class frmConstantes
     Private Sub cbTestWebEdi_Click(sender As System.Object, e As System.EventArgs) Handles cbTestWebEdi.Click
 
         Try
-            Dim oMailClient As SmtpClient
-            Dim oMailMessage As MailMessage
-            Dim oAtt As Attachment
-            Dim strTempDir As String
-
             Me.Cursor = Cursors.WaitCursor
             DisplayStatus("Connexion au serveur de messagerie : " & Me.tbWEBEDI_SMTPHOST.Text & ":" & Me.tbWEBEDI_SMTPPORT.Text)
-            oMailClient = New SmtpClient(Me.tbWEBEDI_SMTPHOST.Text, Me.tbWEBEDI_SMTPPORT.Text)
+            Using oMailClient As New SmtpClient()
+                oMailClient.Connect(tbWEBEDI_SMTPHOST.Text, CInt(tbWEBEDI_SMTPPORT.Text), True)
+                oMailClient.Authenticate(tbWEBEDI_SMTPuser.Text, tbWEBEDI_SMTPPWD.Text)
+                DisplayStatus("Creation du message de test depuis " & Me.tbWEBEDI_SMTPFROM.Text & " vers " & tbEDI_Destinataire.Text)
+                Dim oMailMessage = New MimeMessage()
+                oMailMessage.From.Add(New MailboxAddress(tbWEBEDI_SMTPFROM.Text, tbWEBEDI_SMTPFROM.Text))
+                oMailMessage.To.Add(New MailboxAddress(tbWEBEDI_Destinataire.Text, tbWEBEDI_Destinataire.Text))
+                oMailMessage.Subject = "TEST"
+                Dim builder As New BodyBuilder()
+                builder.TextBody = "Ceci est un message de test"
 
-            'Création du MailClient
-            DisplayStatus("Creation du message de test depuis " & Me.tbWEBEDI_SMTPFROM.Text & " vers " & Me.tbWEBEDI_SMTPFROM.Text)
-            oMailMessage = New MailMessage(Me.tbWEBEDI_SMTPFROM.Text, Me.tbWEBEDI_SMTPFROM.Text, "test", "Message de test")
-            strTempDir = Me.tbWEBEDI_TEMP.Text + "/" + currentuser.code
-            If Not My.Computer.FileSystem.DirectoryExists(strTempDir) Then
-                My.Computer.FileSystem.CreateDirectory(strTempDir)
-            End If
 
-            DisplayStatus("Ajout d'une pièce attachée de test")
-            My.Computer.FileSystem.WriteAllText(strTempDir + "/test.txt", "Ceci est un test", True)
-            oAtt = New Attachment(strTempDir + "/test.txt")
-            oMailMessage.Attachments.Add(oAtt)
+                Dim strTempDir As String = Me.tbWEBEDI_TEMP.Text + "/" + currentuser.code
+                If Not My.Computer.FileSystem.DirectoryExists(strTempDir) Then
+                    My.Computer.FileSystem.CreateDirectory(strTempDir)
+                End If
 
-            DisplayStatus("Envoi du message")
-            oMailClient.Send(oMailMessage)
-            oAtt.Dispose()
+                DisplayStatus("Ajout d'une pièce attachée de test")
+                My.Computer.FileSystem.WriteAllText(strTempDir + "/test.txt", "Ceci est un test", True)
+                builder.Attachments.Add(strTempDir + "/test.txt")
+                oMailMessage.Body = builder.ToMessageBody()
 
-            My.Computer.FileSystem.DeleteFile(strTempDir + "/test.txt")
-            MsgBox("Envoi d'un message de test terminé, vérifier la boite aux lettre de " & Me.tbWEBEDI_SMTPFROM.Text)
-            DisplayStatus("")
-            Me.Cursor = Cursors.Default
-
+                DisplayStatus("Envoi du message")
+                oMailClient.Send(oMailMessage)
+                oMailClient.Disconnect(True)
+            End Using
+            MessageBox.Show("Message envoyé")
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MessageBox.Show(ex.Message)
+            If ex.InnerException IsNot Nothing Then
+                MessageBox.Show(ex.InnerException.Message)
+            End If
+        Finally
+            Me.Cursor = Cursors.Default
         End Try
+
 
     End Sub
 
@@ -268,6 +277,10 @@ Partial Public Class frmConstantes
             MsgBox("Erreur en Envoi de fichier")
         End If
 
+
+    End Sub
+
+    Private Sub tbWEBEDI_SMTPFROM_TextChanged(sender As Object, e As EventArgs) Handles tbWEBEDI_SMTPFROM.TextChanged
 
     End Sub
 End Class

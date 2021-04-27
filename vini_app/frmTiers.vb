@@ -108,6 +108,10 @@ Public Class frmTiers
     Friend WithEvents cboModeReglement2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents tbIDPrestashop As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents tbIBAN As TextBox
+    Friend WithEvents Label23 As Label
     Public WithEvents rtbCom4 As System.Windows.Forms.RichTextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.tbRaisonSociale = New System.Windows.Forms.TextBox()
@@ -188,6 +192,10 @@ Public Class frmTiers
         Me.tbCodeCompta = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tbIDPrestashop = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.tbIBAN = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.tabTiers.SuspendLayout()
         Me.tpAddresses.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -274,11 +282,15 @@ Public Class frmTiers
         Me.tabTiers.Location = New System.Drawing.Point(11, 95)
         Me.tabTiers.Name = "tabTiers"
         Me.tabTiers.SelectedIndex = 0
-        Me.tabTiers.Size = New System.Drawing.Size(952, 557)
+        Me.tabTiers.Size = New System.Drawing.Size(952, 602)
         Me.tabTiers.TabIndex = 3
         '
         'tpAddresses
         '
+        Me.tpAddresses.Controls.Add(Me.TextBox1)
+        Me.tpAddresses.Controls.Add(Me.Label24)
+        Me.tpAddresses.Controls.Add(Me.tbIBAN)
+        Me.tpAddresses.Controls.Add(Me.Label23)
         Me.tpAddresses.Controls.Add(Me.cboModeReglement2)
         Me.tpAddresses.Controls.Add(Me.LaModeReglmt2)
         Me.tpAddresses.Controls.Add(Me.laModeRglmt1)
@@ -304,7 +316,7 @@ Public Class frmTiers
         Me.tpAddresses.Controls.Add(Me.Label25)
         Me.tpAddresses.Location = New System.Drawing.Point(4, 22)
         Me.tpAddresses.Name = "tpAddresses"
-        Me.tpAddresses.Size = New System.Drawing.Size(944, 531)
+        Me.tpAddresses.Size = New System.Drawing.Size(944, 576)
         Me.tpAddresses.TabIndex = 0
         Me.tpAddresses.Text = "Adresses"
         Me.tpAddresses.UseVisualStyleBackColor = True
@@ -312,7 +324,7 @@ Public Class frmTiers
         'cboModeReglement2
         '
         Me.cboModeReglement2.FormattingEnabled = True
-        Me.cboModeReglement2.Location = New System.Drawing.Point(510, 489)
+        Me.cboModeReglement2.Location = New System.Drawing.Point(510, 537)
         Me.cboModeReglement2.Name = "cboModeReglement2"
         Me.cboModeReglement2.Size = New System.Drawing.Size(312, 21)
         Me.cboModeReglement2.TabIndex = 9
@@ -320,7 +332,7 @@ Public Class frmTiers
         'LaModeReglmt2
         '
         Me.LaModeReglmt2.AutoSize = True
-        Me.LaModeReglmt2.Location = New System.Drawing.Point(342, 489)
+        Me.LaModeReglmt2.Location = New System.Drawing.Point(342, 537)
         Me.LaModeReglmt2.Name = "LaModeReglmt2"
         Me.LaModeReglmt2.Size = New System.Drawing.Size(85, 13)
         Me.LaModeReglmt2.TabIndex = 108
@@ -329,7 +341,7 @@ Public Class frmTiers
         'laModeRglmt1
         '
         Me.laModeRglmt1.AutoSize = True
-        Me.laModeRglmt1.Location = New System.Drawing.Point(342, 464)
+        Me.laModeRglmt1.Location = New System.Drawing.Point(342, 512)
         Me.laModeRglmt1.Name = "laModeRglmt1"
         Me.laModeRglmt1.Size = New System.Drawing.Size(75, 13)
         Me.laModeRglmt1.TabIndex = 107
@@ -338,7 +350,7 @@ Public Class frmTiers
         'laModeReglmt
         '
         Me.laModeReglmt.AutoSize = True
-        Me.laModeReglmt.Location = New System.Drawing.Point(342, 440)
+        Me.laModeReglmt.Location = New System.Drawing.Point(342, 488)
         Me.laModeReglmt.Name = "laModeReglmt"
         Me.laModeReglmt.Size = New System.Drawing.Size(75, 13)
         Me.laModeReglmt.TabIndex = 106
@@ -347,7 +359,7 @@ Public Class frmTiers
         'cboModeReglement1
         '
         Me.cboModeReglement1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboModeReglement1.Location = New System.Drawing.Point(510, 461)
+        Me.cboModeReglement1.Location = New System.Drawing.Point(510, 509)
         Me.cboModeReglement1.Name = "cboModeReglement1"
         Me.cboModeReglement1.Size = New System.Drawing.Size(312, 21)
         Me.cboModeReglement1.TabIndex = 8
@@ -898,14 +910,14 @@ Public Class frmTiers
         'cboModeRglmt
         '
         Me.cboModeRglmt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboModeRglmt.Location = New System.Drawing.Point(510, 434)
+        Me.cboModeRglmt.Location = New System.Drawing.Point(510, 482)
         Me.cboModeRglmt.Name = "cboModeRglmt"
         Me.cboModeRglmt.Size = New System.Drawing.Size(312, 21)
         Me.cboModeRglmt.TabIndex = 7
         '
         'Label25
         '
-        Me.Label25.Location = New System.Drawing.Point(8, 440)
+        Me.Label25.Location = New System.Drawing.Point(8, 485)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(129, 42)
         Me.Label25.TabIndex = 96
@@ -923,7 +935,7 @@ Public Class frmTiers
         Me.tpComs.Controls.Add(Me.rtbCom4)
         Me.tpComs.Location = New System.Drawing.Point(4, 22)
         Me.tpComs.Name = "tpComs"
-        Me.tpComs.Size = New System.Drawing.Size(944, 531)
+        Me.tpComs.Size = New System.Drawing.Size(944, 576)
         Me.tpComs.TabIndex = 2
         Me.tpComs.Text = "Commentaires"
         Me.tpComs.UseVisualStyleBackColor = True
@@ -1024,6 +1036,38 @@ Public Class frmTiers
         Me.tbIDPrestashop.Name = "tbIDPrestashop"
         Me.tbIDPrestashop.Size = New System.Drawing.Size(45, 20)
         Me.tbIDPrestashop.TabIndex = 2
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(342, 439)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(32, 13)
+        Me.Label23.TabIndex = 109
+        Me.Label23.Text = "IBAN"
+        '
+        'tbIBAN
+        '
+        Me.tbIBAN.Location = New System.Drawing.Point(510, 436)
+        Me.tbIBAN.Name = "tbIBAN"
+        Me.tbIBAN.Size = New System.Drawing.Size(312, 20)
+        Me.tbIBAN.TabIndex = 110
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(342, 462)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(24, 13)
+        Me.Label24.TabIndex = 111
+        Me.Label24.Text = "BIC"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(510, 459)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(312, 20)
+        Me.TextBox1.TabIndex = 112
         '
         'frmTiers
         '

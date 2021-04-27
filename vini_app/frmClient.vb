@@ -39,6 +39,14 @@ Public Class frmClient
     Friend WithEvents Label231 As System.Windows.Forms.Label
     Friend WithEvents laOrigine As System.Windows.Forms.Label
     Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents BIC As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents tbIban As TextBox
+    Friend WithEvents Label26 As Label
+    Friend WithEvents tbBIC As TextBox
     Friend WithEvents cbPrecommande As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.cboTypeClient = New System.Windows.Forms.ComboBox()
@@ -48,6 +56,14 @@ Public Class frmClient
         Me.cbxCodeTarif = New System.Windows.Forms.ComboBox()
         Me.laOrigine = New System.Windows.Forms.Label()
         Me.cbxOrigine = New System.Windows.Forms.ComboBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.BIC = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.tbIban = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.tbBIC = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'cboTypeClient
@@ -123,11 +139,75 @@ Public Class frmClient
         '
         Me.cbxOrigine.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbxOrigine.FormattingEnabled = True
-        Me.cbxOrigine.Items.AddRange(New Object() {Dossier.VINICOM, Dossier.HOBIVIN})
+        Me.cbxOrigine.Items.AddRange(New Object() {"VINICOM", "HOBIVIN"})
         Me.cbxOrigine.Location = New System.Drawing.Point(839, 30)
         Me.cbxOrigine.Name = "cbxOrigine"
         Me.cbxOrigine.Size = New System.Drawing.Size(121, 21)
         Me.cbxOrigine.TabIndex = 74
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(342, 432)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(32, 13)
+        Me.Label23.TabIndex = 109
+        Me.Label23.Text = "IBAN"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(510, 432)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(320, 20)
+        Me.TextBox1.TabIndex = 110
+        '
+        'BIC
+        '
+        Me.BIC.AutoSize = True
+        Me.BIC.Location = New System.Drawing.Point(342, 455)
+        Me.BIC.Name = "BIC"
+        Me.BIC.Size = New System.Drawing.Size(24, 13)
+        Me.BIC.TabIndex = 111
+        Me.BIC.Text = "BIC"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(510, 452)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(200, 20)
+        Me.TextBox2.TabIndex = 112
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(342, 435)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(32, 13)
+        Me.Label24.TabIndex = 109
+        Me.Label24.Text = "IBAN"
+        '
+        'tbIban
+        '
+        Me.tbIban.Location = New System.Drawing.Point(510, 432)
+        Me.tbIban.Name = "tbIban"
+        Me.tbIban.Size = New System.Drawing.Size(320, 20)
+        Me.tbIban.TabIndex = 110
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(342, 458)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(24, 13)
+        Me.Label26.TabIndex = 111
+        Me.Label26.Text = "BIC"
+        '
+        'tbBIC
+        '
+        Me.tbBIC.Location = New System.Drawing.Point(510, 455)
+        Me.tbBIC.Name = "tbBIC"
+        Me.tbBIC.Size = New System.Drawing.Size(200, 20)
+        Me.tbBIC.TabIndex = 112
         '
         'frmClient
         '
@@ -294,7 +374,7 @@ Public Class frmClient
     End Function
 
     Private Sub cboTypeClient_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTypeClient.SelectedIndexChanged
-        ChangeTypeClient()
+        changeTypeClient()
     End Sub
 
     Public Function changeTypeClient() As Boolean
@@ -312,4 +392,8 @@ Public Class frmClient
         End Try
         Return bReturn
     End Function
+
+    Private Sub Label23_Click(sender As Object, e As EventArgs) Handles Label23.Click
+
+    End Sub
 End Class

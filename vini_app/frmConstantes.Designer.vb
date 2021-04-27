@@ -180,7 +180,11 @@ Partial Class frmConstantes
         Me.FTP_PASSWORDTextBox = New System.Windows.Forms.TextBox()
         Me.FTP_USERNAMETextBox = New System.Windows.Forms.TextBox()
         Me.FTP_HOSTNAMETextBox = New System.Windows.Forms.TextBox()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.tbEDI_Destinataire = New System.Windows.Forms.TabPage()
+        Me.tbWEBEDI_SMTPPWD = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.tbWEBEDI_SMTPuser = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
         Me.tbWEBEDI_TEMP = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cbTestWebEdi = New System.Windows.Forms.Button()
@@ -208,9 +212,11 @@ Partial Class frmConstantes
         Me.tbImapHost = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.CST_VERSION_BDTextBox = New System.Windows.Forms.TextBox()
-        Me.CONSTANTESTableAdapter = New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
+        Me.CONSTANTESTableAdapter = New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.tbWEBEDI_Destinataire = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
         CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -221,7 +227,7 @@ Partial Class frmConstantes
         Me.TabPage3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
-        Me.TabPage6.SuspendLayout()
+        Me.tbEDI_Destinataire.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -737,7 +743,7 @@ Partial Class frmConstantes
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage5)
-        Me.TabControl1.Controls.Add(Me.TabPage6)
+        Me.TabControl1.Controls.Add(Me.tbEDI_Destinataire)
         Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Location = New System.Drawing.Point(0, 29)
         Me.TabControl1.Name = "TabControl1"
@@ -1764,29 +1770,70 @@ Partial Class frmConstantes
         Me.FTP_HOSTNAMETextBox.Size = New System.Drawing.Size(201, 20)
         Me.FTP_HOSTNAMETextBox.TabIndex = 1
         '
-        'TabPage6
+        'tbEDI_Destinataire
         '
-        Me.TabPage6.Controls.Add(Me.tbWEBEDI_TEMP)
-        Me.TabPage6.Controls.Add(Me.Label8)
-        Me.TabPage6.Controls.Add(Me.cbTestWebEdi)
-        Me.TabPage6.Controls.Add(Me.tbWEBEDI_SMTPFROM)
-        Me.TabPage6.Controls.Add(Me.Label7)
-        Me.TabPage6.Controls.Add(Me.tbWEBEDI_SMTPPORT)
-        Me.TabPage6.Controls.Add(Me.Label6)
-        Me.TabPage6.Controls.Add(Me.Label5)
-        Me.TabPage6.Controls.Add(Me.tbWEBEDI_SMTPHOST)
-        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(768, 435)
-        Me.TabPage6.TabIndex = 7
-        Me.TabPage6.Text = "WEBEDI"
-        Me.TabPage6.UseVisualStyleBackColor = True
+        Me.tbEDI_Destinataire.Controls.Add(Me.tbWEBEDI_Destinataire)
+        Me.tbEDI_Destinataire.Controls.Add(Me.Label28)
+        Me.tbEDI_Destinataire.Controls.Add(Me.tbWEBEDI_SMTPPWD)
+        Me.tbEDI_Destinataire.Controls.Add(Me.Label27)
+        Me.tbEDI_Destinataire.Controls.Add(Me.tbWEBEDI_SMTPuser)
+        Me.tbEDI_Destinataire.Controls.Add(Me.Label26)
+        Me.tbEDI_Destinataire.Controls.Add(Me.tbWEBEDI_TEMP)
+        Me.tbEDI_Destinataire.Controls.Add(Me.Label8)
+        Me.tbEDI_Destinataire.Controls.Add(Me.cbTestWebEdi)
+        Me.tbEDI_Destinataire.Controls.Add(Me.tbWEBEDI_SMTPFROM)
+        Me.tbEDI_Destinataire.Controls.Add(Me.Label7)
+        Me.tbEDI_Destinataire.Controls.Add(Me.tbWEBEDI_SMTPPORT)
+        Me.tbEDI_Destinataire.Controls.Add(Me.Label6)
+        Me.tbEDI_Destinataire.Controls.Add(Me.Label5)
+        Me.tbEDI_Destinataire.Controls.Add(Me.tbWEBEDI_SMTPHOST)
+        Me.tbEDI_Destinataire.Location = New System.Drawing.Point(4, 22)
+        Me.tbEDI_Destinataire.Name = "tbEDI_Destinataire"
+        Me.tbEDI_Destinataire.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbEDI_Destinataire.Size = New System.Drawing.Size(768, 435)
+        Me.tbEDI_Destinataire.TabIndex = 7
+        Me.tbEDI_Destinataire.Text = "WEBEDI"
+        Me.tbEDI_Destinataire.UseVisualStyleBackColor = True
+        '
+        'tbWEBEDI_SMTPPWD
+        '
+        Me.tbWEBEDI_SMTPPWD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_PWD", True))
+        Me.tbWEBEDI_SMTPPWD.Location = New System.Drawing.Point(105, 101)
+        Me.tbWEBEDI_SMTPPWD.Name = "tbWEBEDI_SMTPPWD"
+        Me.tbWEBEDI_SMTPPWD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.tbWEBEDI_SMTPPWD.Size = New System.Drawing.Size(430, 20)
+        Me.tbWEBEDI_SMTPPWD.TabIndex = 12
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(10, 101)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(66, 13)
+        Me.Label27.TabIndex = 11
+        Me.Label27.Text = "SMTP pwd :"
+        '
+        'tbWEBEDI_SMTPuser
+        '
+        Me.tbWEBEDI_SMTPuser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_USER", True))
+        Me.tbWEBEDI_SMTPuser.Location = New System.Drawing.Point(105, 73)
+        Me.tbWEBEDI_SMTPuser.Name = "tbWEBEDI_SMTPuser"
+        Me.tbWEBEDI_SMTPuser.Size = New System.Drawing.Size(430, 20)
+        Me.tbWEBEDI_SMTPuser.TabIndex = 10
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(9, 75)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(66, 13)
+        Me.Label26.TabIndex = 9
+        Me.Label26.Text = "SMTP user :"
         '
         'tbWEBEDI_TEMP
         '
         Me.tbWEBEDI_TEMP.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_TEMP", True))
-        Me.tbWEBEDI_TEMP.Location = New System.Drawing.Point(107, 123)
+        Me.tbWEBEDI_TEMP.Location = New System.Drawing.Point(105, 166)
         Me.tbWEBEDI_TEMP.Name = "tbWEBEDI_TEMP"
         Me.tbWEBEDI_TEMP.Size = New System.Drawing.Size(432, 20)
         Me.tbWEBEDI_TEMP.TabIndex = 8
@@ -1794,7 +1841,7 @@ Partial Class frmConstantes
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(12, 107)
+        Me.Label8.Location = New System.Drawing.Point(5, 150)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(112, 13)
         Me.Label8.TabIndex = 7
@@ -1802,7 +1849,7 @@ Partial Class frmConstantes
         '
         'cbTestWebEdi
         '
-        Me.cbTestWebEdi.Location = New System.Drawing.Point(634, 123)
+        Me.cbTestWebEdi.Location = New System.Drawing.Point(630, 228)
         Me.cbTestWebEdi.Name = "cbTestWebEdi"
         Me.cbTestWebEdi.Size = New System.Drawing.Size(110, 24)
         Me.cbTestWebEdi.TabIndex = 6
@@ -1812,7 +1859,7 @@ Partial Class frmConstantes
         'tbWEBEDI_SMTPFROM
         '
         Me.tbWEBEDI_SMTPFROM.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_FROM", True))
-        Me.tbWEBEDI_SMTPFROM.Location = New System.Drawing.Point(107, 72)
+        Me.tbWEBEDI_SMTPFROM.Location = New System.Drawing.Point(105, 127)
         Me.tbWEBEDI_SMTPFROM.Name = "tbWEBEDI_SMTPFROM"
         Me.tbWEBEDI_SMTPFROM.Size = New System.Drawing.Size(432, 20)
         Me.tbWEBEDI_SMTPFROM.TabIndex = 5
@@ -1820,7 +1867,7 @@ Partial Class frmConstantes
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(9, 75)
+        Me.Label7.Location = New System.Drawing.Point(5, 130)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(69, 13)
         Me.Label7.TabIndex = 4
@@ -1829,7 +1876,7 @@ Partial Class frmConstantes
         'tbWEBEDI_SMTPPORT
         '
         Me.tbWEBEDI_SMTPPORT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_PORT", True))
-        Me.tbWEBEDI_SMTPPORT.Location = New System.Drawing.Point(107, 46)
+        Me.tbWEBEDI_SMTPPORT.Location = New System.Drawing.Point(105, 46)
         Me.tbWEBEDI_SMTPPORT.Name = "tbWEBEDI_SMTPPORT"
         Me.tbWEBEDI_SMTPPORT.Size = New System.Drawing.Size(87, 20)
         Me.tbWEBEDI_SMTPPORT.TabIndex = 3
@@ -1855,7 +1902,7 @@ Partial Class frmConstantes
         'tbWEBEDI_SMTPHOST
         '
         Me.tbWEBEDI_SMTPHOST.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_HOST", True))
-        Me.tbWEBEDI_SMTPHOST.Location = New System.Drawing.Point(107, 20)
+        Me.tbWEBEDI_SMTPHOST.Location = New System.Drawing.Point(105, 20)
         Me.tbWEBEDI_SMTPHOST.Name = "tbWEBEDI_SMTPHOST"
         Me.tbWEBEDI_SMTPHOST.Size = New System.Drawing.Size(433, 20)
         Me.tbWEBEDI_SMTPHOST.TabIndex = 0
@@ -2041,10 +2088,6 @@ Partial Class frmConstantes
         Me.CST_VERSION_BDTextBox.Size = New System.Drawing.Size(100, 20)
         Me.CST_VERSION_BDTextBox.TabIndex = 2
         '
-        'CONSTANTESTableAdapter
-        '
-        Me.CONSTANTESTableAdapter.ClearBeforeFill = True
-        '
         'Label25
         '
         Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -2055,15 +2098,35 @@ Partial Class frmConstantes
         Me.Label25.TabIndex = 3
         Me.Label25.Text = "Date : "
         '
-        'TextBox5
+        'dtpdateMAj
         '
-        Me.TextBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_DATE_UPDATE", True))
-        Me.TextBox5.Location = New System.Drawing.Point(494, 6)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.ReadOnly = True
-        Me.TextBox5.Size = New System.Drawing.Size(119, 20)
-        Me.TextBox5.TabIndex = 4
+        Me.dtpdateMAj.CustomFormat = "dd/MM/yyyy hh:mm:ss"
+        Me.dtpdateMAj.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.CONSTANTESBindingSource, "CST_DATE_UPDATE", True))
+        Me.dtpdateMAj.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpdateMAj.Location = New System.Drawing.Point(518, 6)
+        Me.dtpdateMAj.Name = "dtpdateMAj"
+        Me.dtpdateMAj.Size = New System.Drawing.Size(152, 20)
+        Me.dtpdateMAj.TabIndex = 4
+        '
+        'CONSTANTESTableAdapter
+        '
+        Me.CONSTANTESTableAdapter.ClearBeforeFill = True
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(13, 234)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(101, 13)
+        Me.Label28.TabIndex = 13
+        Me.Label28.Text = "Destinataire de test "
+        '
+        'tbWEBEDI_Destinataire
+        '
+        Me.tbWEBEDI_Destinataire.Location = New System.Drawing.Point(120, 231)
+        Me.tbWEBEDI_Destinataire.Name = "tbWEBEDI_Destinataire"
+        Me.tbWEBEDI_Destinataire.Size = New System.Drawing.Size(415, 20)
+        Me.tbWEBEDI_Destinataire.TabIndex = 14
         '
         'frmConstantes
         '
@@ -2071,7 +2134,7 @@ Partial Class frmConstantes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(788, 496)
-        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.dtpdateMAj)
         Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.CST_VERSION_BDLabel)
         Me.Controls.Add(Me.CST_VERSION_BDTextBox)
@@ -2095,8 +2158,8 @@ Partial Class frmConstantes
         Me.TabPage4.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
-        Me.TabPage6.ResumeLayout(False)
-        Me.TabPage6.PerformLayout()
+        Me.tbEDI_Destinataire.ResumeLayout(False)
+        Me.tbEDI_Destinataire.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
         Me.ResumeLayout(False)
@@ -2241,7 +2304,7 @@ Partial Class frmConstantes
     Friend WithEvents FTP_LOCKFROMFILENAMELabel As System.Windows.Forms.Label
     Friend WithEvents FTP_LOCKTOFILENAMELabel As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
+    Friend WithEvents tbEDI_Destinataire As System.Windows.Forms.TabPage
     Friend WithEvents cbTestWebEdi As System.Windows.Forms.Button
     Friend WithEvents tbWEBEDI_SMTPFROM As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -2290,5 +2353,11 @@ Partial Class frmConstantes
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label24 As Label
     Friend WithEvents Label25 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents dtpdateMAj As DateTimePicker
+    Friend WithEvents tbWEBEDI_SMTPPWD As TextBox
+    Friend WithEvents Label27 As Label
+    Friend WithEvents tbWEBEDI_SMTPuser As TextBox
+    Friend WithEvents Label26 As Label
+    Friend WithEvents tbWEBEDI_Destinataire As TextBox
+    Friend WithEvents Label28 As Label
 End Class

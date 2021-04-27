@@ -100,7 +100,13 @@ Public Class Param
         Next
 
         m_colConstantes = Persist.getListeConstantes()
-        m_DateUpdate = CDate(Persist.executeSQLQuery("SELECT CST_DATE_UPDATE FROM CONSTANTES"))
+        Try
+
+            m_dateUpdate = CDate(Persist.executeSQLQuery("SELECT CST_DATE_UPDATE FROM CONSTANTES"))
+        Catch ex As Exception
+            m_dateUpdate = DateTime.Now
+
+        End Try
 
         m_bcolparamsLoad = True
         Persist.shared_disconnect()
@@ -507,10 +513,17 @@ Public Class Param
     Public Shared Function IsColParamOK() As Boolean
         Dim bReturn As Boolean = False
         If m_bcolparamsLoad Then
-            Dim dConstant As DateTime = CDate(Persist.executeSQLScalar("SELECT CST_DATE_UPDATE FROM CONSTANTES"))
-            If dConstant = m_dateUpdate Then
+            Dim dConstant As DateTime
+            Try
+                dConstant = CDate(Persist.executeSQLScalar("SELECT CST_DATE_UPDATE FROM CONSTANTES"))
+                If dConstant = m_dateUpdate Then
+                    bReturn = True
+                End If
+
+            Catch ex As Exception
                 bReturn = True
-            End If
+            End Try
+
         End If
         Return bReturn
     End Function

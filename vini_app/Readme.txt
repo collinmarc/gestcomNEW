@@ -1,9 +1,16 @@
-﻿Version 20201109
+﻿
+V20210501
+	0001352: Chgment Serveur de messagerie
+	
+
+VXXXXXXXX
+	0001273: Rechargement des constantes après modification (UpdateSQL)
+	0001298: Réorg onglet Eclatement
+
+Version 20201109
 	0001295: Récapitulatif Colisage : Le Nombre de colis n'est pas remis à 0 entre 2 Fournisseurs
 
 
-Version 6.0.0.3
-	0001273: Rechargement des constantes après modification (UpdateSQL)
 
 Version 6.0.0.2
 0001177: Modification du calcul de la taxes transport

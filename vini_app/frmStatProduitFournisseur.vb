@@ -41,6 +41,9 @@ Public Class frmStatProduitFournisseur
     Friend WithEvents tbcodeFourn As System.Windows.Forms.TextBox
     Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents rbDossierProduit As RadioButton
+    Friend WithEvents rbOrigineCommande As RadioButton
     Friend WithEvents ckAfficheDetail As System.Windows.Forms.CheckBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.tbcodeFourn = New System.Windows.Forms.TextBox()
@@ -53,6 +56,9 @@ Public Class frmStatProduitFournisseur
         Me.ckAfficheDetail = New System.Windows.Forms.CheckBox()
         Me.cbxOrigine = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.rbDossierProduit = New System.Windows.Forms.RadioButton()
+        Me.rbOrigineCommande = New System.Windows.Forms.RadioButton()
         Me.SuspendLayout()
         '
         'tbcodeFourn
@@ -122,26 +128,60 @@ Public Class frmStatProduitFournisseur
         'cbxOrigine
         '
         Me.cbxOrigine.FormattingEnabled = True
-        Me.cbxOrigine.Items.AddRange(New Object() {dOSSIER.VINICOM, DOSSIER.HOBIVIN})
-        Me.cbxOrigine.Location = New System.Drawing.Point(104, 35)
+        Me.cbxOrigine.Items.AddRange(New Object() {"VINICOM", "HOBIVIN"})
+        Me.cbxOrigine.Location = New System.Drawing.Point(552, 38)
         Me.cbxOrigine.Name = "cbxOrigine"
         Me.cbxOrigine.Size = New System.Drawing.Size(136, 21)
         Me.cbxOrigine.TabIndex = 16
-        Me.cbxOrigine.Text = dossier.VINICOM
+        Me.cbxOrigine.Text = "VINICOM"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 39)
+        Me.Label4.Location = New System.Drawing.Point(460, 42)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(46, 13)
+        Me.Label4.Size = New System.Drawing.Size(83, 13)
         Me.Label4.TabIndex = 17
-        Me.Label4.Text = "Origine :"
+        Me.Label4.Text = "Dossier produit :"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(12, 40)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(45, 13)
+        Me.Label5.TabIndex = 18
+        Me.Label5.Text = "Fitré par"
+        '
+        'rbDossierProduit
+        '
+        Me.rbDossierProduit.AutoSize = True
+        Me.rbDossierProduit.Location = New System.Drawing.Point(104, 40)
+        Me.rbDossierProduit.Name = "rbDossierProduit"
+        Me.rbDossierProduit.Size = New System.Drawing.Size(96, 17)
+        Me.rbDossierProduit.TabIndex = 19
+        Me.rbDossierProduit.TabStop = True
+        Me.rbDossierProduit.Text = "Dossier Produit"
+        Me.rbDossierProduit.UseVisualStyleBackColor = True
+        '
+        'rbOrigineCommande
+        '
+        Me.rbOrigineCommande.AutoSize = True
+        Me.rbOrigineCommande.Location = New System.Drawing.Point(207, 40)
+        Me.rbOrigineCommande.Name = "rbOrigineCommande"
+        Me.rbOrigineCommande.Size = New System.Drawing.Size(139, 17)
+        Me.rbOrigineCommande.TabIndex = 20
+        Me.rbOrigineCommande.TabStop = True
+        Me.rbOrigineCommande.Text = "Origine de la commande"
+        Me.rbOrigineCommande.UseVisualStyleBackColor = True
         '
         'frmStatProduitFournisseur
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(992, 678)
+        Me.Controls.Add(Me.rbOrigineCommande)
+        Me.Controls.Add(Me.rbDossierProduit)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cbxOrigine)
         Me.Controls.Add(Me.ckAfficheDetail)
@@ -164,6 +204,9 @@ Public Class frmStatProduitFournisseur
         Me.Controls.SetChildIndex(Me.ckAfficheDetail, 0)
         Me.Controls.SetChildIndex(Me.cbxOrigine, 0)
         Me.Controls.SetChildIndex(Me.Label4, 0)
+        Me.Controls.SetChildIndex(Me.Label5, 0)
+        Me.Controls.SetChildIndex(Me.rbDossierProduit, 0)
+        Me.Controls.SetChildIndex(Me.rbOrigineCommande, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

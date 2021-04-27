@@ -122,9 +122,6 @@ Public Class frmSaisieCommande
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents tbRefBL As System.Windows.Forms.TextBox
-    Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents Label32 As System.Windows.Forms.Label
-    Friend WithEvents Label36 As System.Windows.Forms.Label
     Friend WithEvents Label41 As System.Windows.Forms.Label
     Friend WithEvents Label42 As System.Windows.Forms.Label
     Friend WithEvents Label37 As System.Windows.Forms.Label
@@ -197,22 +194,13 @@ Public Class frmSaisieCommande
     Friend WithEvents dtDateEnlevementReelle As System.Windows.Forms.DateTimePicker
     Friend WithEvents cbBLToutOK As System.Windows.Forms.Button
     Friend WithEvents cbAnnulerLivraison As System.Windows.Forms.Button
-    Friend WithEvents cbEclatementCmde As System.Windows.Forms.Button
-    Friend WithEvents tbSCMDTransporteurNom As System.Windows.Forms.TextBox
-    Friend WithEvents tbSCMDCommentaire As System.Windows.Forms.RichTextBox
-    Friend WithEvents liSCMDFournisseur As System.Windows.Forms.LinkLabel
     Friend WithEvents label50 As System.Windows.Forms.Label
     Friend WithEvents dtDateLivraisonPrevue As System.Windows.Forms.DateTimePicker
-    Friend WithEvents dtSCMDDateLiv As System.Windows.Forms.DateTimePicker
     Friend WithEvents tpEclatement As System.Windows.Forms.TabPage
-    Friend WithEvents cbSCMDVoir As System.Windows.Forms.Button
-    Friend WithEvents cbSCMDFaxerTout As System.Windows.Forms.Button
-    Friend WithEvents cbAnnEclatement As System.Windows.Forms.Button
     Friend WithEvents grpTypeTransport As System.Windows.Forms.GroupBox
     Friend WithEvents grpTypeCommande As System.Windows.Forms.GroupBox
     Friend WithEvents grpEntete As System.Windows.Forms.GroupBox
     Public WithEvents LaCodeTiers As System.Windows.Forms.Label
-    Friend WithEvents cbSCMDAppliquer As System.Windows.Forms.Button
     Friend WithEvents ckTransport As System.Windows.Forms.CheckBox
     Friend WithEvents liFactTRP As System.Windows.Forms.LinkLabel
     Friend WithEvents tbPiedPageBL As System.Windows.Forms.RichTextBox
@@ -271,27 +259,7 @@ Public Class frmSaisieCommande
     Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn19 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn20 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn21 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewCheckBoxColumn2 As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn22 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn23 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn24 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents m_bsrcSousCommande As System.Windows.Forms.BindingSource
-    Friend WithEvents m_dgvSCMD As System.Windows.Forms.DataGridView
-    Friend WithEvents CodeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents FournisseurRSDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TotalHTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DateCommandeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents EtatLibelleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents cbCalcPoidsColis_RL As System.Windows.Forms.Button
     Friend WithEvents Label66 As System.Windows.Forms.Label
@@ -331,8 +299,6 @@ Public Class frmSaisieCommande
     Friend WithEvents PrixTTCDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
     Friend WithEvents liPrestashop As System.Windows.Forms.LinkLabel
-    Friend WithEvents laIntermediaires As System.Windows.Forms.Label
-    Friend WithEvents cbxIntermédiaires As System.Windows.Forms.ComboBox
     Friend WithEvents m_bsrcIntermédiaires As System.Windows.Forms.BindingSource
     Friend WithEvents tpFactHbv As System.Windows.Forms.TabPage
     Friend WithEvents btnFactHBVAfficher As System.Windows.Forms.Button
@@ -348,37 +314,71 @@ Public Class frmSaisieCommande
     Friend WithEvents PrixUDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PrixHTDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PrixTTCDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SplitContainerEclatement As SplitContainer
+    Friend WithEvents laIntermediaires As Label
+    Friend WithEvents cbxIntermédiaires As ComboBox
+    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewCheckBoxColumn2 As DataGridViewCheckBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
+    Friend WithEvents cbAnnEclatement As Button
+    Friend WithEvents cbEclatementCmde As Button
+    Friend WithEvents m_dgvSCMD As DataGridView
+    Friend WithEvents CodeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FournisseurRSDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TotalHTDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DateCommandeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EtatLibelleDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Label36 As Label
+    Friend WithEvents tbSCMDTransporteurNom As TextBox
+    Friend WithEvents Label32 As Label
+    Friend WithEvents liSCMDFournisseur As LinkLabel
+    Friend WithEvents dtSCMDDateLiv As DateTimePicker
+    Friend WithEvents Label24 As Label
+    Friend WithEvents tbSCMDCommentaire As RichTextBox
+    Friend WithEvents cbSCMDAppliquer As Button
+    Friend WithEvents cbSCMDVoir As Button
     Friend WithEvents cbMailBLPLTFRM As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle43 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle44 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle45 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle46 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle47 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle48 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle49 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle50 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle51 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle52 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle53 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle54 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle55 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle56 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.grpEntete = New System.Windows.Forms.GroupBox()
         Me.grpPrestashop = New System.Windows.Forms.GroupBox()
         Me.cbxOrigine = New System.Windows.Forms.ComboBox()
@@ -609,16 +609,10 @@ Public Class frmSaisieCommande
         Me.Label22 = New System.Windows.Forms.Label()
         Me.cbBLToutOK = New System.Windows.Forms.Button()
         Me.tpEclatement = New System.Windows.Forms.TabPage()
+        Me.SplitContainerEclatement = New System.Windows.Forms.SplitContainer()
         Me.laIntermediaires = New System.Windows.Forms.Label()
         Me.cbxIntermédiaires = New System.Windows.Forms.ComboBox()
         Me.m_bsrcIntermédiaires = New System.Windows.Forms.BindingSource(Me.components)
-        Me.m_dgvSCMD = New System.Windows.Forms.DataGridView()
-        Me.CodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FournisseurRSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TotalHTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateCommandeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EtatLibelleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.m_bsrcSousCommande = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -633,18 +627,24 @@ Public Class frmSaisieCommande
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cbSCMDAppliquer = New System.Windows.Forms.Button()
         Me.cbAnnEclatement = New System.Windows.Forms.Button()
-        Me.tbSCMDCommentaire = New System.Windows.Forms.RichTextBox()
-        Me.cbSCMDVoir = New System.Windows.Forms.Button()
-        Me.cbSCMDFaxerTout = New System.Windows.Forms.Button()
+        Me.cbEclatementCmde = New System.Windows.Forms.Button()
+        Me.m_dgvSCMD = New System.Windows.Forms.DataGridView()
+        Me.CodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FournisseurRSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalHTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateCommandeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EtatLibelleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.m_bsrcSousCommande = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label36 = New System.Windows.Forms.Label()
         Me.tbSCMDTransporteurNom = New System.Windows.Forms.TextBox()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.liSCMDFournisseur = New System.Windows.Forms.LinkLabel()
         Me.dtSCMDDateLiv = New System.Windows.Forms.DateTimePicker()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.cbEclatementCmde = New System.Windows.Forms.Button()
+        Me.tbSCMDCommentaire = New System.Windows.Forms.RichTextBox()
+        Me.cbSCMDAppliquer = New System.Windows.Forms.Button()
+        Me.cbSCMDVoir = New System.Windows.Forms.Button()
         Me.tpFactHbv = New System.Windows.Forms.TabPage()
         Me.pnlFactHBV = New System.Windows.Forms.Panel()
         Me.SplitFactHBV = New System.Windows.Forms.SplitContainer()
@@ -688,10 +688,14 @@ Public Class frmSaisieCommande
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpEclatement.SuspendLayout()
+        CType(Me.SplitContainerEclatement, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainerEclatement.Panel1.SuspendLayout()
+        Me.SplitContainerEclatement.Panel2.SuspendLayout()
+        Me.SplitContainerEclatement.SuspendLayout()
         CType(Me.m_bsrcIntermédiaires, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_dgvSCMD, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcSousCommande, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpFactHbv.SuspendLayout()
         Me.pnlFactHBV.SuspendLayout()
         CType(Me.SplitFactHBV, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -735,7 +739,7 @@ Public Class frmSaisieCommande
         'cbxOrigine
         '
         Me.cbxOrigine.FormattingEnabled = True
-        Me.cbxOrigine.Items.AddRange(New Object() {dOSSIER.VINICOM, DOSSIER.HOBIVIN})
+        Me.cbxOrigine.Items.AddRange(New Object() {"VINICOM", "HOBIVIN"})
         Me.cbxOrigine.Location = New System.Drawing.Point(6, 16)
         Me.cbxOrigine.Name = "cbxOrigine"
         Me.cbxOrigine.Size = New System.Drawing.Size(124, 21)
@@ -1771,8 +1775,8 @@ Public Class frmSaisieCommande
         'ProduitCodeDataGridViewTextBoxColumn
         '
         Me.ProduitCodeDataGridViewTextBoxColumn.DataPropertyName = "ProduitCode"
-        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.ProduitCodeDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle34
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.ProduitCodeDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
         Me.ProduitCodeDataGridViewTextBoxColumn.FillWeight = 48.21718!
         Me.ProduitCodeDataGridViewTextBoxColumn.HeaderText = "Code Produit"
         Me.ProduitCodeDataGridViewTextBoxColumn.Name = "ProduitCodeDataGridViewTextBoxColumn"
@@ -1813,8 +1817,8 @@ Public Class frmSaisieCommande
         'QteCommandeDataGridViewTextBoxColumn
         '
         Me.QteCommandeDataGridViewTextBoxColumn.DataPropertyName = "qteCommande"
-        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.QteCommandeDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle35
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.QteCommandeDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.QteCommandeDataGridViewTextBoxColumn.FillWeight = 53.57465!
         Me.QteCommandeDataGridViewTextBoxColumn.HeaderText = "Qte Comm"
         Me.QteCommandeDataGridViewTextBoxColumn.Name = "QteCommandeDataGridViewTextBoxColumn"
@@ -1823,8 +1827,8 @@ Public Class frmSaisieCommande
         'QteLivDataGridViewTextBoxColumn
         '
         Me.QteLivDataGridViewTextBoxColumn.DataPropertyName = "qteLiv"
-        DataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.QteLivDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle36
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.QteLivDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.QteLivDataGridViewTextBoxColumn.FillWeight = 53.57465!
         Me.QteLivDataGridViewTextBoxColumn.HeaderText = "Qte Liv"
         Me.QteLivDataGridViewTextBoxColumn.Name = "QteLivDataGridViewTextBoxColumn"
@@ -1833,8 +1837,8 @@ Public Class frmSaisieCommande
         'QteFactDataGridViewTextBoxColumn
         '
         Me.QteFactDataGridViewTextBoxColumn.DataPropertyName = "qteFact"
-        DataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.QteFactDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle37
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.QteFactDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
         Me.QteFactDataGridViewTextBoxColumn.FillWeight = 53.57465!
         Me.QteFactDataGridViewTextBoxColumn.HeaderText = "Qte Fact"
         Me.QteFactDataGridViewTextBoxColumn.Name = "QteFactDataGridViewTextBoxColumn"
@@ -1851,9 +1855,9 @@ Public Class frmSaisieCommande
         'PrixUDataGridViewTextBoxColumn
         '
         Me.PrixUDataGridViewTextBoxColumn.DataPropertyName = "prixU"
-        DataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle38.Format = "C2"
-        Me.PrixUDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle38
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.Format = "C2"
+        Me.PrixUDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
         Me.PrixUDataGridViewTextBoxColumn.FillWeight = 60.0036!
         Me.PrixUDataGridViewTextBoxColumn.HeaderText = "Prix U"
         Me.PrixUDataGridViewTextBoxColumn.Name = "PrixUDataGridViewTextBoxColumn"
@@ -1862,9 +1866,9 @@ Public Class frmSaisieCommande
         'PrixHTDataGridViewTextBoxColumn
         '
         Me.PrixHTDataGridViewTextBoxColumn.DataPropertyName = "prixHT"
-        DataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle39.Format = "C2"
-        Me.PrixHTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle39
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "C2"
+        Me.PrixHTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
         Me.PrixHTDataGridViewTextBoxColumn.FillWeight = 75.00452!
         Me.PrixHTDataGridViewTextBoxColumn.HeaderText = "Montant HT"
         Me.PrixHTDataGridViewTextBoxColumn.Name = "PrixHTDataGridViewTextBoxColumn"
@@ -1873,9 +1877,9 @@ Public Class frmSaisieCommande
         'PrixTTCDataGridViewTextBoxColumn
         '
         Me.PrixTTCDataGridViewTextBoxColumn.DataPropertyName = "prixTTC"
-        DataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle40.Format = "C2"
-        Me.PrixTTCDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle40
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Format = "C2"
+        Me.PrixTTCDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle7
         Me.PrixTTCDataGridViewTextBoxColumn.FillWeight = 75.00452!
         Me.PrixTTCDataGridViewTextBoxColumn.HeaderText = "Montant TTC"
         Me.PrixTTCDataGridViewTextBoxColumn.Name = "PrixTTCDataGridViewTextBoxColumn"
@@ -2886,8 +2890,8 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "ProduitCode"
-        DataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle41
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridViewTextBoxColumn2.FillWeight = 45.0!
         Me.DataGridViewTextBoxColumn2.HeaderText = "Code Produit"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
@@ -2928,8 +2932,8 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "qteCommande"
-        DataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle42
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridViewTextBoxColumn7.FillWeight = 50.0!
         Me.DataGridViewTextBoxColumn7.HeaderText = "Qte Comm"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
@@ -2938,8 +2942,8 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn8
         '
         Me.DataGridViewTextBoxColumn8.DataPropertyName = "qteLiv"
-        DataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle43
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewTextBoxColumn8.FillWeight = 50.0!
         Me.DataGridViewTextBoxColumn8.HeaderText = "Qte Liv"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
@@ -2948,8 +2952,8 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn9
         '
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "qteFact"
-        DataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle44
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridViewTextBoxColumn9.FillWeight = 50.0!
         Me.DataGridViewTextBoxColumn9.HeaderText = "Qte Fact"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
@@ -2966,9 +2970,9 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn10
         '
         Me.DataGridViewTextBoxColumn10.DataPropertyName = "prixU"
-        DataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle45.Format = "C2"
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle45
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle12.Format = "C2"
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridViewTextBoxColumn10.FillWeight = 56.0!
         Me.DataGridViewTextBoxColumn10.HeaderText = "Prix U"
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
@@ -2977,9 +2981,9 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.DataPropertyName = "prixHT"
-        DataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle46.Format = "C2"
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle46
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle13.Format = "C2"
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridViewTextBoxColumn11.FillWeight = 70.0!
         Me.DataGridViewTextBoxColumn11.HeaderText = "Montant HT"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
@@ -2988,9 +2992,9 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "prixTTC"
-        DataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle47.Format = "C2"
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle47
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle14.Format = "C2"
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridViewTextBoxColumn12.FillWeight = 70.0!
         Me.DataGridViewTextBoxColumn12.HeaderText = "Montant TTC"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
@@ -3110,124 +3114,79 @@ Public Class frmSaisieCommande
         '
         'tpEclatement
         '
-        Me.tpEclatement.Controls.Add(Me.laIntermediaires)
-        Me.tpEclatement.Controls.Add(Me.cbxIntermédiaires)
-        Me.tpEclatement.Controls.Add(Me.m_dgvSCMD)
-        Me.tpEclatement.Controls.Add(Me.DataGridView3)
-        Me.tpEclatement.Controls.Add(Me.cbSCMDAppliquer)
-        Me.tpEclatement.Controls.Add(Me.cbAnnEclatement)
-        Me.tpEclatement.Controls.Add(Me.tbSCMDCommentaire)
-        Me.tpEclatement.Controls.Add(Me.cbSCMDVoir)
-        Me.tpEclatement.Controls.Add(Me.cbSCMDFaxerTout)
-        Me.tpEclatement.Controls.Add(Me.Label36)
-        Me.tpEclatement.Controls.Add(Me.tbSCMDTransporteurNom)
-        Me.tpEclatement.Controls.Add(Me.Label32)
-        Me.tpEclatement.Controls.Add(Me.liSCMDFournisseur)
-        Me.tpEclatement.Controls.Add(Me.dtSCMDDateLiv)
-        Me.tpEclatement.Controls.Add(Me.Label24)
-        Me.tpEclatement.Controls.Add(Me.cbEclatementCmde)
+        Me.tpEclatement.Controls.Add(Me.SplitContainerEclatement)
         Me.tpEclatement.Location = New System.Drawing.Point(4, 22)
         Me.tpEclatement.Name = "tpEclatement"
         Me.tpEclatement.Size = New System.Drawing.Size(992, 557)
         Me.tpEclatement.TabIndex = 5
         Me.tpEclatement.Text = "Eclatement Commande"
         '
+        'SplitContainerEclatement
+        '
+        Me.SplitContainerEclatement.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SplitContainerEclatement.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.SplitContainerEclatement.Location = New System.Drawing.Point(4, 3)
+        Me.SplitContainerEclatement.Name = "SplitContainerEclatement"
+        Me.SplitContainerEclatement.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainerEclatement.Panel1
+        '
+        Me.SplitContainerEclatement.Panel1.Controls.Add(Me.laIntermediaires)
+        Me.SplitContainerEclatement.Panel1.Controls.Add(Me.cbxIntermédiaires)
+        Me.SplitContainerEclatement.Panel1.Controls.Add(Me.DataGridView3)
+        Me.SplitContainerEclatement.Panel1.Controls.Add(Me.cbAnnEclatement)
+        Me.SplitContainerEclatement.Panel1.Controls.Add(Me.cbEclatementCmde)
+        '
+        'SplitContainerEclatement.Panel2
+        '
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.m_dgvSCMD)
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.Label36)
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.tbSCMDTransporteurNom)
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.Label32)
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.liSCMDFournisseur)
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.dtSCMDDateLiv)
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.Label24)
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.tbSCMDCommentaire)
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.cbSCMDAppliquer)
+        Me.SplitContainerEclatement.Panel2.Controls.Add(Me.cbSCMDVoir)
+        Me.SplitContainerEclatement.Size = New System.Drawing.Size(979, 551)
+        Me.SplitContainerEclatement.SplitterDistance = 228
+        Me.SplitContainerEclatement.TabIndex = 82
+        '
         'laIntermediaires
         '
+        Me.laIntermediaires.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.laIntermediaires.AutoSize = True
-        Me.laIntermediaires.Location = New System.Drawing.Point(645, 211)
+        Me.laIntermediaires.Location = New System.Drawing.Point(640, 202)
         Me.laIntermediaires.Name = "laIntermediaires"
         Me.laIntermediaires.Size = New System.Drawing.Size(78, 13)
-        Me.laIntermediaires.TabIndex = 78
+        Me.laIntermediaires.TabIndex = 88
         Me.laIntermediaires.Text = "Intermédiaires :"
         '
         'cbxIntermédiaires
         '
+        Me.cbxIntermédiaires.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbxIntermédiaires.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcIntermédiaires, "nom", True))
         Me.cbxIntermédiaires.DataSource = Me.m_bsrcIntermédiaires
         Me.cbxIntermédiaires.DisplayMember = "shortResume"
         Me.cbxIntermédiaires.FormattingEnabled = True
-        Me.cbxIntermédiaires.Location = New System.Drawing.Point(738, 208)
+        Me.cbxIntermédiaires.Location = New System.Drawing.Point(733, 199)
         Me.cbxIntermédiaires.Name = "cbxIntermédiaires"
         Me.cbxIntermédiaires.Size = New System.Drawing.Size(238, 21)
-        Me.cbxIntermédiaires.TabIndex = 77
+        Me.cbxIntermédiaires.TabIndex = 87
         '
         'm_bsrcIntermédiaires
         '
         Me.m_bsrcIntermédiaires.DataSource = GetType(vini_DB.Client)
         '
-        'm_dgvSCMD
-        '
-        Me.m_dgvSCMD.AllowUserToAddRows = False
-        Me.m_dgvSCMD.AllowUserToDeleteRows = False
-        Me.m_dgvSCMD.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.m_dgvSCMD.AutoGenerateColumns = False
-        Me.m_dgvSCMD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.m_dgvSCMD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.m_dgvSCMD.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodeDataGridViewTextBoxColumn, Me.FournisseurRSDataGridViewTextBoxColumn, Me.TotalHTDataGridViewTextBoxColumn, Me.DateCommandeDataGridViewTextBoxColumn, Me.EtatLibelleDataGridViewTextBoxColumn})
-        Me.m_dgvSCMD.DataSource = Me.m_bsrcSousCommande
-        Me.m_dgvSCMD.Location = New System.Drawing.Point(9, 239)
-        Me.m_dgvSCMD.Name = "m_dgvSCMD"
-        Me.m_dgvSCMD.ReadOnly = True
-        Me.m_dgvSCMD.Size = New System.Drawing.Size(415, 273)
-        Me.m_dgvSCMD.TabIndex = 75
-        '
-        'CodeDataGridViewTextBoxColumn
-        '
-        Me.CodeDataGridViewTextBoxColumn.DataPropertyName = "code"
-        Me.CodeDataGridViewTextBoxColumn.FillWeight = 76.0!
-        Me.CodeDataGridViewTextBoxColumn.HeaderText = "Code"
-        Me.CodeDataGridViewTextBoxColumn.Name = "CodeDataGridViewTextBoxColumn"
-        Me.CodeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'FournisseurRSDataGridViewTextBoxColumn
-        '
-        Me.FournisseurRSDataGridViewTextBoxColumn.DataPropertyName = "FournisseurRS"
-        Me.FournisseurRSDataGridViewTextBoxColumn.FillWeight = 170.0!
-        Me.FournisseurRSDataGridViewTextBoxColumn.HeaderText = "Producteur"
-        Me.FournisseurRSDataGridViewTextBoxColumn.Name = "FournisseurRSDataGridViewTextBoxColumn"
-        Me.FournisseurRSDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TotalHTDataGridViewTextBoxColumn
-        '
-        Me.TotalHTDataGridViewTextBoxColumn.DataPropertyName = "totalHT"
-        DataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle48.Format = "C2"
-        Me.TotalHTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle48
-        Me.TotalHTDataGridViewTextBoxColumn.FillWeight = 70.0!
-        Me.TotalHTDataGridViewTextBoxColumn.HeaderText = "Montant HT"
-        Me.TotalHTDataGridViewTextBoxColumn.Name = "TotalHTDataGridViewTextBoxColumn"
-        Me.TotalHTDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DateCommandeDataGridViewTextBoxColumn
-        '
-        Me.DateCommandeDataGridViewTextBoxColumn.DataPropertyName = "dateCommande"
-        DataGridViewCellStyle49.Format = "d"
-        DataGridViewCellStyle49.NullValue = Nothing
-        Me.DateCommandeDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle49
-        Me.DateCommandeDataGridViewTextBoxColumn.FillWeight = 60.0!
-        Me.DateCommandeDataGridViewTextBoxColumn.HeaderText = "date Commande"
-        Me.DateCommandeDataGridViewTextBoxColumn.Name = "DateCommandeDataGridViewTextBoxColumn"
-        Me.DateCommandeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'EtatLibelleDataGridViewTextBoxColumn
-        '
-        Me.EtatLibelleDataGridViewTextBoxColumn.DataPropertyName = "EtatLibelle"
-        Me.EtatLibelleDataGridViewTextBoxColumn.FillWeight = 12.0!
-        Me.EtatLibelleDataGridViewTextBoxColumn.HeaderText = "Etat"
-        Me.EtatLibelleDataGridViewTextBoxColumn.Name = "EtatLibelleDataGridViewTextBoxColumn"
-        Me.EtatLibelleDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'm_bsrcSousCommande
-        '
-        Me.m_bsrcSousCommande.DataSource = GetType(vini_DB.SousCommande)
-        '
         'DataGridView3
         '
         Me.DataGridView3.AllowUserToAddRows = False
         Me.DataGridView3.AllowUserToDeleteRows = False
-        Me.DataGridView3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.DataGridView3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView3.AutoGenerateColumns = False
         Me.DataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
@@ -3239,8 +3198,8 @@ Public Class frmSaisieCommande
         Me.DataGridView3.ReadOnly = True
         Me.DataGridView3.RowHeadersWidth = 10
         Me.DataGridView3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DataGridView3.Size = New System.Drawing.Size(981, 196)
-        Me.DataGridView3.TabIndex = 74
+        Me.DataGridView3.Size = New System.Drawing.Size(963, 187)
+        Me.DataGridView3.TabIndex = 86
         '
         'DataGridViewTextBoxColumn13
         '
@@ -3253,8 +3212,8 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn14
         '
         Me.DataGridViewTextBoxColumn14.DataPropertyName = "ProduitCode"
-        DataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle50
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle15
         Me.DataGridViewTextBoxColumn14.FillWeight = 45.0!
         Me.DataGridViewTextBoxColumn14.HeaderText = "Code Produit"
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
@@ -3295,8 +3254,8 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn19
         '
         Me.DataGridViewTextBoxColumn19.DataPropertyName = "qteCommande"
-        DataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn19.DefaultCellStyle = DataGridViewCellStyle51
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn19.DefaultCellStyle = DataGridViewCellStyle16
         Me.DataGridViewTextBoxColumn19.FillWeight = 50.0!
         Me.DataGridViewTextBoxColumn19.HeaderText = "Qte Comm"
         Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
@@ -3305,8 +3264,8 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn20
         '
         Me.DataGridViewTextBoxColumn20.DataPropertyName = "qteLiv"
-        DataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn20.DefaultCellStyle = DataGridViewCellStyle52
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn20.DefaultCellStyle = DataGridViewCellStyle17
         Me.DataGridViewTextBoxColumn20.FillWeight = 50.0!
         Me.DataGridViewTextBoxColumn20.HeaderText = "Qte Liv"
         Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
@@ -3315,8 +3274,8 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn21
         '
         Me.DataGridViewTextBoxColumn21.DataPropertyName = "qteFact"
-        DataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn21.DefaultCellStyle = DataGridViewCellStyle53
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn21.DefaultCellStyle = DataGridViewCellStyle18
         Me.DataGridViewTextBoxColumn21.FillWeight = 50.0!
         Me.DataGridViewTextBoxColumn21.HeaderText = "Qte Fact"
         Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
@@ -3333,9 +3292,9 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn22
         '
         Me.DataGridViewTextBoxColumn22.DataPropertyName = "prixU"
-        DataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle54.Format = "C2"
-        Me.DataGridViewTextBoxColumn22.DefaultCellStyle = DataGridViewCellStyle54
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle19.Format = "C2"
+        Me.DataGridViewTextBoxColumn22.DefaultCellStyle = DataGridViewCellStyle19
         Me.DataGridViewTextBoxColumn22.FillWeight = 56.0!
         Me.DataGridViewTextBoxColumn22.HeaderText = "Prix U"
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
@@ -3344,9 +3303,9 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn23
         '
         Me.DataGridViewTextBoxColumn23.DataPropertyName = "prixHT"
-        DataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle55.Format = "C2"
-        Me.DataGridViewTextBoxColumn23.DefaultCellStyle = DataGridViewCellStyle55
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle20.Format = "C2"
+        Me.DataGridViewTextBoxColumn23.DefaultCellStyle = DataGridViewCellStyle20
         Me.DataGridViewTextBoxColumn23.FillWeight = 70.0!
         Me.DataGridViewTextBoxColumn23.HeaderText = "Montant HT"
         Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
@@ -3355,85 +3314,124 @@ Public Class frmSaisieCommande
         'DataGridViewTextBoxColumn24
         '
         Me.DataGridViewTextBoxColumn24.DataPropertyName = "prixTTC"
-        DataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle56.Format = "C2"
-        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle56
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle21.Format = "C2"
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle21
         Me.DataGridViewTextBoxColumn24.FillWeight = 70.0!
         Me.DataGridViewTextBoxColumn24.HeaderText = "Montant TTC"
         Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
         Me.DataGridViewTextBoxColumn24.ReadOnly = True
         '
-        'cbSCMDAppliquer
-        '
-        Me.cbSCMDAppliquer.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbSCMDAppliquer.Location = New System.Drawing.Point(880, 488)
-        Me.cbSCMDAppliquer.Name = "cbSCMDAppliquer"
-        Me.cbSCMDAppliquer.Size = New System.Drawing.Size(96, 24)
-        Me.cbSCMDAppliquer.TabIndex = 10
-        Me.cbSCMDAppliquer.Text = "Appliquer"
-        '
         'cbAnnEclatement
         '
-        Me.cbAnnEclatement.Location = New System.Drawing.Point(432, 208)
+        Me.cbAnnEclatement.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.cbAnnEclatement.Location = New System.Drawing.Point(427, 199)
         Me.cbAnnEclatement.Name = "cbAnnEclatement"
         Me.cbAnnEclatement.Size = New System.Drawing.Size(144, 24)
-        Me.cbAnnEclatement.TabIndex = 72
+        Me.cbAnnEclatement.TabIndex = 85
         Me.cbAnnEclatement.Text = "Annulation Eclatement"
         '
-        'tbSCMDCommentaire
+        'cbEclatementCmde
         '
-        Me.tbSCMDCommentaire.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbSCMDCommentaire.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcSousCommande, "CommentaireFacturationText", True))
-        Me.tbSCMDCommentaire.Location = New System.Drawing.Point(440, 336)
-        Me.tbSCMDCommentaire.Name = "tbSCMDCommentaire"
-        Me.tbSCMDCommentaire.Size = New System.Drawing.Size(536, 144)
-        Me.tbSCMDCommentaire.TabIndex = 4
-        Me.tbSCMDCommentaire.Text = ""
+        Me.cbEclatementCmde.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.cbEclatementCmde.Location = New System.Drawing.Point(3, 199)
+        Me.cbEclatementCmde.Name = "cbEclatementCmde"
+        Me.cbEclatementCmde.Size = New System.Drawing.Size(416, 24)
+        Me.cbEclatementCmde.TabIndex = 84
+        Me.cbEclatementCmde.Text = "Eclatement de la commande client"
         '
-        'cbSCMDVoir
+        'm_dgvSCMD
         '
-        Me.cbSCMDVoir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbSCMDVoir.Location = New System.Drawing.Point(440, 488)
-        Me.cbSCMDVoir.Name = "cbSCMDVoir"
-        Me.cbSCMDVoir.Size = New System.Drawing.Size(72, 24)
-        Me.cbSCMDVoir.TabIndex = 7
-        Me.cbSCMDVoir.Text = "Voir"
+        Me.m_dgvSCMD.AllowUserToAddRows = False
+        Me.m_dgvSCMD.AllowUserToDeleteRows = False
+        Me.m_dgvSCMD.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.m_dgvSCMD.AutoGenerateColumns = False
+        Me.m_dgvSCMD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.m_dgvSCMD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.m_dgvSCMD.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodeDataGridViewTextBoxColumn, Me.FournisseurRSDataGridViewTextBoxColumn, Me.TotalHTDataGridViewTextBoxColumn, Me.DateCommandeDataGridViewTextBoxColumn, Me.EtatLibelleDataGridViewTextBoxColumn})
+        Me.m_dgvSCMD.DataSource = Me.m_bsrcSousCommande
+        Me.m_dgvSCMD.Location = New System.Drawing.Point(4, 4)
+        Me.m_dgvSCMD.Name = "m_dgvSCMD"
+        Me.m_dgvSCMD.ReadOnly = True
+        Me.m_dgvSCMD.Size = New System.Drawing.Size(411, 302)
+        Me.m_dgvSCMD.TabIndex = 90
         '
-        'cbSCMDFaxerTout
+        'CodeDataGridViewTextBoxColumn
         '
-        Me.cbSCMDFaxerTout.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbSCMDFaxerTout.Location = New System.Drawing.Point(528, 488)
-        Me.cbSCMDFaxerTout.Name = "cbSCMDFaxerTout"
-        Me.cbSCMDFaxerTout.Size = New System.Drawing.Size(104, 24)
-        Me.cbSCMDFaxerTout.TabIndex = 9
-        Me.cbSCMDFaxerTout.Text = "Faxer Tout"
+        Me.CodeDataGridViewTextBoxColumn.DataPropertyName = "code"
+        Me.CodeDataGridViewTextBoxColumn.FillWeight = 76.0!
+        Me.CodeDataGridViewTextBoxColumn.HeaderText = "Code"
+        Me.CodeDataGridViewTextBoxColumn.Name = "CodeDataGridViewTextBoxColumn"
+        Me.CodeDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'FournisseurRSDataGridViewTextBoxColumn
+        '
+        Me.FournisseurRSDataGridViewTextBoxColumn.DataPropertyName = "FournisseurRS"
+        Me.FournisseurRSDataGridViewTextBoxColumn.FillWeight = 170.0!
+        Me.FournisseurRSDataGridViewTextBoxColumn.HeaderText = "Producteur"
+        Me.FournisseurRSDataGridViewTextBoxColumn.Name = "FournisseurRSDataGridViewTextBoxColumn"
+        Me.FournisseurRSDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TotalHTDataGridViewTextBoxColumn
+        '
+        Me.TotalHTDataGridViewTextBoxColumn.DataPropertyName = "totalHT"
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle22.Format = "C2"
+        Me.TotalHTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle22
+        Me.TotalHTDataGridViewTextBoxColumn.FillWeight = 70.0!
+        Me.TotalHTDataGridViewTextBoxColumn.HeaderText = "Montant HT"
+        Me.TotalHTDataGridViewTextBoxColumn.Name = "TotalHTDataGridViewTextBoxColumn"
+        Me.TotalHTDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DateCommandeDataGridViewTextBoxColumn
+        '
+        Me.DateCommandeDataGridViewTextBoxColumn.DataPropertyName = "dateCommande"
+        DataGridViewCellStyle23.Format = "d"
+        DataGridViewCellStyle23.NullValue = Nothing
+        Me.DateCommandeDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle23
+        Me.DateCommandeDataGridViewTextBoxColumn.FillWeight = 60.0!
+        Me.DateCommandeDataGridViewTextBoxColumn.HeaderText = "date Commande"
+        Me.DateCommandeDataGridViewTextBoxColumn.Name = "DateCommandeDataGridViewTextBoxColumn"
+        Me.DateCommandeDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'EtatLibelleDataGridViewTextBoxColumn
+        '
+        Me.EtatLibelleDataGridViewTextBoxColumn.DataPropertyName = "EtatLibelle"
+        Me.EtatLibelleDataGridViewTextBoxColumn.FillWeight = 12.0!
+        Me.EtatLibelleDataGridViewTextBoxColumn.HeaderText = "Etat"
+        Me.EtatLibelleDataGridViewTextBoxColumn.Name = "EtatLibelleDataGridViewTextBoxColumn"
+        Me.EtatLibelleDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'm_bsrcSousCommande
+        '
+        Me.m_bsrcSousCommande.DataSource = GetType(vini_DB.SousCommande)
         '
         'Label36
         '
         Me.Label36.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label36.Location = New System.Drawing.Point(440, 320)
+        Me.Label36.Location = New System.Drawing.Point(446, 92)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(80, 16)
-        Me.Label36.TabIndex = 71
+        Me.Label36.TabIndex = 89
         Me.Label36.Text = "Commentaire"
         '
         'tbSCMDTransporteurNom
         '
         Me.tbSCMDTransporteurNom.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbSCMDTransporteurNom.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcSousCommande, "TransporteurNom", True))
-        Me.tbSCMDTransporteurNom.Location = New System.Drawing.Point(440, 296)
+        Me.tbSCMDTransporteurNom.Location = New System.Drawing.Point(446, 68)
         Me.tbSCMDTransporteurNom.Name = "tbSCMDTransporteurNom"
-        Me.tbSCMDTransporteurNom.Size = New System.Drawing.Size(536, 20)
-        Me.tbSCMDTransporteurNom.TabIndex = 3
+        Me.tbSCMDTransporteurNom.Size = New System.Drawing.Size(524, 20)
+        Me.tbSCMDTransporteurNom.TabIndex = 85
         '
         'Label32
         '
         Me.Label32.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label32.Location = New System.Drawing.Point(440, 280)
+        Me.Label32.Location = New System.Drawing.Point(446, 52)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(96, 16)
-        Me.Label32.TabIndex = 69
+        Me.Label32.TabIndex = 88
         Me.Label32.Text = "Transporteur"
         '
         'liSCMDFournisseur
@@ -3441,10 +3439,10 @@ Public Class frmSaisieCommande
         Me.liSCMDFournisseur.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.liSCMDFournisseur.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcSousCommande, "FournisseurRS", True))
         Me.liSCMDFournisseur.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.m_bsrcSousCommande, "Fournisseurid", True))
-        Me.liSCMDFournisseur.Location = New System.Drawing.Point(440, 232)
+        Me.liSCMDFournisseur.Location = New System.Drawing.Point(446, 4)
         Me.liSCMDFournisseur.Name = "liSCMDFournisseur"
         Me.liSCMDFournisseur.Size = New System.Drawing.Size(408, 16)
-        Me.liSCMDFournisseur.TabIndex = 68
+        Me.liSCMDFournisseur.TabIndex = 87
         Me.liSCMDFournisseur.TabStop = True
         Me.liSCMDFournisseur.Text = "Désignation du Fournisseur"
         '
@@ -3453,27 +3451,48 @@ Public Class frmSaisieCommande
         Me.dtSCMDDateLiv.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtSCMDDateLiv.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcSousCommande, "dateLivraison", True))
         Me.dtSCMDDateLiv.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtSCMDDateLiv.Location = New System.Drawing.Point(528, 256)
+        Me.dtSCMDDateLiv.Location = New System.Drawing.Point(534, 28)
         Me.dtSCMDDateLiv.Name = "dtSCMDDateLiv"
         Me.dtSCMDDateLiv.Size = New System.Drawing.Size(96, 20)
-        Me.dtSCMDDateLiv.TabIndex = 2
+        Me.dtSCMDDateLiv.TabIndex = 84
         '
         'Label24
         '
         Me.Label24.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label24.Location = New System.Drawing.Point(440, 256)
+        Me.Label24.Location = New System.Drawing.Point(446, 28)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(72, 16)
-        Me.Label24.TabIndex = 66
+        Me.Label24.TabIndex = 86
         Me.Label24.Text = "date livraison"
         '
-        'cbEclatementCmde
+        'tbSCMDCommentaire
         '
-        Me.cbEclatementCmde.Location = New System.Drawing.Point(8, 208)
-        Me.cbEclatementCmde.Name = "cbEclatementCmde"
-        Me.cbEclatementCmde.Size = New System.Drawing.Size(416, 24)
-        Me.cbEclatementCmde.TabIndex = 0
-        Me.cbEclatementCmde.Text = "Eclatement de la commande client"
+        Me.tbSCMDCommentaire.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbSCMDCommentaire.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcSousCommande, "CommentaireFacturationText", True))
+        Me.tbSCMDCommentaire.Location = New System.Drawing.Point(441, 125)
+        Me.tbSCMDCommentaire.Name = "tbSCMDCommentaire"
+        Me.tbSCMDCommentaire.Size = New System.Drawing.Size(529, 157)
+        Me.tbSCMDCommentaire.TabIndex = 83
+        Me.tbSCMDCommentaire.Text = ""
+        '
+        'cbSCMDAppliquer
+        '
+        Me.cbSCMDAppliquer.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbSCMDAppliquer.Location = New System.Drawing.Point(874, 288)
+        Me.cbSCMDAppliquer.Name = "cbSCMDAppliquer"
+        Me.cbSCMDAppliquer.Size = New System.Drawing.Size(96, 24)
+        Me.cbSCMDAppliquer.TabIndex = 82
+        Me.cbSCMDAppliquer.Text = "Appliquer"
+        '
+        'cbSCMDVoir
+        '
+        Me.cbSCMDVoir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbSCMDVoir.Location = New System.Drawing.Point(504, 288)
+        Me.cbSCMDVoir.Name = "cbSCMDVoir"
+        Me.cbSCMDVoir.Size = New System.Drawing.Size(72, 24)
+        Me.cbSCMDVoir.TabIndex = 80
+        Me.cbSCMDVoir.Text = "Voir"
         '
         'tpFactHbv
         '
@@ -3553,8 +3572,8 @@ Public Class frmSaisieCommande
         'ProduitCodeDataGridViewTextBoxColumn1
         '
         Me.ProduitCodeDataGridViewTextBoxColumn1.DataPropertyName = "ProduitCode"
-        DataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProduitCodeDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProduitCodeDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle24
         Me.ProduitCodeDataGridViewTextBoxColumn1.HeaderText = "Code"
         Me.ProduitCodeDataGridViewTextBoxColumn1.Name = "ProduitCodeDataGridViewTextBoxColumn1"
         Me.ProduitCodeDataGridViewTextBoxColumn1.ReadOnly = True
@@ -3562,8 +3581,8 @@ Public Class frmSaisieCommande
         'ProduitNomDataGridViewTextBoxColumn1
         '
         Me.ProduitNomDataGridViewTextBoxColumn1.DataPropertyName = "ProduitNom"
-        DataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProduitNomDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProduitNomDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle25
         Me.ProduitNomDataGridViewTextBoxColumn1.HeaderText = "Libellé"
         Me.ProduitNomDataGridViewTextBoxColumn1.Name = "ProduitNomDataGridViewTextBoxColumn1"
         Me.ProduitNomDataGridViewTextBoxColumn1.ReadOnly = True
@@ -3583,27 +3602,27 @@ Public Class frmSaisieCommande
         'PrixUDataGridViewTextBoxColumn1
         '
         Me.PrixUDataGridViewTextBoxColumn1.DataPropertyName = "prixU"
-        DataGridViewCellStyle31.Format = "C2"
-        DataGridViewCellStyle31.NullValue = Nothing
-        Me.PrixUDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle31
+        DataGridViewCellStyle26.Format = "C2"
+        DataGridViewCellStyle26.NullValue = Nothing
+        Me.PrixUDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle26
         Me.PrixUDataGridViewTextBoxColumn1.HeaderText = "P.U."
         Me.PrixUDataGridViewTextBoxColumn1.Name = "PrixUDataGridViewTextBoxColumn1"
         '
         'PrixHTDataGridViewTextBoxColumn1
         '
         Me.PrixHTDataGridViewTextBoxColumn1.DataPropertyName = "prixHT"
-        DataGridViewCellStyle32.Format = "C2"
-        DataGridViewCellStyle32.NullValue = Nothing
-        Me.PrixHTDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle32
+        DataGridViewCellStyle27.Format = "C2"
+        DataGridViewCellStyle27.NullValue = Nothing
+        Me.PrixHTDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle27
         Me.PrixHTDataGridViewTextBoxColumn1.HeaderText = "Montant HT"
         Me.PrixHTDataGridViewTextBoxColumn1.Name = "PrixHTDataGridViewTextBoxColumn1"
         '
         'PrixTTCDataGridViewTextBoxColumn1
         '
         Me.PrixTTCDataGridViewTextBoxColumn1.DataPropertyName = "prixTTC"
-        DataGridViewCellStyle33.Format = "C2"
-        DataGridViewCellStyle33.NullValue = Nothing
-        Me.PrixTTCDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle33
+        DataGridViewCellStyle28.Format = "C2"
+        DataGridViewCellStyle28.NullValue = Nothing
+        Me.PrixTTCDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle28
         Me.PrixTTCDataGridViewTextBoxColumn1.HeaderText = "Montant TTC"
         Me.PrixTTCDataGridViewTextBoxColumn1.Name = "PrixTTCDataGridViewTextBoxColumn1"
         '
@@ -3705,11 +3724,16 @@ Public Class frmSaisieCommande
         Me.GroupBox1.PerformLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpEclatement.ResumeLayout(False)
-        Me.tpEclatement.PerformLayout()
+        Me.SplitContainerEclatement.Panel1.ResumeLayout(False)
+        Me.SplitContainerEclatement.Panel1.PerformLayout()
+        Me.SplitContainerEclatement.Panel2.ResumeLayout(False)
+        Me.SplitContainerEclatement.Panel2.PerformLayout()
+        CType(Me.SplitContainerEclatement, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainerEclatement.ResumeLayout(False)
         CType(Me.m_bsrcIntermédiaires, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.m_dgvSCMD, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.m_bsrcSousCommande, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpFactHbv.ResumeLayout(False)
         Me.pnlFactHBV.ResumeLayout(False)
         Me.SplitFactHBV.Panel1.ResumeLayout(False)
@@ -3911,6 +3935,9 @@ Public Class frmSaisieCommande
                 'Type de Commande 
                 rbTypeCmdDirecte.Enabled = True
                 rbTypeCmdPlateforme.Enabled = True
+                SplitContainerEclatement.Panel2Collapsed = True
+                cbAnnEclatement.Enabled = False
+                cbEclatementCmde.Enabled = False
             Case vncEnums.vncEtatCommande.vncValidee
                 ckCmdValide.Checked = True
                 dtDateValidation.Enabled = True
@@ -3918,6 +3945,9 @@ Public Class frmSaisieCommande
                 'Type de Commande 
                 rbTypeCmdDirecte.Enabled = True
                 rbTypeCmdPlateforme.Enabled = True
+                SplitContainerEclatement.Panel2Collapsed = True
+                cbAnnEclatement.Enabled = False
+                cbEclatementCmde.Enabled = False
             Case vncEnums.vncEtatCommande.vncLivree
                 ckCmdValide.Checked = True
                 dtDateValidation.Enabled = False
@@ -3925,6 +3955,9 @@ Public Class frmSaisieCommande
                 'Type de Commande 
                 rbTypeCmdDirecte.Enabled = False
                 rbTypeCmdPlateforme.Enabled = False
+                SplitContainerEclatement.Panel2Collapsed = True
+                cbAnnEclatement.Enabled = False
+                cbEclatementCmde.Enabled = True
             Case vncEnums.vncEtatCommande.vncEclatee
                 ckCmdValide.Checked = True
                 dtDateValidation.Enabled = False
@@ -3932,6 +3965,9 @@ Public Class frmSaisieCommande
                 'Type de Commande 
                 rbTypeCmdDirecte.Enabled = False
                 rbTypeCmdPlateforme.Enabled = False
+                SplitContainerEclatement.Panel2Collapsed = False
+                cbAnnEclatement.Enabled = True
+                cbEclatementCmde.Enabled = False
             Case vncEnums.vncEtatCommande.vncTransmiseQuadra
                 ckCmdValide.Checked = True
                 dtDateValidation.Enabled = False
@@ -3939,6 +3975,9 @@ Public Class frmSaisieCommande
                 'Type de Commande 
                 rbTypeCmdDirecte.Enabled = False
                 rbTypeCmdPlateforme.Enabled = False
+                SplitContainerEclatement.Panel2Collapsed = False
+                cbAnnEclatement.Enabled = True
+                cbEclatementCmde.Enabled = False
             Case vncEnums.vncEtatCommande.vncRapprochee
                 ckCmdValide.Checked = True
                 dtDateValidation.Enabled = False
@@ -3946,6 +3985,9 @@ Public Class frmSaisieCommande
                 'Type de Commande 
                 rbTypeCmdDirecte.Enabled = False
                 rbTypeCmdPlateforme.Enabled = False
+                SplitContainerEclatement.Panel2Collapsed = False
+                cbAnnEclatement.Enabled = True
+                cbEclatementCmde.Enabled = False
         End Select
         finAffiche()
     End Sub 'AfficheEtat
@@ -4830,13 +4872,10 @@ Public Class frmSaisieCommande
 
     End Sub
 
-    Private Sub cbSCMDValiderTout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub cbSCMDValiderTout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbSCMDAppliquer.Click
         validerToutesLesSousCommandes()
     End Sub
 
-    Private Sub cbSCMDFaxerTout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbSCMDFaxerTout.Click
-        faxerTouteslesSousCommandes()
-    End Sub
     Private Sub cbSCMDVoir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbSCMDVoir.Click
         If Not m_bsrcSousCommande.Current Is Nothing Then
             visualiserSousCommande()
@@ -4851,7 +4890,7 @@ Public Class frmSaisieCommande
     'End If
     'End Sub
 
-    Private Sub liSCMDFournisseur_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles liSCMDFournisseur.LinkClicked
+    Private Sub liSCMDFournisseur_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs)
         afficheFenetreFournisseur(liSCMDFournisseur.Tag)
     End Sub
     Private Sub cbAnnEclatement_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbAnnEclatement.Click
@@ -4893,8 +4932,6 @@ Public Class frmSaisieCommande
     Protected Overridable Function eclatementCommande() As Boolean
     End Function
     Protected Overridable Function faxerSousCommande() As Boolean
-    End Function
-    Protected Overridable Function faxerTouteslesSousCommandes() As Boolean
     End Function
     Protected Overridable Function initTPEclatement() As Boolean
     End Function
@@ -4955,13 +4992,13 @@ Public Class frmSaisieCommande
 #End Region
 
 
-    Private Sub cbSCMDAppliquer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbSCMDAppliquer.Click
+    Private Sub cbSCMDAppliquer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         AppliquerModifScmd()
         setfrmUpdated()
     End Sub
 
     Private Sub cbCalcMontantTransport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbCalcMontantTransport.Click
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
     Private Sub liFactTRP_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles liFactTRP.LinkClicked
@@ -5033,7 +5070,7 @@ Public Class frmSaisieCommande
         End If
     End Sub
 
-    Private Sub m_dgvSCMD_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles m_dgvSCMD.MouseDoubleClick
+    Private Sub m_dgvSCMD_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
         If Not m_bsrcSousCommande.Current Is Nothing Then
             visualiserSousCommande()
         End If
@@ -5045,24 +5082,24 @@ Public Class frmSaisieCommande
     End Sub
 
     Private Sub cbCalcMontantTransport_RL_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbCalcMontantTransport_RL.Click
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
 
     Private Sub tbQtePallPrep_Validated(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbQtePallPrep.Validated
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
     Private Sub tbQtePallNonPrep_Validated(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbQtePallNonPrep.Validated
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
     Private Sub tbPUPallPrep_Validated(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbPUPallPrep.Validated
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
     Private Sub tbPUPallNonPrep_Validated(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbPUPallNonPrep.Validated
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
     Private Sub tbCodeClient_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbCodeClient.TextChanged
@@ -5070,19 +5107,19 @@ Public Class frmSaisieCommande
     End Sub
 
     Private Sub tbQtePallPrep_RL_Validated(sender As System.Object, e As System.EventArgs) Handles tbQtePallPrep_RL.Validated
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
     Private Sub tbQtePallNonPrep_RL_Validated(sender As System.Object, e As System.EventArgs) Handles tbQtePallNonPrep_RL.Validated
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
     Private Sub tbPUPallPrep_RL_Validated(sender As System.Object, e As System.EventArgs) Handles tbPUPallPrep_RL.Validated
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
     Private Sub tbPUPallNonPrep_RL_Validated(sender As System.Object, e As System.EventArgs) Handles tbPUPallNonPrep_RL.Validated
-        calculMontantTransport()
+        CalculMontantTransport()
     End Sub
 
     Private Sub DataGridView1_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridView1.RowPrePaint
