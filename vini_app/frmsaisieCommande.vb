@@ -225,13 +225,11 @@ Public Class frmSaisieCommande
     Friend WithEvents tbQtePallNonPrep As textBoxNumeric
     Friend WithEvents tbPUPallNonPrep As textBoxCurrency
     Friend WithEvents tbPUPallPrep As textBoxCurrency
-    Friend WithEvents cbFaxerBLTransporteur As System.Windows.Forms.Button
     Friend WithEvents Label40 As System.Windows.Forms.Label
     Friend WithEvents tbPoidsCmd As System.Windows.Forms.TextBox
     Friend WithEvents Label61 As System.Windows.Forms.Label
     Friend WithEvents tbQteColisCmd As System.Windows.Forms.TextBox
     Friend WithEvents cbCalcPoidsColis As System.Windows.Forms.Button
-    Friend WithEvents tbFaxTRP As System.Windows.Forms.TextBox
     Friend WithEvents Label62 As System.Windows.Forms.Label
     Friend WithEvents cboCodeTRP As System.Windows.Forms.ComboBox
     Friend WithEvents tbMailPLTF As System.Windows.Forms.TextBox
@@ -348,6 +346,7 @@ Public Class frmSaisieCommande
     Friend WithEvents tbSCMDCommentaire As RichTextBox
     Friend WithEvents cbSCMDAppliquer As Button
     Friend WithEvents cbSCMDVoir As Button
+    Friend WithEvents lblDateTransmissionEDI As Label
     Friend WithEvents cbMailBLPLTFRM As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
@@ -507,10 +506,9 @@ Public Class frmSaisieCommande
         Me.tbNumFaxValidation = New System.Windows.Forms.TextBox()
         Me.cbFax = New System.Windows.Forms.Button()
         Me.tpBL = New System.Windows.Forms.TabPage()
+        Me.lblDateTransmissionEDI = New System.Windows.Forms.Label()
         Me.crwBL = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.tbFaxTRP = New System.Windows.Forms.TextBox()
         Me.tbMailPLTF = New System.Windows.Forms.TextBox()
-        Me.cbFaxerBLTransporteur = New System.Windows.Forms.Button()
         Me.grpInfFactureTRP = New System.Windows.Forms.GroupBox()
         Me.cbCalcPoidsColis = New System.Windows.Forms.Button()
         Me.Label60 = New System.Windows.Forms.Label()
@@ -2149,10 +2147,9 @@ Public Class frmSaisieCommande
         '
         'tpBL
         '
+        Me.tpBL.Controls.Add(Me.lblDateTransmissionEDI)
         Me.tpBL.Controls.Add(Me.crwBL)
-        Me.tpBL.Controls.Add(Me.tbFaxTRP)
         Me.tpBL.Controls.Add(Me.tbMailPLTF)
-        Me.tpBL.Controls.Add(Me.cbFaxerBLTransporteur)
         Me.tpBL.Controls.Add(Me.grpInfFactureTRP)
         Me.tpBL.Controls.Add(Me.tbPiedPageBL)
         Me.tpBL.Controls.Add(Me.Label39)
@@ -2169,6 +2166,17 @@ Public Class frmSaisieCommande
         Me.tpBL.TabIndex = 7
         Me.tpBL.Text = "Bon de Livraison"
         '
+        'lblDateTransmissionEDI
+        '
+        Me.lblDateTransmissionEDI.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblDateTransmissionEDI.AutoSize = True
+        Me.lblDateTransmissionEDI.ForeColor = System.Drawing.Color.Blue
+        Me.lblDateTransmissionEDI.Location = New System.Drawing.Point(844, 502)
+        Me.lblDateTransmissionEDI.Name = "lblDateTransmissionEDI"
+        Me.lblDateTransmissionEDI.Size = New System.Drawing.Size(115, 13)
+        Me.lblDateTransmissionEDI.TabIndex = 149
+        Me.lblDateTransmissionEDI.Text = "Transmise le : xx/xx/xx"
+        '
         'crwBL
         '
         Me.crwBL.ActiveViewIndex = -1
@@ -2184,15 +2192,6 @@ Public Class frmSaisieCommande
         Me.crwBL.TabIndex = 148
         Me.crwBL.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
-        'tbFaxTRP
-        '
-        Me.tbFaxTRP.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbFaxTRP.Enabled = False
-        Me.tbFaxTRP.Location = New System.Drawing.Point(496, 528)
-        Me.tbFaxTRP.Name = "tbFaxTRP"
-        Me.tbFaxTRP.Size = New System.Drawing.Size(152, 20)
-        Me.tbFaxTRP.TabIndex = 147
-        '
         'tbMailPLTF
         '
         Me.tbMailPLTF.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -2200,15 +2199,6 @@ Public Class frmSaisieCommande
         Me.tbMailPLTF.Name = "tbMailPLTF"
         Me.tbMailPLTF.Size = New System.Drawing.Size(152, 20)
         Me.tbMailPLTF.TabIndex = 146
-        '
-        'cbFaxerBLTransporteur
-        '
-        Me.cbFaxerBLTransporteur.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbFaxerBLTransporteur.Location = New System.Drawing.Point(656, 528)
-        Me.cbFaxerBLTransporteur.Name = "cbFaxerBLTransporteur"
-        Me.cbFaxerBLTransporteur.Size = New System.Drawing.Size(128, 24)
-        Me.cbFaxerBLTransporteur.TabIndex = 145
-        Me.cbFaxerBLTransporteur.Text = "Faxer &Transporteur"
         '
         'grpInfFactureTRP
         '
@@ -4637,7 +4627,6 @@ Public Class frmSaisieCommande
         dtDateEnlev.Enabled = True
         dtDateLivraison.Enabled = True
         cbMailBLPLTFRM.Enabled = True
-        cbFaxerBLTransporteur.Enabled = True
         tbPiedPageBL.Text = tbCommentaireLivraison.Text
         finAffiche()
     End Sub
@@ -4825,7 +4814,7 @@ Public Class frmSaisieCommande
         exporterWEBEDI()
     End Sub
 
-    Private Sub cbFaxerBLTransporteur_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbFaxerBLTransporteur.Click
+    Private Sub cbFaxerBLTransporteur_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         faxerBL(tbTrpFax.Text, getCommandeCourante.oTransporteur)
     End Sub
     Private Sub dtDateLivraison_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtDateLivraison.ValueChanged
@@ -5018,10 +5007,6 @@ Public Class frmSaisieCommande
         tbPoidsCmd.Text = tbPoids.Text
     End Sub
 
-    Private Sub tbTrpFax_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles tbTrpFax.TextChanged
-        tbFaxTRP.Text = tbTrpFax.Text
-
-    End Sub
 
     Private Sub cboCodeTRP_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCodeTRP.SelectedIndexChanged
         If Not bAffichageEnCours() Then

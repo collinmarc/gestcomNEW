@@ -44,6 +44,15 @@ Public Class CommandeClient
     Protected m_bUpdatePrecommande As Boolean = True     'Mise à jour des précommandes (par defaut = vrai)
     Protected m_IDPrestashop As Long
     Protected m_NamePrestashop As String
+    Private m_Date_EDI As DateTime
+    Public Property Date_EDI() As DateTime
+        Get
+            Return m_Date_EDI
+        End Get
+        Set(ByVal value As DateTime)
+            m_Date_EDI = value
+        End Set
+    End Property
 #End Region
 #Region "Accesseurs"
     Public Sub New(ByVal poClient As Client)
@@ -60,6 +69,7 @@ Public Class CommandeClient
         m_bUpdatePrecommande = True
         m_NamePrestashop = ""
         Origine = Dossier.VINICOM
+        Date_EDI = Nothing
         Debug.Assert(Not m_oTransporteur Is Nothing)
         Debug.Assert(Not etat Is Nothing)
         majBooleenAlaFinDuNew()

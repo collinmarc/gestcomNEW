@@ -4261,78 +4261,79 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "ID<>0")
         objCMDCLT = CType(Me, CommandeClient)
 
-        Dim sqlString As String = "UPDATE COMMANDE SET " & _
-                                    "CMD_CLT_ID = ? , " & _
-                                    "CMD_DATE = ? , " & _
-                                    "CMD_DATE_VALID = ? , " & _
-                                    "CMD_DATE_LIV = ? , " & _
-                                    "CMD_DATE_ENLEV = ? , " & _
-                                    "CMD_REF_LIV = ? , " & _
-                                    "CMD_ETAT = ? , " & _
-                                    "CMD_TOTAL_HT= ? ," & _
-                                    "CMD_TOTAL_TTC= ? ," & _
-                                    "CMD_TYPE= ? ," & _
-                                    "CMD_TYPE_TRANSPORT=  ? ," & _
-                                    "CMD_CODE = ? ," & _
-                                    "CMD_CLT_LIV_NOM = ? ," & _
-                                    "CMD_CLT_LIV_RUE1= ? ," & _
-                                    "CMD_CLT_LIV_RUE2= ? ," & _
-                                    "CMD_CLT_LIV_CP= ? ," & _
-                                    "CMD_CLT_LIV_VILLE= ? ," & _
-                                    "CMD_CLT_LIV_TEL= ? ," & _
-                                    "CMD_CLT_LIV_FAX= ? ," & _
-                                    "CMD_CLT_LIV_PORT= ? ," & _
-                                    "CMD_CLT_LIV_EMAIL= ? ," & _
-                                    "CMD_CLT_ADR_IDENT= ? ," & _
-                                    "CMD_CLT_FACT_NOM= ? ," & _
-                                    "CMD_CLT_FACT_RUE1= ? ," & _
-                                    "CMD_CLT_FACT_RUE2= ? ," & _
-                                    "CMD_CLT_FACT_CP= ? ," & _
-                                    "CMD_CLT_FACT_VILLE= ? ," & _
-                                    "CMD_CLT_FACT_TEL= ? ," & _
-                                    "CMD_CLT_FACT_FAX= ? ," & _
-                                    "CMD_CLT_FACT_PORT= ? ," & _
-                                    "CMD_CLT_FACT_EMAIL= ? ," & _
-                                    "CMD_CLT_RGLMT_ID= ? ," & _
-                                    "CMD_CLT_BANQUE= ? ," & _
-                                    "CMD_CLT_RIB1= ? ," & _
-                                    "CMD_CLT_RIB2= ? ," & _
-                                    "CMD_CLT_RIB3= ? ," & _
-                                    "CMD_CLT_RIB4= ? ," & _
-                                    "CMD_COM_LIBRE= ? ," & _
-                                    "CMD_COM_COM= ? ," & _
-                                    "CMD_COM_LIV= ? ," & _
-                                    "CMD_COM_FACT= ? ," & _
-                                    "CMD_TRP_ID= ? ," & _
-                                    "CMD_TRP_CODE= ? ," & _
-                                    "CMD_TRP_NOM= ? ," & _
-                                    "CMD_TRP_RUE1= ? ," & _
-                                    "CMD_TRP_RUE2= ? ," & _
-                                    "CMD_TRP_CP= ? ," & _
-                                    "CMD_TRP_VILLE= ? ," & _
-                                    "CMD_TRP_TEL= ? ," & _
-                                    "CMD_TRP_FAX= ? ," & _
-                                    "CMD_TRP_PORT= ? ," & _
-                                    "CMD_TRP_EMAIL= ? ," & _
-                                    "CMD_MT_TRANSPORT= ? ," & _
-                                    "CMD_QTE_COLIS= ? ," & _
-                                    "CMD_QTE_PAL_PREP= ? ," & _
-                                    "CMD_QTE_PAL_NONPREP= ? ," & _
-                                    "CMD_POIDS= ? , " & _
-                                    "CMD_PU_PAL_PREP= ? ," & _
-                                    "CMD_PU_PAL_NONPREP= ? ," & _
-                                    "CMD_BFACTTRP= ? , " & _
-                                    "CMD_IDFACTTRP= ? , " & _
-                                    "CMD_LETTREVOITURE= ? , " & _
-                                    "CMD_COUT_TRANSPORT= ? , " & _
-                                    "CMD_REFFACT_TRP= ? ," & _
-                                    "CMD_CLT_NOM= ? ," & _
-                                    "CMD_CLT_RS= ? ," & _
-                                    "CMD_CLT_NOMLIVRAISON= ? ," & _
-                                    "CMD_CLT_RSLIVRAISON= ?, " & _
-                                    "CMD_IDPRESTASHOP= ?, " & _
-                                    "CMD_NAMEPRESTASHOP= ?, " & _
-                                    "CMD_ORIGINE= ? " & _
+        Dim sqlString As String = "UPDATE COMMANDE SET " &
+                                    "CMD_CLT_ID = ? , " &
+                                    "CMD_DATE = ? , " &
+                                    "CMD_DATE_VALID = ? , " &
+                                    "CMD_DATE_LIV = ? , " &
+                                    "CMD_DATE_ENLEV = ? , " &
+                                    "CMD_REF_LIV = ? , " &
+                                    "CMD_ETAT = ? , " &
+                                    "CMD_TOTAL_HT= ? ," &
+                                    "CMD_TOTAL_TTC= ? ," &
+                                    "CMD_TYPE= ? ," &
+                                    "CMD_TYPE_TRANSPORT=  ? ," &
+                                    "CMD_CODE = ? ," &
+                                    "CMD_CLT_LIV_NOM = ? ," &
+                                    "CMD_CLT_LIV_RUE1= ? ," &
+                                    "CMD_CLT_LIV_RUE2= ? ," &
+                                    "CMD_CLT_LIV_CP= ? ," &
+                                    "CMD_CLT_LIV_VILLE= ? ," &
+                                    "CMD_CLT_LIV_TEL= ? ," &
+                                    "CMD_CLT_LIV_FAX= ? ," &
+                                    "CMD_CLT_LIV_PORT= ? ," &
+                                    "CMD_CLT_LIV_EMAIL= ? ," &
+                                    "CMD_CLT_ADR_IDENT= ? ," &
+                                    "CMD_CLT_FACT_NOM= ? ," &
+                                    "CMD_CLT_FACT_RUE1= ? ," &
+                                    "CMD_CLT_FACT_RUE2= ? ," &
+                                    "CMD_CLT_FACT_CP= ? ," &
+                                    "CMD_CLT_FACT_VILLE= ? ," &
+                                    "CMD_CLT_FACT_TEL= ? ," &
+                                    "CMD_CLT_FACT_FAX= ? ," &
+                                    "CMD_CLT_FACT_PORT= ? ," &
+                                    "CMD_CLT_FACT_EMAIL= ? ," &
+                                    "CMD_CLT_RGLMT_ID= ? ," &
+                                    "CMD_CLT_BANQUE= ? ," &
+                                    "CMD_CLT_RIB1= ? ," &
+                                    "CMD_CLT_RIB2= ? ," &
+                                    "CMD_CLT_RIB3= ? ," &
+                                    "CMD_CLT_RIB4= ? ," &
+                                    "CMD_COM_LIBRE= ? ," &
+                                    "CMD_COM_COM= ? ," &
+                                    "CMD_COM_LIV= ? ," &
+                                    "CMD_COM_FACT= ? ," &
+                                    "CMD_TRP_ID= ? ," &
+                                    "CMD_TRP_CODE= ? ," &
+                                    "CMD_TRP_NOM= ? ," &
+                                    "CMD_TRP_RUE1= ? ," &
+                                    "CMD_TRP_RUE2= ? ," &
+                                    "CMD_TRP_CP= ? ," &
+                                    "CMD_TRP_VILLE= ? ," &
+                                    "CMD_TRP_TEL= ? ," &
+                                    "CMD_TRP_FAX= ? ," &
+                                    "CMD_TRP_PORT= ? ," &
+                                    "CMD_TRP_EMAIL= ? ," &
+                                    "CMD_MT_TRANSPORT= ? ," &
+                                    "CMD_QTE_COLIS= ? ," &
+                                    "CMD_QTE_PAL_PREP= ? ," &
+                                    "CMD_QTE_PAL_NONPREP= ? ," &
+                                    "CMD_POIDS= ? , " &
+                                    "CMD_PU_PAL_PREP= ? ," &
+                                    "CMD_PU_PAL_NONPREP= ? ," &
+                                    "CMD_BFACTTRP= ? , " &
+                                    "CMD_IDFACTTRP= ? , " &
+                                    "CMD_LETTREVOITURE= ? , " &
+                                    "CMD_COUT_TRANSPORT= ? , " &
+                                    "CMD_REFFACT_TRP= ? ," &
+                                    "CMD_CLT_NOM= ? ," &
+                                    "CMD_CLT_RS= ? ," &
+                                    "CMD_CLT_NOMLIVRAISON= ? ," &
+                                    "CMD_CLT_RSLIVRAISON= ?, " &
+                                    "CMD_IDPRESTASHOP= ?, " &
+                                    "CMD_NAMEPRESTASHOP= ?, " &
+                                    "CMD_ORIGINE= ?, " &
+                                    "CMD_DATE_EDI= ? " &
                                     " WHERE CMD_ID = ?"
         Dim objCommand As OleDbCommand
         '        Dim objParam As OleDbParameter
@@ -4415,6 +4416,7 @@ Public MustInherit Class Persist
         CreateParameterP_CMD_IDPRESTASHOP(objCommand)
         CreateParameterP_CMD_NAMEPRESTASHOP(objCommand)
         CreateParameterP_CMD_Origine(objCommand)
+        CreateParameterP_CMD_DATE_EDI(objCommand)
 
         CreateParameterP_ID(objCommand)
         Try
@@ -4446,150 +4448,152 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id = 0, "ID=0")
         objCMDCLT = CType(Me, CommandeClient)
-        Dim sqlString As String = "INSERT INTO COMMANDE( " & _
-                                    "CMD_CLT_ID," & _
-                                    "CMD_DATE," & _
-                                    "CMD_DATE_VALID," & _
-                                    "CMD_DATE_LIV," & _
-                                    "CMD_DATE_ENLEV," & _
-                                    "CMD_REF_LIV," & _
-                                    "CMD_ETAT," & _
-                                    "CMD_TOTAL_HT," & _
-                                    "CMD_TOTAL_TTC," & _
-                                    "CMD_TYPE," & _
-                                    "CMD_TYPE_TRANSPORT," & _
-                                    "CMD_CODE," & _
-                                    "CMD_CLT_LIV_NOM," & _
-                                    "CMD_CLT_LIV_RUE1," & _
-                                    "CMD_CLT_LIV_RUE2," & _
-                                    "CMD_CLT_LIV_CP," & _
-                                    "CMD_CLT_LIV_VILLE," & _
-                                    "CMD_CLT_LIV_TEL," & _
-                                    "CMD_CLT_LIV_FAX," & _
-                                    "CMD_CLT_LIV_PORT," & _
-                                    "CMD_CLT_LIV_EMAIL," & _
-                                    "CMD_CLT_ADR_IDENT," & _
-                                    "CMD_CLT_FACT_NOM," & _
-                                    "CMD_CLT_FACT_RUE1," & _
-                                    "CMD_CLT_FACT_RUE2," & _
-                                    "CMD_CLT_FACT_CP," & _
-                                    "CMD_CLT_FACT_VILLE," & _
-                                    "CMD_CLT_FACT_TEL," & _
-                                    "CMD_CLT_FACT_FAX," & _
-                                    "CMD_CLT_FACT_PORT," & _
-                                    "CMD_CLT_FACT_EMAIL," & _
-                                    "CMD_CLT_RGLMT_ID," & _
-                                    "CMD_CLT_BANQUE," & _
-                                    "CMD_CLT_RIB1," & _
-                                    "CMD_CLT_RIB2," & _
-                                    "CMD_CLT_RIB3," & _
-                                    "CMD_CLT_RIB4," & _
-                                    "CMD_COM_LIBRE," & _
-                                    "CMD_COM_COM," & _
-                                    "CMD_COM_LIV," & _
-                                    "CMD_COM_FACT," & _
-                                    "CMD_TRP_ID," & _
-                                    "CMD_TRP_CODE," & _
-                                    "CMD_TRP_NOM," & _
-                                    "CMD_TRP_RUE1," & _
-                                    "CMD_TRP_RUE2," & _
-                                    "CMD_TRP_CP," & _
-                                    "CMD_TRP_VILLE," & _
-                                    "CMD_TRP_TEL," & _
-                                    "CMD_TRP_FAX," & _
-                                    "CMD_TRP_PORT," & _
-                                    "CMD_TRP_EMAIL," & _
-                                    "CMD_MT_TRANSPORT," & _
-                                    "CMD_QTE_COLIS," & _
-                                    "CMD_QTE_PAL_PREP," & _
-                                    "CMD_QTE_PAL_NONPREP," & _
-                                    "CMD_POIDS," & _
-                                    "CMD_PU_PAL_PREP," & _
-                                    "CMD_PU_PAL_NONPREP," & _
-                                    "CMD_BFACTTRP," & _
-                                    "CMD_IDFACTTRP," & _
-                                    "CMD_LETTREVOITURE," & _
-                                    "CMD_COUT_TRANSPORT," & _
-                                    "CMD_REFFACT_TRP," & _
-                                    "CMD_CLT_NOM," & _
-                                    "CMD_CLT_RS," & _
-                                    "CMD_CLT_NOMLIVRAISON," & _
-                                    "CMD_CLT_RSLIVRAISON," & _
-                                    "CMD_IDPRESTASHOP," & _
-                                    "CMD_NAMEPRESTASHOP," & _
-                                    "CMD_ORIGINE" & _
-                                          " ) VALUES ( " & _
-                                            "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? , " & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? " & _
+        Dim sqlString As String = "INSERT INTO COMMANDE( " &
+                                    "CMD_CLT_ID," &
+                                    "CMD_DATE," &
+                                    "CMD_DATE_VALID," &
+                                    "CMD_DATE_LIV," &
+                                    "CMD_DATE_ENLEV," &
+                                    "CMD_REF_LIV," &
+                                    "CMD_ETAT," &
+                                    "CMD_TOTAL_HT," &
+                                    "CMD_TOTAL_TTC," &
+                                    "CMD_TYPE," &
+                                    "CMD_TYPE_TRANSPORT," &
+                                    "CMD_CODE," &
+                                    "CMD_CLT_LIV_NOM," &
+                                    "CMD_CLT_LIV_RUE1," &
+                                    "CMD_CLT_LIV_RUE2," &
+                                    "CMD_CLT_LIV_CP," &
+                                    "CMD_CLT_LIV_VILLE," &
+                                    "CMD_CLT_LIV_TEL," &
+                                    "CMD_CLT_LIV_FAX," &
+                                    "CMD_CLT_LIV_PORT," &
+                                    "CMD_CLT_LIV_EMAIL," &
+                                    "CMD_CLT_ADR_IDENT," &
+                                    "CMD_CLT_FACT_NOM," &
+                                    "CMD_CLT_FACT_RUE1," &
+                                    "CMD_CLT_FACT_RUE2," &
+                                    "CMD_CLT_FACT_CP," &
+                                    "CMD_CLT_FACT_VILLE," &
+                                    "CMD_CLT_FACT_TEL," &
+                                    "CMD_CLT_FACT_FAX," &
+                                    "CMD_CLT_FACT_PORT," &
+                                    "CMD_CLT_FACT_EMAIL," &
+                                    "CMD_CLT_RGLMT_ID," &
+                                    "CMD_CLT_BANQUE," &
+                                    "CMD_CLT_RIB1," &
+                                    "CMD_CLT_RIB2," &
+                                    "CMD_CLT_RIB3," &
+                                    "CMD_CLT_RIB4," &
+                                    "CMD_COM_LIBRE," &
+                                    "CMD_COM_COM," &
+                                    "CMD_COM_LIV," &
+                                    "CMD_COM_FACT," &
+                                    "CMD_TRP_ID," &
+                                    "CMD_TRP_CODE," &
+                                    "CMD_TRP_NOM," &
+                                    "CMD_TRP_RUE1," &
+                                    "CMD_TRP_RUE2," &
+                                    "CMD_TRP_CP," &
+                                    "CMD_TRP_VILLE," &
+                                    "CMD_TRP_TEL," &
+                                    "CMD_TRP_FAX," &
+                                    "CMD_TRP_PORT," &
+                                    "CMD_TRP_EMAIL," &
+                                    "CMD_MT_TRANSPORT," &
+                                    "CMD_QTE_COLIS," &
+                                    "CMD_QTE_PAL_PREP," &
+                                    "CMD_QTE_PAL_NONPREP," &
+                                    "CMD_POIDS," &
+                                    "CMD_PU_PAL_PREP," &
+                                    "CMD_PU_PAL_NONPREP," &
+                                    "CMD_BFACTTRP," &
+                                    "CMD_IDFACTTRP," &
+                                    "CMD_LETTREVOITURE," &
+                                    "CMD_COUT_TRANSPORT," &
+                                    "CMD_REFFACT_TRP," &
+                                    "CMD_CLT_NOM," &
+                                    "CMD_CLT_RS," &
+                                    "CMD_CLT_NOMLIVRAISON," &
+                                    "CMD_CLT_RSLIVRAISON," &
+                                    "CMD_IDPRESTASHOP," &
+                                    "CMD_NAMEPRESTASHOP," &
+                                    "CMD_ORIGINE," &
+                                    "CMD_DATE_EDI" &
+                                          " ) VALUES ( " &
+                                            "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? " &
                                     " )"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -4674,6 +4678,7 @@ Public MustInherit Class Persist
         CreateParameterP_CMD_IDPRESTASHOP(objCommand)
         CreateParameterP_CMD_NAMEPRESTASHOP(objCommand)
         CreateParameterP_CMD_Origine(objCommand)
+        CreateParameterP_CMD_DATE_EDI(objCommand)
         Try
 
             objCommand.ExecuteNonQuery()
@@ -5035,80 +5040,81 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "CMD_CLT_ID," & _
-                                    "CMD_DATE," & _
-                                    "CMD_DATE_VALID," & _
-                                    "CMD_DATE_LIV," & _
-                                    "CMD_DATE_ENLEV," & _
-                                    "CMD_REF_LIV," & _
-                                    "CMD_ETAT," & _
-                                    "CMD_TOTAL_HT," & _
-                                    "CMD_TOTAL_TTC," & _
-                                    "CMD_TYPE," & _
-                                    "CMD_TYPE_TRANSPORT," & _
-                                    "CMD_CODE," & _
-                                    "CMD_CLT_NOM," & _
-                                    "CMD_CLT_RS," & _
-                                    "CMD_CLT_LIV_NOM," & _
-                                    "CMD_CLT_LIV_RUE1," & _
-                                    "CMD_CLT_LIV_RUE2," & _
-                                    "CMD_CLT_LIV_CP," & _
-                                    "CMD_CLT_LIV_VILLE," & _
-                                    "CMD_CLT_LIV_TEL," & _
-                                    "CMD_CLT_LIV_FAX," & _
-                                    "CMD_CLT_LIV_PORT," & _
-                                    "CMD_CLT_LIV_EMAIL," & _
-                                    "CMD_CLT_ADR_IDENT," & _
-                                    "CMD_CLT_FACT_NOM," & _
-                                    "CMD_CLT_FACT_RUE1," & _
-                                    "CMD_CLT_FACT_RUE2," & _
-                                    "CMD_CLT_FACT_CP," & _
-                                    "CMD_CLT_FACT_VILLE," & _
-                                    "CMD_CLT_FACT_TEL," & _
-                                    "CMD_CLT_FACT_FAX," & _
-                                    "CMD_CLT_FACT_PORT," & _
-                                    "CMD_CLT_FACT_EMAIL," & _
-                                    "CMD_CLT_RGLMT_ID," & _
-                                    "CMD_CLT_BANQUE," & _
-                                    "CMD_CLT_RIB1," & _
-                                    "CMD_CLT_RIB2," & _
-                                    "CMD_CLT_RIB3," & _
-                                    "CMD_CLT_RIB4," & _
-                                    "CMD_COM_LIBRE," & _
-                                    "CMD_COM_COM," & _
-                                    "CMD_COM_LIV," & _
-                                    "CMD_COM_FACT," & _
-                                    "CMD_TRP_ID," & _
-                                    "CMD_TRP_CODE," & _
-                                    "CMD_TRP_NOM," & _
-                                    "CMD_TRP_RUE1," & _
-                                    "CMD_TRP_RUE2," & _
-                                    "CMD_TRP_CP," & _
-                                    "CMD_TRP_VILLE," & _
-                                    "CMD_TRP_TEL," & _
-                                    "CMD_TRP_FAX," & _
-                                    "CMD_TRP_PORT," & _
-                                    "CMD_TRP_EMAIL, " & _
-                                    "CMD_MT_TRANSPORT, " & _
-                                    "CMD_QTE_COLIS, " & _
-                                    "CMD_QTE_PAL_PREP, " & _
-                                    "CMD_QTE_PAL_NONPREP, " & _
-                                    "CMD_POIDS, " & _
-                                    "CMD_PU_PAL_PREP, " & _
-                                    "CMD_PU_PAL_NONPREP, " & _
-                                    "CMD_BFACTTRP, " & _
-                                    "CMD_IDFACTTRP, " & _
-                                    "CMD_LETTREVOITURE, " & _
-                                    "CMD_COUT_TRANSPORT, " & _
-                                    "CMD_REFFACT_TRP, " & _
-                                    "CMD_CLT_NOMLIVRAISON, " & _
-                                    "CMD_CLT_RSLIVRAISON, " & _
-                                    "CMD_IDPRESTASHOP, " & _
-                                    "CMD_NAMEPRESTASHOP, " & _
-                                    "CMD_ORIGINE, " & _
-                                    "RQ_ModeReglement.PAR_VALUE" & _
-                                    " FROM COMMANDE LEFT OUTER JOIN RQ_ModeReglement ON COMMANDE.CMD_CLT_RGLMT_ID = RQ_ModeReglement.PAR_ID WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    "CMD_CLT_ID," &
+                                    "CMD_DATE," &
+                                    "CMD_DATE_VALID," &
+                                    "CMD_DATE_LIV," &
+                                    "CMD_DATE_ENLEV," &
+                                    "CMD_REF_LIV," &
+                                    "CMD_ETAT," &
+                                    "CMD_TOTAL_HT," &
+                                    "CMD_TOTAL_TTC," &
+                                    "CMD_TYPE," &
+                                    "CMD_TYPE_TRANSPORT," &
+                                    "CMD_CODE," &
+                                    "CMD_CLT_NOM," &
+                                    "CMD_CLT_RS," &
+                                    "CMD_CLT_LIV_NOM," &
+                                    "CMD_CLT_LIV_RUE1," &
+                                    "CMD_CLT_LIV_RUE2," &
+                                    "CMD_CLT_LIV_CP," &
+                                    "CMD_CLT_LIV_VILLE," &
+                                    "CMD_CLT_LIV_TEL," &
+                                    "CMD_CLT_LIV_FAX," &
+                                    "CMD_CLT_LIV_PORT," &
+                                    "CMD_CLT_LIV_EMAIL," &
+                                    "CMD_CLT_ADR_IDENT," &
+                                    "CMD_CLT_FACT_NOM," &
+                                    "CMD_CLT_FACT_RUE1," &
+                                    "CMD_CLT_FACT_RUE2," &
+                                    "CMD_CLT_FACT_CP," &
+                                    "CMD_CLT_FACT_VILLE," &
+                                    "CMD_CLT_FACT_TEL," &
+                                    "CMD_CLT_FACT_FAX," &
+                                    "CMD_CLT_FACT_PORT," &
+                                    "CMD_CLT_FACT_EMAIL," &
+                                    "CMD_CLT_RGLMT_ID," &
+                                    "CMD_CLT_BANQUE," &
+                                    "CMD_CLT_RIB1," &
+                                    "CMD_CLT_RIB2," &
+                                    "CMD_CLT_RIB3," &
+                                    "CMD_CLT_RIB4," &
+                                    "CMD_COM_LIBRE," &
+                                    "CMD_COM_COM," &
+                                    "CMD_COM_LIV," &
+                                    "CMD_COM_FACT," &
+                                    "CMD_TRP_ID," &
+                                    "CMD_TRP_CODE," &
+                                    "CMD_TRP_NOM," &
+                                    "CMD_TRP_RUE1," &
+                                    "CMD_TRP_RUE2," &
+                                    "CMD_TRP_CP," &
+                                    "CMD_TRP_VILLE," &
+                                    "CMD_TRP_TEL," &
+                                    "CMD_TRP_FAX," &
+                                    "CMD_TRP_PORT," &
+                                    "CMD_TRP_EMAIL, " &
+                                    "CMD_MT_TRANSPORT, " &
+                                    "CMD_QTE_COLIS, " &
+                                    "CMD_QTE_PAL_PREP, " &
+                                    "CMD_QTE_PAL_NONPREP, " &
+                                    "CMD_POIDS, " &
+                                    "CMD_PU_PAL_PREP, " &
+                                    "CMD_PU_PAL_NONPREP, " &
+                                    "CMD_BFACTTRP, " &
+                                    "CMD_IDFACTTRP, " &
+                                    "CMD_LETTREVOITURE, " &
+                                    "CMD_COUT_TRANSPORT, " &
+                                    "CMD_REFFACT_TRP, " &
+                                    "CMD_CLT_NOMLIVRAISON, " &
+                                    "CMD_CLT_RSLIVRAISON, " &
+                                    "CMD_IDPRESTASHOP, " &
+                                    "CMD_NAMEPRESTASHOP, " &
+                                    "CMD_ORIGINE, " &
+                                    "CMD_DATE_EDI, " &
+                                    "RQ_ModeReglement.PAR_VALUE" &
+                                    " FROM COMMANDE LEFT OUTER JOIN RQ_ModeReglement ON COMMANDE.CMD_CLT_RGLMT_ID = RQ_ModeReglement.PAR_ID WHERE " &
                                    " CMD_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -5220,6 +5226,7 @@ Public MustInherit Class Persist
             objCMDCLT.IDPrestashop = getLong(objRS, "CMD_IDPRESTASHOP")
             objCMDCLT.NamePrestashop = GetString(objRS, "CMD_NAMEPRESTASHOP")
             objCMDCLT.Origine = Trim(GetString(objRS, "CMD_ORIGINE"))
+            objCMDCLT.Date_EDI = GetValue(objRS, "CMD_DATE_EDI")
             cleanErreur()
             objRS.Close()
             bReturn = True
@@ -5733,6 +5740,16 @@ Public MustInherit Class Persist
         Dim objCMD As CommandeClient
         objCMD = Me
         objOLeDBCommand.Parameters.AddWithValue("?", truncate(objCMD.Origine, 50))
+    End Sub
+    Private Sub CreateParameterP_CMD_DATE_EDI(ByVal objOLeDBCommand As OleDbCommand)
+        Dim objCMD As CommandeClient
+        objCMD = Me
+        If objCMD.Date_EDI = Nothing Then
+            objOLeDBCommand.Parameters.AddWithValue("?", Nothing)
+
+        Else
+            objOLeDBCommand.Parameters.AddWithValue("?", objCMD.Date_EDI.ToShortDateString)
+        End If
     End Sub
 #End Region
 #Region "Fonction Database SousCommande"

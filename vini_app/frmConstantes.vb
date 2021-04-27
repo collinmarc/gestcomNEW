@@ -42,34 +42,28 @@ Partial Public Class frmConstantes
 
         Try
             Me.Cursor = Cursors.WaitCursor
-            DisplayStatus("Connexion au serveur de messagerie : " & Me.tbWEBEDI_SMTPHOST.Text & ":" & Me.tbWEBEDI_SMTPPORT.Text)
-            Using oMailClient As New SmtpClient()
-                oMailClient.Connect(tbWEBEDI_SMTPHOST.Text, CInt(tbWEBEDI_SMTPPORT.Text), True)
-                oMailClient.Authenticate(tbWEBEDI_SMTPuser.Text, tbWEBEDI_SMTPPWD.Text)
-                DisplayStatus("Creation du message de test depuis " & Me.tbWEBEDI_SMTPFROM.Text & " vers " & tbEDI_Destinataire.Text)
-                Dim oMailMessage = New MimeMessage()
-                oMailMessage.From.Add(New MailboxAddress(tbWEBEDI_SMTPFROM.Text, tbWEBEDI_SMTPFROM.Text))
-                oMailMessage.To.Add(New MailboxAddress(tbWEBEDI_Destinataire.Text, tbWEBEDI_Destinataire.Text))
-                oMailMessage.Subject = "TEST"
-                Dim builder As New BodyBuilder()
-                builder.TextBody = "Ceci est un message de test"
+            Dim strTempDir As String = Me.tbWEBEDI_TEMP.Text + "/" + currentuser.code
+            If Not My.Computer.FileSystem.DirectoryExists(strTempDir) Then
+                My.Computer.FileSystem.CreateDirectory(strTempDir)
+            End If
 
+            DisplayStatus("Ajout d'une pièce attachée de test")
+            My.Computer.FileSystem.WriteAllText(strTempDir + "/test.txt", "Ceci est un test", True)
 
-                Dim strTempDir As String = Me.tbWEBEDI_TEMP.Text + "/" + currentuser.code
-                If Not My.Computer.FileSystem.DirectoryExists(strTempDir) Then
-                    My.Computer.FileSystem.CreateDirectory(strTempDir)
-                End If
-
-                DisplayStatus("Ajout d'une pièce attachée de test")
-                My.Computer.FileSystem.WriteAllText(strTempDir + "/test.txt", "Ceci est un test", True)
-                builder.Attachments.Add(strTempDir + "/test.txt")
-                oMailMessage.Body = builder.ToMessageBody()
-
-                DisplayStatus("Envoi du message")
-                oMailClient.Send(oMailMessage)
-                oMailClient.Disconnect(True)
-            End Using
-            MessageBox.Show("Message envoyé")
+            Dim bReturn As Boolean = ExportMail.SendMail(tbWEBEDI_SMTPHOST.Text,
+                                CInt(tbWEBEDI_SMTPPORT.Text),
+                                True,
+                                tbWEBEDI_SMTPuser.Text,
+                                tbWEBEDI_SMTPPWD.Text,
+                                tbWEBEDI_Destinataire.Text,
+                                "TEST",
+                                "Ceci est un message de test",
+                                strTempDir + "/test.txt")
+            If bReturn Then
+                MessageBox.Show("Message envoyé")
+            Else
+                MessageBox.Show("ERREUR : " & ExportMail.Message)
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             If ex.InnerException IsNot Nothing Then

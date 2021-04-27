@@ -1439,6 +1439,67 @@ Imports System.IO
 
     End Sub
 
+    <TestMethod()> Public Sub T096_DATE_EDI()
+        Dim objCMD As CommandeClient
+        Dim objCMD2 As CommandeClient
+
+        objCMD = New CommandeClient(m_oClient)
+
+        objCMD.dateCommande = CDate("06/02/1964")
+        objCMD.caracteristiqueTiers.banque = "BANQUE"
+        objCMD.caracteristiqueTiers.rib1 = "RIB1"
+        objCMD.caracteristiqueTiers.rib2 = "RIB2"
+        objCMD.caracteristiqueTiers.rib3 = "RIB3"
+        objCMD.caracteristiqueTiers.rib4 = "RIB4"
+        objCMD.caracteristiqueTiers.AdresseLivraison.nom = "Marc Collin"
+        objCMD.caracteristiqueTiers.AdresseLivraison.rue1 = "La Mettrie"
+        objCMD.caracteristiqueTiers.AdresseLivraison.rue2 = "2eme Etage"
+        objCMD.caracteristiqueTiers.AdresseLivraison.cp = "35250"
+        objCMD.caracteristiqueTiers.AdresseLivraison.ville = "chasné sur illet"
+        objCMD.caracteristiqueTiers.AdresseLivraison.tel = "0299555299"
+        objCMD.caracteristiqueTiers.AdresseLivraison.fax = "0299555277"
+        objCMD.caracteristiqueTiers.AdresseLivraison.port = "0680667189"
+        objCMD.caracteristiqueTiers.AdresseLivraison.Email = "contact@marccollin.com"
+        objCMD.caracteristiqueTiers.AdresseFacturation.nom = "Marc Collin" & "Fact"
+        objCMD.caracteristiqueTiers.AdresseFacturation.rue1 = "La Mettrie" & "Fact"
+        objCMD.caracteristiqueTiers.AdresseFacturation.rue2 = "2eme Etage" & "Fact"
+        objCMD.caracteristiqueTiers.AdresseFacturation.cp = "35250" & "Fact"
+        objCMD.caracteristiqueTiers.AdresseFacturation.ville = "chasné sur illet" & "Fact"
+        objCMD.caracteristiqueTiers.AdresseFacturation.tel = "0299555299" & "Fact"
+        objCMD.caracteristiqueTiers.AdresseFacturation.fax = "0299555277" & "Fact"
+        objCMD.caracteristiqueTiers.AdresseFacturation.port = "0680667189" & "Fact"
+        objCMD.caracteristiqueTiers.AdresseFacturation.Email = "contact@marccollin.com" & "Fact"
+        objCMD.dateLivraison = CDate("06/02/1964")
+        objCMD.dateEnlevement = CDate("31/07/1964")
+        objCMD.refLivraison = "BL0003"
+        objCMD.qteColis = 10.5
+        objCMD.qtePalettesNonPreparees = 11.5
+        objCMD.qtePalettesPreparees = 12.5
+        objCMD.poids = 13.5
+        objCMD.SetMontantTransport(1234.56)
+        objCMD.puPalettesNonPreparees = 14.5
+        objCMD.puPalettesPreparees = 15.5
+        objCMD.bFactTransport = True
+        objCMD.idFactTransport = 1234
+        objCMD.IDPrestashop = 4125
+        objCMD.NamePrestashop = "AQWZSX"
+        objCMD.Origine = Dossier.HOBIVIN
+
+
+
+        Assert.IsTrue(objCMD.save())
+
+        objCMD2 = CommandeClient.createandload(objCMD.id)
+        Assert.AreEqual(DateTime.MinValue, objCMD2.Date_EDI)
+
+        objCMD2.Date_EDI = CDate("06/02/1964")
+
+        Assert.IsTrue(objCMD2.save())
+
+        objCMD = CommandeClient.createandload(objCMD2.id)
+        Assert.AreEqual(CDate("06/02/1964"), objCMD2.Date_EDI)
+
+    End Sub
 End Class
 
 

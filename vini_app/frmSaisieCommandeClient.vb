@@ -432,6 +432,12 @@ Public Class frmCommandeClient
             liFactTRP.Enabled = False
         End If
 
+        If getCommandeCourante().Date_EDI <> Nothing Then
+            lblDateTransmissionEDI.Text = "Transmise le " + getCommandeCourante().Date_EDI.ToShortDateString()
+        Else
+            lblDateTransmissionEDI.Text = ""
+
+        End If
         'Informations PrestaShop
         '        li()
         If String.IsNullOrEmpty(getCommandeCourante.NamePrestashop) Then
@@ -556,75 +562,67 @@ Public Class frmCommandeClient
         End If
     End Sub
     Protected Overrides Function exporterWEBEDI() As Boolean
-        Dim oMailItem As System.Net.Mail.MailMessage
-        Dim oMailClient As SmtpClient
-        Dim oAtt As System.Net.Mail.Attachment
         Dim bReturn As Boolean
         Dim strFileName As String
-        'Dim fso As New Scripting.FileSystemObject
-        Dim nFile As Integer
-        Dim nLineNumber As Integer
-        Dim strResult As String
         Dim strTempDir As String
 
-        Try
-            strTempDir = Param.getConstante("CST_EDI_TEMP") + "/" + currentuser.code
-            If Not My.Computer.FileSystem.DirectoryExists(strTempDir) Then
-                My.Computer.FileSystem.CreateDirectory(strTempDir)
-            End If
-
-            strFileName = strTempDir + "/" + getCommandeCourante.code + ".txt"
-
-            If File.Exists(strFileName) Then
-                File.Delete(strFileName)
-            End If
-            Dim odlg As dlgExportWebEDI
-            odlg = New dlgExportWebEDI()
-            odlg.Setcommande(getCommandeCourante())
-            If odlg.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                bReturn = getCommandeCourante.exporterWebEDI(strFileName)
-                'Reouverture du fichier pour c ompter le nombre de lignes = nombre de ligne dans la commande
-                nFile = FreeFile()
-                FileOpen(nFile, strFileName, OpenMode.Input, OpenAccess.Read)
-                nLineNumber = 0
-                While Not EOF(nFile)
-                    nLineNumber = nLineNumber + 1
-                    strResult = LineInput(nFile)
-                    Debug.WriteLine(strResult)
-                End While
-                FileClose(nFile)
-                'V5.9.6.1: Les lignes gratuites ne sont pas exportées, on ne peut donc pas controler le nombre de lignes 
-                bReturn = True
-                'If (nLineNumber <> getCommandeCourante().colLignes.Count) Then
-                '    MsgBox("Erreur en Creation du fichier, Recommencer plus tard")
-                '    bReturn = False
-                'End If
-                If bReturn Then
-                    oMailClient = New SmtpClient(Param.getConstante("CST_EDI_HOST"), Param.getConstante("CST_EDI_PORT"))
-                    oMailItem = New MailMessage(Param.getConstante("CST_EDI_FROM"), Me.tbMailPLTF.Text)
-                    oMailItem.CC.Add(Param.getConstante("CST_EDI_FROM"))
-                    oMailItem.Subject = "Commande Client N°" + getCommandeCourante.code + " " + getCommandeCourante.oTiers.nom
-                    oAtt = New Attachment(strFileName)
-                    oMailItem.Attachments.Add(oAtt)
-                    oMailClient.Send(oMailItem)
-                    'Suppression du fichier créé
-                    oAtt.Dispose()
-                    My.Computer.FileSystem.DeleteFile(strFileName)
-                Else
-                    MsgBox("Erreur en Export-Creation du fichier, Recommencer plus tard")
-                End If
-            Else
+        bReturn = True
+        If getCommandeCourante().Date_EDI <> Nothing Then
+            If MsgBox("Cette commande a déjà été transmise, voulez-vous la re-transmettre ?", vbYesNo, "Transmission EDI") = vbNo Then
                 bReturn = False
             End If
-        Catch ex As Exception
-            MsgBox("Erreur en Export-Creation du message, Recommencer plus tard" + ex.Message)
-            bReturn = False
-        End Try
+        End If
 
+        If bReturn Then
+            Try
+                strTempDir = Param.getConstante("CST_EDI_TEMP") + "/" + currentuser.code
+                If Not My.Computer.FileSystem.DirectoryExists(strTempDir) Then
+                    My.Computer.FileSystem.CreateDirectory(strTempDir)
+                End If
+
+                strFileName = strTempDir + "/" + getCommandeCourante.code + ".txt"
+
+                If File.Exists(strFileName) Then
+                    File.Delete(strFileName)
+                End If
+                Dim odlg As dlgExportWebEDI
+                odlg = New dlgExportWebEDI()
+                odlg.Setcommande(getCommandeCourante())
+                If odlg.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                    bReturn = getCommandeCourante.exporterWebEDI(strFileName)
+                    If bReturn Then
+                        If ExportMail.SendMail(Param.getConstante("CST_EDI_HOST"),
+                                                Param.getConstante("CST_EDI_PORT"),
+                                                True,
+                                                Param.getConstante("CST_EDI_USER"),
+                                                Param.getConstante("CST_EDI_PWD"),
+                                                Me.tbMailPLTF.Text,
+                                                "Commande Client N°" + getCommandeCourante.code + " " + getCommandeCourante.oTiers.nom,
+                                                "",
+                                                strFileName) Then
+
+                            getCommandeCourante().Date_EDI = DateTime.Now
+                            lblDateTransmissionEDI.Text = "Transmise le " + getCommandeCourante().Date_EDI.ToShortDateString()
+
+                        Else
+                            MsgBox("Erreur en envoi de Mail" + ExportMail.Message)
+                        End If
+                        My.Computer.FileSystem.DeleteFile(strFileName)
+                    Else
+                        MsgBox("Erreur en Export-Creation du fichier, Recommencer plus tard")
+                    End If
+                Else
+                    bReturn = False
+                End If
+            Catch ex As Exception
+                MsgBox("Erreur en Export-Creation du message, Recommencer plus tard" + ex.Message)
+                bReturn = False
+            End Try
+        End If
         Return bReturn
     End Function
     Protected Overrides Function getbGestionMvtStock() As Boolean
-        Debug.Assert(Not getCommandeCourante() Is Nothing, " CommandeCourante is nothing")
+        Debug.Assert(Not getCommandeCourante() Is Nothing, " CommandeCourante Is nothing")
         'Pas de gestion des Mvts de Stocks pour les commandes Directe
         If getCommandeCourante().typeCommande = vncEnums.vncTypeCommande.vncCmdClientDirecte Then
             Return False

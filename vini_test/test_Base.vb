@@ -53,7 +53,7 @@ Imports System.Globalization
         Persist.shared_connect()
         cleanDonneesDeBase()
         Param.LoadcolParams()
-        Assert.IsTrue(getIdsReference())
+        getIdsReference()
         Persist.shared_disconnect()
     End Sub
     <TestCleanup()>
@@ -151,8 +151,6 @@ Imports System.Globalization
             Persist.executeSQLNonQuery("DELETE FROM FOURNISSEUR WHERE FRN_ID > " + m_idFRN.ToString())
             Persist.executeSQLNonQuery("DELETE FROM FRN_COMM WHERE FRNC_ID > " + m_idFRNComm.ToString())
             Persist.executeSQLNonQuery("DELETE FROM TRANSPORTEUR WHERE TRP_ID > " + m_idTRP.ToString())
-            Persist.executeSQLNonQuery("DELETE FROM PARAMETRE WHERE PAR_ID > " + m_idParam.ToString())
-            Persist.executeSQLNonQuery("DELETE FROM CONTENANT WHERE CONT_ID > " + m_idContenant.ToString())
             Persist.executeSQLNonQuery("DELETE FROM LIGNE_FACTHBV WHERE LGFHBV_ID > " + m_idLGFactHBV.ToString())
             Persist.executeSQLNonQuery("DELETE FROM FACTHBV WHERE FHBV_ID > " + m_idFactHBV.ToString())
 
