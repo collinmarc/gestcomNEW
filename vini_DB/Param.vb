@@ -527,4 +527,75 @@ Public Class Param
         End If
         Return bReturn
     End Function
+    Public Shared ReadOnly Property SMTP_HOST() As String
+        Get
+            Return getConstante("CST_EDI_HOST")
+        End Get
+    End Property
+    Public Shared ReadOnly Property SMTP_PORT() As String
+        Get
+            Return getConstante("CST_EDI_PORT")
+        End Get
+    End Property
+    Public Shared ReadOnly Property SMTP_USER() As String
+        Get
+            Return getConstante("CST_EDI_USER")
+        End Get
+    End Property
+    Public Shared ReadOnly Property SMTP_PWD() As String
+        Get
+            Return getConstante("CST_EDI_PWD")
+        End Get
+    End Property
+    Public Shared ReadOnly Property SMTP_SSL() As Boolean
+        Get
+            Return CBool(getConstante("CST_EDI_SSL"))
+        End Get
+    End Property
+    Public Shared ReadOnly Property SMTP_FROM() As String
+        Get
+            Return getConstante("CST_EDI_FROM")
+        End Get
+    End Property
+    Public Shared ReadOnly Property SMTP_TEMP() As String
+        Get
+            Return getConstante("CST_EDI_TEMP")
+        End Get
+    End Property
+    Public Shared ReadOnly Property IMAP_HOST() As String
+        Get
+            Return getConstante("CST_IMAP_HOST")
+        End Get
+    End Property
+    Public Shared ReadOnly Property IMAP_PORT() As String
+        Get
+            Return getConstante("CST_IMAP_PORT")
+        End Get
+    End Property
+    Public Shared ReadOnly Property IMAP_USER() As String
+        Get
+            Return getConstante("CST_IMAP_USER")
+        End Get
+    End Property
+    Public Shared ReadOnly Property IMAP_PWD() As String
+        Get
+            Return getConstante("CST_IMAP_PWD")
+        End Get
+    End Property
+    Public Shared ReadOnly Property IMAP_SSL() As Boolean
+        Get
+            Return getConstante("CST_IMAP_SSL")
+        End Get
+    End Property
+    Public Shared ReadOnly Property IMAP_NSEC() As Integer
+        Get
+            Return CInt(getConstante("CST_IMAP_NSEC"))
+        End Get
+    End Property
+    Public Shared ReadOnly Property IMAP_MSGFOLDER() As String
+        Get
+            Return getConstante("CST_IMAP_MSGFOLDER")
+        End Get
+    End Property
+
 End Class

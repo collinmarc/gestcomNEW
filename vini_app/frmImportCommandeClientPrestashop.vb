@@ -22,9 +22,6 @@ Public Class frmImportcommandeClientPrestashop
         formLoad()
     End Sub
 
-    Private Sub btnTest_Click(sender As Object, e As EventArgs)
-        TestImap()
-    End Sub
     Private Sub cbRecharger_Click(sender As Object, e As EventArgs)
         ChargerFichierLog()
     End Sub
@@ -38,63 +35,6 @@ Public Class frmImportcommandeClientPrestashop
         MessageBox.Show(olst.Count & " Commandes importées")
         ChargerFichierLog()
 
-    End Sub
-    Private Sub TestImap()
-        If m_oImportPrestashop.TestLogin() Then
-            Dim mail As MailMessage = New MailMessage(My.Settings.SMTPuser, m_oImportPrestashop.UserName)
-            mail.Subject = "TEST"
-            mail.IsBodyHtml = False
-            '        mail.BodyEncoding = System.Text.ASCIIEncoding.UTF8
-            Dim strBody As String = ""
-            strBody = ""
-            strBody = strBody & "[?xml version = ""1.0"" encoding=""utf-8"" standalone=""yes"" ?]" & vbCrLf
-            strBody = strBody & "[cmdprestashop]" & vbCrLf
-            strBody = strBody & "[id]36[/id]" & vbCrLf
-            strBody = strBody & "[name]ESZARIWUG[/name]" & vbCrLf
-            strBody = strBody & "[customer_id][/customer_id]" & vbCrLf
-            strBody = strBody & "[livraison_company]MCII[/livraison_company]" & vbCrLf
-            strBody = strBody & "[livraison_name]MCII[/livraison_name]" & vbCrLf
-            strBody = strBody & "[livraison_firstname]MCII[/livraison_firstname]" & vbCrLf
-            strBody = strBody & "[livraison_adress1]23, la mettrie[/livraison_adress1]" & vbCrLf
-            strBody = strBody & "[livraison_adress2][/livraison_adress2]" & vbCrLf
-            strBody = strBody & "[livraison_postalcode]35250[/livraison_postalcode]" & vbCrLf
-            strBody = strBody & "[livraison_city]Chasné sur illet[/livraison_city]" & vbCrLf
-            strBody = strBody & "[lignes]" & vbCrLf
-            strBody = strBody & "[ligneprestashop]" & vbCrLf
-            strBody = strBody & "[reference]demo_zzzz[/reference]" & vbCrLf
-            strBody = strBody & "[quantite]1[/quantite]" & vbCrLf
-            strBody = strBody & "[prixunitaire]5.5[/prixunitaire]" & vbCrLf
-            strBody = strBody & "[/ligneprestashop]" & vbCrLf
-            strBody = strBody & "[ligneprestashop]" & vbCrLf
-            strBody = strBody & "[reference]demo_3[/reference]" & vbCrLf
-            strBody = strBody & "[quantite]1[/quantite]" & vbCrLf
-            strBody = strBody & "[prixunitaire]5.5[/prixunitaire]" & vbCrLf
-            strBody = strBody & "[/ligneprestashop]" & vbCrLf
-            strBody = strBody & "[/lignes]" & vbCrLf
-            strBody = strBody & "[/cmdprestashop]" & vbCrLf
-            strBody = strBody & "[/xml]" & vbCrLf
-
-            Dim plainView As AlternateView = AlternateView.CreateAlternateViewFromString(strBody, System.Text.Encoding.GetEncoding("UTF-8"), "text/plain")
-            plainView.TransferEncoding = Net.Mime.TransferEncoding.SevenBit
-            mail.AlternateViews.Add(plainView)
-            mail.BodyEncoding = System.Text.Encoding.GetEncoding("UTF-8")
-
-            Dim smtp As SmtpClient = New SmtpClient()
-            smtp.Host = My.Settings.SMTPHost
-            smtp.Port = My.Settings.SMTPPort
-            smtp.Credentials = New System.Net.NetworkCredential(My.Settings.SMTPuser, My.Settings.SMTPpassword)
-            smtp.EnableSsl = My.Settings.SMTPbSSL
-
-            Try
-                smtp.Send(mail)
-            Catch ex As Exception
-                Trace.WriteLine("frmImportCommandPrestashop.TestImap ERR", ex.Message)
-            End Try
-
-
-        Else
-            MessageBox.Show("Connexion impossible", "Connexion IMAP", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
     End Sub
 
 

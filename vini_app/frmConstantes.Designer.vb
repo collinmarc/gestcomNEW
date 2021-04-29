@@ -81,8 +81,6 @@ Partial Class frmConstantes
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabVinicom = New System.Windows.Forms.TabPage()
         Me.tbCompteBanque = New System.Windows.Forms.TextBox()
-        Me.CONSTANTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DsVinicom = New vini_DB.dsVinicom()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CST_SOC1_CMPT_PRODTextBox = New System.Windows.Forms.TextBox()
         Me.CST_SOC1_CMPT_TVATextBox = New System.Windows.Forms.TextBox()
@@ -181,6 +179,7 @@ Partial Class frmConstantes
         Me.FTP_USERNAMETextBox = New System.Windows.Forms.TextBox()
         Me.FTP_HOSTNAMETextBox = New System.Windows.Forms.TextBox()
         Me.tbEDI_Destinataire = New System.Windows.Forms.TabPage()
+        Me.ckWEBEDI_SSL = New System.Windows.Forms.CheckBox()
         Me.tbWEBEDI_Destinataire = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.tbWEBEDI_SMTPPWD = New System.Windows.Forms.TextBox()
@@ -215,11 +214,11 @@ Partial Class frmConstantes
         Me.CST_VERSION_BDTextBox = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
+        Me.CONSTANTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsVinicom = New vini_DB.dsVinicom()
         Me.CONSTANTESTableAdapter = New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
-        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabVinidis.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -228,6 +227,8 @@ Partial Class frmConstantes
         Me.TabPage5.SuspendLayout()
         Me.tbEDI_Destinataire.SuspendLayout()
         Me.TabPage7.SuspendLayout()
+        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CST_SOC_NOMSOCLabel
@@ -795,16 +796,6 @@ Partial Class frmConstantes
         Me.tbCompteBanque.Name = "tbCompteBanque"
         Me.tbCompteBanque.Size = New System.Drawing.Size(100, 20)
         Me.tbCompteBanque.TabIndex = 26
-        '
-        'CONSTANTESBindingSource
-        '
-        Me.CONSTANTESBindingSource.DataMember = "CONSTANTES"
-        Me.CONSTANTESBindingSource.DataSource = Me.DsVinicom
-        '
-        'DsVinicom
-        '
-        Me.DsVinicom.DataSetName = "dsVinicom"
-        Me.DsVinicom.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -1771,6 +1762,7 @@ Partial Class frmConstantes
         '
         'tbEDI_Destinataire
         '
+        Me.tbEDI_Destinataire.Controls.Add(Me.ckWEBEDI_SSL)
         Me.tbEDI_Destinataire.Controls.Add(Me.tbWEBEDI_Destinataire)
         Me.tbEDI_Destinataire.Controls.Add(Me.Label28)
         Me.tbEDI_Destinataire.Controls.Add(Me.tbWEBEDI_SMTPPWD)
@@ -1793,6 +1785,17 @@ Partial Class frmConstantes
         Me.tbEDI_Destinataire.TabIndex = 7
         Me.tbEDI_Destinataire.Text = "WEBEDI"
         Me.tbEDI_Destinataire.UseVisualStyleBackColor = True
+        '
+        'ckWEBEDI_SSL
+        '
+        Me.ckWEBEDI_SSL.AutoSize = True
+        Me.ckWEBEDI_SSL.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONSTANTESBindingSource, "CST_EDI_SSL", True))
+        Me.ckWEBEDI_SSL.Location = New System.Drawing.Point(233, 50)
+        Me.ckWEBEDI_SSL.Name = "ckWEBEDI_SSL"
+        Me.ckWEBEDI_SSL.Size = New System.Drawing.Size(46, 17)
+        Me.ckWEBEDI_SSL.TabIndex = 15
+        Me.ckWEBEDI_SSL.Text = "SSL"
+        Me.ckWEBEDI_SSL.UseVisualStyleBackColor = True
         '
         'tbWEBEDI_Destinataire
         '
@@ -2002,7 +2005,7 @@ Partial Class frmConstantes
         Me.tbImport.Name = "tbImport"
         Me.tbImport.Size = New System.Drawing.Size(75, 23)
         Me.tbImport.TabIndex = 9
-        Me.tbImport.Text = "Import"
+        Me.tbImport.Text = "TEST"
         Me.tbImport.UseVisualStyleBackColor = True
         '
         'tbImapPwd
@@ -2029,6 +2032,7 @@ Partial Class frmConstantes
         Me.ckImapSSL.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.ckImapSSL.Checked = True
         Me.ckImapSSL.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.ckImapSSL.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONSTANTESBindingSource, "CST_IMAP_SSL", True))
         Me.ckImapSSL.Location = New System.Drawing.Point(322, 18)
         Me.ckImapSSL.Name = "ckImapSSL"
         Me.ckImapSSL.Size = New System.Drawing.Size(46, 17)
@@ -2119,6 +2123,16 @@ Partial Class frmConstantes
         Me.dtpdateMAj.Size = New System.Drawing.Size(152, 20)
         Me.dtpdateMAj.TabIndex = 4
         '
+        'CONSTANTESBindingSource
+        '
+        Me.CONSTANTESBindingSource.DataMember = "CONSTANTES"
+        Me.CONSTANTESBindingSource.DataSource = Me.DsVinicom
+        '
+        'DsVinicom
+        '
+        Me.DsVinicom.DataSetName = "dsVinicom"
+        Me.DsVinicom.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'CONSTANTESTableAdapter
         '
         Me.CONSTANTESTableAdapter.ClearBeforeFill = True
@@ -2139,8 +2153,6 @@ Partial Class frmConstantes
         Me.TabControl1.ResumeLayout(False)
         Me.tabVinicom.ResumeLayout(False)
         Me.tabVinicom.PerformLayout()
-        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabVinidis.ResumeLayout(False)
         Me.TabVinidis.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
@@ -2157,6 +2169,8 @@ Partial Class frmConstantes
         Me.tbEDI_Destinataire.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
+        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2354,4 +2368,5 @@ Partial Class frmConstantes
     Friend WithEvents Label26 As Label
     Friend WithEvents tbWEBEDI_Destinataire As TextBox
     Friend WithEvents Label28 As Label
+    Friend WithEvents ckWEBEDI_SSL As CheckBox
 End Class

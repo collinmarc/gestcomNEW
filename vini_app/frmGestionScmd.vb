@@ -986,13 +986,6 @@ Public Class frmGestionSCMD
             End If
             Me.Text = getResume()
             setDateLabels()
-            m_dgvScmd.Columns(0).Width = My.Settings.frmGestSCMD_COL1_WIDTH
-            m_dgvScmd.Columns(1).Width = My.Settings.frmGestSCMD_COL2_WIDTH
-            m_dgvScmd.Columns(2).Width = My.Settings.frmGestSCMD_COL3_WIDTH
-            m_dgvScmd.Columns(3).Width = My.Settings.frmGestSCMD_COL4_WIDTH
-            m_dgvScmd.Columns(4).Width = My.Settings.frmGestSCMD_COL5_WIDTH
-            m_dgvScmd.Columns(5).Width = My.Settings.frmGestSCMD_COL6_WIDTH
-            m_dgvScmd.Columns(6).Width = My.Settings.frmGestSCMD_COL7_WIDTH
         End If
         InitCriteres()
     End Sub
@@ -1251,14 +1244,6 @@ Public Class frmGestionSCMD
     End Sub
 
     Private Sub frmGestionSCMD_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        My.Settings.frmGestSCMD_COL1_WIDTH = m_dgvScmd.Columns(0).Width
-        My.Settings.frmGestSCMD_COL2_WIDTH = m_dgvScmd.Columns(1).Width
-        My.Settings.frmGestSCMD_COL3_WIDTH = m_dgvScmd.Columns(2).Width
-        My.Settings.frmGestSCMD_COL4_WIDTH = m_dgvScmd.Columns(3).Width
-        My.Settings.frmGestSCMD_COL5_WIDTH = m_dgvScmd.Columns(4).Width
-        My.Settings.frmGestSCMD_COL6_WIDTH = m_dgvScmd.Columns(5).Width
-        My.Settings.frmGestSCMD_COL7_WIDTH = m_dgvScmd.Columns(6).Width
-        My.Settings.Save()
     End Sub
     Private Sub frmGestionSCMD_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         If (Not DesignMode) Then

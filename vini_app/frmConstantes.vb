@@ -40,9 +40,12 @@ Partial Public Class frmConstantes
 
     Private Sub cbTestWebEdi_Click(sender As System.Object, e As System.EventArgs) Handles cbTestWebEdi.Click
 
+
         Try
+            frmSave()
             Me.Cursor = Cursors.WaitCursor
-            Dim strTempDir As String = Me.tbWEBEDI_TEMP.Text + "/" + currentuser.code
+
+            Dim strTempDir As String = Param.SMTP_TEMP + "/" + currentuser.code
             If Not My.Computer.FileSystem.DirectoryExists(strTempDir) Then
                 My.Computer.FileSystem.CreateDirectory(strTempDir)
             End If
@@ -50,11 +53,11 @@ Partial Public Class frmConstantes
             DisplayStatus("Ajout d'une pièce attachée de test")
             My.Computer.FileSystem.WriteAllText(strTempDir + "/test.txt", "Ceci est un test", True)
 
-            Dim bReturn As Boolean = ExportMail.SendMail(tbWEBEDI_SMTPHOST.Text,
-                                CInt(tbWEBEDI_SMTPPORT.Text),
-                                True,
-                                tbWEBEDI_SMTPuser.Text,
-                                tbWEBEDI_SMTPPWD.Text,
+            Dim bReturn As Boolean = ExportMail.SendMail(Param.SMTP_HOST,
+                                Param.SMTP_PORT,
+                                Param.SMTP_SSL,
+                                Param.SMTP_USER,
+                                Param.SMTP_PWD,
                                 tbWEBEDI_Destinataire.Text,
                                 "TEST",
                                 "Ceci est un message de test",
@@ -209,10 +212,14 @@ Partial Public Class frmConstantes
 
     Private Sub tbImport_Click(sender As Object, e As EventArgs) Handles tbImport.Click
         Me.Cursor = Cursors.WaitCursor
+        frmSave()
+        'Envoi d'une commande fictive
+        EnvoiCommandePrestashop()
+
         Dim olst As List(Of CommandeClient)
-        Dim oImport As New ImportPrestashop(tbImapHost.Text, tbImapUser.Text, tbImapPwd.Text, tbImapPort.Text, ckImapSSL.Checked)
-        oImport.MSGFolderName = tbImapFolder.Text
-        olst = oImport.Import(True, ckCheck.Checked)
+        Dim oImport As New ImportPrestashop(Param.IMAP_HOST, Param.IMAP_USER, Param.IMAP_PWD, Param.IMAP_PORT, Param.IMAP_SSL)
+        oImport.MSGFolderName = Param.IMAP_MSGFOLDER
+        olst = oImport.Import(False, ckCheck.Checked)
         Dim str As String = ""
         For Each oCmd As CommandeClient In olst
             If Not String.IsNullOrEmpty(str) Then
@@ -221,7 +228,41 @@ Partial Public Class frmConstantes
             str = str & oCmd.code & "(" & oCmd.NamePrestashop & ")"
         Next
         Me.Cursor = Cursors.Default
-        MessageBox.Show(olst.Count & " Commandes importées : " & str)
+        MessageBox.Show(olst.Count & " Commandes Traitées mais non sauvegardées : " & str)
+
+    End Sub
+    Private Sub EnvoiCommandePrestashop()
+        Dim strBody As String = ""
+        strBody = ""
+        strBody = strBody & "[?xml version = ""1.0"" encoding=""utf-8"" standalone=""yes"" ?]" & vbCrLf
+        strBody = strBody & "[cmdprestashop]" & vbCrLf
+        strBody = strBody & "[id]36[/id]" & vbCrLf
+        strBody = strBody & "[name]ESZARIWUG[/name]" & vbCrLf
+        strBody = strBody & "[customer_id][/customer_id]" & vbCrLf
+        strBody = strBody & "[livraison_company]MCII[/livraison_company]" & vbCrLf
+        strBody = strBody & "[livraison_name]MCII[/livraison_name]" & vbCrLf
+        strBody = strBody & "[livraison_firstname]MCII[/livraison_firstname]" & vbCrLf
+        strBody = strBody & "[livraison_adress1]23, la mettrie[/livraison_adress1]" & vbCrLf
+        strBody = strBody & "[livraison_adress2][/livraison_adress2]" & vbCrLf
+        strBody = strBody & "[livraison_postalcode]35250[/livraison_postalcode]" & vbCrLf
+        strBody = strBody & "[livraison_city]Chasné sur illet[/livraison_city]" & vbCrLf
+        strBody = strBody & "[lignes]" & vbCrLf
+        strBody = strBody & "[ligneprestashop]" & vbCrLf
+        strBody = strBody & "[reference]demo_zzzz[/reference]" & vbCrLf
+        strBody = strBody & "[quantite]1[/quantite]" & vbCrLf
+        strBody = strBody & "[prixunitaire]5.5[/prixunitaire]" & vbCrLf
+        strBody = strBody & "[/ligneprestashop]" & vbCrLf
+        strBody = strBody & "[ligneprestashop]" & vbCrLf
+        strBody = strBody & "[reference]demo_3[/reference]" & vbCrLf
+        strBody = strBody & "[quantite]1[/quantite]" & vbCrLf
+        strBody = strBody & "[prixunitaire]5.5[/prixunitaire]" & vbCrLf
+        strBody = strBody & "[/ligneprestashop]" & vbCrLf
+        strBody = strBody & "[/lignes]" & vbCrLf
+        strBody = strBody & "[/cmdprestashop]" & vbCrLf
+        strBody = strBody & "[/xml]" & vbCrLf
+
+
+        ExportMail.SendMail(Param.SMTP_HOST, Param.SMTP_PORT, Param.SMTP_SSL, Param.SMTP_USER, Param.SMTP_PWD, Param.IMAP_USER, "Test Commande", strBody, "", True)
 
     End Sub
 

@@ -25,12 +25,12 @@ Public Class vini_service
 
         Persist.ConnectionString = My.Settings.MyCS
         If Persist.shared_connect() Then
-            Dim ImapHost As String = Param.getConstante("CST_IMAP_HOST")
-            Dim ImapPort As String = Param.getConstante("CST_IMAP_PORT")
-            Dim ImapUser As String = Param.getConstante("CST_IMAP_USER")
-            Dim ImapPwd As String = Param.getConstante("CST_IMAP_PWD")
-            Dim ImapFolder As String = Param.getConstante("CST_IMAP_MSGFOLDER")
-            Dim ImapNsec As Integer = CInt(Param.getConstante("CST_IMAP_NSEC"))
+            Dim ImapHost As String = Param.IMAP_HOST
+            Dim ImapPort As String = Param.IMAP_PORT
+            Dim ImapUser As String = Param.IMAP_USER
+            Dim ImapPwd As String = Param.IMAP_PWD
+            Dim ImapFolder As String = Param.IMAP_MSGFOLDER
+            Dim ImapNsec As Integer = Param.IMAP_NSEC
 
             Trace.WriteLine("Starting...")
             Trace.WriteLine("Imap = (" & ImapHost & ":" & ImapPort & "," & ImapUser & "," & ImapPwd & ")")
@@ -58,12 +58,13 @@ Public Class vini_service
             Dim olst As List(Of CommandeClient)
             Persist.ConnectionString = My.Settings.MyCS
             If Persist.shared_connect() Then
-                Dim ImapHost As String = Param.getConstante("CST_IMAP_HOST")
-                Dim ImapPort As String = Param.getConstante("CST_IMAP_PORT")
-                Dim ImapUser As String = Param.getConstante("CST_IMAP_USER")
-                Dim ImapPwd As String = Param.getConstante("CST_IMAP_PWD")
-                Dim ImapFolder As String = Param.getConstante("CST_IMAP_MSGFOLDER")
-                Dim oImport As New ImportPrestashop(ImapHost, ImapUser, ImapPwd, ImapPort, True)
+                Dim ImapHost As String = Param.IMAP_HOST
+                Dim ImapPort As String = Param.IMAP_PORT
+                Dim ImapUser As String = Param.IMAP_USER
+                Dim ImapPwd As String = Param.IMAP_PWD
+                Dim ImapFolder As String = Param.IMAP_MSGFOLDER
+                Dim ImapSSL As Boolean = Param.IMAP_SSL
+                Dim oImport As New ImportPrestashop(ImapHost, ImapUser, ImapPwd, ImapPort, ImapSSL)
                 oImport.MSGFolderName = ImapFolder
                 olst = oImport.Import(True)
                 If olst.Count > 0 Then

@@ -18,8 +18,22 @@ Public Class ExportMail
             _Message = value
         End Set
     End Property
-
-    Public Shared Function SendMail(pHost As String, pPort As Integer, bSSL As Boolean, puser As String, pPwd As String, pDestinataire As String, pSubject As String, pBody As String, pFileName As String) As Boolean
+    ''' <summary>
+    ''' Envoi d'un mail 
+    ''' Si pModePrestashop = true, le Body est envoyé en mode TextBody, et un Message est envoyé en mode HTMLBody
+    ''' </summary>
+    ''' <param name="pHost"></param>
+    ''' <param name="pPort"></param>
+    ''' <param name="bSSL"></param>
+    ''' <param name="puser"></param>
+    ''' <param name="pPwd"></param>
+    ''' <param name="pDestinataire"></param>
+    ''' <param name="pSubject"></param>
+    ''' <param name="pBody"></param>
+    ''' <param name="pFileName"></param>
+    ''' <param name="pModePrestashop"></param>
+    ''' <returns></returns>
+    Public Shared Function SendMail(pHost As String, pPort As Integer, bSSL As Boolean, puser As String, pPwd As String, pDestinataire As String, pSubject As String, pBody As String, pFileName As String, Optional pModePrestashop As Boolean = False) As Boolean
         Dim bReturn As Boolean
         Try
             bReturn = False
@@ -30,12 +44,17 @@ Public Class ExportMail
                 oMailMessage.From.Add(New MailboxAddress(puser, puser))
                 oMailMessage.To.Add(New MailboxAddress(pDestinataire, pDestinataire))
                 oMailMessage.Subject = pSubject
+
                 Dim builder As New BodyBuilder()
-                builder.TextBody = pBody
-
-
-                builder.Attachments.Add(pFileName)
+                If pModePrestashop Then
+                    builder.TextBody = pBody
+                    builder.HtmlBody = "le contenu de la commande est en mode texte"
+                Else
+                    builder.TextBody = pBody
+                    builder.Attachments.Add(pFileName)
+                End If
                 oMailMessage.Body = builder.ToMessageBody()
+
 
                 oMailClient.Send(oMailMessage)
                 oMailClient.Disconnect(True)
