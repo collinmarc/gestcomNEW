@@ -591,11 +591,12 @@ Public Class frmCommandeClient
                 If odlg.ShowDialog() = Windows.Forms.DialogResult.OK Then
                     bReturn = getCommandeCourante.exporterWebEDI(strFileName)
                     If bReturn Then
-                        If ExportMail.SendMail(Param.getConstante("CST_EDI_HOST"),
-                                                Param.getConstante("CST_EDI_PORT"),
-                                                True,
-                                                Param.getConstante("CST_EDI_USER"),
-                                                Param.getConstante("CST_EDI_PWD"),
+                        If ExportMail.SendMail(Param.SMTP_HOST,
+                                                Param.SMTP_PORT,
+                                                Param.SMTP_SSL,
+                                                Param.SMTP_USER,
+                                                Param.SMTP_PWD,
+                                                Param.SMTP_FROM,
                                                 Me.tbMailPLTF.Text,
                                                 "Commande Client N°" + getCommandeCourante.code + " " + getCommandeCourante.oTiers.nom,
                                                 "",

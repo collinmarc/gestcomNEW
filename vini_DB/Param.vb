@@ -512,19 +512,20 @@ Public Class Param
 
     Public Shared Function IsColParamOK() As Boolean
         Dim bReturn As Boolean = False
-        If m_bcolparamsLoad Then
-            Dim dConstant As DateTime
-            Try
-                dConstant = CDate(Persist.executeSQLScalar("SELECT CST_DATE_UPDATE FROM CONSTANTES"))
-                If dConstant = m_dateUpdate Then
-                    bReturn = True
-                End If
+        'If m_bcolparamsLoad Then
+        '    Dim dConstant As DateTime
+        '    Try
+        '        dConstant = CDate(Persist.executeSQLScalar("SELECT CST_DATE_UPDATE FROM CONSTANTES"))
+        '        If dConstant = m_dateUpdate Then
+        '            bReturn = True
+        '        End If
 
-            Catch ex As Exception
-                bReturn = True
-            End Try
+        '    Catch ex As Exception
+        '        bReturn = True
+        '    End Try
 
-        End If
+        'End If
+        bReturn = m_bcolparamsLoad
         Return bReturn
     End Function
     Public Shared ReadOnly Property SMTP_HOST() As String

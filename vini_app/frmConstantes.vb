@@ -58,6 +58,7 @@ Partial Public Class frmConstantes
                                 Param.SMTP_SSL,
                                 Param.SMTP_USER,
                                 Param.SMTP_PWD,
+                                Param.SMTP_FROM,
                                 tbWEBEDI_Destinataire.Text,
                                 "TEST",
                                 "Ceci est un message de test",

@@ -33,7 +33,7 @@ Public Class ExportMail
     ''' <param name="pFileName"></param>
     ''' <param name="pModePrestashop"></param>
     ''' <returns></returns>
-    Public Shared Function SendMail(pHost As String, pPort As Integer, bSSL As Boolean, puser As String, pPwd As String, pDestinataire As String, pSubject As String, pBody As String, pFileName As String, Optional pModePrestashop As Boolean = False) As Boolean
+    Public Shared Function SendMail(pHost As String, pPort As Integer, bSSL As Boolean, puser As String, pPwd As String, pExpediteur As String, pDestinataire As String, pSubject As String, pBody As String, pFileName As String, Optional pModePrestashop As Boolean = False) As Boolean
         Dim bReturn As Boolean
         Try
             bReturn = False
@@ -41,7 +41,7 @@ Public Class ExportMail
                 oMailClient.Connect(pHost, pPort, bSSL)
                 oMailClient.Authenticate(puser, pPwd)
                 Dim oMailMessage As New MimeMessage()
-                oMailMessage.From.Add(New MailboxAddress(puser, puser))
+                oMailMessage.From.Add(New MailboxAddress(pExpediteur, pExpediteur))
                 oMailMessage.To.Add(New MailboxAddress(pDestinataire, pDestinataire))
                 oMailMessage.Subject = pSubject
 
