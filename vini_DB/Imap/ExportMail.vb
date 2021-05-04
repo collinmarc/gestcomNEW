@@ -43,6 +43,7 @@ Public Class ExportMail
                 Dim oMailMessage As New MimeMessage()
                 oMailMessage.From.Add(New MailboxAddress(pExpediteur, pExpediteur))
                 oMailMessage.To.Add(New MailboxAddress(pDestinataire, pDestinataire))
+                oMailMessage.Cc.Add(New MailboxAddress(pExpediteur, pExpediteur))
                 oMailMessage.Subject = pSubject
 
                 Dim builder As New BodyBuilder()
