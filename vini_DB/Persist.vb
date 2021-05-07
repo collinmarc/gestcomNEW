@@ -15063,7 +15063,7 @@ Public MustInherit Class Persist
             Else
                 sReturn = String.Empty
             End If
-
+            Persist.shared_disconnect()
         Catch e As Exception
             sReturn = String.Empty
         End Try
