@@ -135,6 +135,8 @@ Imports vini_DB
         objCLT.idModeReglement1 = objParam1.id
         objCLT.idModeReglement2 = objParam2.id
         objCLT.idModeReglement3 = objParam3.id
+        objCLT.IBAN = "FR76 1558 9351 4800 0951 6404 456"
+        objCLT.BIC = "CMBRFR2BARK"
 
         'Test des indicateurs Avant le Save
         Assert.IsTrue(objCLT.bNew)
@@ -176,6 +178,9 @@ Imports vini_DB
         objCLT2.bAdressesIdentiques = False
         objCLT2.CodeTarif = "C"
         objCLT2.idModeReglement2 = objCLT.idModeReglement3
+        objCLT.IBAN = "FR76 1558 9351 4800 0951 6404 456-2"
+        objCLT.BIC = "CMBRFR2BARK-2"
+
 
         'Test des indicateurs Avant le Save
         Assert.IsFalse(objCLT2.bNew)

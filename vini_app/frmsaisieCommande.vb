@@ -5139,4 +5139,10 @@ Public Class frmSaisieCommande
         'End If
     End Sub
 
+    Private Sub m_dgvSCMD_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles m_dgvSCMD.CellDoubleClick
+        If Not m_bsrcSousCommande.Current Is Nothing Then
+            visualiserSousCommande()
+        End If
+
+    End Sub
 End Class

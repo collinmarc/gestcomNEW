@@ -40,7 +40,7 @@ Public Class frmStatProduitFournisseur
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents tbcodeFourn As System.Windows.Forms.TextBox
     Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents laFiltreDossier As System.Windows.Forms.Label
     Friend WithEvents Label5 As Label
     Friend WithEvents rbDossierProduit As RadioButton
     Friend WithEvents rbOrigineCommande As RadioButton
@@ -55,7 +55,7 @@ Public Class frmStatProduitFournisseur
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ckAfficheDetail = New System.Windows.Forms.CheckBox()
         Me.cbxOrigine = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.laFiltreDossier = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.rbDossierProduit = New System.Windows.Forms.RadioButton()
         Me.rbOrigineCommande = New System.Windows.Forms.RadioButton()
@@ -135,14 +135,14 @@ Public Class frmStatProduitFournisseur
         Me.cbxOrigine.TabIndex = 16
         Me.cbxOrigine.Text = "VINICOM"
         '
-        'Label4
+        'laFiltreDossier
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(460, 42)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(83, 13)
-        Me.Label4.TabIndex = 17
-        Me.Label4.Text = "Dossier produit :"
+        Me.laFiltreDossier.AutoSize = True
+        Me.laFiltreDossier.Location = New System.Drawing.Point(446, 41)
+        Me.laFiltreDossier.Name = "laFiltreDossier"
+        Me.laFiltreDossier.Size = New System.Drawing.Size(83, 13)
+        Me.laFiltreDossier.TabIndex = 17
+        Me.laFiltreDossier.Text = "Dossier produit :"
         '
         'Label5
         '
@@ -156,6 +156,7 @@ Public Class frmStatProduitFournisseur
         'rbDossierProduit
         '
         Me.rbDossierProduit.AutoSize = True
+        Me.rbDossierProduit.Checked = True
         Me.rbDossierProduit.Location = New System.Drawing.Point(104, 40)
         Me.rbDossierProduit.Name = "rbDossierProduit"
         Me.rbDossierProduit.Size = New System.Drawing.Size(96, 17)
@@ -182,7 +183,7 @@ Public Class frmStatProduitFournisseur
         Me.Controls.Add(Me.rbOrigineCommande)
         Me.Controls.Add(Me.rbDossierProduit)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.laFiltreDossier)
         Me.Controls.Add(Me.cbxOrigine)
         Me.Controls.Add(Me.ckAfficheDetail)
         Me.Controls.Add(Me.tbcodeFourn)
@@ -203,7 +204,7 @@ Public Class frmStatProduitFournisseur
         Me.Controls.SetChildIndex(Me.tbcodeFourn, 0)
         Me.Controls.SetChildIndex(Me.ckAfficheDetail, 0)
         Me.Controls.SetChildIndex(Me.cbxOrigine, 0)
-        Me.Controls.SetChildIndex(Me.Label4, 0)
+        Me.Controls.SetChildIndex(Me.laFiltreDossier, 0)
         Me.Controls.SetChildIndex(Me.Label5, 0)
         Me.Controls.SetChildIndex(Me.rbDossierProduit, 0)
         Me.Controls.SetChildIndex(Me.rbOrigineCommande, 0)
@@ -218,6 +219,9 @@ Public Class frmStatProduitFournisseur
     Private Sub initFenetre()
         dtFin.Value = Now()
         dtdeb.Value = CDate("01/01/" & Year(Now()))
+        cbxOrigine.Items.Clear()
+        cbxOrigine.Items.Add(Dossier.VINICOM)
+        cbxOrigine.Items.Add(Dossier.HOBIVIN)
     End Sub
 #End Region
 
@@ -244,9 +248,15 @@ Public Class frmStatProduitFournisseur
 
         objReport.SetParameterValue("bAfficheProduit", ckAfficheDetail.Checked)
         objReport.SetParameterValue("Origine", cbxOrigine.Text)
+        objReport.SetParameterValue("bFiltreOrigineCommande", rbOrigineCommande.Checked)
 
         Persist.setReportConnection(objReport)
-        CrystalReportViewer1.ReportSource = objReport
+        Try
+
+            CrystalReportViewer1.ReportSource = objReport
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub frmStatFournisseur_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -256,4 +266,12 @@ Public Class frmStatProduitFournisseur
     Public Overrides Function getResume() As String
         Return "Statistique Fournisseur"
     End Function
+
+    Private Sub rbDossierProduit_CheckedChanged(sender As Object, e As EventArgs) Handles rbDossierProduit.CheckedChanged
+        If rbDossierProduit.Checked Then
+            laFiltreDossier.Text = "Dossier produit"
+        Else
+            laFiltreDossier.Text = "Origine Commande"
+        End If
+    End Sub
 End Class

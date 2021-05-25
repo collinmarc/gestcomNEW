@@ -14,12 +14,12 @@ Imports System.Text.RegularExpressions
     Inherits test_Base
     Private Sub CleanImap()
         Dim oImap As New Imap()
-        oImap.Login("imap.gmail.com", Convert.ToUInt16(993), "marccollintest@gmail.com", "tphhgv3..", True)
+        oImap.Login("imap.googlemail.com", Convert.ToUInt16(993), "marccollintest@gmail.com", "tphhgv3..", True)
         Dim oMsg As System.Net.Mail.MailMessage
         'Création du Folder MSGTRAITE
         oImap.SelectFolder("INBOX")
         For nmsg As Integer = 1 To oImap.nNbreMsgTotal
-            oImap.DeleteMessage2(nmsg)
+            '    oImap.DeleteMessage2(nmsg)
         Next
 
     End Sub
@@ -140,7 +140,7 @@ Imports System.Text.RegularExpressions
         Dim nMessageTraiteApres As Integer
         Dim nmsgTraite1 As Integer
         Dim nmsgTraite2 As Integer
-        oImap.Login("imap.gmail.com", Convert.ToUInt16(993), "marccollintest@gmail.com", "tphhgv3..", True)
+        oImap.Login("imap.googlemail.com", Convert.ToUInt16(993), "marccollintest@gmail.com", "tphhgv3..", True)
         Dim oMsg As System.Net.Mail.MailMessage
         'Création du Folder MSGTRAITE
         oImap.createFolder("MSGTRAITES")

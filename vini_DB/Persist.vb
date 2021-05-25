@@ -732,9 +732,9 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         objCLT = CType(Me, Client)
 
-        Dim sqlString As String = "INSERT INTO CLIENT( " & _
-                                    "CLT_CODE, CLT_NOM, CLT_RS,  CLT_RIB1, CLT_RIB2, CLT_RIB3, CLT_RIB4,  CLT_BANQUE, CLT_TYPE_ID , CLT_SIRET, CLT_TVAINTRACOM , CLT_RGLMT_ID , CLT_ADR_IDENT, CLT_CODETARIF, CLT_COMPTA, CLT_ID_MRGLMT1,CLT_ID_MRGLMT2,CLT_ID_MRGLMT3, CLT_IDPRESTASHOP, CLT_ORIGINE)" & _
-                                  " VALUES (?,?,?,?,?,?,?,?,?,?,?,?, ?, ?, ?,?,?,?,?,?" & _
+        Dim sqlString As String = "INSERT INTO CLIENT( " &
+                                    "CLT_CODE, CLT_NOM, CLT_RS,  CLT_RIB1, CLT_RIB2, CLT_RIB3, CLT_RIB4,  CLT_BANQUE, CLT_TYPE_ID , CLT_SIRET, CLT_TVAINTRACOM , CLT_RGLMT_ID , CLT_ADR_IDENT, CLT_CODETARIF, CLT_COMPTA, CLT_ID_MRGLMT1,CLT_ID_MRGLMT2,CLT_ID_MRGLMT3, CLT_IDPRESTASHOP, CLT_ORIGINE, CLT_IBAN, CLT_BIC)" &
+                                  " VALUES (?,?,?,?,?,?,?,?,?,?,?,?, ?, ?, ?,?,?,?,?,?,?,?" &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objOLeDBCommandID As OleDbCommand
@@ -768,6 +768,8 @@ Public MustInherit Class Persist
         CreateParamP_CLT_ID_MRGLMT3(objOLeDBCommand)
         CreateParamP_CLT_IDPRESASHOP(objOLeDBCommand)
         CreateParamP_CLT_ORIGINE(objOLeDBCommand)
+        CreateParamP_CLT_IBAN(objOLeDBCommand)
+        CreateParamP_CLT_BIC(objOLeDBCommand)
         m_dbconn.BeginTransaction()
         objOLeDBCommand.Transaction = m_dbconn.transaction
         Try
@@ -1019,26 +1021,28 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "ID<>0")
 
-        Dim sqlString As String = "UPDATE CLIENT  SET CLT_CODE = ? ," & _
-                                        " CLT_NOM = ? , " & _
-                                        "CLT_RS = ? , " & _
-                                        "CLT_RIB1 = ? , " & _
-                                        "CLT_RIB2 = ? , " & _
-                                        "CLT_RIB3 = ? , " & _
-                                        "CLT_RIB4 = ? , " & _
-                                        "CLT_BANQUE = ? , " & _
-                                        "CLT_TYPE_ID = ? , " & _
-                                        "CLT_SIRET = ? , " & _
-                                        "CLT_TVAINTRACOM = ? , " & _
-                                        "CLT_RGLMT_ID = ? , " & _
-                                        "CLT_ADR_IDENT = ? , " & _
-                                        "CLT_CODETARIF = ? , " & _
-                                        "CLT_COMPTA = ? ," & _
-                                        "CLT_ID_MRGLMT1 = ?, " & _
-                                        "CLT_ID_MRGLMT2 = ?, " & _
-                                        "CLT_ID_MRGLMT3 = ?, " & _
-                                        "CLT_IDPRESTASHOP = ?, " & _
-                                        "CLT_ORIGINE = ? " & _
+        Dim sqlString As String = "UPDATE CLIENT  SET CLT_CODE = ? ," &
+                                        " CLT_NOM = ? , " &
+                                        "CLT_RS = ? , " &
+                                        "CLT_RIB1 = ? , " &
+                                        "CLT_RIB2 = ? , " &
+                                        "CLT_RIB3 = ? , " &
+                                        "CLT_RIB4 = ? , " &
+                                        "CLT_BANQUE = ? , " &
+                                        "CLT_TYPE_ID = ? , " &
+                                        "CLT_SIRET = ? , " &
+                                        "CLT_TVAINTRACOM = ? , " &
+                                        "CLT_RGLMT_ID = ? , " &
+                                        "CLT_ADR_IDENT = ? , " &
+                                        "CLT_CODETARIF = ? , " &
+                                        "CLT_COMPTA = ? ," &
+                                        "CLT_ID_MRGLMT1 = ?, " &
+                                        "CLT_ID_MRGLMT2 = ?, " &
+                                        "CLT_ID_MRGLMT3 = ?, " &
+                                        "CLT_IDPRESTASHOP = ?, " &
+                                        "CLT_ORIGINE = ?, " &
+                                        "CLT_IBAN = ?, " &
+                                        "CLT_BIC = ? " &
                                   " WHERE CLT_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
 
@@ -1070,6 +1074,8 @@ Public MustInherit Class Persist
         CreateParamP_CLT_ID_MRGLMT3(objOLeDBCommand)
         CreateParamP_CLT_IDPRESASHOP(objOLeDBCommand)
         CreateParamP_CLT_ORIGINE(objOLeDBCommand)
+        CreateParamP_CLT_IBAN(objOLeDBCommand)
+        CreateParamP_CLT_BIC(objOLeDBCommand)
         CreateParameterP_ID(objOLeDBCommand)
 
 
@@ -1309,15 +1315,15 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT CLT_ID, CLT_CODE, CLT_NOM, CLT_RS, CLT_RIB1, " & _
-                                    "CLT_RIB2, CLT_RIB3, CLT_RIB4, CLT_TYPE_ID, CLT_BANQUE, RQ_TYPECLIENT.PAR_VALUE as TYPECLIENT," & _
-                                    "CLT_SIRET, CLT_TVAINTRACOM, CLT_RGLMT_ID, RQ_ModeReglement.PAR_VALUE as MODEREGLEMENT ,CLT_ADR_IDENT," & _
-                                    "CLT_LIV_NOM, CLT_LIV_RUE1, CLT_LIV_RUE2, CLT_LIV_CP, CLT_LIV_VILLE, " & _
-                                    " CLT_LIV_TEL, CLT_LIV_FAX, CLT_LIV_PORT, CLT_LIV_EMAIL, " & _
-                                    " CLT_FACT_NOM, CLT_FACT_RUE1, CLT_FACT_RUE2, CLT_FACT_CP, CLT_FACT_VILLE, " & _
-                                    " CLT_FACT_TEL, CLT_FACT_FAX, CLT_FACT_PORT, CLT_FACT_EMAIL, " & _
-                                    " CLT_COM_CMD, CLT_COM_LIV, CLT_COM_FACT, CLT_COM_LIBRE, CLT_CODETARIF, CLT_COMPTA, CLT_ID_MRGLMT1,CLT_ID_MRGLMT2,CLT_ID_MRGLMT3, CLT_IDPRESTASHOP,CLT_ORIGINE " & _
-                                   " FROM (RQ_TypeClient LEFT OUTER JOIN CLIENT ON RQ_TypeClient.PAR_ID = CLIENT.CLT_TYPE_ID) LEFT OUTER JOIN RQ_ModeReglement ON CLIENT.CLT_RGLMT_ID = RQ_ModeReglement.PAR_ID" & _
+        Dim sqlString As String = "SELECT CLT_ID, CLT_CODE, CLT_NOM, CLT_RS, CLT_RIB1, " &
+                                    "CLT_RIB2, CLT_RIB3, CLT_RIB4, CLT_TYPE_ID, CLT_BANQUE, RQ_TYPECLIENT.PAR_VALUE as TYPECLIENT," &
+                                    "CLT_SIRET, CLT_TVAINTRACOM, CLT_RGLMT_ID, RQ_ModeReglement.PAR_VALUE as MODEREGLEMENT ,CLT_ADR_IDENT," &
+                                    "CLT_LIV_NOM, CLT_LIV_RUE1, CLT_LIV_RUE2, CLT_LIV_CP, CLT_LIV_VILLE, " &
+                                    " CLT_LIV_TEL, CLT_LIV_FAX, CLT_LIV_PORT, CLT_LIV_EMAIL, " &
+                                    " CLT_FACT_NOM, CLT_FACT_RUE1, CLT_FACT_RUE2, CLT_FACT_CP, CLT_FACT_VILLE, " &
+                                    " CLT_FACT_TEL, CLT_FACT_FAX, CLT_FACT_PORT, CLT_FACT_EMAIL, " &
+                                    " CLT_COM_CMD, CLT_COM_LIV, CLT_COM_FACT, CLT_COM_LIBRE, CLT_CODETARIF, CLT_COMPTA, CLT_ID_MRGLMT1,CLT_ID_MRGLMT2,CLT_ID_MRGLMT3, CLT_IDPRESTASHOP,CLT_ORIGINE, CLT_IBAN, CLT_BIC " &
+                                   " FROM (RQ_TypeClient LEFT OUTER JOIN CLIENT ON RQ_TypeClient.PAR_ID = CLIENT.CLT_TYPE_ID) LEFT OUTER JOIN RQ_ModeReglement ON CLIENT.CLT_RGLMT_ID = RQ_ModeReglement.PAR_ID" &
                                   " WHERE CLIENT.CLT_ID=? "
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -1387,6 +1393,8 @@ Public MustInherit Class Persist
             objCLT.idModeReglement3 = getInteger(objRS, "CLT_ID_MRGLMT3")
             objCLT.idPrestashop = getInteger(objRS, "CLT_IDPRESTASHOP")
             objCLT.Origine = GetString(objRS, "CLT_ORIGINE")
+            objCLT.IBAN = GetString(objRS, "CLT_IBAN")
+            objCLT.BIC = GetString(objRS, "CLT_BIC")
 
             objRS.Close()
             objRS = Nothing
@@ -3844,6 +3852,18 @@ Public MustInherit Class Persist
         Dim objCLT As Client
         objCLT = Me
         objCommand.Parameters.AddWithValue("?", objCLT.Origine)
+    End Sub
+    Private Sub CreateParamP_CLT_IBAN(ByVal objCommand As OleDbCommand)
+        '        Dim objParam As OleDbParameter
+        Dim objCLT As Client
+        objCLT = Me
+        objCommand.Parameters.AddWithValue("?", truncate(objCLT.IBAN, 50))
+    End Sub
+    Private Sub CreateParamP_CLT_BIC(ByVal objCommand As OleDbCommand)
+        '        Dim objParam As OleDbParameter
+        Dim objCLT As Client
+        objCLT = Me
+        objCommand.Parameters.AddWithValue("?", truncate(objCLT.BIC, 50))
     End Sub
     Private Sub CreateParamP_CLT_LIV_NOM(ByVal objCommand As OleDbCommand)
         '        Dim objParam As OleDbParameter

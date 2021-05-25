@@ -44,9 +44,9 @@ Public Class frmClient
     Friend WithEvents BIC As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label24 As Label
-    Friend WithEvents tbIban As TextBox
     Friend WithEvents Label26 As Label
-    Friend WithEvents tbBIC As TextBox
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox4 As TextBox
     Friend WithEvents cbPrecommande As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.cboTypeClient = New System.Windows.Forms.ComboBox()
@@ -61,9 +61,9 @@ Public Class frmClient
         Me.BIC = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.tbIban = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.tbBIC = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'cboTypeClient
@@ -186,13 +186,6 @@ Public Class frmClient
         Me.Label24.TabIndex = 109
         Me.Label24.Text = "IBAN"
         '
-        'tbIban
-        '
-        Me.tbIban.Location = New System.Drawing.Point(510, 432)
-        Me.tbIban.Name = "tbIban"
-        Me.tbIban.Size = New System.Drawing.Size(320, 20)
-        Me.tbIban.TabIndex = 110
-        '
         'Label26
         '
         Me.Label26.AutoSize = True
@@ -202,13 +195,19 @@ Public Class frmClient
         Me.Label26.TabIndex = 111
         Me.Label26.Text = "BIC"
         '
-        'tbBIC
+        'TextBox3
         '
-        Me.tbBIC.Location = New System.Drawing.Point(510, 455)
-        Me.tbBIC.Name = "tbBIC"
-        Me.tbBIC.Size = New System.Drawing.Size(200, 20)
-        Me.tbBIC.TabIndex = 112
+        Me.TextBox3.Location = New System.Drawing.Point(506, 434)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(350, 20)
+        Me.TextBox3.TabIndex = 109
         '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(506, 456)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(350, 20)
+        Me.TextBox4.TabIndex = 110
         'frmClient
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -283,6 +282,9 @@ Public Class frmClient
                     Exit For
                 End If
             Next
+
+            tbIBAN.Text = objclient.IBAN
+            tbBIC.Text = objclient.BIC
         End If
         Return bReturn
     End Function 'AfficheElementCourant
@@ -298,6 +300,9 @@ Public Class frmClient
                 objClient.idTypeClient = cboTypeClient.SelectedItem.id
                 objClient.CodeTarif = cbxCodeTarif.SelectedItem
                 objClient.Origine = cbxOrigine.Text
+                objClient.IBAN = tbIBAN.Text
+                objClient.BIC = tbBIC.Text
+
                 bReturn = True
             Catch ex As Exception
                 DisplayError("frmClientTab.MAJElement", ex.ToString())

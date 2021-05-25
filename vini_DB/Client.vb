@@ -42,6 +42,24 @@ Public Class Client
     Private m_oPreCommande As preCommande
     Private m_CodeTarif As String
     Private m_Origine As String
+    Private m_IBAN As String
+    Public Property IBAN() As String
+        Get
+            Return m_IBAN
+        End Get
+        Set(ByVal value As String)
+            m_IBAN = value
+        End Set
+    End Property
+    Private m_BIC As String
+    Public Property BIC() As String
+        Get
+            Return m_BIC
+        End Get
+        Set(ByVal value As String)
+            m_BIC = value
+        End Set
+    End Property
 
 #Region "Accesseurs"
 
@@ -393,6 +411,8 @@ Public Class Client
             If bReturn Then
                 bReturn = bReturn And (objclt.idTypeClient.Equals(Me.idTypeClient))
                 bReturn = bReturn And (objclt.CodeTarif.Equals(Me.CodeTarif))
+                bReturn = bReturn And (objclt.IBAN.Equals(Me.IBAN))
+                bReturn = bReturn And (objclt.BIC.Equals(Me.BIC))
             End If
 
             Return bReturn
@@ -417,6 +437,8 @@ Public Class Client
         m_libTypeClient = Param.typeclientdefaut.valeur
         m_oPreCommande = New preCommande(Me)
         m_CodeTarif = "A"
+        IBAN = ""
+        BIC = ""
     End Sub 'New
     Friend Sub New()
         MyBase.New("", "")
@@ -426,6 +448,8 @@ Public Class Client
         m_libTypeClient = Param.typeclientdefaut.valeur
         m_oPreCommande = New preCommande(Me)
         m_CodeTarif = "A"
+        IBAN = ""
+        BIC = ""
     End Sub 'New
 
     '=======================================================================

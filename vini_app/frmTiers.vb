@@ -108,10 +108,10 @@ Public Class frmTiers
     Friend WithEvents cboModeReglement2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents tbIDPrestashop As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label24 As Label
-    Friend WithEvents tbIBAN As TextBox
     Friend WithEvents Label23 As Label
+    Friend WithEvents tbBIC As TextBox
+    Friend WithEvents tbIBAN As TextBox
     Public WithEvents rtbCom4 As System.Windows.Forms.RichTextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.tbRaisonSociale = New System.Windows.Forms.TextBox()
@@ -192,10 +192,10 @@ Public Class frmTiers
         Me.tbCodeCompta = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tbIDPrestashop = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.tbIBAN = New System.Windows.Forms.TextBox()
+        Me.tbBIC = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.tabTiers.SuspendLayout()
         Me.tpAddresses.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -287,10 +287,10 @@ Public Class frmTiers
         '
         'tpAddresses
         '
-        Me.tpAddresses.Controls.Add(Me.TextBox1)
         Me.tpAddresses.Controls.Add(Me.Label24)
-        Me.tpAddresses.Controls.Add(Me.tbIBAN)
         Me.tpAddresses.Controls.Add(Me.Label23)
+        Me.tpAddresses.Controls.Add(Me.tbBIC)
+        Me.tpAddresses.Controls.Add(Me.tbIBAN)
         Me.tpAddresses.Controls.Add(Me.cboModeReglement2)
         Me.tpAddresses.Controls.Add(Me.LaModeReglmt2)
         Me.tpAddresses.Controls.Add(Me.laModeRglmt1)
@@ -1037,37 +1037,37 @@ Public Class frmTiers
         Me.tbIDPrestashop.Size = New System.Drawing.Size(45, 20)
         Me.tbIDPrestashop.TabIndex = 2
         '
+        'tbIBAN
+        '
+        Me.tbIBAN.Location = New System.Drawing.Point(510, 435)
+        Me.tbIBAN.Name = "tbIBAN"
+        Me.tbIBAN.Size = New System.Drawing.Size(312, 20)
+        Me.tbIBAN.TabIndex = 109
+        '
+        'tbBIC
+        '
+        Me.tbBIC.Location = New System.Drawing.Point(510, 456)
+        Me.tbBIC.Name = "tbBIC"
+        Me.tbBIC.Size = New System.Drawing.Size(312, 20)
+        Me.tbBIC.TabIndex = 110
+        '
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(342, 439)
+        Me.Label23.Location = New System.Drawing.Point(340, 436)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(32, 13)
-        Me.Label23.TabIndex = 109
+        Me.Label23.TabIndex = 111
         Me.Label23.Text = "IBAN"
-        '
-        'tbIBAN
-        '
-        Me.tbIBAN.Location = New System.Drawing.Point(510, 436)
-        Me.tbIBAN.Name = "tbIBAN"
-        Me.tbIBAN.Size = New System.Drawing.Size(312, 20)
-        Me.tbIBAN.TabIndex = 110
         '
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(342, 462)
+        Me.Label24.Location = New System.Drawing.Point(340, 462)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(24, 13)
-        Me.Label24.TabIndex = 111
+        Me.Label24.TabIndex = 112
         Me.Label24.Text = "BIC"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(510, 459)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(312, 20)
-        Me.TextBox1.TabIndex = 112
         '
         'frmTiers
         '
