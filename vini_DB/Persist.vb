@@ -1541,15 +1541,15 @@ Public MustInherit Class Persist
     End Function 'DeleteCLT
 
     'Renvoie une collection d'objet résumé de Fournisseur
-    Protected Shared Function ListeFRN(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRS As String = "") As Collection
-        Dim colReturn As New Collection
+    Protected Shared Function ListeFRN(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRS As String = "") As List(Of Fournisseur)
+        Dim colReturn As New List(Of Fournisseur)
         Dim strWhere As String = ""
 
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
 
 
 
-        Dim sqlString As String = "SELECT FRN_ID, FRN_CODE, FRN_NOM, FRN_RS,FRN_LIV_VILLE,FRN_COMPTA FROM Fournisseur "
+        Dim sqlString As String = "SELECT FRN_ID, FRN_CODE, FRN_NOM, FRN_RS,FRN_LIV_VILLE,FRN_COMPTA, FRN_BEXP_INTERNET FROM Fournisseur "
         Dim objOLeDBCommand As OleDbCommand
         Dim objFRN As Fournisseur
         Dim objRS As OleDbDataReader = Nothing
@@ -1601,8 +1601,9 @@ Public MustInherit Class Persist
                 objFRN.rs = GetString(objRS, "FRN_RS")
                 objFRN.AdresseLivraison.ville = GetString(objRS, "FRN_LIV_VILLE")
                 objFRN.CodeCompta = GetString(objRS, "FRN_COMPTA")
+                objFRN.bExportInternet = getInteger(objRS, "FRN_BEXP_INTERNET")
                 objFRN.resetBooleans()
-                colReturn.Add(objFRN, objFRN.code)
+                colReturn.Add(objFRN)
 
             End While
             objRS.Close()
@@ -1610,7 +1611,7 @@ Public MustInherit Class Persist
             Return colReturn
         Catch ex As Exception
             setError("ListFRN", ex.ToString())
-            Return New Collection
+            Return New List(Of Fournisseur)
         End Try
     End Function ' LoadFRN
 

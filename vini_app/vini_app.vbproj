@@ -185,6 +185,9 @@
     <Compile Include="dlgExportWebEDI.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmExportColisage.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmImportTarif.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +195,9 @@
       <DependentUpon>frmImportCommandeClientPrestashop.vb</DependentUpon>
     </Compile>
     <Compile Include="frmImportCommandeClientPrestashop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportMouvementArticle.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVerificationLivraison.vb">
@@ -1471,6 +1477,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCumulVentesArticles.resx">
       <DependentUpon>frmCumulVentesArticles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExportColisage.resx">
+      <DependentUpon>frmExportColisage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExportMouvementArticle.resx">
+      <DependentUpon>frmExportMouvementArticle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestFactColisage.resx">
       <DependentUpon>frmGestFactColisage.vb</DependentUpon>

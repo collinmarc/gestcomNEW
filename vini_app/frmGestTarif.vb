@@ -250,7 +250,7 @@ Public Class frmGestTarif
     End Sub
 
     Private Sub frmGestTarif_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim oColFRN As Collection
+        Dim oColFRN As List(Of Fournisseur)
         Dim oFRN As Fournisseur
 
         oColFRN = Fournisseur.getListe()

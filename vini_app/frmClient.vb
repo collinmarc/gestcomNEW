@@ -39,7 +39,7 @@ Public Class frmClient
     Friend WithEvents Label231 As System.Windows.Forms.Label
     Friend WithEvents laOrigine As System.Windows.Forms.Label
     Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
-    Friend WithEvents Label23 As Label
+    Friend WithEvents Label2311 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents BIC As Label
     Friend WithEvents TextBox2 As TextBox
@@ -56,7 +56,7 @@ Public Class frmClient
         Me.cbxCodeTarif = New System.Windows.Forms.ComboBox()
         Me.laOrigine = New System.Windows.Forms.Label()
         Me.cbxOrigine = New System.Windows.Forms.ComboBox()
-        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label2311 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.BIC = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -147,12 +147,12 @@ Public Class frmClient
         '
         'Label23
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(342, 432)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(32, 13)
-        Me.Label23.TabIndex = 109
-        Me.Label23.Text = "IBAN"
+        Me.Label2311.AutoSize = True
+        Me.Label2311.Location = New System.Drawing.Point(342, 432)
+        Me.Label2311.Name = "Label23"
+        Me.Label2311.Size = New System.Drawing.Size(32, 13)
+        Me.Label2311.TabIndex = 109
+        Me.Label2311.Text = "IBAN"
         '
         'TextBox1
         '
@@ -398,7 +398,7 @@ Public Class frmClient
         Return bReturn
     End Function
 
-    Private Sub Label23_Click(sender As Object, e As EventArgs) Handles Label23.Click
+    Private Sub Label23_Click(sender As Object, e As EventArgs) Handles Label2311.Click
 
     End Sub
 End Class

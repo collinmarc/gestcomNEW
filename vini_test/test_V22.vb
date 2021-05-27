@@ -15,13 +15,14 @@ Imports vini_DB
     <TestInitialize()> Public Overrides Sub TestInitialize()
         MyBase.TestInitialize()
 
+        Dim colFRN As List(Of Fournisseur)
         Dim col As Collection
         Persist.shared_connect()
         Param.LoadcolParams()
 
-        col = Fournisseur.getListe("FRNV22")
-        If col.Count > 0 Then
-            For Each m_objFRN In col
+        colFRN = Fournisseur.getListe("FRNV22")
+        If colFRN.Count > 0 Then
+            For Each m_objFRN In colFRN
                 m_objFRN.bDeleted = True
                 m_objFRN.Save()
             Next

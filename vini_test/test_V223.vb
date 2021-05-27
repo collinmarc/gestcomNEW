@@ -18,6 +18,7 @@ Imports vini_DB
     Private m_oCmd As CommandeClient
     <TestInitialize()> Public Overrides Sub TestInitialize()
         Dim col As Collection
+        Dim colFRN As ICollection
         Dim oTaux As TauxComm
 
         MyBase.TestInitialize()
@@ -25,23 +26,23 @@ Imports vini_DB
         Persist.shared_connect()
         Param.LoadcolParams()
 
-        col = Fournisseur.getListe("FRNV223")
-        If col.Count > 0 Then
-            For Each m_objFRN In col
+        colFRN = Fournisseur.getListe("FRNV223")
+        If colFRN.Count > 0 Then
+            For Each m_objFRN In colFRN
                 m_objFRN.bDeleted = True
                 m_objFRN.Save()
             Next
         End If
-        col = Fournisseur.getListe("FRNV223-2")
-        If col.Count > 0 Then
-            For Each m_objFRN In col
+        colFRN = Fournisseur.getListe("FRNV223-2")
+        If colFRN.Count > 0 Then
+            For Each m_objFRN In colFRN
                 m_objFRN.bDeleted = True
                 m_objFRN.Save()
             Next
         End If
-        col = Fournisseur.getListe("FRNV223-3")
-        If col.Count > 0 Then
-            For Each m_objFRN In col
+        colFRN = Fournisseur.getListe("FRNV223-3")
+        If colFRN.Count > 0 Then
+            For Each m_objFRN In colFRN
                 m_objFRN.bDeleted = True
                 m_objFRN.Save()
             Next

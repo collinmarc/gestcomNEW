@@ -67,6 +67,8 @@ Friend Class frmMain
     Friend WithEvents mnuUtil_PurgePrecommande As System.Windows.Forms.MenuItem
     Friend WithEvents mnuImportTarif As MenuItem
     Friend WithEvents mnuVerifInfosLivraisons As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem14 As MenuItem
+    Friend WithEvents mnu_ExportMvtArticles As MenuItem
     'Objet créé pour afficher l'evenement Connected/Disconnected
     Public m_currentuser As aut_user
 
@@ -302,6 +304,8 @@ Friend Class frmMain
         Me.MenuItem16 = New System.Windows.Forms.MenuItem()
         Me.mnuUtil_BackupRestore = New System.Windows.Forms.MenuItem()
         Me.MnuUtil_checkDatabase = New System.Windows.Forms.MenuItem()
+        Me.MenuItem14 = New System.Windows.Forms.MenuItem()
+        Me.mnu_ExportMvtArticles = New System.Windows.Forms.MenuItem()
         Me.mnuToolBar = New System.Windows.Forms.ToolBar()
         Me.cbToolBarNew = New System.Windows.Forms.ToolBarButton()
         Me.cbToolBarOpen = New System.Windows.Forms.ToolBarButton()
@@ -322,7 +326,7 @@ Friend Class frmMain
         '
         'MainMenu1
         '
-        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuFile, Me.mnuDB, Me.mnuGC, Me.mnuStat, Me.mnuScmd, Me.MnuTrp, Me.MnuCol, Me.mnuCompta, Me.mnuFenetre, Me.mnuUtil})
+        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuFile, Me.mnuDB, Me.mnuGC, Me.mnuStat, Me.mnuScmd, Me.MnuTrp, Me.MnuCol, Me.mnuCompta, Me.mnuFenetre, Me.mnuUtil, Me.MenuItem14})
         '
         'mnuFile
         '
@@ -1075,6 +1079,17 @@ Friend Class frmMain
         Me.MnuUtil_checkDatabase.Tag = "MnuUtil_checkDatabase"
         Me.MnuUtil_checkDatabase.Text = "Check Database"
         '
+        'MenuItem14
+        '
+        Me.MenuItem14.Index = 10
+        Me.MenuItem14.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnu_ExportMvtArticles})
+        Me.MenuItem14.Text = "Espace Fournisseur"
+        '
+        'mnu_ExportMvtArticles
+        '
+        Me.mnu_ExportMvtArticles.Index = 0
+        Me.mnu_ExportMvtArticles.Text = "Export des mouvements articles"
+        '
         'mnuToolBar
         '
         Me.mnuToolBar.Buttons.AddRange(New System.Windows.Forms.ToolBarButton() {Me.cbToolBarNew, Me.cbToolBarOpen, Me.cbToolBarSave, Me.cbToolbarDelete, Me.cbToolBarRefresh, Me.cbToolbarBackupRestore, Me.cbTBCheck})
@@ -1151,7 +1166,7 @@ Friend Class frmMain
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 468)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 428)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1178,7 +1193,7 @@ Friend Class frmMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 490)
+        Me.ClientSize = New System.Drawing.Size(890, 450)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -2125,6 +2140,18 @@ Friend Class frmMain
     Private Sub mnuVerifInfosLivraisons_Click(sender As Object, e As EventArgs) Handles mnuVerifInfosLivraisons.Click
         Dim ofrm As FrmVinicom
         ofrm = New frmVerificationLivraison
+        ofrm.MdiParent = Me
+        ofrm.Show()
+
+    End Sub
+
+    Private Sub mnuFenetre_Click(sender As Object, e As EventArgs) Handles mnuFenetre.Click
+
+    End Sub
+
+    Private Sub mnu_ExportMvtArticles_Click(sender As Object, e As EventArgs) Handles mnu_ExportMvtArticles.Click
+        Dim ofrm As FrmVinicom
+        ofrm = New frmExportMouvementArticle
         ofrm.MdiParent = Me
         ofrm.Show()
 

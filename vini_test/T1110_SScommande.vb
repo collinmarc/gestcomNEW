@@ -16,6 +16,7 @@ Imports System.IO
     Private m_oCmd As CommandeClient
     <TestInitialize()> Public Overrides Sub TestInitialize()
         MyBase.TestInitialize()
+        Dim colFRN As List(Of Fournisseur)
         Dim col As Collection
         Dim oTaux As TauxComm
         Dim strCode As String
@@ -34,8 +35,8 @@ Imports System.IO
         m_oFourn.Save()
 
         strCode = "FRN2T1110"
-        col = Fournisseur.getListe(strCode)
-        For Each m_oFourn2 In col
+        colFRN = Fournisseur.getListe(strCode)
+        For Each m_oFourn2 In colFRN
             m_oFourn2.bDeleted = True
             m_oFourn2.Save()
         Next

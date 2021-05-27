@@ -218,7 +218,7 @@ Imports vini_DB
         '            Assert.IsFalse(objfrn2.load(n), "Load")
     End Sub
     <TestMethod()> Public Sub T51_ListeCriteres()
-        Dim colFRN As Collection
+        Dim colFRN As List(Of Fournisseur)
         Dim oFRN As Fournisseur
         Dim objFRN2 As Fournisseur
         Dim nidFrn As Integer

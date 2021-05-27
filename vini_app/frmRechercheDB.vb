@@ -1,12 +1,13 @@
 Imports vini_DB
 Imports System.Windows.Forms.Cursors
+Imports System.Collections
 
 Public Class frmRechercheDB
     Inherits System.Windows.Forms.Form
     Private oldCursor As Cursor
     Private m_TypeDonnees As vncTypeDonnee
     Private m_ElementSelectionne As Persist
-    Private m_ocol As Collection
+    Private m_ocol As System.Collections.ICollection
     Private m_idPrecommande As Long
     Private m_idFournisseur As Long
     Friend WithEvents m_bsrc As System.Windows.Forms.BindingSource

@@ -138,6 +138,15 @@ Namespace My
                 Return CType(Me("AppVersion"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("E:\GESTCOM_TEMP")>  _
+        Public ReadOnly Property Tmp() As String
+            Get
+                Return CType(Me("Tmp"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

@@ -84,7 +84,9 @@ Partial Public Class frmConstantes
 
     End Sub
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+
+    Private Sub testFTPSERES()
+
         Dim oftp As clsFTPVinicom
         DisplayStatus("")
 
@@ -141,6 +143,7 @@ Partial Public Class frmConstantes
 
         restoreCursor()
     End Sub
+
 
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs)
         Dim myService As New ServiceController("vini_service")
@@ -315,4 +318,79 @@ Partial Public Class frmConstantes
     Private Sub tbWEBEDI_SMTPFROM_TextChanged(sender As Object, e As EventArgs) Handles tbWEBEDI_SMTPFROM.TextChanged
 
     End Sub
+
+    Private Sub btnTestFTPSERES_Click(sender As Object, e As EventArgs) Handles btnTestFTPSERES.Click
+        testFTPSERES()
+    End Sub
+
+    Private Sub btnTestFTPvnc_Click(sender As Object, e As EventArgs) Handles btnTestFTPvnc.Click
+        testFTPVNC()
+    End Sub
+
+    Private Sub testFTPVNC()
+
+        Dim oftp As clsFTPVinicom
+        DisplayStatus("")
+
+        setcursorWait()
+        oftp = New clsFTPVinicom(Me.tbftpvnc_host.Text, Me.tb_ftpvnc_User.Text, Me.tb_ftpvnc_password.Text)
+
+        If My.Computer.FileSystem.DirectoryExists("./TESTFTP") Then
+            My.Computer.FileSystem.DeleteDirectory("./TESTFTP", FileIO.DeleteDirectoryOption.DeleteAllContents)
+        End If
+        My.Computer.FileSystem.CreateDirectory("./TESTFTP")
+
+        Dim nFile As Integer
+        Dim objSCMD As SousCommande
+        Dim strSCMD_CSV As String
+        Dim strPDFFileName As String
+        nFile = FreeFile()
+        FileOpen(nFile, "./TESTFTP/test.csv", OpenMode.Output, OpenAccess.Write, OpenShare.LockWrite)
+        objSCMD = SousCommande.createandload(Persist.GetSCMDMinID())
+        DisplayStatus("Chargement de " & objSCMD.code)
+        objSCMD.load()
+        objSCMD.loadcolLignes()
+        DisplayStatus("Chargement de " & objSCMD.code & " CSV")
+        strSCMD_CSV = objSCMD.toCSV()
+        Print(nFile, strSCMD_CSV)
+        FileClose(nFile)
+        DisplayStatus("Chargement de " & objSCMD.code & " PDF")
+        strPDFFileName = "./TESTFTP/" & objSCMD.code & ".PDF"
+        objSCMD.genererPDF(PATHTOREPORTS, strPDFFileName)
+
+        'Envoi du fichier par FTP
+        DisplayStatus("Envoi du fichier par FTP ")
+        If oftp.uploadFromDir("./TESTFTP") Then
+            DisplayStatus("Envoi du fichier OK")
+
+            'Suppression et recréation du répertoire de test
+            If My.Computer.FileSystem.DirectoryExists("./TESTFTP") Then
+                My.Computer.FileSystem.DeleteDirectory("./TESTFTP", FileIO.DeleteDirectoryOption.DeleteAllContents)
+            End If
+            My.Computer.FileSystem.CreateDirectory("./TESTFTP")
+            strPDFFileName = objSCMD.code & ".PDF"
+
+
+
+            DisplayStatus("Reception du fichier par FTP ")
+            If (oftp.downloadToDir("./TESTFTP", strPDFFileName)) Then
+                If My.Computer.FileSystem.FileExists("./TESTFTP/" & strPDFFileName) Then
+                    DisplayStatus("Réception du fichier OK")
+                    MsgBox("Test OK")
+                Else
+                    DisplayError("TESTFTP", "Le Fichier ./TESTFTP/" & strPDFFileName & " n'existe pas")
+                    MsgBox("Test NOK")
+                End If
+            Else
+                DisplayError("TESTFTP", "Erreur en récupération de fichier")
+                MsgBox("Test NOK")
+            End If
+        Else
+            MsgBox("Erreur en Envoi de fichier")
+        End If
+
+        restoreCursor()
+    End Sub
+
+
 End Class

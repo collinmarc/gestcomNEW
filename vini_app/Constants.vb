@@ -93,7 +93,9 @@ Public Module VNC_Constants
             Catch
                 GLOBALCONNECTION = "False"
             End Try
-
+            If Not System.IO.Directory.Exists(My.Settings.Tmp) Then
+                System.IO.Directory.CreateDirectory(My.Settings.Tmp)
+            End If
 
             FAX_NOM_INTERLOCUTEUR = ConfigurationManager.AppSettings.GetValues("FAX_NOM_INTERLOCUTEUR")(0)
             FAX_TEL_INTERLOCUTEUR = ConfigurationManager.AppSettings.GetValues("FAX_TEL_INTERLOCUTEUR")(0)

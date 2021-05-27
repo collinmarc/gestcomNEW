@@ -29,5 +29,8 @@
     <Setting Name="AppVersion" Type="System.String" Scope="Application">
       <Value Profile="(Default)">202105010000</Value>
     </Setting>
+    <Setting Name="Tmp" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">E:\GESTCOM_TEMP</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

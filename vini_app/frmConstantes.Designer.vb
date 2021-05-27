@@ -71,16 +71,12 @@ Partial Class frmConstantes
         Me.CST_COL_IDMODEREGLEMENTLabel = New System.Windows.Forms.Label()
         Me.CST_FACT_COL_TAXESLabel = New System.Windows.Forms.Label()
         Me.CST_FACT_COL_PU_COLISLabel = New System.Windows.Forms.Label()
-        Me.FTP_HOSTNAMELabel = New System.Windows.Forms.Label()
-        Me.FTP_USERNAMELabel = New System.Windows.Forms.Label()
-        Me.FTP_PASSWORDLabel = New System.Windows.Forms.Label()
-        Me.FTP_REMOTEDIRLabel = New System.Windows.Forms.Label()
-        Me.FTP_LOCKFROMFILENAMELabel = New System.Windows.Forms.Label()
-        Me.FTP_LOCKTOFILENAMELabel = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabVinicom = New System.Windows.Forms.TabPage()
         Me.tbCompteBanque = New System.Windows.Forms.TextBox()
+        Me.CONSTANTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsVinicom = New vini_DB.dsVinicom()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CST_SOC1_CMPT_PRODTextBox = New System.Windows.Forms.TextBox()
         Me.CST_SOC1_CMPT_TVATextBox = New System.Windows.Forms.TextBox()
@@ -157,6 +153,16 @@ Partial Class frmConstantes
         Me.CST_TAXES_TRPTextBox = New System.Windows.Forms.TextBox()
         Me.CST_TX_COMMISSIONTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.btnTestFTPvnc = New System.Windows.Forms.Button()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.tb_ftnvnc_remoteDir = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.tb_ftpvnc_password = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.tb_ftpvnc_User = New System.Windows.Forms.TextBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.tbftpvnc_host = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.tbFTPEDIRepLocal = New System.Windows.Forms.TextBox()
         Me.cbTestFTPEDI = New System.Windows.Forms.Button()
@@ -170,14 +176,6 @@ Partial Class frmConstantes
         Me.tbFTPEDISRV = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.FTP_LOCKTOFILENAMETextBox = New System.Windows.Forms.TextBox()
-        Me.FTP_LOCKFROMFILENAMETextBox = New System.Windows.Forms.TextBox()
-        Me.FTP_REMOTEDIRTextBox = New System.Windows.Forms.TextBox()
-        Me.FTP_PASSWORDTextBox = New System.Windows.Forms.TextBox()
-        Me.FTP_USERNAMETextBox = New System.Windows.Forms.TextBox()
-        Me.FTP_HOSTNAMETextBox = New System.Windows.Forms.TextBox()
         Me.tbEDI_Destinataire = New System.Windows.Forms.TabPage()
         Me.ckWEBEDI_SSL = New System.Windows.Forms.CheckBox()
         Me.tbWEBEDI_Destinataire = New System.Windows.Forms.TextBox()
@@ -211,14 +209,29 @@ Partial Class frmConstantes
         Me.tbImapPort = New System.Windows.Forms.TextBox()
         Me.tbImapHost = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.btnTestFTPSERES = New System.Windows.Forms.Button()
+        Me.FTP_LOCKTOFILENAMELabel = New System.Windows.Forms.Label()
+        Me.FTP_LOCKTOFILENAMETextBox = New System.Windows.Forms.TextBox()
+        Me.FTP_LOCKFROMFILENAMELabel = New System.Windows.Forms.Label()
+        Me.FTP_LOCKFROMFILENAMETextBox = New System.Windows.Forms.TextBox()
+        Me.FTP_REMOTEDIRLabel = New System.Windows.Forms.Label()
+        Me.FTP_REMOTEDIRTextBox = New System.Windows.Forms.TextBox()
+        Me.FTP_PASSWORDLabel = New System.Windows.Forms.Label()
+        Me.FTP_PASSWORDTextBox = New System.Windows.Forms.TextBox()
+        Me.FTP_USERNAMELabel = New System.Windows.Forms.Label()
+        Me.FTP_USERNAMETextBox = New System.Windows.Forms.TextBox()
+        Me.FTP_HOSTNAMELabel = New System.Windows.Forms.Label()
+        Me.FTP_HOSTNAMETextBox = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.CST_VERSION_BDTextBox = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
-        Me.CONSTANTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DsVinicom = New vini_DB.dsVinicom()
         Me.CONSTANTESTableAdapter = New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
+        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabVinidis.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -227,8 +240,7 @@ Partial Class frmConstantes
         Me.TabPage5.SuspendLayout()
         Me.tbEDI_Destinataire.SuspendLayout()
         Me.TabPage7.SuspendLayout()
-        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage6.SuspendLayout()
         Me.SuspendLayout()
         '
         'CST_SOC_NOMSOCLabel
@@ -668,60 +680,6 @@ Partial Class frmConstantes
         Me.CST_FACT_COL_PU_COLISLabel.TabIndex = 16
         Me.CST_FACT_COL_PU_COLISLabel.Text = "Prix unitaire colis : "
         '
-        'FTP_HOSTNAMELabel
-        '
-        Me.FTP_HOSTNAMELabel.AutoSize = True
-        Me.FTP_HOSTNAMELabel.Location = New System.Drawing.Point(9, 41)
-        Me.FTP_HOSTNAMELabel.Name = "FTP_HOSTNAMELabel"
-        Me.FTP_HOSTNAMELabel.Size = New System.Drawing.Size(94, 13)
-        Me.FTP_HOSTNAMELabel.TabIndex = 0
-        Me.FTP_HOSTNAMELabel.Text = "FTP HOSTNAME:"
-        '
-        'FTP_USERNAMELabel
-        '
-        Me.FTP_USERNAMELabel.AutoSize = True
-        Me.FTP_USERNAMELabel.Location = New System.Drawing.Point(9, 63)
-        Me.FTP_USERNAMELabel.Name = "FTP_USERNAMELabel"
-        Me.FTP_USERNAMELabel.Size = New System.Drawing.Size(94, 13)
-        Me.FTP_USERNAMELabel.TabIndex = 2
-        Me.FTP_USERNAMELabel.Text = "FTP USERNAME:"
-        '
-        'FTP_PASSWORDLabel
-        '
-        Me.FTP_PASSWORDLabel.AutoSize = True
-        Me.FTP_PASSWORDLabel.Location = New System.Drawing.Point(11, 89)
-        Me.FTP_PASSWORDLabel.Name = "FTP_PASSWORDLabel"
-        Me.FTP_PASSWORDLabel.Size = New System.Drawing.Size(96, 13)
-        Me.FTP_PASSWORDLabel.TabIndex = 4
-        Me.FTP_PASSWORDLabel.Text = "FTP PASSWORD:"
-        '
-        'FTP_REMOTEDIRLabel
-        '
-        Me.FTP_REMOTEDIRLabel.AutoSize = True
-        Me.FTP_REMOTEDIRLabel.Location = New System.Drawing.Point(9, 115)
-        Me.FTP_REMOTEDIRLabel.Name = "FTP_REMOTEDIRLabel"
-        Me.FTP_REMOTEDIRLabel.Size = New System.Drawing.Size(98, 13)
-        Me.FTP_REMOTEDIRLabel.TabIndex = 6
-        Me.FTP_REMOTEDIRLabel.Text = "FTP REMOTEDIR:"
-        '
-        'FTP_LOCKFROMFILENAMELabel
-        '
-        Me.FTP_LOCKFROMFILENAMELabel.AutoSize = True
-        Me.FTP_LOCKFROMFILENAMELabel.Location = New System.Drawing.Point(11, 141)
-        Me.FTP_LOCKFROMFILENAMELabel.Name = "FTP_LOCKFROMFILENAMELabel"
-        Me.FTP_LOCKFROMFILENAMELabel.Size = New System.Drawing.Size(145, 13)
-        Me.FTP_LOCKFROMFILENAMELabel.TabIndex = 8
-        Me.FTP_LOCKFROMFILENAMELabel.Text = "FTP LOCKFROMFILENAME:"
-        '
-        'FTP_LOCKTOFILENAMELabel
-        '
-        Me.FTP_LOCKTOFILENAMELabel.AutoSize = True
-        Me.FTP_LOCKTOFILENAMELabel.Location = New System.Drawing.Point(11, 167)
-        Me.FTP_LOCKTOFILENAMELabel.Name = "FTP_LOCKTOFILENAMELabel"
-        Me.FTP_LOCKTOFILENAMELabel.Size = New System.Drawing.Size(129, 13)
-        Me.FTP_LOCKTOFILENAMELabel.TabIndex = 10
-        Me.FTP_LOCKTOFILENAMELabel.Text = "FTP LOCKTOFILENAME:"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -745,6 +703,7 @@ Partial Class frmConstantes
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.tbEDI_Destinataire)
         Me.TabControl1.Controls.Add(Me.TabPage7)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Location = New System.Drawing.Point(0, 29)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -796,6 +755,16 @@ Partial Class frmConstantes
         Me.tbCompteBanque.Name = "tbCompteBanque"
         Me.tbCompteBanque.Size = New System.Drawing.Size(100, 20)
         Me.tbCompteBanque.TabIndex = 26
+        '
+        'CONSTANTESBindingSource
+        '
+        Me.CONSTANTESBindingSource.DataMember = "CONSTANTES"
+        Me.CONSTANTESBindingSource.DataSource = Me.DsVinicom
+        '
+        'DsVinicom
+        '
+        Me.DsVinicom.DataSetName = "dsVinicom"
+        Me.DsVinicom.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -1546,6 +1515,16 @@ Partial Class frmConstantes
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.btnTestFTPvnc)
+        Me.TabPage5.Controls.Add(Me.Label31)
+        Me.TabPage5.Controls.Add(Me.tb_ftnvnc_remoteDir)
+        Me.TabPage5.Controls.Add(Me.Label32)
+        Me.TabPage5.Controls.Add(Me.tb_ftpvnc_password)
+        Me.TabPage5.Controls.Add(Me.Label33)
+        Me.TabPage5.Controls.Add(Me.tb_ftpvnc_User)
+        Me.TabPage5.Controls.Add(Me.Label34)
+        Me.TabPage5.Controls.Add(Me.tbftpvnc_host)
+        Me.TabPage5.Controls.Add(Me.Label35)
         Me.TabPage5.Controls.Add(Me.Label22)
         Me.TabPage5.Controls.Add(Me.tbFTPEDIRepLocal)
         Me.TabPage5.Controls.Add(Me.cbTestFTPEDI)
@@ -1559,20 +1538,6 @@ Partial Class frmConstantes
         Me.TabPage5.Controls.Add(Me.tbFTPEDISRV)
         Me.TabPage5.Controls.Add(Me.Label17)
         Me.TabPage5.Controls.Add(Me.Label16)
-        Me.TabPage5.Controls.Add(Me.Label19)
-        Me.TabPage5.Controls.Add(Me.Button1)
-        Me.TabPage5.Controls.Add(Me.FTP_LOCKTOFILENAMELabel)
-        Me.TabPage5.Controls.Add(Me.FTP_LOCKTOFILENAMETextBox)
-        Me.TabPage5.Controls.Add(Me.FTP_LOCKFROMFILENAMELabel)
-        Me.TabPage5.Controls.Add(Me.FTP_LOCKFROMFILENAMETextBox)
-        Me.TabPage5.Controls.Add(Me.FTP_REMOTEDIRLabel)
-        Me.TabPage5.Controls.Add(Me.FTP_REMOTEDIRTextBox)
-        Me.TabPage5.Controls.Add(Me.FTP_PASSWORDLabel)
-        Me.TabPage5.Controls.Add(Me.FTP_PASSWORDTextBox)
-        Me.TabPage5.Controls.Add(Me.FTP_USERNAMELabel)
-        Me.TabPage5.Controls.Add(Me.FTP_USERNAMETextBox)
-        Me.TabPage5.Controls.Add(Me.FTP_HOSTNAMELabel)
-        Me.TabPage5.Controls.Add(Me.FTP_HOSTNAMETextBox)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
@@ -1580,6 +1545,93 @@ Partial Class frmConstantes
         Me.TabPage5.TabIndex = 6
         Me.TabPage5.Text = "FTP"
         Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'btnTestFTPvnc
+        '
+        Me.btnTestFTPvnc.Location = New System.Drawing.Point(635, 134)
+        Me.btnTestFTPvnc.Name = "btnTestFTPvnc"
+        Me.btnTestFTPvnc.Size = New System.Drawing.Size(89, 25)
+        Me.btnTestFTPvnc.TabIndex = 42
+        Me.btnTestFTPvnc.Text = "Test"
+        Me.btnTestFTPvnc.UseVisualStyleBackColor = True
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(9, 111)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(98, 13)
+        Me.Label31.TabIndex = 36
+        Me.Label31.Text = "FTP REMOTEDIR:"
+        '
+        'tb_ftnvnc_remoteDir
+        '
+        Me.tb_ftnvnc_remoteDir.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_REMOTEDIR", True))
+        Me.tb_ftnvnc_remoteDir.Location = New System.Drawing.Point(191, 108)
+        Me.tb_ftnvnc_remoteDir.Name = "tb_ftnvnc_remoteDir"
+        Me.tb_ftnvnc_remoteDir.Size = New System.Drawing.Size(438, 20)
+        Me.tb_ftnvnc_remoteDir.TabIndex = 37
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(11, 85)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(96, 13)
+        Me.Label32.TabIndex = 34
+        Me.Label32.Text = "FTP PASSWORD:"
+        '
+        'tb_ftpvnc_password
+        '
+        Me.tb_ftpvnc_password.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_PASSWORD", True))
+        Me.tb_ftpvnc_password.Location = New System.Drawing.Point(191, 82)
+        Me.tb_ftpvnc_password.Name = "tb_ftpvnc_password"
+        Me.tb_ftpvnc_password.Size = New System.Drawing.Size(201, 20)
+        Me.tb_ftpvnc_password.TabIndex = 35
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(9, 59)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(94, 13)
+        Me.Label33.TabIndex = 32
+        Me.Label33.Text = "FTP USERNAME:"
+        '
+        'tb_ftpvnc_User
+        '
+        Me.tb_ftpvnc_User.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_USER", True))
+        Me.tb_ftpvnc_User.Location = New System.Drawing.Point(191, 56)
+        Me.tb_ftpvnc_User.Name = "tb_ftpvnc_User"
+        Me.tb_ftpvnc_User.Size = New System.Drawing.Size(201, 20)
+        Me.tb_ftpvnc_User.TabIndex = 33
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(9, 37)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(94, 13)
+        Me.Label34.TabIndex = 30
+        Me.Label34.Text = "FTP HOSTNAME:"
+        '
+        'tbftpvnc_host
+        '
+        Me.tbftpvnc_host.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_HOST", True))
+        Me.tbftpvnc_host.Location = New System.Drawing.Point(191, 30)
+        Me.tbftpvnc_host.Name = "tbftpvnc_host"
+        Me.tbftpvnc_host.Size = New System.Drawing.Size(201, 20)
+        Me.tbftpvnc_host.TabIndex = 31
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(12, 3)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(301, 13)
+        Me.Label35.TabIndex = 43
+        Me.Label35.Text = "FTP Espace Fournisseur VINICOM (Stock-colisage):"
         '
         'Label22
         '
@@ -1692,73 +1744,6 @@ Partial Class frmConstantes
         Me.Label16.Size = New System.Drawing.Size(166, 13)
         Me.Label16.TabIndex = 17
         Me.Label16.Text = "FTP EDI Retour de livraison"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(12, 7)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(153, 13)
-        Me.Label19.TabIndex = 13
-        Me.Label19.Text = "FTP Espace Fournisseur :"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(635, 188)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(89, 25)
-        Me.Button1.TabIndex = 12
-        Me.Button1.Text = "Test"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'FTP_LOCKTOFILENAMETextBox
-        '
-        Me.FTP_LOCKTOFILENAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_LOCKTOFILENAME", True))
-        Me.FTP_LOCKTOFILENAMETextBox.Location = New System.Drawing.Point(191, 164)
-        Me.FTP_LOCKTOFILENAMETextBox.Name = "FTP_LOCKTOFILENAMETextBox"
-        Me.FTP_LOCKTOFILENAMETextBox.Size = New System.Drawing.Size(201, 20)
-        Me.FTP_LOCKTOFILENAMETextBox.TabIndex = 11
-        '
-        'FTP_LOCKFROMFILENAMETextBox
-        '
-        Me.FTP_LOCKFROMFILENAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_LOCKFROMFILENAME", True))
-        Me.FTP_LOCKFROMFILENAMETextBox.Location = New System.Drawing.Point(191, 138)
-        Me.FTP_LOCKFROMFILENAMETextBox.Name = "FTP_LOCKFROMFILENAMETextBox"
-        Me.FTP_LOCKFROMFILENAMETextBox.Size = New System.Drawing.Size(201, 20)
-        Me.FTP_LOCKFROMFILENAMETextBox.TabIndex = 9
-        '
-        'FTP_REMOTEDIRTextBox
-        '
-        Me.FTP_REMOTEDIRTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_REMOTEDIR", True))
-        Me.FTP_REMOTEDIRTextBox.Location = New System.Drawing.Point(191, 112)
-        Me.FTP_REMOTEDIRTextBox.Name = "FTP_REMOTEDIRTextBox"
-        Me.FTP_REMOTEDIRTextBox.Size = New System.Drawing.Size(438, 20)
-        Me.FTP_REMOTEDIRTextBox.TabIndex = 7
-        '
-        'FTP_PASSWORDTextBox
-        '
-        Me.FTP_PASSWORDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_PASSWORD", True))
-        Me.FTP_PASSWORDTextBox.Location = New System.Drawing.Point(191, 86)
-        Me.FTP_PASSWORDTextBox.Name = "FTP_PASSWORDTextBox"
-        Me.FTP_PASSWORDTextBox.Size = New System.Drawing.Size(201, 20)
-        Me.FTP_PASSWORDTextBox.TabIndex = 5
-        '
-        'FTP_USERNAMETextBox
-        '
-        Me.FTP_USERNAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_USERNAME", True))
-        Me.FTP_USERNAMETextBox.Location = New System.Drawing.Point(191, 60)
-        Me.FTP_USERNAMETextBox.Name = "FTP_USERNAMETextBox"
-        Me.FTP_USERNAMETextBox.Size = New System.Drawing.Size(201, 20)
-        Me.FTP_USERNAMETextBox.TabIndex = 3
-        '
-        'FTP_HOSTNAMETextBox
-        '
-        Me.FTP_HOSTNAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_HOSTNAME", True))
-        Me.FTP_HOSTNAMETextBox.Location = New System.Drawing.Point(191, 34)
-        Me.FTP_HOSTNAMETextBox.Name = "FTP_HOSTNAMETextBox"
-        Me.FTP_HOSTNAMETextBox.Size = New System.Drawing.Size(201, 20)
-        Me.FTP_HOSTNAMETextBox.TabIndex = 1
         '
         'tbEDI_Destinataire
         '
@@ -2094,6 +2079,151 @@ Partial Class frmConstantes
         Me.Label9.TabIndex = 0
         Me.Label9.Text = "Nom du serveur IMAP :"
         '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.btnTestFTPSERES)
+        Me.TabPage6.Controls.Add(Me.FTP_LOCKTOFILENAMELabel)
+        Me.TabPage6.Controls.Add(Me.FTP_LOCKTOFILENAMETextBox)
+        Me.TabPage6.Controls.Add(Me.FTP_LOCKFROMFILENAMELabel)
+        Me.TabPage6.Controls.Add(Me.FTP_LOCKFROMFILENAMETextBox)
+        Me.TabPage6.Controls.Add(Me.FTP_REMOTEDIRLabel)
+        Me.TabPage6.Controls.Add(Me.FTP_REMOTEDIRTextBox)
+        Me.TabPage6.Controls.Add(Me.FTP_PASSWORDLabel)
+        Me.TabPage6.Controls.Add(Me.FTP_PASSWORDTextBox)
+        Me.TabPage6.Controls.Add(Me.FTP_USERNAMELabel)
+        Me.TabPage6.Controls.Add(Me.FTP_USERNAMETextBox)
+        Me.TabPage6.Controls.Add(Me.FTP_HOSTNAMELabel)
+        Me.TabPage6.Controls.Add(Me.FTP_HOSTNAMETextBox)
+        Me.TabPage6.Controls.Add(Me.Label19)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage6.Size = New System.Drawing.Size(768, 435)
+        Me.TabPage6.TabIndex = 9
+        Me.TabPage6.Text = "FTP SERES"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'btnTestFTPSERES
+        '
+        Me.btnTestFTPSERES.Location = New System.Drawing.Point(631, 184)
+        Me.btnTestFTPSERES.Name = "btnTestFTPSERES"
+        Me.btnTestFTPSERES.Size = New System.Drawing.Size(89, 25)
+        Me.btnTestFTPSERES.TabIndex = 26
+        Me.btnTestFTPSERES.Text = "Test"
+        Me.btnTestFTPSERES.UseVisualStyleBackColor = True
+        '
+        'FTP_LOCKTOFILENAMELabel
+        '
+        Me.FTP_LOCKTOFILENAMELabel.AutoSize = True
+        Me.FTP_LOCKTOFILENAMELabel.Location = New System.Drawing.Point(7, 163)
+        Me.FTP_LOCKTOFILENAMELabel.Name = "FTP_LOCKTOFILENAMELabel"
+        Me.FTP_LOCKTOFILENAMELabel.Size = New System.Drawing.Size(129, 13)
+        Me.FTP_LOCKTOFILENAMELabel.TabIndex = 24
+        Me.FTP_LOCKTOFILENAMELabel.Text = "FTP LOCKTOFILENAME:"
+        '
+        'FTP_LOCKTOFILENAMETextBox
+        '
+        Me.FTP_LOCKTOFILENAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_LOCKTOFILENAME", True))
+        Me.FTP_LOCKTOFILENAMETextBox.Location = New System.Drawing.Point(187, 160)
+        Me.FTP_LOCKTOFILENAMETextBox.Name = "FTP_LOCKTOFILENAMETextBox"
+        Me.FTP_LOCKTOFILENAMETextBox.Size = New System.Drawing.Size(201, 20)
+        Me.FTP_LOCKTOFILENAMETextBox.TabIndex = 25
+        '
+        'FTP_LOCKFROMFILENAMELabel
+        '
+        Me.FTP_LOCKFROMFILENAMELabel.AutoSize = True
+        Me.FTP_LOCKFROMFILENAMELabel.Location = New System.Drawing.Point(7, 137)
+        Me.FTP_LOCKFROMFILENAMELabel.Name = "FTP_LOCKFROMFILENAMELabel"
+        Me.FTP_LOCKFROMFILENAMELabel.Size = New System.Drawing.Size(145, 13)
+        Me.FTP_LOCKFROMFILENAMELabel.TabIndex = 22
+        Me.FTP_LOCKFROMFILENAMELabel.Text = "FTP LOCKFROMFILENAME:"
+        '
+        'FTP_LOCKFROMFILENAMETextBox
+        '
+        Me.FTP_LOCKFROMFILENAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_LOCKFROMFILENAME", True))
+        Me.FTP_LOCKFROMFILENAMETextBox.Location = New System.Drawing.Point(187, 134)
+        Me.FTP_LOCKFROMFILENAMETextBox.Name = "FTP_LOCKFROMFILENAMETextBox"
+        Me.FTP_LOCKFROMFILENAMETextBox.Size = New System.Drawing.Size(201, 20)
+        Me.FTP_LOCKFROMFILENAMETextBox.TabIndex = 23
+        '
+        'FTP_REMOTEDIRLabel
+        '
+        Me.FTP_REMOTEDIRLabel.AutoSize = True
+        Me.FTP_REMOTEDIRLabel.Location = New System.Drawing.Point(5, 111)
+        Me.FTP_REMOTEDIRLabel.Name = "FTP_REMOTEDIRLabel"
+        Me.FTP_REMOTEDIRLabel.Size = New System.Drawing.Size(98, 13)
+        Me.FTP_REMOTEDIRLabel.TabIndex = 20
+        Me.FTP_REMOTEDIRLabel.Text = "FTP REMOTEDIR:"
+        '
+        'FTP_REMOTEDIRTextBox
+        '
+        Me.FTP_REMOTEDIRTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_REMOTEDIR", True))
+        Me.FTP_REMOTEDIRTextBox.Location = New System.Drawing.Point(187, 108)
+        Me.FTP_REMOTEDIRTextBox.Name = "FTP_REMOTEDIRTextBox"
+        Me.FTP_REMOTEDIRTextBox.Size = New System.Drawing.Size(438, 20)
+        Me.FTP_REMOTEDIRTextBox.TabIndex = 21
+        '
+        'FTP_PASSWORDLabel
+        '
+        Me.FTP_PASSWORDLabel.AutoSize = True
+        Me.FTP_PASSWORDLabel.Location = New System.Drawing.Point(7, 85)
+        Me.FTP_PASSWORDLabel.Name = "FTP_PASSWORDLabel"
+        Me.FTP_PASSWORDLabel.Size = New System.Drawing.Size(96, 13)
+        Me.FTP_PASSWORDLabel.TabIndex = 18
+        Me.FTP_PASSWORDLabel.Text = "FTP PASSWORD:"
+        '
+        'FTP_PASSWORDTextBox
+        '
+        Me.FTP_PASSWORDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_PASSWORD", True))
+        Me.FTP_PASSWORDTextBox.Location = New System.Drawing.Point(187, 82)
+        Me.FTP_PASSWORDTextBox.Name = "FTP_PASSWORDTextBox"
+        Me.FTP_PASSWORDTextBox.Size = New System.Drawing.Size(201, 20)
+        Me.FTP_PASSWORDTextBox.TabIndex = 19
+        '
+        'FTP_USERNAMELabel
+        '
+        Me.FTP_USERNAMELabel.AutoSize = True
+        Me.FTP_USERNAMELabel.Location = New System.Drawing.Point(5, 59)
+        Me.FTP_USERNAMELabel.Name = "FTP_USERNAMELabel"
+        Me.FTP_USERNAMELabel.Size = New System.Drawing.Size(94, 13)
+        Me.FTP_USERNAMELabel.TabIndex = 16
+        Me.FTP_USERNAMELabel.Text = "FTP USERNAME:"
+        '
+        'FTP_USERNAMETextBox
+        '
+        Me.FTP_USERNAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_USERNAME", True))
+        Me.FTP_USERNAMETextBox.Location = New System.Drawing.Point(187, 56)
+        Me.FTP_USERNAMETextBox.Name = "FTP_USERNAMETextBox"
+        Me.FTP_USERNAMETextBox.Size = New System.Drawing.Size(201, 20)
+        Me.FTP_USERNAMETextBox.TabIndex = 17
+        '
+        'FTP_HOSTNAMELabel
+        '
+        Me.FTP_HOSTNAMELabel.AutoSize = True
+        Me.FTP_HOSTNAMELabel.Location = New System.Drawing.Point(5, 37)
+        Me.FTP_HOSTNAMELabel.Name = "FTP_HOSTNAMELabel"
+        Me.FTP_HOSTNAMELabel.Size = New System.Drawing.Size(94, 13)
+        Me.FTP_HOSTNAMELabel.TabIndex = 14
+        Me.FTP_HOSTNAMELabel.Text = "FTP HOSTNAME:"
+        '
+        'FTP_HOSTNAMETextBox
+        '
+        Me.FTP_HOSTNAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_HOSTNAME", True))
+        Me.FTP_HOSTNAMETextBox.Location = New System.Drawing.Point(187, 30)
+        Me.FTP_HOSTNAMETextBox.Name = "FTP_HOSTNAMETextBox"
+        Me.FTP_HOSTNAMETextBox.Size = New System.Drawing.Size(201, 20)
+        Me.FTP_HOSTNAMETextBox.TabIndex = 15
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(8, 3)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(290, 13)
+        Me.Label19.TabIndex = 27
+        Me.Label19.Text = "FTP Espace Fournisseur SERES (Bon à Facturer):"
+        '
         'CST_VERSION_BDTextBox
         '
         Me.CST_VERSION_BDTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -2123,16 +2253,6 @@ Partial Class frmConstantes
         Me.dtpdateMAj.Size = New System.Drawing.Size(152, 20)
         Me.dtpdateMAj.TabIndex = 4
         '
-        'CONSTANTESBindingSource
-        '
-        Me.CONSTANTESBindingSource.DataMember = "CONSTANTES"
-        Me.CONSTANTESBindingSource.DataSource = Me.DsVinicom
-        '
-        'DsVinicom
-        '
-        Me.DsVinicom.DataSetName = "dsVinicom"
-        Me.DsVinicom.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'CONSTANTESTableAdapter
         '
         Me.CONSTANTESTableAdapter.ClearBeforeFill = True
@@ -2153,6 +2273,8 @@ Partial Class frmConstantes
         Me.TabControl1.ResumeLayout(False)
         Me.tabVinicom.ResumeLayout(False)
         Me.tabVinicom.PerformLayout()
+        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabVinidis.ResumeLayout(False)
         Me.TabVinidis.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
@@ -2169,8 +2291,8 @@ Partial Class frmConstantes
         Me.tbEDI_Destinataire.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
-        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage6.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2244,13 +2366,6 @@ Partial Class frmConstantes
     Friend WithEvents CST_PU_PALL_PREPTextBox As System.Windows.Forms.TextBox
     Friend WithEvents CST_TRP_TXGAZOLETextBox As System.Windows.Forms.TextBox
     Friend WithEvents CST_FACT_COL_PU_COLISTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
-    Friend WithEvents FTP_LOCKTOFILENAMETextBox As System.Windows.Forms.TextBox
-    Friend WithEvents FTP_LOCKFROMFILENAMETextBox As System.Windows.Forms.TextBox
-    Friend WithEvents FTP_REMOTEDIRTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents FTP_PASSWORDTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents FTP_USERNAMETextBox As System.Windows.Forms.TextBox
-    Friend WithEvents FTP_HOSTNAMETextBox As System.Windows.Forms.TextBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents tbCompteBanque As System.Windows.Forms.TextBox
@@ -2306,12 +2421,6 @@ Partial Class frmConstantes
     Friend WithEvents CST_COL_IDMODEREGLEMENTLabel As System.Windows.Forms.Label
     Friend WithEvents CST_FACT_COL_TAXESLabel As System.Windows.Forms.Label
     Friend WithEvents CST_FACT_COL_PU_COLISLabel As System.Windows.Forms.Label
-    Friend WithEvents FTP_HOSTNAMELabel As System.Windows.Forms.Label
-    Friend WithEvents FTP_USERNAMELabel As System.Windows.Forms.Label
-    Friend WithEvents FTP_PASSWORDLabel As System.Windows.Forms.Label
-    Friend WithEvents FTP_REMOTEDIRLabel As System.Windows.Forms.Label
-    Friend WithEvents FTP_LOCKFROMFILENAMELabel As System.Windows.Forms.Label
-    Friend WithEvents FTP_LOCKTOFILENAMELabel As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents tbEDI_Destinataire As System.Windows.Forms.TabPage
     Friend WithEvents cbTestWebEdi As System.Windows.Forms.Button
@@ -2323,7 +2432,6 @@ Partial Class frmConstantes
     Friend WithEvents tbWEBEDI_SMTPHOST As System.Windows.Forms.TextBox
     Friend WithEvents tbWEBEDI_TEMP As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
     Friend WithEvents tbImapHost As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -2342,20 +2450,6 @@ Partial Class frmConstantes
     Friend WithEvents ckCheck As System.Windows.Forms.CheckBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents cbTestFTPEDI As System.Windows.Forms.Button
-    Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents Label20 As System.Windows.Forms.Label
-    Friend WithEvents tbFTPEDIRep As System.Windows.Forms.TextBox
-    Friend WithEvents tbFTPEDIPwd As System.Windows.Forms.TextBox
-    Friend WithEvents tbFTPEDIUser As System.Windows.Forms.TextBox
-    Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents tbFTPEDIPort As System.Windows.Forms.TextBox
-    Friend WithEvents tbFTPEDISRV As System.Windows.Forms.TextBox
-    Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents tbFTPEDIRepLocal As System.Windows.Forms.TextBox
     Friend WithEvents Label23 As Label
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox
@@ -2369,4 +2463,43 @@ Partial Class frmConstantes
     Friend WithEvents tbWEBEDI_Destinataire As TextBox
     Friend WithEvents Label28 As Label
     Friend WithEvents ckWEBEDI_SSL As CheckBox
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents Label22 As Label
+    Friend WithEvents tbFTPEDIRepLocal As TextBox
+    Friend WithEvents cbTestFTPEDI As Button
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents tbFTPEDIRep As TextBox
+    Friend WithEvents tbFTPEDIPwd As TextBox
+    Friend WithEvents tbFTPEDIUser As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents tbFTPEDIPort As TextBox
+    Friend WithEvents tbFTPEDISRV As TextBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents TabPage6 As TabPage
+    Friend WithEvents btnTestFTPSERES As Button
+    Friend WithEvents FTP_LOCKTOFILENAMELabel As Label
+    Friend WithEvents FTP_LOCKTOFILENAMETextBox As TextBox
+    Friend WithEvents FTP_LOCKFROMFILENAMELabel As Label
+    Friend WithEvents FTP_LOCKFROMFILENAMETextBox As TextBox
+    Friend WithEvents FTP_REMOTEDIRLabel As Label
+    Friend WithEvents FTP_REMOTEDIRTextBox As TextBox
+    Friend WithEvents FTP_PASSWORDLabel As Label
+    Friend WithEvents FTP_PASSWORDTextBox As TextBox
+    Friend WithEvents FTP_USERNAMELabel As Label
+    Friend WithEvents FTP_USERNAMETextBox As TextBox
+    Friend WithEvents FTP_HOSTNAMELabel As Label
+    Friend WithEvents FTP_HOSTNAMETextBox As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents btnTestFTPvnc As Button
+    Friend WithEvents Label31 As Label
+    Friend WithEvents tb_ftnvnc_remoteDir As TextBox
+    Friend WithEvents Label32 As Label
+    Friend WithEvents tb_ftpvnc_password As TextBox
+    Friend WithEvents Label33 As Label
+    Friend WithEvents tb_ftpvnc_User As TextBox
+    Friend WithEvents Label34 As Label
+    Friend WithEvents tbftpvnc_host As TextBox
+    Friend WithEvents Label35 As Label
 End Class

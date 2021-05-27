@@ -157,7 +157,7 @@ Public Class frmcrListeTarif
 
 
     Private Sub frmcrListeTarif_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim oCol As Collection
+        Dim oCol As List(Of Fournisseur)
         Dim oFRN As Fournisseur
 
         oCol = Fournisseur.getListe()

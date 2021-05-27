@@ -1,4 +1,7 @@
-Option Explicit On 
+
+Option Explicit On
+Imports System.Collections.Generic
+Imports CrystalDecisions.CrystalReports.Engine
 '===================================================================================================================================
 'Projet : Vinicom
 'Auteur : Marc Collin 
@@ -46,10 +49,10 @@ Public Class Fournisseur
     'Description : Liste des Fournisseurs
     'Retour : Rend une collection de fournisseurs
     '=======================================================================
-    Public Shared Function getListe(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRs As String = "") As Collection
-        Dim colReturn As Collection
+    Public Shared Function getListe(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRs As String = "") As List(Of Fournisseur)
+        Dim colReturn As List(Of Fournisseur)
         shared_connect()
-        colReturn = ListeFRN(strCode, strNom, strRS)
+        colReturn = ListeFRN(strCode, strNom, strRs)
         shared_disconnect()
         Return colReturn
     End Function
@@ -96,7 +99,6 @@ Public Class Fournisseur
     'Export des bons  à facture sur internet
     Public Property bExportInternet() As Integer
         Get
-            Debug.Assert(Not m_bResume, "Objet de type Résumé")
             Return m_bExportInternet
         End Get
         Set(ByVal Value As Integer)
@@ -246,7 +248,7 @@ Public Class Fournisseur
     Friend Overrides Function insert() As Boolean
         Dim bReturn As Boolean
         '    shared_connect()
-        bReturn = InsertFRN()
+        bReturn = insertFRN()
         '   shared_disconnect()
         Return bReturn
     End Function
@@ -361,5 +363,53 @@ Public Class Fournisseur
         End Try
         Return oReturn
     End Function
+
+    Private Function genererReportMvtArticles(ByVal strPathtoReport As String, pDatefin As DateTime) As ReportDocument
+        Dim bReturn As Boolean
+        Dim oReport As ReportDocument = Nothing
+
+        Try
+            bReturn = True
+            oReport = New ReportDocument
+            oReport.Load(strPathtoReport & "crMouvementArticle.rpt")
+            Persist.setReportConnection(oReport)
+            oReport.Refresh()
+            oReport.SetParameterValue("codeFourn", Me.code)
+            oReport.SetParameterValue("dFin", pDatefin.ToShortDateString())
+            Persist.setReportConnection(oReport)
+
+        Catch ex As Exception
+            bReturn = False
+            oReport = Nothing
+            setError("Fournisseur.genererReportmvtArticles", ex.ToString())
+        End Try
+        Return oReport
+    End Function 'genererReportMvtArticles
+    Public Function genererPDF(ByVal strPathToReport As String, ByVal strPDFFileName As String, pDateFin As DateTime) As Boolean
+        Debug.Assert(Trim(strPathToReport) <> "", "PathToReport non initialisé")
+        Debug.Assert(Trim(strPDFFileName) <> "", "strPDFFileName non initialisé")
+        Dim bReturn As Boolean
+        Dim diskOpts As New CrystalDecisions.Shared.DiskFileDestinationOptions
+        Try
+            Using oReport As ReportDocument = genererReportMvtArticles(strPathToReport, pDateFin)
+                If Not oReport Is Nothing Then
+                    oReport.ExportOptions.ExportFormatType = CrystalDecisions.Shared.ExportFormatType.PortableDocFormat
+                    oReport.ExportOptions.ExportDestinationType = CrystalDecisions.Shared.ExportDestinationType.DiskFile
+                    diskOpts.DiskFileName = strPDFFileName
+                    oReport.ExportOptions.DestinationOptions = diskOpts
+                    oReport.Export()
+                    oReport.Close()
+                    bReturn = True
+                Else
+                    bReturn = False
+                End If
+
+            End Using
+        Catch ex As Exception
+            setError("Fournisseur.genererPDF", ex.ToString)
+            bReturn = False
+        End Try
+        Return bReturn
+    End Function 'genererPDF
 
 End Class

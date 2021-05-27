@@ -2,6 +2,8 @@
 Imports System.Windows.Forms.Cursors
 Imports CrystalDecisions.Windows.Forms
 Imports CrystalDecisions.CrystalReports.Engine
+Imports System.Collections.Generic
+Imports System.Linq
 
 Public Class FrmVinicom
     Inherits System.Windows.Forms.Form
@@ -178,6 +180,7 @@ Public Class FrmVinicom
 
     Protected Function rechercheDonnee(ByVal ptypeDonnes As vncEnums.vncTypeDonnee, ByVal ptbcode As TextBox, Optional ByVal ptbnom As TextBox = Nothing, Optional ByVal ptbmotcle As TextBox = Nothing) As racine
         Dim col As Collection = Nothing
+        Dim colFRN As List(Of Fournisseur) = Nothing
         Dim objSel As racine = Nothing
         Dim frm As frmRechercheDB
         Dim objClient As Client
@@ -189,7 +192,8 @@ Public Class FrmVinicom
                 Case vncEnums.vncTypeDonnee.CLIENT
                     col = Client.getListe(ptbcode.Text)
                 Case vncEnums.vncTypeDonnee.FOURNISSEUR
-                    col = Fournisseur.getListe(ptbcode.Text)
+                    col = New Collection()
+                    Fournisseur.getListe(ptbcode.Text).ForEach(Sub(o) col.Add(o))
                 Case vncEnums.vncTypeDonnee.PRODUIT
                     col = Produit.getListe(vncEnums.vncTypeProduit.vncTous, ptbcode.Text)
             End Select
