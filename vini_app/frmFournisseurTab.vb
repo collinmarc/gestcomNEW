@@ -132,6 +132,7 @@ Public Class frmFournisseurTab
     Friend WithEvents Label4b As System.Windows.Forms.Label
     Friend WithEvents ckIntermediaire As System.Windows.Forms.CheckBox
     Friend WithEvents cbxDossier As System.Windows.Forms.ComboBox
+    Friend WithEvents ckEspFrn As CheckBox
     Friend WithEvents cbxExportBaf As System.Windows.Forms.ComboBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.cboRegion = New System.Windows.Forms.ComboBox()
@@ -142,6 +143,7 @@ Public Class frmFournisseurTab
         Me.Label4b = New System.Windows.Forms.Label()
         Me.ckIntermediaire = New System.Windows.Forms.CheckBox()
         Me.cbxDossier = New System.Windows.Forms.ComboBox()
+        Me.ckEspFrn = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'cboRegion
@@ -197,11 +199,11 @@ Public Class frmFournisseurTab
         Me.cbxExportBaf.Size = New System.Drawing.Size(121, 21)
         Me.cbxExportBaf.TabIndex = 75
         '
-        'Label4
+        'Label4b
         '
         Me.Label4b.AutoSize = True
         Me.Label4b.Location = New System.Drawing.Point(510, 11)
-        Me.Label4b.Name = "Label4"
+        Me.Label4b.Name = "Label4b"
         Me.Label4b.Size = New System.Drawing.Size(82, 13)
         Me.Label4b.TabIndex = 76
         Me.Label4b.Text = "Export des Baf :"
@@ -226,10 +228,22 @@ Public Class frmFournisseurTab
         Me.cbxDossier.Size = New System.Drawing.Size(121, 21)
         Me.cbxDossier.TabIndex = 78
         '
+        'ckEspFrn
+        '
+        Me.ckEspFrn.AutoSize = True
+        Me.ckEspFrn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ckEspFrn.Location = New System.Drawing.Point(584, 82)
+        Me.ckEspFrn.Name = "ckEspFrn"
+        Me.ckEspFrn.Size = New System.Drawing.Size(144, 17)
+        Me.ckEspFrn.TabIndex = 79
+        Me.ckEspFrn.Text = "Espace Fournisseur VNC"
+        Me.ckEspFrn.UseVisualStyleBackColor = True
+        '
         'frmFournisseurTab
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(968, 734)
+        Me.Controls.Add(Me.ckEspFrn)
         Me.Controls.Add(Me.cbxDossier)
         Me.Controls.Add(Me.ckIntermediaire)
         Me.Controls.Add(Me.Label4b)
@@ -252,6 +266,7 @@ Public Class frmFournisseurTab
         Me.Controls.SetChildIndex(Me.Label4b, 0)
         Me.Controls.SetChildIndex(Me.ckIntermediaire, 0)
         Me.Controls.SetChildIndex(Me.cbxDossier, 0)
+        Me.Controls.SetChildIndex(Me.ckEspFrn, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -295,6 +310,7 @@ Public Class frmFournisseurTab
             cbxExportBaf.SelectedIndex = objFournisseur.bExportInternet
             ckIntermediaire.Checked = objFournisseur.bIntermdiaire
             cbxDossier.Text = objFournisseur.Dossier
+            ckEspFrn.Checked = objFournisseur.EspFrn
         End If
 
         Return bReturn
@@ -312,6 +328,7 @@ Public Class frmFournisseurTab
                 objFournisseur.bExportInternet = cbxExportBaf.SelectedIndex
                 objFournisseur.bIntermdiaire = ckIntermediaire.Checked
                 objFournisseur.Dossier = cbxDossier.Text
+                objFournisseur.EspFrn = ckEspFrn.Checked
                 bReturn = True
             Catch ex As Exception
                 DisplayError("frmFournisseur.MAJElement", ex.ToString())

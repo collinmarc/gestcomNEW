@@ -364,7 +364,8 @@ Public Class frmExportFacture
                 If bCodeFact Then
                     colFact = FactColisageJ.getListe(strCode)
                 Else
-                    colFact = FactColisageJ.getListe(dateDeb, dateFin, , vncEtatCommande.vncFactCOLGeneree)
+                    colFact = New Collection()
+                    FactColisageJ.getListe(dateDeb, dateFin, , vncEtatCommande.vncFactCOLGeneree).ForEach(Sub(f) colFact.Add(f))
                 End If
                 bReturn = bReturn And exportFacture(strFile, colFact)
             End If
@@ -435,7 +436,8 @@ Public Class frmExportFacture
             End If
             If bExportFactureColisage Then
                 DisplayMessage("== Validation Export Facture de colisage ==")
-                colFact = FactColisageJ.getListe(dateDeb, dateFin, , vncEtatCommande.vncFactCOLGeneree)
+                colFact = New Collection()
+                FactColisageJ.getListe(dateDeb, dateFin, , vncEtatCommande.vncFactCOLGeneree).ForEach(Sub(F) colFact.Add(F))
                 For Each objFact As Facture In colFact
                     objFact.changeEtat(vncActionEtatCommande.vncActionFactCOLExporter)
                     objFact.Save()

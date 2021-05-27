@@ -141,6 +141,7 @@ Imports vini_DB
         objfrn.idModeReglement3 = objParam.id
         objfrn.bIntermdiaire = True
         objfrn.Dossier = "HOBIVIN"
+        objfrn.EspFrn = True
         '            objfrn.bAdressesIdentiques = True
         '<<TestMethod()>()> des indicateurs Avant le Save
         Assert.IsTrue(objfrn.bNew)
@@ -169,6 +170,7 @@ Imports vini_DB
 
         Assert.AreEqual(True, objfrn2.bIntermdiaire)
         Assert.AreEqual("HOBIVIN", objfrn2.Dossier)
+        Assert.IsTrue(objfrn2.EspFrn)
         'III - Modification du Fournisseur
         '=================================
         ' Modification du Fournisseur
@@ -188,6 +190,7 @@ Imports vini_DB
         objfrn2.idModeReglement2 = objfrn.idModeReglement3
         objfrn2.bIntermdiaire = False
         objfrn2.Dossier = ""
+        objfrn2.EspFrn = False
 
         '<<TestMethod()>()> des indicateurs Avant le Save
         Assert.IsFalse(objfrn2.bNew)
@@ -207,6 +210,7 @@ Imports vini_DB
         Assert.AreEqual(objfrn.idModeReglement2, objfrn.idModeReglement3)
         Assert.AreEqual(False, objfrn.bIntermdiaire)
         Assert.AreEqual("", objfrn.Dossier)
+        Assert.IsFalse(objfrn.EspFrn)
 
         'IV - Suppression du Fournisseur
         '=================================

@@ -34,7 +34,7 @@ Public Class frmExportColisage
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cbExporter As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents dtDFin As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtPeriode As System.Windows.Forms.DateTimePicker
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents m_pgBar As ProgressBar
     Friend WithEvents ckFTP As CheckBox
@@ -52,7 +52,7 @@ Public Class frmExportColisage
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cbExporter = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dtDFin = New System.Windows.Forms.DateTimePicker()
+        Me.dtPeriode = New System.Windows.Forms.DateTimePicker()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.m_pgBar = New System.Windows.Forms.ProgressBar()
         Me.ckFTP = New System.Windows.Forms.CheckBox()
@@ -89,17 +89,18 @@ Public Class frmExportColisage
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(213, 19)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 13)
+        Me.Label1.Size = New System.Drawing.Size(49, 13)
         Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Date de fin :"
+        Me.Label1.Text = "Période :"
         '
-        'dtDFin
+        'dtPeriode
         '
-        Me.dtDFin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtDFin.Location = New System.Drawing.Point(284, 15)
-        Me.dtDFin.Name = "dtDFin"
-        Me.dtDFin.Size = New System.Drawing.Size(101, 20)
-        Me.dtDFin.TabIndex = 1
+        Me.dtPeriode.CustomFormat = "MMMM yyyy"
+        Me.dtPeriode.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtPeriode.Location = New System.Drawing.Point(284, 15)
+        Me.dtPeriode.Name = "dtPeriode"
+        Me.dtPeriode.Size = New System.Drawing.Size(120, 20)
+        Me.dtPeriode.TabIndex = 1
         '
         'BackgroundWorker1
         '
@@ -151,7 +152,7 @@ Public Class frmExportColisage
         Me.btn_annuler.Text = "Annuler"
         Me.btn_annuler.UseVisualStyleBackColor = True
         '
-        'frmExportMouvementArticle
+        'frmExportColisage
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(988, 686)
@@ -159,13 +160,14 @@ Public Class frmExportColisage
         Me.Controls.Add(Me.lblProgress)
         Me.Controls.Add(Me.ckFTP)
         Me.Controls.Add(Me.m_pgBar)
-        Me.Controls.Add(Me.dtDFin)
+        Me.Controls.Add(Me.dtPeriode)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.tbCodeFourn)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbExporter)
-        Me.Name = "frmExportMouvementArticle"
-        Me.Text = "Exportation des mouvements article vers l'espace Fournisseur VINICOM"
+        Me.Name = "frmExportColisage"
+        Me.Text = "Exportation des factures et récapitulatif colisage vers l'espace fournisseur VINI" &
+    "COM"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -186,20 +188,20 @@ Public Class frmExportColisage
 
     Private Sub cbExporter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbExporter.Click
         setcursorWait()
-        ExporterMvtArticles()
+        ExporterColisage()
         restoreCursor()
     End Sub
 
-    Private Sub ExporterMvtArticles()
-        'On Prend tous les fournisseurs
-        '        m_ListFRN = Fournisseur.getListe().Where(Function(o) o.bExportInternet).ToList()
-        m_ListFRN = Fournisseur.getListe(tbCodeFourn.Text)
+    Private Sub ExporterColisage()
+        'On Prend les fournisseurs indiqué comme Espace fournisseur
+        m_ListFRN = Fournisseur.getListe().Where(Function(o) o.EspFrn).ToList()
+        '        m_ListFRN = Fournisseur.getListe(tbCodeFourn.Text)
 
         m_pgBar.Maximum = m_ListFRN.Count() + 1
         m_pgBar.Minimum = 0
         m_pgBar.Value = 0
 
-        m_strFolder = My.Settings.Tmp & "/ExportMvtArticle" & DateTime.Now.ToString("yyyyMMdd")
+        m_strFolder = My.Settings.Tmp & "/ExportColisage" & DateTime.Now.ToString("yyyyMMdd")
         If Not System.IO.Directory.Exists(m_strFolder) Then
             System.IO.Directory.CreateDirectory(m_strFolder)
         End If
@@ -211,7 +213,7 @@ Public Class frmExportColisage
             End If
         End If
 
-        m_strFileCSV = m_strFolder & "/mvt" & dtDFin.Value.Year & dtDFin.Value.Month & dtDFin.Value.Day & ".csv"
+        m_strFileCSV = m_strFolder & "/col" & dtPeriode.Value.Year & dtPeriode.Value.Month & dtPeriode.Value.Day & ".csv"
 
 
 
@@ -228,13 +230,27 @@ Public Class frmExportColisage
                     e.Cancel = True
                     Exit For
                 End If
-                Dim strFilename As String
-                strFilename = "MVT" & oFrn.code & dtDFin.Value.Year & dtDFin.Value.Month & dtDFin.Value.Day & ".pdf"
-                If oFrn.genererPDF(PATHTOREPORTS, m_strFolder & "\" & strFilename, dtDFin.Value) Then
-                    Dim strLine As String
-                    strLine = strFilename & ";" & oFrn.code & ";" & dtDFin.Value.ToString("yyyyMMdd") & vbCrLf
-                    File.AppendAllText(m_strFileCSV, strLine)
-                End If
+                Dim ddeb As DateTime, dFin As DateTime
+                ddeb = New Date(dtPeriode.Value.Year, dtPeriode.Value.Month, 1)
+                dFin = ddeb.AddMonths(1).AddDays(-1)
+                Dim olst As List(Of FactColisageJ) = FactColisageJ.getListe(ddeb, dFin, oFrn.code)
+                For Each oFact As FactColisageJ In olst
+                    Dim strFilename As String
+                    strFilename = "FCOL-" & oFrn.code & "-" & dtPeriode.Value.Year & dtPeriode.Value.Month & dtPeriode.Value.Day & ".pdf"
+                    If oFact.genererPDFFacture(PATHTOREPORTS, m_strFolder & "/" & strFilename) Then
+                        Dim strLine As String
+                        strLine = strFilename & ";" & oFrn.code & ";" & dtPeriode.Value.ToString("yyyyMMdd") & vbCrLf
+                        File.AppendAllText(m_strFileCSV, strLine)
+                    End If
+                    strFilename = "RCAP-" & oFrn.code & "-" & dtPeriode.Value.Year & dtPeriode.Value.Month & dtPeriode.Value.Day & ".pdf"
+                    If oFact.genererPDFRecap(PATHTOREPORTS, m_strFolder & "/" & strFilename) Then
+                        Dim strLine As String
+                        strLine = strFilename & ";" & oFrn.code & ";" & dtPeriode.Value.ToString("yyyyMMdd") & vbCrLf
+                        File.AppendAllText(m_strFileCSV, strLine)
+                    End If
+
+                Next
+
                 BackgroundWorker1.ReportProgress((n / m_ListFRN.Count()) * 100)
                 n = n + 1
             Next
@@ -242,6 +258,8 @@ Public Class frmExportColisage
                 Dim oftp As clsFTPVinicom
                 oftp = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOST"), Param.getConstante("CST_FTPVNC_USER"), Param.getConstante("CST_FTPVNC_PASSWORD"))
                 oftp.uploadFromDir(m_strFolder)
+                BackgroundWorker1.ReportProgress(100)
+
             End If
 
         Catch ex As Exception

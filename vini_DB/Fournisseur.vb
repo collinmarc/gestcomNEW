@@ -43,6 +43,15 @@ Public Class Fournisseur
     Private m_bExportInternet As Integer
     Private m_bIntermediaire As Boolean
     Private m_dossier As String
+    Private m_nEspFrn As Boolean
+    Public Property EspFrn() As Boolean
+        Get
+            Return m_nEspFrn
+        End Get
+        Set(ByVal value As Boolean)
+            m_nEspFrn = value
+        End Set
+    End Property
     '=======================================================================
     '                           METHODE DE CLASSE                          |  
     'Fonction : getListe 

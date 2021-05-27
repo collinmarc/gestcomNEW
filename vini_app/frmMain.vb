@@ -69,6 +69,7 @@ Friend Class frmMain
     Friend WithEvents mnuVerifInfosLivraisons As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItem14 As MenuItem
     Friend WithEvents mnu_ExportMvtArticles As MenuItem
+    Friend WithEvents mnuExportColisage As MenuItem
     'Objet créé pour afficher l'evenement Connected/Disconnected
     Public m_currentuser As aut_user
 
@@ -319,6 +320,7 @@ Friend Class frmMain
         Me.StatusBarDB = New System.Windows.Forms.StatusBarPanel()
         Me.StatusBarError = New System.Windows.Forms.StatusBarPanel()
         Me.StatusBarEtat = New System.Windows.Forms.StatusBarPanel()
+        Me.mnuExportColisage = New System.Windows.Forms.MenuItem()
         CType(Me.StatusBarDB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarError, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarEtat, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -326,7 +328,7 @@ Friend Class frmMain
         '
         'MainMenu1
         '
-        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuFile, Me.mnuDB, Me.mnuGC, Me.mnuStat, Me.mnuScmd, Me.MnuTrp, Me.MnuCol, Me.mnuCompta, Me.mnuFenetre, Me.mnuUtil, Me.MenuItem14})
+        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuFile, Me.mnuDB, Me.mnuGC, Me.mnuStat, Me.mnuScmd, Me.MnuTrp, Me.MnuCol, Me.mnuCompta, Me.mnuFenetre, Me.MenuItem14, Me.mnuUtil})
         '
         'mnuFile
         '
@@ -937,7 +939,7 @@ Friend Class frmMain
         '
         'mnuUtil
         '
-        Me.mnuUtil.Index = 9
+        Me.mnuUtil.Index = 10
         Me.mnuUtil.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuUtil_PurgeMvtStock, Me.mnuUtil_PurgeCommandesClients, Me.mnuUtil_PurgeFactCom, Me.mnuUtil_PurgeBonAppro, Me.mnuUtil_PurgePrecommande, Me.MenuItem22, Me.mnuUtil_Libere, Me.mnuUtil_Users, Me.mnuUtil_Droits, Me.MenuItem1, Me.mnuUtil_RecalculStock, Me.MenuItem2, Me.mnuUtil_AutresEtats, Me.mnuUtil_ControleMvtStock, Me.MenuItem21, Me.mnuUtil_FactComError, Me.MenuItem12, Me.mnuUtil__Param, Me.MenuItem16, Me.mnuUtil_BackupRestore, Me.MnuUtil_checkDatabase})
         Me.mnuUtil.Tag = "mnuUtil"
         Me.mnuUtil.Text = "Utilitaires"
@@ -1081,8 +1083,8 @@ Friend Class frmMain
         '
         'MenuItem14
         '
-        Me.MenuItem14.Index = 10
-        Me.MenuItem14.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnu_ExportMvtArticles})
+        Me.MenuItem14.Index = 9
+        Me.MenuItem14.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnu_ExportMvtArticles, Me.mnuExportColisage})
         Me.MenuItem14.Text = "Espace Fournisseur"
         '
         'mnu_ExportMvtArticles
@@ -1166,7 +1168,7 @@ Friend Class frmMain
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 428)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 388)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1189,11 +1191,16 @@ Friend Class frmMain
         Me.StatusBarEtat.Name = "StatusBarEtat"
         Me.StatusBarEtat.Width = 273
         '
+        'mnuExportColisage
+        '
+        Me.mnuExportColisage.Index = 1
+        Me.mnuExportColisage.Text = "Export des factures et recap colisage"
+        '
         'frmMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 450)
+        Me.ClientSize = New System.Drawing.Size(890, 410)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -2152,6 +2159,14 @@ Friend Class frmMain
     Private Sub mnu_ExportMvtArticles_Click(sender As Object, e As EventArgs) Handles mnu_ExportMvtArticles.Click
         Dim ofrm As FrmVinicom
         ofrm = New frmExportMouvementArticle
+        ofrm.MdiParent = Me
+        ofrm.Show()
+
+    End Sub
+
+    Private Sub mnuExportColisage_Click(sender As Object, e As EventArgs) Handles mnuExportColisage.Click
+        Dim ofrm As FrmVinicom
+        ofrm = New frmExportColisage
         ofrm.MdiParent = Me
         ofrm.Show()
 

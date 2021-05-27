@@ -510,30 +510,31 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         Debug.Assert(Me.GetType.Name.Equals("Fournisseur"), "Object de type Fournisseur requis")
 
-        Dim sqlString As String = "INSERT INTO FOURNISSEUR( " & _
-                                    "FRN_CODE, FRN_NOM, FRN_RS, FRN_RIB1, FRN_RIB2, FRN_RIB3, FRN_RIB4,  FRN_BANQUE, FRN_RGN_ID , FRN_SIRET, FRN_TVAINTRACOM , FRN_RGLMT_ID, FRN_ADR_IDENT,FRN_BEXP_INTERNET, FRN_COMPTA, FRN_ID_MRGLMT1,FRN_ID_MRGLMT2,FRN_ID_MRGLMT3,FRN_IDPRESTASHOP, FRN_BINTERMEDIAIRE, FRN_DOSSIER )" & _
-                                  " VALUES (" & _
-                                    "?, " & _
-                                    "?, " & _
-                                    "?, " & _
-                                    "?," & _
-                                    "?," & _
-                                    "?," & _
-                                    "?," & _
-                                    "?," & _
-                                    "?," & _
-                                    "?," & _
-                                    "?," & _
-                                    "?," & _
-                                    "?, " & _
-                                    "?, " & _
-                                    "?, " & _
-                                    "?, " & _
-                                    "?, " & _
-                                    "?, " & _
-                                    "?, " & _
-                                    "?, " & _
-                                    "? " & _
+        Dim sqlString As String = "INSERT INTO FOURNISSEUR( " &
+                                    "FRN_CODE, FRN_NOM, FRN_RS, FRN_RIB1, FRN_RIB2, FRN_RIB3, FRN_RIB4,  FRN_BANQUE, FRN_RGN_ID , FRN_SIRET, FRN_TVAINTRACOM , FRN_RGLMT_ID, FRN_ADR_IDENT,FRN_BEXP_INTERNET, FRN_COMPTA, FRN_ID_MRGLMT1,FRN_ID_MRGLMT2,FRN_ID_MRGLMT3,FRN_IDPRESTASHOP, FRN_BINTERMEDIAIRE, FRN_DOSSIER, FRN_BESPFRN )" &
+                                  " VALUES (" &
+                                    "?, " &
+                                    "?, " &
+                                    "?, " &
+                                    "?," &
+                                    "?," &
+                                    "?," &
+                                    "?," &
+                                    "?," &
+                                    "?," &
+                                    "?," &
+                                    "?," &
+                                    "?," &
+                                    "?, " &
+                                    "?, " &
+                                    "?, " &
+                                    "?, " &
+                                    "?, " &
+                                    "?, " &
+                                    "?, " &
+                                    "?, " &
+                                    "?, " &
+                                    "? " &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -568,6 +569,7 @@ Public MustInherit Class Persist
         CreateParamP_FRN_IDPRESTASHOP(objOLeDBCommand)
         CreateParamP_FRN_BINTERMEDIAIRE(objOLeDBCommand)
         CreateParamP_FRN_DOSSIER(objOLeDBCommand)
+        CreateParamP_FRN_BESPFRN(objOLeDBCommand)
         m_dbconn.BeginTransaction()
         objOLeDBCommand.Transaction = m_dbconn.transaction
         Try
@@ -935,27 +937,28 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "ID<>0")
 
-        Dim sqlString As String = "UPDATE FOURNISSEUR  SET FRN_CODE = ?," & _
-                                        " FRN_NOM = ? , " & _
-                                        "FRN_RS = ? , " & _
-                                        "FRN_RIB1 = ? , " & _
-                                        "FRN_RIB2 = ? , " & _
-                                        "FRN_RIB3 = ? , " & _
-                                        "FRN_RIB4 = ? , " & _
-                                        "FRN_BANQUE = ? , " & _
-                                        "FRN_RGN_ID = ? , " & _
-                                        "FRN_SIRET = ? , " & _
-                                        "FRN_TVAINTRACOM = ? , " & _
-                                        "FRN_RGLMT_ID = ? ," & _
-                                        "FRN_ADR_IDENT = ? , " & _
-                                        "FRN_BEXP_INTERNET = ?, " & _
-                                        "FRN_COMPTA = ? ," & _
-                                        "FRN_ID_MRGLMT1 = ? ," & _
-                                        "FRN_ID_MRGLMT2 = ? ," & _
-                                        "FRN_ID_MRGLMT3 = ?, " & _
-                                        "FRN_IDPRESTASHOP = ?, " & _
-                                        "FRN_BINTERMEDIAIRE = ?, " & _
-                                        "FRN_DOSSIER = ? " & _
+        Dim sqlString As String = "UPDATE FOURNISSEUR  SET FRN_CODE = ?," &
+                                        " FRN_NOM = ? , " &
+                                        "FRN_RS = ? , " &
+                                        "FRN_RIB1 = ? , " &
+                                        "FRN_RIB2 = ? , " &
+                                        "FRN_RIB3 = ? , " &
+                                        "FRN_RIB4 = ? , " &
+                                        "FRN_BANQUE = ? , " &
+                                        "FRN_RGN_ID = ? , " &
+                                        "FRN_SIRET = ? , " &
+                                        "FRN_TVAINTRACOM = ? , " &
+                                        "FRN_RGLMT_ID = ? ," &
+                                        "FRN_ADR_IDENT = ? , " &
+                                        "FRN_BEXP_INTERNET = ?, " &
+                                        "FRN_COMPTA = ? ," &
+                                        "FRN_ID_MRGLMT1 = ? ," &
+                                        "FRN_ID_MRGLMT2 = ? ," &
+                                        "FRN_ID_MRGLMT3 = ?, " &
+                                        "FRN_IDPRESTASHOP = ?, " &
+                                        "FRN_BINTERMEDIAIRE = ?, " &
+                                        "FRN_DOSSIER = ?, " &
+                                        "FRN_BESPFRN = ? " &
                                   " WHERE FRN_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
 
@@ -988,6 +991,7 @@ Public MustInherit Class Persist
         CreateParamP_FRN_IDPRESTASHOP(objOLeDBCommand)
         CreateParamP_FRN_BINTERMEDIAIRE(objOLeDBCommand)
         CreateParamP_FRN_DOSSIER(objOLeDBCommand)
+        CreateParamP_FRN_BESPFRN(objOLeDBCommand)
         CreateParameterP_ID(objOLeDBCommand)
 
 
@@ -1163,15 +1167,15 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT FRN_ID, FRN_CODE, FRN_NOM, FRN_RS,  FRN_RIB1, " & _
-                                    "FRN_RIB2, FRN_RIB3, FRN_RIB4, FRN_RGN_ID, FRN_BANQUE, RQ_REGION.PAR_VALUE AS REGION," & _
-                                    "FRN_SIRET, FRN_TVAINTRACOM, FRN_RGLMT_ID, RQ_ModeReglement.PAR_VALUE AS REGLEMENT, " & _
-                                    " FRN_LIV_NOM, FRN_LIV_RUE1, FRN_LIV_RUE2, FRN_LIV_CP, FRN_LIV_VILLE, " & _
-                                    " FRN_LIV_TEL, FRN_LIV_FAX, FRN_LIV_PORT, FRN_LIV_EMAIL, " & _
-                                    " FRN_FACT_NOM, FRN_FACT_RUE1, FRN_FACT_RUE2, FRN_FACT_CP, FRN_FACT_VILLE, " & _
-                                    " FRN_FACT_TEL, FRN_FACT_FAX, FRN_FACT_PORT, FRN_FACT_EMAIL, FRN_ADR_IDENT, " & _
-                                    " FRN_COM_CMD, FRN_COM_LIV, FRN_COM_FACT, FRN_COM_LIBRE,FRN_BEXP_INTERNET, FRN_COMPTA, FRN_ID_MRGLMT1,FRN_ID_MRGLMT2,FRN_ID_MRGLMT3, FRN_IDPRESTASHOP, FRN_BINTERMEDIAIRE, FRN_DOSSIER " & _
-                                  " FROM (FOURNISSEUR LEFT OUTER JOIN RQ_Region ON FOURNISSEUR.FRN_RGN_ID = RQ_Region.PAR_ID) LEFT OUTER JOIN RQ_ModeReglement ON FOURNISSEUR.FRN_RGLMT_ID = RQ_ModeReglement.PAR_ID" & _
+        Dim sqlString As String = "SELECT FRN_ID, FRN_CODE, FRN_NOM, FRN_RS,  FRN_RIB1, " &
+                                    "FRN_RIB2, FRN_RIB3, FRN_RIB4, FRN_RGN_ID, FRN_BANQUE, RQ_REGION.PAR_VALUE AS REGION," &
+                                    "FRN_SIRET, FRN_TVAINTRACOM, FRN_RGLMT_ID, RQ_ModeReglement.PAR_VALUE AS REGLEMENT, " &
+                                    " FRN_LIV_NOM, FRN_LIV_RUE1, FRN_LIV_RUE2, FRN_LIV_CP, FRN_LIV_VILLE, " &
+                                    " FRN_LIV_TEL, FRN_LIV_FAX, FRN_LIV_PORT, FRN_LIV_EMAIL, " &
+                                    " FRN_FACT_NOM, FRN_FACT_RUE1, FRN_FACT_RUE2, FRN_FACT_CP, FRN_FACT_VILLE, " &
+                                    " FRN_FACT_TEL, FRN_FACT_FAX, FRN_FACT_PORT, FRN_FACT_EMAIL, FRN_ADR_IDENT, " &
+                                    " FRN_COM_CMD, FRN_COM_LIV, FRN_COM_FACT, FRN_COM_LIBRE,FRN_BEXP_INTERNET, FRN_COMPTA, FRN_ID_MRGLMT1,FRN_ID_MRGLMT2,FRN_ID_MRGLMT3, FRN_IDPRESTASHOP, FRN_BINTERMEDIAIRE, FRN_DOSSIER, FRN_BESPFRN " &
+                                  " FROM (FOURNISSEUR LEFT OUTER JOIN RQ_Region ON FOURNISSEUR.FRN_RGN_ID = RQ_Region.PAR_ID) LEFT OUTER JOIN RQ_ModeReglement ON FOURNISSEUR.FRN_RGLMT_ID = RQ_ModeReglement.PAR_ID" &
                                   " WHERE FRN_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -1239,6 +1243,7 @@ Public MustInherit Class Persist
                 objFRN.idPrestashop = getInteger(objRS, "FRN_IDPRESTASHOP")
                 objFRN.bIntermdiaire = getInteger(objRS, "FRN_BINTERMEDIAIRE")
                 objFRN.Dossier = GetString(objRS, "FRN_DOSSIER")
+                objFRN.EspFrn = GetBoolean(objRS, "FRN_BESPFRN")
                 objRS.Close()
                 objRS = Nothing
                 cleanErreur()
@@ -1549,7 +1554,7 @@ Public MustInherit Class Persist
 
 
 
-        Dim sqlString As String = "SELECT FRN_ID, FRN_CODE, FRN_NOM, FRN_RS,FRN_LIV_VILLE,FRN_COMPTA, FRN_BEXP_INTERNET FROM Fournisseur "
+        Dim sqlString As String = "SELECT FRN_ID, FRN_CODE, FRN_NOM, FRN_RS,FRN_LIV_VILLE,FRN_COMPTA, FRN_BEXP_INTERNET, FRN_BESPFRN FROM Fournisseur "
         Dim objOLeDBCommand As OleDbCommand
         Dim objFRN As Fournisseur
         Dim objRS As OleDbDataReader = Nothing
@@ -1602,6 +1607,7 @@ Public MustInherit Class Persist
                 objFRN.AdresseLivraison.ville = GetString(objRS, "FRN_LIV_VILLE")
                 objFRN.CodeCompta = GetString(objRS, "FRN_COMPTA")
                 objFRN.bExportInternet = getInteger(objRS, "FRN_BEXP_INTERNET")
+                objFRN.EspFrn = GetBoolean(objRS, "FRN_BESPFRN")
                 objFRN.resetBooleans()
                 colReturn.Add(objFRN)
 
@@ -3590,6 +3596,11 @@ Public MustInherit Class Persist
         Dim objFRN As Fournisseur
         objFRN = Me
         objCommand.Parameters.AddWithValue("?", objFRN.bIntermdiaire)
+    End Sub
+    Private Sub CreateParamP_FRN_BESPFRN(ByVal objCommand As OleDbCommand)
+        Dim objFRN As Fournisseur
+        objFRN = Me
+        objCommand.Parameters.AddWithValue("?", objFRN.EspFrn)
     End Sub
     Private Sub CreateParamP_FRN_DOSSIER(ByVal objCommand As OleDbCommand)
         Dim objFRN As Fournisseur
@@ -12882,17 +12893,17 @@ Public MustInherit Class Persist
     ''' <param name="pEtat">Etat de la Facture (Par defaut tous)</param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Protected Shared Function ListeFACTColisage(Optional ByVal pddeb As Date = DATE_DEFAUT, Optional ByVal pdfin As Date = DATE_DEFAUT, Optional ByVal pCodeFournisseur As String = "", Optional ByVal pEtat As vncEtatCommande = vncEnums.vncEtatCommande.vncRien) As Collection
+    Protected Shared Function ListeFACTColisage(Optional ByVal pddeb As Date = DATE_DEFAUT, Optional ByVal pdfin As Date = DATE_DEFAUT, Optional ByVal pCodeFournisseur As String = "", Optional ByVal pEtat As vncEtatCommande = vncEnums.vncEtatCommande.vncRien) As List(Of FactColisageJ)
         '============================================================================
         'Function : ListeFACTTRPEtat
         'Description : Rend une liste de Facture de transport en fonction leur état
         '============================================================================
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
-        Dim colReturn As New Collection
-        Dim colTemp As New Collection
+        Dim colReturn As New List(Of FactColisageJ)
+        Dim colTemp As New List(Of String)
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT " & _
-                                    "FCOL_ID, FRN_ID " & _
+        Dim sqlString As String = "SELECT " &
+                                    "FCOL_ID, FRN_ID " &
                                   " FROM FACTCOLISAGE INNER JOIN FOURNISSEUR ON FACTCOLISAGE.FCOL_FRN_ID = FOURNISSEUR.FRN_ID "
 
         Dim strWhere As String = ""
@@ -12972,7 +12983,7 @@ Public MustInherit Class Persist
                 objFCT.resetBooleans()
 
                 If objFCT.id <> 0 Then
-                    colReturn.Add(objFCT, objFCT.code)
+                    colReturn.Add(objFCT)
                 End If
             Next
             Return colReturn

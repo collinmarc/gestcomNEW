@@ -191,9 +191,9 @@ Public Class frmExportMouvementArticle
     End Sub
 
     Private Sub ExporterMvtArticles()
-        'On Prend tous les fournisseurs
-        '        m_ListFRN = Fournisseur.getListe().Where(Function(o) o.bExportInternet).ToList()
-        m_ListFRN = Fournisseur.getListe(tbCodeFourn.Text)
+        'On Prend les fournisseurs indiqué comme Espace fournisseur
+        m_ListFRN = Fournisseur.getListe().Where(Function(o) o.EspFrn).ToList()
+        'm_ListFRN = Fournisseur.getListe(tbCodeFourn.Text)
 
         m_pgBar.Maximum = m_ListFRN.Count() + 1
         m_pgBar.Minimum = 0
@@ -229,7 +229,7 @@ Public Class frmExportMouvementArticle
                     Exit For
                 End If
                 Dim strFilename As String
-                strFilename = "MVT" & oFrn.code & dtDFin.Value.Year & dtDFin.Value.Month & dtDFin.Value.Day & ".pdf"
+                strFilename = "MVT-" & oFrn.code & "-" & dtDFin.Value.Year & dtDFin.Value.Month & dtDFin.Value.Day & ".pdf"
                 If oFrn.genererPDF(PATHTOREPORTS, m_strFolder & "\" & strFilename, dtDFin.Value) Then
                     Dim strLine As String
                     strLine = strFilename & ";" & oFrn.code & ";" & dtDFin.Value.ToString("yyyyMMdd") & vbCrLf

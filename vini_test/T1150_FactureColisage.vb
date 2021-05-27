@@ -1074,7 +1074,7 @@ Imports CrystalDecisions.Shared
         Dim oFactCol2 As FactColisageJ
         Dim oFactCol3 As FactColisageJ
 
-        Dim oCol As Collection = New Collection()
+        Dim oCol As List(Of FactColisageJ)
         oCol = FactColisageJ.getListe(#1/1/2004#, #12/31/2004#)
         For Each oFactCol1 In oCol
             oFactCol1.bDeleted = True

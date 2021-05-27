@@ -3,6 +3,7 @@ V20210531
 	0001367: Saisie de commmande , Dbl Click sur la liste des Scmd ne fonctionne plus
 	0001374: Gestion des Iban, BIC client
 	0001375: Stat produit Fournisseur sur Origine Commande ou dossier Produit
+	0001376: Export vers l'espace fournisseur VINICOM
 
 V20210501
 	0001352: Chgment Serveur de messagerie

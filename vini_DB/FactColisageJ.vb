@@ -1,4 +1,7 @@
-Imports System.configuration
+Imports System.Configuration
+Imports System.Collections.Generic
+Imports CrystalDecisions.CrystalReports.Engine
+
 Public Class FactColisageJ
     Inherits Facture
 
@@ -630,8 +633,8 @@ Public Class FactColisageJ
     End Function 'AjouteLigne
 
 #End Region
-    Public Shared Function getListe(ByVal pddeb As Date, ByVal pdfin As Date, Optional ByVal pCodeFournisseur As String = "", Optional ByVal pEtat As vncEtatCommande = vncEnums.vncEtatCommande.vncRien) As Collection
-        Dim colReturn As Collection = New Collection()
+    Public Shared Function getListe(ByVal pddeb As Date, ByVal pdfin As Date, Optional ByVal pCodeFournisseur As String = "", Optional ByVal pEtat As vncEtatCommande = vncEnums.vncEtatCommande.vncRien) As List(Of FactColisageJ)
+        Dim colReturn As New List(Of FactColisageJ)
 
         shared_connect()
         colReturn = Persist.ListeFACTColisage(pddeb, pdfin, pCodeFournisseur, pEtat)
@@ -811,7 +814,7 @@ Public Class FactColisageJ
 
         Try
             If pdossier = Dossier.VINICOM Then
-                'Charegement de la Liste des produits Plateformes
+                'Charegement de la Liste des produits Plateformes du fournisseur
                 colPRD = Produit.getListe(vncTypeProduit.vncPlateforme, idFournisseur:=idFourn, pdossier:=pdossier)
             End If
             If pdossier = Dossier.HOBIVIN Then
@@ -847,5 +850,85 @@ Public Class FactColisageJ
         Return pDS
 
     End Function
- 
+
+    Private Function createReportDocumentFacture(pstrPathtoReport As String) As ReportDocument
+
+        Dim strReport As String = pstrPathtoReport & "crFactureColisage.rpt"
+        Dim objReport As New ReportDocument()
+
+        objReport.Load(strReport)
+        Dim tabIds As New ArrayList()
+        tabIds.Add(Me.id)
+
+        objReport.SetParameterValue("IdFactures", tabIds.ToArray())
+        objReport.SetParameterValue("bEntete", True)
+        Persist.setReportConnection(objReport)
+        Return objReport
+    End Function
+
+    Public Function genererPDFFacture(ByVal strPathToReport As String, ByVal strPDFFileName As String) As Boolean
+        Debug.Assert(Trim(strPathToReport) <> "", "PathToReport non initialisé")
+        Debug.Assert(Trim(strPDFFileName) <> "", "strPDFFileName non initialisé")
+        Dim bReturn As Boolean
+        Dim diskOpts As New CrystalDecisions.Shared.DiskFileDestinationOptions
+        Try
+            Using oReport As ReportDocument = createReportDocumentFacture(strPathToReport)
+                If Not oReport Is Nothing Then
+                    oReport.ExportOptions.ExportFormatType = CrystalDecisions.Shared.ExportFormatType.PortableDocFormat
+                    oReport.ExportOptions.ExportDestinationType = CrystalDecisions.Shared.ExportDestinationType.DiskFile
+                    diskOpts.DiskFileName = strPDFFileName
+                    oReport.ExportOptions.DestinationOptions = diskOpts
+                    oReport.Export()
+                    oReport.Close()
+                    bReturn = True
+                Else
+                    bReturn = False
+                End If
+
+            End Using
+        Catch ex As Exception
+            setError("FactColisageJ.genererPDF", ex.ToString)
+            bReturn = False
+        End Try
+        Return bReturn
+    End Function 'genererPDF
+
+    Public Function genererPDFRecap(ByVal strPathToReport As String, ByVal strPDFFileName As String) As Boolean
+
+        Dim bReturn As Boolean
+        Try
+
+            Using oReport As New ReportDocument
+                oReport.Load(strPathToReport & "crRecapColisageJournalier.rpt")
+                Dim dDeb As Date
+                Dim dFin As Date
+                dDeb = CDate(Me.periode)
+                dFin = dDeb.AddMonths(1).AddDays(-1)
+
+                'Pour l 'affichage du Recap on utilise les lignes de la facture pour trouver les articles
+
+                Dim nCout As Decimal = CDec(Param.getConstante("CST_FACT_COL_PU_COLIS"))
+
+                Dim ods As dsVinicom = FactColisageJ.GenereDataSetRecapColisage(Me.id, nCout, Me.dossierFact)
+                oReport.SetDataSource(ods)
+
+                oReport.SetParameterValue("Periode", periode)
+                oReport.SetParameterValue("NbJour", dFin.Day)
+                oReport.ExportOptions.ExportFormatType = CrystalDecisions.Shared.ExportFormatType.PortableDocFormat
+                oReport.ExportOptions.ExportDestinationType = CrystalDecisions.Shared.ExportDestinationType.DiskFile
+                Dim diskOpts As New CrystalDecisions.Shared.DiskFileDestinationOptions
+                diskOpts.DiskFileName = strPDFFileName
+                oReport.ExportOptions.DestinationOptions = diskOpts
+                oReport.Export()
+                oReport.Close()
+                bReturn = True
+
+            End Using
+        Catch ex As Exception
+            setError("FactColisageJ: genererPDFRecap ERR" & ex.Message)
+        End Try
+
+
+    End Function
+
 End Class
