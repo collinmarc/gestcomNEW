@@ -2401,7 +2401,7 @@ Public MustInherit Class Persist
                 oParam2.Value = objLgPrecom.qteHab
                 oParam3.Value = objLgPrecom.qteDern
                 oParam4.Value = objLgPrecom.prixU
-                oParam5.Value = objLgPrecom.dateDerniereCommande.ToShortDateString
+                oParam5.Value = objLgPrecom.dateDerniereCommande
                 oParam6.Value = truncate(objLgPrecom.refDerniereCommande, 50)
                 objOLeDBCommand.ExecuteNonQuery()
 
@@ -3388,7 +3388,7 @@ Public MustInherit Class Persist
 
 
 
-        objCommand.Parameters.AddWithValue("?" , pdatePurge.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", pdatePurge)
         CreateParameterP_ID(objCommand)
         Try
             objCommand.ExecuteNonQuery()
@@ -3453,7 +3453,7 @@ Public MustInherit Class Persist
     Private Sub CreateParamP_STK_DATE(ByVal objCommand As OleDbCommand)
         Dim obj As mvtStock
         obj = Me
-        objCommand.Parameters.AddWithValue("?", obj.datemvt.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", obj.datemvt)
     End Sub
     Private Sub CreateParamP_STK_REF_ID(ByVal objCommand As OleDbCommand)
         Dim obj As mvtStock
@@ -4102,7 +4102,7 @@ Public MustInherit Class Persist
         '        Dim objParam As OleDbParameter
         Dim objPRD As Produit
         objPRD = Me
-        objCommand.Parameters.AddWithValue("?", CDate(objPRD.DateDernInventaire.ToShortDateString))
+        objCommand.Parameters.AddWithValue("?", CDate(objPRD.DateDernInventaire))
     End Sub
     Private Sub CreateParamP_PRD_QTE_STK(ByVal objCommand As OleDbCommand)
         '        Dim objParam As OleDbParameter
@@ -4712,7 +4712,6 @@ Public MustInherit Class Persist
         CreateParameterP_CMD_Origine(objCommand)
         CreateParameterP_CMD_DATE_EDI(objCommand)
         Try
-
             objCommand.ExecuteNonQuery()
             objCommand = New OleDbCommand("SELECT MAX(CMD_ID) FROM COMMANDE", m_dbconn.Connection)
             objCommand.Transaction = m_dbconn.transaction
@@ -5395,22 +5394,22 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_CMD_DATE(ByVal objOLeDBCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objOLeDBCommand.Parameters.AddWithValue("?", objCMD.dateCommande.ToShortDateString)
+        objOLeDBCommand.Parameters.AddWithValue("?", objCMD.dateCommande)
     End Sub
     Private Sub CreateParameterP_CMD_DATE_VALID(ByVal objOLeDBCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objOLeDBCommand.Parameters.AddWithValue("?", objCMD.dateValidation.ToShortDateString)
+        objOLeDBCommand.Parameters.AddWithValue("?", objCMD.dateValidation)
     End Sub
     Private Sub CreateParameterP_CMD_DATE_LIV(ByVal objOLeDBCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objOLeDBCommand.Parameters.AddWithValue("?", objCMD.dateLivraison.ToShortDateString)
+        objOLeDBCommand.Parameters.AddWithValue("?", objCMD.dateLivraison)
     End Sub
     Private Sub CreateParameterP_CMD_DATE_ENLEV(ByVal objOLeDBCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objOLeDBCommand.Parameters.AddWithValue("?", objCMD.dateEnlevement.ToShortDateString)
+        objOLeDBCommand.Parameters.AddWithValue("?", objCMD.dateEnlevement)
     End Sub
     Private Sub CreateParameterP_CMD_REF_LIV(ByVal objOLeDBCommand As OleDbCommand)
         Dim objCMD As Commande
@@ -5780,7 +5779,7 @@ Public MustInherit Class Persist
             objOLeDBCommand.Parameters.AddWithValue("?", Nothing)
 
         Else
-            objOLeDBCommand.Parameters.AddWithValue("?", objCMD.Date_EDI.ToShortDateString)
+            objOLeDBCommand.Parameters.AddWithValue("?", objCMD.Date_EDI)
         End If
     End Sub
 #End Region
@@ -7903,7 +7902,7 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_SCMD_DATE(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?", objCMD.dateCommande.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", objCMD.dateCommande)
     End Sub
     Private Sub CreateParameterP_SCMD_TOTAL_HT(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
@@ -7918,7 +7917,7 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_SCMD_DATE_LIV(ByVal objCommand As OleDbCommand)
         Dim objCMD As SousCommande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?", objCMD.dateLivraison.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", objCMD.dateLivraison)
     End Sub
     Private Sub CreateParameterP_SCMD_COM_COM(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
@@ -8001,7 +8000,7 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_SCMD_FACT_DATE(ByVal objCommand As OleDbCommand)
         Dim objCMD As SousCommande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?", objCMD.dateFactFournisseur.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", objCMD.dateFactFournisseur)
     End Sub
     Private Sub CreateParameterP_SCMD_FACT_TOTAL_HT(ByVal objCommand As OleDbCommand)
         Dim objCMD As SousCommande
@@ -9918,13 +9917,13 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_FCT_DATE(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?", objCMD.dateCommande.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", objCMD.dateCommande)
 
     End Sub
     Private Sub CreateParameterP_FCT_DATE_STAT(ByVal objCommand As OleDbCommand)
         Dim objCMD As FactCom
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?", objCMD.dateStatistique.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", objCMD.dateStatistique)
 
     End Sub
     Private Sub CreateParameterP_FCT_TOTAL_HT(ByVal objCommand As OleDbCommand)
@@ -11146,7 +11145,7 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_FTRP_DATE(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , objCMD.dateCommande.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", objCMD.dateCommande)
 
     End Sub
     Private Sub CreateParameterP_FTRP_TOTAL_TAXES(ByVal objCommand As OleDbCommand)
@@ -12172,7 +12171,7 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_FHBV_DATE(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?", objCMD.dateCommande.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", objCMD.dateCommande)
 
     End Sub
      Private Sub CreateParameterP_FHBV_TOTAL_HT(ByVal objCommand As OleDbCommand)
@@ -13230,7 +13229,7 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_FCOL_DATE(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?", objCMD.dateCommande.ToShortDateString)
+        objCommand.Parameters.AddWithValue("?", objCMD.dateCommande)
 
     End Sub
     Private Sub CreateParameterP_FCOL_TOTAL_TAXES(ByVal objCommand As OleDbCommand)
@@ -14518,7 +14517,7 @@ Public MustInherit Class Persist
 
 
         Try
-            oTA.Insert(objReglement.IdFact, objReglement.Montant, objReglement.DateReglement.ToShortDateString(), objReglement.Reference, objReglement.Etat.codeEtat, objReglement.TypeFact, objReglement.Commentaire)
+            oTA.Insert(objReglement.IdFact, objReglement.Montant, objReglement.DateReglement, objReglement.Reference, objReglement.Etat.codeEtat, objReglement.TypeFact, objReglement.Commentaire)
             setid(oTA.getMaxID())
             bReturn = True
 
@@ -14552,7 +14551,7 @@ Public MustInherit Class Persist
         objReglement = CType(Me, Reglement)
 
         Try
-            oTA.Update(objReglement.IdFact, objReglement.Montant, objReglement.DateReglement.ToShortDateString(), objReglement.Reference, objReglement.Etat.codeEtat, objReglement.TypeFact, objReglement.Commentaire, objReglement.id)
+            oTA.Update(objReglement.IdFact, objReglement.Montant, objReglement.DateReglement, objReglement.Reference, objReglement.Etat.codeEtat, objReglement.TypeFact, objReglement.Commentaire, objReglement.id)
             cleanErreur()
             bReturn = True
 

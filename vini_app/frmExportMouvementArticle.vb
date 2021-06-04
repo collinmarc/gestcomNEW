@@ -40,6 +40,7 @@ Public Class frmExportMouvementArticle
     Friend WithEvents ckFTP As CheckBox
     Friend WithEvents lblProgress As Label
     Friend WithEvents btn_annuler As Button
+    Friend WithEvents WebBrowser1 As WebBrowser
 
     'Requis par le Concepteur Windows Form
     Private components As System.ComponentModel.IContainer
@@ -58,6 +59,7 @@ Public Class frmExportMouvementArticle
         Me.ckFTP = New System.Windows.Forms.CheckBox()
         Me.lblProgress = New System.Windows.Forms.Label()
         Me.btn_annuler = New System.Windows.Forms.Button()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.SuspendLayout()
         '
         'tbCodeFourn
@@ -151,10 +153,22 @@ Public Class frmExportMouvementArticle
         Me.btn_annuler.Text = "Annuler"
         Me.btn_annuler.UseVisualStyleBackColor = True
         '
+        'WebBrowser1
+        '
+        Me.WebBrowser1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.WebBrowser1.Location = New System.Drawing.Point(13, 136)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.Size = New System.Drawing.Size(933, 484)
+        Me.WebBrowser1.TabIndex = 15
+        '
         'frmExportMouvementArticle
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(988, 686)
+        Me.Controls.Add(Me.WebBrowser1)
         Me.Controls.Add(Me.btn_annuler)
         Me.Controls.Add(Me.lblProgress)
         Me.Controls.Add(Me.ckFTP)
@@ -259,12 +273,17 @@ Public Class frmExportMouvementArticle
     End Sub
 
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
-        Me.Cursor = Cursors.Default
-        MsgBox("export terminé")
-        cbExporter.Enabled = True
+        Me.WebBrowser1.Navigate(New Uri(Param.getConstante("CST_FTPVNC_URL")))
     End Sub
 
     Private Sub btn_annuler_Click(sender As Object, e As EventArgs) Handles btn_annuler.Click
         BackgroundWorker1.CancelAsync()
     End Sub
+
+    Private Sub WebBrowser1_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
+        Me.Cursor = Cursors.Default
+        MsgBox("export terminé")
+        cbExporter.Enabled = True
+    End Sub
+
 End Class

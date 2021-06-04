@@ -448,15 +448,17 @@ Public Class frmExportInternet
         Dim objcommand As System.Data.OleDb.OleDbCommand
         objcommand = New OleDb.OleDbCommand
         objcommand.Connection = Persist.dbConnection.Connection
-        objcommand.CommandText = "SELECT     COUNT(SOUSCOMMANDE.SCMD_ID) AS NBRE FROM SOUSCOMMANDE INNER JOIN FOURNISSEUR ON SOUSCOMMANDE.SCMD_FRN_ID = FOURNISSEUR.FRN_ID" & _
-                                 " WHERE     SOUSCOMMANDE.SCMD_ETAT = 10 AND  FOURNISSEUR.FRN_BEXP_INTERNET = 1 " & _
-                                 " AND SOUSCOMMANDE.SCMD_DATE >= '" & dtDatedeb.Value.ToShortDateString() & "' AND " & _
-                                " SOUSCOMMANDE.SCMD_DATE <= '" & dtdateFin.Value.ToShortDateString() & "'"
+        objcommand.CommandText = "SELECT     COUNT(SOUSCOMMANDE.SCMD_ID) AS NBRE FROM SOUSCOMMANDE INNER JOIN FOURNISSEUR ON SOUSCOMMANDE.SCMD_FRN_ID = FOURNISSEUR.FRN_ID" &
+                                 " WHERE     SOUSCOMMANDE.SCMD_ETAT = 10 AND  FOURNISSEUR.FRN_BEXP_INTERNET = 1 " &
+                                 " AND SOUSCOMMANDE.SCMD_DATE >= ? AND " &
+                                " SOUSCOMMANDE.SCMD_DATE <= ?"
         If Not String.IsNullOrEmpty(tbCodeFournisseur.Text) Then
             objcommand.CommandText = objcommand.CommandText & _
                                      " AND FOURNISSEUR.FRN_CODE LIKE '" & tbCodeFournisseur.Text & "'"
         End If
         objcommand.Connection.Open()
+        objcommand.Parameters.AddWithValue("?", dtDatedeb.Value)
+        objcommand.Parameters.AddWithValue("?", dtdateFin.Value)
         tbNbreTheorique.Text = objcommand.ExecuteScalar().ToString()
         objcommand.Connection.Close()
 

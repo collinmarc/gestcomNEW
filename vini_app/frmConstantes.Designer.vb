@@ -75,8 +75,6 @@ Partial Class frmConstantes
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabVinicom = New System.Windows.Forms.TabPage()
         Me.tbCompteBanque = New System.Windows.Forms.TextBox()
-        Me.CONSTANTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DsVinicom = New vini_DB.dsVinicom()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CST_SOC1_CMPT_PRODTextBox = New System.Windows.Forms.TextBox()
         Me.CST_SOC1_CMPT_TVATextBox = New System.Windows.Forms.TextBox()
@@ -227,11 +225,13 @@ Partial Class frmConstantes
         Me.CST_VERSION_BDTextBox = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.tbURLEspFRN = New System.Windows.Forms.TextBox()
+        Me.CONSTANTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsVinicom = New vini_DB.dsVinicom()
         Me.CONSTANTESTableAdapter = New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
-        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabVinidis.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -241,6 +241,8 @@ Partial Class frmConstantes
         Me.tbEDI_Destinataire.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.TabPage6.SuspendLayout()
+        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CST_SOC_NOMSOCLabel
@@ -755,16 +757,6 @@ Partial Class frmConstantes
         Me.tbCompteBanque.Name = "tbCompteBanque"
         Me.tbCompteBanque.Size = New System.Drawing.Size(100, 20)
         Me.tbCompteBanque.TabIndex = 26
-        '
-        'CONSTANTESBindingSource
-        '
-        Me.CONSTANTESBindingSource.DataMember = "CONSTANTES"
-        Me.CONSTANTESBindingSource.DataSource = Me.DsVinicom
-        '
-        'DsVinicom
-        '
-        Me.DsVinicom.DataSetName = "dsVinicom"
-        Me.DsVinicom.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -1515,6 +1507,8 @@ Partial Class frmConstantes
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.tbURLEspFRN)
+        Me.TabPage5.Controls.Add(Me.Label29)
         Me.TabPage5.Controls.Add(Me.btnTestFTPvnc)
         Me.TabPage5.Controls.Add(Me.Label31)
         Me.TabPage5.Controls.Add(Me.tb_ftnvnc_remoteDir)
@@ -1548,7 +1542,7 @@ Partial Class frmConstantes
         '
         'btnTestFTPvnc
         '
-        Me.btnTestFTPvnc.Location = New System.Drawing.Point(635, 134)
+        Me.btnTestFTPvnc.Location = New System.Drawing.Point(647, 105)
         Me.btnTestFTPvnc.Name = "btnTestFTPvnc"
         Me.btnTestFTPvnc.Size = New System.Drawing.Size(89, 25)
         Me.btnTestFTPvnc.TabIndex = 42
@@ -2253,6 +2247,33 @@ Partial Class frmConstantes
         Me.dtpdateMAj.Size = New System.Drawing.Size(152, 20)
         Me.dtpdateMAj.TabIndex = 4
         '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(8, 137)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(164, 13)
+        Me.Label29.TabIndex = 44
+        Me.Label29.Text = "URL d'intégration des documents"
+        '
+        'tbURLEspFRN
+        '
+        Me.tbURLEspFRN.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_URL", True))
+        Me.tbURLEspFRN.Location = New System.Drawing.Point(191, 134)
+        Me.tbURLEspFRN.Name = "tbURLEspFRN"
+        Me.tbURLEspFRN.Size = New System.Drawing.Size(438, 20)
+        Me.tbURLEspFRN.TabIndex = 45
+        '
+        'CONSTANTESBindingSource
+        '
+        Me.CONSTANTESBindingSource.DataMember = "CONSTANTES"
+        Me.CONSTANTESBindingSource.DataSource = Me.DsVinicom
+        '
+        'DsVinicom
+        '
+        Me.DsVinicom.DataSetName = "dsVinicom"
+        Me.DsVinicom.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'CONSTANTESTableAdapter
         '
         Me.CONSTANTESTableAdapter.ClearBeforeFill = True
@@ -2273,8 +2294,6 @@ Partial Class frmConstantes
         Me.TabControl1.ResumeLayout(False)
         Me.tabVinicom.ResumeLayout(False)
         Me.tabVinicom.PerformLayout()
-        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabVinidis.ResumeLayout(False)
         Me.TabVinidis.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
@@ -2293,6 +2312,8 @@ Partial Class frmConstantes
         Me.TabPage7.PerformLayout()
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout()
+        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2502,4 +2523,6 @@ Partial Class frmConstantes
     Friend WithEvents Label34 As Label
     Friend WithEvents tbftpvnc_host As TextBox
     Friend WithEvents Label35 As Label
+    Friend WithEvents tbURLEspFRN As TextBox
+    Friend WithEvents Label29 As Label
 End Class

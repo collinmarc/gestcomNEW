@@ -1679,6 +1679,8 @@ Partial Public Class dsVinicom
         
         Private columnCST_FTPVNC_REMOTEDIR As Global.System.Data.DataColumn
         
+        Private columnCST_FTPVNC_URL As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -2523,6 +2525,14 @@ Partial Public Class dsVinicom
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CST_FTPVNC_URLColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCST_FTPVNC_URL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2660,9 +2670,10 @@ Partial Public Class dsVinicom
                     ByVal CST_FTPVNC_HOST As String,  _
                     ByVal CST_FTPVNC_USER As String,  _
                     ByVal CST_FTPVNC_PASSWORD As String,  _
-                    ByVal CST_FTPVNC_REMOTEDIR As String) As CONSTANTESRow
+                    ByVal CST_FTPVNC_REMOTEDIR As String,  _
+                    ByVal CST_FTPVNC_URL As String) As CONSTANTESRow
             Dim rowCONSTANTESRow As CONSTANTESRow = CType(Me.NewRow,CONSTANTESRow)
-            Dim columnValuesArray() As Object = New Object() {CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC_ADRESSE_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_SOC_EMAIL, CST_FAX_PAGE_GARDE, CST_FAX_ENVOI_PAGE_GARDE, CST_FAX_SERVERNAME, CST_DERN_NUM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA, CST_VERSION_BD, CST_FAX_PREFIX, CST_TX_COMMISSION, CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP, CST_TAXES_TRP, CST_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST_SOC2_ADRESSE_RUE1, CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2_ADRESSE_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_PLTFRM_NOM, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, CST_PLTFRM_CP, CST_PLTFRM_VILLE, CST_PLTFRM_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_PLTFRM_PORT, CST_TRP_TXGAZOLE, CST_PU_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD, FTP_REMOTEDIR, FTP_LOCKFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE, CST_COL_IDMODEREGLEMENT, CST_FACT_COL_TAXES, CST_FACT_COL_PU_COLIS, CST_SOC_RCS, CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, CST_SOC2_LICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, CST_SOC_COMPTEPRODUIT, CST_SOC_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2_COMPTEPRODUIT, CST_SOC2_COMPTEBANQUE, CST_SOC2_COMPTEPRODUIT_COL, CST_ID, CST_EDI_HOST, CST_EDI_PORT, CST_EDI_FROM, CST_EDI_TEMP, CST_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_FTPEDI_SRV, CST_FTPEDI_USER, CST_FTPEDI_PWD, CST_FTPEDI_PORT, CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRODUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP_PWD, CST_IMAP_NSEC, CST_IMAP_MSGFOLDER, CST_IMAP_PORT, CST_IMAP_HOST, CST_EDI_SSL, CST_IMAP_SSL, CST_FTPVNC_HOST, CST_FTPVNC_USER, CST_FTPVNC_PASSWORD, CST_FTPVNC_REMOTEDIR}
+            Dim columnValuesArray() As Object = New Object() {CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC_ADRESSE_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_SOC_EMAIL, CST_FAX_PAGE_GARDE, CST_FAX_ENVOI_PAGE_GARDE, CST_FAX_SERVERNAME, CST_DERN_NUM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA, CST_VERSION_BD, CST_FAX_PREFIX, CST_TX_COMMISSION, CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP, CST_TAXES_TRP, CST_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST_SOC2_ADRESSE_RUE1, CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2_ADRESSE_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_PLTFRM_NOM, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, CST_PLTFRM_CP, CST_PLTFRM_VILLE, CST_PLTFRM_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_PLTFRM_PORT, CST_TRP_TXGAZOLE, CST_PU_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD, FTP_REMOTEDIR, FTP_LOCKFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE, CST_COL_IDMODEREGLEMENT, CST_FACT_COL_TAXES, CST_FACT_COL_PU_COLIS, CST_SOC_RCS, CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, CST_SOC2_LICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, CST_SOC_COMPTEPRODUIT, CST_SOC_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2_COMPTEPRODUIT, CST_SOC2_COMPTEBANQUE, CST_SOC2_COMPTEPRODUIT_COL, CST_ID, CST_EDI_HOST, CST_EDI_PORT, CST_EDI_FROM, CST_EDI_TEMP, CST_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_FTPEDI_SRV, CST_FTPEDI_USER, CST_FTPEDI_PWD, CST_FTPEDI_PORT, CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRODUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP_PWD, CST_IMAP_NSEC, CST_IMAP_MSGFOLDER, CST_IMAP_PORT, CST_IMAP_HOST, CST_EDI_SSL, CST_IMAP_SSL, CST_FTPVNC_HOST, CST_FTPVNC_USER, CST_FTPVNC_PASSWORD, CST_FTPVNC_REMOTEDIR, CST_FTPVNC_URL}
             rowCONSTANTESRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCONSTANTESRow)
             Return rowCONSTANTESRow
@@ -2792,6 +2803,7 @@ Partial Public Class dsVinicom
             Me.columnCST_FTPVNC_USER = MyBase.Columns("CST_FTPVNC_USER")
             Me.columnCST_FTPVNC_PASSWORD = MyBase.Columns("CST_FTPVNC_PASSWORD")
             Me.columnCST_FTPVNC_REMOTEDIR = MyBase.Columns("CST_FTPVNC_REMOTEDIR")
+            Me.columnCST_FTPVNC_URL = MyBase.Columns("CST_FTPVNC_URL")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2999,6 +3011,8 @@ Partial Public Class dsVinicom
             MyBase.Columns.Add(Me.columnCST_FTPVNC_PASSWORD)
             Me.columnCST_FTPVNC_REMOTEDIR = New Global.System.Data.DataColumn("CST_FTPVNC_REMOTEDIR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCST_FTPVNC_REMOTEDIR)
+            Me.columnCST_FTPVNC_URL = New Global.System.Data.DataColumn("CST_FTPVNC_URL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCST_FTPVNC_URL)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCST_ID}, true))
             Me.columnCST_SOC_NOMSOC.DefaultValue = CType("""""",String)
             Me.columnCST_SOC_NOMSOC.MaxLength = 50
@@ -3111,6 +3125,7 @@ Partial Public Class dsVinicom
             Me.columnCST_FTPVNC_USER.MaxLength = 50
             Me.columnCST_FTPVNC_PASSWORD.MaxLength = 50
             Me.columnCST_FTPVNC_REMOTEDIR.MaxLength = 50
+            Me.columnCST_FTPVNC_URL.MaxLength = 256
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10000,6 +10015,22 @@ Partial Public Class dsVinicom
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CST_FTPVNC_URL() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCONSTANTES.CST_FTPVNC_URLColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'CST_FTPVNC_URL' dans la table 'CONSTANTES' est DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCONSTANTES.CST_FTPVNC_URLColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsCST_SOC_NOMSOCNull() As Boolean
             Return Me.IsNull(Me.tableCONSTANTES.CST_SOC_NOMSOCColumn)
         End Function
@@ -11196,6 +11227,18 @@ Partial Public Class dsVinicom
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetCST_FTPVNC_REMOTEDIRNull()
             Me(Me.tableCONSTANTES.CST_FTPVNC_REMOTEDIRColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCST_FTPVNC_URLNull() As Boolean
+            Return Me.IsNull(Me.tableCONSTANTES.CST_FTPVNC_URLColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCST_FTPVNC_URLNull()
+            Me(Me.tableCONSTANTES.CST_FTPVNC_URLColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -16677,6 +16720,7 @@ Namespace dsVinicomTableAdapters
             tableMapping.ColumnMappings.Add("CST_FTPVNC_USER", "CST_FTPVNC_USER")
             tableMapping.ColumnMappings.Add("CST_FTPVNC_PASSWORD", "CST_FTPVNC_PASSWORD")
             tableMapping.ColumnMappings.Add("CST_FTPVNC_REMOTEDIR", "CST_FTPVNC_REMOTEDIR")
+            tableMapping.ColumnMappings.Add("CST_FTPVNC_URL", "CST_FTPVNC_URL")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -16710,11 +16754,11 @@ Namespace dsVinicomTableAdapters
                 " [CST_SOC2_COMPTEPRODUIT_TAXEGO], [CST_DATE_UPDATE], [CST_EDI_USER], [CST_EDI_PW"& _ 
                 "D], [CST_IMAP_USER], [CST_IMAP_PWD], [CST_IMAP_NSEC], [CST_IMAP_MSGFOLDER], [CST"& _ 
                 "_IMAP_PORT], [CST_IMAP_HOST], [CST_EDI_SSL], [CST_IMAP_SSL], [CST_FTPVNC_HOST], "& _ 
-                "[CST_FTPVNC_USER], [CST_FTPVNC_PASSWORD], [CST_FTPVNC_REMOTEDIR]) VALUES (?, ?, "& _ 
-                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
+                "[CST_FTPVNC_USER], [CST_FTPVNC_PASSWORD], [CST_FTPVNC_REMOTEDIR], [CST_FTPVNC_UR"& _ 
+                "L]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
                 " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"& _ 
                 ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
-                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_SOC_NOMSOC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_NOMSOC", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_SOC_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -16817,6 +16861,7 @@ Namespace dsVinicomTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_FTPVNC_USER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FTPVNC_USER", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_FTPVNC_PASSWORD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FTPVNC_PASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_FTPVNC_REMOTEDIR", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FTPVNC_REMOTEDIR", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_FTPVNC_URL", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FTPVNC_URL", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [CONSTANTES] SET [CST_SOC_NOMSOC] = ?, [CST_SOC_ADRESSE_RUE1] = ?, [CST_SO"& _ 
@@ -16849,8 +16894,8 @@ Namespace dsVinicomTableAdapters
                 "CST_EDI_USER] = ?, [CST_EDI_PWD] = ?, [CST_IMAP_USER] = ?, [CST_IMAP_PWD] = ?, ["& _ 
                 "CST_IMAP_NSEC] = ?, [CST_IMAP_MSGFOLDER] = ?, [CST_IMAP_PORT] = ?, [CST_IMAP_HOS"& _ 
                 "T] = ?, [CST_EDI_SSL] = ?, [CST_IMAP_SSL] = ?, [CST_FTPVNC_HOST] = ?, [CST_FTPVN"& _ 
-                "C_USER] = ?, [CST_FTPVNC_PASSWORD] = ?, [CST_FTPVNC_REMOTEDIR] = ? WHERE (([CST_"& _ 
-                "ID] = ?))"
+                "C_USER] = ?, [CST_FTPVNC_PASSWORD] = ?, [CST_FTPVNC_REMOTEDIR] = ?, [CST_FTPVNC_"& _ 
+                "URL] = ? WHERE (([CST_ID] = ?))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_SOC_NOMSOC", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_NOMSOC", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_SOC_ADRESSE_RUE1", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_SOC_ADRESSE_RUE1", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -16953,6 +16998,7 @@ Namespace dsVinicomTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_FTPVNC_USER", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FTPVNC_USER", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_FTPVNC_PASSWORD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FTPVNC_PASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_FTPVNC_REMOTEDIR", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FTPVNC_REMOTEDIR", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CST_FTPVNC_URL", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_FTPVNC_URL", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CST_ID", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CST_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
@@ -16996,7 +17042,8 @@ Namespace dsVinicomTableAdapters
                 "DUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP"& _ 
                 "_PWD, CST_IMAP_NSEC, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CST_IMAP_MSGFOLDER, CST_IMAP_POR"& _ 
                 "T, CST_IMAP_HOST, CST_EDI_SSL, CST_IMAP_SSL, CST_FTPVNC_HOST, CST_FTPVNC_USER, C"& _ 
-                "ST_FTPVNC_PASSWORD, CST_FTPVNC_REMOTEDIR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONSTANTES"
+                "ST_FTPVNC_PASSWORD, CST_FTPVNC_REMOTEDIR, CST_FTPVNC_URL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONSTA"& _ 
+                "NTES"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.vini_DB.My.MySettings.Default.ConnectString)
