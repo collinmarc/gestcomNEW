@@ -156,14 +156,19 @@ Public Class frmExportColisage
         '
         'WebBrowser1
         '
+        Me.WebBrowser1.AllowWebBrowserDrop = False
         Me.WebBrowser1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.WebBrowser1.IsWebBrowserContextMenuEnabled = False
         Me.WebBrowser1.Location = New System.Drawing.Point(20, 136)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.ScriptErrorsSuppressed = True
+        Me.WebBrowser1.ScrollBarsEnabled = False
         Me.WebBrowser1.Size = New System.Drawing.Size(924, 517)
         Me.WebBrowser1.TabIndex = 15
+        Me.WebBrowser1.WebBrowserShortcutsEnabled = False
         '
         'frmExportColisage
         '
@@ -194,6 +199,7 @@ Public Class frmExportColisage
 
     Private Sub frmMouvementArticle_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         EnableControls(True)
+        Me.WebBrowser1.Visible = True
     End Sub
 
     Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
@@ -201,39 +207,47 @@ Public Class frmExportColisage
     End Sub
 
     Private Sub cbExporter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbExporter.Click
-        setcursorWait()
         ExporterColisage()
-        restoreCursor()
     End Sub
 
     Private Sub ExporterColisage()
         'On Prend les fournisseurs indiqué comme Espace fournisseur
         m_ListFRN = Fournisseur.getListe().Where(Function(o) o.EspFrn).ToList()
-        '        m_ListFRN = Fournisseur.getListe(tbCodeFourn.Text)
-
-        m_pgBar.Maximum = m_ListFRN.Count() + 1
-        m_pgBar.Minimum = 0
-        m_pgBar.Value = 0
-
-        m_strFolder = My.Settings.Tmp & "/ExportColisage" & DateTime.Now.ToString("yyyyMMdd")
-        If Not System.IO.Directory.Exists(m_strFolder) Then
-            System.IO.Directory.CreateDirectory(m_strFolder)
+        If (tbCodeFourn.Text <> "") Then
+            m_ListFRN = m_ListFRN.Where(Function(o) o.code = tbCodeFourn.Text).ToList()
         End If
-        If Directory.EnumerateFiles(m_strFolder).Count > 0 Then
-            If MsgBox("Votre répertoire " & m_strFolder & " n'est pas vide, souhaitez-vous supprimer les fichiers existants avant l'export ?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                For Each strFile As String In Directory.EnumerateFiles(m_strFolder)
-                    File.Delete(strFile)
-                Next
+        If m_ListFRN.Count > 0 Then
+            lblProgress.Text = "Lecture des fournisseurs"
+            m_pgBar.Maximum = m_ListFRN.Count() + 1
+            m_pgBar.Minimum = 0
+            m_pgBar.Value = 0
+
+            m_strFolder = My.Settings.Tmp & "/ExportColisage" & DateTime.Now.ToString("yyyyMMdd")
+            If Not System.IO.Directory.Exists(m_strFolder) Then
+                System.IO.Directory.CreateDirectory(m_strFolder)
             End If
+            If Directory.EnumerateFiles(m_strFolder).Count > 0 Then
+                If MsgBox("Votre répertoire " & m_strFolder & " n'est pas vide, souhaitez-vous supprimer les fichiers existants avant l'export ?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    For Each strFile As String In Directory.EnumerateFiles(m_strFolder)
+                        File.Delete(strFile)
+                    Next
+                End If
+            End If
+
+            m_strFileCSV = m_strFolder & "/col" & dtPeriode.Value.Year & dtPeriode.Value.Month & dtPeriode.Value.Day & ".csv"
+
+            Me.Cursor = Cursors.WaitCursor
+            Me.UseWaitCursor = True
+            lblProgress.Text = "Traitement des fournisseurs"
+
+
+            BackgroundWorker1.RunWorkerAsync()
+            cbExporter.Enabled = False
+        Else
+            MsgBox("Aucun fournisseur à traiter")
+            lblProgress.Text = ""
         End If
 
-        m_strFileCSV = m_strFolder & "/col" & dtPeriode.Value.Year & dtPeriode.Value.Month & dtPeriode.Value.Day & ".csv"
-
-
-
-        BackgroundWorker1.RunWorkerAsync()
-        cbExporter.Enabled = False
-        Me.Cursor = Cursors.WaitCursor
     End Sub
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
@@ -272,7 +286,6 @@ Public Class frmExportColisage
                 Dim oftp As clsFTPVinicom
                 oftp = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOST"), Param.getConstante("CST_FTPVNC_USER"), Param.getConstante("CST_FTPVNC_PASSWORD"))
                 oftp.uploadFromDir(m_strFolder)
-                BackgroundWorker1.ReportProgress(100)
 
             End If
 
@@ -291,7 +304,11 @@ Public Class frmExportColisage
     End Sub
 
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
-        WebBrowser1.Navigate(New Uri(Param.getConstante("CST_FTPVNC_URL")))
+        Me.WebBrowser1.ScriptErrorsSuppressed = True
+        Me.WebBrowser1.Visible = True
+        Me.WebBrowser1.Navigate(New Uri(Param.getConstante("CST_FTPVNC_URL")))
+        m_pgBar.Value = m_pgBar.Value + 1
+        lblProgress.Text = m_pgBar.Value & "/" & m_pgBar.Maximum
     End Sub
 
     Private Sub btn_annuler_Click(sender As Object, e As EventArgs) Handles btn_annuler.Click
@@ -300,6 +317,7 @@ Public Class frmExportColisage
 
     Private Sub WebBrowser1_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
         Me.Cursor = Cursors.Default
+        Me.UseWaitCursor = False
         MsgBox("export terminé")
         cbExporter.Enabled = True
 
