@@ -1398,8 +1398,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Requetes\TOV6.0.0.3.sql" />
-    <Content Include="Requetes\V20210531.SQL" />
-    <Content Include="Requetes\V20210501.SQL" />
+    <Content Include="Requetes\V20210531.SQL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Requetes\V20210501.SQL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Requetes\V6002-UpdateCLT_ORIGINE.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
