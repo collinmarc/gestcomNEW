@@ -72,8 +72,12 @@ Public Class frmEditfactures
         End If
         If rbFactCol.Checked Or rbFactColAnc.Checked Then
             oCol = New Collection()
+            Dim olst As List(Of FactColisageJ)
 
-            FactColisageJ.getListe(ddeb, dfin, tbCodeTiers.Text)
+            olst = FactColisageJ.getListe(ddeb, dfin, tbCodeTiers.Text)
+            'Ajout dans la collection 
+            olst.ForEach(Sub(i) oCol.Add(i))
+
         End If
         tabIds = New ArrayList()
         For Each objFact In oCol
