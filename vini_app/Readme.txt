@@ -1,4 +1,8 @@
 ﻿
+	0001376: Export vers l'espace fournisseur VINICOM : Activation de l'intégration
+	0001378: Edition des factures de colisage en masse ne fonctionne plus
+	0001379: Vini_internet : pblm d'accès au fichier trace
+
 V20210531
 	0001367: Saisie de commmande , Dbl Click sur la liste des Scmd ne fonctionne plus
 	0001374: Gestion des Iban, BIC client

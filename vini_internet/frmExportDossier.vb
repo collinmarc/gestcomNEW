@@ -21,7 +21,6 @@ Public Class frmExportDossier
         If dgvStatus.Rows.Count > dgvStatus.DisplayedRowCount(True) Then
             dgvStatus.FirstDisplayedScrollingRowIndex = dgvStatus.Rows.Count - dgvStatus.DisplayedRowCount(True) + 1
         End If
-        System.IO.File.AppendAllText("./vini_internet.trace", Now().ToShortTimeString() + strMessage + vbCrLf)
         Trace.WriteLine(Now().ToShortTimeString() + strMessage)
         'lbStatus.Items.Add(Now() + ":" + strMessage)
         'lbStatus.SetSelected(lbStatus.Items.Count - 1, True)

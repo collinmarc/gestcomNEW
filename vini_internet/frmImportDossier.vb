@@ -334,7 +334,6 @@ Public Class frmImportDossier
         End If
     End Sub
     Private Sub Log(ByVal strMessage As String)
-        System.IO.File.AppendAllText("./vini_internet.trace", Now() + " " + strMessage + vbCrLf)
         Trace.WriteLine(Now() + " " + strMessage)
     End Sub
     Private Shadows Sub DisplayStatus(ByVal strMessage As String)
