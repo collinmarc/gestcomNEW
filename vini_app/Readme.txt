@@ -1,6 +1,6 @@
 ﻿
 
-
+	0001382: Erreur en edition de facture de transport
 	0001381: Erreur d'integration d'une commande vinicom
 
 V20210607

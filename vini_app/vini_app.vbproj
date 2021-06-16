@@ -1404,6 +1404,7 @@
     <Content Include="Requetes\V20210501.SQL">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Requetes\V20210616.sql" />
     <Content Include="Requetes\V6002-UpdateCLT_ORIGINE.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
