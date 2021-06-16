@@ -1,4 +1,10 @@
 ﻿
+
+
+	0001381: Erreur d'integration d'une commande vinicom
+
+V20210607
+
 	0001376: Export vers l'espace fournisseur VINICOM : Activation de l'intégration
 	0001378: Edition des factures de colisage en masse ne fonctionne plus
 	0001379: Vini_internet : pblm d'accès au fichier trace
