@@ -25,7 +25,7 @@ Imports System.Text.RegularExpressions
     End Sub
     <TestInitialize()> Public Overrides Sub TestInitialize()
         MyBase.TestInitialize()
-        CleanImap()
+        'CleanImap()
     End Sub
 
     <TestMethod()> Public Sub TestLogin()
@@ -908,6 +908,78 @@ Imports System.Text.RegularExpressions
 
 
 
+    End Sub
+    <TestMethod()> Public Sub TestConvertToXml()
+        Dim str As String
+
+        str = "[?xml version=3D""1.0"" encoding=3D""utf-8""
+standalone=3D""yes""?]
+[cmdprestashop]
+        [id]1698[/id]
+[name]HYVVVYQME[/name]
+[origine]VINICOM[/origine]
+[customer_id]87[/customer_id]
+=09=09[livraison_company][/livraison_company]
+=09=09[livraison_name]GAUTIER[/livraison_name]
+=09=09[livraison_firstname]Christophe[/livraison_firstname]
+=09=09[livraison_adress1].[/livraison_adress1]
+=09=09[livraison_adress2][/livraison_adress2]
+=09=09[livraison_postalcode][/livraison_postalcode]
+=09=09[livraison_city].[/livraison_city]
+[lignes]
+        [ligneprestashop]
+=09=09=09=09=09[reference]011001[/reference]
+=09=09=09=09=09[quantite]12[/quantite]
+=09=09=09=09=09[prixunitaire]4.54[/prixunitaire]
+=09=09=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]040012[/reference]
+=09=09=09=09=09[quantite]6[/quantite]
+=09=09=09=09=09[prixunitaire]8.7[/prixunitaire]
+=09=09=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]040015[/reference]
+=09=09=09=09=09[quantite]12[/quantite]
+=09=09=09=09=09[prixunitaire]5.6[/prixunitaire]
+=09=09=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]059020[/reference]
+=09=09=09=09=09[quantite]24[/quantite]
+=09=09=09=09=09[prixunitaire]4.15[/prixunitaire]
+=09=09
+=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]174008[/reference]
+=09=09=09=09=09[quantite]24[/quantite]
+=09=09=09=09=09[prixunitaire]2.5[/prixunitaire]
+=09=09=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]174024[/reference]
+=09=09=09=09=09[quantite]24[/quantite]
+=09=09=09=09=09[prixunitaire]3.5[/prixunitaire]
+=09=09=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]178001H[/reference]
+=09=09=09=09=09[quantite]36[/quantite]
+=09=09=09=09=09[prixunitaire]2.77[/prixunitaire]
+=09=09=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]178002H[/reference]
+=09=09=09=09=09[quantite]12[/quantite]
+=09=09=09=09=09[prixunitaire]2.83[/prixunitaire]
+=09=09=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]235001H[/reference]
+=09=09=09=09=09[quantite]12[/quantite]
+=09=09=09=09=09[prixunitaire]3.87[/prixunitaire]
+=09=09=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]257005H[/reference]
+=09=09=09=09=09[quantite]24[/quantite]
+=09=09=09=09=09[prixunitaire]4.48[/prixunitaire]
+=09=09=09=09[/ligneprestashop][ligneprestashop]
+=09=09=09=09=09[reference]292005[/reference]
+=09=09=09=09=09[quantite]4[/quantite]
+=09=09=09=09=09[prixunitaire]12.8[/prixunitaire
+]
+=09=09=09=09[/ligneprestashop]
+[/lignes]
+[/cmdprestashop]
+[/xml]
+"
+        Dim ocmd As cmdprestashop = cmdprestashop.readXML(str)
+        Assert.AreNotEqual("", ocmd.id)
     End Sub
 
 End Class

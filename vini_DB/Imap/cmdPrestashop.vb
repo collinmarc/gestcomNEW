@@ -50,11 +50,13 @@ Public Class cmdprestashop
         Dim strXMl As String = pXmlString
         Try
             Dim oCmd As New cmdprestashop
+            strXMl = strXMl.Replace("[/xml]", "")
             strXMl = strXMl.Replace("=3D", "=")
             strXMl = strXMl.Replace("[", "<")
             strXMl = strXMl.Replace("]", ">")
             strXMl = strXMl.Replace("#", "=")
             strXMl = strXMl.Replace("&", ".")
+            strXMl = strXMl.Replace("=09", "")
 
             Dim oImap As New ImapVB.Imap
             Dim strOut As String = ""
