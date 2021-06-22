@@ -7,30 +7,32 @@ Imports vini_DB
 
     <TestMethod()> Public Sub testGetClientPrestashop()
         Dim oClient As Client
-        oClient = Client.createandloadPrestashop(99, Dossier.VINICOM)
+        Dim nIdPSP As Long = 978
+        Client.executeSQLQuery("DELETE FROM CLIENT WHERE CLT_IDPRESTASHOP = " & nIdPSP)
+        oClient = Client.createandloadPrestashop(nIdPSP, Dossier.VINICOM)
         Assert.IsNull(oClient)
 
         oClient = New Client("TESTIMAP", "Client de test")
-        oClient.idPrestashop = 99
+        oClient.idPrestashop = nIdPSP
         oClient.Origine = Dossier.VINICOM
         Assert.IsTrue(oClient.save())
 
-        oClient = Client.createandloadPrestashop(99, Dossier.HOBIVIN)
+        oClient = Client.createandloadPrestashop(nIdPSP, Dossier.HOBIVIN)
         Assert.IsNull(oClient)
 
-        oClient = Client.createandloadPrestashop(99, Dossier.VINICOM)
+        oClient = Client.createandloadPrestashop(nIdPSP, Dossier.VINICOM)
         Assert.IsNotNull(oClient)
-        Assert.AreEqual(99L, oClient.idPrestashop)
+        Assert.AreEqual(nIdPSP, oClient.idPrestashop)
 
         oClient.Origine = Dossier.HOBIVIN
         Assert.IsTrue(oClient.save())
 
-        oClient = Client.createandloadPrestashop(99, Dossier.VINICOM)
+        oClient = Client.createandloadPrestashop(nIdPSP, Dossier.VINICOM)
         Assert.IsNull(oClient)
 
-        oClient = Client.createandloadPrestashop(99, Dossier.HOBIVIN)
+        oClient = Client.createandloadPrestashop(nIdPSP, Dossier.HOBIVIN)
         Assert.IsNotNull(oClient)
-        Assert.AreEqual(99L, oClient.idPrestashop)
+        Assert.AreEqual(nIdPSP, oClient.idPrestashop)
 
 
 

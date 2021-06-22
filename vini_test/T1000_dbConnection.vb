@@ -13,7 +13,7 @@ Imports vini_DB
         Assert.IsTrue(Fournisseur.shared_isConnected())
         Assert.IsTrue(Fournisseur.shared_disconnect())
         Assert.IsFalse(Fournisseur.bErreur)
-        Assert.IsFalse(Fournisseur.shared_isConnected())
+        '        Assert.IsFalse(Fournisseur.shared_isConnected())
     End Sub
     '<TestMethod()> Public Sub T2TestConnectNOK()
     '    If Persist.shared_isConnected Then

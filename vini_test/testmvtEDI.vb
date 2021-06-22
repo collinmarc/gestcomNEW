@@ -441,7 +441,7 @@ Imports System.IO
     <TestMethod()> Public Sub T_getParam()
         Dim strTest As String
         strTest = Param.getConstante("CST_FTPEDI_REPLOCAL")
-        Assert.AreEqual("TSTEDI", strTest)
+        Assert.AreEqual("TESTEDI", strTest)
     End Sub
     <TestMethod()> Public Sub T_NumCMD()
         Dim omvt As New mvtEDI

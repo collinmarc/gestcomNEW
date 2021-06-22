@@ -193,7 +193,6 @@ Imports vini_DB
         Assert.AreEqual(objBA1.oTransporteur.AdresseLivraison.cp, objBA2.oTransporteur.AdresseLivraison.cp, "TRP_LIV_CP")
         Assert.AreEqual(objBA1.oTransporteur.AdresseLivraison.ville, objBA2.oTransporteur.AdresseLivraison.ville, "TRP_LIV_VILLE")
         Assert.AreEqual(objBA1.oTransporteur.AdresseLivraison.tel, objBA2.oTransporteur.AdresseLivraison.tel, "TRP_LIV_TEL")
-        Assert.AreEqual(objBA1.oTransporteur.AdresseLivraison.fax, objBA2.oTransporteur.AdresseLivraison.fax, "TRP_LIV_FAX")
         Assert.AreEqual(objBA1.oTransporteur.AdresseLivraison.port, objBA2.oTransporteur.AdresseLivraison.port, "TRP_LIV_PORT")
         Assert.AreEqual(objBA1.oTransporteur.AdresseLivraison.Email, objBA2.oTransporteur.AdresseLivraison.Email, "TRP_LIV_EMAIL")
 
