@@ -253,6 +253,7 @@ Public Class frmExportColisage
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Try
             Dim n As Integer = 0
+            Dim bEntete As Boolean = False
             For Each oFrn As Fournisseur In m_ListFRN
                 If BackgroundWorker1.CancellationPending Then
                     e.Cancel = True
@@ -261,19 +262,27 @@ Public Class frmExportColisage
                 Dim ddeb As DateTime, dFin As DateTime
                 ddeb = New Date(dtPeriode.Value.Year, dtPeriode.Value.Month, 1)
                 dFin = ddeb.AddMonths(1).AddDays(-1)
+                'Si le fichier existe déjà , alors il n'y a pas besoin de réecrire une entete
+                If File.Exists(m_strFileCSV) Then
+                    bEntete = True
+                End If
+                Dim strLine As String
+                If Not bEntete Then
+                    strLine = "code,type,nom,date" & vbCrLf
+                    File.AppendAllText(m_strFileCSV, strLine)
+                    bEntete = True
+                End If
                 Dim olst As List(Of FactColisageJ) = FactColisageJ.getListe(ddeb, dFin, oFrn.code)
                 For Each oFact As FactColisageJ In olst
                     Dim strFilename As String
-                    strFilename = "FCOL-" & oFrn.code & "-" & dtPeriode.Value.Year & dtPeriode.Value.Month & dtPeriode.Value.Day & ".pdf"
-                    If oFact.genererPDFFacture(PATHTOREPORTS, m_strFolder & "/" & strFilename) Then
-                        Dim strLine As String
-                        strLine = strFilename & ";" & oFrn.code & ";" & dtPeriode.Value.ToString("yyyyMMdd") & vbCrLf
+                    strFilename = "FCOL-" & oFrn.code & "-" & dtPeriode.Value.Year & dtPeriode.Value.Month & dtPeriode.Value.Day
+                    If oFact.genererPDFFacture(PATHTOREPORTS, m_strFolder & "/" & strFilename & ".pdf") Then
+                        strLine = oFrn.code & ",facture," & strFilename & "," & dtPeriode.Value.ToString("yyyy-MM-dd") & vbCrLf
                         File.AppendAllText(m_strFileCSV, strLine)
                     End If
-                    strFilename = "RCAP-" & oFrn.code & "-" & dtPeriode.Value.Year & dtPeriode.Value.Month & dtPeriode.Value.Day & ".pdf"
-                    If oFact.genererPDFRecap(PATHTOREPORTS, m_strFolder & "/" & strFilename) Then
-                        Dim strLine As String
-                        strLine = strFilename & ";" & oFrn.code & ";" & dtPeriode.Value.ToString("yyyyMMdd") & vbCrLf
+                    strFilename = "RCAP-" & oFrn.code & "-" & dtPeriode.Value.Year & dtPeriode.Value.Month & dtPeriode.Value.Day
+                    If oFact.genererPDFRecap(PATHTOREPORTS, m_strFolder & "/" & strFilename & ".pdf") Then
+                        strLine = oFrn.code & ",releve," & strFilename & "," & dtPeriode.Value.ToString("yyyy-MM-dd") & vbCrLf
                         File.AppendAllText(m_strFileCSV, strLine)
                     End If
 

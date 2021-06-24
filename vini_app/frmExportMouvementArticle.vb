@@ -251,16 +251,22 @@ Public Class frmExportMouvementArticle
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Try
             Dim n As Integer = 0
+            Dim bEntete As Boolean = False
             For Each oFrn As Fournisseur In m_ListFRN
                 If BackgroundWorker1.CancellationPending Then
                     e.Cancel = True
                     Exit For
                 End If
                 Dim strFilename As String
-                strFilename = "MVT-" & oFrn.code & "-" & dtDFin.Value.Year & dtDFin.Value.Month & dtDFin.Value.Day & ".pdf"
-                If oFrn.genererPDF(PATHTOREPORTS, m_strFolder & "\" & strFilename, dtDFin.Value) Then
+                strFilename = "MVT-" & oFrn.code & "-" & dtDFin.Value.Year & dtDFin.Value.Month & dtDFin.Value.Day
+                If oFrn.genererPDF(PATHTOREPORTS, m_strFolder & "\" & strFilename & ".pdf", dtDFin.Value) Then
                     Dim strLine As String
-                    strLine = strFilename & ";" & oFrn.code & ";" & dtDFin.Value.ToString("yyyyMMdd") & vbCrLf
+                    If Not bEntete Then
+                        strLine = "code,type,nom,date" & vbCrLf
+                        File.AppendAllText(m_strFileCSV, strLine)
+                        bEntete = True
+                    End If
+                    strLine = oFrn.code & ",stock," & strFilename & "," & dtDFin.Value.ToString("yyyy-MM-dd") & vbCrLf
                     File.AppendAllText(m_strFileCSV, strLine)
                 End If
                 BackgroundWorker1.ReportProgress((n / m_ListFRN.Count()) * 100)

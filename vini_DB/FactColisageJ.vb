@@ -928,7 +928,7 @@ Public Class FactColisageJ
             setError("FactColisageJ: genererPDFRecap ERR" & ex.Message)
         End Try
 
-
+        Return bReturn
     End Function
 
 End Class
