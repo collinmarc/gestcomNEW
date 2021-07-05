@@ -293,7 +293,7 @@ Public Class frmExportColisage
             Next
             If ckFTP.Checked And Not e.Cancel Then
                 Dim oftp As clsFTPVinicom
-                oftp = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOST"), Param.getConstante("CST_FTPVNC_USER"), Param.getConstante("CST_FTPVNC_PASSWORD"))
+                oftp = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOST"), Param.getConstante("CST_FTPVNC_USER"), Param.getConstante("CST_FTPVNC_PASSWORD"), Param.getConstante("CST_FTPVNC_REMOTEDIR"))
                 oftp.uploadFromDir(m_strFolder)
 
             End If

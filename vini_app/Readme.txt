@@ -1,4 +1,7 @@
-﻿V20210616
+﻿V20210705
+	0001384: Prise en compte du Dossier REMOTE dans le transfert vers l'espace fournisseur
+
+V20210616
 
 	0001382: Erreur en edition de facture de transport
 	0001381: Erreur d'integration d'une commande vinicom
