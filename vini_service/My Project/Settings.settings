@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Provider=SQLOLEDB.1;Data Source=BUREAU-DELL\SQLEXPRESS;Initial Catalog=vnc5;Persist Security Info=True;User ID=vinicom;Password=vinicom</Value>
     </Setting>
+    <Setting Name="bSaveCmd" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

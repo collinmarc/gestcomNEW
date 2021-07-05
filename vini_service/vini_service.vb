@@ -66,7 +66,7 @@ Public Class vini_service
                 Dim ImapSSL As Boolean = Param.IMAP_SSL
                 Dim oImport As New ImportPrestashop(ImapHost, ImapUser, ImapPwd, ImapPort, ImapSSL)
                 oImport.MSGFolderName = ImapFolder
-                olst = oImport.Import(True)
+                olst = oImport.Import(My.Settings.bSaveCmd)
                 If olst.Count > 0 Then
                     Trace.WriteLine("" & olst.Count.ToString() & " commandes importées")
                 End If

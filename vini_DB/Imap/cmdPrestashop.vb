@@ -57,6 +57,10 @@ Public Class cmdprestashop
             strXMl = strXMl.Replace("#", "=")
             strXMl = strXMl.Replace("&", ".")
             strXMl = strXMl.Replace("=09", "")
+            strXMl = strXMl.Replace(vbCrLf, "")
+            strXMl = strXMl.Replace("standalone", " standalone")
+            'strXMl = strXMl.Replace(vbCr, "")
+            '            strXMl = strXMl.Replace(vbLf, "")
 
             Dim oImap As New ImapVB.Imap
             Dim strOut As String = ""
