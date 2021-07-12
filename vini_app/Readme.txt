@@ -1,4 +1,9 @@
-﻿V20210705
+﻿VXXXXXXXX
+	0001386: Enregistrement des commentaires de livraison
+	0001387: Recherche par defaut des commandes = 'en cours'
+		0001388: Génération des mvts d'inventaires au 01 du mois
+
+V20210705
 	0001384: Prise en compte du Dossier REMOTE dans le transfert vers l'espace fournisseur
 
 V20210616

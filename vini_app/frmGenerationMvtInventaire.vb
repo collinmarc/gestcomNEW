@@ -215,9 +215,22 @@ Public Class frmGenerationMvtInventaire
 
     Private Sub cbGenMVI_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbGenMVI.Click
         Dim dtDateMvt As Date
+        Dim bOk As Boolean = True
         dtDateMvt = CType(dtDateInventaire.Value.ToShortDateString(), Date)
         If MsgBox("Etes-vous sur de vouloir générer les Mouvements d'inventaire à la date du " + dtDateMvt.ToShortDateString(), MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-            generationMvtInventaire(dtDateMvt, tbCodeProduit.Text)
+            bOk = True
+            If dtDateMvt.Day <> 1 Then
+                bOk = MsgBox("La génération se fait généralement au 1er du mois, voulez-vous poursuivre avec le " + dtDateMvt.ToShortDateString() + "?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes
+            End If
+            If bOk Then
+                generationMvtInventaire(dtDateMvt, tbCodeProduit.Text)
+            End If
         End If
+    End Sub
+
+    Private Sub frmGenerationMvtInventaire_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Dim dDateInv As Date = New Date(Now.Year, Now.Month, 1)
+        dDateInv.AddMonths(-1)
+        dtDateInventaire.Value = dDateInv
     End Sub
 End Class

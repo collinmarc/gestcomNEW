@@ -1953,6 +1953,7 @@ Public Class frmSaisieCommande
         '
         'tbCommentaireFacturation
         '
+        Me.tbCommentaireFacturation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcCommande, "CommentaireFacturationText", True))
         Me.tbCommentaireFacturation.Location = New System.Drawing.Point(96, 264)
         Me.tbCommentaireFacturation.Name = "tbCommentaireFacturation"
         Me.tbCommentaireFacturation.Size = New System.Drawing.Size(632, 120)
@@ -1961,6 +1962,7 @@ Public Class frmSaisieCommande
         '
         'tbCommentaireLivraison
         '
+        Me.tbCommentaireLivraison.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcCommande, "CommentaireLivraisonText", True))
         Me.tbCommentaireLivraison.Location = New System.Drawing.Point(96, 136)
         Me.tbCommentaireLivraison.Name = "tbCommentaireLivraison"
         Me.tbCommentaireLivraison.Size = New System.Drawing.Size(632, 120)
@@ -1969,6 +1971,7 @@ Public Class frmSaisieCommande
         '
         'tbCommentaireCommande
         '
+        Me.tbCommentaireCommande.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcCommande, "CommentaireCommandeText", True))
         Me.tbCommentaireCommande.Location = New System.Drawing.Point(96, 8)
         Me.tbCommentaireCommande.Name = "tbCommentaireCommande"
         Me.tbCommentaireCommande.Size = New System.Drawing.Size(632, 120)
@@ -2076,6 +2079,7 @@ Public Class frmSaisieCommande
         'tbComValid
         '
         Me.tbComValid.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbComValid.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcCommande, "CommentaireCommandeText", True))
         Me.tbComValid.Location = New System.Drawing.Point(624, 192)
         Me.tbComValid.Name = "tbComValid"
         Me.tbComValid.Size = New System.Drawing.Size(360, 104)
@@ -2393,6 +2397,7 @@ Public Class frmSaisieCommande
         'tbPiedPageBL
         '
         Me.tbPiedPageBL.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbPiedPageBL.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcCommande, "CommentaireLivraisonText", True))
         Me.tbPiedPageBL.Location = New System.Drawing.Point(576, 352)
         Me.tbPiedPageBL.Name = "tbPiedPageBL"
         Me.tbPiedPageBL.Size = New System.Drawing.Size(408, 104)
