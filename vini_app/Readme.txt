@@ -3,6 +3,7 @@
 	0001387: Recherche par defaut des commandes = 'en cours'
 	0001388: Génération des mvts d'inventaires au 01 du mois
 	0001417: Interface Espace Fournisseur VNC (Bon à Facturer)
+	0001418: Les Stats CA Client / Producteur et Producteut / Client ne fonctionne plus
 
 V20210705
 	0001384: Prise en compte du Dossier REMOTE dans le transfert vers l'espace fournisseur
