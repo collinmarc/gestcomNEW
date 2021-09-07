@@ -67,11 +67,6 @@ Public Module VNC_Constants
     Public GESTSCMD_STANDARDCOLOR As System.Drawing.Color = System.Drawing.Color.Empty
     Public GESTSCMD_EXTRACOLOR As System.Drawing.Color = System.Drawing.Color.Gray
 
-    Public IMPORT_IDSCMD As Integer
-    Public IMPORT_REFFACTFOURN As Integer
-    Public IMPORT_DATEFACTFOURN As Integer
-    Public IMPORT_TOTALHTFACTURE As Integer
-    Public IMPORT_TOTALTTCFACTURE As Integer
     '    Public IMPORT_TAUXCOMMISSION As Integer
     Public IMPORT_DIRECTORY As String
     Public EXPORTFTP_FILENAME As String
@@ -141,11 +136,6 @@ Public Module VNC_Constants
             FAX_JAA_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_JAA_BSENDCOVERPAGE")(0)
             FAX_JAA_NOTES = ConfigurationManager.AppSettings.GetValues("FAX_JAA_NOTES")(0)
 
-            IMPORT_IDSCMD = ConfigurationManager.AppSettings.GetValues("IMPORT_IDSCMD")(0)
-            IMPORT_REFFACTFOURN = ConfigurationManager.AppSettings.GetValues("IMPORT_REFFACTFOURN")(0)
-            IMPORT_DATEFACTFOURN = ConfigurationManager.AppSettings.GetValues("IMPORT_DATEFACTFOURN")(0)
-            IMPORT_TOTALHTFACTURE = ConfigurationManager.AppSettings.GetValues("IMPORT_TOTALHTFACTURE")(0)
-            IMPORT_TOTALTTCFACTURE = ConfigurationManager.AppSettings.GetValues("IMPORT_TOTALTTCFACTURE")(0)
             'IMPORT_TAUXCOMMISSION = ConfigurationManager.AppSettings.GetValues("IMPORT_TAUXCOMMISSION")(0)
             IMPORT_DIRECTORY = ConfigurationManager.AppSettings.GetValues("IMPORT_DIRECTORY")(0)
             EXPORTFTP_FILENAME = ConfigurationManager.AppSettings.GetValues("EXPORTFTP_FILENAME")(0)

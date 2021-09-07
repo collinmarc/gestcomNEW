@@ -252,42 +252,13 @@ Public Class frmImportDossier
                         pbProgressBar.Refresh()
                         strResult = LineInput(nFile)
                         tabCSV = strResult.Split(";")
-                        nId = tabCSV(IMPORT_IDSCMD)
-                        oSCMD = SousCommande.createandload(nId)
-                        If (Not oSCMD.bNew) Then
-                            Dim bSCMDATraiter As Boolean = True
-                            'Controle des sousCommandes déjà facturées (import déjà effectué mais non validé)
-                            If oSCMD.etat.codeEtat = vncEtatCommande.vncSCMDFacturee Or oSCMD.etat.codeEtat = vncEtatCommande.vncSCMDRapprocheeInt Then
-                                If oSCMD.refFactFournisseur = tabCSV(IMPORT_REFFACTFOURN) Then
-                                    bSCMDATraiter = False
-                                End If
-                            End If
-                            If bSCMDATraiter Then
-                                oSCMD.refFactFournisseur = tabCSV(IMPORT_REFFACTFOURN)
-                                oSCMD.dateFactFournisseur = Mid(tabCSV(IMPORT_DATEFACTFOURN), 1, 2) & "/" & Mid(tabCSV(IMPORT_DATEFACTFOURN), 3, 2) & "/" & Mid(tabCSV(IMPORT_DATEFACTFOURN), 5, 4)
-                                tabCSV(IMPORT_TOTALHTFACTURE) = tabCSV(IMPORT_TOTALHTFACTURE).Replace(".", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
-                                tabCSV(IMPORT_TOTALHTFACTURE) = tabCSV(IMPORT_TOTALHTFACTURE).Replace(",", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
-                                tabCSV(IMPORT_TOTALTTCFACTURE) = tabCSV(IMPORT_TOTALTTCFACTURE).Replace(".", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
-                                tabCSV(IMPORT_TOTALTTCFACTURE) = tabCSV(IMPORT_TOTALTTCFACTURE).Replace(",", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
-                                oSCMD.totalHTFacture = tabCSV(IMPORT_TOTALHTFACTURE)
-                                oSCMD.totalTTCFacture = Convert.ToDecimal(tabCSV(IMPORT_TOTALTTCFACTURE))
-                                'importation du taux de commission
-                                'oSCMD.tauxCommission = tabCSV(IMPORT_TAUXCOMMISSION)
-                                'Calcul du montant de la commission ave le montant facturé
-                                oSCMD.calcCommisionstandard(CalculCommScmd.CALCUL_COMMISSION_HT_FACTURE)
-                                oSCMD.changeEtat(vncEnums.vncActionEtatCommande.vncActionSCMDImportInternet)
-                                bReturn = oSCMD.Save()
-                                If (bReturn) Then
-                                    Log(oSCMD.code + "Etat" + oSCMD.etat.codeEtat.ToString() + "(" + oSCMD.oFournisseur.rs + ") =" + oSCMD.refFactFournisseur + "," + oSCMD.dateFactFournisseur.ToString("d") + ":" + oSCMD.totalHT.ToString("c") + "->" + oSCMD.totalHTFacture.ToString("c"))
-                                    'Ajout dans la collection pour traitement ultérieur
-                                    lbErreurs.Items.Add(oSCMD.code + "(" + oSCMD.oFournisseur.rs + ") =" + oSCMD.refFactFournisseur + "," + oSCMD.dateFactFournisseur.ToString("d") + ":" + oSCMD.totalHT.ToString("c") + "->" + oSCMD.totalHTFacture.ToString("c"))
-                                    lbErreurs.Refresh()
-                                    nSousCommandes = nSousCommandes + 1
-                                    tbNbreLignesTraitees.Text = nLineNumber
-                                End If
-                            End If
-                        Else
-                            DisplayStatus(strResult + "Sous commande inconnue")
+                        SousCommande.ImportCSV(strResult)
+                        If (bReturn) Then
+                            'Ajout dans la collection pour traitement ultérieur
+                            lbErreurs.Items.Add(oSCMD.code + "(" + oSCMD.oFournisseur.rs + ") =" + oSCMD.refFactFournisseur + "," + oSCMD.dateFactFournisseur.ToString("d") + ":" + oSCMD.totalHT.ToString("c") + "->" + oSCMD.totalHTFacture.ToString("c"))
+                            lbErreurs.Refresh()
+                            nSousCommandes = nSousCommandes + 1
+                            tbNbreLignesTraitees.Text = nLineNumber
                         End If
                     Catch Ex As Exception
                         lbErreurs.Items.Add(strResult + Ex.Message)

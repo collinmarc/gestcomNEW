@@ -21,7 +21,7 @@ Imports System.IO
         Dim oTaux As TauxComm
         Dim strCode As String
 
-        strCode = "FRNT1110"
+        strCode = "F1"
         m_oFourn = New Fournisseur(strCode, "MonFournisseur")
         m_oFourn.AdresseFacturation.nom = "ADF_Nom"
         m_oFourn.AdresseFacturation.rue1 = "ADF_Nom"
@@ -34,7 +34,7 @@ Imports System.IO
         m_oFourn.AdresseFacturation.Email = "04040404"
         m_oFourn.Save()
 
-        strCode = "FRN2T1110"
+        strCode = "F2"
         colFRN = Fournisseur.getListe(strCode)
         For Each m_oFourn2 In colFRN
             m_oFourn2.bDeleted = True
@@ -68,6 +68,7 @@ Imports System.IO
             m_oClient.save()
         Next
         m_oClient = New Client(strCode, "MonClient")
+        m_oClient.AdresseFacturation.ville = "Cléguérec"
         Debug.Assert(m_oClient.save(), "Creation du client")
         '            m_oClient()
 
@@ -641,9 +642,9 @@ Imports System.IO
         Assert.IsTrue(Not colSCMD Is Nothing, "ListeCMD()" & Persist.getErreur())
         Assert.AreEqual(4, colSCMD.Count, "4 Enregistrements")
 
-        colSCMD = SousCommande.getListe(, , "FRN%")
+        colSCMD = SousCommande.getListe(, , "F%")
         Assert.IsTrue(Not colSCMD Is Nothing, "ListeCMD()" & Persist.getErreur())
-        Assert.IsTrue(colSCMD.Count >= 4, "4 Enregistrements")
+        Assert.IsTrue(colSCMD.Count >= 4, "4 Enregistrements=" & colSCMD.Count)
 
         objCMDCLT2.bDeleted = True
         Assert.IsTrue(objCMDCLT2.save())
@@ -749,121 +750,27 @@ Imports System.IO
                 n = n + 1
                 Assert.AreEqual(Trim(oSCmd.codeCommandeClient), tabCSV(n))
                 n = n + 1
-                Assert.AreEqual(Trim(Format(oSCmd.dateCommande, "ddMMyyyy")), tabCSV(n))
+                Assert.AreEqual(Trim(Format(oSCmd.dateCommande, "yyyy-MM-dd")), tabCSV(n))
                 n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.code), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.nom), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.rs), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.nom), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.rue1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.rue2), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.cp), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.ville), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.tel), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.fax), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.port), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.Email), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.nom), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.rue1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.rue2), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.cp), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.ville), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.tel), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.fax), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.port), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.Email), tabCSV(n))
+                Assert.AreEqual(Trim(Right("000" & oSCmd.oFournisseur.code, 3)), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(Trim(oSCmd.oClient.code), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(Trim(oSCmd.oClient.nom), tabCSV(n))
                 n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.rs), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseLivraison.nom), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseLivraison.rue1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseLivraison.rue2), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseLivraison.cp), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseLivraison.ville), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseLivraison.tel), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseLivraison.fax), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseLivraison.port), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseLivraison.Email), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseFacturation.nom), tabCSV(n))
-                n = n + 1
                 Assert.AreEqual(Trim(oSCmd.oClient.AdresseFacturation.rue1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseFacturation.rue2), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(Trim(oSCmd.oClient.AdresseFacturation.cp), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(Trim(oSCmd.oClient.AdresseFacturation.ville), tabCSV(n))
                 n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseFacturation.tel), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseFacturation.fax), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseFacturation.port), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.AdresseFacturation.Email), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.libTypeClient), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(m_oCmd.typeTransport), tabCSV(n))
-                n = n + 1
                 Assert.AreEqual(Trim(oSCmd.oClient.libModeReglement), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(m_oCmd.refLivraison), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.banque), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.rib1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.rib2), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.rib3), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.rib4), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(Format(oSCmd.dateLivraison, "ddMMyyyy")), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(Format(oSCmd.dateEnlevement, "ddMMyyyy")), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(CDec(139.95), CDec(tabCSV(n)))
                 n = n + 1
                 Assert.AreEqual(CDec(167.94), CDec(tabCSV(n)))
                 n = n + 1
                 Assert.AreEqual(Trim(oSCmd.CommFacturation.comment), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual("10", tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(CDec(9), CDec(tabCSV(n)))
                 n = n + 1
@@ -880,17 +787,6 @@ Imports System.IO
                 Assert.AreEqual(Trim(m_oProduit.libContenant), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(CDec(15.55), CDec(tabCSV(n)))
-                n = n + 1
-                Assert.AreEqual("", tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(Format(oSCmd.dateFactFournisseur, "ddMMyyyy")), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(oSCmd.totalHTFacture, CDec(tabCSV(n))) ' Total HT Facturé
-                n = n + 1
-                Assert.AreEqual(oSCmd.totalTTCFacture, CDec(tabCSV(n))) 'Total TTC Facturé
-                n = n + 1
-                Assert.AreEqual(oSCmd.tauxCommission, CDec(tabCSV(n))) 'Taux de commission
-                n = n + 1
 
             End If
 
@@ -955,6 +851,7 @@ Imports System.IO
                 tabCSV = strResult.Split(";")
                 oSCmd = m_oCmd.colSousCommandes(1)
                 'Vérification du contenu de la ligne
+                'Vérification du contenu de la ligne
                 n = 0
                 Assert.AreEqual(Trim(oSCmd.id), tabCSV(n))
                 n = n + 1
@@ -962,121 +859,27 @@ Imports System.IO
                 n = n + 1
                 Assert.AreEqual(Trim(oSCmd.codeCommandeClient), tabCSV(n))
                 n = n + 1
-                Assert.AreEqual(Trim(Format(oSCmd.dateCommande, "ddMMyyyy")), tabCSV(n))
+                Assert.AreEqual(Trim(Format(oSCmd.dateCommande, "yyyy-MM-dd")), tabCSV(n))
                 n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.code), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.nom), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.rs), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.nom), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.rue1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.rue2), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.cp), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.ville), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.tel), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.fax), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.port), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oFournisseur.AdresseFacturation.Email), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.nom), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.rue1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.rue2), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.cp), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.ville), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.tel), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.fax), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.port), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oTransporteur.AdresseLivraison.Email), tabCSV(n))
+                Assert.AreEqual(Trim(Right("000" & oSCmd.oFournisseur.code, 3)), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(Trim(oIntermediaire.code), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(Trim(oIntermediaire.nom), tabCSV(n))
                 n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.rs), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseLivraison.nom), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseLivraison.rue1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseLivraison.rue2), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseLivraison.cp), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseLivraison.ville), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseLivraison.tel), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseLivraison.fax), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseLivraison.port), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseLivraison.Email), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseFacturation.nom), tabCSV(n))
-                n = n + 1
                 Assert.AreEqual(Trim(oIntermediaire.AdresseFacturation.rue1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseFacturation.rue2), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(Trim(oIntermediaire.AdresseFacturation.cp), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(Trim(oIntermediaire.AdresseFacturation.ville), tabCSV(n))
                 n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseFacturation.tel), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseFacturation.fax), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseFacturation.port), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.AdresseFacturation.Email), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.libTypeClient), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(m_oCmd.typeTransport), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oSCmd.oClient.libModeReglement), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(m_oCmd.refLivraison), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.banque), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.rib1), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.rib2), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.rib3), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(oIntermediaire.rib4), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(Format(oSCmd.dateLivraison, "ddMMyyyy")), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(Format(oSCmd.dateEnlevement, "ddMMyyyy")), tabCSV(n))
+                Assert.AreEqual(Trim(oIntermediaire.libModeReglement), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(CDec(9 * 10.2), CDec(tabCSV(n))) 'comme c'est une commande HOBIVIN, on prend le tarif dans la fiche produit et non dans la commande
                 n = n + 1
                 Assert.AreEqual(CDec((9 * 10.2) * 1.2), CDec(tabCSV(n)))
                 n = n + 1
                 Assert.AreEqual(Trim(oSCmd.CommFacturation.comment), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual("10", tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(CDec(9), CDec(tabCSV(n)))
                 n = n + 1
@@ -1093,17 +896,6 @@ Imports System.IO
                 Assert.AreEqual(Trim(m_oProduit.libContenant), tabCSV(n))
                 n = n + 1
                 Assert.AreEqual(m_oProduit.TarifA, CDec(tabCSV(n)))
-                n = n + 1
-                Assert.AreEqual("", tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(Trim(Format(oSCmd.dateFactFournisseur, "ddMMyyyy")), tabCSV(n))
-                n = n + 1
-                Assert.AreEqual(oSCmd.totalHTFacture, CDec(tabCSV(n))) ' Total HT Facturé
-                n = n + 1
-                Assert.AreEqual(oSCmd.totalTTCFacture, CDec(tabCSV(n))) 'Total TTC Facturé
-                n = n + 1
-                Assert.AreEqual(oSCmd.tauxCommission, CDec(tabCSV(n))) 'Taux de commission
-                n = n + 1
 
             End If
 
@@ -1247,6 +1039,19 @@ Imports System.IO
         Next oSCmd
         FileClose(nfile)
 
+        'RAZ des champs fournisseurs
+        For Each oSCmd In m_oCmd.colSousCommandes
+            oSCmd.changeEtat(vncActionEtatCommande.vncActionSCMDExportInternet)
+            oSCmd.refFactFournisseur = ""
+            oSCmd.dateFactFournisseur = DateTime.Now
+            oSCmd.totalHTFacture = 0
+            oSCmd.totalTTCFacture = 0
+            oSCmd.tauxCommission = 0
+            oSCmd.MontantCommission = 0
+            oSCmd.save()
+        Next oSCmd
+
+
 
         '=========================================================================
         ' II - Lecture du fichier CSV
@@ -1254,29 +1059,26 @@ Imports System.IO
         nfile = FreeFile()
         FileOpen(nfile, "./toVinicom.csv", OpenMode.Input, OpenAccess.Read)
         nLineNumber = 0
+        Dim bTrtImport As Boolean
         While Not EOF(nfile)
             nLineNumber = nLineNumber + 1
             strResult = LineInput(nfile)
             Console.WriteLine(strResult)
-            tabCSV = strResult.Split(";")
-            nId = tabCSV(0)
-            oSCmd = SousCommande.createandload(nId)
-            Assert.AreEqual(nId, oSCmd.id, "Id de la sous commande")
-            oSCmd.refFactFournisseur = tabCSV(1)
-            oSCmd.dateFactFournisseur = Mid(tabCSV(2), 1, 2) & "/" & Mid(tabCSV(2), 3, 2) & "/" & Mid(tabCSV(2), 5, 4)
-            oSCmd.totalHTFacture = tabCSV(3)
-            oSCmd.totalTTCFacture = tabCSV(4)
-            'oSCmd.tauxCommission = tabCSV(5)
-            oSCmd.changeEtat(vncEnums.vncActionEtatCommande.vncActionSCMDRapprocher)
+            bTrtImport = SousCommande.ImportCSV(strResult)
+            Assert.IsTrue(bTrtImport)
+        End While
+        FileClose(nfile)
+
+        For Each oSCmd In m_oCmd.colSousCommandes
+            oSCmd.load(oSCmd.id)
+
             Assert.AreEqual("FACTFOURN" & oSCmd.code, oSCmd.refFactFournisseur)
             Assert.AreEqual(#2/6/1964#, oSCmd.dateFactFournisseur)
             Assert.AreEqual(CDec(155.55), CDec(oSCmd.totalHTFacture))
             Assert.AreEqual(CDec(190.67), CDec(oSCmd.totalTTCFacture))
-            Assert.AreEqual(CDec(9.99), CDec(oSCmd.tauxCommission))
             Assert.AreEqual(vncEnums.vncEtatCommande.vncSCMDRapprocheeInt, oSCmd.etat.codeEtat)
             Assert.AreEqual(True, oSCmd.bExportInternet)
-        End While
-        FileClose(nfile)
+        Next
 
         m_oCmd.changeEtat(vncEnums.vncActionEtatCommande.vncActionAnnEclater)
         Assert.IsTrue(m_oCmd.save, "Sauvegarde de la commande client Etat = Eclater")

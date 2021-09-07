@@ -151,6 +151,8 @@ Partial Class frmConstantes
         Me.CST_TAXES_TRPTextBox = New System.Windows.Forms.TextBox()
         Me.CST_TX_COMMISSIONTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.tbURLEspFRN = New System.Windows.Forms.TextBox()
+        Me.Label29 = New System.Windows.Forms.Label()
         Me.btnTestFTPvnc = New System.Windows.Forms.Button()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.tb_ftnvnc_remoteDir = New System.Windows.Forms.TextBox()
@@ -225,11 +227,10 @@ Partial Class frmConstantes
         Me.CST_VERSION_BDTextBox = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.tbURLEspFRN = New System.Windows.Forms.TextBox()
         Me.CONSTANTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DsVinicom = New vini_DB.dsVinicom()
         Me.CONSTANTESTableAdapter = New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
+        Me.Label30 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
         Me.TabVinidis.SuspendLayout()
@@ -1540,6 +1541,23 @@ Partial Class frmConstantes
         Me.TabPage5.Text = "FTP"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
+        'tbURLEspFRN
+        '
+        Me.tbURLEspFRN.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_URL", True))
+        Me.tbURLEspFRN.Location = New System.Drawing.Point(191, 134)
+        Me.tbURLEspFRN.Name = "tbURLEspFRN"
+        Me.tbURLEspFRN.Size = New System.Drawing.Size(438, 20)
+        Me.tbURLEspFRN.TabIndex = 45
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(8, 137)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(164, 13)
+        Me.Label29.TabIndex = 44
+        Me.Label29.Text = "URL d'intégration des documents"
+        '
         'btnTestFTPvnc
         '
         Me.btnTestFTPvnc.Location = New System.Drawing.Point(647, 105)
@@ -1623,9 +1641,9 @@ Partial Class frmConstantes
         Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label35.Location = New System.Drawing.Point(12, 3)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(301, 13)
+        Me.Label35.Size = New System.Drawing.Size(205, 13)
         Me.Label35.TabIndex = 43
-        Me.Label35.Text = "FTP Espace Fournisseur VINICOM (Stock-colisage):"
+        Me.Label35.Text = "FTP Espace Fournisseur VINICOM:"
         '
         'Label22
         '
@@ -2075,6 +2093,7 @@ Partial Class frmConstantes
         '
         'TabPage6
         '
+        Me.TabPage6.Controls.Add(Me.Label30)
         Me.TabPage6.Controls.Add(Me.btnTestFTPSERES)
         Me.TabPage6.Controls.Add(Me.FTP_LOCKTOFILENAMELabel)
         Me.TabPage6.Controls.Add(Me.FTP_LOCKTOFILENAMETextBox)
@@ -2247,23 +2266,6 @@ Partial Class frmConstantes
         Me.dtpdateMAj.Size = New System.Drawing.Size(152, 20)
         Me.dtpdateMAj.TabIndex = 4
         '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(8, 137)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(164, 13)
-        Me.Label29.TabIndex = 44
-        Me.Label29.Text = "URL d'intégration des documents"
-        '
-        'tbURLEspFRN
-        '
-        Me.tbURLEspFRN.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_URL", True))
-        Me.tbURLEspFRN.Location = New System.Drawing.Point(191, 134)
-        Me.tbURLEspFRN.Name = "tbURLEspFRN"
-        Me.tbURLEspFRN.Size = New System.Drawing.Size(438, 20)
-        Me.tbURLEspFRN.TabIndex = 45
-        '
         'CONSTANTESBindingSource
         '
         Me.CONSTANTESBindingSource.DataMember = "CONSTANTES"
@@ -2277,6 +2279,17 @@ Partial Class frmConstantes
         'CONSTANTESTableAdapter
         '
         Me.CONSTANTESTableAdapter.ClearBeforeFill = True
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.Color.Maroon
+        Me.Label30.Location = New System.Drawing.Point(327, 3)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(80, 13)
+        Me.Label30.TabIndex = 28
+        Me.Label30.Text = "Site inutilisé "
         '
         'frmConstantes
         '
@@ -2525,4 +2538,5 @@ Partial Class frmConstantes
     Friend WithEvents Label35 As Label
     Friend WithEvents tbURLEspFRN As TextBox
     Friend WithEvents Label29 As Label
+    Friend WithEvents Label30 As Label
 End Class

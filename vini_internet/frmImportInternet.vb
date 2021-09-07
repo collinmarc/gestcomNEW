@@ -212,7 +212,7 @@ Public Class frmImportInternet
 
         ckFTP.Checked = True
         Me.Text = "Import des sous commandes depuis le site internet"
-        lnkHostName.Text = Param.getConstante("FTP_HOSTNAME")
+        lnkHostName.Text = Param.getConstante("CST_FTPVNC_HOST")
     End Sub
     Private Function import() As Boolean
         Dim oFTP As clsFTPVinicom = Nothing
@@ -310,43 +310,13 @@ Public Class frmImportInternet
                 pbProgressBar.Value = nLineNumber
                 pbProgressBar.Refresh()
                 strResult = LineInput(nFile)
-                tabCSV = strResult.Split(";")
-                nId = tabCSV(IMPORT_IDSCMD)
-                oSCMD = SousCommande.createandload(nId)
-                If (Not oSCMD.bNew) Then
-                    Dim bSCMDATraiter As Boolean = True
-                    'Controle des sousCommandes déjà facturées (import déjà effectué mais non validé)
-                    If oSCMD.etat.codeEtat = vncEtatCommande.vncSCMDFacturee Or oSCMD.etat.codeEtat = vncEnums.vncEtatCommande.vncSCMDRapprocheeInt Then
-                        If oSCMD.refFactFournisseur = tabCSV(IMPORT_REFFACTFOURN) Then
-                            bSCMDATraiter = False
-                        End If
-                    End If
-                    If bSCMDATraiter Then
-                        tabCSV(IMPORT_TOTALHTFACTURE) = tabCSV(IMPORT_TOTALHTFACTURE).Replace(".", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
-                        tabCSV(IMPORT_TOTALHTFACTURE) = tabCSV(IMPORT_TOTALHTFACTURE).Replace(",", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
-                        tabCSV(IMPORT_TOTALTTCFACTURE) = tabCSV(IMPORT_TOTALTTCFACTURE).Replace(".", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
-                        tabCSV(IMPORT_TOTALTTCFACTURE) = tabCSV(IMPORT_TOTALTTCFACTURE).Replace(",", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
-                        oSCMD.refFactFournisseur = tabCSV(IMPORT_REFFACTFOURN)
-                        oSCMD.dateFactFournisseur = Mid(tabCSV(IMPORT_DATEFACTFOURN), 1, 2) & "/" & Mid(tabCSV(IMPORT_DATEFACTFOURN), 3, 2) & "/" & Mid(tabCSV(IMPORT_DATEFACTFOURN), 5, 4)
-                        oSCMD.totalHTFacture = tabCSV(IMPORT_TOTALHTFACTURE)
-                        oSCMD.totalTTCFacture = tabCSV(IMPORT_TOTALTTCFACTURE)
-                        'importation du taux de commission
-                        'oSCMD.tauxCommission = tabCSV(IMPORT_TAUXCOMMISSION)
-                        'Calcul du montant de la commission ave le montant facturé
-                        oSCMD.calcCommisionstandard(CalculCommScmd.CALCUL_COMMISSION_HT_FACTURE)
-                        oSCMD.changeEtat(vncEnums.vncActionEtatCommande.vncActionSCMDImportInternet)
-                        bReturn = oSCMD.Save()
-                        If (bReturn) Then
-                            Log(oSCMD.code + "Etat" + oSCMD.etat.codeEtat.ToString() + "(" + oSCMD.oFournisseur.rs + ") =" + oSCMD.refFactFournisseur + "," + oSCMD.dateFactFournisseur.ToString("d") + ":" + oSCMD.totalHT.ToString("c") + "->" + oSCMD.totalHTFacture.ToString("c"))
-                            nSousCommandeTraitees = nSousCommandeTraitees + 1
-                            tbNbreLignesTraitees.Text = nSousCommandeTraitees
-                        Else
-                            DisplayStatus("Erreur en Sauvegarde de sous commande " + oSCMD.getErreur())
-                        End If
-                    End If
+                SousCommande.ImportCSV(strResult)
 
+                If (bReturn) Then
+                    nSousCommandeTraitees = nSousCommandeTraitees + 1
+                    tbNbreLignesTraitees.Text = nSousCommandeTraitees
                 Else
-                        DisplayStatus(strResult + "Sous commande inconnue")
+                    DisplayStatus(strResult + "Sous commande inconnue")
                 End If
             Catch Ex As Exception
                 DisplayStatus(strResult + Ex.Message)

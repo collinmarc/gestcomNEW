@@ -392,5 +392,7 @@ Partial Public Class frmConstantes
         restoreCursor()
     End Sub
 
+    Private Sub Label35_Click(sender As Object, e As EventArgs) Handles Label35.Click
 
+    End Sub
 End Class

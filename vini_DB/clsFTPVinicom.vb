@@ -103,8 +103,8 @@ Public Class clsFTPVinicom
     End Sub
 
     Public Sub New()
-        m_FTP = New NETFTPclient(Param.getConstante("FTP_HOSTNAME"), Param.getConstante("FTP_USERNAME"), Param.getConstante("FTP_PASSWORD"))
-        m_RemoteDir = Param.getConstante("FTP_REMOTEDIR")
+        m_FTP = New NETFTPclient(Param.getConstante("CST_FTPVNC_HOST"), Param.getConstante("CST_FTPVNC_USER"), Param.getConstante("CST_FTPVNC_PASSWORD"))
+        m_RemoteDir = Param.getConstante("CST_FTPVNC_REMOTEDIR")
         m_strLockFromFileName = Param.getConstante("FTP_LOCKFROMFILENAME")
         m_strLockToFileName = Param.getConstante("FTP_LOCKTOFILENAME")
         m_strErrorDescription = String.Empty

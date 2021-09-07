@@ -6260,7 +6260,7 @@ Public MustInherit Class Persist
                                     "sCMD_TRP_EMAIL = ? ," &
                                     "sCMD_REF_LIV = ? ," &
                                     "SCMD_FACT_REF = ? ," &
-                                    "SCMD_FACT_DATE = ? ," &
+                                            "SCMD_FACT_DATE = ? ," &
                                     "SCMD_FACT_TOTAL_HT = ? ," &
                                     "SCMD_FACT_TOTAL_TTC = ? ," &
                                     "SCMD_COM_BASE = ? ," &
@@ -6270,6 +6270,12 @@ Public MustInherit Class Persist
                                     "SCMD_BEXPORT= ? ," &
                                     "SCMD_BEXPORTQUADRA= ? " &
                                     " WHERE SCMD_ID = ?"
+
+        '                                    "SCMD_FACT_REF = ? ," &
+        '                                    "SCMD_FACT_DATE = ? ," &
+        '                                    "SCMD_FACT_TOTAL_HT = ? ," &
+        '                                   "SCMD_FACT_TOTAL_TTC = ? ," &
+
 
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing

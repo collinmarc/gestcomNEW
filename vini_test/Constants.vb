@@ -100,52 +100,6 @@ Public Module VNC_Constants
 
             bTRACE = My.MySettings.Default.bTrace
 
-            FAX_NOM_INTERLOCUTEUR = ConfigurationManager.AppSettings.GetValues("FAX_NOM_INTERLOCUTEUR")(0)
-            FAX_TEL_INTERLOCUTEUR = ConfigurationManager.AppSettings.GetValues("FAX_TEL_INTERLOCUTEUR")(0)
-            FAX_PRECOMMANDE_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_PRECOMMANDE_BSENDCOVERPAGE")(0)
-            FAX_PRECOMMANDE_SUBJECT = ConfigurationManager.AppSettings.GetValues("FAX_PRECOMMANDE_SUBJECT")(0)
-            FAX_PRECOMMANDE_PATH = ConfigurationManager.AppSettings.GetValues("FAX_PRECOMMANDE_PATH")(0)
-            FAX_PRECOMMANDE_NOTES = ConfigurationManager.AppSettings.GetValues("FAX_PRECOMMANDE_NOTES")(0)
-
-            FAX_STK_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_STK_BSENDCOVERPAGE")(0)
-            FAX_STK_SUBJECT = ConfigurationManager.AppSettings.GetValues("FAX_STK_SUBJECT")(0)
-            FAX_STK_PATH = ConfigurationManager.AppSettings.GetValues("FAX_STK_PATH")(0)
-            FAX_STK_NOTES = ConfigurationManager.AppSettings.GetValues("FAX_STK_NOTES")(0)
-
-            FAX_DETAILCOMMANDE_PATH = ConfigurationManager.AppSettings.GetValues("FAX_DETAILCOMMANDE_PATH")(0)
-            FAX_DETAILCOMMANDE_SUBJECT = ConfigurationManager.AppSettings.GetValues("FAX_DETAILCOMMANDE_SUBJECT")(0)
-            FAX_DETAILCOMMANDE_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_DETAILCOMMANDE_BSENDCOVERPAGE")(0)
-            FAX_DETAILCOMMANDE_NOTES = ConfigurationManager.AppSettings.GetValues("FAX_DETAILCOMMANDE_NOTES")(0)
-
-            FAX_BL_PATH = ConfigurationManager.AppSettings.GetValues("FAX_BL_PATH")(0)
-            FAX_BL_SUBJECT = ConfigurationManager.AppSettings.GetValues("FAX_BL_SUBJECT")(0)
-            FAX_BL_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_BL_BSENDCOVERPAGE")(0)
-            FAX_BL_NOTES = ConfigurationManager.AppSettings.GetValues("FAX_BL_NOTES")(0)
-
-            FAX_SCMD_PATH = ConfigurationManager.AppSettings.GetValues("FAX_SCMD_PATH")(0)
-            FAX_SCMD_SUBJECT = ConfigurationManager.AppSettings.GetValues("FAX_SCMD_SUBJECT")(0)
-            FAX_SCMD_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_SCMD_BSENDCOVERPAGE")(0)
-
-            FAX_BA_PATH = ConfigurationManager.AppSettings.GetValues("FAX_BA_PATH")(0)
-            FAX_BA_SUBJECT = ConfigurationManager.AppSettings.GetValues("FAX_BA_SUBJECT")(0)
-            FAX_BA_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_BA_BSENDCOVERPAGE")(0)
-            FAX_BA_NOTES = ConfigurationManager.AppSettings.GetValues("FAX_BA_NOTES")(0)
-
-            FAX_BLBA_PATH = ConfigurationManager.AppSettings.GetValues("FAX_BLBA_PATH")(0)
-            FAX_BLBA_SUBJECT = ConfigurationManager.AppSettings.GetValues("FAX_BLBA_SUBJECT")(0)
-            FAX_BLBA_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_BLBA_BSENDCOVERPAGE")(0)
-            FAX_BLBA_NOTES = ConfigurationManager.AppSettings.GetValues("FAX_BLBA_NOTES")(0)
-
-            FAX_JAL_PATH = ConfigurationManager.AppSettings.GetValues("FAX_JAL_PATH")(0)
-            FAX_JAL_SUBJECT = ConfigurationManager.AppSettings.GetValues("FAX_JAL_SUBJECT")(0)
-            FAX_JAL_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_JAL_BSENDCOVERPAGE")(0)
-            FAX_JAL_NOTES = ConfigurationManager.AppSettings.GetValues("FAX_JAL_NOTES")(0)
-
-            FAX_JAA_PATH = ConfigurationManager.AppSettings.GetValues("FAX_JAA_PATH")(0)
-            FAX_JAA_SUBJECT = ConfigurationManager.AppSettings.GetValues("FAX_JAA_SUBJECT")(0)
-            FAX_JAA_BSENDCOVERPAGE = ConfigurationManager.AppSettings.GetValues("FAX_JAA_BSENDCOVERPAGE")(0)
-            FAX_JAA_NOTES = ConfigurationManager.AppSettings.GetValues("FAX_JAA_NOTES")(0)
-
             IMPORT_IDSCMD = ConfigurationManager.AppSettings.GetValues("IMPORT_IDSCMD")(0)
             IMPORT_REFFACTFOURN = ConfigurationManager.AppSettings.GetValues("IMPORT_REFFACTFOURN")(0)
             IMPORT_DATEFACTFOURN = ConfigurationManager.AppSettings.GetValues("IMPORT_DATEFACTFOURN")(0)
