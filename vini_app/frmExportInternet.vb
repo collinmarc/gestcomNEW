@@ -1,5 +1,7 @@
 Imports vini_DB
 Imports System.Collections.Generic
+Imports System.ComponentModel
+
 Public Class frmExportInternet
     Inherits FrmVinicom
     Protected m_colCommandes As List(Of SousCommande)
@@ -59,6 +61,7 @@ Public Class frmExportInternet
     Friend WithEvents totalHT As DataGridViewTextBoxColumn
     Friend WithEvents dateCommande As DataGridViewTextBoxColumn
     Friend WithEvents lnkFTP As LinkLabel
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents dgvStatus As System.Windows.Forms.DataGridView
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
@@ -92,6 +95,7 @@ Public Class frmExportInternet
         Me.tbNbreTheorique = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lnkFTP = New System.Windows.Forms.LinkLabel()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         CType(Me.dgvSCmd, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcSCMD, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcStatus, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -352,6 +356,10 @@ Public Class frmExportInternet
         Me.lnkFTP.Text = "LinkLabel1"
         Me.lnkFTP.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'BackgroundWorker1
+        '
+        Me.BackgroundWorker1.WorkerReportsProgress = True
+        '
         'frmExportInternet
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -440,7 +448,7 @@ Public Class frmExportInternet
                                  " AND SOUSCOMMANDE.SCMD_DATE >= ? AND " &
                                 " SOUSCOMMANDE.SCMD_DATE <= ?"
         If Not String.IsNullOrEmpty(tbCodeFournisseur.Text) Then
-            objcommand.CommandText = objcommand.CommandText & _
+            objcommand.CommandText = objcommand.CommandText &
                                      " AND FOURNISSEUR.FRN_CODE LIKE '" & tbCodeFournisseur.Text & "'"
         End If
         '        objcommand.Connection.Open()
@@ -500,7 +508,7 @@ Public Class frmExportInternet
 
         bReturn = False
         For Each objSCMD In m_colCommandes
-            bReturn = bReturn And objSCMD.Save()
+            bReturn = bReturn And objSCMD.save()
             Debug.Assert(bReturn, SousCommande.getErreur())
         Next
 
@@ -508,7 +516,6 @@ Public Class frmExportInternet
     End Function 'sauvegarderFactures
 
     Private Function exporter() As Boolean
-        Debug.Assert(Not m_colCommandes Is Nothing)
 
         Dim objSCMD As SousCommande
         Dim bExportOK As Boolean = True
@@ -528,11 +535,8 @@ Public Class frmExportInternet
         Try
             bReturn = False
             nSousCommandesPreparees = 0
-            ProgressBar1.Maximum = m_colCommandes.Count
-            ProgressBar1.Value = 0
-            setcursorWait()
-            dgvStatus.Rows.Clear()
-            strFolder = IMPORT_DIRECTORY & Now.Year & Now.Month & Now.Day & Now.Hour & Now.Minute & Now.Second
+            '            strFolder = IMPORT_DIRECTORY & Now.Year & Now.Month & Now.Day & Now.Hour & Now.Minute & Now.Second
+            strFolder = My.Settings.Tmp & "/Exportinternet" & DateTime.Now.ToString("yyyyMMdd")
             If My.Computer.FileSystem.DirectoryExists(strFolder) Then
                 My.Computer.FileSystem.DeleteDirectory(strFolder, FileIO.DeleteDirectoryOption.DeleteAllContents)
             End If
@@ -547,6 +551,7 @@ Public Class frmExportInternet
             'Génération de l'entete
             Print(nFile, SousCommande.EnteteCSV)
             'Parcours des Sous-commandes
+            Dim nCmd As Integer = 0
             For Each objSCMD In m_colCommandes
                 strStatus = ""
                 Log("Chargement de " & objSCMD.code)
@@ -558,9 +563,7 @@ Public Class frmExportInternet
                     Print(nFile, strSCMD_CSV)
                     If ckPDFs.Checked Then
                         strPDFFileName = strFolder & "/" & objSCMD.code & ".PDF"
-                        If objSCMD.genererPDF(PATHTOREPORTS, strPDFFileName) Then
-                            strStatus = strStatus + " PDF OK"
-                        Else
+                        If Not objSCMD.genererPDF(PATHTOREPORTS, strPDFFileName) Then
                             DisplayStatus("Chargement de " & objSCMD.code & " PDF ERREUR" & objSCMD.getErreur())
                         End If
 
@@ -575,32 +578,31 @@ Public Class frmExportInternet
                 Else
                     DisplayStatus("Pas de ligne dans la sous-commande " + objSCMD.code)
                 End If
-                ProgressBar1.Increment(1)
+                BackgroundWorker1.ReportProgress(nCmd)
+                nCmd = nCmd + 1
 
             Next
             FileClose(nFile)
             bReturn = True
             DisplayStatus("Nombre de commandes préparées : " & nSousCommandesPreparees)
             If ckFTP.Checked Then
-                DisplayStatus("Transferts des fichiers vers " + Param.getConstante("FTP_HOSTNAME"))
+                DisplayStatus("Transferts des fichiers vers " + Param.getConstante("CST_FTPVNC_HOSTNAME"))
                 'Exporter les fichiers générés
-                oFTPvinicom = New clsFTPVinicom 'Création avec les paramètres par defaut
+                oFTPvinicom = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOSTNAME"),
+                                                Param.getConstante("CST_FTPVNC_USER"),
+                                                Param.getConstante("CST_FTPVNC_PASSWORD"),
+                                                Param.getConstante("CST_FTPVNC_REMOTEDIR")
+                                                )
                 'If oFTPvinicom.connect() Then
-                If True Then
-                    If (Not oFTPvinicom.IsLockFrom()) Then
-                        nSousCommandesExportees = oFTPvinicom.uploadFromDir(strFolder)
-                        If Not String.IsNullOrEmpty(oFTPvinicom.ErrorDescription) Then
-                            DisplayStatus(oFTPvinicom.ErrorDescription())
-                        Else
-                            DisplayStatus("Fin de transfert des fichiers ")
-                            DisplayStatus("Nombre de fichiers exportés : " & (nSousCommandesExportees - 1) & "+1")
-                            bReturn = True
-                        End If
-                    Else
-                        DisplayStatus("Serveur internet vérrouillé")
-                    End If
+                '                If True Then
+                '               If (Not oFTPvinicom.IsLockFrom()) Then
+                nSousCommandesExportees = oFTPvinicom.uploadFromDir(strFolder)
+                If Not String.IsNullOrEmpty(oFTPvinicom.ErrorDescription) Then
+                    DisplayStatus(oFTPvinicom.ErrorDescription())
                 Else
-                    DisplayStatus("Connexion impossible (" + Param.getConstante("FTP_USERNAME") + " /" + Param.getConstante("FTP_PASSWORD") + ")")
+                    DisplayStatus("Fin de transfert des fichiers ")
+                    DisplayStatus("Nombre de fichiers exportés : " & (nSousCommandesExportees - 1) & "+1")
+                    bReturn = True
                 End If
 
                 'Globals.WaitnSeconds(10)
@@ -612,7 +614,7 @@ Public Class frmExportInternet
             If bReturn Then
                 DisplayStatus("Validation des sous commandes (changement d'état)")
                 For Each objSCMD In m_colCommandes
-                    objSCMD.Save()
+                    objSCMD.save()
                 Next
                 DisplayStatus("Validation terminée")
             End If
@@ -623,12 +625,12 @@ Public Class frmExportInternet
             MsgBox("Erreur" + ex.Message)
 
         End Try
-        Me.Cursor = Cursors.Default
 
     End Function 'exporter
 
     Private Sub ActiverImportBAF()
         Dim odlg As dlgInternet = New dlgInternet()
+        odlg.WebBrowser4.Url = New Uri(Param.getConstante("CST_FTPVNC_URL"))
         dlgInternet.ShowDialog()
     End Sub
     Private Shadows Sub DisplayStatus(ByVal strMessage As String)
@@ -637,11 +639,7 @@ Public Class frmExportInternet
         oStatus = New clsExportstatus()
         oStatus.statusDate = Now()
         oStatus.statusMessage = strMessage
-        m_bsrcStatus.Add(oStatus)
-        dgvStatus.Refresh()
-        If dgvStatus.Rows.Count > dgvStatus.DisplayedRowCount(True) Then
-            dgvStatus.FirstDisplayedScrollingRowIndex = dgvStatus.Rows.Count - dgvStatus.DisplayedRowCount(True) + 1
-        End If
+        BackgroundWorker1.ReportProgress(0, oStatus)
         Log(strMessage)
     End Sub
     Private Sub Log(ByVal strMessage As String)
@@ -677,7 +675,34 @@ Public Class frmExportInternet
     End Sub
 
     Private Sub cbExporter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbExporter.Click
+        ProgressBar1.Maximum = m_colCommandes.Count
+        ProgressBar1.Value = 0
+        m_bsrcStatus.Clear()
+        Me.Cursor = Cursors.WaitCursor
+        cbExporter.Enabled = False
+        BackgroundWorker1.RunWorkerAsync()
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Call exporter()
     End Sub
 
+    Private Sub BackgroundWorker1_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles BackgroundWorker1.ProgressChanged
+        If e.ProgressPercentage = 0 Then
+            Dim oStatus As clsExportstatus
+            oStatus = e.UserState
+            m_bsrcStatus.Add(oStatus)
+        Else
+            ProgressBar1.Increment(1)
+        End If
+        '        dgvStatus.Refresh()
+        '       If dgvStatus.Rows.Count > dgvStatus.DisplayedRowCount(True) Then
+        '      dgvStatus.FirstDisplayedScrollingRowIndex = dgvStatus.Rows.Count - dgvStatus.DisplayedRowCount(True) + 1
+        '     End If
+    End Sub
+
+    Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
+        Me.Cursor = Cursors.Default
+        cbExporter.Enabled = True
+    End Sub
 End Class
