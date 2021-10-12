@@ -185,7 +185,16 @@
     <Compile Include="dlgExportWebEDI.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="dlgInternet.Designer.vb">
+      <DependentUpon>dlgInternet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dlgInternet.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmExportColisage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportInternet.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmImportTarif.vb">
@@ -1399,6 +1408,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Requetes\TOV6.0.0.3.sql" />
+    <Content Include="Requetes\V20211020.SQL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Requetes\V20210531.SQL">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1474,6 +1486,10 @@
     <EmbeddedResource Include="dlgExportWebEDI.resx">
       <DependentUpon>dlgExportWebEDI.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="dlgInternet.resx">
+      <DependentUpon>dlgInternet.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCAProducteurClient.resx">
       <DependentUpon>frmCAProducteurClient.vb</DependentUpon>
     </EmbeddedResource>
@@ -1488,6 +1504,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmExportColisage.resx">
       <DependentUpon>frmExportColisage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExportInternet.resx">
+      <DependentUpon>frmExportInternet.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExportMouvementArticle.resx">
       <DependentUpon>frmExportMouvementArticle.vb</DependentUpon>
@@ -1826,6 +1846,7 @@
     <None Include="vini_DB.Commande.datasource" />
     <None Include="vini_DB.CommandeClient.datasource" />
     <None Include="vini_DB.contenant.datasource" />
+    <None Include="vini_DB.dsVinicom+CONSTANTESDataTable.datasource" />
     <None Include="vini_DB.ExportQuadra.datasource" />
     <None Include="vini_DB.FactCom.datasource" />
     <None Include="vini_DB.FactHBV.datasource" />

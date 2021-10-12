@@ -197,6 +197,7 @@
     <Compile Include="Client.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="clsExportstatus.vb" />
     <Compile Include="clsFTPVinicom.vb">
       <SubType>Code</SubType>
     </Compile>

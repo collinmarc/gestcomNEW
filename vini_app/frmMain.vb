@@ -70,6 +70,9 @@ Friend Class frmMain
     Friend WithEvents MenuItem14 As MenuItem
     Friend WithEvents mnu_ExportMvtArticles As MenuItem
     Friend WithEvents mnuExportColisage As MenuItem
+    Friend WithEvents MenuItem24 As MenuItem
+    Friend WithEvents mnuExportInternet As MenuItem
+    Friend WithEvents mnuImportInternet As MenuItem
     'Objet créé pour afficher l'evenement Connected/Disconnected
     Public m_currentuser As aut_user
 
@@ -280,6 +283,9 @@ Friend Class frmMain
         Me.mnuCompta_ImportRglmt = New System.Windows.Forms.MenuItem()
         Me.mnuCompta_EditionFactures = New System.Windows.Forms.MenuItem()
         Me.mnuFenetre = New System.Windows.Forms.MenuItem()
+        Me.MenuItem14 = New System.Windows.Forms.MenuItem()
+        Me.mnu_ExportMvtArticles = New System.Windows.Forms.MenuItem()
+        Me.mnuExportColisage = New System.Windows.Forms.MenuItem()
         Me.mnuUtil = New System.Windows.Forms.MenuItem()
         Me.mnuUtil_PurgeMvtStock = New System.Windows.Forms.MenuItem()
         Me.mnuUtil_PurgeCommandesClients = New System.Windows.Forms.MenuItem()
@@ -305,8 +311,6 @@ Friend Class frmMain
         Me.MenuItem16 = New System.Windows.Forms.MenuItem()
         Me.mnuUtil_BackupRestore = New System.Windows.Forms.MenuItem()
         Me.MnuUtil_checkDatabase = New System.Windows.Forms.MenuItem()
-        Me.MenuItem14 = New System.Windows.Forms.MenuItem()
-        Me.mnu_ExportMvtArticles = New System.Windows.Forms.MenuItem()
         Me.mnuToolBar = New System.Windows.Forms.ToolBar()
         Me.cbToolBarNew = New System.Windows.Forms.ToolBarButton()
         Me.cbToolBarOpen = New System.Windows.Forms.ToolBarButton()
@@ -320,7 +324,9 @@ Friend Class frmMain
         Me.StatusBarDB = New System.Windows.Forms.StatusBarPanel()
         Me.StatusBarError = New System.Windows.Forms.StatusBarPanel()
         Me.StatusBarEtat = New System.Windows.Forms.StatusBarPanel()
-        Me.mnuExportColisage = New System.Windows.Forms.MenuItem()
+        Me.mnuExportInternet = New System.Windows.Forms.MenuItem()
+        Me.mnuImportInternet = New System.Windows.Forms.MenuItem()
+        Me.MenuItem24 = New System.Windows.Forms.MenuItem()
         CType(Me.StatusBarDB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarError, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarEtat, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -937,6 +943,22 @@ Friend Class frmMain
         Me.mnuFenetre.MergeType = System.Windows.Forms.MenuMerge.Remove
         Me.mnuFenetre.Text = "Fe&nêtre"
         '
+        'MenuItem14
+        '
+        Me.MenuItem14.Index = 9
+        Me.MenuItem14.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnu_ExportMvtArticles, Me.mnuExportColisage, Me.MenuItem24, Me.mnuExportInternet, Me.mnuImportInternet})
+        Me.MenuItem14.Text = "Espace Fournisseur"
+        '
+        'mnu_ExportMvtArticles
+        '
+        Me.mnu_ExportMvtArticles.Index = 0
+        Me.mnu_ExportMvtArticles.Text = "Export des mouvements articles"
+        '
+        'mnuExportColisage
+        '
+        Me.mnuExportColisage.Index = 1
+        Me.mnuExportColisage.Text = "Export des factures et recap colisage"
+        '
         'mnuUtil
         '
         Me.mnuUtil.Index = 10
@@ -1081,17 +1103,6 @@ Friend Class frmMain
         Me.MnuUtil_checkDatabase.Tag = "MnuUtil_checkDatabase"
         Me.MnuUtil_checkDatabase.Text = "Check Database"
         '
-        'MenuItem14
-        '
-        Me.MenuItem14.Index = 9
-        Me.MenuItem14.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnu_ExportMvtArticles, Me.mnuExportColisage})
-        Me.MenuItem14.Text = "Espace Fournisseur"
-        '
-        'mnu_ExportMvtArticles
-        '
-        Me.mnu_ExportMvtArticles.Index = 0
-        Me.mnu_ExportMvtArticles.Text = "Export des mouvements articles"
-        '
         'mnuToolBar
         '
         Me.mnuToolBar.Buttons.AddRange(New System.Windows.Forms.ToolBarButton() {Me.cbToolBarNew, Me.cbToolBarOpen, Me.cbToolBarSave, Me.cbToolbarDelete, Me.cbToolBarRefresh, Me.cbToolbarBackupRestore, Me.cbTBCheck})
@@ -1168,7 +1179,7 @@ Friend Class frmMain
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 388)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 368)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1191,16 +1202,26 @@ Friend Class frmMain
         Me.StatusBarEtat.Name = "StatusBarEtat"
         Me.StatusBarEtat.Width = 273
         '
-        'mnuExportColisage
+        'mnuExportInternet
         '
-        Me.mnuExportColisage.Index = 1
-        Me.mnuExportColisage.Text = "Export des factures et recap colisage"
+        Me.mnuExportInternet.Index = 3
+        Me.mnuExportInternet.Text = "Export des Bons à Facturer"
+        '
+        'mnuImportInternet
+        '
+        Me.mnuImportInternet.Index = 4
+        Me.mnuImportInternet.Text = "Import des informations producteurs"
+        '
+        'MenuItem24
+        '
+        Me.MenuItem24.Index = 2
+        Me.MenuItem24.Text = "-"
         '
         'frmMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 410)
+        Me.ClientSize = New System.Drawing.Size(890, 390)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -2167,6 +2188,14 @@ Friend Class frmMain
     Private Sub mnuExportColisage_Click(sender As Object, e As EventArgs) Handles mnuExportColisage.Click
         Dim ofrm As FrmVinicom
         ofrm = New frmExportColisage
+        ofrm.MdiParent = Me
+        ofrm.Show()
+
+    End Sub
+
+    Private Sub mnuExportInternet_Click(sender As Object, e As EventArgs) Handles mnuExportInternet.Click
+        Dim ofrm As FrmVinicom
+        ofrm = New frmExportInternet
         ofrm.MdiParent = Me
         ofrm.Show()
 

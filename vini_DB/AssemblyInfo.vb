@@ -31,5 +31,6 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyVersion("5.0.*")>
 
-<Assembly: AssemblyFileVersionAttribute("5.9.7.4")> 
+<Assembly: AssemblyFileVersionAttribute("5.9.7.4")>
 <Assembly: System.Runtime.CompilerServices.InternalsVisibleTo("vini_test")>
+<Assembly: System.Runtime.CompilerServices.InternalsVisibleTo("vini_app")>

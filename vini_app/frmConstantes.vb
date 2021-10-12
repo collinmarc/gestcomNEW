@@ -5,7 +5,7 @@ Imports MimeKit
 
 Partial Public Class frmConstantes
     Inherits vini_app.FrmVinicom
-
+    Private CONSTANTESTableAdapter As New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
     Protected Overrides Sub EnableControls(ByVal bEnabled As Boolean)
         MyBase.EnableControls(True)
     End Sub
@@ -13,9 +13,9 @@ Partial Public Class frmConstantes
     Protected Overrides Function frmSave() As Boolean
 
         Me.Validate()
-        Me.DsVinicom.CONSTANTES(0).CST_DATE_UPDATE = DateTime.Now
-        Me.CONSTANTESBindingSource.EndEdit()
-        Me.CONSTANTESTableAdapter.Update(Me.DsVinicom.CONSTANTES)
+        Me.DsVinicom1.CONSTANTES(0).CST_DATE_UPDATE = DateTime.Now
+        Me.BindingSource1.EndEdit()
+        Me.CONSTANTESTableAdapter.Update(Me.DsVinicom1.CONSTANTES)
 
         Param.LoadcolParams()
     End Function
@@ -31,7 +31,7 @@ Partial Public Class frmConstantes
     Private Sub frmConstantes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO : cette ligne de code charge les données dans la table 'DsVinicom.CONSTANTES'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
         Me.CONSTANTESTableAdapter.Connection = Persist.oleDBConnection
-        Me.CONSTANTESTableAdapter.Fill(Me.DsVinicom.CONSTANTES)
+        Me.CONSTANTESTableAdapter.Fill(Me.DsVinicom1.CONSTANTES)
 
 
         Call init_vini_service()
@@ -80,7 +80,7 @@ Partial Public Class frmConstantes
 
     End Sub
 
-    Private Sub CONSTANTESBindingSource_CurrentChanged(sender As System.Object, e As System.EventArgs) Handles CONSTANTESBindingSource.CurrentChanged
+    Private Sub CONSTANTESBindingSource_CurrentChanged(sender As System.Object, e As System.EventArgs)
 
     End Sub
 

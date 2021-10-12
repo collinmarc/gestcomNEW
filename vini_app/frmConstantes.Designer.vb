@@ -156,7 +156,6 @@ Partial Class frmConstantes
         Me.btnTestFTPvnc = New System.Windows.Forms.Button()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.tb_ftnvnc_remoteDir = New System.Windows.Forms.TextBox()
-        Me.Label32 = New System.Windows.Forms.Label()
         Me.tb_ftpvnc_password = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.tb_ftpvnc_User = New System.Windows.Forms.TextBox()
@@ -167,7 +166,6 @@ Partial Class frmConstantes
         Me.tbFTPEDIRepLocal = New System.Windows.Forms.TextBox()
         Me.cbTestFTPEDI = New System.Windows.Forms.Button()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.tbFTPEDIRep = New System.Windows.Forms.TextBox()
         Me.tbFTPEDIPwd = New System.Windows.Forms.TextBox()
         Me.tbFTPEDIUser = New System.Windows.Forms.TextBox()
@@ -210,6 +208,7 @@ Partial Class frmConstantes
         Me.tbImapHost = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.Label30 = New System.Windows.Forms.Label()
         Me.btnTestFTPSERES = New System.Windows.Forms.Button()
         Me.FTP_LOCKTOFILENAMELabel = New System.Windows.Forms.Label()
         Me.FTP_LOCKTOFILENAMETextBox = New System.Windows.Forms.TextBox()
@@ -227,10 +226,22 @@ Partial Class frmConstantes
         Me.CST_VERSION_BDTextBox = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
-        Me.CONSTANTESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DsVinicom = New vini_DB.dsVinicom()
-        Me.CONSTANTESTableAdapter = New vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter()
-        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsVinicom1 = New vini_DB.dsVinicom()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
         Me.TabVinidis.SuspendLayout()
@@ -242,8 +253,8 @@ Partial Class frmConstantes
         Me.tbEDI_Destinataire.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.TabPage6.SuspendLayout()
-        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsVinicom1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CST_SOC_NOMSOCLabel
@@ -710,7 +721,7 @@ Partial Class frmConstantes
         Me.TabControl1.Location = New System.Drawing.Point(0, 29)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(776, 461)
+        Me.TabControl1.Size = New System.Drawing.Size(776, 505)
         Me.TabControl1.TabIndex = 0
         '
         'tabVinicom
@@ -746,14 +757,13 @@ Partial Class frmConstantes
         Me.tabVinicom.Location = New System.Drawing.Point(4, 22)
         Me.tabVinicom.Name = "tabVinicom"
         Me.tabVinicom.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabVinicom.Size = New System.Drawing.Size(768, 435)
+        Me.tabVinicom.Size = New System.Drawing.Size(768, 479)
         Me.tabVinicom.TabIndex = 0
         Me.tabVinicom.Text = "VINICOM"
         Me.tabVinicom.UseVisualStyleBackColor = True
         '
         'tbCompteBanque
         '
-        Me.tbCompteBanque.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_COMPTEBANQUE", True))
         Me.tbCompteBanque.Location = New System.Drawing.Point(291, 355)
         Me.tbCompteBanque.Name = "tbCompteBanque"
         Me.tbCompteBanque.Size = New System.Drawing.Size(100, 20)
@@ -770,7 +780,6 @@ Partial Class frmConstantes
         '
         'CST_SOC1_CMPT_PRODTextBox
         '
-        Me.CST_SOC1_CMPT_PRODTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_COMPTEPRODUIT", True))
         Me.CST_SOC1_CMPT_PRODTextBox.Location = New System.Drawing.Point(291, 328)
         Me.CST_SOC1_CMPT_PRODTextBox.Name = "CST_SOC1_CMPT_PRODTextBox"
         Me.CST_SOC1_CMPT_PRODTextBox.Size = New System.Drawing.Size(100, 20)
@@ -778,7 +787,6 @@ Partial Class frmConstantes
         '
         'CST_SOC1_CMPT_TVATextBox
         '
-        Me.CST_SOC1_CMPT_TVATextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_COMPTETVA", True))
         Me.CST_SOC1_CMPT_TVATextBox.Location = New System.Drawing.Point(291, 302)
         Me.CST_SOC1_CMPT_TVATextBox.Name = "CST_SOC1_CMPT_TVATextBox"
         Me.CST_SOC1_CMPT_TVATextBox.Size = New System.Drawing.Size(100, 20)
@@ -786,7 +794,6 @@ Partial Class frmConstantes
         '
         'CST_SOC_LICENCETextBox
         '
-        Me.CST_SOC_LICENCETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_LICENCE", True))
         Me.CST_SOC_LICENCETextBox.Location = New System.Drawing.Point(89, 252)
         Me.CST_SOC_LICENCETextBox.Name = "CST_SOC_LICENCETextBox"
         Me.CST_SOC_LICENCETextBox.Size = New System.Drawing.Size(302, 20)
@@ -794,7 +801,6 @@ Partial Class frmConstantes
         '
         'CST_SOC_RCSTextBox
         '
-        Me.CST_SOC_RCSTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_RCS", True))
         Me.CST_SOC_RCSTextBox.Location = New System.Drawing.Point(89, 226)
         Me.CST_SOC_RCSTextBox.Name = "CST_SOC_RCSTextBox"
         Me.CST_SOC_RCSTextBox.Size = New System.Drawing.Size(302, 20)
@@ -802,7 +808,6 @@ Partial Class frmConstantes
         '
         'CST_SOC_TVAINTRATextBox
         '
-        Me.CST_SOC_TVAINTRATextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_TVAINTRA", True))
         Me.CST_SOC_TVAINTRATextBox.Location = New System.Drawing.Point(89, 200)
         Me.CST_SOC_TVAINTRATextBox.Name = "CST_SOC_TVAINTRATextBox"
         Me.CST_SOC_TVAINTRATextBox.Size = New System.Drawing.Size(302, 20)
@@ -811,7 +816,6 @@ Partial Class frmConstantes
         'CST_SOC_EMAILTextBox
         '
         Me.CST_SOC_EMAILTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC_EMAILTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_EMAIL", True))
         Me.CST_SOC_EMAILTextBox.Location = New System.Drawing.Point(524, 150)
         Me.CST_SOC_EMAILTextBox.Name = "CST_SOC_EMAILTextBox"
         Me.CST_SOC_EMAILTextBox.Size = New System.Drawing.Size(224, 20)
@@ -819,7 +823,6 @@ Partial Class frmConstantes
         '
         'CST_SOC_PORTTextBox
         '
-        Me.CST_SOC_PORTTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_PORT", True))
         Me.CST_SOC_PORTTextBox.Location = New System.Drawing.Point(68, 150)
         Me.CST_SOC_PORTTextBox.Name = "CST_SOC_PORTTextBox"
         Me.CST_SOC_PORTTextBox.Size = New System.Drawing.Size(224, 20)
@@ -828,7 +831,6 @@ Partial Class frmConstantes
         'CST_SOC_FAXTextBox
         '
         Me.CST_SOC_FAXTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC_FAXTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_FAX", True))
         Me.CST_SOC_FAXTextBox.Location = New System.Drawing.Point(524, 125)
         Me.CST_SOC_FAXTextBox.Name = "CST_SOC_FAXTextBox"
         Me.CST_SOC_FAXTextBox.Size = New System.Drawing.Size(224, 20)
@@ -836,7 +838,6 @@ Partial Class frmConstantes
         '
         'CST_SOC_TELTextBox
         '
-        Me.CST_SOC_TELTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_TEL", True))
         Me.CST_SOC_TELTextBox.Location = New System.Drawing.Point(68, 124)
         Me.CST_SOC_TELTextBox.Name = "CST_SOC_TELTextBox"
         Me.CST_SOC_TELTextBox.Size = New System.Drawing.Size(224, 20)
@@ -846,7 +847,6 @@ Partial Class frmConstantes
         '
         Me.CST_SOC_ADRESSE_VILLETextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC_ADRESSE_VILLETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_ADRESSE_VILLE", True))
         Me.CST_SOC_ADRESSE_VILLETextBox.Location = New System.Drawing.Point(152, 99)
         Me.CST_SOC_ADRESSE_VILLETextBox.Name = "CST_SOC_ADRESSE_VILLETextBox"
         Me.CST_SOC_ADRESSE_VILLETextBox.Size = New System.Drawing.Size(596, 20)
@@ -854,7 +854,6 @@ Partial Class frmConstantes
         '
         'CST_SOC_ADRESSE_CPTextBox
         '
-        Me.CST_SOC_ADRESSE_CPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_ADRESSE_CP", True))
         Me.CST_SOC_ADRESSE_CPTextBox.Location = New System.Drawing.Point(68, 99)
         Me.CST_SOC_ADRESSE_CPTextBox.Name = "CST_SOC_ADRESSE_CPTextBox"
         Me.CST_SOC_ADRESSE_CPTextBox.Size = New System.Drawing.Size(78, 20)
@@ -864,7 +863,6 @@ Partial Class frmConstantes
         '
         Me.CST_SOC_ADRESSE_RUE2TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC_ADRESSE_RUE2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_ADRESSE_RUE2", True))
         Me.CST_SOC_ADRESSE_RUE2TextBox.Location = New System.Drawing.Point(68, 73)
         Me.CST_SOC_ADRESSE_RUE2TextBox.Name = "CST_SOC_ADRESSE_RUE2TextBox"
         Me.CST_SOC_ADRESSE_RUE2TextBox.Size = New System.Drawing.Size(682, 20)
@@ -874,7 +872,6 @@ Partial Class frmConstantes
         '
         Me.CST_SOC_ADRESSE_RUE1TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC_ADRESSE_RUE1TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_ADRESSE_RUE1", True))
         Me.CST_SOC_ADRESSE_RUE1TextBox.Location = New System.Drawing.Point(68, 47)
         Me.CST_SOC_ADRESSE_RUE1TextBox.Name = "CST_SOC_ADRESSE_RUE1TextBox"
         Me.CST_SOC_ADRESSE_RUE1TextBox.Size = New System.Drawing.Size(682, 20)
@@ -884,7 +881,6 @@ Partial Class frmConstantes
         '
         Me.CST_SOC_NOMSOCTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC_NOMSOCTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC_NOMSOC", True))
         Me.CST_SOC_NOMSOCTextBox.Location = New System.Drawing.Point(68, 21)
         Me.CST_SOC_NOMSOCTextBox.Name = "CST_SOC_NOMSOCTextBox"
         Me.CST_SOC_NOMSOCTextBox.Size = New System.Drawing.Size(682, 20)
@@ -926,14 +922,13 @@ Partial Class frmConstantes
         Me.TabVinidis.Location = New System.Drawing.Point(4, 22)
         Me.TabVinidis.Name = "TabVinidis"
         Me.TabVinidis.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabVinidis.Size = New System.Drawing.Size(768, 435)
+        Me.TabVinidis.Size = New System.Drawing.Size(768, 479)
         Me.TabVinidis.TabIndex = 1
         Me.TabVinidis.Text = "Vinidis"
         Me.TabVinidis.UseVisualStyleBackColor = True
         '
         'TextBox4
         '
-        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_COMPTEPRODUIT_TAXEGO", True))
         Me.TextBox4.Location = New System.Drawing.Point(549, 340)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(100, 20)
@@ -950,7 +945,6 @@ Partial Class frmConstantes
         '
         'tbSOC2COMPTPROD2
         '
-        Me.tbSOC2COMPTPROD2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_COMPTEPRODUIT_COL", True))
         Me.tbSOC2COMPTPROD2.Location = New System.Drawing.Point(549, 313)
         Me.tbSOC2COMPTPROD2.Name = "tbSOC2COMPTPROD2"
         Me.tbSOC2COMPTPROD2.Size = New System.Drawing.Size(100, 20)
@@ -958,7 +952,6 @@ Partial Class frmConstantes
         '
         'tbCodeBanque2
         '
-        Me.tbCodeBanque2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_COMPTEBANQUE", True))
         Me.tbCodeBanque2.Location = New System.Drawing.Point(218, 340)
         Me.tbCodeBanque2.Name = "tbCodeBanque2"
         Me.tbCodeBanque2.Size = New System.Drawing.Size(100, 20)
@@ -975,7 +968,6 @@ Partial Class frmConstantes
         '
         'CST_SOC2_CMPT_PRODTextBox
         '
-        Me.CST_SOC2_CMPT_PRODTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_COMPTEPRODUIT", True))
         Me.CST_SOC2_CMPT_PRODTextBox.Location = New System.Drawing.Point(218, 313)
         Me.CST_SOC2_CMPT_PRODTextBox.Name = "CST_SOC2_CMPT_PRODTextBox"
         Me.CST_SOC2_CMPT_PRODTextBox.Size = New System.Drawing.Size(100, 20)
@@ -983,7 +975,6 @@ Partial Class frmConstantes
         '
         'CST_SOC2_CMPT_TVATextBox
         '
-        Me.CST_SOC2_CMPT_TVATextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_COMPTETVA", True))
         Me.CST_SOC2_CMPT_TVATextBox.Location = New System.Drawing.Point(218, 287)
         Me.CST_SOC2_CMPT_TVATextBox.Name = "CST_SOC2_CMPT_TVATextBox"
         Me.CST_SOC2_CMPT_TVATextBox.Size = New System.Drawing.Size(100, 20)
@@ -991,7 +982,6 @@ Partial Class frmConstantes
         '
         'CST_SOC2_LICENCETextBox
         '
-        Me.CST_SOC2_LICENCETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_LICENCE", True))
         Me.CST_SOC2_LICENCETextBox.Location = New System.Drawing.Point(83, 261)
         Me.CST_SOC2_LICENCETextBox.Name = "CST_SOC2_LICENCETextBox"
         Me.CST_SOC2_LICENCETextBox.Size = New System.Drawing.Size(235, 20)
@@ -999,7 +989,6 @@ Partial Class frmConstantes
         '
         'CST_SOC2_RCSTextBox
         '
-        Me.CST_SOC2_RCSTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_RCS", True))
         Me.CST_SOC2_RCSTextBox.Location = New System.Drawing.Point(83, 235)
         Me.CST_SOC2_RCSTextBox.Name = "CST_SOC2_RCSTextBox"
         Me.CST_SOC2_RCSTextBox.Size = New System.Drawing.Size(235, 20)
@@ -1007,7 +996,6 @@ Partial Class frmConstantes
         '
         'CST_SOC2_TVAINTRATextBox
         '
-        Me.CST_SOC2_TVAINTRATextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_TVAINTRA", True))
         Me.CST_SOC2_TVAINTRATextBox.Location = New System.Drawing.Point(83, 207)
         Me.CST_SOC2_TVAINTRATextBox.Name = "CST_SOC2_TVAINTRATextBox"
         Me.CST_SOC2_TVAINTRATextBox.Size = New System.Drawing.Size(235, 20)
@@ -1016,7 +1004,6 @@ Partial Class frmConstantes
         'CST_SOC2_EMAILTextBox
         '
         Me.CST_SOC2_EMAILTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC2_EMAILTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_EMAIL", True))
         Me.CST_SOC2_EMAILTextBox.Location = New System.Drawing.Point(549, 136)
         Me.CST_SOC2_EMAILTextBox.Name = "CST_SOC2_EMAILTextBox"
         Me.CST_SOC2_EMAILTextBox.Size = New System.Drawing.Size(213, 20)
@@ -1024,7 +1011,6 @@ Partial Class frmConstantes
         '
         'CST_SOC2_PORTTextBox
         '
-        Me.CST_SOC2_PORTTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_PORT", True))
         Me.CST_SOC2_PORTTextBox.Location = New System.Drawing.Point(83, 136)
         Me.CST_SOC2_PORTTextBox.Name = "CST_SOC2_PORTTextBox"
         Me.CST_SOC2_PORTTextBox.Size = New System.Drawing.Size(213, 20)
@@ -1033,7 +1019,6 @@ Partial Class frmConstantes
         'CST_SOC2_FAXTextBox
         '
         Me.CST_SOC2_FAXTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC2_FAXTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_FAX", True))
         Me.CST_SOC2_FAXTextBox.Location = New System.Drawing.Point(549, 110)
         Me.CST_SOC2_FAXTextBox.Name = "CST_SOC2_FAXTextBox"
         Me.CST_SOC2_FAXTextBox.Size = New System.Drawing.Size(213, 20)
@@ -1041,7 +1026,6 @@ Partial Class frmConstantes
         '
         'CST_SOC2_TELTextBox
         '
-        Me.CST_SOC2_TELTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_TEL", True))
         Me.CST_SOC2_TELTextBox.Location = New System.Drawing.Point(83, 110)
         Me.CST_SOC2_TELTextBox.Name = "CST_SOC2_TELTextBox"
         Me.CST_SOC2_TELTextBox.Size = New System.Drawing.Size(213, 20)
@@ -1051,7 +1035,6 @@ Partial Class frmConstantes
         '
         Me.CST_SOC2_ADRESSE_VILLETextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC2_ADRESSE_VILLETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_ADRESSE_VILLE", True))
         Me.CST_SOC2_ADRESSE_VILLETextBox.Location = New System.Drawing.Point(162, 84)
         Me.CST_SOC2_ADRESSE_VILLETextBox.Name = "CST_SOC2_ADRESSE_VILLETextBox"
         Me.CST_SOC2_ADRESSE_VILLETextBox.Size = New System.Drawing.Size(600, 20)
@@ -1059,7 +1042,6 @@ Partial Class frmConstantes
         '
         'CST_SOC2_ADRESSE_CPTextBox
         '
-        Me.CST_SOC2_ADRESSE_CPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_ADRESSE_CP", True))
         Me.CST_SOC2_ADRESSE_CPTextBox.Location = New System.Drawing.Point(83, 84)
         Me.CST_SOC2_ADRESSE_CPTextBox.Name = "CST_SOC2_ADRESSE_CPTextBox"
         Me.CST_SOC2_ADRESSE_CPTextBox.Size = New System.Drawing.Size(73, 20)
@@ -1069,7 +1051,6 @@ Partial Class frmConstantes
         '
         Me.CST_SOC2_ADRESSE_RUE2TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC2_ADRESSE_RUE2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_ADRESSE_RUE2", True))
         Me.CST_SOC2_ADRESSE_RUE2TextBox.Location = New System.Drawing.Point(83, 58)
         Me.CST_SOC2_ADRESSE_RUE2TextBox.Name = "CST_SOC2_ADRESSE_RUE2TextBox"
         Me.CST_SOC2_ADRESSE_RUE2TextBox.Size = New System.Drawing.Size(679, 20)
@@ -1079,7 +1060,6 @@ Partial Class frmConstantes
         '
         Me.CST_SOC2_ADRESSE_RUE1TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC2_ADRESSE_RUE1TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_ADRESSE_RUE1", True))
         Me.CST_SOC2_ADRESSE_RUE1TextBox.Location = New System.Drawing.Point(83, 32)
         Me.CST_SOC2_ADRESSE_RUE1TextBox.Name = "CST_SOC2_ADRESSE_RUE1TextBox"
         Me.CST_SOC2_ADRESSE_RUE1TextBox.Size = New System.Drawing.Size(679, 20)
@@ -1089,7 +1069,6 @@ Partial Class frmConstantes
         '
         Me.CST_SOC2_NOMSOCTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_SOC2_NOMSOCTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_SOC2_NOMSOC", True))
         Me.CST_SOC2_NOMSOCTextBox.Location = New System.Drawing.Point(83, 6)
         Me.CST_SOC2_NOMSOCTextBox.Name = "CST_SOC2_NOMSOCTextBox"
         Me.CST_SOC2_NOMSOCTextBox.Size = New System.Drawing.Size(679, 20)
@@ -1116,7 +1095,7 @@ Partial Class frmConstantes
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(768, 435)
+        Me.TabPage1.Size = New System.Drawing.Size(768, 479)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "Plateforme"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1124,7 +1103,6 @@ Partial Class frmConstantes
         'CST_PLTFRM_EMAILTextBox
         '
         Me.CST_PLTFRM_EMAILTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_PLTFRM_EMAILTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PLTFRM_EMAIL", True))
         Me.CST_PLTFRM_EMAILTextBox.Location = New System.Drawing.Point(521, 147)
         Me.CST_PLTFRM_EMAILTextBox.Name = "CST_PLTFRM_EMAILTextBox"
         Me.CST_PLTFRM_EMAILTextBox.Size = New System.Drawing.Size(241, 20)
@@ -1132,7 +1110,6 @@ Partial Class frmConstantes
         '
         'CST_PLTFRM_PORTTextBox
         '
-        Me.CST_PLTFRM_PORTTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PLTFRM_PORT", True))
         Me.CST_PLTFRM_PORTTextBox.Location = New System.Drawing.Point(67, 147)
         Me.CST_PLTFRM_PORTTextBox.Name = "CST_PLTFRM_PORTTextBox"
         Me.CST_PLTFRM_PORTTextBox.Size = New System.Drawing.Size(241, 20)
@@ -1141,7 +1118,6 @@ Partial Class frmConstantes
         'CST_PLTFRM_FAXTextBox
         '
         Me.CST_PLTFRM_FAXTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_PLTFRM_FAXTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PLTFRM_FAX", True))
         Me.CST_PLTFRM_FAXTextBox.Location = New System.Drawing.Point(521, 121)
         Me.CST_PLTFRM_FAXTextBox.Name = "CST_PLTFRM_FAXTextBox"
         Me.CST_PLTFRM_FAXTextBox.Size = New System.Drawing.Size(241, 20)
@@ -1149,7 +1125,6 @@ Partial Class frmConstantes
         '
         'CST_PLTFRM_TELTextBox
         '
-        Me.CST_PLTFRM_TELTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PLTFRM_TEL", True))
         Me.CST_PLTFRM_TELTextBox.Location = New System.Drawing.Point(68, 121)
         Me.CST_PLTFRM_TELTextBox.Name = "CST_PLTFRM_TELTextBox"
         Me.CST_PLTFRM_TELTextBox.Size = New System.Drawing.Size(241, 20)
@@ -1159,7 +1134,6 @@ Partial Class frmConstantes
         '
         Me.CST_PLTFRM_VILLETextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_PLTFRM_VILLETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PLTFRM_VILLE", True))
         Me.CST_PLTFRM_VILLETextBox.Location = New System.Drawing.Point(174, 84)
         Me.CST_PLTFRM_VILLETextBox.Name = "CST_PLTFRM_VILLETextBox"
         Me.CST_PLTFRM_VILLETextBox.Size = New System.Drawing.Size(586, 20)
@@ -1167,7 +1141,6 @@ Partial Class frmConstantes
         '
         'CST_PLTFRM_CPTextBox
         '
-        Me.CST_PLTFRM_CPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PLTFRM_CP", True))
         Me.CST_PLTFRM_CPTextBox.Location = New System.Drawing.Point(68, 84)
         Me.CST_PLTFRM_CPTextBox.Name = "CST_PLTFRM_CPTextBox"
         Me.CST_PLTFRM_CPTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1177,7 +1150,6 @@ Partial Class frmConstantes
         '
         Me.CST_PLTFRM_RUE2TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_PLTFRM_RUE2TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PLTFRM_RUE2", True))
         Me.CST_PLTFRM_RUE2TextBox.Location = New System.Drawing.Point(68, 58)
         Me.CST_PLTFRM_RUE2TextBox.Name = "CST_PLTFRM_RUE2TextBox"
         Me.CST_PLTFRM_RUE2TextBox.Size = New System.Drawing.Size(692, 20)
@@ -1187,7 +1159,6 @@ Partial Class frmConstantes
         '
         Me.CST_PLTFRM_RUE1TextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_PLTFRM_RUE1TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PLTFRM_RUE1", True))
         Me.CST_PLTFRM_RUE1TextBox.Location = New System.Drawing.Point(68, 32)
         Me.CST_PLTFRM_RUE1TextBox.Name = "CST_PLTFRM_RUE1TextBox"
         Me.CST_PLTFRM_RUE1TextBox.Size = New System.Drawing.Size(692, 20)
@@ -1197,7 +1168,6 @@ Partial Class frmConstantes
         '
         Me.CST_PLTFRM_NOMTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_PLTFRM_NOMTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PLTFRM_NOM", True))
         Me.CST_PLTFRM_NOMTextBox.Location = New System.Drawing.Point(67, 6)
         Me.CST_PLTFRM_NOMTextBox.Name = "CST_PLTFRM_NOMTextBox"
         Me.CST_PLTFRM_NOMTextBox.Size = New System.Drawing.Size(695, 20)
@@ -1216,14 +1186,13 @@ Partial Class frmConstantes
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(768, 435)
+        Me.TabPage2.Size = New System.Drawing.Size(768, 479)
         Me.TabPage2.TabIndex = 3
         Me.TabPage2.Text = "Fax"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'CST_FAX_PREFIXTextBox
         '
-        Me.CST_FAX_PREFIXTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FAX_PREFIX", True))
         Me.CST_FAX_PREFIXTextBox.Location = New System.Drawing.Point(127, 98)
         Me.CST_FAX_PREFIXTextBox.Name = "CST_FAX_PREFIXTextBox"
         Me.CST_FAX_PREFIXTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1231,7 +1200,6 @@ Partial Class frmConstantes
         '
         'CST_FAX_SERVERNAMETextBox
         '
-        Me.CST_FAX_SERVERNAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FAX_SERVERNAME", True))
         Me.CST_FAX_SERVERNAMETextBox.Location = New System.Drawing.Point(127, 71)
         Me.CST_FAX_SERVERNAMETextBox.Name = "CST_FAX_SERVERNAMETextBox"
         Me.CST_FAX_SERVERNAMETextBox.Size = New System.Drawing.Size(200, 20)
@@ -1239,7 +1207,6 @@ Partial Class frmConstantes
         '
         'CST_FAX_PAGE_GARDETextBox
         '
-        Me.CST_FAX_PAGE_GARDETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FAX_PAGE_GARDE", True))
         Me.CST_FAX_PAGE_GARDETextBox.Location = New System.Drawing.Point(127, 45)
         Me.CST_FAX_PAGE_GARDETextBox.Name = "CST_FAX_PAGE_GARDETextBox"
         Me.CST_FAX_PAGE_GARDETextBox.Size = New System.Drawing.Size(200, 20)
@@ -1247,7 +1214,6 @@ Partial Class frmConstantes
         '
         'CST_FAX_ENVOI_PAGE_GARDECheckBox
         '
-        Me.CST_FAX_ENVOI_PAGE_GARDECheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.CONSTANTESBindingSource, "CST_FAX_ENVOI_PAGE_GARDE", True))
         Me.CST_FAX_ENVOI_PAGE_GARDECheckBox.Location = New System.Drawing.Point(127, 15)
         Me.CST_FAX_ENVOI_PAGE_GARDECheckBox.Name = "CST_FAX_ENVOI_PAGE_GARDECheckBox"
         Me.CST_FAX_ENVOI_PAGE_GARDECheckBox.Size = New System.Drawing.Size(104, 24)
@@ -1277,7 +1243,7 @@ Partial Class frmConstantes
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(768, 435)
+        Me.TabPage3.Size = New System.Drawing.Size(768, 479)
         Me.TabPage3.TabIndex = 4
         Me.TabPage3.Text = "Numérotation"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1293,7 +1259,6 @@ Partial Class frmConstantes
         '
         'TextBox2
         '
-        Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_DERN_NUM_FACT_HBV", True))
         Me.TextBox2.Location = New System.Drawing.Point(189, 162)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(100, 20)
@@ -1303,7 +1268,6 @@ Partial Class frmConstantes
         '
         Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EXPORT_COMPTA_PATH", True))
         Me.TextBox1.Location = New System.Drawing.Point(295, 188)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(467, 20)
@@ -1322,7 +1286,6 @@ Partial Class frmConstantes
         '
         Me.CST_PATH_FACTTRPTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_PATH_FACTTRPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PATH_FACTTRP", True))
         Me.CST_PATH_FACTTRPTextBox.Location = New System.Drawing.Point(295, 110)
         Me.CST_PATH_FACTTRPTextBox.Name = "CST_PATH_FACTTRPTextBox"
         Me.CST_PATH_FACTTRPTextBox.Size = New System.Drawing.Size(467, 20)
@@ -1332,7 +1295,6 @@ Partial Class frmConstantes
         '
         Me.CST_PATH_FACTCOMTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_PATH_FACTCOMTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PATH_FACTCOM", True))
         Me.CST_PATH_FACTCOMTextBox.Location = New System.Drawing.Point(295, 84)
         Me.CST_PATH_FACTCOMTextBox.Name = "CST_PATH_FACTCOMTextBox"
         Me.CST_PATH_FACTCOMTextBox.Size = New System.Drawing.Size(467, 20)
@@ -1340,7 +1302,6 @@ Partial Class frmConstantes
         '
         'CST_DERN_NUM_FACT_COLISAGETextBox
         '
-        Me.CST_DERN_NUM_FACT_COLISAGETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_DERN_NUM_FACT_COLISAGE", True))
         Me.CST_DERN_NUM_FACT_COLISAGETextBox.Location = New System.Drawing.Point(189, 136)
         Me.CST_DERN_NUM_FACT_COLISAGETextBox.Name = "CST_DERN_NUM_FACT_COLISAGETextBox"
         Me.CST_DERN_NUM_FACT_COLISAGETextBox.Size = New System.Drawing.Size(100, 20)
@@ -1348,7 +1309,6 @@ Partial Class frmConstantes
         '
         'CST_DERN_NUM_FACT_TRPTextBox
         '
-        Me.CST_DERN_NUM_FACT_TRPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_DERN_NUM_FACT_TRP", True))
         Me.CST_DERN_NUM_FACT_TRPTextBox.Location = New System.Drawing.Point(189, 110)
         Me.CST_DERN_NUM_FACT_TRPTextBox.Name = "CST_DERN_NUM_FACT_TRPTextBox"
         Me.CST_DERN_NUM_FACT_TRPTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1356,7 +1316,6 @@ Partial Class frmConstantes
         '
         'CST_DERN_NUM_FACTCOMTextBox
         '
-        Me.CST_DERN_NUM_FACTCOMTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_DERN_NUM_FACTCOM", True))
         Me.CST_DERN_NUM_FACTCOMTextBox.Location = New System.Drawing.Point(189, 84)
         Me.CST_DERN_NUM_FACTCOMTextBox.Name = "CST_DERN_NUM_FACTCOMTextBox"
         Me.CST_DERN_NUM_FACTCOMTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1364,7 +1323,6 @@ Partial Class frmConstantes
         '
         'CST_DERN_NUM_BATextBox
         '
-        Me.CST_DERN_NUM_BATextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_DERN_NUM_BA", True))
         Me.CST_DERN_NUM_BATextBox.Location = New System.Drawing.Point(189, 58)
         Me.CST_DERN_NUM_BATextBox.Name = "CST_DERN_NUM_BATextBox"
         Me.CST_DERN_NUM_BATextBox.Size = New System.Drawing.Size(100, 20)
@@ -1372,7 +1330,6 @@ Partial Class frmConstantes
         '
         'CST_DERN_NUM_SCMDTextBox
         '
-        Me.CST_DERN_NUM_SCMDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_DERN_NUM_SCMD", True))
         Me.CST_DERN_NUM_SCMDTextBox.Location = New System.Drawing.Point(189, 32)
         Me.CST_DERN_NUM_SCMDTextBox.Name = "CST_DERN_NUM_SCMDTextBox"
         Me.CST_DERN_NUM_SCMDTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1380,7 +1337,6 @@ Partial Class frmConstantes
         '
         'CST_DERN_NUM_CMD_CLTTextBox
         '
-        Me.CST_DERN_NUM_CMD_CLTTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_DERN_NUM_CMD_CLT", True))
         Me.CST_DERN_NUM_CMD_CLTTextBox.Location = New System.Drawing.Point(189, 6)
         Me.CST_DERN_NUM_CMD_CLTTextBox.Name = "CST_DERN_NUM_CMD_CLTTextBox"
         Me.CST_DERN_NUM_CMD_CLTTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1412,7 +1368,7 @@ Partial Class frmConstantes
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(768, 435)
+        Me.TabPage4.Size = New System.Drawing.Size(768, 479)
         Me.TabPage4.TabIndex = 5
         Me.TabPage4.Text = "Taxes et Taux"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1428,7 +1384,6 @@ Partial Class frmConstantes
         '
         'TextBox3
         '
-        Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_TRP_PARTTRP", True))
         Me.TextBox3.Location = New System.Drawing.Point(194, 70)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(100, 20)
@@ -1436,7 +1391,6 @@ Partial Class frmConstantes
         '
         'CST_FACT_COL_PU_COLISTextBox
         '
-        Me.CST_FACT_COL_PU_COLISTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FACT_COL_PU_COLIS", True))
         Me.CST_FACT_COL_PU_COLISTextBox.Location = New System.Drawing.Point(194, 200)
         Me.CST_FACT_COL_PU_COLISTextBox.Name = "CST_FACT_COL_PU_COLISTextBox"
         Me.CST_FACT_COL_PU_COLISTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1444,7 +1398,6 @@ Partial Class frmConstantes
         '
         'CST_FACT_COL_TAXESTextBox
         '
-        Me.CST_FACT_COL_TAXESTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FACT_COL_TAXES", True))
         Me.CST_FACT_COL_TAXESTextBox.Location = New System.Drawing.Point(194, 174)
         Me.CST_FACT_COL_TAXESTextBox.Name = "CST_FACT_COL_TAXESTextBox"
         Me.CST_FACT_COL_TAXESTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1452,7 +1405,6 @@ Partial Class frmConstantes
         '
         'CST_COL_IDMODEREGLEMENTTextBox
         '
-        Me.CST_COL_IDMODEREGLEMENTTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_COL_IDMODEREGLEMENT", True))
         Me.CST_COL_IDMODEREGLEMENTTextBox.Location = New System.Drawing.Point(526, 67)
         Me.CST_COL_IDMODEREGLEMENTTextBox.Name = "CST_COL_IDMODEREGLEMENTTextBox"
         Me.CST_COL_IDMODEREGLEMENTTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1460,7 +1412,6 @@ Partial Class frmConstantes
         '
         'CST_PU_PALL_NONPREPTextBox
         '
-        Me.CST_PU_PALL_NONPREPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PU_PALL_NONPREP", True))
         Me.CST_PU_PALL_NONPREPTextBox.Location = New System.Drawing.Point(194, 148)
         Me.CST_PU_PALL_NONPREPTextBox.Name = "CST_PU_PALL_NONPREPTextBox"
         Me.CST_PU_PALL_NONPREPTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1468,7 +1419,6 @@ Partial Class frmConstantes
         '
         'CST_PU_PALL_PREPTextBox
         '
-        Me.CST_PU_PALL_PREPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_PU_PALL_PREP", True))
         Me.CST_PU_PALL_PREPTextBox.Location = New System.Drawing.Point(194, 122)
         Me.CST_PU_PALL_PREPTextBox.Name = "CST_PU_PALL_PREPTextBox"
         Me.CST_PU_PALL_PREPTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1476,7 +1426,6 @@ Partial Class frmConstantes
         '
         'CST_TRP_TXGAZOLETextBox
         '
-        Me.CST_TRP_TXGAZOLETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_TRP_TXGAZOLE", True))
         Me.CST_TRP_TXGAZOLETextBox.Location = New System.Drawing.Point(194, 96)
         Me.CST_TRP_TXGAZOLETextBox.Name = "CST_TRP_TXGAZOLETextBox"
         Me.CST_TRP_TXGAZOLETextBox.Size = New System.Drawing.Size(100, 20)
@@ -1484,7 +1433,6 @@ Partial Class frmConstantes
         '
         'CST_TRP_IDMODEREGLEMENTTextBox
         '
-        Me.CST_TRP_IDMODEREGLEMENTTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_TRP_IDMODEREGLEMENT", True))
         Me.CST_TRP_IDMODEREGLEMENTTextBox.Location = New System.Drawing.Point(526, 41)
         Me.CST_TRP_IDMODEREGLEMENTTextBox.Name = "CST_TRP_IDMODEREGLEMENTTextBox"
         Me.CST_TRP_IDMODEREGLEMENTTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1492,7 +1440,6 @@ Partial Class frmConstantes
         '
         'CST_TAXES_TRPTextBox
         '
-        Me.CST_TAXES_TRPTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_TAXES_TRP", True))
         Me.CST_TAXES_TRPTextBox.Location = New System.Drawing.Point(194, 44)
         Me.CST_TAXES_TRPTextBox.Name = "CST_TAXES_TRPTextBox"
         Me.CST_TAXES_TRPTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1500,7 +1447,6 @@ Partial Class frmConstantes
         '
         'CST_TX_COMMISSIONTextBox
         '
-        Me.CST_TX_COMMISSIONTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_TX_COMMISSION", True))
         Me.CST_TX_COMMISSIONTextBox.Location = New System.Drawing.Point(194, 15)
         Me.CST_TX_COMMISSIONTextBox.Name = "CST_TX_COMMISSIONTextBox"
         Me.CST_TX_COMMISSIONTextBox.Size = New System.Drawing.Size(100, 20)
@@ -1508,12 +1454,25 @@ Partial Class frmConstantes
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.TextBox11)
+        Me.TabPage5.Controls.Add(Me.Label40)
+        Me.TabPage5.Controls.Add(Me.TextBox10)
+        Me.TabPage5.Controls.Add(Me.Label39)
+        Me.TabPage5.Controls.Add(Me.TextBox5)
+        Me.TabPage5.Controls.Add(Me.TextBox6)
+        Me.TabPage5.Controls.Add(Me.TextBox7)
+        Me.TabPage5.Controls.Add(Me.TextBox8)
+        Me.TabPage5.Controls.Add(Me.TextBox9)
+        Me.TabPage5.Controls.Add(Me.Label20)
+        Me.TabPage5.Controls.Add(Me.Label32)
+        Me.TabPage5.Controls.Add(Me.Label37)
+        Me.TabPage5.Controls.Add(Me.Label38)
+        Me.TabPage5.Controls.Add(Me.Label36)
         Me.TabPage5.Controls.Add(Me.tbURLEspFRN)
         Me.TabPage5.Controls.Add(Me.Label29)
         Me.TabPage5.Controls.Add(Me.btnTestFTPvnc)
         Me.TabPage5.Controls.Add(Me.Label31)
         Me.TabPage5.Controls.Add(Me.tb_ftnvnc_remoteDir)
-        Me.TabPage5.Controls.Add(Me.Label32)
         Me.TabPage5.Controls.Add(Me.tb_ftpvnc_password)
         Me.TabPage5.Controls.Add(Me.Label33)
         Me.TabPage5.Controls.Add(Me.tb_ftpvnc_User)
@@ -1524,7 +1483,6 @@ Partial Class frmConstantes
         Me.TabPage5.Controls.Add(Me.tbFTPEDIRepLocal)
         Me.TabPage5.Controls.Add(Me.cbTestFTPEDI)
         Me.TabPage5.Controls.Add(Me.Label21)
-        Me.TabPage5.Controls.Add(Me.Label20)
         Me.TabPage5.Controls.Add(Me.tbFTPEDIRep)
         Me.TabPage5.Controls.Add(Me.tbFTPEDIPwd)
         Me.TabPage5.Controls.Add(Me.tbFTPEDIUser)
@@ -1536,15 +1494,15 @@ Partial Class frmConstantes
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(768, 435)
+        Me.TabPage5.Size = New System.Drawing.Size(768, 479)
         Me.TabPage5.TabIndex = 6
         Me.TabPage5.Text = "FTP"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
         'tbURLEspFRN
         '
-        Me.tbURLEspFRN.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_URL", True))
-        Me.tbURLEspFRN.Location = New System.Drawing.Point(191, 134)
+        Me.tbURLEspFRN.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVND_URL", True))
+        Me.tbURLEspFRN.Location = New System.Drawing.Point(191, 95)
         Me.tbURLEspFRN.Name = "tbURLEspFRN"
         Me.tbURLEspFRN.Size = New System.Drawing.Size(438, 20)
         Me.tbURLEspFRN.TabIndex = 45
@@ -1552,7 +1510,7 @@ Partial Class frmConstantes
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(8, 137)
+        Me.Label29.Location = New System.Drawing.Point(13, 98)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(164, 13)
         Me.Label29.TabIndex = 44
@@ -1570,7 +1528,7 @@ Partial Class frmConstantes
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(9, 111)
+        Me.Label31.Location = New System.Drawing.Point(14, 72)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(98, 13)
         Me.Label31.TabIndex = 36
@@ -1578,25 +1536,16 @@ Partial Class frmConstantes
         '
         'tb_ftnvnc_remoteDir
         '
-        Me.tb_ftnvnc_remoteDir.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_REMOTEDIR", True))
-        Me.tb_ftnvnc_remoteDir.Location = New System.Drawing.Point(191, 108)
+        Me.tb_ftnvnc_remoteDir.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVND_REMOTEDIR", True))
+        Me.tb_ftnvnc_remoteDir.Location = New System.Drawing.Point(191, 69)
         Me.tb_ftnvnc_remoteDir.Name = "tb_ftnvnc_remoteDir"
         Me.tb_ftnvnc_remoteDir.Size = New System.Drawing.Size(438, 20)
         Me.tb_ftnvnc_remoteDir.TabIndex = 37
         '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(11, 85)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(96, 13)
-        Me.Label32.TabIndex = 34
-        Me.Label32.Text = "FTP PASSWORD:"
-        '
         'tb_ftpvnc_password
         '
-        Me.tb_ftpvnc_password.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_PASSWORD", True))
-        Me.tb_ftpvnc_password.Location = New System.Drawing.Point(191, 82)
+        Me.tb_ftpvnc_password.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVND_PASSWORD", True))
+        Me.tb_ftpvnc_password.Location = New System.Drawing.Point(398, 45)
         Me.tb_ftpvnc_password.Name = "tb_ftpvnc_password"
         Me.tb_ftpvnc_password.Size = New System.Drawing.Size(201, 20)
         Me.tb_ftpvnc_password.TabIndex = 35
@@ -1604,7 +1553,7 @@ Partial Class frmConstantes
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(9, 59)
+        Me.Label33.Location = New System.Drawing.Point(14, 48)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(94, 13)
         Me.Label33.TabIndex = 32
@@ -1612,8 +1561,8 @@ Partial Class frmConstantes
         '
         'tb_ftpvnc_User
         '
-        Me.tb_ftpvnc_User.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_USER", True))
-        Me.tb_ftpvnc_User.Location = New System.Drawing.Point(191, 56)
+        Me.tb_ftpvnc_User.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVND_USER", True))
+        Me.tb_ftpvnc_User.Location = New System.Drawing.Point(191, 45)
         Me.tb_ftpvnc_User.Name = "tb_ftpvnc_User"
         Me.tb_ftpvnc_User.Size = New System.Drawing.Size(201, 20)
         Me.tb_ftpvnc_User.TabIndex = 33
@@ -1621,7 +1570,7 @@ Partial Class frmConstantes
         'Label34
         '
         Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(9, 37)
+        Me.Label34.Location = New System.Drawing.Point(14, 22)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(94, 13)
         Me.Label34.TabIndex = 30
@@ -1629,8 +1578,8 @@ Partial Class frmConstantes
         '
         'tbftpvnc_host
         '
-        Me.tbftpvnc_host.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPVNC_HOST", True))
-        Me.tbftpvnc_host.Location = New System.Drawing.Point(191, 30)
+        Me.tbftpvnc_host.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVND_HOST", True))
+        Me.tbftpvnc_host.Location = New System.Drawing.Point(191, 19)
         Me.tbftpvnc_host.Name = "tbftpvnc_host"
         Me.tbftpvnc_host.Size = New System.Drawing.Size(201, 20)
         Me.tbftpvnc_host.TabIndex = 31
@@ -1641,14 +1590,14 @@ Partial Class frmConstantes
         Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label35.Location = New System.Drawing.Point(12, 3)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(205, 13)
+        Me.Label35.Size = New System.Drawing.Size(292, 13)
         Me.Label35.TabIndex = 43
-        Me.Label35.Text = "FTP Espace Fournisseur VINICOM:"
+        Me.Label35.Text = "FTP Espace Fournisseur VINIDIS (Stock-Colisage)"
         '
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(9, 375)
+        Me.Label22.Location = New System.Drawing.Point(13, 450)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(62, 13)
         Me.Label22.TabIndex = 29
@@ -1656,15 +1605,14 @@ Partial Class frmConstantes
         '
         'tbFTPEDIRepLocal
         '
-        Me.tbFTPEDIRepLocal.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPEDI_REPLOCAL", True))
-        Me.tbFTPEDIRepLocal.Location = New System.Drawing.Point(101, 368)
+        Me.tbFTPEDIRepLocal.Location = New System.Drawing.Point(105, 443)
         Me.tbFTPEDIRepLocal.Name = "tbFTPEDIRepLocal"
         Me.tbFTPEDIRepLocal.Size = New System.Drawing.Size(432, 20)
         Me.tbFTPEDIRepLocal.TabIndex = 28
         '
         'cbTestFTPEDI
         '
-        Me.cbTestFTPEDI.Location = New System.Drawing.Point(635, 331)
+        Me.cbTestFTPEDI.Location = New System.Drawing.Point(639, 377)
         Me.cbTestFTPEDI.Name = "cbTestFTPEDI"
         Me.cbTestFTPEDI.Size = New System.Drawing.Size(89, 25)
         Me.cbTestFTPEDI.TabIndex = 27
@@ -1674,49 +1622,37 @@ Partial Class frmConstantes
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(12, 343)
+        Me.Label21.Location = New System.Drawing.Point(16, 424)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(67, 13)
         Me.Label21.TabIndex = 26
         Me.Label21.Text = "Rép distant :"
         '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(12, 307)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(77, 13)
-        Me.Label20.TabIndex = 25
-        Me.Label20.Text = "Mot de passe :"
-        '
         'tbFTPEDIRep
         '
-        Me.tbFTPEDIRep.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPEDI_REP", True))
-        Me.tbFTPEDIRep.Location = New System.Drawing.Point(101, 336)
+        Me.tbFTPEDIRep.Location = New System.Drawing.Point(105, 417)
         Me.tbFTPEDIRep.Name = "tbFTPEDIRep"
         Me.tbFTPEDIRep.Size = New System.Drawing.Size(432, 20)
         Me.tbFTPEDIRep.TabIndex = 24
         '
         'tbFTPEDIPwd
         '
-        Me.tbFTPEDIPwd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPEDI_PWD", True))
-        Me.tbFTPEDIPwd.Location = New System.Drawing.Point(101, 304)
+        Me.tbFTPEDIPwd.Location = New System.Drawing.Point(318, 391)
         Me.tbFTPEDIPwd.Name = "tbFTPEDIPwd"
-        Me.tbFTPEDIPwd.Size = New System.Drawing.Size(432, 20)
+        Me.tbFTPEDIPwd.Size = New System.Drawing.Size(219, 20)
         Me.tbFTPEDIPwd.TabIndex = 23
         '
         'tbFTPEDIUser
         '
-        Me.tbFTPEDIUser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPEDI_USER", True))
-        Me.tbFTPEDIUser.Location = New System.Drawing.Point(101, 273)
+        Me.tbFTPEDIUser.Location = New System.Drawing.Point(105, 391)
         Me.tbFTPEDIUser.Name = "tbFTPEDIUser"
-        Me.tbFTPEDIUser.Size = New System.Drawing.Size(432, 20)
+        Me.tbFTPEDIUser.Size = New System.Drawing.Size(203, 20)
         Me.tbFTPEDIUser.TabIndex = 22
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(12, 273)
+        Me.Label18.Location = New System.Drawing.Point(16, 391)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(59, 13)
         Me.Label18.TabIndex = 21
@@ -1724,16 +1660,14 @@ Partial Class frmConstantes
         '
         'tbFTPEDIPort
         '
-        Me.tbFTPEDIPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPEDI_PORT", True))
-        Me.tbFTPEDIPort.Location = New System.Drawing.Point(549, 238)
+        Me.tbFTPEDIPort.Location = New System.Drawing.Point(553, 362)
         Me.tbFTPEDIPort.Name = "tbFTPEDIPort"
         Me.tbFTPEDIPort.Size = New System.Drawing.Size(36, 20)
         Me.tbFTPEDIPort.TabIndex = 20
         '
         'tbFTPEDISRV
         '
-        Me.tbFTPEDISRV.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_FTPEDI_SRV", True))
-        Me.tbFTPEDISRV.Location = New System.Drawing.Point(101, 238)
+        Me.tbFTPEDISRV.Location = New System.Drawing.Point(105, 362)
         Me.tbFTPEDISRV.Name = "tbFTPEDISRV"
         Me.tbFTPEDISRV.Size = New System.Drawing.Size(432, 20)
         Me.tbFTPEDISRV.TabIndex = 19
@@ -1741,7 +1675,7 @@ Partial Class frmConstantes
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(9, 238)
+        Me.Label17.Location = New System.Drawing.Point(13, 362)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(50, 13)
         Me.Label17.TabIndex = 18
@@ -1751,7 +1685,7 @@ Partial Class frmConstantes
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(9, 200)
+        Me.Label16.Location = New System.Drawing.Point(15, 337)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(166, 13)
         Me.Label16.TabIndex = 17
@@ -1778,7 +1712,7 @@ Partial Class frmConstantes
         Me.tbEDI_Destinataire.Location = New System.Drawing.Point(4, 22)
         Me.tbEDI_Destinataire.Name = "tbEDI_Destinataire"
         Me.tbEDI_Destinataire.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbEDI_Destinataire.Size = New System.Drawing.Size(768, 435)
+        Me.tbEDI_Destinataire.Size = New System.Drawing.Size(768, 479)
         Me.tbEDI_Destinataire.TabIndex = 7
         Me.tbEDI_Destinataire.Text = "WEBEDI"
         Me.tbEDI_Destinataire.UseVisualStyleBackColor = True
@@ -1786,7 +1720,6 @@ Partial Class frmConstantes
         'ckWEBEDI_SSL
         '
         Me.ckWEBEDI_SSL.AutoSize = True
-        Me.ckWEBEDI_SSL.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONSTANTESBindingSource, "CST_EDI_SSL", True))
         Me.ckWEBEDI_SSL.Location = New System.Drawing.Point(233, 50)
         Me.ckWEBEDI_SSL.Name = "ckWEBEDI_SSL"
         Me.ckWEBEDI_SSL.Size = New System.Drawing.Size(46, 17)
@@ -1812,7 +1745,6 @@ Partial Class frmConstantes
         '
         'tbWEBEDI_SMTPPWD
         '
-        Me.tbWEBEDI_SMTPPWD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_PWD", True))
         Me.tbWEBEDI_SMTPPWD.Location = New System.Drawing.Point(105, 101)
         Me.tbWEBEDI_SMTPPWD.Name = "tbWEBEDI_SMTPPWD"
         Me.tbWEBEDI_SMTPPWD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -1830,7 +1762,6 @@ Partial Class frmConstantes
         '
         'tbWEBEDI_SMTPuser
         '
-        Me.tbWEBEDI_SMTPuser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_USER", True))
         Me.tbWEBEDI_SMTPuser.Location = New System.Drawing.Point(105, 73)
         Me.tbWEBEDI_SMTPuser.Name = "tbWEBEDI_SMTPuser"
         Me.tbWEBEDI_SMTPuser.Size = New System.Drawing.Size(430, 20)
@@ -1847,7 +1778,6 @@ Partial Class frmConstantes
         '
         'tbWEBEDI_TEMP
         '
-        Me.tbWEBEDI_TEMP.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_TEMP", True))
         Me.tbWEBEDI_TEMP.Location = New System.Drawing.Point(105, 166)
         Me.tbWEBEDI_TEMP.Name = "tbWEBEDI_TEMP"
         Me.tbWEBEDI_TEMP.Size = New System.Drawing.Size(432, 20)
@@ -1873,7 +1803,6 @@ Partial Class frmConstantes
         '
         'tbWEBEDI_SMTPFROM
         '
-        Me.tbWEBEDI_SMTPFROM.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_FROM", True))
         Me.tbWEBEDI_SMTPFROM.Location = New System.Drawing.Point(105, 127)
         Me.tbWEBEDI_SMTPFROM.Name = "tbWEBEDI_SMTPFROM"
         Me.tbWEBEDI_SMTPFROM.Size = New System.Drawing.Size(432, 20)
@@ -1890,7 +1819,6 @@ Partial Class frmConstantes
         '
         'tbWEBEDI_SMTPPORT
         '
-        Me.tbWEBEDI_SMTPPORT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_PORT", True))
         Me.tbWEBEDI_SMTPPORT.Location = New System.Drawing.Point(105, 46)
         Me.tbWEBEDI_SMTPPORT.Name = "tbWEBEDI_SMTPPORT"
         Me.tbWEBEDI_SMTPPORT.Size = New System.Drawing.Size(87, 20)
@@ -1916,7 +1844,6 @@ Partial Class frmConstantes
         '
         'tbWEBEDI_SMTPHOST
         '
-        Me.tbWEBEDI_SMTPHOST.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_EDI_HOST", True))
         Me.tbWEBEDI_SMTPHOST.Location = New System.Drawing.Point(105, 20)
         Me.tbWEBEDI_SMTPHOST.Name = "tbWEBEDI_SMTPHOST"
         Me.tbWEBEDI_SMTPHOST.Size = New System.Drawing.Size(433, 20)
@@ -1942,7 +1869,7 @@ Partial Class frmConstantes
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(768, 435)
+        Me.TabPage7.Size = New System.Drawing.Size(768, 479)
         Me.TabPage7.TabIndex = 8
         Me.TabPage7.Text = "PrestaShop"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -1962,7 +1889,6 @@ Partial Class frmConstantes
         '
         'tbImapNSec
         '
-        Me.tbImapNSec.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_NSEC", True))
         Me.tbImapNSec.Location = New System.Drawing.Point(186, 135)
         Me.tbImapNSec.Name = "tbImapNSec"
         Me.tbImapNSec.Size = New System.Drawing.Size(45, 20)
@@ -1980,7 +1906,6 @@ Partial Class frmConstantes
         '
         'tbImapFolder
         '
-        Me.tbImapFolder.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_MSGFOLDER", True))
         Me.tbImapFolder.Location = New System.Drawing.Point(169, 102)
         Me.tbImapFolder.Name = "tbImapFolder"
         Me.tbImapFolder.Size = New System.Drawing.Size(243, 20)
@@ -2007,7 +1932,6 @@ Partial Class frmConstantes
         '
         'tbImapPwd
         '
-        Me.tbImapPwd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_PWD", True))
         Me.tbImapPwd.Location = New System.Drawing.Point(312, 46)
         Me.tbImapPwd.Name = "tbImapPwd"
         Me.tbImapPwd.Size = New System.Drawing.Size(100, 20)
@@ -2029,7 +1953,6 @@ Partial Class frmConstantes
         Me.ckImapSSL.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.ckImapSSL.Checked = True
         Me.ckImapSSL.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ckImapSSL.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONSTANTESBindingSource, "CST_IMAP_SSL", True))
         Me.ckImapSSL.Location = New System.Drawing.Point(322, 18)
         Me.ckImapSSL.Name = "ckImapSSL"
         Me.ckImapSSL.Size = New System.Drawing.Size(46, 17)
@@ -2039,7 +1962,6 @@ Partial Class frmConstantes
         '
         'tbImapUser
         '
-        Me.tbImapUser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_USER", True))
         Me.tbImapUser.Location = New System.Drawing.Point(131, 46)
         Me.tbImapUser.Name = "tbImapUser"
         Me.tbImapUser.Size = New System.Drawing.Size(100, 20)
@@ -2066,7 +1988,6 @@ Partial Class frmConstantes
         '
         'tbImapPort
         '
-        Me.tbImapPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_PORT", True))
         Me.tbImapPort.Location = New System.Drawing.Point(275, 16)
         Me.tbImapPort.Name = "tbImapPort"
         Me.tbImapPort.Size = New System.Drawing.Size(29, 20)
@@ -2075,7 +1996,6 @@ Partial Class frmConstantes
         '
         'tbImapHost
         '
-        Me.tbImapHost.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_IMAP_HOST", True))
         Me.tbImapHost.Location = New System.Drawing.Point(131, 16)
         Me.tbImapHost.Name = "tbImapHost"
         Me.tbImapHost.Size = New System.Drawing.Size(100, 20)
@@ -2111,10 +2031,21 @@ Partial Class frmConstantes
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(768, 435)
+        Me.TabPage6.Size = New System.Drawing.Size(768, 479)
         Me.TabPage6.TabIndex = 9
         Me.TabPage6.Text = "FTP SERES"
         Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.Color.Maroon
+        Me.Label30.Location = New System.Drawing.Point(327, 3)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(80, 13)
+        Me.Label30.TabIndex = 28
+        Me.Label30.Text = "Site inutilisé "
         '
         'btnTestFTPSERES
         '
@@ -2136,7 +2067,6 @@ Partial Class frmConstantes
         '
         'FTP_LOCKTOFILENAMETextBox
         '
-        Me.FTP_LOCKTOFILENAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_LOCKTOFILENAME", True))
         Me.FTP_LOCKTOFILENAMETextBox.Location = New System.Drawing.Point(187, 160)
         Me.FTP_LOCKTOFILENAMETextBox.Name = "FTP_LOCKTOFILENAMETextBox"
         Me.FTP_LOCKTOFILENAMETextBox.Size = New System.Drawing.Size(201, 20)
@@ -2153,7 +2083,6 @@ Partial Class frmConstantes
         '
         'FTP_LOCKFROMFILENAMETextBox
         '
-        Me.FTP_LOCKFROMFILENAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_LOCKFROMFILENAME", True))
         Me.FTP_LOCKFROMFILENAMETextBox.Location = New System.Drawing.Point(187, 134)
         Me.FTP_LOCKFROMFILENAMETextBox.Name = "FTP_LOCKFROMFILENAMETextBox"
         Me.FTP_LOCKFROMFILENAMETextBox.Size = New System.Drawing.Size(201, 20)
@@ -2170,7 +2099,6 @@ Partial Class frmConstantes
         '
         'FTP_REMOTEDIRTextBox
         '
-        Me.FTP_REMOTEDIRTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_REMOTEDIR", True))
         Me.FTP_REMOTEDIRTextBox.Location = New System.Drawing.Point(187, 108)
         Me.FTP_REMOTEDIRTextBox.Name = "FTP_REMOTEDIRTextBox"
         Me.FTP_REMOTEDIRTextBox.Size = New System.Drawing.Size(438, 20)
@@ -2187,7 +2115,6 @@ Partial Class frmConstantes
         '
         'FTP_PASSWORDTextBox
         '
-        Me.FTP_PASSWORDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_PASSWORD", True))
         Me.FTP_PASSWORDTextBox.Location = New System.Drawing.Point(187, 82)
         Me.FTP_PASSWORDTextBox.Name = "FTP_PASSWORDTextBox"
         Me.FTP_PASSWORDTextBox.Size = New System.Drawing.Size(201, 20)
@@ -2204,7 +2131,6 @@ Partial Class frmConstantes
         '
         'FTP_USERNAMETextBox
         '
-        Me.FTP_USERNAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_USERNAME", True))
         Me.FTP_USERNAMETextBox.Location = New System.Drawing.Point(187, 56)
         Me.FTP_USERNAMETextBox.Name = "FTP_USERNAMETextBox"
         Me.FTP_USERNAMETextBox.Size = New System.Drawing.Size(201, 20)
@@ -2221,7 +2147,6 @@ Partial Class frmConstantes
         '
         'FTP_HOSTNAMETextBox
         '
-        Me.FTP_HOSTNAMETextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "FTP_HOSTNAME", True))
         Me.FTP_HOSTNAMETextBox.Location = New System.Drawing.Point(187, 30)
         Me.FTP_HOSTNAMETextBox.Name = "FTP_HOSTNAMETextBox"
         Me.FTP_HOSTNAMETextBox.Size = New System.Drawing.Size(201, 20)
@@ -2240,7 +2165,6 @@ Partial Class frmConstantes
         'CST_VERSION_BDTextBox
         '
         Me.CST_VERSION_BDTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CST_VERSION_BDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONSTANTESBindingSource, "CST_VERSION_BD", True))
         Me.CST_VERSION_BDTextBox.Location = New System.Drawing.Point(676, 6)
         Me.CST_VERSION_BDTextBox.Name = "CST_VERSION_BDTextBox"
         Me.CST_VERSION_BDTextBox.Size = New System.Drawing.Size(100, 20)
@@ -2259,44 +2183,148 @@ Partial Class frmConstantes
         'dtpdateMAj
         '
         Me.dtpdateMAj.CustomFormat = "dd/MM/yyyy hh:mm:ss"
-        Me.dtpdateMAj.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.CONSTANTESBindingSource, "CST_DATE_UPDATE", True))
         Me.dtpdateMAj.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpdateMAj.Location = New System.Drawing.Point(518, 6)
         Me.dtpdateMAj.Name = "dtpdateMAj"
         Me.dtpdateMAj.Size = New System.Drawing.Size(152, 20)
         Me.dtpdateMAj.TabIndex = 4
         '
-        'CONSTANTESBindingSource
+        'Label36
         '
-        Me.CONSTANTESBindingSource.DataMember = "CONSTANTES"
-        Me.CONSTANTESBindingSource.DataSource = Me.DsVinicom
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.Location = New System.Drawing.Point(12, 131)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(300, 13)
+        Me.Label36.TabIndex = 46
+        Me.Label36.Text = "FTP Espace Fournisseur VINICOM (Bons à facturer)"
         '
-        'DsVinicom
+        'Label20
         '
-        Me.DsVinicom.DataSetName = "dsVinicom"
-        Me.DsVinicom.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(12, 268)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(164, 13)
+        Me.Label20.TabIndex = 50
+        Me.Label20.Text = "URL d'intégration des documents"
         '
-        'CONSTANTESTableAdapter
+        'Label32
         '
-        Me.CONSTANTESTableAdapter.ClearBeforeFill = True
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(14, 216)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(104, 13)
+        Me.Label32.TabIndex = 49
+        Me.Label32.Text = "Répertoire de dépot:"
         '
-        'Label30
+        'Label37
         '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.ForeColor = System.Drawing.Color.Maroon
-        Me.Label30.Location = New System.Drawing.Point(327, 3)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(80, 13)
-        Me.Label30.TabIndex = 28
-        Me.Label30.Text = "Site inutilisé "
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(14, 190)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(122, 13)
+        Me.Label37.TabIndex = 48
+        Me.Label37.Text = "Utilisateur/Mot de passe"
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(14, 164)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(50, 13)
+        Me.Label38.TabIndex = 47
+        Me.Label38.Text = "Serveur :"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVNC_URL2", True))
+        Me.TextBox5.Location = New System.Drawing.Point(191, 265)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(438, 20)
+        Me.TextBox5.TabIndex = 55
+        '
+        'TextBox6
+        '
+        Me.TextBox6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVNC_REMOTEDIR2", True))
+        Me.TextBox6.Location = New System.Drawing.Point(191, 209)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(438, 20)
+        Me.TextBox6.TabIndex = 54
+        '
+        'TextBox7
+        '
+        Me.TextBox7.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVNC_PASSWORD", True))
+        Me.TextBox7.Location = New System.Drawing.Point(398, 183)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox7.TabIndex = 53
+        '
+        'TextBox8
+        '
+        Me.TextBox8.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVNC_USER", True))
+        Me.TextBox8.Location = New System.Drawing.Point(191, 183)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox8.TabIndex = 52
+        '
+        'TextBox9
+        '
+        Me.TextBox9.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVNC_HOST", True))
+        Me.TextBox9.Location = New System.Drawing.Point(191, 157)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox9.TabIndex = 51
+        '
+        'TextBox10
+        '
+        Me.TextBox10.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVNC_REMOTEDIR", True))
+        Me.TextBox10.Location = New System.Drawing.Point(191, 235)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(438, 20)
+        Me.TextBox10.TabIndex = 57
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(14, 242)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(109, 13)
+        Me.Label39.TabIndex = 56
+        Me.Label39.Text = "Répertoire de lecture:"
+        '
+        'TextBox11
+        '
+        Me.TextBox11.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPVNC_URL", True))
+        Me.TextBox11.Location = New System.Drawing.Point(191, 291)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(438, 20)
+        Me.TextBox11.TabIndex = 59
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(13, 294)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(161, 13)
+        Me.Label40.TabIndex = 58
+        Me.Label40.Text = "URL d'extraction des documents"
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataMember = "CONSTANTES"
+        Me.BindingSource1.DataSource = Me.DsVinicom1
+        '
+        'DsVinicom1
+        '
+        Me.DsVinicom1.DataSetName = "dsVinicom"
+        Me.DsVinicom1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'frmConstantes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(788, 496)
+        Me.ClientSize = New System.Drawing.Size(788, 540)
         Me.Controls.Add(Me.dtpdateMAj)
         Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.CST_VERSION_BDLabel)
@@ -2325,8 +2353,8 @@ Partial Class frmConstantes
         Me.TabPage7.PerformLayout()
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout()
-        CType(Me.CONSTANTESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsVinicom, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsVinicom1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2334,9 +2362,6 @@ Partial Class frmConstantes
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents tabVinicom As System.Windows.Forms.TabPage
     Friend WithEvents TabVinidis As System.Windows.Forms.TabPage
-    Friend WithEvents DsVinicom As vini_DB.dsVinicom
-    Friend WithEvents CONSTANTESBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents CONSTANTESTableAdapter As vini_DB.dsVinicomTableAdapters.CONSTANTESTableAdapter
     Friend WithEvents CST_SOC_EMAILTextBox As System.Windows.Forms.TextBox
     Friend WithEvents CST_SOC_PORTTextBox As System.Windows.Forms.TextBox
     Friend WithEvents CST_SOC_FAXTextBox As System.Windows.Forms.TextBox
@@ -2502,7 +2527,6 @@ Partial Class frmConstantes
     Friend WithEvents tbFTPEDIRepLocal As TextBox
     Friend WithEvents cbTestFTPEDI As Button
     Friend WithEvents Label21 As Label
-    Friend WithEvents Label20 As Label
     Friend WithEvents tbFTPEDIRep As TextBox
     Friend WithEvents tbFTPEDIPwd As TextBox
     Friend WithEvents tbFTPEDIUser As TextBox
@@ -2529,7 +2553,6 @@ Partial Class frmConstantes
     Friend WithEvents btnTestFTPvnc As Button
     Friend WithEvents Label31 As Label
     Friend WithEvents tb_ftnvnc_remoteDir As TextBox
-    Friend WithEvents Label32 As Label
     Friend WithEvents tb_ftpvnc_password As TextBox
     Friend WithEvents Label33 As Label
     Friend WithEvents tb_ftpvnc_User As TextBox
@@ -2539,4 +2562,20 @@ Partial Class frmConstantes
     Friend WithEvents tbURLEspFRN As TextBox
     Friend WithEvents Label29 As Label
     Friend WithEvents Label30 As Label
+    Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents DsVinicom1 As vini_DB.dsVinicom
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label32 As Label
+    Friend WithEvents Label37 As Label
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Label36 As Label
+    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents Label39 As Label
+    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents Label40 As Label
 End Class

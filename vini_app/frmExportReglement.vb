@@ -13,7 +13,6 @@ Public Class frmExportReglement
 
     Private Sub frmExportReglement_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO : cette ligne de code charge les données dans la table 'DsVinicom.CONSTANTES'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-        Me.CONSTANTESTableAdapter.Connection = Persist.oleDBConnection
         Me.CONSTANTESTableAdapter.Fill(Me.DsVinicom.CONSTANTES)
 
     End Sub
