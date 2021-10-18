@@ -123,56 +123,56 @@
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="AssemblyInfo.vb" />
     <Compile Include="Constants.vb" />
-    <Compile Include="crEnteteHBV.vb">
+    <Compile Include="cr\crEnteteHBV.vb">
       <DependentUpon>crEnteteHBV.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crFactHobivin.vb">
+    <Compile Include="cr\crFactHobivin.vb">
       <DependentUpon>crFactHobivin.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crFactureColisageOLD.vb">
+    <Compile Include="cr\crFactureColisageOLD.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crFactureColisageOLD.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListeFactColisageParNumero.vb">
+    <Compile Include="cr\crListeFactColisageParNumero.vb">
       <DependentUpon>crListeFactColisageParNumero.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crListeFactComParNumero.vb">
+    <Compile Include="cr\crListeFactComParNumero.vb">
       <DependentUpon>crListeFactComParNumero.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crListeFactTRPParNumero.vb">
+    <Compile Include="cr\crListeFactTRPParNumero.vb">
       <DependentUpon>crListeFactTRPParNumero.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crRecapColisageJournalier.vb">
+    <Compile Include="cr\crRecapColisageJournalier.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crRecapColisageJournalier.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="CrystalReport1.vb">
+    <Compile Include="cr\CrystalReport1.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
@@ -185,16 +185,19 @@
     <Compile Include="dlgExportWebEDI.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dlgInternet.Designer.vb">
+    <Compile Include="frm_espacesFournisseurs\dlgInternet.Designer.vb">
       <DependentUpon>dlgInternet.vb</DependentUpon>
     </Compile>
-    <Compile Include="dlgInternet.vb">
+    <Compile Include="frm_espacesFournisseurs\dlgInternet.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmExportColisage.vb">
+    <Compile Include="frm_espacesFournisseurs\frmExportColisage.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmExportInternet.vb">
+    <Compile Include="frm_espacesFournisseurs\frmExportInternet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_espacesFournisseurs\frmImportInternet.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmImportTarif.vb">
@@ -206,7 +209,7 @@
     <Compile Include="frmImportCommandeClientPrestashop.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmExportMouvementArticle.vb">
+    <Compile Include="frm_espacesFournisseurs\frmExportMouvementArticle.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVerificationLivraison.vb">
@@ -221,34 +224,34 @@
     <Compile Include="frmExportQuadra.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="crComparatifCommandeClientParProduit.vb">
+    <Compile Include="cr\crComparatifCommandeClientParProduit.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crComparatifCommandeClientParProduit.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crDetailCommandeClient.vb">
+    <Compile Include="cr\crDetailCommandeClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crDetailCommandeClient.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crListeCAMensuelClient.vb">
+    <Compile Include="cr\crListeCAMensuelClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeCAMensuelClient.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crPrecommande.vb">
+    <Compile Include="cr\crPrecommande.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crPrecommande.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crTableauCAClient.vb">
+    <Compile Include="cr\crTableauCAClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crTableauCAClient.rpt</DependentUpon>
@@ -312,413 +315,413 @@
     <Compile Include="frmGestParamTauxTva.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="crBilanFinancierClient.vb">
+    <Compile Include="cr\crBilanFinancierClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBilanFinancierClient.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crBilanFinancierFournisseur.vb">
+    <Compile Include="cr\crBilanFinancierFournisseur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBilanFinancierFournisseur.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crBLBonAppro.vb">
+    <Compile Include="cr\crBLBonAppro.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBLBonAppro.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crBLTransporteur.vb">
+    <Compile Include="cr\crBLTransporteur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBLTransporteur.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crBonAppro.vb">
+    <Compile Include="cr\crBonAppro.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBonAppro.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crBonFournisseur.vb">
+    <Compile Include="cr\crBonFournisseur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBonFournisseur.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crBonLivraison.vb">
+    <Compile Include="cr\crBonLivraison.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBonLivraison.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crCAClient.vb">
+    <Compile Include="cr\crCAClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crCAClient.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crCAClientProducteur.vb">
+    <Compile Include="cr\crCAClientProducteur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crCAClientProducteur.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crCAClientTableau.vb">
+    <Compile Include="cr\crCAClientTableau.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crCAClientTableau.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crCAGroupeClients.vb">
+    <Compile Include="cr\crCAGroupeClients.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crCAGroupeClients.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crCAMensuelClient.vb">
+    <Compile Include="cr\crCAMensuelClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crCAMensuelClient.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crComparatifCommission.vb">
+    <Compile Include="cr\crComparatifCommission.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crComparatifCommission.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crCumulVentesArticles.vb">
+    <Compile Include="cr\crCumulVentesArticles.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crCumulVentesArticles.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crEntete.vb">
+    <Compile Include="cr\crEntete.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crEntete.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crEntete2.vb">
+    <Compile Include="cr\crEntete2.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crEntete2.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crEtatStock.vb">
+    <Compile Include="cr\crEtatStock.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crEtatStock.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crFactCom.vb">
+    <Compile Include="cr\crFactCom.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crFactCom.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crFactCom_courrier.vb">
+    <Compile Include="cr\crFactCom_courrier.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crFactCom_courrier.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crFactCom_Releve.vb">
+    <Compile Include="cr\crFactCom_Releve.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crFactCom_Releve.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crFactureColisage.vb">
+    <Compile Include="cr\crFactureColisage.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crFactureColisage.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crFactureTRP.vb">
+    <Compile Include="cr\crFactureTRP.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crFactureTRP.rpt</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crJournalAnnoncesApprovisionnement.vb">
+    <Compile Include="cr\crJournalAnnoncesApprovisionnement.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crJournalAnnoncesApprovisionnement.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crJournalAnnoncesLivraison.vb">
+    <Compile Include="cr\crJournalAnnoncesLivraison.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crJournalAnnoncesLivraison.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListeCommandeEnAttente.vb">
+    <Compile Include="cr\crListeCommandeEnAttente.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeCommandeEnAttente.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListeCommandeTRP.vb">
+    <Compile Include="cr\crListeCommandeTRP.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeCommandeTRP.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListeFactColisage.vb">
+    <Compile Include="cr\crListeFactColisage.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeFactColisage.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListeFactCom.vb">
+    <Compile Include="cr\crListeFactCom.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeFactCom.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListeFactTRP.vb">
+    <Compile Include="cr\crListeFactTRP.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeFactTRP.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListePalettes.vb">
+    <Compile Include="cr\crListePalettes.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListePalettes.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListeReglements.vb">
+    <Compile Include="cr\crListeReglements.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeReglements.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListeSousCommande.vb">
+    <Compile Include="cr\crListeSousCommande.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeSousCommande.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crListeTarif.vb">
+    <Compile Include="cr\crListeTarif.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeTarif.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crLstBonAppro.vb">
+    <Compile Include="cr\crLstBonAppro.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crLstBonAppro.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crLstCommandes.vb">
+    <Compile Include="cr\crLstCommandes.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crLstCommandes.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crLstCommissionsAProvisionner.vb">
+    <Compile Include="cr\crLstCommissionsAProvisionner.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crLstCommissionsAProvisionner.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crLstEntreesPlateforme.vb">
+    <Compile Include="cr\crLstEntreesPlateforme.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crLstEntreesPlateforme.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crLstSortiesPlateforme.vb">
+    <Compile Include="cr\crLstSortiesPlateforme.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crLstSortiesPlateforme.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crLstSousCommandesLitige.vb">
+    <Compile Include="cr\crLstSousCommandesLitige.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crLstSousCommandesLitige.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crMouvementArticle.vb">
+    <Compile Include="cr\crMouvementArticle.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crMouvementArticle.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crMouvementCmdArticle.vb">
+    <Compile Include="cr\crMouvementCmdArticle.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crMouvementCmdArticle.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crQteCmdArticleClient.vb">
+    <Compile Include="cr\crQteCmdArticleClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crQteCmdArticleClient.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crQteCmdArticleMois.vb">
+    <Compile Include="cr\crQteCmdArticleMois.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crQteCmdArticleMois.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crRecapAnnonces.vb">
+    <Compile Include="cr\crRecapAnnonces.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crRecapAnnonces.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crRecapAnnoncesAppro.vb">
+    <Compile Include="cr\crRecapAnnoncesAppro.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crRecapAnnoncesAppro.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crReferences.vb">
+    <Compile Include="cr\crReferences.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crReferences.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crReferences2.vb">
+    <Compile Include="cr\crReferences2.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crReferences2.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crRegistreAppro.vb">
+    <Compile Include="cr\crRegistreAppro.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crRegistreAppro.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crRegistreLivraison.vb">
+    <Compile Include="cr\crRegistreLivraison.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crRegistreLivraison.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crStatBilanClient.vb">
+    <Compile Include="cr\crStatBilanClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crStatBilanClient.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crStatCAClientProducteur.vb">
+    <Compile Include="cr\crStatCAClientProducteur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crStatCAClientProducteur.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crStatCAProducteurClient.vb">
+    <Compile Include="cr\crStatCAProducteurClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crStatCAProducteurClient.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crStatFournisseur.vb">
+    <Compile Include="cr\crStatFournisseur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crStatFournisseur.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crStatHistoriqueArticles.vb">
+    <Compile Include="cr\crStatHistoriqueArticles.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crStatHistoriqueArticles.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crStatProduitFournisseur.vb">
+    <Compile Include="cr\crStatProduitFournisseur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crStatProduitFournisseur.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crStockFournisseur.vb">
+    <Compile Include="cr\crStockFournisseur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crStockFournisseur.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crSyntheseESArticle.vb">
+    <Compile Include="cr\crSyntheseESArticle.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crSyntheseESArticle.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crTableauBordFacture.vb">
+    <Compile Include="cr\crTableauBordFacture.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crTableauBordFacture.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="crTableaudeBordFournisseur.vb">
+    <Compile Include="cr\crTableaudeBordFournisseur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crTableaudeBordFournisseur.rpt</DependentUpon>
@@ -764,13 +767,13 @@
     <Compile Include="dlgVisuStockFournisseur.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBilanClient.vb">
+    <Compile Include="frm_Stats\frmBilanClient.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCAClientProducteur.vb">
+    <Compile Include="frm_Stats\frmCAClientProducteur.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCAProducteurClient.vb">
+    <Compile Include="frm_Stats\frmCAProducteurClient.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCheckDatabase.Designer.vb">
@@ -803,7 +806,7 @@
     <Compile Include="frmcrRegistreLivraison.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCumulVentesArticles.vb">
+    <Compile Include="frm_Stats\frmCumulVentesArticles.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEditfactures.Designer.vb">
@@ -977,13 +980,13 @@
     <Compile Include="frmRechercheSCMD.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmsaisieCommande.vb">
+    <Compile Include="frm_SaisieCmd\frmsaisieCommande.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSaisieCommandeBonAppro.vb">
+    <Compile Include="frm_SaisieCmd\frmSaisieCommandeBonAppro.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSaisieCommandeClient.vb">
+    <Compile Include="frm_SaisieCmd\frmSaisieCommandeClient.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSaisieReglement.Designer.vb">
@@ -1001,29 +1004,29 @@
     <Compile Include="frmSplash.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStat.vb">
+    <Compile Include="frm_Stats\frmStat.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStatCAClient.vb">
+    <Compile Include="frm_Stats\frmStatCAClient.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStatCAGroupeClients.vb">
+    <Compile Include="frm_Stats\frmStatCAGroupeClients.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStatistiques.vb">
+    <Compile Include="frm_Stats\frmStatistiques.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStatListeCAMensuelClient.vb">
+    <Compile Include="frm_Stats\frmStatListeCAMensuelClient.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStatProduitFournisseur.vb">
+    <Compile Include="frm_Stats\frmStatProduitFournisseur.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTableauBordFacture.Designer.vb" />
-    <Compile Include="frmTableauBordFacture.vb">
+    <Compile Include="frm_Stats\frmTableauBordFacture.Designer.vb" />
+    <Compile Include="frm_Stats\frmTableauBordFacture.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTableaudeBordFournisseur.vb">
+    <Compile Include="frm_Stats\frmTableaudeBordFournisseur.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTiers.vb">
@@ -1062,322 +1065,322 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="crBilanFinancierClient.rpt">
+    <Content Include="cr\crBilanFinancierClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBilanFinancierClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crBilanFinancierFournisseur.rpt">
+    <Content Include="cr\crBilanFinancierFournisseur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBilanFinancierFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crBLBonAppro.rpt">
+    <Content Include="cr\crBLBonAppro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBLBonAppro.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crBLTransporteur.rpt">
+    <Content Include="cr\crBLTransporteur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBLTransporteur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crBonAppro.rpt">
+    <Content Include="cr\crBonAppro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBonAppro.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crBonFournisseur.rpt">
+    <Content Include="cr\crBonFournisseur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBonFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crBonLivraison.rpt">
+    <Content Include="cr\crBonLivraison.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBonLivraison.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crCAClient.rpt">
+    <Content Include="cr\crCAClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCAClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crCAClientProducteur.rpt">
+    <Content Include="cr\crCAClientProducteur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCAClientProducteur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crCAClientTableau.rpt">
+    <Content Include="cr\crCAClientTableau.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCAClientTableau.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crCAGroupeClients.rpt">
+    <Content Include="cr\crCAGroupeClients.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCAGroupeClients.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crCAMensuelClient.rpt">
+    <Content Include="cr\crCAMensuelClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCAMensuelClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crComparatifCommission.rpt">
+    <Content Include="cr\crComparatifCommission.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crComparatifCommission.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crCumulVentesArticles.rpt">
+    <Content Include="cr\crCumulVentesArticles.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCumulVentesArticles.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crDetailCommandeClient.rpt">
+    <Content Include="cr\crDetailCommandeClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crDetailCommandeClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crEntete.rpt">
+    <Content Include="cr\crEntete.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crEntete.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crEntete2.rpt">
+    <Content Include="cr\crEntete2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crEntete2.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crEtatStock.rpt">
+    <Content Include="cr\crEtatStock.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crEtatStock.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crFactCom.rpt">
+    <Content Include="cr\crFactCom.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactCom.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crFactCom_courrier.rpt">
+    <Content Include="cr\crFactCom_courrier.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactCom_courrier.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crFactCom_Releve.rpt">
+    <Content Include="cr\crFactCom_Releve.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactCom_Releve.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crFactureColisage.rpt">
+    <Content Include="cr\crFactureColisage.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactureColisage.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crFactureTRP.rpt">
+    <Content Include="cr\crFactureTRP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactureTRP.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crJournalAnnoncesApprovisionnement.rpt">
+    <Content Include="cr\crJournalAnnoncesApprovisionnement.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crJournalAnnoncesApprovisionnement.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crJournalAnnoncesLivraison.rpt">
+    <Content Include="cr\crJournalAnnoncesLivraison.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crJournalAnnoncesLivraison.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeCommandeEnAttente.rpt">
+    <Content Include="cr\crListeCommandeEnAttente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeCommandeEnAttente.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeCommandeTRP.rpt">
+    <Content Include="cr\crListeCommandeTRP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeCommandeTRP.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeFactColisage.rpt">
+    <Content Include="cr\crListeFactColisage.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeFactColisage.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeFactCom.rpt">
+    <Content Include="cr\crListeFactCom.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeFactCom.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeFactTRP.rpt">
+    <Content Include="cr\crListeFactTRP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeFactTRP.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListePalettes.rpt">
+    <Content Include="cr\crListePalettes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListePalettes.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeReglements.rpt">
+    <Content Include="cr\crListeReglements.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeReglements.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeSousCommande.rpt">
+    <Content Include="cr\crListeSousCommande.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeSousCommande.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeTarif.rpt">
+    <Content Include="cr\crListeTarif.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeTarif.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crLstBonAppro.rpt">
+    <Content Include="cr\crLstBonAppro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crLstBonAppro.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crLstCommandes.rpt">
+    <Content Include="cr\crLstCommandes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crLstCommandes.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crLstCommissionsAProvisionner.rpt">
+    <Content Include="cr\crLstCommissionsAProvisionner.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crLstCommissionsAProvisionner.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crLstEntreesPlateforme.rpt">
+    <Content Include="cr\crLstEntreesPlateforme.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crLstEntreesPlateforme.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crLstSortiesPlateforme.rpt">
+    <Content Include="cr\crLstSortiesPlateforme.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crLstSortiesPlateforme.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crLstSousCommandesLitige.rpt">
+    <Content Include="cr\crLstSousCommandesLitige.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crLstSousCommandesLitige.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crMouvementArticle.rpt">
+    <Content Include="cr\crMouvementArticle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMouvementArticle.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crMouvementCmdArticle.rpt">
+    <Content Include="cr\crMouvementCmdArticle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMouvementCmdArticle.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crQteCmdArticleClient.rpt">
+    <Content Include="cr\crQteCmdArticleClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crQteCmdArticleClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crQteCmdArticleMois.rpt">
+    <Content Include="cr\crQteCmdArticleMois.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crQteCmdArticleMois.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crRecapAnnonces.rpt">
+    <Content Include="cr\crRecapAnnonces.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRecapAnnonces.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crRecapAnnoncesAppro.rpt">
+    <Content Include="cr\crRecapAnnoncesAppro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRecapAnnoncesAppro.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crReferences.rpt">
+    <Content Include="cr\crReferences.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReferences.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crReferences2.rpt">
+    <Content Include="cr\crReferences2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReferences2.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crRegistreAppro.rpt">
+    <Content Include="cr\crRegistreAppro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegistreAppro.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crRegistreLivraison.rpt">
+    <Content Include="cr\crRegistreLivraison.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegistreLivraison.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crStatBilanClient.rpt">
+    <Content Include="cr\crStatBilanClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crStatBilanClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crStatCAClientProducteur.rpt">
+    <Content Include="cr\crStatCAClientProducteur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crStatCAClientProducteur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crStatCAProducteurClient.rpt">
+    <Content Include="cr\crStatCAProducteurClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crStatCAProducteurClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crStatFournisseur.rpt">
+    <Content Include="cr\crStatFournisseur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crStatFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crStatHistoriqueArticles.rpt">
+    <Content Include="cr\crStatHistoriqueArticles.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crStatHistoriqueArticles.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crStatProduitFournisseur.rpt">
+    <Content Include="cr\crStatProduitFournisseur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crStatProduitFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crStockFournisseur.rpt">
+    <Content Include="cr\crStockFournisseur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crStockFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crSyntheseESArticle.rpt">
+    <Content Include="cr\crSyntheseESArticle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSyntheseESArticle.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crTableauBordFacture.rpt">
+    <Content Include="cr\crTableauBordFacture.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crTableauBordFacture.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crTableaudeBordFournisseur.rpt">
+    <Content Include="cr\crTableaudeBordFournisseur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crTableaudeBordFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crPrecommande.rpt">
+    <Content Include="cr\crPrecommande.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crPrecommande.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crComparatifCommandeClientParProduit.rpt">
+    <Content Include="cr\crComparatifCommandeClientParProduit.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crComparatifCommandeClientParProduit.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeCAMensuelClient.rpt">
+    <Content Include="cr\crListeCAMensuelClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeCAMensuelClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crTableauCAClient.rpt">
+    <Content Include="cr\crTableauCAClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crTableauCAClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1440,42 +1443,42 @@
     <Content Include="Requetes\VxxTOV6.0.0.2.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crFactHobivin.rpt">
+    <Content Include="cr\crFactHobivin.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactHobivin.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crEnteteHBV.rpt">
+    <Content Include="cr\crEnteteHBV.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crEnteteHBV.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeFactComParNumero.rpt">
+    <Content Include="cr\crListeFactComParNumero.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeFactComParNumero.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeFactTRPParNumero.rpt">
+    <Content Include="cr\crListeFactTRPParNumero.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeFactTRPParNumero.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crListeFactColisageParNumero.rpt">
+    <Content Include="cr\crListeFactColisageParNumero.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeFactColisageParNumero.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="crRecapColisageJournalier.rpt">
+    <Content Include="cr\crRecapColisageJournalier.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRecapColisageJournalier.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="crFactureColisageOLD.rpt">
+    <EmbeddedResource Include="cr\crFactureColisageOLD.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactureColisageOLD.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <EmbeddedResource Include="cr\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1486,11 +1489,11 @@
     <EmbeddedResource Include="dlgExportWebEDI.resx">
       <DependentUpon>dlgExportWebEDI.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dlgInternet.resx">
+    <EmbeddedResource Include="frm_espacesFournisseurs\dlgInternet.resx">
       <DependentUpon>dlgInternet.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCAProducteurClient.resx">
+    <EmbeddedResource Include="frm_Stats\frmCAProducteurClient.resx">
       <DependentUpon>frmCAProducteurClient.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConstantes.resx">
@@ -1499,21 +1502,25 @@
     <EmbeddedResource Include="frmcrRecapColisage.resx">
       <DependentUpon>frmcrRecapColisage.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCumulVentesArticles.resx">
+    <EmbeddedResource Include="frm_Stats\frmCumulVentesArticles.resx">
       <DependentUpon>frmCumulVentesArticles.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExportColisage.resx">
+    <EmbeddedResource Include="frm_espacesFournisseurs\frmExportColisage.resx">
       <DependentUpon>frmExportColisage.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExportInternet.resx">
+    <EmbeddedResource Include="frm_espacesFournisseurs\frmExportInternet.resx">
       <DependentUpon>frmExportInternet.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExportMouvementArticle.resx">
+    <EmbeddedResource Include="frm_espacesFournisseurs\frmExportMouvementArticle.resx">
       <DependentUpon>frmExportMouvementArticle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestFactColisage.resx">
       <DependentUpon>frmGestFactColisage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_espacesFournisseurs\frmImportInternet.resx">
+      <DependentUpon>frmImportInternet.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmImportTarif.resx">
       <DependentUpon>frmImportTarif.vb</DependentUpon>
@@ -1584,11 +1591,11 @@
       <DependentUpon>dlgVisuBonFournisseur.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBilanClient.resx">
+    <EmbeddedResource Include="frm_Stats\frmBilanClient.resx">
       <DependentUpon>frmBilanClient.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCAClientProducteur.resx">
+    <EmbeddedResource Include="frm_Stats\frmCAClientProducteur.resx">
       <DependentUpon>frmCAClientProducteur.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1743,15 +1750,15 @@
       <DependentUpon>frmRechercheSCMD.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmsaisieCommande.resx">
+    <EmbeddedResource Include="frm_SaisieCmd\frmsaisieCommande.resx">
       <DependentUpon>frmsaisieCommande.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSaisieCommandeBonAppro.resx">
+    <EmbeddedResource Include="frm_SaisieCmd\frmSaisieCommandeBonAppro.resx">
       <DependentUpon>frmSaisieCommandeBonAppro.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSaisieCommandeClient.resx">
+    <EmbeddedResource Include="frm_SaisieCmd\frmSaisieCommandeClient.resx">
       <DependentUpon>frmSaisieCommandeClient.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1763,31 +1770,31 @@
       <DependentUpon>frmSplash.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStat.resx">
+    <EmbeddedResource Include="frm_Stats\frmStat.resx">
       <DependentUpon>frmStat.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStatCAClient.resx">
+    <EmbeddedResource Include="frm_Stats\frmStatCAClient.resx">
       <DependentUpon>frmStatCAClient.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStatCAGroupeClients.resx">
+    <EmbeddedResource Include="frm_Stats\frmStatCAGroupeClients.resx">
       <DependentUpon>frmStatCAGroupeClients.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStatistiques.resx">
+    <EmbeddedResource Include="frm_Stats\frmStatistiques.resx">
       <DependentUpon>frmStatistiques.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStatListeCAMensuelClient.resx">
+    <EmbeddedResource Include="frm_Stats\frmStatListeCAMensuelClient.resx">
       <DependentUpon>frmStatListeCAMensuelClient.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStatProduitFournisseur.resx">
+    <EmbeddedResource Include="frm_Stats\frmStatProduitFournisseur.resx">
       <DependentUpon>frmStatProduitFournisseur.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTableaudeBordFournisseur.resx">
+    <EmbeddedResource Include="frm_Stats\frmTableaudeBordFournisseur.resx">
       <DependentUpon>frmTableaudeBordFournisseur.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

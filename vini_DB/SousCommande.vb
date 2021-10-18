@@ -967,28 +967,28 @@ Public Class SousCommande
         For Each objLgCommande In colLignes
             strResult1Line = ""
             objProduit = Produit.createandload(objLgCommande.oProduit.id) 'Chargement du produit
-            strResult1Line = strResult1Line & Trim(Me.id) & ";"
-            strResult1Line = strResult1Line & Trim(Me.code) & ";"
-            strResult1Line = strResult1Line & Trim(Me.codeCommandeClient) & ";"
-            strResult1Line = strResult1Line & Trim(Format(Me.dateCommande, "yyyy-MM-dd")) & ";"
-            strResult1Line = strResult1Line & Right("000" & Trim(Me.oFournisseur.code), 3) & ";"
-            strResult1Line = strResult1Line & Trim(Me.oClient.code) & ";"
-            strResult1Line = strResult1Line & Trim(Me.oClient.nom) & ";"
-            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.rue1) & ";"
-            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.cp) & ";"
-            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.ville) & ";"
-            strResult1Line = strResult1Line & Trim(Me.oClient.libModeReglement) & ";"
-            strResult1Line = strResult1Line & Trim(Format(Me.totalHT, "n").Replace(",", ".")) & ";"
-            strResult1Line = strResult1Line & Trim(Format(Me.totalTTC, "n").Replace(",", ".")) & ";"
-            strResult1Line = strResult1Line & Trim(Me.CommFacturation.comment) & ";"
-            strResult1Line = strResult1Line & Trim(objLgCommande.qteLiv) & ";"
-            strResult1Line = strResult1Line & Trim(objProduit.code) & ";"
-            strResult1Line = strResult1Line & Trim(objProduit.nom) & ";"
-            strResult1Line = strResult1Line & Trim(objProduit.libCouleur) & ";"
-            strResult1Line = strResult1Line & Trim(objProduit.millesime) & ";"
-            strResult1Line = strResult1Line & Trim(objProduit.libConditionnement) & ";"
-            strResult1Line = strResult1Line & Trim(objProduit.libContenant) & ";"
-            strResult1Line = strResult1Line & Trim(Format(objLgCommande.prixU, "n").Replace(",", ".")) & ";"
+            strResult1Line = strResult1Line & Trim(Me.id) & ","
+            strResult1Line = strResult1Line & Trim(Me.code) & ","
+            strResult1Line = strResult1Line & Trim(Me.codeCommandeClient) & ","
+            strResult1Line = strResult1Line & Trim(Format(Me.dateCommande, "yyyy-MM-dd")) & ","
+            strResult1Line = strResult1Line & Right("000" & Trim(Me.oFournisseur.code), 3) & ","
+            strResult1Line = strResult1Line & Trim(Me.oClient.code) & ","
+            strResult1Line = strResult1Line & Trim(Me.oClient.nom) & ","
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.rue1) & ","
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.cp) & ","
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.ville) & ","
+            strResult1Line = strResult1Line & Trim(Me.oClient.libModeReglement) & ","
+            strResult1Line = strResult1Line & Trim(Format(Me.totalHT, "n").Replace(",", ".")) & ","
+            strResult1Line = strResult1Line & Trim(Format(Me.totalTTC, "n").Replace(",", ".")) & ","
+            strResult1Line = strResult1Line & Trim(Me.CommFacturation.comment) & ","
+            strResult1Line = strResult1Line & Trim(objLgCommande.qteLiv) & ","
+            strResult1Line = strResult1Line & Trim(objProduit.code) & ","
+            strResult1Line = strResult1Line & Trim(objProduit.nom) & ","
+            strResult1Line = strResult1Line & Trim(objProduit.libCouleur) & ","
+            strResult1Line = strResult1Line & Trim(objProduit.millesime) & ","
+            strResult1Line = strResult1Line & Trim(objProduit.libConditionnement) & ","
+            strResult1Line = strResult1Line & Trim(objProduit.libContenant) & ","
+            strResult1Line = strResult1Line & Trim(Format(objLgCommande.prixU, "n").Replace(",", "."))
 
             strResult1Line = Replace(strResult1Line, vbCrLf, "--")
             strResult1Line = Replace(strResult1Line, vbCr, "-")
@@ -1021,12 +1021,12 @@ Public Class SousCommande
         strResult = ""
         For Each objLgCommande In colLignes
             strResult1Line = ""
-            strResult1Line = strResult1Line & Trim(Me.id) & ";"
+            strResult1Line = strResult1Line & Trim(Me.id) & ","
             'Dans ce mode le détail de la sous commande n'est pas exporté
-            strResult1Line = strResult1Line & Trim(Me.refFactFournisseur) & ";"
-            strResult1Line = strResult1Line & Trim(Format(Me.dateFactFournisseur, "yyyy-MM-dd")) & ";"
-            strResult1Line = strResult1Line & totalHTFacture & ";"
-            strResult1Line = strResult1Line & totalTTCFacture & ";"
+            strResult1Line = strResult1Line & Trim(Me.refFactFournisseur) & ","
+            strResult1Line = strResult1Line & Trim(Format(Me.dateFactFournisseur, "yyyy-MM-dd")) & ","
+            strResult1Line = strResult1Line & totalHTFacture & ","
+            strResult1Line = strResult1Line & totalTTCFacture
 
             strResult1Line = Replace(strResult1Line, vbCrLf, "--")
             strResult1Line = Replace(strResult1Line, vbCr, "-")
@@ -1502,7 +1502,7 @@ Public Class SousCommande
         Dim nId As Integer
         Dim oSCMD As SousCommande
 
-        tabCSV = strResult.Split(";")
+        tabCSV = strResult.Split(",")
         nId = tabCSV(IMPORT_IDSCMD)
         oSCMD = SousCommande.createandload(nId)
         If (Not oSCMD.bNew) Then

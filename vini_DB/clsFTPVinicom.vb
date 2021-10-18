@@ -95,8 +95,8 @@ Public Class clsFTPVinicom
     Public Sub New(ByVal strHost As String, ByVal strUSer As String, ByVal strPassword As String, Optional ByVal strRemoteDir As String = "")
         m_FTP = New NETFTPclient(strHost, strUSer, strPassword)
         m_RemoteDir = strRemoteDir
-        m_strLockFromFileName = Param.getConstante("FTP_LOCKFROMFILENAME")
-        m_strLockToFileName = Param.getConstante("FTP_LOCKTOFILENAME")
+        '        m_strLockFromFileName = Param.getConstante("FTP_LOCKFROMFILENAME")
+        '       m_strLockToFileName = Param.getConstante("FTP_LOCKTOFILENAME")
         m_strErrorDescription = String.Empty
         m_nWaitSeconds = 2
         m_nWaitLoops = 100
@@ -141,7 +141,11 @@ Public Class clsFTPVinicom
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
         Dim bReturn As Boolean
         m_strErrorDescription = String.Empty
-        bReturn = lock(m_strLockFromFileName)
+        If String.IsNullOrEmpty(m_strLockFromFileName) Then
+            bReturn = True
+        Else
+            bReturn = lock(m_strLockFromFileName)
+        End If
         Return bReturn
     End Function ' lockFrom
     '=======================================================================
@@ -154,7 +158,11 @@ Public Class clsFTPVinicom
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
         Dim bReturn As Boolean
         m_strErrorDescription = String.Empty
-        bReturn = lock(m_strLockToFileName)
+        If String.IsNullOrEmpty(m_strLockToFileName) Then
+            bReturn = True
+        Else
+            bReturn = lock(m_strLockToFileName)
+        End If
         Return bReturn
     End Function ' lockTo
     '=======================================================================
@@ -167,9 +175,13 @@ Public Class clsFTPVinicom
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
 
         Dim bReturn As Boolean
+        If String.IsNullOrEmpty(m_strLockFromFileName) Then
+            bReturn = True
+        Else
 
-        m_strErrorDescription = String.Empty
-        bReturn = unlock(m_strLockFromFileName)
+            m_strErrorDescription = String.Empty
+            bReturn = unlock(m_strLockFromFileName)
+        End If
         Return bReturn
     End Function ' unlockFrom
     '=======================================================================
@@ -184,7 +196,11 @@ Public Class clsFTPVinicom
         Dim bReturn As Boolean
 
         m_strErrorDescription = String.Empty
-        bReturn = unlock(m_strLockToFileName)
+        If String.IsNullOrEmpty(m_strLockToFileName) Then
+            bReturn = True
+        Else
+            bReturn = unlock(m_strLockToFileName)
+        End If
         Return bReturn
     End Function ' unlockTo
     '=======================================================================
@@ -251,8 +267,12 @@ Public Class clsFTPVinicom
 
         Dim bReturn As Boolean
 
-        m_strErrorDescription = String.Empty
-        bReturn = isLock(m_strLockToFileName)
+        If String.IsNullOrEmpty(m_strLockFromFileName) Then
+            bReturn = True
+        Else
+            m_strErrorDescription = String.Empty
+            bReturn = isLock(m_strLockToFileName)
+        End If
         Return bReturn
     End Function 'IsLockTo
     ''' <summary>
@@ -264,7 +284,12 @@ Public Class clsFTPVinicom
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
         Dim bReturn As Boolean
         m_strErrorDescription = String.Empty
-        bReturn = isLock(m_strLockFromFileName)
+        If String.IsNullOrEmpty(m_strLockFromFileName) Then
+            bReturn = False
+        Else
+
+            bReturn = isLock(m_strLockFromFileName)
+        End If
         Return bReturn
     End Function 'IsLockFrom
     ''' <summary>
@@ -330,28 +355,72 @@ Public Class clsFTPVinicom
 
         Return nReturn
     End Function ' uploadFromDir
+    Public Function uploadFile(ByVal strLocalFileName As String) As Integer
+        Dim nReturn As Integer
+        Dim oInf As FileInfo
+
+        Try
+
+            nReturn = 0
+            m_strErrorDescription = String.Empty
+            'Upload des fichiers
+            If File.Exists(strLocalFileName) Then
+
+                oInf = New FileInfo(strLocalFileName)
+                Dim targetFileName As String
+                        If String.IsNullOrEmpty(remoteDir) Then
+                            targetFileName = oInf.Name
+                        Else
+                            targetFileName = remoteDir & "/" & oInf.Name
+
+                        End If
+
+                    If m_FTP.Upload(strLocalFileName, targetFileName) Then
+                        nReturn = nReturn + 1
+                    Else
+                        If Not String.IsNullOrEmpty(m_strErrorDescription) Then
+                                m_strErrorDescription = m_strErrorDescription + vbCrLf
+                            End If
+                            m_strErrorDescription = m_strErrorDescription + "Erreur FTP"
+                        End If
+                'Libération du verrou
+                WaitnSeconds(1)
+                unlockfrom()
+            End If
+        Catch ex As Exception
+            Debug.Assert(False, "clsFTPVinicom.uploadFromDir" & ex.Message)
+            nReturn = -1
+        End Try
+
+        Return nReturn
+    End Function ' uploadFile
+
     '=======================================================================
     'Fonction : downloadToDir()
     'Description : Pose le verrou , Download tous les fichiers du répertoire, libère le verrou
     'Détails    :  
     'Retour : Vari si l'opération s'est bien déroulé est OK
     '=======================================================================
-    Public Function downloadToDir(ByVal strLocalDirName As String, Optional ByVal strFileName As String = "toVinicom.csv") As Boolean
+    Public Function downloadToDir(ByVal strLocalDirName As String, Optional ByVal pstrFileName As String = "toVinicom.csv") As Boolean
         Dim bReturn As Boolean
-
+        Dim strFileName As String
         Try
 
+            strFileName = pstrFileName
+            If m_RemoteDir <> "" Then
+                strFileName = m_RemoteDir & "/" & pstrFileName
+            End If
             bReturn = False
             m_strErrorDescription = String.Empty
             'Pose du verrou
-            If lockTo() Then
-                'Download des fichiers
-                If m_FTP.FtpFileExists(strFileName) Then
-                    m_FTP.Download(strFileName, strLocalDirName + "/" + strFileName, True)
-                End If
-                'Libération du verrou
-                bReturn = unlockTo()
+            '            If lockTo() Then
+            'Download des fichiers
+            If m_FTP.FtpFileExists(strFileName) Then
+                m_FTP.Download(strFileName, strLocalDirName + "/" + pstrFileName, True)
             End If
+            'Libération du verrou
+            '              bReturn = unlockTo()
+            '           End If
         Catch ex As Exception
             Debug.Assert(False, "clsFTPVinicom.downloadToDir" & ex.Message)
             bReturn = False

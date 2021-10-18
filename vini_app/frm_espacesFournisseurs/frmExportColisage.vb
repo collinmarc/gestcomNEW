@@ -293,7 +293,7 @@ Public Class frmExportColisage
             Next
             If ckFTP.Checked And Not e.Cancel Then
                 Dim oftp As clsFTPVinicom
-                oftp = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOST"), Param.getConstante("CST_FTPVNC_USER"), Param.getConstante("CST_FTPVNC_PASSWORD"), Param.getConstante("CST_FTPVNC_REMOTEDIR"))
+                oftp = New clsFTPVinicom(Param.getConstante("CST_FTPVND_HOST"), Param.getConstante("CST_FTPVND_USER"), Param.getConstante("CST_FTPVND_PASSWORD"), Param.getConstante("CST_FTPVND_REMOTEDIR"))
                 oftp.uploadFromDir(m_strFolder)
 
             End If
@@ -315,7 +315,7 @@ Public Class frmExportColisage
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
         Me.WebBrowser1.ScriptErrorsSuppressed = True
         Me.WebBrowser1.Visible = True
-        Me.WebBrowser1.Navigate(New Uri(Param.getConstante("CST_FTPVNC_URL")))
+        Me.WebBrowser1.Navigate(New Uri(Param.getConstante("CST_FTPVND_URL")))
         m_pgBar.Value = m_pgBar.Value + 1
         lblProgress.Text = m_pgBar.Value & "/" & m_pgBar.Maximum
     End Sub

@@ -740,7 +740,7 @@ Imports System.IO
             strResult = LineInput(nfile)
             Console.WriteLine(strResult)
             If nLineNumber = 1 Then
-                tabCSV = strResult.Split(";")
+                tabCSV = strResult.Split(",")
                 oSCmd = m_oCmd.colSousCommandes(1)
                 'Vérification du contenu de la ligne
                 n = 0
@@ -848,7 +848,7 @@ Imports System.IO
             strResult = LineInput(nfile)
             Console.WriteLine(strResult)
             If nLineNumber = 1 Then
-                tabCSV = strResult.Split(";")
+                tabCSV = strResult.Split(",")
                 oSCmd = m_oCmd.colSousCommandes(1)
                 'Vérification du contenu de la ligne
                 'Vérification du contenu de la ligne

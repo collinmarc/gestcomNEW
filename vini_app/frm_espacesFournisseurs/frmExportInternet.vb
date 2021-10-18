@@ -586,9 +586,9 @@ Public Class frmExportInternet
             bReturn = True
             DisplayStatus("Nombre de commandes préparées : " & nSousCommandesPreparees)
             If ckFTP.Checked Then
-                DisplayStatus("Transferts des fichiers vers " + Param.getConstante("CST_FTPVNC_HOSTNAME"))
+                DisplayStatus("Transferts des fichiers vers " + Param.getConstante("CST_FTPVNC_HOST"))
                 'Exporter les fichiers générés
-                oFTPvinicom = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOSTNAME"),
+                oFTPvinicom = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOST"),
                                                 Param.getConstante("CST_FTPVNC_USER"),
                                                 Param.getConstante("CST_FTPVNC_PASSWORD"),
                                                 Param.getConstante("CST_FTPVNC_REMOTEDIR")

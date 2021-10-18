@@ -286,6 +286,9 @@ Friend Class frmMain
         Me.MenuItem14 = New System.Windows.Forms.MenuItem()
         Me.mnu_ExportMvtArticles = New System.Windows.Forms.MenuItem()
         Me.mnuExportColisage = New System.Windows.Forms.MenuItem()
+        Me.MenuItem24 = New System.Windows.Forms.MenuItem()
+        Me.mnuExportInternet = New System.Windows.Forms.MenuItem()
+        Me.mnuImportInternet = New System.Windows.Forms.MenuItem()
         Me.mnuUtil = New System.Windows.Forms.MenuItem()
         Me.mnuUtil_PurgeMvtStock = New System.Windows.Forms.MenuItem()
         Me.mnuUtil_PurgeCommandesClients = New System.Windows.Forms.MenuItem()
@@ -324,9 +327,6 @@ Friend Class frmMain
         Me.StatusBarDB = New System.Windows.Forms.StatusBarPanel()
         Me.StatusBarError = New System.Windows.Forms.StatusBarPanel()
         Me.StatusBarEtat = New System.Windows.Forms.StatusBarPanel()
-        Me.mnuExportInternet = New System.Windows.Forms.MenuItem()
-        Me.mnuImportInternet = New System.Windows.Forms.MenuItem()
-        Me.MenuItem24 = New System.Windows.Forms.MenuItem()
         CType(Me.StatusBarDB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarError, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarEtat, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -959,6 +959,21 @@ Friend Class frmMain
         Me.mnuExportColisage.Index = 1
         Me.mnuExportColisage.Text = "Export des factures et recap colisage"
         '
+        'MenuItem24
+        '
+        Me.MenuItem24.Index = 2
+        Me.MenuItem24.Text = "-"
+        '
+        'mnuExportInternet
+        '
+        Me.mnuExportInternet.Index = 3
+        Me.mnuExportInternet.Text = "Export des Bons à Facturer"
+        '
+        'mnuImportInternet
+        '
+        Me.mnuImportInternet.Index = 4
+        Me.mnuImportInternet.Text = "Import des informations producteurs"
+        '
         'mnuUtil
         '
         Me.mnuUtil.Index = 10
@@ -1179,7 +1194,7 @@ Friend Class frmMain
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 368)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 348)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1202,26 +1217,11 @@ Friend Class frmMain
         Me.StatusBarEtat.Name = "StatusBarEtat"
         Me.StatusBarEtat.Width = 273
         '
-        'mnuExportInternet
-        '
-        Me.mnuExportInternet.Index = 3
-        Me.mnuExportInternet.Text = "Export des Bons à Facturer"
-        '
-        'mnuImportInternet
-        '
-        Me.mnuImportInternet.Index = 4
-        Me.mnuImportInternet.Text = "Import des informations producteurs"
-        '
-        'MenuItem24
-        '
-        Me.MenuItem24.Index = 2
-        Me.MenuItem24.Text = "-"
-        '
         'frmMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 390)
+        Me.ClientSize = New System.Drawing.Size(890, 370)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -2196,6 +2196,14 @@ Friend Class frmMain
     Private Sub mnuExportInternet_Click(sender As Object, e As EventArgs) Handles mnuExportInternet.Click
         Dim ofrm As FrmVinicom
         ofrm = New frmExportInternet
+        ofrm.MdiParent = Me
+        ofrm.Show()
+
+    End Sub
+
+    Private Sub mnuImportInternet_Click(sender As Object, e As EventArgs) Handles mnuImportInternet.Click
+        Dim ofrm As FrmVinicom
+        ofrm = New frmImportInternet
         ofrm.MdiParent = Me
         ofrm.Show()
 

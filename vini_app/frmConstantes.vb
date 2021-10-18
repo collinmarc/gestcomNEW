@@ -91,7 +91,7 @@ Partial Public Class frmConstantes
         DisplayStatus("")
 
         setcursorWait()
-        oftp = New clsFTPVinicom(Me.FTP_HOSTNAMETextBox.Text, Me.FTP_USERNAMETextBox.Text, Me.FTP_PASSWORDTextBox.Text)
+        oftp = New clsFTPVinicom(Me.tbFTPVNCHost.Text, Me.tbFTPVNCUser.Text, Me.tbftpvnd_password.Text)
 
         If My.Computer.FileSystem.DirectoryExists("./TESTFTP") Then
             My.Computer.FileSystem.DeleteDirectory("./TESTFTP", FileIO.DeleteDirectoryOption.DeleteAllContents)
@@ -118,6 +118,7 @@ Partial Public Class frmConstantes
 
         'Envoi du fichier par FTP
         DisplayStatus("Envoi du fichier par FTP ")
+
         If oftp.uploadFromDir("./TESTFTP") Then
             DisplayStatus("Envoi du fichier OK")
             'Suppression et recréation du répertoire de test
@@ -319,12 +320,9 @@ Partial Public Class frmConstantes
 
     End Sub
 
-    Private Sub btnTestFTPSERES_Click(sender As Object, e As EventArgs) Handles btnTestFTPSERES.Click
-        testFTPSERES()
-    End Sub
 
-    Private Sub btnTestFTPvnc_Click(sender As Object, e As EventArgs) Handles btnTestFTPvnc.Click
-        testFTPVNC()
+    Private Sub btnTestFTPvnd_Click(sender As Object, e As EventArgs) Handles btnTestFTPvnd.Click
+        testFTPVND()
     End Sub
 
     Private Sub testFTPVNC()
@@ -333,7 +331,82 @@ Partial Public Class frmConstantes
         DisplayStatus("")
 
         setcursorWait()
-        oftp = New clsFTPVinicom(Me.tbftpvnc_host.Text, Me.tb_ftpvnc_User.Text, Me.tb_ftpvnc_password.Text)
+        oftp = New clsFTPVinicom(Me.tbFTPVNCHost.Text, Me.tbFTPVNCUser.Text, Me.tbFTPVNCPassword.Text, Me.tbFTPVNCRemoteDir2.Text)
+
+        If My.Computer.FileSystem.DirectoryExists("./TESTFTP") Then
+            My.Computer.FileSystem.DeleteDirectory("./TESTFTP", FileIO.DeleteDirectoryOption.DeleteAllContents)
+        End If
+        My.Computer.FileSystem.CreateDirectory("./TESTFTP")
+
+        Dim nFile As Integer
+        Dim objSCMD As SousCommande
+        Dim strSCMD_CSV As String
+        Dim strPDFFileName As String
+        nFile = FreeFile()
+        FileOpen(nFile, "./TESTFTP/test.csv", OpenMode.Output, OpenAccess.Write, OpenShare.LockWrite)
+        objSCMD = SousCommande.createandload(Persist.GetSCMDMinID())
+        DisplayStatus("Chargement de " & objSCMD.code)
+        objSCMD.load()
+        objSCMD.loadcolLignes()
+        DisplayStatus("Chargement de " & objSCMD.code & " CSV")
+        strSCMD_CSV = objSCMD.toCSV()
+        Print(nFile, strSCMD_CSV)
+        FileClose(nFile)
+        DisplayStatus("Chargement de " & objSCMD.code & " PDF")
+        strPDFFileName = "./TESTFTP/" & objSCMD.code & ".PDF"
+        objSCMD.genererPDF(PATHTOREPORTS, strPDFFileName)
+
+        'Créatino du fichier toVinicom.csv
+        FileOpen(nFile, "./toVinicom.csv", OpenMode.Output, OpenAccess.Write)
+        strSCMD_CSV = objSCMD.FTO_toCSVFromInternet
+        Print(nFile, strSCMD_CSV)
+        FileClose(nFile)
+
+        'Envoi du fichier par FTP
+        DisplayStatus("Envoi du fichier par FTP ")
+
+        If oftp.uploadFromDir("./TESTFTP") Then
+            DisplayStatus("Envoi du fichier OK")
+
+            'Envoi du fichier tovinicom.csv
+            oftp.remoteDir = Me.tbFTPVNCRemoteDir.Text
+            oftp.uploadFile("./ToVinicom.csv")
+            System.IO.File.Delete("./toVinicom.csv")
+
+            'Suppression et recréation du répertoire de test
+            If My.Computer.FileSystem.DirectoryExists("./TESTFTP") Then
+                My.Computer.FileSystem.DeleteDirectory("./TESTFTP", FileIO.DeleteDirectoryOption.DeleteAllContents)
+            End If
+            My.Computer.FileSystem.CreateDirectory("./TESTFTP")
+
+
+
+            oftp = New clsFTPVinicom(Me.tbFTPVNCHost.Text, Me.tbFTPVNCUser.Text, Me.tbFTPVNCPassword.Text, Me.tbFTPVNCRemoteDir.Text)
+
+
+            DisplayStatus("Reception du fichier par FTP ")
+            If (oftp.downloadToDir("./TESTFTP")) Then
+                If My.Computer.FileSystem.FileExists("./TESTFTP/toVinicom.csv") Then
+                    DisplayStatus("Réception du fichier OK")
+                Else
+                    DisplayError("TESTFTP", "Le Fichier ./TESTFTP/toVinicom.csv n'existe pas")
+                End If
+            Else
+                DisplayError("TESTFTP", "Erreur en récupération de fichier")
+            End If
+        Else
+            MsgBox("Erreur en Envoi de fichier")
+        End If
+
+        restoreCursor()
+    End Sub
+    Private Sub testFTPVND()
+
+        Dim oftp As clsFTPVinicom
+        DisplayStatus("")
+
+        setcursorWait()
+        oftp = New clsFTPVinicom(Me.tbftpvnd_host.Text, Me.tbftpvnd_User.Text, Me.tbftpvnd_password.Text)
 
         If My.Computer.FileSystem.DirectoryExists("./TESTFTP") Then
             My.Computer.FileSystem.DeleteDirectory("./TESTFTP", FileIO.DeleteDirectoryOption.DeleteAllContents)
@@ -394,5 +467,9 @@ Partial Public Class frmConstantes
 
     Private Sub Label35_Click(sender As Object, e As EventArgs) Handles Label35.Click
 
+    End Sub
+
+    Private Sub btnTestFTPvnc_Click_1(sender As Object, e As EventArgs) Handles btnTestFTPvnc.Click
+        testFTPVNC()
     End Sub
 End Class
