@@ -273,6 +273,7 @@ Public Class frmExportPreCommande
         Log(strMessage)
     End Sub
     Private Sub Log(ByVal strMessage As String)
+        System.IO.File.AppendAllText("./vini_internet.trace", Now() + " " + strMessage + vbCrLf)
         Trace.WriteLine(Now() + " " + strMessage)
     End Sub
 #End Region
