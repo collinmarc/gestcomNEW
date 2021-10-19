@@ -472,4 +472,56 @@ Partial Public Class frmConstantes
     Private Sub btnTestFTPvnc_Click_1(sender As Object, e As EventArgs) Handles btnTestFTPvnc.Click
         testFTPVNC()
     End Sub
+
+    Private Sub Label42_Click(sender As Object, e As EventArgs) Handles Label42.Click
+
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+
+    End Sub
+
+    Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
+
+    End Sub
+
+    Private Sub Label44_Click(sender As Object, e As EventArgs) Handles Label44.Click
+
+    End Sub
+
+    Private Sub TextBox12_TextChanged(sender As Object, e As EventArgs) Handles TextBox12.TextChanged
+
+    End Sub
+
+    Private Sub TextBox13_TextChanged(sender As Object, e As EventArgs) Handles TextBox13.TextChanged
+
+    End Sub
+
+    Private Sub Label46_Click(sender As Object, e As EventArgs) Handles Label46.Click
+
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
+
+    Private Sub TextBox14_TextChanged(sender As Object, e As EventArgs) Handles TextBox14.TextChanged
+
+    End Sub
+
+    Private Sub Label49_Click(sender As Object, e As EventArgs) Handles Label49.Click
+
+    End Sub
+
+    Private Sub TextBox15_TextChanged(sender As Object, e As EventArgs) Handles TextBox15.TextChanged
+
+    End Sub
+
+    Private Sub Label50_Click(sender As Object, e As EventArgs) Handles Label50.Click
+
+    End Sub
+
+    Private Sub TextBox16_TextChanged(sender As Object, e As EventArgs) Handles TextBox16.TextChanged
+
+    End Sub
 End Class

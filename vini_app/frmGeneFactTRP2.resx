@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,62 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="saveHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\saveHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="openHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\openHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeleteHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeleteHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FlecheHaut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FlecheHaut.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HobivinLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HobivinLogo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="STR_EXPORTCOMPTA_NOK" xml:space="preserve">
-    <value>Exportation vers comptabilité terminée avec des erreurs</value>
-  </data>
-  <data name="Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FlecheBas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FlecheBas.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Mail50x50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mail50x50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="STR_EXPORTCOMPTA_OK" xml:space="preserve">
-    <value>Exportation vers comptabilité terminée avec succès</value>
-  </data>
-  <data name="STR_VALIDATION_EXPORT_REGLEMENT" xml:space="preserve">
-    <value>Voulez-vous valider l'export des règlements</value>
-  </data>
-  <data name="FlecheEgal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FlecheEgal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cloud50x50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cloud50x50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewDocumentHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewDocumentHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RefreshDocViewHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RefreshDocViewHS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="STR_EXPORTCOMPTA_PATH" xml:space="preserve">
-    <value>Répertoire d'exportation pour la compatabilité</value>
-  </data>
-  <data name="STR_LIGNE_NON_MODIFIABLE" xml:space="preserve">
-    <value>Cette ligne n'est pas modifiable dans cet état</value>
-  </data>
-  <data name="STR_VALIDATION_EXPORT_FACTURE" xml:space="preserve">
-    <value>Voulez-vous valider l'export des factures</value>
-  </data>
-  <data name="Cloud+Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cloud+Mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="m_bsrcFactTRP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="m_bsrcCommandeClient.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>150, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnMail.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAA65JREFUaEPtmE/IDVEYh28iiSR/kkiysVASSUlSkkgiWSgLsrUgiaSQ9MlCSVjK
+        ThYkKUlJN5JIIkkkJQt/kliIxO+5M2+d7zRn7pw7M/feL/dXT9+5c+837zwzZ86cM41B/sMsEAuT5sjN
+        GvE5ZT0bRmJ2i49itViZtveKEZMx4px4KeaxIc1c8VxcEPymrzNF3BK3xWQ2eJkk+P6umMaGfgxnn6tw
+        VoxmQyB8d0a8EfPZ0ItwEJcDfEnJ+i6LrylZ30HeySgd+vZfsVNsrwn2TY1a7yMTqbNIN2oMRGLSFZEl
+        okgRht6DoilsEGDI5YE4XuTFRKhVSzYJDqidyCrxXlwV/A/D8hyxRVwX78RSEYqJfBNb2VBVRonj4oNg
+        qpEnwvefBAKhIMQJCU0kTWSZoCa1S2eCuCKeilnCimSJjBM85BhCLWMFc621wu1SO8QLkfWscGvMEI8E
+        V5dj6Sh0hycCETuIPJFtgqIWntqvxLMUupT7JH8oNifNYfFrcDIuCU4mxxQVLiv9/Iiga1nyRC6KPUmz
+        lcfiQNJsZb/gxFi48ZlA+gnVOCRYDixvfSoYzhZn199ZnkhTbEyajZnip3C7Difkh5je+tRobBBMLv2E
+        avD5vuDYCocfvxX0TXeHoSKEg7JRhq74SyBkQeC34GoT7p17SXNYsmrQZv5FL4kWYXV3U7gyWUUsJ8Xp
+        pNnKKdEUHDjDLW3ukwdikdgl7gg/fg3+IsFv14loEYZSbjRXxi/iZrGgD7PmIPyGhyIj2WtxWDCyHU23
+        MRDwzPHj1gCT4CpzTB2JEFeGnYVECKMLhd0BIjYmQi1XgpQSISZzQ+SJcDUYJHiCu/eHhalLu3WGiTDs
+        uxKktAgxGYrQRUKh8HnBCIXQsRQO7LvI6k5u7Kr7EqQSEeLfM3nhqcwi6YRgmsETf6rIC/v0u5ObykRI
+        jExM2kmQSkVI1TJFJEjlIqQqmaISpBYREpJhUcQNz9yKKTtTeyZ9vAZyF0wxEqQ2EeLKMDulbRNO9jFb
+        8JZxhWD0Yo3BMM5vYyRIrSIEGZayzK+YqkwUoTB0DwnmXUxXikqQ2kXoLkxP3EVVu7BS5MV2zNq8VhGT
+        6GR9zbQ/RqY2kTISlhiZWkSqkLAUlalcpEoJSxGZSkXqkLC0k6lMpE4JS55MJSLdkLCEZEqLdFPCkiVT
+        SqQXEhZfpmORXkpYXJmORPaJXktYTIZjihZh3cxslfe1/QCvlv6IKBGm5Lxp7EeuiUEG6U4ajX95vk83
+        Qr38RgAAAABJRU5ErkJggg==
+</value>
   </data>
 </root>

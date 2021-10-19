@@ -137,7 +137,12 @@ Public Class FrmVinicom
     End Sub 'ClearError
 
     Private Sub FrmVinicom_Actived(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Activated
+#If TEST Then
+        Dim ofrmMain As frmMain2
+#Else
         Dim ofrmMain As frmMain
+#End If
+
         Trace.WriteLine(Me.Text & ":Activated")
 
         If Not bTesting Then
@@ -157,11 +162,14 @@ Public Class FrmVinicom
     End Sub
 
     Private Sub FrmVinicom_Desactivated(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Deactivate
+#If TEST Then
+        Dim ofrmMain As frmMain2
+#Else
         Dim ofrmMain As frmMain
+#End If
         Trace.WriteLine(Me.Text & ":Desactivated")
 
         If Not bTesting Then
-            Debug.Assert(MdiParent.GetType().Name().Equals("frmMain"))
             ofrmMain = MdiParent
             ofrmMain.setFrmActive(Nothing)
             'Connection à la Base de Données

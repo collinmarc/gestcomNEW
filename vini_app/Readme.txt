@@ -1,4 +1,25 @@
-﻿
+﻿V20211020
+	0001386: Enregistrement des commentaires de livraison
+	0001387: Recherche par defaut des commandes = 'en cours'
+	0001388: Génération des mvts d'inventaires au 01 du mois
+	0001417: Interface Espace Fournisseur VNC (Bon à Facturer)
+	0001418: Les Stats CA Client / Producteur et Producteut / Client ne fonctionne plus
+	0001431: Interface Espace Fournisseur VNC (Bon à Facturer): Modification CSV
+
+V20210705
+	0001384: Prise en compte du Dossier REMOTE dans le transfert vers l'espace fournisseur
+
+V20210616
+
+	0001382: Erreur en edition de facture de transport
+	0001381: Erreur d'integration d'une commande vinicom
+
+V20210607
+
+	0001376: Export vers l'espace fournisseur VINICOM : Activation de l'intégration
+	0001378: Edition des factures de colisage en masse ne fonctionne plus
+	0001379: Vini_internet : pblm d'accès au fichier trace
+
 V20210531
 	0001367: Saisie de commmande , Dbl Click sur la liste des Scmd ne fonctionne plus
 	0001374: Gestion des Iban, BIC client

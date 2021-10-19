@@ -239,9 +239,52 @@ Partial Class frmConstantes
         Me.FTP_HOSTNAMELabel = New System.Windows.Forms.Label()
         Me.FTP_HOSTNAMETextBox = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
+        Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.TextBox17 = New System.Windows.Forms.TextBox()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.TextBox18 = New System.Windows.Forms.TextBox()
+        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TextBox20 = New System.Windows.Forms.TextBox()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.TextBox21 = New System.Windows.Forms.TextBox()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.TextBox22 = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.CST_VERSION_BDTextBox = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
+        Me.btnCorpsFactColisage = New System.Windows.Forms.Button()
+        Me.btnCorpsFactTrp = New System.Windows.Forms.Button()
+        Me.btnCorpsFactCom = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
         Me.TabVinidis.SuspendLayout()
@@ -255,6 +298,7 @@ Partial Class frmConstantes
         Me.tbEDI_Destinataire.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.TabPage6.SuspendLayout()
+        Me.TabPage8.SuspendLayout()
         Me.SuspendLayout()
         '
         'CST_SOC_NOMSOCLabel
@@ -718,6 +762,7 @@ Partial Class frmConstantes
         Me.TabControl1.Controls.Add(Me.tbEDI_Destinataire)
         Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Controls.Add(Me.TabPage6)
+        Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Location = New System.Drawing.Point(0, 29)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -2292,6 +2337,379 @@ Partial Class frmConstantes
         Me.Label19.TabIndex = 27
         Me.Label19.Text = "FTP Espace Fournisseur SERES (Bon à Facturer):"
         '
+        'TabPage8
+        '
+        Me.TabPage8.Controls.Add(Me.btnCorpsFactCom)
+        Me.TabPage8.Controls.Add(Me.btnCorpsFactTrp)
+        Me.TabPage8.Controls.Add(Me.btnCorpsFactColisage)
+        Me.TabPage8.Controls.Add(Me.Label51)
+        Me.TabPage8.Controls.Add(Me.CheckBox3)
+        Me.TabPage8.Controls.Add(Me.TextBox17)
+        Me.TabPage8.Controls.Add(Me.Label52)
+        Me.TabPage8.Controls.Add(Me.TextBox18)
+        Me.TabPage8.Controls.Add(Me.TextBox19)
+        Me.TabPage8.Controls.Add(Me.Label53)
+        Me.TabPage8.Controls.Add(Me.Button3)
+        Me.TabPage8.Controls.Add(Me.TextBox20)
+        Me.TabPage8.Controls.Add(Me.Label54)
+        Me.TabPage8.Controls.Add(Me.TextBox21)
+        Me.TabPage8.Controls.Add(Me.Label55)
+        Me.TabPage8.Controls.Add(Me.TextBox22)
+        Me.TabPage8.Controls.Add(Me.Label42)
+        Me.TabPage8.Controls.Add(Me.CheckBox2)
+        Me.TabPage8.Controls.Add(Me.TextBox8)
+        Me.TabPage8.Controls.Add(Me.Label44)
+        Me.TabPage8.Controls.Add(Me.TextBox12)
+        Me.TabPage8.Controls.Add(Me.TextBox13)
+        Me.TabPage8.Controls.Add(Me.Label46)
+        Me.TabPage8.Controls.Add(Me.Button2)
+        Me.TabPage8.Controls.Add(Me.TextBox14)
+        Me.TabPage8.Controls.Add(Me.Label49)
+        Me.TabPage8.Controls.Add(Me.TextBox15)
+        Me.TabPage8.Controls.Add(Me.Label50)
+        Me.TabPage8.Controls.Add(Me.TextBox16)
+        Me.TabPage8.Controls.Add(Me.Label48)
+        Me.TabPage8.Controls.Add(Me.CheckBox1)
+        Me.TabPage8.Controls.Add(Me.TextBox5)
+        Me.TabPage8.Controls.Add(Me.Label41)
+        Me.TabPage8.Controls.Add(Me.TextBox6)
+        Me.TabPage8.Controls.Add(Me.TextBox7)
+        Me.TabPage8.Controls.Add(Me.Label43)
+        Me.TabPage8.Controls.Add(Me.Button1)
+        Me.TabPage8.Controls.Add(Me.TextBox9)
+        Me.TabPage8.Controls.Add(Me.Label45)
+        Me.TabPage8.Controls.Add(Me.TextBox10)
+        Me.TabPage8.Controls.Add(Me.Label47)
+        Me.TabPage8.Controls.Add(Me.TextBox11)
+        Me.TabPage8.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage8.Name = "TabPage8"
+        Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage8.Size = New System.Drawing.Size(768, 479)
+        Me.TabPage8.TabIndex = 10
+        Me.TabPage8.Text = "Messagerie Factures"
+        Me.TabPage8.UseVisualStyleBackColor = True
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(6, 291)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(297, 13)
+        Me.Label51.TabIndex = 58
+        Me.Label51.Text = "Paramétres pour la transmission des factures de commission : "
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Location = New System.Drawing.Point(490, 319)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(46, 17)
+        Me.CheckBox3.TabIndex = 57
+        Me.CheckBox3.Text = "SSL"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
+        'TextBox17
+        '
+        Me.TextBox17.Location = New System.Drawing.Point(150, 398)
+        Me.TextBox17.Name = "TextBox17"
+        Me.TextBox17.Size = New System.Drawing.Size(415, 20)
+        Me.TextBox17.TabIndex = 56
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(22, 401)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(101, 13)
+        Me.Label52.TabIndex = 55
+        Me.Label52.Text = "Destinataire de test "
+        '
+        'TextBox18
+        '
+        Me.TextBox18.Location = New System.Drawing.Point(323, 342)
+        Me.TextBox18.Name = "TextBox18"
+        Me.TextBox18.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox18.Size = New System.Drawing.Size(242, 20)
+        Me.TextBox18.TabIndex = 54
+        '
+        'TextBox19
+        '
+        Me.TextBox19.Location = New System.Drawing.Point(135, 342)
+        Me.TextBox19.Name = "TextBox19"
+        Me.TextBox19.Size = New System.Drawing.Size(174, 20)
+        Me.TextBox19.TabIndex = 53
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(38, 342)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(66, 13)
+        Me.Label53.TabIndex = 52
+        Me.Label53.Text = "SMTP user :"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(630, 401)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(110, 24)
+        Me.Button3.TabIndex = 51
+        Me.Button3.Text = "TEST"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'TextBox20
+        '
+        Me.TextBox20.Location = New System.Drawing.Point(135, 368)
+        Me.TextBox20.Name = "TextBox20"
+        Me.TextBox20.Size = New System.Drawing.Size(432, 20)
+        Me.TextBox20.TabIndex = 50
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(35, 371)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(69, 13)
+        Me.Label54.TabIndex = 49
+        Me.Label54.Text = "SMTP From :"
+        '
+        'TextBox21
+        '
+        Me.TextBox21.Location = New System.Drawing.Point(397, 316)
+        Me.TextBox21.Name = "TextBox21"
+        Me.TextBox21.Size = New System.Drawing.Size(87, 20)
+        Me.TextBox21.TabIndex = 48
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Location = New System.Drawing.Point(36, 320)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(68, 13)
+        Me.Label55.TabIndex = 47
+        Me.Label55.Text = "SMTP Host :"
+        '
+        'TextBox22
+        '
+        Me.TextBox22.Location = New System.Drawing.Point(135, 316)
+        Me.TextBox22.Name = "TextBox22"
+        Me.TextBox22.Size = New System.Drawing.Size(259, 20)
+        Me.TextBox22.TabIndex = 46
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(6, 149)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(281, 13)
+        Me.Label42.TabIndex = 45
+        Me.Label42.Text = "Paramétres pour la transmission des factures de transport :"
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(490, 177)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(46, 17)
+        Me.CheckBox2.TabIndex = 44
+        Me.CheckBox2.Text = "SSL"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(150, 256)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(415, 20)
+        Me.TextBox8.TabIndex = 43
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(22, 259)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(101, 13)
+        Me.Label44.TabIndex = 42
+        Me.Label44.Text = "Destinataire de test "
+        '
+        'TextBox12
+        '
+        Me.TextBox12.Location = New System.Drawing.Point(323, 200)
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox12.Size = New System.Drawing.Size(242, 20)
+        Me.TextBox12.TabIndex = 41
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Location = New System.Drawing.Point(135, 200)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(174, 20)
+        Me.TextBox13.TabIndex = 40
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(38, 200)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(66, 13)
+        Me.Label46.TabIndex = 39
+        Me.Label46.Text = "SMTP user :"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(630, 259)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(110, 24)
+        Me.Button2.TabIndex = 38
+        Me.Button2.Text = "TEST"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'TextBox14
+        '
+        Me.TextBox14.Location = New System.Drawing.Point(135, 226)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(432, 20)
+        Me.TextBox14.TabIndex = 37
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(35, 229)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(69, 13)
+        Me.Label49.TabIndex = 36
+        Me.Label49.Text = "SMTP From :"
+        '
+        'TextBox15
+        '
+        Me.TextBox15.Location = New System.Drawing.Point(397, 174)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.Size = New System.Drawing.Size(87, 20)
+        Me.TextBox15.TabIndex = 35
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(36, 178)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(68, 13)
+        Me.Label50.TabIndex = 34
+        Me.Label50.Text = "SMTP Host :"
+        '
+        'TextBox16
+        '
+        Me.TextBox16.Location = New System.Drawing.Point(135, 174)
+        Me.TextBox16.Name = "TextBox16"
+        Me.TextBox16.Size = New System.Drawing.Size(259, 20)
+        Me.TextBox16.TabIndex = 33
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(9, 7)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(279, 13)
+        Me.Label48.TabIndex = 32
+        Me.Label48.Text = "Paramétres pour la transmission des factures de colisage :"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(493, 35)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(46, 17)
+        Me.CheckBox1.TabIndex = 31
+        Me.CheckBox1.Text = "SSL"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(153, 114)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(415, 20)
+        Me.TextBox5.TabIndex = 30
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(25, 117)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(101, 13)
+        Me.Label41.TabIndex = 29
+        Me.Label41.Text = "Destinataire de test "
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(326, 58)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox6.Size = New System.Drawing.Size(242, 20)
+        Me.TextBox6.TabIndex = 28
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(138, 58)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(174, 20)
+        Me.TextBox7.TabIndex = 26
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(41, 58)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(66, 13)
+        Me.Label43.TabIndex = 25
+        Me.Label43.Text = "SMTP user :"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(633, 117)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(110, 24)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "TEST"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(138, 84)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(432, 20)
+        Me.TextBox9.TabIndex = 21
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(38, 87)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(69, 13)
+        Me.Label45.TabIndex = 20
+        Me.Label45.Text = "SMTP From :"
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Location = New System.Drawing.Point(400, 32)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(87, 20)
+        Me.TextBox10.TabIndex = 19
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(39, 36)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(68, 13)
+        Me.Label47.TabIndex = 17
+        Me.Label47.Text = "SMTP Host :"
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Location = New System.Drawing.Point(138, 32)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(259, 20)
+        Me.TextBox11.TabIndex = 16
+        '
         'CST_VERSION_BDTextBox
         '
         Me.CST_VERSION_BDTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -2318,6 +2736,33 @@ Partial Class frmConstantes
         Me.dtpdateMAj.Name = "dtpdateMAj"
         Me.dtpdateMAj.Size = New System.Drawing.Size(152, 20)
         Me.dtpdateMAj.TabIndex = 4
+        '
+        'btnCorpsFactColisage
+        '
+        Me.btnCorpsFactColisage.Location = New System.Drawing.Point(649, 47)
+        Me.btnCorpsFactColisage.Name = "btnCorpsFactColisage"
+        Me.btnCorpsFactColisage.Size = New System.Drawing.Size(75, 40)
+        Me.btnCorpsFactColisage.TabIndex = 59
+        Me.btnCorpsFactColisage.Text = "Corps du message"
+        Me.btnCorpsFactColisage.UseVisualStyleBackColor = True
+        '
+        'btnCorpsFactTrp
+        '
+        Me.btnCorpsFactTrp.Location = New System.Drawing.Point(649, 200)
+        Me.btnCorpsFactTrp.Name = "btnCorpsFactTrp"
+        Me.btnCorpsFactTrp.Size = New System.Drawing.Size(75, 40)
+        Me.btnCorpsFactTrp.TabIndex = 60
+        Me.btnCorpsFactTrp.Text = "Corps du message"
+        Me.btnCorpsFactTrp.UseVisualStyleBackColor = True
+        '
+        'btnCorpsFactCom
+        '
+        Me.btnCorpsFactCom.Location = New System.Drawing.Point(649, 342)
+        Me.btnCorpsFactCom.Name = "btnCorpsFactCom"
+        Me.btnCorpsFactCom.Size = New System.Drawing.Size(75, 40)
+        Me.btnCorpsFactCom.TabIndex = 61
+        Me.btnCorpsFactCom.Text = "Corps du message"
+        Me.btnCorpsFactCom.UseVisualStyleBackColor = True
         '
         'frmConstantes
         '
@@ -2355,6 +2800,8 @@ Partial Class frmConstantes
         Me.TabPage7.PerformLayout()
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout()
+        Me.TabPage8.ResumeLayout(False)
+        Me.TabPage8.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2578,4 +3025,47 @@ Partial Class frmConstantes
     Friend WithEvents tbFTPVNCUrl As TextBox
     Friend WithEvents Label40 As Label
     Friend WithEvents btnTestFTPvnc As Button
+    Friend WithEvents TabPage8 As TabPage
+    Friend WithEvents Label42 As Label
+    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents TextBox13 As TextBox
+    Friend WithEvents Label46 As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents TextBox14 As TextBox
+    Friend WithEvents Label49 As Label
+    Friend WithEvents TextBox15 As TextBox
+    Friend WithEvents Label50 As Label
+    Friend WithEvents TextBox16 As TextBox
+    Friend WithEvents Label48 As Label
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Label41 As Label
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents Label43 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents Label45 As Label
+    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents Label47 As Label
+    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents Label51 As Label
+    Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents TextBox17 As TextBox
+    Friend WithEvents Label52 As Label
+    Friend WithEvents TextBox18 As TextBox
+    Friend WithEvents TextBox19 As TextBox
+    Friend WithEvents Label53 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents TextBox20 As TextBox
+    Friend WithEvents Label54 As Label
+    Friend WithEvents TextBox21 As TextBox
+    Friend WithEvents Label55 As Label
+    Friend WithEvents TextBox22 As TextBox
+    Friend WithEvents btnCorpsFactCom As Button
+    Friend WithEvents btnCorpsFactTrp As Button
+    Friend WithEvents btnCorpsFactColisage As Button
 End Class

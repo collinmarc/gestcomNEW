@@ -46,10 +46,12 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>vini_app.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
     <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>NOTEST=1</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -57,7 +59,8 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>vini_app.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -183,6 +186,18 @@
       <DependentUpon>dlgExportWebEDI.vb</DependentUpon>
     </Compile>
     <Compile Include="dlgExportWebEDI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneFactColisage2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneFactCom2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneFactTRP2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_espacesFournisseurs\dlgInternet.Designer.vb">
@@ -782,7 +797,7 @@
     <Compile Include="frmCheckDatabase.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClient.vb">
+    <Compile Include="frm_DonBase\frmClient.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmConstantes.Designer.vb">
@@ -833,7 +848,7 @@
     <Compile Include="frmExportReglement.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFournisseurTab.vb">
+    <Compile Include="frm_DonBase\frmFournisseurTab.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGeneFactColisage.vb">
@@ -941,10 +956,10 @@
     <Compile Include="frmMouvementArticle.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrecommande.vb">
+    <Compile Include="frm_DonBase\frmPrecommande.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProduit.vb">
+    <Compile Include="frm_DonBase\frmProduit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPurgeBonAppro.vb">
@@ -1473,6 +1488,19 @@
       <LastGenOutput>crRecapColisageJournalier.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Cloud+Mail.png" />
+    <None Include="Resources\saveHS.png" />
+    <None Include="Resources\RefreshDocViewHS.png" />
+    <None Include="Resources\openHS.png" />
+    <None Include="Resources\NewDocumentHS.png" />
+    <None Include="Resources\Mail50x50.png" />
+    <None Include="Resources\Mail.png" />
+    <None Include="Resources\HobivinLogo.jpg" />
+    <None Include="Resources\FlecheHaut.jpg" />
+    <None Include="Resources\FlecheEgal.jpg" />
+    <None Include="Resources\FlecheBas.jpg" />
+    <None Include="Resources\DeleteHS.png" />
+    <None Include="Resources\Cloud50x50.png" />
     <EmbeddedResource Include="cr\crFactureColisageOLD.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactureColisageOLD.vb</LastGenOutput>
@@ -1488,6 +1516,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dlgExportWebEDI.resx">
       <DependentUpon>dlgExportWebEDI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeneFactColisage2.resx">
+      <DependentUpon>frmGeneFactColisage2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeneFactCom2.resx">
+      <DependentUpon>frmGeneFactCom2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeneFactTRP2.resx">
+      <DependentUpon>frmGeneFactTRP2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain2.resx">
+      <DependentUpon>frmMain2.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_espacesFournisseurs\dlgInternet.resx">
       <DependentUpon>dlgInternet.vb</DependentUpon>
@@ -1548,7 +1591,7 @@
       <DependentUpon>frmExportQuadra.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFournisseurTab.resx">
+    <EmbeddedResource Include="frm_DonBase\frmFournisseurTab.resx">
       <DependentUpon>frmFournisseurTab.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestParamContenant.resx">
@@ -1599,7 +1642,7 @@
       <DependentUpon>frmCAClientProducteur.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmClient.resx">
+    <EmbeddedResource Include="frm_DonBase\frmClient.resx">
       <DependentUpon>frmClient.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1711,11 +1754,11 @@
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrecommande.resx">
+    <EmbeddedResource Include="frm_DonBase\frmPrecommande.resx">
       <DependentUpon>frmPrecommande.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProduit.resx">
+    <EmbeddedResource Include="frm_DonBase\frmProduit.resx">
       <DependentUpon>frmProduit.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -1855,6 +1898,7 @@
     <None Include="vini_DB.contenant.datasource" />
     <None Include="vini_DB.dsVinicom+CONSTANTESDataTable.datasource" />
     <None Include="vini_DB.ExportQuadra.datasource" />
+    <None Include="vini_DB.FactColisageJ.datasource" />
     <None Include="vini_DB.FactCom.datasource" />
     <None Include="vini_DB.FactHBV.datasource" />
     <None Include="vini_DB.FactTRP.datasource" />
