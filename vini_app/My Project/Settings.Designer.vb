@@ -56,15 +56,6 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute(".\")>  _
-        Public ReadOnly Property PathToReport() As String
-            Get
-                Return CType(Me("PathToReport"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public ReadOnly Property dbGlobalConnection() As String
             Get
@@ -132,15 +123,6 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("202105010000")>  _
-        Public ReadOnly Property AppVersion() As String
-            Get
-                Return CType(Me("AppVersion"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("E:\GESTCOM_TEMP")>  _
         Public ReadOnly Property Tmp() As String
             Get
@@ -163,6 +145,24 @@ Namespace My
         Public ReadOnly Property ckFTP_Checked() As Boolean
             Get
                 Return CType(Me("ckFTP_Checked"),Boolean)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".\cr\")>  _
+        Public ReadOnly Property PathToReport() As String
+            Get
+                Return CType(Me("PathToReport"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("202110200000")>  _
+        Public ReadOnly Property AppVersion() As String
+            Get
+                Return CType(Me("AppVersion"),String)
             End Get
         End Property
     End Class

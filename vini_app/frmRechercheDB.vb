@@ -443,7 +443,12 @@ Public Class frmRechercheDB
                         Exit Sub
                     End If
                 End If
-                m_ocol = CommandeClient.getListe(tbCode.Text, tbNom.Text, cboEtat.SelectedItem.codeEtat, tbMotCle.Text)
+                If String.IsNullOrEmpty(tbCode.Text) Then
+                    m_ocol = CommandeClient.getListe(tbCode.Text, tbNom.Text, cboEtat.SelectedItem.codeEtat, tbMotCle.Text)
+                Else
+                    m_ocol = CommandeClient.getListe(tbCode.Text, "", vncEtatCommande.vncRien, "")
+                End If
+
             Case vncTypeDonnee.BA
                 Me.m_bsrc.DataSource = GetType(vini_DB.BonAppro)
                 m_ocol = BonAppro.getListe(tbCode.Text, tbNom.Text, cboEtat.SelectedItem.codeEtat)

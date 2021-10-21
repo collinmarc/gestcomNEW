@@ -310,9 +310,9 @@ Public Class frmImportInternet
                 pbProgressBar.Value = nLineNumber
                 pbProgressBar.Refresh()
                 strResult = LineInput(nFile)
-                SousCommande.ImportCSV(strResult)
+                oSCMD = SousCommande.ImportCSV(strResult)
 
-                If (bReturn) Then
+                If (oSCMD IsNot Nothing) Then
                     nSousCommandeTraitees = nSousCommandeTraitees + 1
                     tbNbreLignesTraitees.Text = nSousCommandeTraitees
                 Else

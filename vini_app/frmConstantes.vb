@@ -331,7 +331,7 @@ Partial Public Class frmConstantes
         DisplayStatus("")
 
         setcursorWait()
-        oftp = New clsFTPVinicom(Me.tbFTPVNCHost.Text, Me.tbFTPVNCUser.Text, Me.tbFTPVNCPassword.Text, Me.tbFTPVNCRemoteDir2.Text)
+        oftp = New clsFTPVinicom(Me.tbFTPVNCHost.Text, Me.tbFTPVNCUser.Text, Me.tbFTPVNCPassword.Text, Me.tbFTPVNCRemoteDir.Text)
 
         If My.Computer.FileSystem.DirectoryExists("./TESTFTP") Then
             My.Computer.FileSystem.DeleteDirectory("./TESTFTP", FileIO.DeleteDirectoryOption.DeleteAllContents)
@@ -369,7 +369,7 @@ Partial Public Class frmConstantes
             DisplayStatus("Envoi du fichier OK")
 
             'Envoi du fichier tovinicom.csv
-            oftp.remoteDir = Me.tbFTPVNCRemoteDir.Text
+            oftp.remoteDir = Me.tbFTPVNCRemoteDir2.Text
             oftp.uploadFile("./ToVinicom.csv")
             System.IO.File.Delete("./toVinicom.csv")
 
@@ -381,7 +381,7 @@ Partial Public Class frmConstantes
 
 
 
-            oftp = New clsFTPVinicom(Me.tbFTPVNCHost.Text, Me.tbFTPVNCUser.Text, Me.tbFTPVNCPassword.Text, Me.tbFTPVNCRemoteDir.Text)
+            oftp = New clsFTPVinicom(Me.tbFTPVNCHost.Text, Me.tbFTPVNCUser.Text, Me.tbFTPVNCPassword.Text, Me.tbFTPVNCRemoteDir2.Text)
 
 
             DisplayStatus("Reception du fichier par FTP ")

@@ -4043,6 +4043,10 @@ Public Class frmSaisieCommande
                 'Commentaires
                 getCommandeCourante.caracteristiqueTiers.CommCommande.comment = tbCommentaireCommande.Text
                 getCommandeCourante.caracteristiqueTiers.CommLivraison.comment = tbCommentaireLivraison.Text
+                If Not String.IsNullOrEmpty(tbPiedPageBL.Text) And (tbPiedPageBL.Text <> tbCommentaireLivraison.Text) Then
+                    getCommandeCourante.caracteristiqueTiers.CommLivraison.comment = tbPiedPageBL.Text
+
+                End If
                 getCommandeCourante.caracteristiqueTiers.CommFacturation.comment = tbCommentaireFacturation.Text
                 getCommandeCourante.caracteristiqueTiers.CommLibre.comment = tbComValid.Text
 

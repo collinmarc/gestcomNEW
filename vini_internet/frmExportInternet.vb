@@ -431,7 +431,7 @@ Public Class frmExportInternet
         ckPDFs.Enabled = True
         ckPDFs.Checked = True
         cbExporter.Enabled = False
-        lnkFTP.Text = Trim(Param.getConstante("CST_FTPVNC_HOST"))
+        lnkFTP.Text = Trim(Param.getConstante("FTP_HOSTNAME"))
 
     End Sub
 
@@ -557,8 +557,9 @@ Public Class frmExportInternet
             'Génération des fichiers dans le répertoire temporaire
             nFile = FreeFile()
             FileOpen(nFile, strFile, OpenMode.Output, OpenAccess.Write, OpenShare.LockWrite)
-            'Génération de l'entete
-            Print(nFile, SousCommande.EnteteCSV)
+            'Génération de l'entete 
+            'Pas d'entete dans vini_internet (Format SERES)
+            'Print(nFile, SousCommande.EnteteCSV)
             'Parcours des Sous-commandes
             For Each objSCMD In m_colCommandes
                 strStatus = ""

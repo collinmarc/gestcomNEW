@@ -558,7 +558,7 @@ Public Class frmExportInternet
                 objSCMD.load()
                 objSCMD.loadcolLignes()
                 If objSCMD.colLignes.Count > 0 Then
-                    strSCMD_CSV = objSCMD.toCSV()
+                    strSCMD_CSV = objSCMD.toCSV_espfrnVNC()
                     strStatus = strStatus + " CSV OK"
                     Print(nFile, strSCMD_CSV)
                     If ckPDFs.Checked Then
@@ -607,7 +607,6 @@ Public Class frmExportInternet
 
                 'Globals.WaitnSeconds(10)
                 System.Threading.Thread.Sleep(10 * 1000)
-                ActiverImportBAF()
 
                 'oFTPvinicom.disconnect()
             End If
@@ -629,9 +628,10 @@ Public Class frmExportInternet
     End Function 'exporter
 
     Private Sub ActiverImportBAF()
-        Dim odlg As dlgInternet = New dlgInternet()
-        odlg.WebBrowser4.Url = New Uri(Param.getConstante("CST_FTPVNC_URL"))
-        dlgInternet.ShowDialog()
+        Dim odlg As New dlgWebBrowser()
+        Dim uri_integ As Uri = New Uri(Param.getConstante("CST_FTPVNC_URL"))
+        odlg.WebBrowser1.Navigate(uri_integ)
+        odlg.ShowDialog()
     End Sub
     Private Shadows Sub DisplayStatus(ByVal strMessage As String)
 
@@ -702,6 +702,7 @@ Public Class frmExportInternet
     End Sub
 
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
+        ActiverImportBAF()
         Me.Cursor = Cursors.Default
         cbExporter.Enabled = True
     End Sub

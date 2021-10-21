@@ -5,7 +5,8 @@
 	0001417: Interface Espace Fournisseur VNC (Bon à Facturer)
 	0001418: Les Stats CA Client / Producteur et Producteut / Client ne fonctionne plus
 	0001431: Interface Espace Fournisseur VNC (Bon à Facturer): Modification CSV
-
+	0001432: Recherche d'une commande , Si saisie du numéro , ne pas prendre en compte les autres critères
+	Separation ESPFRNVNC / SERES
 V20210705
 	0001384: Prise en compte du Dossier REMOTE dans le transfert vers l'espace fournisseur
 

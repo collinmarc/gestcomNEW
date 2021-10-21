@@ -236,6 +236,8 @@ Public Class frmImportInternet
             If My.Computer.FileSystem.FileExists("./toVinicom.csv") Then
                 My.Computer.FileSystem.DeleteFile("./tovinicom.csv")
             End If
+            'Activation de l'URL D'extraction
+            ActiverExportBAF()
 
 
             ' Ce champsest invisible et est lu dans le fichier appConfig
@@ -243,7 +245,7 @@ Public Class frmImportInternet
                 m_oFTP = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOST"),
                                                 Param.getConstante("CST_FTPVNC_USER"),
                                                 Param.getConstante("CST_FTPVNC_PASSWORD"),
-                                                Param.getConstante("CST_FTPVNC_REMOTEDIR")
+                                                Param.getConstante("CST_FTPVNC_REMOTEDIR2")
                                                 )
 
                 m_oFTP.downloadToDir(strFolder)
@@ -273,18 +275,19 @@ Public Class frmImportInternet
         Dim nFile As Integer
         Dim nLineNumber As Integer
         Dim strResult As String = ""
-        Dim tabCSV As String()
-        Dim nId As Integer
-        Dim oSCMD As SousCommande
         Dim nSousCommandeTraitees As Integer ' Nbre de sousCommandes traitées
 
         nFile = FreeFile()
         FileOpen(nFile, pstrImportfileName, OpenMode.Input, OpenAccess.Read)
         'Calcul du nombre de lignes à traiter
         nLineNumber = 0
+        'Lecture de la liste d'entete
+        strResult = LineInput(nFile)
         While Not EOF(nFile)
-            nLineNumber = nLineNumber + 1
-            LineInput(nFile)
+            strResult = LineInput(nFile)
+            If Not String.IsNullOrEmpty(strResult) Then
+                nLineNumber = nLineNumber + 1
+            End If
         End While
         FileClose(nFile)
         pbProgressBar.Minimum = 0
@@ -297,7 +300,6 @@ Public Class frmImportInternet
         m_FileName = pstrImportfileName
         BackgroundWorker1.RunWorkerAsync()
 
-        DisplayStatus("Nbre d'éléments traités :" & nSousCommandeTraitees)
         bReturn = True
 
     End Sub
@@ -335,17 +337,25 @@ Public Class frmImportInternet
         Dim nFile As Integer
         Dim strResult As String
         Dim nSousCommandeTraitees As Integer
+        Dim oScmd As SousCommande
 
         nFile = FreeFile()
         FileOpen(nFile, m_FileName, OpenMode.Input, OpenAccess.Read)
         nSousCommandeTraitees = 0
+        'Lecture de la ligne d'entete
+        strResult = LineInput(nFile)
         While Not EOF(nFile)
             Try
                 strResult = LineInput(nFile)
-                SousCommande.ImportCSV(strResult)
-                BackgroundWorker1.ReportProgress(nSousCommandeTraitees)
+                If Not String.IsNullOrEmpty(strResult) Then
+                    oScmd = SousCommande.ImportCSV_espfrnVNC(strResult)
+                    nSousCommandeTraitees = nSousCommandeTraitees + 1
+                    BackgroundWorker1.ReportProgress(nSousCommandeTraitees)
+                    If oScmd IsNot Nothing Then
+                        BackgroundWorker1.ReportProgress(0, oScmd.code & " TotalHT=" & oScmd.totalHTFacture.ToString("c") & " ,refFact=" & oScmd.refFactFournisseur)
+                    End If
 
-                nSousCommandeTraitees = nSousCommandeTraitees + 1
+                End If
             Catch Ex As Exception
                 BackgroundWorker1.ReportProgress(0, Ex.Message)
             End Try
@@ -358,6 +368,7 @@ Public Class frmImportInternet
     Private Sub BackgroundWorker1_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles BackgroundWorker1.ProgressChanged
         If e.ProgressPercentage > 0 Then
             pbProgressBar.Value = e.ProgressPercentage
+            tbNbreLignesTraitees.Text = e.ProgressPercentage
         Else
             DisplayStatus(e.UserState)
         End If
@@ -366,8 +377,14 @@ Public Class frmImportInternet
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
         If ckFTP.Checked Then
             If MsgBox("Import terminé, Suppression du fichier d'import", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                m_oFTP.deleteRemotefile(IMPORTFTP_FILENAME)
+                    m_oFTP.deleteRemotefile(IMPORTFTP_FILENAME)
             End If
         End If
+    End Sub
+    Private Sub ActiverExportBAF()
+        Dim odlg As New dlgWebBrowser()
+        Dim uri_integ As Uri = New Uri(Param.getConstante("CST_FTPVNC_URL2"))
+        odlg.WebBrowser1.Navigate(uri_integ)
+        odlg.ShowDialog()
     End Sub
 End Class

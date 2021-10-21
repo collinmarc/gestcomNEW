@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -63,19 +63,6 @@ Namespace My
             End Get
             Set
                 Me("dbGlobalconnection") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=SQLOLEDB.1;Data Source=SERVBD\SQLEXPRESS;Initial Catalog=vnc5;Persist Se"& _ 
-            "curity Info=True;User ID=vinicom;Password=vinicom"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10))>  _
-        Public Property ConnectionString() As String
-            Get
-                Return CType(Me("ConnectionString"),String)
-            End Get
-            Set
-                Me("ConnectionString") = value
             End Set
         End Property
         
@@ -130,6 +117,19 @@ Namespace My
             End Get
             Set
                 Me("urlImportInternet") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=SQLOLEDB.1;Data Source=localhost\SQLEXPRESS;Initial Catalog=vnc5;Persist"& _ 
+            " Security Info=True;User ID=vinicom;Password=vinicom"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10))>  _
+        Public Property ConnectionString() As String
+            Get
+                Return CType(Me("ConnectionString"),String)
+            End Get
+            Set
+                Me("ConnectionString") = value
             End Set
         End Property
     End Class

@@ -40,6 +40,13 @@ Public Class SousCommande
     Public Const IMPORT_TOTALHTFACTURE As Integer = 3
     Public Const IMPORT_TOTALTTCFACTURE As Integer = 4
 
+    'Constants pour lEspaceFournisseur VNC
+    Public Const IMPORT_IDSCMD2 As Integer = 0
+    Public Const IMPORT_REFFACTFOURN2 As Integer = 2
+    Public Const IMPORT_DATEFACTFOURN2 As Integer = 3
+    Public Const IMPORT_DATEECHEANCE2 As Integer = 4
+    Public Const IMPORT_TOTALHTFACTURE2 As Integer = 5
+    Public Const IMPORT_TOTALTTCFACTURE2 As Integer = 6
 #Region "membres"
     Protected m_idCommandeClient As Integer
     Protected m_refFactFournisseur As String
@@ -938,7 +945,7 @@ Public Class SousCommande
     End Function 'AjouteLigne
     Public Shared ReadOnly Property EnteteCSV() As String
         Get
-            Return "id;nom;ref_bl;date_commande;num_fournisseur;num_client;nom_client;adresse_fact;codep_fact;ville_fact;mode_reglement;montant_ht;montant_ttc;commentaire;quantite;code_produit;nom_produit;coul_produit;année;conditionnement;contenance;prix_unit"
+            Return "nom,id_gestcom,ref_bl,date_commande,num_fournisseur,num_client,nom_client,adresse_fact,codep_fact,ville_fact,mode_reglement,montant_ht,montant_ttc,commentaire,quantite,code_produit,nom_produit,coul_produit,année,conditionnement,contenance,prix_unit" & vbCrLf
 
         End Get
     End Property
@@ -948,6 +955,113 @@ Public Class SousCommande
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Function toCSV() As String
+        Debug.Assert(bcolLignesLoaded, "Les Lignes doivent être chargées au préalable")
+        Dim strResult1Line As String
+        Dim strResult As String
+        Dim objCommande As CommandeClient
+        Dim objLgCommande As LgCommande
+        Dim objProduit As Produit
+
+        If idCommandeClient <> 0 Then
+            objCommande = CommandeClient.createandload(idCommandeClient)
+        Else
+            'Normalement ceci ne sert pour les tests
+            objCommande = New CommandeClient(Me.oClient)
+        End If
+
+        strResult = ""
+        For Each objLgCommande In colLignes
+            strResult1Line = ""
+            objProduit = Produit.createandload(objLgCommande.oProduit.id) 'Chargement du produit
+            strResult1Line = strResult1Line & Trim(Me.id) & ";"
+            strResult1Line = strResult1Line & Trim(Me.code) & ";"
+            strResult1Line = strResult1Line & Trim(Me.codeCommandeClient) & ";"
+            strResult1Line = strResult1Line & Trim(Format(Me.dateCommande, "ddMMyyyy")) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.code) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.nom) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.rs) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.AdresseFacturation.nom) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.AdresseFacturation.rue1) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.AdresseFacturation.rue2) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.AdresseFacturation.cp) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.AdresseFacturation.ville) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.AdresseFacturation.tel) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.AdresseFacturation.fax) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.AdresseFacturation.port) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oFournisseur.AdresseFacturation.Email) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oTransporteur.nom) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oTransporteur.AdresseLivraison.rue1) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oTransporteur.AdresseLivraison.rue2) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oTransporteur.AdresseLivraison.cp) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oTransporteur.AdresseLivraison.ville) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oTransporteur.AdresseLivraison.tel) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oTransporteur.AdresseLivraison.fax) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oTransporteur.AdresseLivraison.port) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oTransporteur.AdresseLivraison.Email) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.code) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.nom) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.rs) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseLivraison.nom) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseLivraison.rue1) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseLivraison.rue2) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseLivraison.cp) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseLivraison.ville) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseLivraison.tel) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseLivraison.fax) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseLivraison.port) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseLivraison.Email) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.nom) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.rue1) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.rue2) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.cp) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.ville) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.tel) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.fax) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.port) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.Email) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.libTypeClient) & ";"
+            strResult1Line = strResult1Line & Trim(objCommande.typeTransport) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.libModeReglement) & ";"
+            strResult1Line = strResult1Line & Trim(objCommande.refLivraison) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.banque) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.rib1) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.rib2) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.rib3) & ";"
+            strResult1Line = strResult1Line & Trim(Me.oClient.rib4) & ";"
+            strResult1Line = strResult1Line & Trim(Format(Me.dateLivraison, "ddMMyyyy")) & ";"
+            strResult1Line = strResult1Line & Trim(Format(Me.dateEnlevement, "ddMMyyyy")) & ";"
+            strResult1Line = strResult1Line & Trim(Format(Me.totalHT, "n")) & ";"
+            strResult1Line = strResult1Line & Trim(Format(Me.totalTTC, "n")) & ";"
+            strResult1Line = strResult1Line & Trim(Me.CommFacturation.comment) & ";"
+            strResult1Line = strResult1Line & Trim(objLgCommande.num) & ";"
+            strResult1Line = strResult1Line & Trim(objLgCommande.qteLiv) & ";"
+            strResult1Line = strResult1Line & Trim(objProduit.code) & ";"
+            strResult1Line = strResult1Line & Trim(objProduit.nom) & ";"
+            strResult1Line = strResult1Line & Trim(objProduit.libCouleur) & ";"
+            strResult1Line = strResult1Line & Trim(objProduit.millesime) & ";"
+            strResult1Line = strResult1Line & Trim(objProduit.libConditionnement) & ";"
+            strResult1Line = strResult1Line & Trim(objProduit.libContenant) & ";"
+            strResult1Line = strResult1Line & Trim(objLgCommande.prixU) & ";"
+            strResult1Line = strResult1Line & Trim(Me.refFactFournisseur) & ";"
+            strResult1Line = strResult1Line & Trim(Format(Me.dateFactFournisseur, "ddMMyyyy")) & ";"
+            strResult1Line = strResult1Line & totalHTFacture & ";"
+            strResult1Line = strResult1Line & totalTTCFacture & ";"
+            'Exportation des Taux et Montants de commissions
+            strResult1Line = strResult1Line & tauxCommission & ";"
+
+            strResult1Line = Replace(strResult1Line, vbCrLf, "--")
+            strResult1Line = Replace(strResult1Line, vbCr, "-")
+            strResult1Line = Replace(strResult1Line, vbLf, "-")
+            strResult1Line = Replace(strResult1Line, vbNullChar, "-")
+            strResult1Line = Replace(strResult1Line, vbTab, "-")
+            strResult1Line = Replace(strResult1Line, vbBack, "-")
+            strResult = strResult & strResult1Line & vbCrLf
+        Next objLgCommande
+        Return strResult
+
+    End Function 'ToCSV
+
+    Public Function toCSV_espfrnVNC() As String
         Debug.Assert(bcolLignesLoaded, "Les Lignes doivent être chargées au préalable")
         Dim strResult1Line As String
         Dim strResult As String
@@ -1001,7 +1115,6 @@ Public Class SousCommande
         Return strResult
 
     End Function 'ToCSV
-
 
 
 
@@ -1495,14 +1608,14 @@ Public Class SousCommande
 
 #End Region
 
-    Public Shared Function ImportCSV(strResult As String) As Boolean
+    Public Shared Function ImportCSV(strResult As String) As SousCommande
 
         Dim bReturn As Boolean
         Dim tabCSV As String()
         Dim nId As Integer
-        Dim oSCMD As SousCommande
-
-        tabCSV = strResult.Split(",")
+        Dim oSCMD As SousCommande = Nothing
+        '=======
+        tabCSV = strResult.Split(";")
         nId = tabCSV(IMPORT_IDSCMD)
         oSCMD = SousCommande.createandload(nId)
         If (Not oSCMD.bNew) Then
@@ -1519,25 +1632,66 @@ Public Class SousCommande
                 tabCSV(IMPORT_TOTALTTCFACTURE) = tabCSV(IMPORT_TOTALTTCFACTURE).Replace(".", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
                 tabCSV(IMPORT_TOTALTTCFACTURE) = tabCSV(IMPORT_TOTALTTCFACTURE).Replace(",", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
                 oSCMD.refFactFournisseur = tabCSV(IMPORT_REFFACTFOURN)
-                oSCMD.dateFactFournisseur = New Date(tabCSV(IMPORT_DATEFACTFOURN).Substring(0, 4), tabCSV(IMPORT_DATEFACTFOURN).Substring(5, 2), tabCSV(IMPORT_DATEFACTFOURN).Substring(8, 2))
+                oSCMD.dateFactFournisseur = Mid(tabCSV(IMPORT_DATEFACTFOURN), 1, 2) & "/" & Mid(tabCSV(IMPORT_DATEFACTFOURN), 3, 2) & "/" & Mid(tabCSV(IMPORT_DATEFACTFOURN), 5, 4)
                 oSCMD.totalHTFacture = tabCSV(IMPORT_TOTALHTFACTURE)
                 oSCMD.totalTTCFacture = tabCSV(IMPORT_TOTALTTCFACTURE)
+                'importation du taux de commission
+                'oSCMD.tauxCommission = tabCSV(IMPORT_TAUXCOMMISSION)
+                'Calcul du montant de la commission ave le montant facturé
                 oSCMD.calcCommisionstandard(CalculCommScmd.CALCUL_COMMISSION_HT_FACTURE)
                 oSCMD.changeEtat(vncEnums.vncActionEtatCommande.vncActionSCMDImportInternet)
                 bReturn = oSCMD.save()
-                If bReturn Then
-                    Trace.WriteLine(oSCMD.code + "Etat" + oSCMD.etat.codeEtat.ToString() + "(" + oSCMD.oFournisseur.rs + ") =" + oSCMD.refFactFournisseur + "," + oSCMD.dateFactFournisseur.ToString("d") + ":" + oSCMD.totalHT.ToString("c") + "->" + oSCMD.totalHTFacture.ToString("c"))
-                Else
-                    Trace.WriteLine("SousCommande.importCSV : ERReur en Sauvegarde de SousCommande")
-                End If
             End If
-
-        Else
-            bReturn = False
-            '            DisplayStatus(strResult + "Sous commande inconnue")
         End If
 
-        Return bReturn
+
+        Return oSCMD
     End Function
 
+    Public Shared Function ImportCSV_espfrnVNC(strResult As String) As SousCommande
+
+        Dim bReturn As Boolean
+        Dim tabCSV As String()
+        Dim nId As Integer
+        Dim oSCMD As SousCommande
+
+        strResult = strResult.Replace(Chr(34), "")
+        tabCSV = strResult.Split(",")
+        If tabCSV(IMPORT_IDSCMD2) <> "" Then
+            nId = tabCSV(IMPORT_IDSCMD2)
+            oSCMD = SousCommande.createandload(nId)
+            If (Not oSCMD.bNew) Then
+                Dim bSCMDATraiter As Boolean = True
+                'Controle des sousCommandes déjà facturées (import déjà effectué mais non validé)
+                If oSCMD.etat.codeEtat = vncEtatCommande.vncSCMDFacturee Or oSCMD.etat.codeEtat = vncEnums.vncEtatCommande.vncSCMDRapprocheeInt Then
+                    If oSCMD.refFactFournisseur = tabCSV(IMPORT_REFFACTFOURN2) Then
+                        bSCMDATraiter = False
+                    End If
+                End If
+                If bSCMDATraiter Then
+                    tabCSV(IMPORT_TOTALHTFACTURE2) = tabCSV(IMPORT_TOTALHTFACTURE2).Replace(".", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
+                    tabCSV(IMPORT_TOTALHTFACTURE2) = tabCSV(IMPORT_TOTALHTFACTURE2).Replace(",", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
+                    tabCSV(IMPORT_TOTALTTCFACTURE2) = tabCSV(IMPORT_TOTALTTCFACTURE2).Replace(".", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
+                    tabCSV(IMPORT_TOTALTTCFACTURE2) = tabCSV(IMPORT_TOTALTTCFACTURE2).Replace(",", System.Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
+                    oSCMD.refFactFournisseur = tabCSV(IMPORT_REFFACTFOURN2)
+                    oSCMD.dateFactFournisseur = New Date(tabCSV(IMPORT_DATEFACTFOURN2).Substring(0, 4), tabCSV(IMPORT_DATEFACTFOURN2).Substring(5, 2), tabCSV(IMPORT_DATEFACTFOURN2).Substring(8, 2))
+                    oSCMD.totalHTFacture = tabCSV(IMPORT_TOTALHTFACTURE2)
+                    oSCMD.totalTTCFacture = tabCSV(IMPORT_TOTALTTCFACTURE2)
+                    oSCMD.calcCommisionstandard(CalculCommScmd.CALCUL_COMMISSION_HT_FACTURE)
+                    oSCMD.changeEtat(vncEnums.vncActionEtatCommande.vncActionSCMDImportInternet)
+                    bReturn = oSCMD.save()
+                    If bReturn Then
+                        Trace.WriteLine(oSCMD.code + "Etat" + oSCMD.etat.codeEtat.ToString() + "(" + oSCMD.oFournisseur.rs + ") =" + oSCMD.refFactFournisseur + "," + oSCMD.dateFactFournisseur.ToString("d") + ":" + oSCMD.totalHT.ToString("c") + "->" + oSCMD.totalHTFacture.ToString("c"))
+                    Else
+                        Trace.WriteLine("SousCommande.importCSV : ERReur en Sauvegarde de SousCommande")
+                    End If
+                End If
+
+            Else
+                bReturn = False
+                '            DisplayStatus(strResult + "Sous commande inconnue")
+            End If
+        End If
+        Return oSCMD
+    End Function
 End Class

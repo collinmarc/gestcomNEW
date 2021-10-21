@@ -1064,8 +1064,8 @@ Imports System.IO
             nLineNumber = nLineNumber + 1
             strResult = LineInput(nfile)
             Console.WriteLine(strResult)
-            bTrtImport = SousCommande.ImportCSV(strResult)
-            Assert.IsTrue(bTrtImport)
+            oSCmd = SousCommande.ImportCSV(strResult)
+            Assert.IsTrue(oSCmd IsNot Nothing)
         End While
         FileClose(nfile)
 

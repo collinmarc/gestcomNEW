@@ -252,8 +252,8 @@ Public Class frmImportDossier
                         pbProgressBar.Refresh()
                         strResult = LineInput(nFile)
                         tabCSV = strResult.Split(";")
-                        SousCommande.ImportCSV(strResult)
-                        If (bReturn) Then
+                        oSCMD = SousCommande.ImportCSV(strResult)
+                        If (oSCMD IsNot Nothing) Then
                             'Ajout dans la collection pour traitement ultérieur
                             lbErreurs.Items.Add(oSCMD.code + "(" + oSCMD.oFournisseur.rs + ") =" + oSCMD.refFactFournisseur + "," + oSCMD.dateFactFournisseur.ToString("d") + ":" + oSCMD.totalHT.ToString("c") + "->" + oSCMD.totalHTFacture.ToString("c"))
                             lbErreurs.Refresh()
