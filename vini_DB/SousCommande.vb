@@ -1092,8 +1092,8 @@ Public Class SousCommande
             strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.cp) & ","
             strResult1Line = strResult1Line & Trim(Me.oClient.AdresseFacturation.ville) & ","
             strResult1Line = strResult1Line & Trim(Me.oClient.libModeReglement) & ","
-            strResult1Line = strResult1Line & Trim(Format(Me.totalHT, "n").Replace(",", ".")) & ","
-            strResult1Line = strResult1Line & Trim(Format(Me.totalTTC, "n").Replace(",", ".")) & ","
+            strResult1Line = strResult1Line & Trim(Me.totalHT.ToString().Replace(",", ".")) & ","
+            strResult1Line = strResult1Line & Trim(Me.totalTTC.ToString().Replace(",", ".")) & ","
             strResult1Line = strResult1Line & Trim(Me.CommFacturation.comment) & ","
             strResult1Line = strResult1Line & Trim(objLgCommande.qteLiv) & ","
             strResult1Line = strResult1Line & Trim(objProduit.code) & ","
@@ -1102,7 +1102,7 @@ Public Class SousCommande
             strResult1Line = strResult1Line & Trim(objProduit.millesime) & ","
             strResult1Line = strResult1Line & Trim(objProduit.libConditionnement) & ","
             strResult1Line = strResult1Line & Trim(objProduit.libContenant) & ","
-            strResult1Line = strResult1Line & Trim(Format(objLgCommande.prixU, "n").Replace(",", "."))
+            strResult1Line = strResult1Line & Trim(objLgCommande.prixU.ToString().Replace(",", "."))
 
             strResult1Line = Replace(strResult1Line, vbCrLf, "--")
             strResult1Line = Replace(strResult1Line, vbCr, "-")

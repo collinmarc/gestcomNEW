@@ -1,6 +1,8 @@
 ﻿V20211104	
 	0001436: Gestion des ID Dans la table LG_PRECOMMANDE
-
+			BDD dans Status
+			Format numerique espfrn
+			Fin export
 V20211020
 	0001386: Enregistrement des commentaires de livraison
 	0001387: Recherche par defaut des commandes = 'en cours'

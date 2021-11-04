@@ -705,5 +705,7 @@ Public Class frmExportInternet
         ActiverImportBAF()
         Me.Cursor = Cursors.Default
         cbExporter.Enabled = True
+        m_bsrcSCMD.Clear()
+        m_colCommandes.Clear()
     End Sub
 End Class

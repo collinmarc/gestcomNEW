@@ -1194,7 +1194,7 @@ Friend Class frmMain
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 348)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 328)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1221,7 +1221,7 @@ Friend Class frmMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 370)
+        Me.ClientSize = New System.Drawing.Size(890, 350)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -1288,7 +1288,9 @@ Friend Class frmMain
         'Connection /Deconnection pour mettre à jour la barre d'état
         Persist.shared_connect()
         Persist.shared_disconnect()
-
+        Dim strCatalog As String = Persist.ConnectionString.Substring(Persist.ConnectionString.IndexOf("Catalog="))
+        strCatalog = strCatalog.Substring(0, strCatalog.IndexOf(";"))
+        StatusBarDB.Text = strCatalog
     End Sub
 
     Private Sub setMenuItems(ByVal str As String, ByVal menuitems As Menu.MenuItemCollection)
