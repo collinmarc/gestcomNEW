@@ -1,4 +1,7 @@
-﻿V20211020
+﻿V20211104	
+	0001436: Gestion des ID Dans la table LG_PRECOMMANDE
+
+V20211020
 	0001386: Enregistrement des commentaires de livraison
 	0001387: Recherche par defaut des commandes = 'en cours'
 	0001388: Génération des mvts d'inventaires au 01 du mois

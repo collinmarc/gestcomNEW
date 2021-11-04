@@ -2405,11 +2405,11 @@ Public MustInherit Class Persist
                 oParam6.Value = truncate(objLgPrecom.refDerniereCommande, 50)
                 objOLeDBCommand.ExecuteNonQuery()
 
-                objOLeDBCommand2 = New OleDbCommand("SELECT MAX(PCMD_ID) FROM PRECOMMANDE", m_dbconn.Connection)
+                objOLeDBCommand2 = New OleDbCommand("SELECT @@IDENTITY", m_dbconn.Connection)
                 objOLeDBCommand2.Transaction = m_dbconn.transaction
                 objRS = objOLeDBCommand2.ExecuteReader()
                 If objRS.Read() Then
-                    objLgPrecom.setid(objRS.GetInt32(0))
+                    objLgPrecom.setid(Decimal.ToInt32(objRS.GetDecimal(0)))
                     objRS.Close()
 
                     objRS = Nothing
@@ -5254,7 +5254,7 @@ Public MustInherit Class Persist
             objCMDCLT.NomLivraison = GetString(objRS, "CMD_CLT_NOMLIVRAISON")
             objCMDCLT.RaisonSocialeLivraison = GetString(objRS, "CMD_CLT_RSLIVRAISON")
             'Prestashop
-            objCMDCLT.IDPrestashop = getLong(objRS, "CMD_IDPRESTASHOP")
+            objCMDCLT.IDPrestashop = getInteger(objRS, "CMD_IDPRESTASHOP")
             objCMDCLT.NamePrestashop = GetString(objRS, "CMD_NAMEPRESTASHOP")
             objCMDCLT.Origine = Trim(GetString(objRS, "CMD_ORIGINE"))
             objCMDCLT.Date_EDI = GetValue(objRS, "CMD_DATE_EDI")

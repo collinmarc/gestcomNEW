@@ -71,7 +71,7 @@ Partial Class dlgWebBrowser
         Me.WebBrowser1.Size = New System.Drawing.Size(416, 250)
         Me.WebBrowser1.TabIndex = 1
         '
-        'Dialog1
+        'dlgWebBrowser
         '
         Me.AcceptButton = Me.OK_Button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -83,7 +83,7 @@ Partial Class dlgWebBrowser
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "Dialog1"
+        Me.Name = "dlgWebBrowser"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Dialog1"

@@ -1653,7 +1653,7 @@ Public Class SousCommande
         Dim bReturn As Boolean
         Dim tabCSV As String()
         Dim nId As Integer
-        Dim oSCMD As SousCommande
+        Dim oSCMD As SousCommande = Nothing
 
         strResult = strResult.Replace(Chr(34), "")
         tabCSV = strResult.Split(",")
@@ -1685,9 +1685,13 @@ Public Class SousCommande
                     Else
                         Trace.WriteLine("SousCommande.importCSV : ERReur en Sauvegarde de SousCommande")
                     End If
+                Else
+                    oSCMD = Nothing
+                    bReturn = False
                 End If
 
             Else
+                oSCMD = Nothing
                 bReturn = False
                 '            DisplayStatus(strResult + "Sous commande inconnue")
             End If

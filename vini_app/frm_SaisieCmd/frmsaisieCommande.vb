@@ -3846,7 +3846,7 @@ Public Class frmSaisieCommande
         DisplayStatus("Affichage de l'onglet commentaire")
         'Commentaires
         tbCommentaireCommande.Text = getCommandeCourante.caracteristiqueTiers.CommCommande.comment
-        tbCommentaireLivraison.Text = getCommandeCourante.caracteristiqueTiers.CommLivraison.comment
+        'tbCommentaireLivraison.Text = getCommandeCourante.caracteristiqueTiers.CommLivraison.comment
         tbCommentaireFacturation.Text = getCommandeCourante.caracteristiqueTiers.CommFacturation.comment
         tbComValid.Text = getCommandeCourante.caracteristiqueTiers.CommLibre.comment
 
@@ -3894,7 +3894,7 @@ Public Class frmSaisieCommande
         'tbPUPallNonPrep.Text = getCommandeCourante.puPalettesNonPreparees
         'tbMontantTransport.Text = getCommandeCourante.montantTransport
         'tbMontantTransport.Text = getCommandeCourante.montantTransport
-        tbPiedPageBL.Text = getCommandeCourante.caracteristiqueTiers.CommLivraison.comment
+        'tbPiedPageBL.Text = getCommandeCourante.caracteristiqueTiers.CommLivraison.comment
 
         tbRefBL.Text = getCommandeCourante.refLivraison
 
@@ -4040,15 +4040,16 @@ Public Class frmSaisieCommande
                     getCommandeCourante.caracteristiqueTiers.idModeReglement = cboModeReglement.SelectedItem.id
                 End If
 
+                'La Liaison est faite par le databinding
                 'Commentaires
-                getCommandeCourante.caracteristiqueTiers.CommCommande.comment = tbCommentaireCommande.Text
-                getCommandeCourante.caracteristiqueTiers.CommLivraison.comment = tbCommentaireLivraison.Text
-                If Not String.IsNullOrEmpty(tbPiedPageBL.Text) And (tbPiedPageBL.Text <> tbCommentaireLivraison.Text) Then
-                    getCommandeCourante.caracteristiqueTiers.CommLivraison.comment = tbPiedPageBL.Text
+                'getCommandeCourante.caracteristiqueTiers.CommCommande.comment = tbCommentaireCommande.Text
+                ''getCommandeCourante.caracteristiqueTiers.CommLivraison.comment = tbCommentaireLivraison.Text
+                ''If Not String.IsNullOrEmpty(tbPiedPageBL.Text) And (tbPiedPageBL.Text <> tbCommentaireLivraison.Text) Then
+                ''    getCommandeCourante.caracteristiqueTiers.CommLivraison.comment = tbPiedPageBL.Text
 
-                End If
-                getCommandeCourante.caracteristiqueTiers.CommFacturation.comment = tbCommentaireFacturation.Text
-                getCommandeCourante.caracteristiqueTiers.CommLibre.comment = tbComValid.Text
+                ''End If
+                'getCommandeCourante.caracteristiqueTiers.CommFacturation.comment = tbCommentaireFacturation.Text
+                'getCommandeCourante.caracteristiqueTiers.CommLibre.comment = tbComValid.Text
 
                 'Lignes du tableau
                 'la collection est mise à jour à chaque modification du tableau
@@ -4805,19 +4806,19 @@ Public Class frmSaisieCommande
     End Sub
 
     Private Sub tbPiedPageBL_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbPiedPageBL.TextChanged
-        If Not bAffichageEnCours() Then
-            debAffiche()
-            tbCommentaireLivraison.Text = tbPiedPageBL.Text
-            finAffiche()
-        End If
+        'If Not bAffichageEnCours() Then
+        '    debAffiche()
+        '    tbCommentaireLivraison.Text = tbPiedPageBL.Text
+        '    finAffiche()
+        'End If
     End Sub
 
     Private Sub tbCommentaireLivraison_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles tbCommentaireLivraison.TextChanged
-        If Not bAffichageEnCours() Then
-            debAffiche()
-            tbPiedPageBL.Text = tbCommentaireLivraison.Text
-            finAffiche()
-        End If
+        'If Not bAffichageEnCours() Then
+        '    debAffiche()
+        '    tbPiedPageBL.Text = tbCommentaireLivraison.Text
+        '    finAffiche()
+        'End If
     End Sub
     Private Sub cbFaxBLPLTFRM_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbMailBLPLTFRM.Click
         exporterWEBEDI()

@@ -628,7 +628,7 @@ Public Class frmExportInternet
     End Function 'exporter
 
     Private Sub ActiverImportBAF()
-        Dim odlg As New dlgWebBrowser()
+        Dim odlg As New dlgWebBrowser(False)
         Dim uri_integ As Uri = New Uri(Param.getConstante("CST_FTPVNC_URL"))
         odlg.WebBrowser1.Navigate(uri_integ)
         odlg.ShowDialog()

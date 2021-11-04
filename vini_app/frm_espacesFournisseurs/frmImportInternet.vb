@@ -353,6 +353,9 @@ Public Class frmImportInternet
                     BackgroundWorker1.ReportProgress(nSousCommandeTraitees)
                     If oScmd IsNot Nothing Then
                         BackgroundWorker1.ReportProgress(0, oScmd.code & " TotalHT=" & oScmd.totalHTFacture.ToString("c") & " ,refFact=" & oScmd.refFactFournisseur)
+                    Else
+                        BackgroundWorker1.ReportProgress(0, "Sous commande inconnue : " & strResult)
+
                     End If
 
                 End If
