@@ -3,6 +3,8 @@
 			BDD dans Status
 			Format numerique espfrn
 			Fin export
+	0001439: Erreur en génération de facture de colisage
+	
 V20211020
 	0001386: Enregistrement des commentaires de livraison
 	0001387: Recherche par defaut des commandes = 'en cours'

@@ -960,7 +960,7 @@ Imports CrystalDecisions.CrystalReports.Engine
         Dim strReport As String = ""
         Dim objReport As ReportDocument
         Dim tabIds As ArrayList
-        strReport = "..\..\..\vini_app/crFactCom_Releve.rpt"
+        strReport = "..\..\..\vini_app/cr/crFactCom_Releve.rpt"
 
         If strReport = "" Then
             Exit Sub
@@ -1070,7 +1070,7 @@ Imports CrystalDecisions.CrystalReports.Engine
 
         Dim strReport As String = ""
         Dim objReport As ReportDocument
-        strReport = "..\..\..\vini_app/crFactCom_Releve.rpt"
+        strReport = "..\..\..\vini_app/cr/crFactCom_Releve.rpt"
 
         If strReport = "" Then
             Exit Sub

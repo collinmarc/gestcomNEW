@@ -25,12 +25,17 @@ Imports System.IO
         m_oFourn = New Fournisseur("FRNT1100", "MonFournisseur")
         m_oFourn.Save()
 
-
+        If Transporteur.TransporteurDefault Is Nothing Then
+            Dim oTransp As New Transporteur()
+            oTransp.nom = "TRANSPDEF"
+            oTransp.bDefaut = True
+            oTransp.Save()
+        End If
 
         oCont = New contenant()
         oCont.code = "BLLE"
         oCont.poids = 1020
-        oCont.defaut = False
+        oCont.defaut = True
         Assert.IsTrue(oCont.Save())
 
         oCond.code = "CAISS12"
@@ -828,8 +833,8 @@ Imports System.IO
 
         objTaux = New TauxComm(m_oFourn.id, objParam.code, 12.8)
         objTaux.save()
-        objTaux = New TauxComm(m_oFourn.id, "CG", 12.5)
-        objTaux.save()
+        ' objTaux = New TauxComm(m_oFourn.id, "CG", 12.5)
+        'objTaux.save()
         objTaux = New TauxComm(m_oFourn.id, "AE", 13.0)
         objTaux.save()
 

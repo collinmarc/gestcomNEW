@@ -5214,8 +5214,6 @@ Partial Public Class dsVinicom
         
         Private columnCST_SOC2_COMPTEBANQUE As Global.System.Data.DataColumn
         
-        Private columnCST_ID As Global.System.Data.DataColumn
-        
         Private columnCST_SOC2_COMPTEPRODUIT_COL As Global.System.Data.DataColumn
         
         Private columnCST_EDI_HOST As Global.System.Data.DataColumn
@@ -5877,14 +5875,6 @@ Partial Public Class dsVinicom
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property CST_IDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCST_ID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property CST_SOC2_COMPTEPRODUIT_COLColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCST_SOC2_COMPTEPRODUIT_COL
@@ -6309,7 +6299,6 @@ Partial Public Class dsVinicom
                     ByVal CST_SOC2_COMPTETVA As String,  _
                     ByVal CST_SOC2_COMPTEPRODUIT As String,  _
                     ByVal CST_SOC2_COMPTEBANQUE As String,  _
-                    ByVal CST_ID As Short,  _
                     ByVal CST_SOC2_COMPTEPRODUIT_COL As String,  _
                     ByVal CST_EDI_HOST As String,  _
                     ByVal CST_EDI_PORT As String,  _
@@ -6351,16 +6340,10 @@ Partial Public Class dsVinicom
                     ByVal CST_FTPVNC_REMOTEDIR2 As String,  _
                     ByVal CST_FTPVNC_URL2 As String) As CONSTANTESRow
             Dim rowCONSTANTESRow As CONSTANTESRow = CType(Me.NewRow,CONSTANTESRow)
-            Dim columnValuesArray() As Object = New Object() {CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC_ADRESSE_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_SOC_EMAIL, CST_FAX_PAGE_GARDE, CST_FAX_ENVOI_PAGE_GARDE, CST_FAX_SERVERNAME, CST_DERN_NUM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA, CST_VERSION_BD, CST_FAX_PREFIX, CST_TX_COMMISSION, CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP, CST_TAXES_TRP, CST_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST_SOC2_ADRESSE_RUE1, CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2_ADRESSE_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_PLTFRM_NOM, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, CST_PLTFRM_CP, CST_PLTFRM_VILLE, CST_PLTFRM_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_PLTFRM_PORT, CST_TRP_TXGAZOLE, CST_PU_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD, FTP_REMOTEDIR, FTP_LOCKFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE, CST_COL_IDMODEREGLEMENT, CST_FACT_COL_TAXES, CST_FACT_COL_PU_COLIS, CST_SOC_RCS, CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, CST_SOC2_LICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, CST_SOC_COMPTEPRODUIT, CST_SOC_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2_COMPTEPRODUIT, CST_SOC2_COMPTEBANQUE, CST_ID, CST_SOC2_COMPTEPRODUIT_COL, CST_EDI_HOST, CST_EDI_PORT, CST_EDI_FROM, CST_EDI_TEMP, CST_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_FTPEDI_SRV, CST_FTPEDI_USER, CST_FTPEDI_PWD, CST_FTPEDI_PORT, CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRODUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP_PWD, CST_IMAP_NSEC, CST_IMAP_MSGFOLDER, CST_EDI_SSL, CST_IMAP_SSL, CST_IMAP_PORT, CST_IMAP_HOST, CST_FTPVNC_HOST, CST_FTPVNC_USER, CST_FTPVNC_PASSWORD, CST_FTPVNC_REMOTEDIR, CST_FTPVNC_URL, CST_FTPVND_HOST, CST_FTPVND_USER, CST_FTPVND_PASSWORD, CST_FTPVND_REMOTEDIR, CST_FTPVND_URL, CST_FTPVNC_REMOTEDIR2, CST_FTPVNC_URL2}
+            Dim columnValuesArray() As Object = New Object() {CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC_ADRESSE_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_SOC_EMAIL, CST_FAX_PAGE_GARDE, CST_FAX_ENVOI_PAGE_GARDE, CST_FAX_SERVERNAME, CST_DERN_NUM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA, CST_VERSION_BD, CST_FAX_PREFIX, CST_TX_COMMISSION, CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP, CST_TAXES_TRP, CST_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST_SOC2_ADRESSE_RUE1, CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2_ADRESSE_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_PLTFRM_NOM, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, CST_PLTFRM_CP, CST_PLTFRM_VILLE, CST_PLTFRM_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_PLTFRM_PORT, CST_TRP_TXGAZOLE, CST_PU_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD, FTP_REMOTEDIR, FTP_LOCKFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE, CST_COL_IDMODEREGLEMENT, CST_FACT_COL_TAXES, CST_FACT_COL_PU_COLIS, CST_SOC_RCS, CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, CST_SOC2_LICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, CST_SOC_COMPTEPRODUIT, CST_SOC_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2_COMPTEPRODUIT, CST_SOC2_COMPTEBANQUE, CST_SOC2_COMPTEPRODUIT_COL, CST_EDI_HOST, CST_EDI_PORT, CST_EDI_FROM, CST_EDI_TEMP, CST_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_FTPEDI_SRV, CST_FTPEDI_USER, CST_FTPEDI_PWD, CST_FTPEDI_PORT, CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRODUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP_PWD, CST_IMAP_NSEC, CST_IMAP_MSGFOLDER, CST_EDI_SSL, CST_IMAP_SSL, CST_IMAP_PORT, CST_IMAP_HOST, CST_FTPVNC_HOST, CST_FTPVNC_USER, CST_FTPVNC_PASSWORD, CST_FTPVNC_REMOTEDIR, CST_FTPVNC_URL, CST_FTPVND_HOST, CST_FTPVND_USER, CST_FTPVND_PASSWORD, CST_FTPVND_REMOTEDIR, CST_FTPVND_URL, CST_FTPVNC_REMOTEDIR2, CST_FTPVNC_URL2}
             rowCONSTANTESRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCONSTANTESRow)
             Return rowCONSTANTESRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByCST_ID(ByVal CST_ID As Short) As CONSTANTESRow
-            Return CType(Me.Rows.Find(New Object() {CST_ID}),CONSTANTESRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6448,7 +6431,6 @@ Partial Public Class dsVinicom
             Me.columnCST_SOC2_COMPTETVA = MyBase.Columns("CST_SOC2_COMPTETVA")
             Me.columnCST_SOC2_COMPTEPRODUIT = MyBase.Columns("CST_SOC2_COMPTEPRODUIT")
             Me.columnCST_SOC2_COMPTEBANQUE = MyBase.Columns("CST_SOC2_COMPTEBANQUE")
-            Me.columnCST_ID = MyBase.Columns("CST_ID")
             Me.columnCST_SOC2_COMPTEPRODUIT_COL = MyBase.Columns("CST_SOC2_COMPTEPRODUIT_COL")
             Me.columnCST_EDI_HOST = MyBase.Columns("CST_EDI_HOST")
             Me.columnCST_EDI_PORT = MyBase.Columns("CST_EDI_PORT")
@@ -6630,8 +6612,6 @@ Partial Public Class dsVinicom
             MyBase.Columns.Add(Me.columnCST_SOC2_COMPTEPRODUIT)
             Me.columnCST_SOC2_COMPTEBANQUE = New Global.System.Data.DataColumn("CST_SOC2_COMPTEBANQUE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCST_SOC2_COMPTEBANQUE)
-            Me.columnCST_ID = New Global.System.Data.DataColumn("CST_ID", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCST_ID)
             Me.columnCST_SOC2_COMPTEPRODUIT_COL = New Global.System.Data.DataColumn("CST_SOC2_COMPTEPRODUIT_COL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCST_SOC2_COMPTEPRODUIT_COL)
             Me.columnCST_EDI_HOST = New Global.System.Data.DataColumn("CST_EDI_HOST", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -6712,7 +6692,6 @@ Partial Public Class dsVinicom
             MyBase.Columns.Add(Me.columnCST_FTPVNC_REMOTEDIR2)
             Me.columnCST_FTPVNC_URL2 = New Global.System.Data.DataColumn("CST_FTPVNC_URL2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCST_FTPVNC_URL2)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCST_ID}, true))
             Me.columnCST_SOC_NOMSOC.MaxLength = 50
             Me.columnCST_SOC_ADRESSE_RUE1.MaxLength = 50
             Me.columnCST_SOC_ADRESSE_RUE2.MaxLength = 50
@@ -6766,8 +6745,6 @@ Partial Public Class dsVinicom
             Me.columnCST_SOC2_COMPTETVA.MaxLength = 10
             Me.columnCST_SOC2_COMPTEPRODUIT.MaxLength = 10
             Me.columnCST_SOC2_COMPTEBANQUE.MaxLength = 10
-            Me.columnCST_ID.AllowDBNull = false
-            Me.columnCST_ID.Unique = true
             Me.columnCST_SOC2_COMPTEPRODUIT_COL.MaxLength = 10
             Me.columnCST_EDI_HOST.MaxLength = 50
             Me.columnCST_EDI_PORT.MaxLength = 50
@@ -11634,17 +11611,6 @@ Partial Public Class dsVinicom
             End Get
             Set
                 Me(Me.tableCONSTANTES.CST_SOC2_COMPTEBANQUEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property CST_ID() As Short
-            Get
-                Return CType(Me(Me.tableCONSTANTES.CST_IDColumn),Short)
-            End Get
-            Set
-                Me(Me.tableCONSTANTES.CST_IDColumn) = value
             End Set
         End Property
         
@@ -20904,7 +20870,6 @@ Namespace dsVinicomTableAdapters
             tableMapping.ColumnMappings.Add("CST_SOC2_COMPTETVA", "CST_SOC2_COMPTETVA")
             tableMapping.ColumnMappings.Add("CST_SOC2_COMPTEPRODUIT", "CST_SOC2_COMPTEPRODUIT")
             tableMapping.ColumnMappings.Add("CST_SOC2_COMPTEBANQUE", "CST_SOC2_COMPTEBANQUE")
-            tableMapping.ColumnMappings.Add("CST_ID", "CST_ID")
             tableMapping.ColumnMappings.Add("CST_SOC2_COMPTEPRODUIT_COL", "CST_SOC2_COMPTEPRODUIT_COL")
             tableMapping.ColumnMappings.Add("CST_EDI_HOST", "CST_EDI_HOST")
             tableMapping.ColumnMappings.Add("CST_EDI_PORT", "CST_EDI_PORT")
@@ -21854,36 +21819,32 @@ Namespace dsVinicomTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC"& _ 
-                "_ADRESSE_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_"& _ 
-                "SOC_EMAIL, CST_FAX_PAGE_GARDE, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CST_FAX_ENVOI_PAGE_GAR"& _ 
-                "DE, CST_FAX_SERVERNAME, CST_DERN_NUM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA"& _ 
-                ", CST_VERSION_BD, CST_FAX_PREFIX, CST_TX_COMMISSION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
-                "CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP, CST_TAXES_TRP, CS"& _ 
-                "T_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST_SOC2_ADRESSE_RUE1,"& _ 
-                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2"& _ 
-                "_ADRESSE_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_P"& _ 
-                "LTFRM_NOM, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CST_PLTF"& _ 
-                "RM_CP, CST_PLTFRM_VILLE, CST_PLTFRM_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_P"& _ 
-                "LTFRM_PORT, CST_TRP_TXGAZOLE, CST_PU_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAM"& _ 
-                "E, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FTP_USERNAME, FTP_PASSWORD, FTP_REMOTEDIR, FTP_LOC"& _ 
-                "KFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE, CST_COL_IDMODEREG"& _ 
-                "LEMENT, CST_FACT_COL_TAXES, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CST_FACT_COL_PU_COLIS, CS"& _ 
-                "T_SOC_RCS, CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, C"& _ 
-                "ST_SOC2_LICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       CST_SOC_COMPTEPRODUIT, CST_SOC_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2"& _ 
-                "_COMPTEPRODUIT, CST_SOC2_COMPTEBANQUE, CST_ID, CST_SOC2_COMPTEPRODUIT_COL, CST_E"& _ 
-                "DI_HOST, CST_EDI_PORT, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CST_EDI_FROM, CST_EDI_TEMP, CS"& _ 
-                "T_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_F"& _ 
-                "TPEDI_SRV, CST_FTPEDI_USER, CST_FTPEDI_PWD, CST_FTPEDI_PORT, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                "        CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRO"& _ 
-                "DUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP"& _ 
-                "_PWD, CST_IMAP_NSEC, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CST_IMAP_MSGFOLDER, CST_EDI_SSL,"& _ 
-                " CST_IMAP_SSL, CST_IMAP_PORT, CST_IMAP_HOST, CST_FTPVNC_HOST, CST_FTPVNC_USER, C"& _ 
-                "ST_FTPVNC_PASSWORD, CST_FTPVNC_REMOTEDIR, CST_FTPVNC_URL, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "     CST_FTPVND_HOST, CST_FTPVND_USER, CST_FTPVND_PASSWORD, CST_FTPVND_REMOTEDIR"& _ 
-                ", CST_FTPVND_URL, CST_FTPVNC_REMOTEDIR2, CST_FTPVNC_URL2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONSTA"& _ 
-                "NTES"
+            Me._commandCollection(0).CommandText = "SELECT CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC_ADRESS"& _ 
+                "E_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_SOC_EMA"& _ 
+                "IL, CST_FAX_PAGE_GARDE, CST_FAX_ENVOI_PAGE_GARDE, CST_FAX_SERVERNAME, CST_DERN_N"& _ 
+                "UM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA, CST_VERSION_BD, CST_FAX_PREFIX, "& _ 
+                "CST_TX_COMMISSION, CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP"& _ 
+                ", CST_TAXES_TRP, CST_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST"& _ 
+                "_SOC2_ADRESSE_RUE1, CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2_ADRESSE"& _ 
+                "_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_PLTFRM_NO"& _ 
+                "M, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, CST_PLTFRM_CP, CST_PLTFRM_VILLE, CST_PLTFRM"& _ 
+                "_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_PLTFRM_PORT, CST_TRP_TXGAZOLE, CST_P"& _ 
+                "U_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD, FTP_"& _ 
+                "REMOTEDIR, FTP_LOCKFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE,"& _ 
+                " CST_COL_IDMODEREGLEMENT, CST_FACT_COL_TAXES, CST_FACT_COL_PU_COLIS, CST_SOC_RCS"& _ 
+                ", CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, CST_SOC2_L"& _ 
+                "ICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, CST_SOC_COMPTEPRODUIT, CST_SO"& _ 
+                "C_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2_COMPTEPRODUIT, CST_SOC2_COMPTEBANQU"& _ 
+                "E, CST_SOC2_COMPTEPRODUIT_COL, CST_EDI_HOST, CST_EDI_PORT, CST_EDI_FROM, CST_EDI"& _ 
+                "_TEMP, CST_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_H"& _ 
+                "BV, CST_FTPEDI_SRV, CST_FTPEDI_USER, CST_FTPEDI_PWD, CST_FTPEDI_PORT, CST_FTPEDI"& _ 
+                "_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRODUIT_TAXEGO, CST_D"& _ 
+                "ATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP_PWD, CST_IMAP_NSE"& _ 
+                "C, CST_IMAP_MSGFOLDER, CST_EDI_SSL, CST_IMAP_SSL, CST_IMAP_PORT, CST_IMAP_HOST, "& _ 
+                "CST_FTPVNC_HOST, CST_FTPVNC_USER, CST_FTPVNC_PASSWORD, CST_FTPVNC_REMOTEDIR, CST"& _ 
+                "_FTPVNC_URL, CST_FTPVND_HOST, CST_FTPVND_USER, CST_FTPVND_PASSWORD, CST_FTPVND_R"& _ 
+                "EMOTEDIR, CST_FTPVND_URL, CST_FTPVNC_REMOTEDIR2, CST_FTPVNC_URL2 FROM CONSTANTES"& _ 
+                ""
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -24933,225 +24894,6 @@ Namespace dsVinicomTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal CST_SOC_NOMSOC As String,  _
-                    ByVal CST_SOC_ADRESSE_RUE1 As String,  _
-                    ByVal CST_SOC_ADRESSE_RUE2 As String,  _
-                    ByVal CST_SOC_ADRESSE_CP As String,  _
-                    ByVal CST_SOC_ADRESSE_VILLE As String,  _
-                    ByVal CST_SOC_TEL As String,  _
-                    ByVal CST_SOC_FAX As String,  _
-                    ByVal CST_SOC_PORT As String,  _
-                    ByVal CST_SOC_EMAIL As String,  _
-                    ByVal CST_FAX_PAGE_GARDE As String,  _
-                    ByVal CST_FAX_ENVOI_PAGE_GARDE As Global.System.Nullable(Of Boolean),  _
-                    ByVal CST_FAX_SERVERNAME As String,  _
-                    ByVal CST_DERN_NUM_CMD_CLT As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_DERN_NUM_SCMD As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_DERN_NUM_BA As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_VERSION_BD As String,  _
-                    ByVal CST_FAX_PREFIX As String,  _
-                    ByVal CST_TX_COMMISSION As Global.System.Nullable(Of Single),  _
-                    ByVal CST_DERN_NUM_FACTCOM As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_PATH_FACTCOM As String,  _
-                    ByVal CST_DERN_NUM_FACT_TRP As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_TAXES_TRP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PATH_FACTTRP As String,  _
-                    ByVal CST_TRP_IDMODEREGLEMENT As String,  _
-                    ByVal CST_SOC2_NOMSOC As String,  _
-                    ByVal CST_SOC2_ADRESSE_RUE1 As String,  _
-                    ByVal CST_SOC2_ADRESSE_RUE2 As String,  _
-                    ByVal CST_SOC2_ADRESSE_CP As String,  _
-                    ByVal CST_SOC2_ADRESSE_VILLE As String,  _
-                    ByVal CST_SOC2_TEL As String,  _
-                    ByVal CST_SOC2_FAX As String,  _
-                    ByVal CST_SOC2_EMAIL As String,  _
-                    ByVal CST_SOC2_PORT As String,  _
-                    ByVal CST_PLTFRM_NOM As String,  _
-                    ByVal CST_PLTFRM_RUE1 As String,  _
-                    ByVal CST_PLTFRM_RUE2 As String,  _
-                    ByVal CST_PLTFRM_CP As String,  _
-                    ByVal CST_PLTFRM_VILLE As String,  _
-                    ByVal CST_PLTFRM_TEL As String,  _
-                    ByVal CST_PLTFRM_FAX As String,  _
-                    ByVal CST_PLTFRM_EMAIL As String,  _
-                    ByVal CST_PLTFRM_PORT As String,  _
-                    ByVal CST_TRP_TXGAZOLE As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PU_PALL_PREP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_PU_PALL_NONPREP As Global.System.Nullable(Of Double),  _
-                    ByVal FTP_HOSTNAME As String,  _
-                    ByVal FTP_USERNAME As String,  _
-                    ByVal FTP_PASSWORD As String,  _
-                    ByVal FTP_REMOTEDIR As String,  _
-                    ByVal FTP_LOCKFROMFILENAME As String,  _
-                    ByVal FTP_LOCKTOFILENAME As String,  _
-                    ByVal CST_DERN_NUM_FACT_COLISAGE As Global.System.Nullable(Of Short),  _
-                    ByVal CST_COL_IDMODEREGLEMENT As Global.System.Nullable(Of Short),  _
-                    ByVal CST_FACT_COL_TAXES As Global.System.Nullable(Of Double),  _
-                    ByVal CST_FACT_COL_PU_COLIS As Global.System.Nullable(Of Double),  _
-                    ByVal CST_SOC_RCS As String,  _
-                    ByVal CST_SOC_TVAINTRA As String,  _
-                    ByVal CST_SOC_LICENCE As String,  _
-                    ByVal CST_SOC2_RCS As String,  _
-                    ByVal CST_SOC2_TVAINTRA As String,  _
-                    ByVal CST_SOC2_LICENCE As String,  _
-                    ByVal CST_EXPORT_COMPTA_PATH As String,  _
-                    ByVal CST_SOC_COMPTETVA As String,  _
-                    ByVal CST_SOC_COMPTEPRODUIT As String,  _
-                    ByVal CST_SOC_COMPTEBANQUE As String,  _
-                    ByVal CST_SOC2_COMPTETVA As String,  _
-                    ByVal CST_SOC2_COMPTEPRODUIT As String,  _
-                    ByVal CST_SOC2_COMPTEBANQUE As String,  _
-                    ByVal CST_SOC2_COMPTEPRODUIT_COL As String,  _
-                    ByVal CST_EDI_HOST As String,  _
-                    ByVal CST_EDI_PORT As String,  _
-                    ByVal CST_EDI_FROM As String,  _
-                    ByVal CST_EDI_TEMP As String,  _
-                    ByVal CST_SRVCE_PATH As String,  _
-                    ByVal CST_SRVCE_NBSEC As String,  _
-                    ByVal CST_SRVCE_PATHERROR As String,  _
-                    ByVal CST_DERN_NUM_FACT_HBV As Global.System.Nullable(Of Integer),  _
-                    ByVal CST_FTPEDI_SRV As String,  _
-                    ByVal CST_FTPEDI_USER As String,  _
-                    ByVal CST_FTPEDI_PWD As String,  _
-                    ByVal CST_FTPEDI_PORT As String,  _
-                    ByVal CST_FTPEDI_REP As String,  _
-                    ByVal CST_FTPEDI_REPLOCAL As String,  _
-                    ByVal CST_TRP_PARTTRP As Global.System.Nullable(Of Double),  _
-                    ByVal CST_SOC2_COMPTEPRODUIT_TAXEGO As Global.System.Nullable(Of Double),  _
-                    ByVal CST_DATE_UPDATE As Global.System.Nullable(Of Date),  _
-                    ByVal CST_EDI_USER As String,  _
-                    ByVal CST_EDI_PWD As String,  _
-                    ByVal CST_IMAP_USER As String,  _
-                    ByVal CST_IMAP_PWD As String,  _
-                    ByVal CST_IMAP_NSEC As String,  _
-                    ByVal CST_IMAP_MSGFOLDER As String,  _
-                    ByVal CST_EDI_SSL As Global.System.Nullable(Of Boolean),  _
-                    ByVal CST_IMAP_SSL As Global.System.Nullable(Of Boolean),  _
-                    ByVal CST_IMAP_PORT As String,  _
-                    ByVal CST_IMAP_HOST As String,  _
-                    ByVal CST_FTPVNC_HOST As String,  _
-                    ByVal CST_FTPVNC_USER As String,  _
-                    ByVal CST_FTPVNC_PASSWORD As String,  _
-                    ByVal CST_FTPVNC_REMOTEDIR As String,  _
-                    ByVal CST_FTPVNC_URL As String,  _
-                    ByVal CST_FTPVND_HOST As String,  _
-                    ByVal CST_FTPVND_USER As String,  _
-                    ByVal CST_FTPVND_PASSWORD As String,  _
-                    ByVal CST_FTPVND_REMOTEDIR As String,  _
-                    ByVal CST_FTPVND_URL As String,  _
-                    ByVal CST_FTPVNC_REMOTEDIR2 As String,  _
-                    ByVal CST_FTPVNC_URL2 As String,  _
-                    ByVal Original_CST_SOC_NOMSOC As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_RUE1 As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_RUE2 As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_CP As String,  _
-                    ByVal Original_CST_SOC_ADRESSE_VILLE As String,  _
-                    ByVal Original_CST_SOC_TEL As String,  _
-                    ByVal Original_CST_SOC_FAX As String,  _
-                    ByVal Original_CST_SOC_PORT As String,  _
-                    ByVal Original_CST_SOC_EMAIL As String,  _
-                    ByVal Original_CST_FAX_PAGE_GARDE As String,  _
-                    ByVal Original_CST_FAX_ENVOI_PAGE_GARDE As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_CST_FAX_SERVERNAME As String,  _
-                    ByVal Original_CST_DERN_NUM_CMD_CLT As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_DERN_NUM_SCMD As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_DERN_NUM_BA As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_VERSION_BD As String,  _
-                    ByVal Original_CST_FAX_PREFIX As String,  _
-                    ByVal Original_CST_TX_COMMISSION As Global.System.Nullable(Of Single),  _
-                    ByVal Original_CST_DERN_NUM_FACTCOM As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_PATH_FACTCOM As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_TRP As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_TAXES_TRP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PATH_FACTTRP As String,  _
-                    ByVal Original_CST_TRP_IDMODEREGLEMENT As String,  _
-                    ByVal Original_CST_SOC2_NOMSOC As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_RUE1 As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_RUE2 As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_CP As String,  _
-                    ByVal Original_CST_SOC2_ADRESSE_VILLE As String,  _
-                    ByVal Original_CST_SOC2_TEL As String,  _
-                    ByVal Original_CST_SOC2_FAX As String,  _
-                    ByVal Original_CST_SOC2_EMAIL As String,  _
-                    ByVal Original_CST_SOC2_PORT As String,  _
-                    ByVal Original_CST_PLTFRM_NOM As String,  _
-                    ByVal Original_CST_PLTFRM_RUE1 As String,  _
-                    ByVal Original_CST_PLTFRM_RUE2 As String,  _
-                    ByVal Original_CST_PLTFRM_CP As String,  _
-                    ByVal Original_CST_PLTFRM_VILLE As String,  _
-                    ByVal Original_CST_PLTFRM_TEL As String,  _
-                    ByVal Original_CST_PLTFRM_FAX As String,  _
-                    ByVal Original_CST_PLTFRM_EMAIL As String,  _
-                    ByVal Original_CST_PLTFRM_PORT As String,  _
-                    ByVal Original_CST_TRP_TXGAZOLE As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PU_PALL_PREP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_PU_PALL_NONPREP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_FTP_HOSTNAME As String,  _
-                    ByVal Original_FTP_USERNAME As String,  _
-                    ByVal Original_FTP_PASSWORD As String,  _
-                    ByVal Original_FTP_REMOTEDIR As String,  _
-                    ByVal Original_FTP_LOCKFROMFILENAME As String,  _
-                    ByVal Original_FTP_LOCKTOFILENAME As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_COLISAGE As Global.System.Nullable(Of Short),  _
-                    ByVal Original_CST_COL_IDMODEREGLEMENT As Global.System.Nullable(Of Short),  _
-                    ByVal Original_CST_FACT_COL_TAXES As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_FACT_COL_PU_COLIS As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_SOC_RCS As String,  _
-                    ByVal Original_CST_SOC_TVAINTRA As String,  _
-                    ByVal Original_CST_SOC_LICENCE As String,  _
-                    ByVal Original_CST_SOC2_RCS As String,  _
-                    ByVal Original_CST_SOC2_TVAINTRA As String,  _
-                    ByVal Original_CST_SOC2_LICENCE As String,  _
-                    ByVal Original_CST_EXPORT_COMPTA_PATH As String,  _
-                    ByVal Original_CST_SOC_COMPTETVA As String,  _
-                    ByVal Original_CST_SOC_COMPTEPRODUIT As String,  _
-                    ByVal Original_CST_SOC_COMPTEBANQUE As String,  _
-                    ByVal Original_CST_SOC2_COMPTETVA As String,  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT As String,  _
-                    ByVal Original_CST_SOC2_COMPTEBANQUE As String,  _
-                    ByVal Original_CST_ID As Short,  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT_COL As String,  _
-                    ByVal Original_CST_EDI_HOST As String,  _
-                    ByVal Original_CST_EDI_PORT As String,  _
-                    ByVal Original_CST_EDI_FROM As String,  _
-                    ByVal Original_CST_EDI_TEMP As String,  _
-                    ByVal Original_CST_SRVCE_PATH As String,  _
-                    ByVal Original_CST_SRVCE_NBSEC As String,  _
-                    ByVal Original_CST_SRVCE_PATHERROR As String,  _
-                    ByVal Original_CST_DERN_NUM_FACT_HBV As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_CST_TRP_PARTTRP As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_SOC2_COMPTEPRODUIT_TAXEGO As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CST_DATE_UPDATE As Global.System.Nullable(Of Date),  _
-                    ByVal Original_CST_EDI_USER As String,  _
-                    ByVal Original_CST_EDI_PWD As String,  _
-                    ByVal Original_CST_IMAP_USER As String,  _
-                    ByVal Original_CST_IMAP_PWD As String,  _
-                    ByVal Original_CST_IMAP_NSEC As String,  _
-                    ByVal Original_CST_IMAP_MSGFOLDER As String,  _
-                    ByVal Original_CST_EDI_SSL As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_CST_IMAP_SSL As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_CST_IMAP_PORT As String,  _
-                    ByVal Original_CST_IMAP_HOST As String,  _
-                    ByVal Original_CST_FTPVNC_HOST As String,  _
-                    ByVal Original_CST_FTPVNC_USER As String,  _
-                    ByVal Original_CST_FTPVNC_PASSWORD As String,  _
-                    ByVal Original_CST_FTPVNC_REMOTEDIR As String,  _
-                    ByVal Original_CST_FTPVNC_URL As String,  _
-                    ByVal Original_CST_FTPVND_HOST As String,  _
-                    ByVal Original_CST_FTPVND_USER As String,  _
-                    ByVal Original_CST_FTPVND_PASSWORD As String,  _
-                    ByVal Original_CST_FTPVND_REMOTEDIR As String,  _
-                    ByVal Original_CST_FTPVND_URL As String,  _
-                    ByVal Original_CST_FTPVNC_REMOTEDIR2 As String,  _
-                    ByVal Original_CST_FTPVNC_URL2 As String) As Integer
-            Return Me.Update(CST_SOC_NOMSOC, CST_SOC_ADRESSE_RUE1, CST_SOC_ADRESSE_RUE2, CST_SOC_ADRESSE_CP, CST_SOC_ADRESSE_VILLE, CST_SOC_TEL, CST_SOC_FAX, CST_SOC_PORT, CST_SOC_EMAIL, CST_FAX_PAGE_GARDE, CST_FAX_ENVOI_PAGE_GARDE, CST_FAX_SERVERNAME, CST_DERN_NUM_CMD_CLT, CST_DERN_NUM_SCMD, CST_DERN_NUM_BA, CST_VERSION_BD, CST_FAX_PREFIX, CST_TX_COMMISSION, CST_DERN_NUM_FACTCOM, CST_PATH_FACTCOM, CST_DERN_NUM_FACT_TRP, CST_TAXES_TRP, CST_PATH_FACTTRP, CST_TRP_IDMODEREGLEMENT, CST_SOC2_NOMSOC, CST_SOC2_ADRESSE_RUE1, CST_SOC2_ADRESSE_RUE2, CST_SOC2_ADRESSE_CP, CST_SOC2_ADRESSE_VILLE, CST_SOC2_TEL, CST_SOC2_FAX, CST_SOC2_EMAIL, CST_SOC2_PORT, CST_PLTFRM_NOM, CST_PLTFRM_RUE1, CST_PLTFRM_RUE2, CST_PLTFRM_CP, CST_PLTFRM_VILLE, CST_PLTFRM_TEL, CST_PLTFRM_FAX, CST_PLTFRM_EMAIL, CST_PLTFRM_PORT, CST_TRP_TXGAZOLE, CST_PU_PALL_PREP, CST_PU_PALL_NONPREP, FTP_HOSTNAME, FTP_USERNAME, FTP_PASSWORD, FTP_REMOTEDIR, FTP_LOCKFROMFILENAME, FTP_LOCKTOFILENAME, CST_DERN_NUM_FACT_COLISAGE, CST_COL_IDMODEREGLEMENT, CST_FACT_COL_TAXES, CST_FACT_COL_PU_COLIS, CST_SOC_RCS, CST_SOC_TVAINTRA, CST_SOC_LICENCE, CST_SOC2_RCS, CST_SOC2_TVAINTRA, CST_SOC2_LICENCE, CST_EXPORT_COMPTA_PATH, CST_SOC_COMPTETVA, CST_SOC_COMPTEPRODUIT, CST_SOC_COMPTEBANQUE, CST_SOC2_COMPTETVA, CST_SOC2_COMPTEPRODUIT, CST_SOC2_COMPTEBANQUE, Original_CST_ID, CST_SOC2_COMPTEPRODUIT_COL, CST_EDI_HOST, CST_EDI_PORT, CST_EDI_FROM, CST_EDI_TEMP, CST_SRVCE_PATH, CST_SRVCE_NBSEC, CST_SRVCE_PATHERROR, CST_DERN_NUM_FACT_HBV, CST_FTPEDI_SRV, CST_FTPEDI_USER, CST_FTPEDI_PWD, CST_FTPEDI_PORT, CST_FTPEDI_REP, CST_FTPEDI_REPLOCAL, CST_TRP_PARTTRP, CST_SOC2_COMPTEPRODUIT_TAXEGO, CST_DATE_UPDATE, CST_EDI_USER, CST_EDI_PWD, CST_IMAP_USER, CST_IMAP_PWD, CST_IMAP_NSEC, CST_IMAP_MSGFOLDER, CST_EDI_SSL, CST_IMAP_SSL, CST_IMAP_PORT, CST_IMAP_HOST, CST_FTPVNC_HOST, CST_FTPVNC_USER, CST_FTPVNC_PASSWORD, CST_FTPVNC_REMOTEDIR, CST_FTPVNC_URL, CST_FTPVND_HOST, CST_FTPVND_USER, CST_FTPVND_PASSWORD, CST_FTPVND_REMOTEDIR, CST_FTPVND_URL, CST_FTPVNC_REMOTEDIR2, CST_FTPVNC_URL2, Original_CST_SOC_NOMSOC, Original_CST_SOC_ADRESSE_RUE1, Original_CST_SOC_ADRESSE_RUE2, Original_CST_SOC_ADRESSE_CP, Original_CST_SOC_ADRESSE_VILLE, Original_CST_SOC_TEL, Original_CST_SOC_FAX, Original_CST_SOC_PORT, Original_CST_SOC_EMAIL, Original_CST_FAX_PAGE_GARDE, Original_CST_FAX_ENVOI_PAGE_GARDE, Original_CST_FAX_SERVERNAME, Original_CST_DERN_NUM_CMD_CLT, Original_CST_DERN_NUM_SCMD, Original_CST_DERN_NUM_BA, Original_CST_VERSION_BD, Original_CST_FAX_PREFIX, Original_CST_TX_COMMISSION, Original_CST_DERN_NUM_FACTCOM, Original_CST_PATH_FACTCOM, Original_CST_DERN_NUM_FACT_TRP, Original_CST_TAXES_TRP, Original_CST_PATH_FACTTRP, Original_CST_TRP_IDMODEREGLEMENT, Original_CST_SOC2_NOMSOC, Original_CST_SOC2_ADRESSE_RUE1, Original_CST_SOC2_ADRESSE_RUE2, Original_CST_SOC2_ADRESSE_CP, Original_CST_SOC2_ADRESSE_VILLE, Original_CST_SOC2_TEL, Original_CST_SOC2_FAX, Original_CST_SOC2_EMAIL, Original_CST_SOC2_PORT, Original_CST_PLTFRM_NOM, Original_CST_PLTFRM_RUE1, Original_CST_PLTFRM_RUE2, Original_CST_PLTFRM_CP, Original_CST_PLTFRM_VILLE, Original_CST_PLTFRM_TEL, Original_CST_PLTFRM_FAX, Original_CST_PLTFRM_EMAIL, Original_CST_PLTFRM_PORT, Original_CST_TRP_TXGAZOLE, Original_CST_PU_PALL_PREP, Original_CST_PU_PALL_NONPREP, Original_FTP_HOSTNAME, Original_FTP_USERNAME, Original_FTP_PASSWORD, Original_FTP_REMOTEDIR, Original_FTP_LOCKFROMFILENAME, Original_FTP_LOCKTOFILENAME, Original_CST_DERN_NUM_FACT_COLISAGE, Original_CST_COL_IDMODEREGLEMENT, Original_CST_FACT_COL_TAXES, Original_CST_FACT_COL_PU_COLIS, Original_CST_SOC_RCS, Original_CST_SOC_TVAINTRA, Original_CST_SOC_LICENCE, Original_CST_SOC2_RCS, Original_CST_SOC2_TVAINTRA, Original_CST_SOC2_LICENCE, Original_CST_EXPORT_COMPTA_PATH, Original_CST_SOC_COMPTETVA, Original_CST_SOC_COMPTEPRODUIT, Original_CST_SOC_COMPTEBANQUE, Original_CST_SOC2_COMPTETVA, Original_CST_SOC2_COMPTEPRODUIT, Original_CST_SOC2_COMPTEBANQUE, Original_CST_ID, Original_CST_SOC2_COMPTEPRODUIT_COL, Original_CST_EDI_HOST, Original_CST_EDI_PORT, Original_CST_EDI_FROM, Original_CST_EDI_TEMP, Original_CST_SRVCE_PATH, Original_CST_SRVCE_NBSEC, Original_CST_SRVCE_PATHERROR, Original_CST_DERN_NUM_FACT_HBV, Original_CST_TRP_PARTTRP, Original_CST_SOC2_COMPTEPRODUIT_TAXEGO, Original_CST_DATE_UPDATE, Original_CST_EDI_USER, Original_CST_EDI_PWD, Original_CST_IMAP_USER, Original_CST_IMAP_PWD, Original_CST_IMAP_NSEC, Original_CST_IMAP_MSGFOLDER, Original_CST_EDI_SSL, Original_CST_IMAP_SSL, Original_CST_IMAP_PORT, Original_CST_IMAP_HOST, Original_CST_FTPVNC_HOST, Original_CST_FTPVNC_USER, Original_CST_FTPVNC_PASSWORD, Original_CST_FTPVNC_REMOTEDIR, Original_CST_FTPVNC_URL, Original_CST_FTPVND_HOST, Original_CST_FTPVND_USER, Original_CST_FTPVND_PASSWORD, Original_CST_FTPVND_REMOTEDIR, Original_CST_FTPVND_URL, Original_CST_FTPVNC_REMOTEDIR2, Original_CST_FTPVNC_URL2)
         End Function
     End Class
 End Namespace

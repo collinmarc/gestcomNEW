@@ -96,11 +96,12 @@ Imports CrystalDecisions.CrystalReports.Engine
         m_oClient3.CodeCompta = "4100001"
         m_oClient3.save()
 
-
+        Persist.shared_connect()
     End Sub
     <TestCleanup()> Public Overrides Sub TestCleanup()
 
         MyBase.TestCleanup()
+        Persist.shared_disconnect()
 
     End Sub
     <TestMethod()> Public Sub T10_Object()
@@ -676,7 +677,6 @@ Imports CrystalDecisions.CrystalReports.Engine
 
         Dim objCMD As CommandeClient
         Dim oFactHBV As FactHBV
-
         'CREATION D'UNE COMMANDE CLIENT
         objCMD = New CommandeClient(m_oClient)
         objCMD.dateCommande = CDate("06/02/1964")
@@ -773,7 +773,7 @@ Imports CrystalDecisions.CrystalReports.Engine
         Dim strReportName As String
 
         objReport = New ReportDocument
-        strReportName = "V:\V6\GestcomNew\vini_app/crFactHobivin.rpt"
+        strReportName = "V:\V6\GestcomNew\vini_app/cr/crFactHobivin.rpt"
         objReport.Load(strReportName)
         objReport.SetParameterValue("IDCOMMANDE", oFactHBV.id)
         Persist.setReportConnection(objReport)

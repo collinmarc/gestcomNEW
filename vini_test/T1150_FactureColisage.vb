@@ -435,7 +435,7 @@ Imports CrystalDecisions.Shared
         Dim objReport As ReportDocument
 
         objReport = New ReportDocument
-        objReport.Load("..\..\..\vini_app\" & "crRecapColisageJournalier.rpt")
+        objReport.Load("..\..\..\vini_app\cr\" & "crRecapColisageJournalier.rpt")
 
         Assert.IsTrue(2, objReport.ParameterFields.Count)
         Assert.AreEqual("Periode", objReport.ParameterFields(0).Name)
@@ -572,7 +572,7 @@ Imports CrystalDecisions.Shared
         Dim objReport As ReportDocument
 
         objReport = New ReportDocument
-        objReport.Load("..\..\..\vini_app/" & "crRecapColisageJournalier.rpt")
+        objReport.Load("..\..\..\vini_app/cr/" & "crRecapColisageJournalier.rpt")
 
 
 

@@ -727,7 +727,7 @@ Imports System.IO
         nfile = FreeFile()
         FileOpen(nfile, "./adel.txt", OpenMode.Output, OpenAccess.Write, OpenShare.Shared)
         For Each oSCmd In m_oCmd.colSousCommandes
-            strResult = oSCmd.toCSV()
+            strResult = oSCmd.toCSV_espfrnVNC()
             Print(nfile, strResult)
         Next oSCmd
         FileClose(nfile)
@@ -835,7 +835,7 @@ Imports System.IO
         nfile = FreeFile()
         FileOpen(nfile, "./adel.txt", OpenMode.Output, OpenAccess.Write, OpenShare.Shared)
         For Each oSCmd In m_oCmd.colSousCommandes
-            strResult = oSCmd.toCSV()
+            strResult = oSCmd.toCSV_espfrnVNC()
             Print(nfile, strResult)
         Next oSCmd
         FileClose(nfile)
@@ -978,7 +978,7 @@ Imports System.IO
             If System.IO.File.Exists("./TEMP/" & oSCmd.code & ".PDF") Then
                 System.IO.File.Delete("./TEMP/" & oSCmd.code & ".PDF")
             End If
-            oSCmd.genererPDF("..\..\..\vini_app/", "./TEMP/" & oSCmd.code & ".PDF")
+            oSCmd.genererPDF("..\..\..\vini_app/cr/", "./TEMP/" & oSCmd.code & ".PDF")
             Assert.IsTrue(System.IO.File.Exists("./TEMP/" & oSCmd.code & ".PDF"), "Fichier PDF existant")
         Next oSCmd
         m_oCmd.changeEtat(vncEnums.vncActionEtatCommande.vncActionAnnEclater)
@@ -986,7 +986,7 @@ Imports System.IO
 
 
     End Sub
-    <TestMethod()> Public Sub T70_FromCSV()
+    <TestMethod(), Ignore()> Public Sub T70_FromCSV()
         'Test la mise à jour de la sous commande à partir d'un fichier CSV 
         Dim oLgCmd As LgCommande
         Dim oSCmd As SousCommande

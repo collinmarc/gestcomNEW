@@ -52,9 +52,18 @@ Imports System.Globalization
 
         Persist.shared_connect()
         cleanDonneesDeBase()
+        If Transporteur.TransporteurDefault Is Nothing Then
+            Dim oTransp As New Transporteur()
+            oTransp.code = "T1"
+            oTransp.nom = "TRANSPDEF"
+            oTransp.bDefaut = True
+            oTransp.Save()
+        End If
+
         Param.LoadcolParams()
         getIdsReference()
         Persist.shared_disconnect()
+        Persist.shared_connect()
     End Sub
     <TestCleanup()>
     Public Overridable Sub TestCleanup()
@@ -174,6 +183,7 @@ Imports System.Globalization
             Persist.executeSQLNonQuery("DELETE FROM CLIENT WHERE CLT_ID > 1100")
             Persist.executeSQLNonQuery("DELETE FROM SousCOMMANDE WHERE SCMD_FRN_ID >1000 ")
             Persist.executeSQLNonQuery("DELETE FROM FOURNISSEUR WHERE FRN_ID >1000 ")
+            Persist.executeSQLNonQuery("DELETE FROM PARAM WHERE PAR_ID >200 ")
 
             bReturn = True
         Catch ex As Exception

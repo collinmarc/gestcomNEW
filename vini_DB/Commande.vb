@@ -184,7 +184,9 @@ Public MustInherit Class Commande
         m_RefLivraison = ""
         m_idParamTVA = Param.TVAdefaut.id
         oTransporteur = New Transporteur
-        m_oTransporteur.Dupplique(Transporteur.TransporteurDefault)
+        If Transporteur.TransporteurDefault IsNot Nothing Then
+            m_oTransporteur.Dupplique(Transporteur.TransporteurDefault)
+        End If
         'Initialisationdu transporteur / defaut
         m_qteColis = 0
         m_qtePalettesPreparees = 0
