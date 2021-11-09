@@ -786,6 +786,7 @@ Public Class FactColisageJ
             oRow.CST_SOC2_TEL = Param.getConstante("CST_SOC2_TEL")
             oRow.CST_SOC2_FAX = Param.getConstante("CST_SOC2_FAX")
             oRow.CST_SOC2_EMAIL = Param.getConstante("CST_SOC2_EMAIL")
+            oRow.CST_ID = 1
 
             pDS.CONSTANTES.AddCONSTANTESRow(oRow)
         Catch ex As Exception
@@ -839,6 +840,7 @@ Public Class FactColisageJ
             oRow.CST_SOC2_TEL = Param.getConstante("CST_SOC2_TEL")
             oRow.CST_SOC2_FAX = Param.getConstante("CST_SOC2_FAX")
             oRow.CST_SOC2_EMAIL = Param.getConstante("CST_SOC2_EMAIL")
+            oRow.CST_ID = 1
 
             pDS.CONSTANTES.AddCONSTANTESRow(oRow)
         Catch ex As Exception
