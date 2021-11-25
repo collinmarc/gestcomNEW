@@ -521,18 +521,21 @@ Imports vini_DB
     <TestMethod()> Public Sub T70_Qtecolis()
 
         Dim obj As Produit
-        Dim nid As Integer
+        Dim objcond As Param
 
         'Création d'un conditionnement pour 6 blle
-        Dim objcond = New Param
-        objcond.type = PAR_CONDITIONNEMENT
-        objcond.code = "x6"
-        objcond.valeur = 6
-        objcond.Save()
+        If Not Param.colConditionnement.Contains("x6") Then
+            objcond = New Param
+            objcond.type = PAR_CONDITIONNEMENT
+            objcond.code = "x6"
+            objcond.valeur = 6
+            objcond.defaut = True
+            objcond.Save()
+        End If
         Param.LoadcolParams()
+        objcond = Param.conditionnementdefaut
 
         obj = New Produit("PRDTEST", m_oFRN, 1990)
-        obj.idConditionnement = objcond.id
         Assert.IsTrue(obj.save())
 
         Assert.AreEqual(0, obj.qteColis(0))

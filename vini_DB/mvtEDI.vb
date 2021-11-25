@@ -171,7 +171,7 @@ Public Class mvtEDI
         Dim tabFiles As String() = System.IO.Directory.GetFiles(pRepLocal, "*.csv")
         For Each strFile As String In tabFiles
             Dim oFileInfo As New System.IO.FileInfo(strFile)
-            oftp.deleteRemotefile(pRepDistant & "/" & oFileInfo.Name)
+            oftp.deleteRemotefile(oFileInfo.Name)
         Next
 
     End Function

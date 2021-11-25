@@ -1,4 +1,9 @@
-﻿V20211104	
+﻿V20211124
+0001445: Les fichiers d'échange ne sont pas supprimés Lors de la Vérifications des informations de livraisons
+0001387: Recherche par defaut des commandes = 'en cours'
+
+
+V20211104	
 	0001436: Gestion des ID Dans la table LG_PRECOMMANDE
 			BDD dans Status
 			Format numerique espfrn

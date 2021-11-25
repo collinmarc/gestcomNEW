@@ -235,7 +235,7 @@ Imports System.IO
 
         Dim oCol As Collection
         oCol = Reglement.getListe()
-        Assert.IsTrue(oCol.Count > 4, "4 Reglements")
+        Assert.IsTrue(oCol.Count >= 4, "4 Reglements")
         oCol = Reglement.getListe(CDate("01/01/1964"), CDate("31/01/1964"))
         Assert.AreEqual(4, oCol.Count, "4 Reglements")
         oCol = Reglement.getListe(CDate("01/02/1964"), CDate("29/02/1964"))

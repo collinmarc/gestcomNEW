@@ -179,11 +179,12 @@ Imports System.Globalization
         Try
 
 
+            Persist.executeSQLNonQuery("DELETE FROM PRECOMMANDE ")
             Persist.executeSQLNonQuery("DELETE FROM PRODUIT WHERE PRD_ID > 3500")
             Persist.executeSQLNonQuery("DELETE FROM CLIENT WHERE CLT_ID > 1100")
             Persist.executeSQLNonQuery("DELETE FROM SousCOMMANDE WHERE SCMD_FRN_ID >1000 ")
             Persist.executeSQLNonQuery("DELETE FROM FOURNISSEUR WHERE FRN_ID >1000 ")
-            Persist.executeSQLNonQuery("DELETE FROM PARAM WHERE PAR_ID >200 ")
+            Persist.executeSQLNonQuery("DELETE FROM PARAMETRE WHERE PAR_ID >425 ")
 
             bReturn = True
         Catch ex As Exception

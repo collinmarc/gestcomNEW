@@ -44,7 +44,7 @@ Imports vini_App
         m_objTransporteur.AdresseLivraison.ville = " "
 
 
-        n = Transporteur.colTransporteur().Count
+        n = Transporteur.colTransporteur(True).Count
         Assert.IsTrue(m_objTransporteur.Save(), m_objTransporteur.getErreur())
         ''Sans rechragement
         Assert.AreEqual(n, Transporteur.colTransporteur.Count())

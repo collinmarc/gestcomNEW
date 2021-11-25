@@ -24,7 +24,7 @@ Imports System.IO
 
         m_oFourn = New Fournisseur("FRNT1100", "MonFournisseur")
         m_oFourn.Save()
-
+        Dim obj = Transporteur.colTransporteur(True)
         If Transporteur.TransporteurDefault Is Nothing Then
             Dim oTransp As New Transporteur()
             oTransp.nom = "TRANSPDEF"

@@ -170,7 +170,8 @@ Imports System.IO
         Assert.AreEqual("30", omvt.Sortie)
 
     End Sub
-    <TestMethod()> Public Sub TestDownLoad()
+    <TestMethod(), Ignore()> Public Sub TestDownLoad()
+        'ATTENTION CE TEST UTILISE LE PARAMETRAGE DE PRODUCTION !!!!!
         Dim oFTP As clsFTPVinicom
         oFTP = New clsFTPVinicom("ftp.cluster002.ovh.net:21", "vinicomwgs-vinidis", "Vinidis04092018", "EDI")
         Dim strFileNAme As String = "TSTEDI/testFile.csv"

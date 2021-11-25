@@ -5,7 +5,7 @@ Imports System.Collections.Generic
 Imports System.IO
 Imports Microsoft.Office.Interop
 Imports System.Data
-<TestClass()> Public Class TestImportEXcel
+<TestClass(), Ignore()> Public Class TestImportEXcel
     Inherits test_Base
     Private _TestContext As TestContext
     Public Property NewProperty() As TestContext
@@ -59,7 +59,7 @@ Imports System.Data
     ''' Test de l'export d'une souscommande vers QuadraFacturation
     ''' </summary>
     ''' <remarks></remarks>
-    <TestMethod()>
+    <TestMethod(), Ignore()>
     Public Sub T101_ImportTarif()
         Dim oFRN As New Fournisseur("FRNTEST", "TEST")
         oFRN.Save()
@@ -100,7 +100,7 @@ Imports System.Data
 
     End Sub
 
-    <TestMethod()>
+    <TestMethod(), Ignore()>
     Public Sub T101_GetNbreLignes()
 
         Dim oImport As New ImportTarifGESTCOM(Environment.CurrentDirectory & "/testImportExcel.xlsx", "Feuil1", 2, 19)

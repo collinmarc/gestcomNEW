@@ -357,7 +357,7 @@ Public Class frmRechercheDB
                 cboEtat.Items.Add(objEtat)
                 objEtat = EtatCommande.createEtat(vncEnums.vncEtatCommande.vncEclatee)
                 cboEtat.Items.Add(objEtat)
-                cboEtat.SelectedIndex = 1
+                cboEtat.SelectedIndex = 0
             Case vncEnums.vncTypeDonnee.BA
                 objEtat = EtatCommande.createEtat(vncEnums.vncEtatCommande.vncRien)
                 cboEtat.Items.Add(objEtat)
