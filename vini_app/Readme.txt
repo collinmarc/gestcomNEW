@@ -1,4 +1,7 @@
-﻿V20211124
+﻿V20211207
+	0001386: Enregistrement des commentaires de livraison
+
+V20211124
 0001445: Les fichiers d'échange ne sont pas supprimés Lors de la Vérifications des informations de livraisons
 0001387: Recherche par defaut des commandes = 'en cours'
 

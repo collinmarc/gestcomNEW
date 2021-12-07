@@ -475,7 +475,6 @@ Public Class frmCommandeClient
     Public Overrides Function MAJElement() As Boolean
         Dim bReturn As Boolean
         bReturn = MyBase.MAJElement()
-
         If bReturn Then
             'Type de Commande
             If rbTypeCmdDirecte.Checked = True Then
