@@ -1146,7 +1146,7 @@ Public Class frmCommandeClient
             dtDateEnlev.Enabled = True
             dtDateLivraison.Enabled = True
             cbMailBLPLTFRM.Enabled = True
-            tbPiedPageBL.Text = tbCommentaireLivraison.Text
+            '            tbPiedPageBL.Text = tbCommentaireLivraison.Text
         End If
         finAffiche()
         restoreCursor()
