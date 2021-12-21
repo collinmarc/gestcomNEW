@@ -1,4 +1,6 @@
 ﻿V20211207
+	0001465: Les Commentaires de commandes et de livraison ne sont pas automatiquement affiché
+V20211207
 	0001386: Enregistrement des commentaires de livraison
 
 V20211124
