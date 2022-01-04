@@ -1,5 +1,5 @@
 ﻿V20220104
-	0001468: Modification du code Dépot dans l'export QUADRA
+	0001470: Code Depot Dans Export QUADRA
 
 V20211221
 	0001465: Les Commentaires de commandes et de livraison ne sont pas automatiquement affiché
