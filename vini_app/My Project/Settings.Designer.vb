@@ -114,7 +114,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("02")>  _
         Public ReadOnly Property CODEDEPOTQUADRA() As String
             Get
                 Return CType(Me("CODEDEPOTQUADRA"),String)
@@ -159,7 +159,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("202110200000")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("V20211221")>  _
         Public ReadOnly Property AppVersion() As String
             Get
                 Return CType(Me("AppVersion"),String)

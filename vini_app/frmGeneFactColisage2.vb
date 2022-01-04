@@ -33,6 +33,8 @@ Public Class frmGeneFactColisage2
     Friend WithEvents FournisseurCodeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TotalHTDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TotalTTCDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Label6 As Label
+    Friend WithEvents tbCodeFournisseur As TextBox
     Private Const COL_NBRECOL As Integer = 4
 
 #Region " Code généré par le Concepteur Windows Form "
@@ -91,13 +93,15 @@ Public Class frmGeneFactColisage2
         Me.liFacture = New System.Windows.Forms.LinkLabel()
         Me.btnEspFrn = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.m_bsrcFactColisage = New System.Windows.Forms.BindingSource(Me.components)
         Me.CodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PeriodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FournisseurRSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FournisseurCodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TotalHTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TotalTTCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.m_bsrcFactColisage = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.tbCodeFournisseur = New System.Windows.Forms.TextBox()
         CType(Me.m_bsrcMvtStock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpFact.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,18 +132,18 @@ Public Class frmGeneFactColisage2
         'dtDateFacture
         '
         Me.dtDateFacture.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtDateFacture.Location = New System.Drawing.Point(505, 4)
+        Me.dtDateFacture.Location = New System.Drawing.Point(521, 30)
         Me.dtDateFacture.Name = "dtDateFacture"
         Me.dtDateFacture.Size = New System.Drawing.Size(104, 20)
         Me.dtDateFacture.TabIndex = 10
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(411, 6)
+        Me.Label4.Location = New System.Drawing.Point(417, 32)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(88, 16)
         Me.Label4.TabIndex = 119
-        Me.Label4.Text = "Date de Facture"
+        Me.Label4.Text = "Date de facture :"
         '
         'btnGenerer
         '
@@ -322,10 +326,6 @@ Public Class frmGeneFactColisage2
         Me.DataGridView1.Size = New System.Drawing.Size(628, 495)
         Me.DataGridView1.TabIndex = 136
         '
-        'm_bsrcFactColisage
-        '
-        Me.m_bsrcFactColisage.DataSource = GetType(vini_DB.FactColisageJ)
-        '
         'CodeDataGridViewTextBoxColumn
         '
         Me.CodeDataGridViewTextBoxColumn.DataPropertyName = "code"
@@ -364,10 +364,32 @@ Public Class frmGeneFactColisage2
         Me.TotalTTCDataGridViewTextBoxColumn.HeaderText = "totalTTC"
         Me.TotalTTCDataGridViewTextBoxColumn.Name = "TotalTTCDataGridViewTextBoxColumn"
         '
+        'm_bsrcFactColisage
+        '
+        Me.m_bsrcFactColisage.DataSource = GetType(vini_DB.FactColisageJ)
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(420, 5)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(95, 13)
+        Me.Label6.TabIndex = 137
+        Me.Label6.Text = "Code Fournisseur :"
+        '
+        'tbCodeFournisseur
+        '
+        Me.tbCodeFournisseur.Location = New System.Drawing.Point(521, 4)
+        Me.tbCodeFournisseur.Name = "tbCodeFournisseur"
+        Me.tbCodeFournisseur.Size = New System.Drawing.Size(100, 20)
+        Me.tbCodeFournisseur.TabIndex = 138
+        '
         'frmGeneFactColisage2
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(997, 630)
+        Me.Controls.Add(Me.tbCodeFournisseur)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnEspFrn)
         Me.Controls.Add(Me.grpFact)

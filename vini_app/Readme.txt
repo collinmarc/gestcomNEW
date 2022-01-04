@@ -1,5 +1,10 @@
-﻿V20211207
+﻿V20220104
+	0001468: Modification du code Dépot dans l'export QUADRA
+
+V20211221
 	0001465: Les Commentaires de commandes et de livraison ne sont pas automatiquement affiché
+	0001466: L'integration des mouvements articles ne fonctionne pas en Preprod
+	
 V20211207
 	0001386: Enregistrement des commentaires de livraison
 

@@ -183,7 +183,7 @@ Public Class frmExportMouvementArticle
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbExporter)
         Me.Name = "frmExportMouvementArticle"
-        Me.Text = "Exportation des mouvements article vers l'espace Fournisseur VINICOM"
+        Me.Text = "Exportation des mouvements article vers l'espace Fournisseur VINIDIS"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -295,7 +295,7 @@ Public Class frmExportMouvementArticle
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
         Me.WebBrowser1.ScriptErrorsSuppressed = True
         Me.WebBrowser1.Visible = True
-        Me.WebBrowser1.Navigate(New Uri(Param.getConstante("CST_FTPVNC_URL")))
+        Me.WebBrowser1.Navigate(New Uri(Param.getConstante("CST_FTPVND_URL")))
         m_pgBar.Value = m_pgBar.Value + 1
         lblProgress.Text = m_pgBar.Value & "/" & m_pgBar.Maximum
     End Sub

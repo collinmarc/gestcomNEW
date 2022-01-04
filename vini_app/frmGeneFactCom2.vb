@@ -69,10 +69,10 @@ Public Class frmGeneFactCom2
     Friend WithEvents refFactFournisseur As DataGridViewTextBoxColumn
     Friend WithEvents DateCommandeDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents codeCommandeClient As DataGridViewTextBoxColumn
-    Friend WithEvents btnMail As Button
     Friend WithEvents Label11 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnEspFrn As Button
     Protected m_colFact As ColEvent
     'Protected getElementCourant() As FactCom
 
@@ -135,7 +135,6 @@ Public Class frmGeneFactCom2
     Friend WithEvents cbRecherche As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGeneFactCom2))
         Me.tbCodeFournisseur = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtdateFin = New System.Windows.Forms.DateTimePicker()
@@ -231,10 +230,10 @@ Public Class frmGeneFactCom2
         Me.codeCommandeClient = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ckSelect = New System.Windows.Forms.CheckBox()
-        Me.btnMail = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnEspFrn = New System.Windows.Forms.Button()
         Me.grpFact.SuspendLayout()
         CType(Me.m_bsrcFactCom, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvFactCom, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -388,9 +387,9 @@ Public Class frmGeneFactCom2
         Me.grpFact.Controls.Add(Me.Label2)
         Me.grpFact.Controls.Add(Me.liFournisseur)
         Me.grpFact.Controls.Add(Me.liFactCom)
-        Me.grpFact.Location = New System.Drawing.Point(3, 276)
+        Me.grpFact.Location = New System.Drawing.Point(3, 238)
         Me.grpFact.Name = "grpFact"
-        Me.grpFact.Size = New System.Drawing.Size(854, 161)
+        Me.grpFact.Size = New System.Drawing.Size(848, 161)
         Me.grpFact.TabIndex = 15
         Me.grpFact.TabStop = False
         '
@@ -419,7 +418,7 @@ Public Class frmGeneFactCom2
         'cbAppliquer
         '
         Me.cbAppliquer.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbAppliquer.Location = New System.Drawing.Point(1140, 125)
+        Me.cbAppliquer.Location = New System.Drawing.Point(1134, 125)
         Me.cbAppliquer.Name = "cbAppliquer"
         Me.cbAppliquer.Size = New System.Drawing.Size(104, 24)
         Me.cbAppliquer.TabIndex = 7
@@ -532,7 +531,7 @@ Public Class frmGeneFactCom2
         Me.dgvFactCom.Location = New System.Drawing.Point(3, 3)
         Me.dgvFactCom.Name = "dgvFactCom"
         Me.dgvFactCom.RowHeadersVisible = False
-        Me.dgvFactCom.Size = New System.Drawing.Size(554, 267)
+        Me.dgvFactCom.Size = New System.Drawing.Size(548, 229)
         Me.dgvFactCom.TabIndex = 127
         '
         'code
@@ -1018,7 +1017,7 @@ Public Class frmGeneFactCom2
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.btnMail)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.btnEspFrn)
         Me.SplitContainer1.Panel2.Controls.Add(Me.dgvFactCom)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grpFact)
         Me.SplitContainer1.Size = New System.Drawing.Size(979, 518)
@@ -1035,20 +1034,6 @@ Public Class frmGeneFactCom2
         Me.ckSelect.TabIndex = 129
         Me.ckSelect.ThreeState = True
         Me.ckSelect.UseVisualStyleBackColor = True
-        '
-        'btnMail
-        '
-        Me.btnMail.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMail.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMail.Image = CType(resources.GetObject("btnMail.Image"), System.Drawing.Image)
-        Me.btnMail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnMail.Location = New System.Drawing.Point(-1, 448)
-        Me.btnMail.Name = "btnMail"
-        Me.btnMail.Size = New System.Drawing.Size(184, 68)
-        Me.btnMail.TabIndex = 137
-        Me.btnMail.Text = "Envoi par mail "
-        Me.btnMail.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnMail.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -1076,6 +1061,20 @@ Public Class frmGeneFactCom2
         Me.Button1.TabIndex = 132
         Me.Button1.Text = "Parcourir"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnEspFrn
+        '
+        Me.btnEspFrn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEspFrn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEspFrn.Image = Global.vini_app.My.Resources.Resources.Cloud_Mail
+        Me.btnEspFrn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEspFrn.Location = New System.Drawing.Point(3, 405)
+        Me.btnEspFrn.Name = "btnEspFrn"
+        Me.btnEspFrn.Size = New System.Drawing.Size(267, 117)
+        Me.btnEspFrn.TabIndex = 136
+        Me.btnEspFrn.Text = "Export vers l'espace fournisseur " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "et Mail"
+        Me.btnEspFrn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEspFrn.UseVisualStyleBackColor = True
         '
         'frmGeneFactCom2
         '

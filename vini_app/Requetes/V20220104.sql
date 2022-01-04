@@ -1,0 +1,2 @@
+﻿UPDATE EXPORTPARAM SET EXP_VALEUR = 'FacturesEntetes.CodeDepot' 
+  Where EXP_TYPE = 'QFACT' AND EXP_NCHAMPS = 15

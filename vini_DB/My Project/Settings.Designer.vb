@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("02")>  _
         Public ReadOnly Property CODEDEPOTQUADRA() As String
             Get
                 Return CType(Me("CODEDEPOTQUADRA"),String)

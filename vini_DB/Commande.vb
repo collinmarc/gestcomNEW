@@ -1262,7 +1262,7 @@ Public MustInherit Class Commande
                     Else
                         strReturn = "0"
                     End If
-                Case "CODEDEPOT"
+                Case "FacturesEntetes.CodeDepot".ToUpper()
                     strReturn = My.MySettings.Default.CODEDEPOTQUADRA
 
             End Select

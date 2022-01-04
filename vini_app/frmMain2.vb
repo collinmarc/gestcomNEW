@@ -184,7 +184,7 @@ Friend Class frmMain2
     Friend WithEvents MnuCol_Recapitulatifcolisage As System.Windows.Forms.MenuItem
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain2))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.MainMenu1 = New System.Windows.Forms.MainMenu(Me.components)
         Me.mnuFile = New System.Windows.Forms.MenuItem()
@@ -1196,7 +1196,7 @@ Friend Class frmMain2
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 248)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 228)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1219,18 +1219,18 @@ Friend Class frmMain2
         Me.StatusBarEtat.Name = "StatusBarEtat"
         Me.StatusBarEtat.Width = 273
         '
-        'frmMain
+        'frmMain2
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 270)
+        Me.ClientSize = New System.Drawing.Size(890, 250)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.IsMdiContainer = True
         Me.Location = New System.Drawing.Point(11, 57)
         Me.Menu = Me.MainMenu1
-        Me.Name = "frmMain"
+        Me.Name = "frmMain2"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Text = "VINICOM"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
