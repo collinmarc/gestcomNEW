@@ -1263,7 +1263,7 @@ Public MustInherit Class Commande
                         strReturn = "0"
                     End If
                 Case "FacturesEntetes.CodeDepot".ToUpper()
-                    strReturn = My.MySettings.Default.CODEDEPOTQUADRA
+                    strReturn = pLgCommande.oProduit.Depot
 
             End Select
         Catch ex As Exception

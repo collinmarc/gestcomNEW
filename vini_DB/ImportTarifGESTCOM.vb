@@ -6,13 +6,17 @@ Public Class ImportTarifGESTCOM
 
     Private m_FileName As String
     Private m_SheetName As String
-    Private m_numColTarif As Integer
+    Private m_numColTarifA As Integer
+    Private m_numColTarifB As Integer
+    Private m_numColTarifC As Integer
     Private m_numColCode As Integer
-    Public Sub New(pFileName As String, pSheetName As String, pNumColCode As Integer, pNumColTarif As Integer)
+    Public Sub New(pFileName As String, pSheetName As String, pNumColCode As Integer, pNumColTarifA As Integer, pNumColTarifB As Integer, pNumColTarifC As Integer)
         m_FileName = pFileName
         m_SheetName = pSheetName
         m_numColCode = pNumColCode
-        m_numColTarif = pNumColTarif
+        m_numColTarifA = pNumColTarifA
+        m_numColTarifB = pNumColTarifB
+        m_numColTarifC = pNumColTarifC
 
     End Sub
     Public Overrides ReadOnly Property shortResume As String
@@ -69,15 +73,27 @@ Public Class ImportTarifGESTCOM
                         oProduit = Produit.createandloadbyKey(oSheet.Cells(nRow, m_numColCode).Value)
                         If oProduit IsNot Nothing Then
                             Try
-
-                                Dim tarif As Decimal = Convert.ToDecimal(oSheet.Cells(nRow, m_numColTarif).Value)
-                                If tarif > 0 Then
-                                    oProduit.TarifA = tarif
-                                    oProduit.TarifB = tarif
-                                    oProduit.TarifC = tarif
-                                    oProduit.save()
-                                    Me.message = "Ligne " & nRow & ":" & oProduit.code
+                                Dim tarif As Decimal
+                                If m_numColTarifA <> 0 Then
+                                    tarif = Convert.ToDecimal(oSheet.Cells(nRow, m_numColTarifA).Value)
+                                    If tarif > 0 Then
+                                        oProduit.TarifA = tarif
+                                    End If
                                 End If
+                                If m_numColTarifB <> 0 Then
+                                    tarif = Convert.ToDecimal(oSheet.Cells(nRow, m_numColTarifB).Value)
+                                    If tarif > 0 Then
+                                        oProduit.TarifB = tarif
+                                    End If
+                                End If
+                                If m_numColTarifC <> 0 Then
+                                    tarif = Convert.ToDecimal(oSheet.Cells(nRow, m_numColTarifC).Value)
+                                    If tarif > 0 Then
+                                        oProduit.TarifC = tarif
+                                    End If
+                                End If
+                                oProduit.save()
+                                Me.message = "Ligne " & nRow & ":" & oProduit.code
                             Catch ex As Exception
 
                             End Try

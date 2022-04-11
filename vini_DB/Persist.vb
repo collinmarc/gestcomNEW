@@ -1779,9 +1779,10 @@ Public MustInherit Class Persist
                                     "PRD_TARIFA," &
                                     "PRD_TARIFB," &
                                     "PRD_TARIFC, " &
-                                    "PRD_DOSSIER " &
+                                    "PRD_DOSSIER, " &
+                                    "PRD_DEPOT " &
                                     " ) VALUES (" &
-                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
+                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -1815,6 +1816,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_TARIFB(objOLeDBCommand)
         CreateParamP_PRD_TARIFC(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
+        CreateParamP_PRD_DEPOT(objOLeDBCommand)
         Try
             objOLeDBCommand.ExecuteNonQuery()
             objOLeDBCommand = New OleDbCommand("SELECT MAX(PRD_ID) FROM PRODUIT", m_dbconn.Connection)
@@ -1881,7 +1883,8 @@ Public MustInherit Class Persist
                                     "PRD_TARIFA = ? ,  " &
                                     "PRD_TARIFB = ? ,  " &
                                     "PRD_TARIFC = ? , " &
-                                    "PRD_DOSSIER = ?  " &
+                                    "PRD_DOSSIER = ?,  " &
+                                    "PRD_DEPOT = ?  " &
                                   " WHERE PRD_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
 
@@ -1913,6 +1916,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_TARIFB(objOLeDBCommand)
         CreateParamP_PRD_TARIFC(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
+        CreateParamP_PRD_DEPOT(objOLeDBCommand)
         CreateParameterP_ID(objOLeDBCommand)
 
 
@@ -1968,7 +1972,8 @@ Public MustInherit Class Persist
                                                   & "PRD_TARIFA, " _
                                                   & "PRD_TARIFB, " _
                                                   & "PRD_TARIFC, " _
-                                                  & "PRD_DOSSIER" &
+                                                  & "PRD_DOSSIER, " _
+                                                  & "PRD_DEPOT" &
                                                 " FROM ((FOURNISSEUR INNER JOIN (((CONTENANT INNER JOIN (PRODUIT INNER JOIN RQ_Couleur ON PRODUIT.PRD_COUL_ID = RQ_Couleur.PAR_ID) ON CONTENANT.CONT_ID = PRODUIT.PRD_CONT_ID) INNER JOIN RQ_Region ON PRODUIT.PRD_RGN_ID = RQ_Region.PAR_ID) INNER JOIN RQ_Tva ON PRODUIT.PRD_TVA_ID = RQ_Tva.PAR_ID) ON FOURNISSEUR.FRN_ID = PRODUIT.PRD_FRN_ID) INNER JOIN RQ_CONDITIONNEMENT ON PRODUIT.PRD_COND_ID = RQ_CONDITIONNEMENT.PAR_ID) LEFT JOIN RQ_QTECMD_PRD ON PRODUIT.PRD_ID = RQ_QTECMD_PRD.LGCM_PRD_ID " &
                                 " WHERE " &
                                 " PRD_ID = ?"
@@ -2052,28 +2057,29 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = " SELECT " & _
-                                         " PRODUIT.PRD_ID, " & _
-                                         " PRODUIT.PRD_CODE, " & _
-                                        " PRODUIT.PRD_LIBELLE, " & _
-                                        " PRODUIT.PRD_MOT_CLE, " & _
-                                        " PRODUIT.PRD_FRN_ID, " & _
-                                        " PRODUIT.PRD_CONT_ID, " & _
-                                        " PRODUIT.PRD_COND_ID, " & _
-                                        " PRODUIT.PRD_COUL_ID, " & _
-                                        " PRODUIT.PRD_MIL, " & _
-                                        " PRODUIT.PRD_RGN_ID, " & _
-                                        " PRODUIT.PRD_TVA_ID, " & _
-                                        " PRODUIT.PRD_DATE_DERN_INVENT, " & _
-                                        " PRODUIT.PRD_QTE_STK, " & _
-                                        " PRODUIT.PRD_QTE_STOCK_DERN_INVENT, " & _
-                                        " PRODUIT.PRD_DISPO, " & _
-                                        " PRODUIT.PRD_CODE_STAT, " & _
-                                        " PRODUIT.PRD_STOCK, " & _
-                                        " PRD_TARIFA, PRD_TARIFB, PRD_TARIFC," & _
-                                        " PRODUIT.PRD_DOSSIER " & _
-                                        " FROM PRODUIT  " & _
-                                " WHERE " & _
+        Dim sqlString As String = " SELECT " &
+                                         " PRODUIT.PRD_ID, " &
+                                         " PRODUIT.PRD_CODE, " &
+                                        " PRODUIT.PRD_LIBELLE, " &
+                                        " PRODUIT.PRD_MOT_CLE, " &
+                                        " PRODUIT.PRD_FRN_ID, " &
+                                        " PRODUIT.PRD_CONT_ID, " &
+                                        " PRODUIT.PRD_COND_ID, " &
+                                        " PRODUIT.PRD_COUL_ID, " &
+                                        " PRODUIT.PRD_MIL, " &
+                                        " PRODUIT.PRD_RGN_ID, " &
+                                        " PRODUIT.PRD_TVA_ID, " &
+                                        " PRODUIT.PRD_DATE_DERN_INVENT, " &
+                                        " PRODUIT.PRD_QTE_STK, " &
+                                        " PRODUIT.PRD_QTE_STOCK_DERN_INVENT, " &
+                                        " PRODUIT.PRD_DISPO, " &
+                                        " PRODUIT.PRD_CODE_STAT, " &
+                                        " PRODUIT.PRD_STOCK, " &
+                                        " PRD_TARIFA, PRD_TARIFB, PRD_TARIFC," &
+                                        " PRODUIT.PRD_DOSSIER, " &
+                                        " PRODUIT.PRD_DEPOT " &
+                                        " FROM PRODUIT  " &
+                                " WHERE " &
                                 " PRD_ID = ?"
 
 
@@ -4139,6 +4145,12 @@ Public MustInherit Class Persist
         Dim objPRD As Produit
         objPRD = Me
         objCommand.Parameters.AddWithValue("?", truncate(objPRD.DossierProduit, 50))
+    End Sub
+    Private Sub CreateParamP_PRD_DEPOT(ByVal objCommand As OleDbCommand)
+        '        Dim objParam As OleDbParameter
+        Dim objPRD As Produit
+        objPRD = Me
+        objCommand.Parameters.AddWithValue("?", truncate(objPRD.Depot, 50))
     End Sub
     Private Sub CreateParamP_PRD_TARIFA(ByVal objCommand As OleDbCommand)
         Dim objPRD As Produit

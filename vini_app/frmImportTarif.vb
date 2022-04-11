@@ -10,11 +10,15 @@ Public Class frmImportTarif
     Friend WithEvents Label3 As Label
     Friend WithEvents m_OpenFileDialog As OpenFileDialog
     Friend WithEvents nupNumColCode As NumericUpDown
-    Friend WithEvents nupNumColTarif As NumericUpDown
+    Friend WithEvents nupNumColTarifA As NumericUpDown
     Friend WithEvents Label4 As Label
     Friend WithEvents tbNomFeuille As TextBox
     Private m_bLoad As Boolean = True
     Friend WithEvents lblMsg As Label
+    Friend WithEvents nupNumColTarifB As NumericUpDown
+    Friend WithEvents Label5 As Label
+    Friend WithEvents nupNumColTarifC As NumericUpDown
+    Friend WithEvents Label6 As Label
     Private m_oImportTarif As ImportTarifGESTCOM
 
 #Region " Code généré par le Concepteur Windows Form "
@@ -58,19 +62,25 @@ Public Class frmImportTarif
         Me.Label3 = New System.Windows.Forms.Label()
         Me.m_OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.nupNumColCode = New System.Windows.Forms.NumericUpDown()
-        Me.nupNumColTarif = New System.Windows.Forms.NumericUpDown()
+        Me.nupNumColTarifA = New System.Windows.Forms.NumericUpDown()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tbNomFeuille = New System.Windows.Forms.TextBox()
         Me.lblMsg = New System.Windows.Forms.Label()
+        Me.nupNumColTarifB = New System.Windows.Forms.NumericUpDown()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.nupNumColTarifC = New System.Windows.Forms.NumericUpDown()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.nupNumColCode, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nupNumColTarif, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupNumColTarifA, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupNumColTarifB, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupNumColTarifC, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnImporter
         '
         Me.btnImporter.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnImporter.Location = New System.Drawing.Point(14, 151)
+        Me.btnImporter.Location = New System.Drawing.Point(11, 227)
         Me.btnImporter.Name = "btnImporter"
         Me.btnImporter.Size = New System.Drawing.Size(848, 24)
         Me.btnImporter.TabIndex = 4
@@ -80,7 +90,7 @@ Public Class frmImportTarif
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(14, 195)
+        Me.ProgressBar1.Location = New System.Drawing.Point(11, 271)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(848, 23)
         Me.ProgressBar1.Step = 1
@@ -127,11 +137,11 @@ Public Class frmImportTarif
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(11, 120)
+        Me.Label3.Location = New System.Drawing.Point(12, 114)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(226, 13)
+        Me.Label3.Size = New System.Drawing.Size(287, 13)
         Me.Label3.TabIndex = 138
-        Me.Label3.Text = "Numéro de la colonne contenant le tarif (>=1) :"
+        Me.Label3.Text = "Numéro de la colonne contenant le tarif A (0=Pas d'import) :"
         '
         'm_OpenFileDialog
         '
@@ -140,19 +150,19 @@ Public Class frmImportTarif
         '
         'nupNumColCode
         '
-        Me.nupNumColCode.Location = New System.Drawing.Point(257, 77)
+        Me.nupNumColCode.Location = New System.Drawing.Point(300, 82)
         Me.nupNumColCode.Name = "nupNumColCode"
         Me.nupNumColCode.Size = New System.Drawing.Size(100, 20)
         Me.nupNumColCode.TabIndex = 140
         Me.nupNumColCode.Value = New Decimal(New Integer() {2, 0, 0, 0})
         '
-        'nupNumColTarif
+        'nupNumColTarifA
         '
-        Me.nupNumColTarif.Location = New System.Drawing.Point(257, 112)
-        Me.nupNumColTarif.Name = "nupNumColTarif"
-        Me.nupNumColTarif.Size = New System.Drawing.Size(100, 20)
-        Me.nupNumColTarif.TabIndex = 141
-        Me.nupNumColTarif.Value = New Decimal(New Integer() {19, 0, 0, 0})
+        Me.nupNumColTarifA.Location = New System.Drawing.Point(300, 112)
+        Me.nupNumColTarifA.Name = "nupNumColTarifA"
+        Me.nupNumColTarifA.Size = New System.Drawing.Size(100, 20)
+        Me.nupNumColTarifA.TabIndex = 141
+        Me.nupNumColTarifA.Value = New Decimal(New Integer() {19, 0, 0, 0})
         '
         'Label4
         '
@@ -165,7 +175,7 @@ Public Class frmImportTarif
         '
         'tbNomFeuille
         '
-        Me.tbNomFeuille.Location = New System.Drawing.Point(257, 51)
+        Me.tbNomFeuille.Location = New System.Drawing.Point(300, 51)
         Me.tbNomFeuille.Name = "tbNomFeuille"
         Me.tbNomFeuille.Size = New System.Drawing.Size(100, 20)
         Me.tbNomFeuille.TabIndex = 143
@@ -174,20 +184,58 @@ Public Class frmImportTarif
         'lblMsg
         '
         Me.lblMsg.AutoSize = True
-        Me.lblMsg.Location = New System.Drawing.Point(407, 221)
+        Me.lblMsg.Location = New System.Drawing.Point(404, 297)
         Me.lblMsg.Name = "lblMsg"
         Me.lblMsg.Size = New System.Drawing.Size(39, 13)
         Me.lblMsg.TabIndex = 144
         Me.lblMsg.Text = "Label5"
         '
+        'nupNumColTarifB
+        '
+        Me.nupNumColTarifB.Location = New System.Drawing.Point(300, 138)
+        Me.nupNumColTarifB.Name = "nupNumColTarifB"
+        Me.nupNumColTarifB.Size = New System.Drawing.Size(100, 20)
+        Me.nupNumColTarifB.TabIndex = 146
+        Me.nupNumColTarifB.Value = New Decimal(New Integer() {20, 0, 0, 0})
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(12, 140)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(287, 13)
+        Me.Label5.TabIndex = 145
+        Me.Label5.Text = "Numéro de la colonne contenant le tarif B (0=Pas d'import) :"
+        '
+        'nupNumColTarifC
+        '
+        Me.nupNumColTarifC.Location = New System.Drawing.Point(300, 164)
+        Me.nupNumColTarifC.Name = "nupNumColTarifC"
+        Me.nupNumColTarifC.Size = New System.Drawing.Size(100, 20)
+        Me.nupNumColTarifC.TabIndex = 148
+        Me.nupNumColTarifC.Value = New Decimal(New Integer() {21, 0, 0, 0})
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(12, 166)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(287, 13)
+        Me.Label6.TabIndex = 147
+        Me.Label6.Text = "Numéro de la colonne contenant le tarif C (0=Pas d'import) :"
+        '
         'frmImportTarif
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(868, 470)
+        Me.Controls.Add(Me.nupNumColTarifC)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.nupNumColTarifB)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lblMsg)
         Me.Controls.Add(Me.tbNomFeuille)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.nupNumColTarif)
+        Me.Controls.Add(Me.nupNumColTarifA)
         Me.Controls.Add(Me.nupNumColCode)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -197,9 +245,11 @@ Public Class frmImportTarif
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.btnImporter)
         Me.Name = "frmImportTarif"
-        Me.Text = "Import destarifs à partir du referentiel EXCEL"
+        Me.Text = "Import des tarifs à partir du referentiel EXCEL"
         CType(Me.nupNumColCode, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nupNumColTarif, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupNumColTarifA, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupNumColTarifB, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupNumColTarifC, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -219,7 +269,7 @@ Public Class frmImportTarif
     Protected Overrides Sub EnableControls(ByVal bEnabled As Boolean)
         MyBase.EnableControls(bEnabled)
         nupNumColCode.Enabled = True
-        nupNumColTarif.Enabled = True
+        nupNumColTarifA.Enabled = True
         btnParcourir.Enabled = True
         btnImporter.Enabled = True
 
@@ -303,7 +353,7 @@ Public Class frmImportTarif
 
     Private Sub btnImporter_Click(sender As Object, e As EventArgs) Handles btnImporter.Click
         If MsgBox("Cet import va mettre à jour les TarifA ,TarifB et TarifC des produits, êtes-vous sûr ?", vbYesNo) = DialogResult.Yes Then
-            m_oImportTarif = New ImportTarifGESTCOM(tbFilePath.Text, tbNomFeuille.Text, nupNumColCode.Value, nupNumColTarif.Value)
+            m_oImportTarif = New ImportTarifGESTCOM(tbFilePath.Text, tbNomFeuille.Text, nupNumColCode.Value, nupNumColTarifA.Value, nupNumColTarifB.Value, nupNumColTarifC.Value)
             m_oImportTarif.AjouteObservateur(Me)
             Me.ProgressBar1.Minimum = 0
             Me.ProgressBar1.Maximum = m_oImportTarif.getNbreLignes()

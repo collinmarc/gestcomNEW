@@ -1441,7 +1441,13 @@
     <Content Include="Requetes\V20211104.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Requetes\V20220104.sql" />
+    <Content Include="Requetes\V20220104.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Requetes\V20220105.sql" />
+    <Content Include="Requetes\V20220110.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Requetes\V6002-UpdateCLT_ORIGINE.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

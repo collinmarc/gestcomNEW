@@ -47,6 +47,7 @@ Imports System.IO
             m_oProduit.save()
         Next
         m_oProduit = New Produit(strCode, m_oFourn, 1990)
+        m_oProduit.Depot = "01"
         m_oProduit.save()
 
         strCode = "TSTPRD2T1110"
@@ -56,6 +57,7 @@ Imports System.IO
             m_oProduit2.save()
         Next
         m_oProduit2 = New Produit(strCode, m_oFourn2, 1990)
+        m_oProduit.Depot = "01"
         m_oProduit2.save()
 
         strCode = "CLTT1110"
@@ -144,11 +146,13 @@ Imports System.IO
         m_oFourn.bExportInternet = vncTypeExportScmd.vncExportInternet 'Fournisseur Vinicom
         m_oFourn.Save()
         m_oProduit.idFournisseur = m_oFourn.id
+        m_oProduit.Depot = "01"
         m_oProduit.save()
 
         m_oFourn2.bExportInternet = vncTypeExportScmd.vncExportQuadra 'Fournisseur HOBIVIN
         m_oFourn2.Save()
         m_oProduit2.idFournisseur = m_oFourn2.id
+        m_oProduit2.Depot = "01"
         m_oProduit2.save()
 
         'Creation d'une Commande "VINICOM" avec un produit Vinicom et un produit HOBIVIN
@@ -187,14 +191,14 @@ Imports System.IO
         Dim strLine As String = File.ReadAllLines(strFile)(1)
         Dim tab As String()
         tab = strLine.Split(";")
-        Assert.AreEqual(tab(0), m_oClient.code)
-        Assert.AreEqual(tab(1), oSCMD.codeCommandeClient)
-        Assert.AreEqual(tab(2), Format(oSCMD.dateCommande, "yyMMdd"))
-        Assert.AreEqual(tab(3), oSCMD.codeCommandeClient)
-        Assert.AreEqual(tab(4), m_oProduit2.code)
-        Assert.AreEqual(tab(5), "25")
-        Assert.AreEqual(tab(6), "25.5")
-        Assert.AreEqual(tab(7), "2")
+        Assert.AreEqual(m_oClient.code, tab(0))
+        Assert.AreEqual(oSCMD.codeCommandeClient, tab(1))
+        Assert.AreEqual(Format(oSCMD.dateCommande, "yyMMdd"), tab(2))
+        Assert.AreEqual(oSCMD.codeCommandeClient, tab(3))
+        Assert.AreEqual(m_oProduit2.code, tab(4))
+        Assert.AreEqual("25", tab(5))
+        Assert.AreEqual("25.5", tab(6))
+        Assert.AreEqual("01", tab(7))
 
 
         'Export de la Première SousCommande (CMD VINICOM, PROD VINICOM)
@@ -217,14 +221,14 @@ Imports System.IO
 
         strLine = File.ReadAllLines(strFile)(1)
         tab = strLine.Split(";")
-        Assert.AreEqual(tab(0), oSCMD.oFournisseur.code) 'Cette fois c'est le code fournisseur
-        Assert.AreEqual(tab(1), oSCMD.code)
-        Assert.AreEqual(tab(2), Format(oSCMD.dateCommande, "yyMMdd"))
-        Assert.AreEqual(tab(3), oSCMD.code.Replace("-", ""))
-        Assert.AreEqual(tab(4), m_oProduit.code)
-        Assert.AreEqual(tab(5), "15")
-        Assert.AreEqual(tab(6), "15.5")
-        Assert.AreEqual(tab(7), "2")
+        Assert.AreEqual(oSCMD.oFournisseur.code, tab(0)) 'Cette fois c'est le code fournisseur
+        Assert.AreEqual(oSCMD.code, tab(1))
+        Assert.AreEqual(Format(oSCMD.dateCommande, "yyMMdd"), tab(2))
+        Assert.AreEqual(oSCMD.code.Replace("-", ""), tab(3))
+        Assert.AreEqual(m_oProduit.code, tab(4))
+        Assert.AreEqual("15", tab(5))
+        Assert.AreEqual("15.5", tab(6))
+        Assert.AreEqual("01", tab(7))
 
         objCMD.delete()
     End Sub
@@ -246,6 +250,7 @@ Imports System.IO
         m_oFourn2.Save()
 
         m_oProduit2.idFournisseur = m_oFourn2.id
+        m_oProduit2.Depot = "01"
         m_oProduit2.save()
 
         oCltInter = New Client("CLTINTER", "Client intermédiare")
@@ -277,14 +282,14 @@ Imports System.IO
 
         strLine = File.ReadAllLines(strFile)(1)
         TAB = strLine.Split(";")
-        Assert.AreEqual(TAB(0), m_oClient.code) 'Cette fois c'est le code Client
-        Assert.AreEqual(TAB(1), objCMD.code)
-        Assert.AreEqual(TAB(2), Format(objCMD.dateCommande, "yyMMdd"))
-        Assert.AreEqual(TAB(3), objCMD.code)
-        Assert.AreEqual(TAB(4), m_oProduit2.code)
-        Assert.AreEqual(TAB(5), "15")
-        Assert.AreEqual(TAB(6), "15.5")
-        Assert.AreEqual(TAB(7), "2")
+        Assert.AreEqual(m_oClient.code, TAB(0)) 'Cette fois c'est le code Client
+        Assert.AreEqual(objCMD.code, TAB(1))
+        Assert.AreEqual(Format(objCMD.dateCommande, "yyMMdd"), TAB(2))
+        Assert.AreEqual(objCMD.code, TAB(3))
+        Assert.AreEqual(m_oProduit2.code, TAB(4))
+        Assert.AreEqual("15", TAB(5))
+        Assert.AreEqual("15.5", TAB(6))
+        Assert.AreEqual("01", TAB(7))
 
 
         objCMD.delete()
@@ -719,11 +724,13 @@ Imports System.IO
         m_oFourn.bExportInternet = vncTypeExportScmd.vncExportInternet 'Fournisseur Vinicom
         m_oFourn.Save()
         m_oProduit.idFournisseur = m_oFourn.id
+        m_oProduit.Depot = "01"
         m_oProduit.save()
 
         m_oFourn2.bExportInternet = vncTypeExportScmd.vncExportQuadra 'Fournisseur HOBIVIN
         m_oFourn2.Save()
         m_oProduit2.idFournisseur = m_oFourn2.id
+        m_oProduit2.Depot = "01"
         m_oProduit2.save()
 
         'Creation d'une Commande "VINICOM" avec un produit Vinicom et un produit HOBIVIN
@@ -767,14 +774,14 @@ Imports System.IO
         Dim tab As String()
         strLine = File.ReadAllLines(strFile)(1)
         tab = strLine.Split(";")
-        Assert.AreEqual(tab(0), oSCMD.oFournisseur.code) 'Cette fois c'est le code fournisseur
-        Assert.AreEqual(tab(1), oSCMD.code)
-        Assert.AreEqual(tab(2), Format(oSCMD.dateCommande, "yyMMdd"))
-        Assert.AreEqual(tab(3), Right(oSCMD.code.Replace("-", ""), 12))
-        Assert.AreEqual(tab(4), m_oProduit.code)
-        Assert.AreEqual(tab(5), "15")
-        Assert.AreEqual(tab(6), "15.5")
-        Assert.AreEqual(tab(7), "2")
+        Assert.AreEqual(oSCMD.oFournisseur.code, tab(0)) 'Cette fois c'est le code fournisseur
+        Assert.AreEqual(oSCMD.code, tab(1))
+        Assert.AreEqual(Format(oSCMD.dateCommande, "yyMMdd"), tab(2))
+        Assert.AreEqual(Right(oSCMD.code.Replace("-", ""), 12), tab(3))
+        Assert.AreEqual(m_oProduit.code, tab(4))
+        Assert.AreEqual("15", tab(5))
+        Assert.AreEqual("15.5", tab(6))
+        Assert.AreEqual("01", tab(7))
 
         objCMD.delete()
     End Sub

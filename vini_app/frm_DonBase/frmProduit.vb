@@ -36,6 +36,8 @@ Public Class frmProduit
     Friend WithEvents btnCalcStockAu As System.Windows.Forms.Button
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents tbStockAu As System.Windows.Forms.TextBox
+    Friend WithEvents Label26 As Label
+    Friend WithEvents tbDepot As TextBox
     Private m_bAjoutmvt As Boolean
 
 #Region "Code généré par le Concepteur Windows Form "
@@ -190,6 +192,8 @@ Public Class frmProduit
         Me.btnCalcStockAu = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.tbStockAu = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.tbDepot = New System.Windows.Forms.TextBox()
         CType(Me.m_bsrcProduit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -711,10 +715,23 @@ Public Class frmProduit
         Me.tbStockAu.Name = "tbStockAu"
         Me.tbStockAu.ReadOnly = True
         '
+        'Label26
+        '
+        resources.ApplyResources(Me.Label26, "Label26")
+        Me.Label26.Name = "Label26"
+        '
+        'tbDepot
+        '
+        resources.ApplyResources(Me.tbDepot, "tbDepot")
+        Me.tbDepot.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "Depot", True))
+        Me.tbDepot.Name = "tbDepot"
+        '
         'frmProduit
         '
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.tbDepot)
+        Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.tbStockAu)
         Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.btnCalcStockAu)

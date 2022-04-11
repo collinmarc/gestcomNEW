@@ -57,6 +57,8 @@ Public Class Produit
     Private m_bcolMvtStockLoaded As Boolean
     Private m_bcolMvtStockUpdated As Boolean
     Private m_Dossier As String
+    Private _Depot As String
+
 
     '=======================================================================
     '                           METHODE DE CLASSE                          |  
@@ -138,6 +140,7 @@ Public Class Produit
         m_bcolMvtStockLoaded = True
         m_bcolMvtStockUpdated = False
         setQteCommande(0)
+        Depot = My.Settings.CODEDEPOTQUADRA
     End Sub
     Public Sub New(ByVal strCode As String, ByVal oFRN As Fournisseur, ByVal pMil As Integer)
         Debug.Assert(Param.couleurdefaut.defaut, "Pas de Couleur par defaut")
@@ -616,6 +619,17 @@ Public Class Produit
             m_Dossier = value
         End Set
     End Property
+    Public Property Depot() As String
+        Get
+            Return _Depot
+        End Get
+        Set(ByVal value As String)
+            If value <> Depot Then
+                RaiseUpdated()
+                _Depot = value
+            End If
+        End Set
+    End Property
     Public ReadOnly Property colmvtStock() As ColEventSorted
         Get
             Return m_colMvtStock
@@ -677,6 +691,7 @@ Public Class Produit
             bReturn = bReturn And (TarifA.Equals(objPrd.TarifA))
             bReturn = bReturn And (TarifB.Equals(objPrd.TarifB))
             bReturn = bReturn And (TarifC.Equals(objPrd.TarifC))
+            bReturn = bReturn And (Depot.Equals(objPrd.Depot))
 
             Return bReturn
         Catch ex As Exception
@@ -1290,6 +1305,8 @@ Public Class Produit
                     Me.DossierProduit = Convert.ToString(pColValue)
                 Case "PRD_QTE_COMMANDE"
                     Me.setQteCommande(Convert.ToInt32(pColValue))
+                Case "PRD_DEPOT"
+                    Me.Depot = Convert.ToString(pColValue)
             End Select
         Catch ex As Exception
             setError("Produit.Fill(" & pColName & "," & pColValue.ToString() & ") ERR :" & ex.Message)

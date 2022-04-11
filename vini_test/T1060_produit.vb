@@ -59,6 +59,7 @@ Imports vini_DB
         m_obj.QteStock = 10
         m_obj.QteStockDernInventaire = 150
         m_obj.idCouleur = Param.colCouleur(Param.colCouleur.Count).id
+        m_obj.Depot = "01"
 
 
         Assert.IsTrue(m_obj.Equals(m_obj), "Egal à Lui même")
@@ -113,6 +114,7 @@ Imports vini_DB
         Assert.AreEqual(CDec(11.5), objPRD.TarifA, " TarifA")
         Assert.AreEqual(CDec(12.5), objPRD.TarifB, " TarifB")
         Assert.AreEqual(CDec(13.5), objPRD.TarifC, "TarifC")
+        objPRD.Depot = "01"
 
 
         'Test des indicateurs Avant le Save
@@ -134,6 +136,7 @@ Imports vini_DB
         Assert.AreEqual(CDec(11.5), objPRD2.TarifA, "Load TarifA")
         Assert.AreEqual(CDec(12.5), objPRD2.TarifB, "Load TarifB")
         Assert.AreEqual(CDec(13.5), objPRD2.TarifC, "Load TarifC")
+        Assert.AreEqual("01", objPRD2.Depot)
         Assert.IsTrue(objPRD.Equals(objPRD2))
 
         'III - Modification du Produit
@@ -146,6 +149,7 @@ Imports vini_DB
         objPRD2.TarifA = 15.15
         objPRD2.TarifB = 16.16
         objPRD2.TarifC = 17.17
+        objPRD2.Depot = "02"
 
         'Test des indicateurs Avant le Save
         Assert.IsFalse(objPRD2.bNew)
@@ -164,6 +168,7 @@ Imports vini_DB
         Assert.AreEqual(CDec(15.15), objPRD.TarifA, "Load TarifA")
         Assert.AreEqual(CDec(16.16), objPRD.TarifB, "Load TarifB")
         Assert.AreEqual(CDec(17.17), objPRD.TarifC, "Load TarifC")
+        Assert.AreEqual("02", objPRD.Depot)
         Assert.IsTrue(objPRD.Equals(objPRD2))
 
         'IV - Suppression du Produit
