@@ -1238,6 +1238,8 @@ Public MustInherit Class Commande
                     End If
                 Case "DATEPIECE"
                     strReturn = Trim(Format(Me.dateCommande, "yyMMdd"))
+                Case "DATEFACTURE"
+                    strReturn = Trim(Format(Me.dateCommande, "yyyyMMdd"))
                 Case "PIECEREGROUP"
                     If pType = vncTypeExportQuadra.vncExportBafClient Then
                         strReturn = Trim(Me.getCodeCommande())
@@ -1250,8 +1252,6 @@ Public MustInherit Class Commande
                         'Troncation à 12 car à gauche
                         strReturn = Right(strReturn, 12)
                     End If
-                Case "DATEPEIECE"
-                    strReturn = Trim(Format(Me.dateCommande, "yyMMdd"))
                 Case "CODEARTICLE"
                     strReturn = Trim(pLgCommande.oProduit.code)
                 Case "QUANTITE"
