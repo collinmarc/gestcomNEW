@@ -38,6 +38,8 @@ Public Class frmProduit
     Friend WithEvents tbStockAu As System.Windows.Forms.TextBox
     Friend WithEvents Label26 As Label
     Friend WithEvents tbDepot As TextBox
+    Friend WithEvents Label27 As Label
+    Friend WithEvents tbTarifD As textBoxCurrency
     Private m_bAjoutmvt As Boolean
 
 #Region "Code généré par le Concepteur Windows Form "
@@ -194,6 +196,8 @@ Public Class frmProduit
         Me.tbStockAu = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.tbDepot = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.tbTarifD = New vini_app.textBoxCurrency()
         CType(Me.m_bsrcProduit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -726,10 +730,23 @@ Public Class frmProduit
         Me.tbDepot.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "Depot", True))
         Me.tbDepot.Name = "tbDepot"
         '
+        'Label27
+        '
+        resources.ApplyResources(Me.Label27, "Label27")
+        Me.Label27.Name = "Label27"
+        '
+        'tbTarifD
+        '
+        resources.ApplyResources(Me.tbTarifD, "tbTarifD")
+        Me.tbTarifD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifD", True))
+        Me.tbTarifD.Name = "tbTarifD"
+        '
         'frmProduit
         '
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.Label27)
+        Me.Controls.Add(Me.tbTarifD)
         Me.Controls.Add(Me.tbDepot)
         Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.tbStockAu)

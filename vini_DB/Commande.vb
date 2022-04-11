@@ -1264,6 +1264,8 @@ Public MustInherit Class Commande
                     End If
                 Case "FacturesEntetes.CodeDepot".ToUpper()
                     strReturn = pLgCommande.oProduit.Depot
+                Case "DateFacture".ToUpper()
+                    strReturn = Me.dateCommande.ToString("DDMMYYYY")
 
             End Select
         Catch ex As Exception

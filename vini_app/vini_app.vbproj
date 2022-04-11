@@ -1445,6 +1445,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Requetes\V20220105.sql" />
+    <Content Include="Requetes\V20220411.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Requetes\V20220110.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

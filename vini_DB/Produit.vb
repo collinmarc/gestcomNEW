@@ -52,6 +52,7 @@ Public Class Produit
     Private m_TarifA As Decimal           'Tarif 
     Private m_TarifB As Decimal           'Tarif
     Private m_TarifC As Decimal           'Tarif
+    Private m_TarifD As Decimal           'Tarif
     Private m_bStock As Boolean             'Produit Stocké
     Private WithEvents m_colMvtStock As ColEventSorted       'Collection des Mouvements de Stocks
     Private m_bcolMvtStockLoaded As Boolean
@@ -134,6 +135,7 @@ Public Class Produit
         m_TarifA = 0
         m_TarifB = 0
         m_TarifC = 0
+        m_TarifD = 0
         m_Dossier = vini_DB.Dossier.VINICOM
         'Pour un nouveau produit on considère que la collection est chargée,
         'elle sera considérée comme non-chargée lors du load du produit
@@ -490,6 +492,8 @@ Public Class Produit
                     Return TarifB
                 Case "C"
                     Return TarifC
+                Case "D"
+                    Return TarifD
             End Select
         End Get
     End Property
@@ -523,6 +527,17 @@ Public Class Produit
             If Value <> m_TarifC Then
                 RaiseUpdated()
                 m_TarifC = Value
+            End If
+        End Set
+    End Property
+    Public Property TarifD() As Decimal
+        Get
+            Return m_TarifD
+        End Get
+        Set(ByVal Value As Decimal)
+            If Value <> m_TarifD Then
+                RaiseUpdated()
+                m_TarifD = Value
             End If
         End Set
     End Property
@@ -691,6 +706,7 @@ Public Class Produit
             bReturn = bReturn And (TarifA.Equals(objPrd.TarifA))
             bReturn = bReturn And (TarifB.Equals(objPrd.TarifB))
             bReturn = bReturn And (TarifC.Equals(objPrd.TarifC))
+            bReturn = bReturn And (TarifD.Equals(objPrd.TarifD))
             bReturn = bReturn And (Depot.Equals(objPrd.Depot))
 
             Return bReturn
@@ -1301,6 +1317,8 @@ Public Class Produit
                     Me.TarifB = Convert.ToString(pColValue)
                 Case "PRD_TARIFC"
                     Me.TarifC = Convert.ToString(pColValue)
+                Case "PRD_TARIFD"
+                    Me.TarifD = Convert.ToString(pColValue)
                 Case "PRD_DOSSIER"
                     Me.DossierProduit = Convert.ToString(pColValue)
                 Case "PRD_QTE_COMMANDE"

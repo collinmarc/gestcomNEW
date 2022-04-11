@@ -555,6 +555,59 @@ Imports vini_DB
         Assert.AreEqual(-2, obj.qteColis(-12))
 
     End Sub
+    <TestMethod()> Public Sub T15_TARIFD()
+        Dim objPRD As Produit
+        Dim objPRD2 As Produit
+        Dim n As Integer
+
+        'I - Création d'un Produit
+        '=========================
+        objPRD = New Produit("PRDTESTTARIFD", Fournisseur.getListe()(1), 1990)
+        objPRD.idCouleur = Param.colCouleur(Param.colCouleur.Count).id
+
+
+        Assert.AreEqual(CDec(0), objPRD.TarifD, "Tarif D")
+        objPRD.TarifD = 14.5
+        Assert.AreEqual(CDec(14.5), objPRD.TarifD, " TarifD")
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert" & objPRD.getErreur)
+
+        'II - Rechargement d'un Produit
+        '=========================
+        n = objPRD.id
+        objPRD2 = Produit.createandload(n)
+        Assert.AreEqual(CDec(14.5), objPRD2.TarifD, "Load TarifD")
+        Assert.IsTrue(objPRD.Equals(objPRD2))
+
+        'III - Modification du Produit
+        '=================================
+        ' Modification du Produit
+        objPRD2.TarifD = 18.17
+
+        Assert.IsTrue(objPRD2.save(), "Update" & objPRD.getErreur)
+        'Rechargement de l'objet
+        n = objPRD2.id
+        objPRD = Produit.createandload(n)
+        Assert.AreEqual(CDec(18.17), objPRD.TarifD, "Load TarifD")
+        Assert.IsTrue(objPRD.Equals(objPRD2))
+
+
+        '
+        objPRD.TarifA = 10.5
+        objPRD.TarifB = 11.5
+        objPRD.TarifC = 12.5
+        objPRD.TarifD = 13.5
+
+
+        Assert.AreEqual(13.5D, objPRD.Tarif("D"))
+
+
+        'IV - Suppression du Produit
+        '=================================
+        ' Modification du Produit
+        objPRD.bDeleted = True
+        Assert.IsTrue(objPRD.save(), "Delete" & objPRD.getErreur())
+    End Sub
 End Class
 
 

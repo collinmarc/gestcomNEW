@@ -1,4 +1,6 @@
-﻿V20220110
+﻿V20220411
+	0001492: Import des tarifs et gestion d'un tarif D
+V20220110
 	0001471: Prise en compte du code dépot dans la fiche produit et export Quadra
 V20220104
 	0001470: Code Depot Dans Export QUADRA

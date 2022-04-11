@@ -120,7 +120,7 @@ Public Class frmClient
         '
         Me.cbxCodeTarif.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbxCodeTarif.FormattingEnabled = True
-        Me.cbxCodeTarif.Items.AddRange(New Object() {"A", "B", "C"})
+        Me.cbxCodeTarif.Items.AddRange(New Object() {"A", "B", "C", "D"})
         Me.cbxCodeTarif.Location = New System.Drawing.Point(842, 53)
         Me.cbxCodeTarif.Name = "cbxCodeTarif"
         Me.cbxCodeTarif.Size = New System.Drawing.Size(117, 21)
@@ -145,11 +145,11 @@ Public Class frmClient
         Me.cbxOrigine.Size = New System.Drawing.Size(121, 21)
         Me.cbxOrigine.TabIndex = 74
         '
-        'Label23
+        'Label2311
         '
         Me.Label2311.AutoSize = True
         Me.Label2311.Location = New System.Drawing.Point(342, 432)
-        Me.Label2311.Name = "Label23"
+        Me.Label2311.Name = "Label2311"
         Me.Label2311.Size = New System.Drawing.Size(32, 13)
         Me.Label2311.TabIndex = 109
         Me.Label2311.Text = "IBAN"
@@ -208,6 +208,7 @@ Public Class frmClient
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(350, 20)
         Me.TextBox4.TabIndex = 110
+        '
         'frmClient
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)

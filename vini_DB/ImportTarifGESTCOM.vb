@@ -1,22 +1,23 @@
 ﻿Imports Microsoft.Office.Interop
 Imports vini_DB
+Imports System.IO
 
 Public Class ImportTarifGESTCOM
     Inherits Observable
 
     Private m_FileName As String
-    Private m_SheetName As String
     Private m_numColTarifA As Integer
     Private m_numColTarifB As Integer
     Private m_numColTarifC As Integer
+    Private m_numColTarifD As Integer
     Private m_numColCode As Integer
-    Public Sub New(pFileName As String, pSheetName As String, pNumColCode As Integer, pNumColTarifA As Integer, pNumColTarifB As Integer, pNumColTarifC As Integer)
+    Public Sub New(pFileName As String, pNumColCode As Integer, pNumColTarifA As Integer, pNumColTarifB As Integer, pNumColTarifC As Integer, pNumColTarifD As Integer)
         m_FileName = pFileName
-        m_SheetName = pSheetName
-        m_numColCode = pNumColCode
-        m_numColTarifA = pNumColTarifA
-        m_numColTarifB = pNumColTarifB
-        m_numColTarifC = pNumColTarifC
+        m_numColCode = pNumColCode - 1
+        m_numColTarifA = pNumColTarifA - 1
+        m_numColTarifB = pNumColTarifB - 1
+        m_numColTarifC = pNumColTarifC - 1
+        m_numColTarifD = pNumColTarifD - 1
 
     End Sub
     Public Overrides ReadOnly Property shortResume As String
@@ -36,17 +37,25 @@ Public Class ImportTarifGESTCOM
     End Property
     Public Function getNbreLignes() As Integer
         Dim nReturn As Integer = 0
-        Try
-            If System.IO.File.Exists(m_FileName) Then
+        Dim nFile As Integer
+        Dim strLine As String
 
-                Dim objApp As New Excel.Application
-                objApp.Visible = False
-                objApp.Workbooks.Open(m_FileName)
-                Dim oSheet As Excel.Worksheet
-                oSheet = objApp.Worksheets.Item(m_SheetName)
-                nReturn = oSheet.UsedRange.Rows.Count
-                objApp.Workbooks(1).Close()
-                objApp.Quit()
+        Try
+            If IO.File.Exists(m_FileName) Then
+                nFile = FreeFile()
+                FileOpen(nFile, m_FileName, OpenMode.Input, OpenAccess.Read)
+                'Calcul du nombre de lignes à traiter
+                Dim bPremiereLigneLue As Boolean = False
+                While Not EOF(nFile)
+                    If Not bPremiereLigneLue Then
+                        bPremiereLigneLue = True
+                    Else
+                        nReturn = nReturn + 1
+                        strLine = LineInput(nFile)
+
+                    End If
+                End While
+                FileClose(nFile)
             End If
 
         Catch ex As Exception
@@ -56,54 +65,61 @@ Public Class ImportTarifGESTCOM
     End Function
     Public Function ImportTarif() As Boolean
         Dim bReturn As Boolean = False
+        Dim nFile As Integer
+        Dim strLine As String
+        Dim tab As String()
+        Dim nRow As Integer = 0
         Try
-            If System.IO.File.Exists(m_FileName) Then
+            If IO.File.Exists(m_FileName) Then
+                nFile = FreeFile()
+                FileOpen(nFile, m_FileName, OpenMode.Input, OpenAccess.Read)
+                'Calcul du nombre de lignes à traiter
+                Dim bPremiereLigneLue As Boolean = False
+                While Not EOF(nFile)
+                    If Not bPremiereLigneLue Then
+                        bPremiereLigneLue = True
+                    Else
+                        nRow = nRow + 1
+                        strLine = LineInput(nFile)
 
-                Dim objApp As New Excel.Application
-                objApp.Visible = False
-                objApp.Workbooks.Open(m_FileName)
-                Dim oSheet As Excel.Worksheet
-                oSheet = objApp.Worksheets(m_SheetName)
-
-                Dim nRow As Integer = 0
-                For Each oRow As Excel.Range In oSheet.UsedRange.Rows
-                    nRow = nRow + 1
-                    If Not String.IsNullOrEmpty(oSheet.Cells(nRow, m_numColCode).Value) Then
-                        Dim oProduit As Produit
-                        oProduit = Produit.createandloadbyKey(oSheet.Cells(nRow, m_numColCode).Value)
-                        If oProduit IsNot Nothing Then
-                            Try
-                                Dim tarif As Decimal
-                                If m_numColTarifA <> 0 Then
-                                    tarif = Convert.ToDecimal(oSheet.Cells(nRow, m_numColTarifA).Value)
-                                    If tarif > 0 Then
+                        tab = strLine.Split(";")
+                        If Not String.IsNullOrEmpty(tab(m_numColCode)) Then
+                            Me.message = tab(m_numColCode)
+                            Notifier()
+                            Dim oProduit As Produit
+                            oProduit = Produit.createandloadbyKey(tab(m_numColCode))
+                            If oProduit IsNot Nothing Then
+                                Try
+                                    Dim tarif As Decimal
+                                    If m_numColTarifA <> -1 Then
+                                        tarif = Convert.ToDecimal(tab(m_numColTarifA).Replace(",", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator).Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator))
                                         oProduit.TarifA = tarif
                                     End If
-                                End If
-                                If m_numColTarifB <> 0 Then
-                                    tarif = Convert.ToDecimal(oSheet.Cells(nRow, m_numColTarifB).Value)
-                                    If tarif > 0 Then
+                                    If m_numColTarifB <> -1 Then
+                                        tarif = Convert.ToDecimal(tab(m_numColTarifB).Replace(",", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator).Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator))
                                         oProduit.TarifB = tarif
                                     End If
-                                End If
-                                If m_numColTarifC <> 0 Then
-                                    tarif = Convert.ToDecimal(oSheet.Cells(nRow, m_numColTarifC).Value)
-                                    If tarif > 0 Then
+                                    If m_numColTarifC <> -1 Then
+                                        tarif = Convert.ToDecimal(tab(m_numColTarifC).Replace(",", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator).Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator))
                                         oProduit.TarifC = tarif
                                     End If
-                                End If
-                                oProduit.save()
-                                Me.message = "Ligne " & nRow & ":" & oProduit.code
-                            Catch ex As Exception
+                                    If m_numColTarifD <> -1 Then
+                                        tarif = Convert.ToDecimal(tab(m_numColTarifD).Replace(",", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator).Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+                                        oProduit.TarifD = tarif
+                                    End If
+                                    oProduit.save()
+                                    Me.message = "Ligne " & nRow & ":" & oProduit.code
+                                Catch ex As Exception
+                                    setError("ImportTarifGestCom.importTarif ERR " & ex.Message)
+                                End Try
+                            End If
 
-                            End Try
                         End If
                     End If
-                    Notifier()
-                Next
-                objApp.Workbooks(1).Close()
-                objApp.Quit()
-                bReturn = True
+                End While
+                FileClose(nFile)
+
+
             End If
         Catch ex As Exception
             bReturn = False

@@ -1779,10 +1779,11 @@ Public MustInherit Class Persist
                                     "PRD_TARIFA," &
                                     "PRD_TARIFB," &
                                     "PRD_TARIFC, " &
+                                    "PRD_TARIFD, " &
                                     "PRD_DOSSIER, " &
                                     "PRD_DEPOT " &
                                     " ) VALUES (" &
-                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
+                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -1815,6 +1816,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_TARIFA(objOLeDBCommand)
         CreateParamP_PRD_TARIFB(objOLeDBCommand)
         CreateParamP_PRD_TARIFC(objOLeDBCommand)
+        CreateParamP_PRD_TARIFD(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
         CreateParamP_PRD_DEPOT(objOLeDBCommand)
         Try
@@ -1883,6 +1885,7 @@ Public MustInherit Class Persist
                                     "PRD_TARIFA = ? ,  " &
                                     "PRD_TARIFB = ? ,  " &
                                     "PRD_TARIFC = ? , " &
+                                    "PRD_TARIFD = ? , " &
                                     "PRD_DOSSIER = ?,  " &
                                     "PRD_DEPOT = ?  " &
                                   " WHERE PRD_ID = ?"
@@ -1915,6 +1918,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_TARIFA(objOLeDBCommand)
         CreateParamP_PRD_TARIFB(objOLeDBCommand)
         CreateParamP_PRD_TARIFC(objOLeDBCommand)
+        CreateParamP_PRD_TARIFD(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
         CreateParamP_PRD_DEPOT(objOLeDBCommand)
         CreateParameterP_ID(objOLeDBCommand)
@@ -1972,6 +1976,7 @@ Public MustInherit Class Persist
                                                   & "PRD_TARIFA, " _
                                                   & "PRD_TARIFB, " _
                                                   & "PRD_TARIFC, " _
+                                                  & "PRD_TARIFD, " _
                                                   & "PRD_DOSSIER, " _
                                                   & "PRD_DEPOT" &
                                                 " FROM ((FOURNISSEUR INNER JOIN (((CONTENANT INNER JOIN (PRODUIT INNER JOIN RQ_Couleur ON PRODUIT.PRD_COUL_ID = RQ_Couleur.PAR_ID) ON CONTENANT.CONT_ID = PRODUIT.PRD_CONT_ID) INNER JOIN RQ_Region ON PRODUIT.PRD_RGN_ID = RQ_Region.PAR_ID) INNER JOIN RQ_Tva ON PRODUIT.PRD_TVA_ID = RQ_Tva.PAR_ID) ON FOURNISSEUR.FRN_ID = PRODUIT.PRD_FRN_ID) INNER JOIN RQ_CONDITIONNEMENT ON PRODUIT.PRD_COND_ID = RQ_CONDITIONNEMENT.PAR_ID) LEFT JOIN RQ_QTECMD_PRD ON PRODUIT.PRD_ID = RQ_QTECMD_PRD.LGCM_PRD_ID " &
@@ -4166,6 +4171,11 @@ Public MustInherit Class Persist
         Dim objPRD As Produit
         objPRD = Me
         objCommand.Parameters.AddWithValue("?", objPRD.TarifC)
+    End Sub
+    Private Sub CreateParamP_PRD_TARIFD(ByVal objCommand As OleDbCommand)
+        Dim objPRD As Produit
+        objPRD = Me
+        objCommand.Parameters.AddWithValue("?", objPRD.TarifD)
     End Sub
 #End Region
 #End Region
