@@ -1426,6 +1426,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Requetes\TOV6.0.0.3.sql" />
+    <Content Include="Requetes\UPDATESCMD06072022.sql" />
+    <Content Include="Requetes\UPDATESCMD08062022.sql" />
     <Content Include="Requetes\V20211020.SQL">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
