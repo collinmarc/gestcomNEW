@@ -197,6 +197,12 @@
     <Compile Include="frmGeneFactTRP2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmImportCommandeClientWoo.Designer.vb">
+      <DependentUpon>frmImportCommandeClientWoo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmImportCommandeClientWoo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain2.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -1426,6 +1432,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Requetes\TOV6.0.0.3.sql" />
+    <Content Include="Requetes\UpdateLgCmdTx06072022.sql" />
     <Content Include="Requetes\UPDATESCMD06072022.sql" />
     <Content Include="Requetes\UPDATESCMD08062022.sql" />
     <Content Include="Requetes\V20211020.SQL">
@@ -1542,6 +1549,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneFactTRP2.resx">
       <DependentUpon>frmGeneFactTRP2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImportCommandeClientWoo.resx">
+      <DependentUpon>frmImportCommandeClientWoo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain2.resx">
       <DependentUpon>frmMain2.vb</DependentUpon>
@@ -1918,11 +1928,13 @@
     <None Include="vini_DB.FactTRP.datasource" />
     <None Include="vini_DB.Fournisseur.datasource" />
     <None Include="vini_DB.ImportPrestashop.datasource" />
+    <None Include="vini_DB.ItemLogImportWoo.datasource" />
     <None Include="vini_DB.LgCommande.datasource" />
     <None Include="vini_DB.LgFactColisage.datasource" />
     <None Include="vini_DB.LgFactHBV.datasource" />
     <None Include="vini_DB.LgFactTRP.datasource" />
     <None Include="vini_DB.lgPrecomm.datasource" />
+    <None Include="vini_DB.LogImportWooList.datasource" />
     <None Include="vini_DB.MsgLivraison.datasource" />
     <None Include="vini_DB.mvtStock.datasource" />
     <None Include="vini_DB.Param.datasource" />

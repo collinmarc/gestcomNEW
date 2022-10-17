@@ -236,6 +236,7 @@
     <Compile Include="Imap\ImapException.vb" />
     <Compile Include="Imap\ImportPrestashop.vb" />
     <Compile Include="ImportTarifGESTCOM.vb" />
+    <Compile Include="woo\cmdwoo.vb" />
     <Compile Include="MsgLivraison.vb" />
     <Compile Include="mvtEDI.vb" />
     <Compile Include="Observable.vb" />
@@ -414,6 +415,7 @@
     <Compile Include="Transporteur.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="woo\LogImportWoo.vb" />
     <None Include="App.config" />
     <None Include="dsError.xsc">
       <DependentUpon>dsError.xsd</DependentUpon>

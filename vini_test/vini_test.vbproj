@@ -130,7 +130,7 @@
     <Compile Include="testFax.vb" />
     <Compile Include="TestImap.vb" />
     <Compile Include="test_Base.vb" />
-    <Compile Include="test_FTP.vb" />
+    <Compile Include="test_WooFTP.vb" />
     <Compile Include="test_V15.vb" />
     <Compile Include="test_V17.vb" />
     <Compile Include="test_V191.vb" />
@@ -195,6 +195,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="CmdPrestashopTest.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DATATEST\4638_20220923010646.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="DATATEST\Image2.jpg">

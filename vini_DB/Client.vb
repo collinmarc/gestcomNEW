@@ -217,11 +217,11 @@ Public Class Client
         Dim bReturn As Boolean
         Dim nId As Integer
         shared_connect()
-        oClt = New Client
         Try
             If Not String.IsNullOrEmpty(pIdPrestashop) Then
                 nId = Client.getCLTIDByPrestashopId(pIdPrestashop, pdossier)
                 If nId <> -1 Then
+                    oClt = New Client
                     bReturn = oClt.load(nId)
                     If Not bReturn Then
                         setError("Client.createandloadPrestashop", getErreur())

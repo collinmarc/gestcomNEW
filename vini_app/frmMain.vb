@@ -1194,7 +1194,7 @@ Friend Class frmMain
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 268)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 228)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1221,7 +1221,7 @@ Friend Class frmMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 290)
+        Me.ClientSize = New System.Drawing.Size(890, 250)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -2112,7 +2112,7 @@ Friend Class frmMain
 
     Private Sub mnuGC_importCmd_Click(sender As System.Object, e As System.EventArgs) Handles mnuGC_importCmd.Click
         Dim ofrm As FrmVinicom
-        ofrm = New frmImportcommandeClientPrestashop
+        ofrm = New frmImportcommandeClientWoo
         ofrm.MdiParent = Me
         'ofrm.WindowState = FormWindowState.Maximized
         ofrm.Show()

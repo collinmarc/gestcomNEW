@@ -36,7 +36,25 @@
       <Value Profile="(Default)">.\cr\</Value>
     </Setting>
     <Setting Name="AppVersion" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">V20211221</Value>
+      <Value Profile="(Default)">V20220411</Value>
+    </Setting>
+    <Setting Name="wooFTPHost" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ftp.cluster002.hosting.ovh.net</Value>
+    </Setting>
+    <Setting Name="wooFTPUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">vinicomwgs-gestcom</Value>
+    </Setting>
+    <Setting Name="wooFTPPwd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EdcRfv11</Value>
+    </Setting>
+    <Setting Name="wooFTPRepLocal" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./importinternet/vinicom.wine</Value>
+    </Setting>
+    <Setting Name="wooFTPRepDistant" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TEST/Orders</Value>
+    </Setting>
+    <Setting Name="Paramètre" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

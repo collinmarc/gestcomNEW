@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commande xmlns:exsl="http://exslt.org/common" magasin="">
+  <entete>
+    <customer_id><![CDATA[4]]></customer_id>
+    <name><![CDATA[]]></name>
+    <id>288</id>
+    <num_cde_woocommerce>4638</num_cde_woocommerce>
+    <origine>VINICOM</origine>
+    <datecmd>20220923</datecmd>
+  </entete>
+  <client>
+    <adresse_livraison>
+      <livraison_firstname>Clara</livraison_firstname>
+      <livraison_name></livraison_name>
+      <livraison_company>screenup</livraison_company>
+      <livraison_adress1>9 rue georges wolinski</livraison_adress1>
+      <livraison_adress2></livraison_adress2>
+      <livraison_postalcode>35410</livraison_postalcode>
+      <livraison_city>nouvoitou</livraison_city>
+    </adresse_livraison>
+  </client>
+  <lignes_commande>
+    <ligne>
+      <reference>028008</reference>
+      <quantite>1</quantite>
+      <prixunitaire>16.00</prixunitaire>
+    </ligne>
+    <ligne>
+      <reference>028009</reference>
+      <quantite>16</quantite>
+      <prixunitaire>16.70</prixunitaire>
+    </ligne>
+  </lignes_commande>
+</commande>
