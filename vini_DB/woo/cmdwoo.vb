@@ -281,6 +281,9 @@ Public Class cmdwoo
             ' Création des Commandes Client
             '================================
             tabFiles = System.IO.Directory.GetFiles(pDossierLocal, "*.xml")
+            If tabFiles.Length = 0 Then
+                Directory.Delete(pDossierLocal)
+            End If
             For Each strFile As String In tabFiles
                 Dim oCMDW As cmdwoo
                 Dim oFileInfo As New System.IO.FileInfo(strFile)
@@ -292,7 +295,7 @@ Public Class cmdwoo
                     ListeCommandes.Add(oCmdC)
                     strCodeCommande = oCmdC.code
                 End If
-                LogImportWoo.AjoutLigne(Now().ToString("yyyyMMdd HH:mm:ss"),
+                LogImportWoo.AjoutLigne(Now().ToString("yyyy/MM/dd HH:mm:ss"),
                                        strFile,
                                        oCMDW.entete.num_cde_woocommerce,
                                        oCMDW.entete.datecmd,
@@ -329,6 +332,7 @@ Public Class cmdwoo
                 oReturn = New CommandeClient(oClient)
                 oReturn.IDPrestashop = entete.num_cde_woocommerce
                 oReturn.Origine = entete.origine
+                oReturn.dateCommande = New DateTime(Left(entete.datecmd, 4), Mid(entete.datecmd, 5, 2), Right(entete.datecmd, 2))
                 oReturn.caracteristiqueTiers.nom = oClient.nom
                 oReturn.caracteristiqueTiers.rs = client.adresse_livraison.livraison_company
                 oReturn.RaisonSocialeLivraison = client.adresse_livraison.livraison_company

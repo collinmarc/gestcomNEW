@@ -1,0 +1,34 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="wooFTPHost" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ftp.cluster002.hosting.ovh.net</Value>
+    </Setting>
+    <Setting Name="wooFTPUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">vinicomwgs-gestcom</Value>
+    </Setting>
+    <Setting Name="wooFTPPwd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EdcRfv11</Value>
+    </Setting>
+    <Setting Name="wooFTPRepLocal" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\importinternet\vinicom.wine</Value>
+    </Setting>
+    <Setting Name="wooFTPRepDistant" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TEST/Orders</Value>
+    </Setting>
+    <Setting Name="wooIntervalleSecondes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="MyCS" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Provider=SQLOLEDB.1;Data Source=BUREAU-DELL\SQLEXPRESS;Initial Catalog=vnc5;Persist Security Info=True;User ID=vinicom;Password=vinicom&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Provider=SQLOLEDB.1;Data Source=BUREAU-DELL\SQLEXPRESS;Initial Catalog=vnc5;Persist Security Info=True;User ID=vinicom;Password=vinicom</Value>
+    </Setting>
+    <Setting Name="wooLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\LOGS\importWoo.xml</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

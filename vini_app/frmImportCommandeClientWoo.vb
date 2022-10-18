@@ -1,6 +1,6 @@
 Imports System.IO
+Imports System.Linq
 Imports vini_DB
-Imports System.Net.Mail
 
 Public Class frmImportcommandeClientWoo
 
@@ -36,15 +36,41 @@ Public Class frmImportcommandeClientWoo
 
 
     Private Sub formLoad()
+        ckTous.Checked = True
+        dtDateFin.Value = Now().Date
+        dtDateDeb.Value = Now().Date
         ChargementLogs()
     End Sub
 
     Private Sub ChargementLogs()
         cmdwoo.LoadLogImportWoo()
         m_bsrcLog.Clear()
+        Dim dDeb As DateTime = dtDateDeb.Value.Date
+        Dim dfin As DateTime = dtDateFin.Value.Date.AddDays(1)
+
+
         LogImportWoo.ListItems.ListItems.ForEach(Sub(i)
-                                                     m_bsrcLog.Add(i)
+                                                     If CDate(i.DateImport) >= dDeb And CDate(i.DateImport) <= dfin Then
+                                                         If ckTous.Checked Or (Not i.PImport And Not ckTous.Checked) Then
+                                                             m_bsrcLog.Add(i)
+                                                         End If
+                                                     End If
                                                  End Sub)
+    End Sub
+    Private Sub PurgerLogs()
+        Dim dDeb As DateTime = dtDateDeb.Value.Date
+        Dim dfin As DateTime = dtDateFin.Value.Date.AddDays(1)
+        LogImportWoo.ListItems.ListItems.RemoveAll(Function(i)
+                                                       Dim bReturn As Boolean = False
+                                                       If CDate(i.DateImport) >= dDeb And CDate(i.DateImport) <= dfin Then
+                                                           If ckTous.Checked Or (Not i.PImport And Not ckTous.Checked) Then
+                                                               bReturn = True
+                                                           End If
+                                                       End If
+                                                       Return bReturn
+                                                   End Function)
+        LogImportWoo.writeXml()
+
     End Sub
     Private Class Param
         Public m_ftpHost As String
@@ -61,9 +87,10 @@ Public Class frmImportcommandeClientWoo
         o.m_ftpPassword = tbFTPPassword.Text
         o.m_ftpRepDistant = tbRepDistant.Text
         o.m_ftpRepLocal = tbRepLocal.Text
+        Me.Cursor = Cursors.WaitCursor
         BackgroundWorker1.RunWorkerAsync(o)
     End Sub
-        Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Dim pDossierLocal As String
         Dim o As Param = CType(e.Argument, Param)
         pDossierLocal = o.m_ftpRepLocal & Now.ToString("yyyyMMddHHmmss")
@@ -72,14 +99,26 @@ Public Class frmImportcommandeClientWoo
 
         cmdwoo.Import(pDossierLocal)
 
-        End Sub
+    End Sub
 
-        Private Sub BackgroundWorker1_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles BackgroundWorker1.ProgressChanged
+    Private Sub BackgroundWorker1_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles BackgroundWorker1.ProgressChanged
 
-        End Sub
+    End Sub
 
-        Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
+    Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
+        ChargementLogs()
+        Me.Cursor = Cursors.Default
+    End Sub
+
+    Private Sub btnAfficher_Click(sender As Object, e As EventArgs) Handles btnAfficher.Click
+        ChargementLogs()
+    End Sub
+
+    Private Sub btnPurger_Click(sender As Object, e As EventArgs) Handles btnPurger.Click
+        If MsgBox("Etes-vous sur de vouloir supprimer les traces entre le [" & dtDateDeb.Value.ToShortDateString & "] et le [ " & dtDateFin.Value.ToShortDateString() & "] ?", MsgBoxStyle.YesNo, "Suppression des logs d'import") = MsgBoxResult.Yes Then
+            PurgerLogs()
             ChargementLogs()
-        End Sub
-    End Class
+        End If
+    End Sub
+End Class
 

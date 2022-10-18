@@ -1,4 +1,6 @@
-﻿V20220411
+﻿V20221018
+	0001527: Import des commandes internet WooCommerce
+V20220411
 	0001492: Import des tarifs et gestion d'un tarif D
 V20220110
 	0001471: Prise en compte du code dépot dans la fiche produit et export Quadra

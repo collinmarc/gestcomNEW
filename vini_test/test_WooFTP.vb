@@ -128,6 +128,69 @@ Imports vini_DB
         Assert.AreEqual(136D, oLgC.qteCommande)
         Assert.AreEqual(232.5D, oLgC.prixU)
     End Sub
+    <TestMethod()> Public Sub TriLogImport()
+
+        '============================
+        ' CREATION DU CONTEXTE
+        '===========================
+        'Création d'un client
+        Dim oClt As New Client
+        oClt.idPrestashop = 9915
+        oClt.code = "CLT1"
+        oClt.Origine = "VINICOM"
+        oClt.AdresseLivraison.ville = "chasné sur illet"
+        Assert.IsTrue(oClt.save)
+        'Création d'un Fournisseur
+        Dim oFRN As New Fournisseur("FRN1", "Fournisseur1")
+        oFRN.Save()
+        'Création d'un produit
+        Dim oPrd As New Produit("PRD1", oFRN, 2000)
+        oPrd.save()
+        'Création d'une commande WOO FICTIVE pour pouvoir l'exporter
+        Dim oCmd As New cmdwoo()
+
+        oCmd.entete.id = "999"
+        oCmd.entete.num_cde_woocommerce = "132"
+        oCmd.entete.origine = "VINICOM"
+        oCmd.entete.customer_id = oClt.idPrestashop
+        oCmd.entete.datecmd = Now.ToString("yyyyMMdd")
+        oCmd.client.adresse_livraison.livraison_city = "Chasné sur illet"
+        oCmd.lignes_commande.Add(New ligneWOO("PRD1", 36, 132.5))
+        oCmd.lignes_commande.Add(New ligneWOO("PRD1", 136, 232.5))
+        'Export de la commande
+        cmdwoo.FTO_writeXml(oCmd, "./cmdWoo.xml")
+        'Transfert sur le site FTP
+        Dim oFTP As New clsFTPVinicom("ftp.cluster002.hosting.ovh.net", "vinicomwgs-gestcom", "EdcRfv11", "TEST/Orders")
+        oFTP.uploadFile("./cmdwoo.xml")
+
+        ''===============================
+        '' IMPORT 1 DE LA COMMANDE
+        '================================
+        Dim pDossierLocal As String
+        pDossierLocal = "./importinternet/vinicom.wine/" & Now.ToString("yyyyMMddHHmmss")
+
+        cmdwoo.SetFTP("ftp.cluster002.hosting.ovh.net", "vinicomwgs-gestcom", "EdcRfv11", "TEST/Orders")
+        'Import dans supprimer le fichier d'origine
+        Assert.IsTrue(cmdwoo.Import(pDossierLocal, False))
+
+        System.Threading.Thread.Sleep(1000)
+        Dim DateLimite As Date = Now()
+
+        'On recommence l'import  après 2 Seconde
+        System.Threading.Thread.Sleep(2000)
+        Assert.IsTrue(cmdwoo.Import(pDossierLocal, True))
+
+        'On vérifie que le Premier Item est bien le plus recent
+        LogImportWoo.ReadXml()
+        Assert.IsTrue(LogImportWoo.ListItems.ListItems.Count >= 2)
+        Assert.IsTrue(LogImportWoo.ListItems.ListItems(0).DateImport > LogImportWoo.ListItems.ListItems(1).DateImport)
+
+        'Purge des items avant le Dernier import
+        LogImportWoo.PurgeAvant(DateLimite)
+        Assert.AreEqual(2, LogImportWoo.ListItems.ListItems.Count)
+        'LogImportWoo.writeXml()
+
+    End Sub
 
 End Class
 

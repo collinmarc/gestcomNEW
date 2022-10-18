@@ -1,0 +1,10 @@
+﻿Déclarer le Service d’importation de commande : vini_service
+=============================================================
+Ouvrir une console en Mode Administrateur
+                      ====================
+Se positionner dans le répertoire d’installation de GESTCOM
+Executer : C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe vini_serviceWoo.exe
+Se connecter à la console services.msc : Modifier le compte de démarrage du service pour lui affecter un compte GESTCOM
+
+pour le Desinstaller : C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /u vini_serviceWoo.exe
+il faut fermer le gestionnaire des taches et la console services.msc et l'observateur D'evt

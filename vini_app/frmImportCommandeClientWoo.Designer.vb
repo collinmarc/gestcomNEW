@@ -22,6 +22,7 @@ Partial Class frmImportcommandeClientWoo
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnCancel = New System.Windows.Forms.Button()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.btnImport = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.tbRepLocal = New System.Windows.Forms.TextBox()
@@ -34,9 +35,7 @@ Partial Class frmImportcommandeClientWoo
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tbFTPHostName = New System.Windows.Forms.TextBox()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.m_bsrcImport = New System.Windows.Forms.BindingSource(Me.components)
         Me.DateImportDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomFichierDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NumCdeWooCommerceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,10 +44,18 @@ Partial Class frmImportcommandeClientWoo
         Me.CmdCodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MotifDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.m_bsrcLog = New System.Windows.Forms.BindingSource(Me.components)
+        Me.m_bsrcImport = New System.Windows.Forms.BindingSource(Me.components)
+        Me.dtDateDeb = New System.Windows.Forms.DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.dtDateFin = New System.Windows.Forms.DateTimePicker()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.ckTous = New System.Windows.Forms.CheckBox()
+        Me.btnAfficher = New System.Windows.Forms.Button()
+        Me.btnPurger = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.m_bsrcImport, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcLog, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.m_bsrcImport, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -56,6 +63,7 @@ Partial Class frmImportcommandeClientWoo
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.btnCancel)
+        Me.GroupBox1.Controls.Add(Me.ProgressBar1)
         Me.GroupBox1.Controls.Add(Me.btnImport)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.tbRepLocal)
@@ -69,24 +77,33 @@ Partial Class frmImportcommandeClientWoo
         Me.GroupBox1.Controls.Add(Me.tbFTPHostName)
         Me.GroupBox1.Location = New System.Drawing.Point(11, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(735, 97)
+        Me.GroupBox1.Size = New System.Drawing.Size(735, 153)
         Me.GroupBox1.TabIndex = 23
         Me.GroupBox1.TabStop = False
         '
         'btnCancel
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Location = New System.Drawing.Point(573, 68)
+        Me.btnCancel.Location = New System.Drawing.Point(573, 124)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 11
         Me.btnCancel.Text = "Annuler"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBar1.Location = New System.Drawing.Point(6, 94)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(734, 23)
+        Me.ProgressBar1.TabIndex = 24
+        '
         'btnImport
         '
         Me.btnImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnImport.Location = New System.Drawing.Point(654, 68)
+        Me.btnImport.Location = New System.Drawing.Point(654, 124)
         Me.btnImport.Name = "btnImport"
         Me.btnImport.Size = New System.Drawing.Size(75, 23)
         Me.btnImport.TabIndex = 10
@@ -183,15 +200,6 @@ Partial Class frmImportcommandeClientWoo
         '
         Me.BackgroundWorker1.WorkerSupportsCancellation = True
         '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 105)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(734, 23)
-        Me.ProgressBar1.TabIndex = 24
-        '
         'DataGridView1
         '
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -202,11 +210,11 @@ Partial Class frmImportcommandeClientWoo
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DateImportDataGridViewTextBoxColumn, Me.NomFichierDataGridViewTextBoxColumn, Me.NumCdeWooCommerceDataGridViewTextBoxColumn, Me.DatecmdDataGridViewTextBoxColumn, Me.PImportDataGridViewCheckBoxColumn, Me.CmdCodeDataGridViewTextBoxColumn, Me.MotifDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.m_bsrcLog
-        Me.DataGridView1.Location = New System.Drawing.Point(11, 134)
+        Me.DataGridView1.Location = New System.Drawing.Point(11, 190)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(735, 358)
+        Me.DataGridView1.Size = New System.Drawing.Size(735, 302)
         Me.DataGridView1.TabIndex = 25
         '
         'DateImportDataGridViewTextBoxColumn
@@ -257,20 +265,91 @@ Partial Class frmImportcommandeClientWoo
         Me.m_bsrcLog.DataSource = GetType(vini_DB.ItemLogImportWoo)
         Me.m_bsrcLog.Sort = "dateImport DESC"
         '
+        'dtDateDeb
+        '
+        Me.dtDateDeb.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtDateDeb.Location = New System.Drawing.Point(96, 161)
+        Me.dtDateDeb.Name = "dtDateDeb"
+        Me.dtDateDeb.Size = New System.Drawing.Size(100, 20)
+        Me.dtDateDeb.TabIndex = 26
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(8, 165)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(75, 13)
+        Me.Label6.TabIndex = 27
+        Me.Label6.Text = "Date de début"
+        '
+        'dtDateFin
+        '
+        Me.dtDateFin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtDateFin.Location = New System.Drawing.Point(267, 161)
+        Me.dtDateFin.Name = "dtDateFin"
+        Me.dtDateFin.Size = New System.Drawing.Size(100, 20)
+        Me.dtDateFin.TabIndex = 28
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(202, 165)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(59, 13)
+        Me.Label7.TabIndex = 29
+        Me.Label7.Text = "Date de fin"
+        '
+        'ckTous
+        '
+        Me.ckTous.AutoSize = True
+        Me.ckTous.Location = New System.Drawing.Point(382, 164)
+        Me.ckTous.Name = "ckTous"
+        Me.ckTous.Size = New System.Drawing.Size(50, 17)
+        Me.ckTous.TabIndex = 30
+        Me.ckTous.Text = "Tous"
+        Me.ckTous.UseVisualStyleBackColor = True
+        '
+        'btnAfficher
+        '
+        Me.btnAfficher.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAfficher.Location = New System.Drawing.Point(665, 161)
+        Me.btnAfficher.Name = "btnAfficher"
+        Me.btnAfficher.Size = New System.Drawing.Size(75, 23)
+        Me.btnAfficher.TabIndex = 31
+        Me.btnAfficher.Text = "Afficher"
+        Me.btnAfficher.UseVisualStyleBackColor = True
+        '
+        'btnPurger
+        '
+        Me.btnPurger.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPurger.Location = New System.Drawing.Point(584, 160)
+        Me.btnPurger.Name = "btnPurger"
+        Me.btnPurger.Size = New System.Drawing.Size(75, 23)
+        Me.btnPurger.TabIndex = 32
+        Me.btnPurger.Text = "Purger"
+        Me.btnPurger.UseVisualStyleBackColor = True
+        '
         'frmImportcommandeClientWoo
         '
         Me.ClientSize = New System.Drawing.Size(750, 500)
+        Me.Controls.Add(Me.btnPurger)
+        Me.Controls.Add(Me.btnAfficher)
+        Me.Controls.Add(Me.ckTous)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.dtDateFin)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.dtDateDeb)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "frmImportcommandeClientWoo"
         Me.Text = "Import des commandes clients créées le site internet"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.m_bsrcImport, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.m_bsrcLog, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.m_bsrcImport, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox1 As GroupBox
@@ -298,4 +377,11 @@ Partial Class frmImportcommandeClientWoo
     Friend WithEvents CmdCodeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents MotifDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents m_bsrcImport As BindingSource
+    Friend WithEvents dtDateDeb As DateTimePicker
+    Friend WithEvents Label6 As Label
+    Friend WithEvents dtDateFin As DateTimePicker
+    Friend WithEvents Label7 As Label
+    Friend WithEvents ckTous As CheckBox
+    Friend WithEvents btnAfficher As Button
+    Friend WithEvents btnPurger As Button
 End Class

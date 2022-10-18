@@ -1,6 +1,7 @@
 ﻿Imports System.Collections.Generic
 Imports System.IO
 Imports System.Xml.Serialization
+Imports System.Linq
 <Serializable>
 Public Class LogImportWooList
     Public ListItems As New List(Of ItemLogImportWoo)
@@ -25,26 +26,38 @@ Public Class LogImportWoo
 
         ListItems.ListItems.Add(oItem)
     End Sub
+
+    Public Shared Sub PurgeAvant(pDate As DateTime)
+        ListItems.ListItems.RemoveAll(Function(o)
+                                          Return o.DateImport <= pDate
+                                      End Function)
+    End Sub
+    Private Shared Function test(i As ItemLogImportWoo, pDate As DateTime) As Boolean
+        Return i.DateImport < pDate
+    End Function
     Public Shared Function writeXml() As Boolean
         Dim bReturn As Boolean
         Dim objStreamWriter As StreamWriter = Nothing
 
         Try
+            '            Trace.WriteLine("LogImportWoo.WriteXML: Debut")
             If Not Directory.Exists("LOGS") Then
                 Directory.CreateDirectory("LOGS")
             End If
             Dim ns As New XmlSerializerNamespaces()
             ns.Add("", "")
-
+            'Tri de la Liste avant Sauvegarde
+            ListItems.ListItems.Sort()
             objStreamWriter = New StreamWriter(Fichier)
             Dim x As New XmlSerializer(GetType(LogImportWooList))
             x.Serialize(objStreamWriter, ListItems, ns)
             objStreamWriter.Close()
+            '           Trace.WriteLine("LogImportWoo.WriteXML: Fin")
             bReturn = True
         Catch ex As Exception
-            Debug.Print("LogImportWoo.WriteXML: " & ex.Message)
+            Trace.WriteLine("LogImportWoo.WriteXML: " & ex.Message)
             If ex.InnerException IsNot Nothing Then
-                Debug.Print("LogImportWoo.WriteXML: " & ex.InnerException.Message)
+                Trace.WriteLine("LogImportWoo.WriteXML: " & ex.InnerException.Message)
             End If
             bReturn = False
             If objStreamWriter IsNot Nothing Then
@@ -61,16 +74,20 @@ Public Class LogImportWoo
         Dim objStreamReader As StreamReader = Nothing
         Dim oReturn As New LogImportWooList
         Try
+            '            Trace.WriteLine("LogImportWoo.ReadXML: Debut")
 
             objStreamReader = New StreamReader(Fichier)
             Dim x As New XmlSerializer(GetType(LogImportWooList))
             oReturn = x.Deserialize(objStreamReader)
+            '            oReturn.ListItems.Sort()
             ListItems.ListItems.AddRange(oReturn.ListItems)
             bReturn = True
+            'Trace.WriteLine("LogImportWoo.ReadXML: Fin")
+
         Catch ex As Exception
-            Debug.Print("LogImportWoo.ReadXML: " & ex.Message)
+            Trace.WriteLine("LogImportWoo.ReadXML: " & ex.Message)
             If ex.InnerException IsNot Nothing Then
-                Debug.Print("LogImportWoo.ReadXML: " & ex.InnerException.Message)
+                Trace.WriteLine("LogImportWoo.ReadXML: " & ex.InnerException.Message)
             End If
             bReturn = False
         End Try
@@ -84,6 +101,7 @@ Public Class LogImportWoo
 End Class
 <Serializable>
 Public Class ItemLogImportWoo
+    Implements IComparable
     Private _dateImport As String
     Private _nomFichier As String
     Private _numCdeWooCommerce As String
@@ -161,4 +179,18 @@ Public Class ItemLogImportWoo
             _motif = value
         End Set
     End Property
+
+    Public Function CompareTo(obj As Object) As Integer Implements IComparable.CompareTo
+        Dim autre As ItemLogImportWoo
+        Dim nReturn As Integer = 0
+        If obj IsNot Nothing Then
+            autre = CType(obj, ItemLogImportWoo)
+            If autre IsNot Nothing Then
+                '                nReturn = Me.DateImport.CompareTo(autre.DateImport)
+                nReturn = autre.DateImport.CompareTo(Me.DateImport)
+            End If
+
+        End If
+        Return nReturn
+    End Function
 End Class
