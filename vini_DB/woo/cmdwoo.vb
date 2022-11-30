@@ -361,7 +361,7 @@ Public Class cmdwoo
                 bImport = True
                 For Each oLg As ligneWOO In lignes_commande
                     oProduit = Produit.createandloadbyKey(oLg.reference)
-                    If oProduit.id <> 0 Then
+                    If oProduit IsNot Nothing Then
                         oReturn.AjouteLigne(nLigne, oProduit, oLg.quantite, oLg.prixunitaire)
                         nLigne = nLigne + 10
                     Else
