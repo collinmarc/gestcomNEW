@@ -29,8 +29,8 @@ Imports System.Runtime.InteropServices
 ' Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut 
 ' en utilisant '*', comme indiqué ci-dessous :
 
-<Assembly: AssemblyVersion("2022.10.18.1600")>
+<Assembly: AssemblyVersion("2022.11.30.2030")>
 
-<Assembly: AssemblyFileVersionAttribute("2022.10.18.1600")>
+<Assembly: AssemblyFileVersionAttribute("2022.11.30.2030")>
 <Assembly: System.Runtime.CompilerServices.InternalsVisibleTo("vini_test")>
 <Assembly: System.Runtime.CompilerServices.InternalsVisibleTo("vini_app")>
