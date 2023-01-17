@@ -1410,6 +1410,7 @@
     <Content Include="Readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Requetes\20230117-UPDATEVIEW.sql" />
     <Content Include="Requetes\Cretate_EXPORTParam.sql" />
     <Content Include="Requetes\CREATEPROC.sql" />
     <Content Include="Requetes\DELETEFACTCOLISAGEOCT2020.sql" />
