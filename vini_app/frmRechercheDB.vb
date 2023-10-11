@@ -270,8 +270,8 @@ Public Class frmRechercheDB
                 laNom.Text = "Désignation"
                 laMotCle.Text = "Mot Clé"
                 Me.Text = "Recherche de Produit"
-                laEtat.Enabled = False
-                cboEtat.Enabled = False
+                '                laEtat.Enabled = False
+'                cboEtat.Enabled = False
             Case vncEnums.vncTypeDonnee.COMMANDECLIENT
                 laCode.Text = "Code"
                 laNom.Text = "Nom Client"
@@ -346,6 +346,10 @@ Public Class frmRechercheDB
         Dim objEtat As EtatCommande
 
         Select Case m_TypeDonnees
+            Case vncEnums.vncTypeDonnee.PRODUIT
+                cboEtat.Items.Add("Non Archivé")
+                cboEtat.Items.Add("Tous")
+                cboEtat.SelectedIndex = 0
             Case vncEnums.vncTypeDonnee.COMMANDECLIENT
                 objEtat = EtatCommande.createEtat(vncEnums.vncEtatCommande.vncRien)
                 cboEtat.Items.Add(objEtat)
@@ -435,7 +439,11 @@ Public Class frmRechercheDB
             Case vncTypeDonnee.PRODUIT
                 Me.m_bsrc.DataSource = GetType(vini_DB.Produit)
                 'Recherche des produits , les valeurs idFournisseur et idPrecommande sont initialisées à 0
-                m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, m_idFournisseur, m_idPrecommande)
+                Dim bTous As Boolean = False
+                If cboEtat.SelectedItem = "Tous" Then
+                    bTous = True
+                End If
+                m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, m_idFournisseur, m_idPrecommande, pTous:=bTous)
             Case vncTypeDonnee.COMMANDECLIENT
                 Me.m_bsrc.DataSource = GetType(vini_DB.CommandeClient)
                 If (tbCode.Text = "" And tbNom.Text = "" And cboEtat.SelectedItem.codeEtat = vncEnums.vncEtatCommande.vncRien) Then

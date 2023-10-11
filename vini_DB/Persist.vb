@@ -1781,9 +1781,10 @@ Public MustInherit Class Persist
                                     "PRD_TARIFC, " &
                                     "PRD_TARIFD, " &
                                     "PRD_DOSSIER, " &
+                                    "PRD_BARCHIVE, " &
                                     "PRD_DEPOT " &
                                     " ) VALUES (" &
-                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
+                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -1818,6 +1819,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_TARIFC(objOLeDBCommand)
         CreateParamP_PRD_TARIFD(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
+        CreateParamP_PRD_BARCHIVE(objOLeDBCommand)
         CreateParamP_PRD_DEPOT(objOLeDBCommand)
         Try
             objOLeDBCommand.ExecuteNonQuery()
@@ -1887,6 +1889,7 @@ Public MustInherit Class Persist
                                     "PRD_TARIFC = ? , " &
                                     "PRD_TARIFD = ? , " &
                                     "PRD_DOSSIER = ?,  " &
+                                    "PRD_BARCHIVE = ?,  " &
                                     "PRD_DEPOT = ?  " &
                                   " WHERE PRD_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
@@ -1920,6 +1923,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_TARIFC(objOLeDBCommand)
         CreateParamP_PRD_TARIFD(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
+        CreateParamP_PRD_BARCHIVE(objOLeDBCommand)
         CreateParamP_PRD_DEPOT(objOLeDBCommand)
         CreateParameterP_ID(objOLeDBCommand)
 
@@ -1978,6 +1982,7 @@ Public MustInherit Class Persist
                                                   & "PRD_TARIFC, " _
                                                   & "PRD_TARIFD, " _
                                                   & "PRD_DOSSIER, " _
+                                                  & "PRD_BARCHIVE, " _
                                                   & "PRD_DEPOT" &
                                                 " FROM ((FOURNISSEUR INNER JOIN (((CONTENANT INNER JOIN (PRODUIT INNER JOIN RQ_Couleur ON PRODUIT.PRD_COUL_ID = RQ_Couleur.PAR_ID) ON CONTENANT.CONT_ID = PRODUIT.PRD_CONT_ID) INNER JOIN RQ_Region ON PRODUIT.PRD_RGN_ID = RQ_Region.PAR_ID) INNER JOIN RQ_Tva ON PRODUIT.PRD_TVA_ID = RQ_Tva.PAR_ID) ON FOURNISSEUR.FRN_ID = PRODUIT.PRD_FRN_ID) INNER JOIN RQ_CONDITIONNEMENT ON PRODUIT.PRD_COND_ID = RQ_CONDITIONNEMENT.PAR_ID) LEFT JOIN RQ_QTECMD_PRD ON PRODUIT.PRD_ID = RQ_QTECMD_PRD.LGCM_PRD_ID " &
                                 " WHERE " &
@@ -2172,7 +2177,7 @@ Public MustInherit Class Persist
     'Détails    :  
     'Retour : une collection
     '=======================================================================
-    Protected Shared Function ListePRD(ByVal pTypeProduit As vncTypeProduit, Optional ByVal strCode As String = "", Optional ByVal strLibelle As String = "", Optional ByVal strMotCle As String = "", Optional ByVal idFournisseur As Integer = 0, Optional ByVal idClient As Integer = 0, Optional pdossier As String = "") As Collection
+    Protected Shared Function ListePRD(ByVal pTypeProduit As vncTypeProduit, Optional ByVal strCode As String = "", Optional ByVal strLibelle As String = "", Optional ByVal strMotCle As String = "", Optional ByVal idFournisseur As Integer = 0, Optional ByVal idClient As Integer = 0, Optional pdossier As String = "", Optional pbTous As Boolean = False) As Collection
         Dim colReturn As New Collection
         Dim strWhere As String = ""
         Dim nId As Integer
@@ -2236,6 +2241,17 @@ Public MustInherit Class Persist
             strWhere = strWhere & "PRD_DOSSIER =  ?"
             objOLeDBCommand.Parameters.AddWithValue("?", pdossier)
 
+        End If
+
+        'Visualisation des produits archivés
+        ' si on ne les veut pas tous (par defaut)
+        'Ajout du filtre sur bArchive = 0
+        If Not pbTous Then
+            If strWhere <> "" Then
+                strWhere = strWhere & " AND "
+            End If
+            strWhere = strWhere & "PRD_BARCHIVE =  ?"
+            objOLeDBCommand.Parameters.AddWithValue("?", 0)
         End If
 
 
@@ -4132,6 +4148,12 @@ Public MustInherit Class Persist
         Dim objPRD As Produit
         objPRD = Me
         objCommand.Parameters.AddWithValue("?", objPRD.bDisponible)
+    End Sub
+    Private Sub CreateParamP_PRD_BARCHIVE(ByVal objCommand As OleDbCommand)
+        '        Dim objParam As OleDbParameter
+        Dim objPRD As Produit
+        objPRD = Me
+        objCommand.Parameters.AddWithValue("?", objPRD.bArchive)
     End Sub
     Private Sub CreateParamP_PRD_STOCK(ByVal objCommand As OleDbCommand)
         '        Dim objParam As OleDbParameter

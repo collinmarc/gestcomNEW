@@ -608,6 +608,73 @@ Imports vini_DB
         objPRD.bDeleted = True
         Assert.IsTrue(objPRD.save(), "Delete" & objPRD.getErreur())
     End Sub
+    <TestCategory("6.1.0.0")>
+    <TestMethod()> Public Sub TV61_BARCHIVE()
+        Dim objPRD As Produit
+        Dim objPRD2 As Produit
+        Dim n As Integer
+        Dim nIdFournisseur As Integer
+        nIdFournisseur = Fournisseur.getListe()(1).id
+
+        'I - Création d'un Produit
+        '=========================
+        objPRD = New Produit("", New Fournisseur, 1990)
+        Assert.AreEqual(False, objPRD.bArchive)
+        objPRD.code = "PTEST" & Now()
+        objPRD.nom = "Produit de TEST ARCHIVE"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        objPRD.bArchive = True
+
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+
+        'II - Rechargement d'un Produit
+        '=========================
+        n = objPRD.id
+        objPRD2 = Produit.createandload(n)
+        Assert.IsTrue(objPRD2.bArchive, "Load bArchive")
+        Assert.IsTrue(objPRD.Equals(objPRD2))
+
+        'III - Modification du Produit
+        '=================================
+        ' Modification du Produit
+        objPRD2.nom = objPRD.nom & "2"
+        objPRD2.bArchive = False
+        Assert.IsTrue(objPRD2.save(), "Update")
+
+        'Rechargement de l'objet
+        n = objPRD2.id
+        objPRD = Produit.createandload(n)
+        Assert.IsFalse(objPRD.bArchive)
+        Assert.IsTrue(objPRD.Equals(objPRD2))
+
+
+        Dim oColProduit As Collection = Produit.getListe(vncTypeProduit.vncTous, strCode:="PTEST%", idFournisseur:=nIdFournisseur, pTous:=False)
+        Assert.AreEqual(1, oColProduit.Count)
+
+        'Archivage du produit
+        objPRD2.bArchive = True
+        Assert.IsTrue(objPRD2.save(), "Update")
+        'Rechargement de la liste normale
+        oColProduit = Produit.getListe(vncTypeProduit.vncTous, strCode:="PTEST%", idFournisseur:=nIdFournisseur, pTous:=False)
+        'Verif => il n'est pas dans la liste
+        Assert.AreEqual(0, oColProduit.Count)
+
+        'Rechargement de la liste Avec Tous les produits
+        oColProduit = Produit.getListe(vncTypeProduit.vncTous, strCode:="PTEST%", idFournisseur:=nIdFournisseur, pTous:=True)
+        Assert.AreEqual(1, oColProduit.Count)
+
+        'IV - Suppression du Produit
+        '=================================
+        ' Modification du Produit
+        objPRD.bDeleted = True
+        Assert.IsTrue(objPRD.save(), "Delete" & objPRD.getErreur())
+    End Sub
+
 End Class
 
 

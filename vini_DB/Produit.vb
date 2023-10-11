@@ -65,12 +65,12 @@ Public Class Produit
     '                           METHODE DE CLASSE                          |  
     'Fonction : getListe 
     'Description : Liste des Produits
-    'Retour : Rend une collection de fournisseurs
+    'Retour : Rend une collection de produits
     '=======================================================================
-    Public Shared Function getListe(ByVal pTypeProduit As vncTypeProduit, Optional ByVal strCode As String = "", Optional ByVal strlibelle As String = "", Optional ByVal strMotCle As String = "", Optional ByVal idFournisseur As Integer = 0, Optional ByVal idClient As Integer = 0, Optional pdossier As String = "") As Collection
+    Public Shared Function getListe(ByVal pTypeProduit As vncTypeProduit, Optional ByVal strCode As String = "", Optional ByVal strlibelle As String = "", Optional ByVal strMotCle As String = "", Optional ByVal idFournisseur As Integer = 0, Optional ByVal idClient As Integer = 0, Optional pdossier As String = "", Optional pTous As Boolean = False) As Collection
         Dim colReturn As Collection
         shared_connect()
-        colReturn = ListePRD(pTypeProduit, strCode, strlibelle, strMotCle, idFournisseur, idClient, pdossier)
+        colReturn = ListePRD(pTypeProduit, strCode, strlibelle, strMotCle, idFournisseur, idClient, pdossier, pTous)
         shared_disconnect()
         Return colReturn
     End Function
@@ -659,7 +659,18 @@ Public Class Produit
     Private Sub m_colMvtStock_Updated() Handles m_colMvtStock.Updated
         RaiseUpdated()
     End Sub
-
+    Private _bArchive As Boolean
+    Public Property bArchive() As Boolean
+        Get
+            Return _bArchive
+        End Get
+        Set(ByVal value As Boolean)
+            If value <> bArchive Then
+                RaiseUpdated()
+                _bArchive = value
+            End If
+        End Set
+    End Property
 
 #End Region
     '=======================================================================
@@ -708,6 +719,7 @@ Public Class Produit
             bReturn = bReturn And (TarifC.Equals(objPrd.TarifC))
             bReturn = bReturn And (TarifD.Equals(objPrd.TarifD))
             bReturn = bReturn And (Depot.Equals(objPrd.Depot))
+            bReturn = bReturn And (bArchive.Equals(objPrd.bArchive))
 
             Return bReturn
         Catch ex As Exception
@@ -1325,6 +1337,8 @@ Public Class Produit
                     Me.setQteCommande(Convert.ToInt32(pColValue))
                 Case "PRD_DEPOT"
                     Me.Depot = Convert.ToString(pColValue)
+                Case "PRD_BARCHIVE"
+                    Me.bArchive = Convert.ToBoolean(pColValue)
             End Select
         Catch ex As Exception
             setError("Produit.Fill(" & pColName & "," & pColValue.ToString() & ") ERR :" & ex.Message)

@@ -73,6 +73,7 @@ Friend Class frmMain
     Friend WithEvents MenuItem24 As MenuItem
     Friend WithEvents mnuExportInternet As MenuItem
     Friend WithEvents mnuImportInternet As MenuItem
+    Friend WithEvents mnuGestMillesime As MenuItem
     'Objet créé pour afficher l'evenement Connected/Disconnected
     Public m_currentuser As aut_user
 
@@ -197,6 +198,7 @@ Friend Class frmMain
         Me.mnuDB_Client = New System.Windows.Forms.MenuItem()
         Me.mnuDB_Fournisseur = New System.Windows.Forms.MenuItem()
         Me.mnuDB_Produit = New System.Windows.Forms.MenuItem()
+        Me.mnuGestMillesime = New System.Windows.Forms.MenuItem()
         Me.MenuItem11 = New System.Windows.Forms.MenuItem()
         Me.mnuDB_Appelation = New System.Windows.Forms.MenuItem()
         Me.mnuDB_Tarif = New System.Windows.Forms.MenuItem()
@@ -393,7 +395,7 @@ Friend Class frmMain
         'mnuDB
         '
         Me.mnuDB.Index = 1
-        Me.mnuDB.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuDB_Client, Me.mnuDB_Fournisseur, Me.mnuDB_Produit, Me.MenuItem11, Me.mnuDB_Appelation, Me.mnuDB_Tarif, Me.mnuDB_EditTarif, Me.mnuImportTarif, Me.MenuItem20, Me.mnuDB_GestTransporteur, Me.mnuDB_GestModeReglmt, Me.mnuDB_GestTauxTVA, Me.mnuDB_GestTypeClient, Me.mnuDB_GestCouleurs, Me.mnuDB_GestRegions, Me.mnuDB_GestConditionnement, Me.mnuDB_GestContentants})
+        Me.mnuDB.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuDB_Client, Me.mnuDB_Fournisseur, Me.mnuDB_Produit, Me.mnuGestMillesime, Me.MenuItem11, Me.mnuDB_Appelation, Me.mnuDB_Tarif, Me.mnuDB_EditTarif, Me.mnuImportTarif, Me.MenuItem20, Me.mnuDB_GestTransporteur, Me.mnuDB_GestModeReglmt, Me.mnuDB_GestTauxTVA, Me.mnuDB_GestTypeClient, Me.mnuDB_GestCouleurs, Me.mnuDB_GestRegions, Me.mnuDB_GestConditionnement, Me.mnuDB_GestContentants})
         Me.mnuDB.MergeType = System.Windows.Forms.MenuMerge.Remove
         Me.mnuDB.Tag = "mnuDB"
         Me.mnuDB.Text = "&Données de base"
@@ -422,85 +424,90 @@ Friend Class frmMain
         Me.mnuDB_Produit.Tag = "mnuDB_Produit"
         Me.mnuDB_Produit.Text = "&Produit"
         '
+        'mnuGestMillesime
+        '
+        Me.mnuGestMillesime.Index = 3
+        Me.mnuGestMillesime.Text = "Gestion des &Millesimes"
+        '
         'MenuItem11
         '
-        Me.MenuItem11.Index = 3
+        Me.MenuItem11.Index = 4
         Me.MenuItem11.Text = "-"
         '
         'mnuDB_Appelation
         '
-        Me.mnuDB_Appelation.Index = 4
+        Me.mnuDB_Appelation.Index = 5
         Me.mnuDB_Appelation.Tag = "mnuDB_Appelation"
         Me.mnuDB_Appelation.Text = "Gestion des appelations"
         Me.mnuDB_Appelation.Visible = False
         '
         'mnuDB_Tarif
         '
-        Me.mnuDB_Tarif.Index = 5
+        Me.mnuDB_Tarif.Index = 6
         Me.mnuDB_Tarif.Tag = "mnuDB_Tarif"
         Me.mnuDB_Tarif.Text = "Gestion des Tarifs"
         '
         'mnuDB_EditTarif
         '
-        Me.mnuDB_EditTarif.Index = 6
+        Me.mnuDB_EditTarif.Index = 7
         Me.mnuDB_EditTarif.Tag = "mnuDB_EditTarif"
         Me.mnuDB_EditTarif.Text = "Edition du Tarif"
         '
         'mnuImportTarif
         '
-        Me.mnuImportTarif.Index = 7
+        Me.mnuImportTarif.Index = 8
         Me.mnuImportTarif.Text = "Import des tarifs CSV"
         '
         'MenuItem20
         '
-        Me.MenuItem20.Index = 8
+        Me.MenuItem20.Index = 9
         Me.MenuItem20.Text = "-"
         '
         'mnuDB_GestTransporteur
         '
-        Me.mnuDB_GestTransporteur.Index = 9
+        Me.mnuDB_GestTransporteur.Index = 10
         Me.mnuDB_GestTransporteur.Tag = "mnuDB_GestTransporteur"
         Me.mnuDB_GestTransporteur.Text = "Gestion Transporteur"
         '
         'mnuDB_GestModeReglmt
         '
-        Me.mnuDB_GestModeReglmt.Index = 10
+        Me.mnuDB_GestModeReglmt.Index = 11
         Me.mnuDB_GestModeReglmt.Tag = "mnuDB_GestModeReglmt"
         Me.mnuDB_GestModeReglmt.Text = "Gestion des modes de réglements"
         '
         'mnuDB_GestTauxTVA
         '
-        Me.mnuDB_GestTauxTVA.Index = 11
+        Me.mnuDB_GestTauxTVA.Index = 12
         Me.mnuDB_GestTauxTVA.Tag = "mnuDB_GestTauxTVA"
         Me.mnuDB_GestTauxTVA.Text = "Gestion des taux de TVA"
         '
         'mnuDB_GestTypeClient
         '
-        Me.mnuDB_GestTypeClient.Index = 12
+        Me.mnuDB_GestTypeClient.Index = 13
         Me.mnuDB_GestTypeClient.Tag = "mnuDB_GestTypeClient"
         Me.mnuDB_GestTypeClient.Text = "Gestion des types de client"
         '
         'mnuDB_GestCouleurs
         '
-        Me.mnuDB_GestCouleurs.Index = 13
+        Me.mnuDB_GestCouleurs.Index = 14
         Me.mnuDB_GestCouleurs.Tag = "mnuDB_GestCouleurs"
         Me.mnuDB_GestCouleurs.Text = "Gestion des couleurs"
         '
         'mnuDB_GestRegions
         '
-        Me.mnuDB_GestRegions.Index = 14
+        Me.mnuDB_GestRegions.Index = 15
         Me.mnuDB_GestRegions.Tag = "mnuDB_GestRegions"
         Me.mnuDB_GestRegions.Text = "Gestion des régions"
         '
         'mnuDB_GestConditionnement
         '
-        Me.mnuDB_GestConditionnement.Index = 15
+        Me.mnuDB_GestConditionnement.Index = 16
         Me.mnuDB_GestConditionnement.Tag = "mnuDB_GestConditionnement"
         Me.mnuDB_GestConditionnement.Text = "Gestion des conditionnements"
         '
         'mnuDB_GestContentants
         '
-        Me.mnuDB_GestContentants.Index = 16
+        Me.mnuDB_GestContentants.Index = 17
         Me.mnuDB_GestContentants.Tag = "mnuDB_GestContentants"
         Me.mnuDB_GestContentants.Text = "Gestion des contenants"
         '
@@ -1194,7 +1201,7 @@ Friend Class frmMain
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 228)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 188)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1221,7 +1228,7 @@ Friend Class frmMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 250)
+        Me.ClientSize = New System.Drawing.Size(890, 210)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -2206,6 +2213,14 @@ Friend Class frmMain
     Private Sub mnuImportInternet_Click(sender As Object, e As EventArgs) Handles mnuImportInternet.Click
         Dim ofrm As FrmVinicom
         ofrm = New frmImportInternet
+        ofrm.MdiParent = Me
+        ofrm.Show()
+
+    End Sub
+
+    Private Sub mnuGestMillesime_Click(sender As Object, e As EventArgs) Handles mnuGestMillesime.Click
+        Dim ofrm As FrmVinicom
+        ofrm = New frmGestionMillesime
         ofrm.MdiParent = Me
         ofrm.Show()
 

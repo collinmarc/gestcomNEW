@@ -40,6 +40,7 @@ Public Class frmProduit
     Friend WithEvents tbDepot As TextBox
     Friend WithEvents Label27 As Label
     Friend WithEvents tbTarifD As textBoxCurrency
+    Friend WithEvents ckArchive As CheckBox
     Private m_bAjoutmvt As Boolean
 
 #Region "Code généré par le Concepteur Windows Form "
@@ -198,6 +199,7 @@ Public Class frmProduit
         Me.tbDepot = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.tbTarifD = New vini_app.textBoxCurrency()
+        Me.ckArchive = New System.Windows.Forms.CheckBox()
         CType(Me.m_bsrcProduit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -741,10 +743,17 @@ Public Class frmProduit
         Me.tbTarifD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifD", True))
         Me.tbTarifD.Name = "tbTarifD"
         '
+        'ckArchive
+        '
+        resources.ApplyResources(Me.ckArchive, "ckArchive")
+        Me.ckArchive.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.m_bsrcProduit, "bArchive", True))
+        Me.ckArchive.Name = "ckArchive"
+        '
         'frmProduit
         '
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.ckArchive)
         Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.tbTarifD)
         Me.Controls.Add(Me.tbDepot)
@@ -1155,7 +1164,6 @@ Public Class frmProduit
         Dim objFournisseur As Fournisseur
         Dim bReturn As Boolean
 
-
         'Chargement des collection de mvts de stocks
         bReturn = m_objProduitCourant.loadcolmvtStock()
         Debug.Assert(bReturn, "Chargement de la collection des mvts de stocks")
@@ -1171,6 +1179,12 @@ Public Class frmProduit
         afficheStock()
         activerSaisieMvt(False)
         EnableControls(True)
+
+        If m_objProduitCourant.bArchive Then
+            Me.BackColor = Color.Orange
+            EnableControls(False)
+            ckArchive.Enabled = True
+        End If
     End Function 'AfficheElementCourant
 
     Public Overrides Function MAJElement() As Boolean
@@ -1289,4 +1303,16 @@ Public Class frmProduit
         nReturn = m_objProduitCourant.CalculeStockAu(pDate.AddDays(-1))
         Return nReturn
     End Function
+
+    Private Sub ckArchive_CheckedChanged(sender As Object, e As EventArgs) Handles ckArchive.CheckedChanged
+        If ckArchive.Checked Then
+            Me.BackColor = Color.Orange
+            EnableControls(False)
+            ckArchive.Enabled = True
+        Else
+            Me.BackColor = SystemColors.Control
+            EnableControls(True)
+
+        End If
+    End Sub
 End Class

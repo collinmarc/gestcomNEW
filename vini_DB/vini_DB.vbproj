@@ -236,6 +236,7 @@
     <Compile Include="Imap\ImapException.vb" />
     <Compile Include="Imap\ImportPrestashop.vb" />
     <Compile Include="ImportTarifGESTCOM.vb" />
+    <Compile Include="MillesimeProduit.vb" />
     <Compile Include="woo\cmdwoo.vb" />
     <Compile Include="MsgLivraison.vb" />
     <Compile Include="mvtEDI.vb" />
