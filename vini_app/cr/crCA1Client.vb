@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class crCAClient
+Public Class crCA1Client
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class crCAClient
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "crCAClient.rpt"
+            Return "crCA1Client.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class crCAClient
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "vini_app.crCAClient.rpt"
+            Return "vini_app.crCA1Client.rpt"
         End Get
         Set
             'Do nothing
@@ -150,7 +150,7 @@ Public Class crCAClient
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedcrCAClient
+Public Class CachedcrCA1Client
     Inherits Component
     Implements ICachedReport
     
@@ -192,7 +192,7 @@ Public Class CachedcrCAClient
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As crCAClient = New crCAClient()
+        Dim rpt As crCA1Client = New crCA1Client()
         rpt.Site = Me.Site
         Return rpt
     End Function

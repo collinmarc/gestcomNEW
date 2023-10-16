@@ -133,6 +133,7 @@ Public Class frmFournisseurTab
     Friend WithEvents ckIntermediaire As System.Windows.Forms.CheckBox
     Friend WithEvents cbxDossier As System.Windows.Forms.ComboBox
     Friend WithEvents ckEspFrn As CheckBox
+    Friend WithEvents ckArchive As CheckBox
     Friend WithEvents cbxExportBaf As System.Windows.Forms.ComboBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.cboRegion = New System.Windows.Forms.ComboBox()
@@ -144,6 +145,7 @@ Public Class frmFournisseurTab
         Me.ckIntermediaire = New System.Windows.Forms.CheckBox()
         Me.cbxDossier = New System.Windows.Forms.ComboBox()
         Me.ckEspFrn = New System.Windows.Forms.CheckBox()
+        Me.ckArchive = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'cboRegion
@@ -213,7 +215,7 @@ Public Class frmFournisseurTab
         Me.ckIntermediaire.AutoSize = True
         Me.ckIntermediaire.Checked = True
         Me.ckIntermediaire.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ckIntermediaire.Location = New System.Drawing.Point(297, 82)
+        Me.ckIntermediaire.Location = New System.Drawing.Point(354, 82)
         Me.ckIntermediaire.Name = "ckIntermediaire"
         Me.ckIntermediaire.Size = New System.Drawing.Size(86, 17)
         Me.ckIntermediaire.TabIndex = 77
@@ -223,7 +225,7 @@ Public Class frmFournisseurTab
         'cbxDossier
         '
         Me.cbxDossier.FormattingEnabled = True
-        Me.cbxDossier.Location = New System.Drawing.Point(400, 82)
+        Me.cbxDossier.Location = New System.Drawing.Point(457, 82)
         Me.cbxDossier.Name = "cbxDossier"
         Me.cbxDossier.Size = New System.Drawing.Size(121, 21)
         Me.cbxDossier.TabIndex = 78
@@ -239,10 +241,21 @@ Public Class frmFournisseurTab
         Me.ckEspFrn.Text = "Espace Fournisseur VNC"
         Me.ckEspFrn.UseVisualStyleBackColor = True
         '
+        'ckArchive
+        '
+        Me.ckArchive.AutoSize = True
+        Me.ckArchive.Location = New System.Drawing.Point(195, 82)
+        Me.ckArchive.Name = "ckArchive"
+        Me.ckArchive.Size = New System.Drawing.Size(62, 17)
+        Me.ckArchive.TabIndex = 80
+        Me.ckArchive.Text = "Archivé"
+        Me.ckArchive.UseVisualStyleBackColor = True
+        '
         'frmFournisseurTab
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(968, 734)
+        Me.Controls.Add(Me.ckArchive)
         Me.Controls.Add(Me.ckEspFrn)
         Me.Controls.Add(Me.cbxDossier)
         Me.Controls.Add(Me.ckIntermediaire)
@@ -267,6 +280,7 @@ Public Class frmFournisseurTab
         Me.Controls.SetChildIndex(Me.ckIntermediaire, 0)
         Me.Controls.SetChildIndex(Me.cbxDossier, 0)
         Me.Controls.SetChildIndex(Me.ckEspFrn, 0)
+        Me.Controls.SetChildIndex(Me.ckArchive, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -283,7 +297,7 @@ Public Class frmFournisseurTab
     End Function 'getResume
 
     Protected Overrides Function creerElement() As Boolean
-        Debug.Assert(Not isfrmUpdated, "La fenetre n'est pas libre")
+        Debug.Assert(Not isfrmUpdated(), "La fenetre n'est pas libre")
 
         setElementCourant2(New Fournisseur("", ""))
 
@@ -311,6 +325,7 @@ Public Class frmFournisseurTab
             ckIntermediaire.Checked = objFournisseur.bIntermdiaire
             cbxDossier.Text = objFournisseur.Dossier
             ckEspFrn.Checked = objFournisseur.EspFrn
+            ckArchive.Checked = objFournisseur.bArchive
         End If
 
         Return bReturn
@@ -329,6 +344,7 @@ Public Class frmFournisseurTab
                 objFournisseur.bIntermdiaire = ckIntermediaire.Checked
                 objFournisseur.Dossier = cbxDossier.Text
                 objFournisseur.EspFrn = ckEspFrn.Checked
+                objFournisseur.bArchive = ckArchive.Checked
                 bReturn = True
             Catch ex As Exception
                 DisplayError("frmFournisseur.MAJElement", ex.ToString())
@@ -431,6 +447,18 @@ Public Class frmFournisseurTab
             cbxDossier.Visible = False
         Else
             cbxDossier.Visible = True
+        End If
+    End Sub
+
+    Private Sub ckArchive_CheckedChanged(sender As Object, e As EventArgs) Handles ckArchive.CheckedChanged
+        If ckArchive.Checked Then
+            Me.BackColor = Color.Orange
+            EnableControls(False)
+            ckArchive.Enabled = True
+        Else
+            Me.BackColor = SystemColors.Control
+            EnableControls(True)
+
         End If
     End Sub
 End Class

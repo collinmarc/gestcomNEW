@@ -511,7 +511,7 @@ Public MustInherit Class Persist
         Debug.Assert(Me.GetType.Name.Equals("Fournisseur"), "Object de type Fournisseur requis")
 
         Dim sqlString As String = "INSERT INTO FOURNISSEUR( " &
-                                    "FRN_CODE, FRN_NOM, FRN_RS, FRN_RIB1, FRN_RIB2, FRN_RIB3, FRN_RIB4,  FRN_BANQUE, FRN_RGN_ID , FRN_SIRET, FRN_TVAINTRACOM , FRN_RGLMT_ID, FRN_ADR_IDENT,FRN_BEXP_INTERNET, FRN_COMPTA, FRN_ID_MRGLMT1,FRN_ID_MRGLMT2,FRN_ID_MRGLMT3,FRN_IDPRESTASHOP, FRN_BINTERMEDIAIRE, FRN_DOSSIER, FRN_BESPFRN )" &
+                                    "FRN_CODE, FRN_NOM, FRN_RS, FRN_RIB1, FRN_RIB2, FRN_RIB3, FRN_RIB4,  FRN_BANQUE, FRN_RGN_ID , FRN_SIRET, FRN_TVAINTRACOM , FRN_RGLMT_ID, FRN_ADR_IDENT,FRN_BEXP_INTERNET, FRN_COMPTA, FRN_ID_MRGLMT1,FRN_ID_MRGLMT2,FRN_ID_MRGLMT3,FRN_IDPRESTASHOP, FRN_BINTERMEDIAIRE, FRN_DOSSIER, FRN_BESPFRN, FRN_BARCHIVE )" &
                                   " VALUES (" &
                                     "?, " &
                                     "?, " &
@@ -525,6 +525,7 @@ Public MustInherit Class Persist
                                     "?," &
                                     "?," &
                                     "?," &
+                                    "?, " &
                                     "?, " &
                                     "?, " &
                                     "?, " &
@@ -570,6 +571,7 @@ Public MustInherit Class Persist
         CreateParamP_FRN_BINTERMEDIAIRE(objOLeDBCommand)
         CreateParamP_FRN_DOSSIER(objOLeDBCommand)
         CreateParamP_FRN_BESPFRN(objOLeDBCommand)
+        CreateParamP_FRN_BARCHIVE(objOLeDBCommand)
         m_dbconn.BeginTransaction()
         objOLeDBCommand.Transaction = m_dbconn.transaction
         Try
@@ -735,8 +737,8 @@ Public MustInherit Class Persist
         objCLT = CType(Me, Client)
 
         Dim sqlString As String = "INSERT INTO CLIENT( " &
-                                    "CLT_CODE, CLT_NOM, CLT_RS,  CLT_RIB1, CLT_RIB2, CLT_RIB3, CLT_RIB4,  CLT_BANQUE, CLT_TYPE_ID , CLT_SIRET, CLT_TVAINTRACOM , CLT_RGLMT_ID , CLT_ADR_IDENT, CLT_CODETARIF, CLT_COMPTA, CLT_ID_MRGLMT1,CLT_ID_MRGLMT2,CLT_ID_MRGLMT3, CLT_IDPRESTASHOP, CLT_ORIGINE, CLT_IBAN, CLT_BIC)" &
-                                  " VALUES (?,?,?,?,?,?,?,?,?,?,?,?, ?, ?, ?,?,?,?,?,?,?,?" &
+                                    "CLT_CODE, CLT_NOM, CLT_RS,  CLT_RIB1, CLT_RIB2, CLT_RIB3, CLT_RIB4,  CLT_BANQUE, CLT_TYPE_ID , CLT_SIRET, CLT_TVAINTRACOM , CLT_RGLMT_ID , CLT_ADR_IDENT, CLT_CODETARIF, CLT_COMPTA, CLT_ID_MRGLMT1,CLT_ID_MRGLMT2,CLT_ID_MRGLMT3, CLT_IDPRESTASHOP, CLT_ORIGINE, CLT_IBAN, CLT_BIC, CLT_BARCHIVE)" &
+                                  " VALUES (?,?,?,?,?,?,?,?,?,?,?,?, ?, ?, ?,?,?,?,?,?,?,?,?" &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objOLeDBCommandID As OleDbCommand
@@ -772,6 +774,7 @@ Public MustInherit Class Persist
         CreateParamP_CLT_ORIGINE(objOLeDBCommand)
         CreateParamP_CLT_IBAN(objOLeDBCommand)
         CreateParamP_CLT_BIC(objOLeDBCommand)
+        CreateParamP_CLT_BARCHIVE(objOLeDBCommand)
         m_dbconn.BeginTransaction()
         objOLeDBCommand.Transaction = m_dbconn.transaction
         Try
@@ -958,7 +961,8 @@ Public MustInherit Class Persist
                                         "FRN_IDPRESTASHOP = ?, " &
                                         "FRN_BINTERMEDIAIRE = ?, " &
                                         "FRN_DOSSIER = ?, " &
-                                        "FRN_BESPFRN = ? " &
+                                        "FRN_BESPFRN = ?, " &
+                                        "FRN_BARCHIVE = ? " &
                                   " WHERE FRN_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
 
@@ -992,6 +996,7 @@ Public MustInherit Class Persist
         CreateParamP_FRN_BINTERMEDIAIRE(objOLeDBCommand)
         CreateParamP_FRN_DOSSIER(objOLeDBCommand)
         CreateParamP_FRN_BESPFRN(objOLeDBCommand)
+        CreateParamP_FRN_BARCHIVE(objOLeDBCommand)
         CreateParameterP_ID(objOLeDBCommand)
 
 
@@ -1046,7 +1051,8 @@ Public MustInherit Class Persist
                                         "CLT_IDPRESTASHOP = ?, " &
                                         "CLT_ORIGINE = ?, " &
                                         "CLT_IBAN = ?, " &
-                                        "CLT_BIC = ? " &
+                                        "CLT_BIC = ?, " &
+                                        "CLT_BARCHIVE = ? " &
                                   " WHERE CLT_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
 
@@ -1080,6 +1086,7 @@ Public MustInherit Class Persist
         CreateParamP_CLT_ORIGINE(objOLeDBCommand)
         CreateParamP_CLT_IBAN(objOLeDBCommand)
         CreateParamP_CLT_BIC(objOLeDBCommand)
+        CreateParamP_CLT_BARCHIVE(objOLeDBCommand)
         CreateParameterP_ID(objOLeDBCommand)
 
 
@@ -1174,7 +1181,7 @@ Public MustInherit Class Persist
                                     " FRN_LIV_TEL, FRN_LIV_FAX, FRN_LIV_PORT, FRN_LIV_EMAIL, " &
                                     " FRN_FACT_NOM, FRN_FACT_RUE1, FRN_FACT_RUE2, FRN_FACT_CP, FRN_FACT_VILLE, " &
                                     " FRN_FACT_TEL, FRN_FACT_FAX, FRN_FACT_PORT, FRN_FACT_EMAIL, FRN_ADR_IDENT, " &
-                                    " FRN_COM_CMD, FRN_COM_LIV, FRN_COM_FACT, FRN_COM_LIBRE,FRN_BEXP_INTERNET, FRN_COMPTA, FRN_ID_MRGLMT1,FRN_ID_MRGLMT2,FRN_ID_MRGLMT3, FRN_IDPRESTASHOP, FRN_BINTERMEDIAIRE, FRN_DOSSIER, FRN_BESPFRN " &
+                                    " FRN_COM_CMD, FRN_COM_LIV, FRN_COM_FACT, FRN_COM_LIBRE,FRN_BEXP_INTERNET, FRN_COMPTA, FRN_ID_MRGLMT1,FRN_ID_MRGLMT2,FRN_ID_MRGLMT3, FRN_IDPRESTASHOP, FRN_BINTERMEDIAIRE, FRN_DOSSIER, FRN_BESPFRN, FRN_BARCHIVE " &
                                   " FROM (FOURNISSEUR LEFT OUTER JOIN RQ_Region ON FOURNISSEUR.FRN_RGN_ID = RQ_Region.PAR_ID) LEFT OUTER JOIN RQ_ModeReglement ON FOURNISSEUR.FRN_RGLMT_ID = RQ_ModeReglement.PAR_ID" &
                                   " WHERE FRN_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
@@ -1193,6 +1200,7 @@ Public MustInherit Class Persist
         CreateParameterP_ID(objOLeDBCommand)
 
         Try
+
             objRS = objOLeDBCommand.ExecuteReader()
             If objRS.Read Then
 
@@ -1244,17 +1252,18 @@ Public MustInherit Class Persist
                 objFRN.bIntermdiaire = getInteger(objRS, "FRN_BINTERMEDIAIRE")
                 objFRN.Dossier = GetString(objRS, "FRN_DOSSIER")
                 objFRN.EspFrn = GetBoolean(objRS, "FRN_BESPFRN")
+                objFRN.bArchive = GetBoolean(objRS, "FRN_BARCHIVE")
                 objRS.Close()
                 objRS = Nothing
-                cleanErreur()
                 bReturn = True
+
+                cleanErreur()
             End If
 
         Catch ex As Exception
             setError("LoadFRN", ex.ToString())
             bReturn = False
         End Try
-        Debug.Assert(bReturn, getErreur())
         Return bReturn
     End Function 'Load FRN
 
@@ -1327,7 +1336,7 @@ Public MustInherit Class Persist
                                     " CLT_LIV_TEL, CLT_LIV_FAX, CLT_LIV_PORT, CLT_LIV_EMAIL, " &
                                     " CLT_FACT_NOM, CLT_FACT_RUE1, CLT_FACT_RUE2, CLT_FACT_CP, CLT_FACT_VILLE, " &
                                     " CLT_FACT_TEL, CLT_FACT_FAX, CLT_FACT_PORT, CLT_FACT_EMAIL, " &
-                                    " CLT_COM_CMD, CLT_COM_LIV, CLT_COM_FACT, CLT_COM_LIBRE, CLT_CODETARIF, CLT_COMPTA, CLT_ID_MRGLMT1,CLT_ID_MRGLMT2,CLT_ID_MRGLMT3, CLT_IDPRESTASHOP,CLT_ORIGINE, CLT_IBAN, CLT_BIC " &
+                                    " CLT_COM_CMD, CLT_COM_LIV, CLT_COM_FACT, CLT_COM_LIBRE, CLT_CODETARIF, CLT_COMPTA, CLT_ID_MRGLMT1,CLT_ID_MRGLMT2,CLT_ID_MRGLMT3, CLT_IDPRESTASHOP,CLT_ORIGINE, CLT_IBAN, CLT_BIC, CLT_BARCHIVE " &
                                    " FROM (RQ_TypeClient LEFT OUTER JOIN CLIENT ON RQ_TypeClient.PAR_ID = CLIENT.CLT_TYPE_ID) LEFT OUTER JOIN RQ_ModeReglement ON CLIENT.CLT_RGLMT_ID = RQ_ModeReglement.PAR_ID" &
                                   " WHERE CLIENT.CLT_ID=? "
         Dim objOLeDBCommand As OleDbCommand
@@ -1400,6 +1409,7 @@ Public MustInherit Class Persist
             objCLT.Origine = GetString(objRS, "CLT_ORIGINE")
             objCLT.IBAN = GetString(objRS, "CLT_IBAN")
             objCLT.BIC = GetString(objRS, "CLT_BIC")
+            objCLT.bArchive = GetBoolean(objRS, "CLT_BARCHIVE")
 
             objRS.Close()
             objRS = Nothing
@@ -1546,7 +1556,7 @@ Public MustInherit Class Persist
     End Function 'DeleteCLT
 
     'Renvoie une collection d'objet résumé de Fournisseur
-    Protected Shared Function ListeFRN(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRS As String = "") As List(Of Fournisseur)
+    Protected Shared Function ListeFRN(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRS As String = "", Optional pbTous As Boolean = False) As List(Of Fournisseur)
         Dim colReturn As New List(Of Fournisseur)
         Dim strWhere As String = ""
 
@@ -1582,6 +1592,13 @@ Public MustInherit Class Persist
             End If
             strWhere = strWhere & "FRN_RS LIKE ?"
             objOLeDBCommand.Parameters.AddWithValue("?", strRS)
+        End If
+        If Not pbTous Then
+            If strWhere <> "" Then
+                strWhere = strWhere & " AND "
+            End If
+            strWhere = strWhere & "FRN_BARCHIVE =  ?"
+            objOLeDBCommand.Parameters.AddWithValue("?", 0)
         End If
 
 
@@ -1622,7 +1639,7 @@ Public MustInherit Class Persist
     End Function ' LoadFRN
 
     'Renvoie une collection d'objet résumé de Client
-    Protected Shared Function ListeCLT(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRS As String = "") As Collection
+    Protected Shared Function ListeCLT(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRS As String = "", Optional pbTous As Boolean = False) As Collection
         Dim colReturn As New Collection
         Dim strWhere As String = ""
 
@@ -1649,7 +1666,7 @@ Public MustInherit Class Persist
                 strWhere = strWhere & " AND "
             End If
             strWhere = strWhere & "CLT_NOM LIKE ?"
-            objOLeDBCommand.Parameters.AddWithValue("?" , strNom)
+            objOLeDBCommand.Parameters.AddWithValue("?", strNom)
 
         End If
 
@@ -1658,8 +1675,16 @@ Public MustInherit Class Persist
                 strWhere = strWhere & " AND "
             End If
             strWhere = strWhere & "CLT_RS LIKE ?"
-            objOLeDBCommand.Parameters.AddWithValue("?" , strRS)
+            objOLeDBCommand.Parameters.AddWithValue("?", strRS)
 
+        End If
+
+        If Not pbTous Then
+            If strWhere <> "" Then
+                strWhere = strWhere & " AND "
+            End If
+            strWhere = strWhere & "CLT_BARCHIVE =  ?"
+            objOLeDBCommand.Parameters.AddWithValue("?", 0)
         End If
 
 
@@ -3629,6 +3654,11 @@ Public MustInherit Class Persist
         objFRN = Me
         objCommand.Parameters.AddWithValue("?", objFRN.EspFrn)
     End Sub
+    Private Sub CreateParamP_FRN_BARCHIVE(ByVal objCommand As OleDbCommand)
+        Dim objFRN As Fournisseur
+        objFRN = Me
+        objCommand.Parameters.AddWithValue("?", objFRN.bArchive)
+    End Sub
     Private Sub CreateParamP_FRN_DOSSIER(ByVal objCommand As OleDbCommand)
         Dim objFRN As Fournisseur
         objFRN = Me
@@ -3903,6 +3933,12 @@ Public MustInherit Class Persist
         Dim objCLT As Client
         objCLT = Me
         objCommand.Parameters.AddWithValue("?", truncate(objCLT.BIC, 50))
+    End Sub
+    Private Sub CreateParamP_CLT_BARCHIVE(ByVal objCommand As OleDbCommand)
+        '        Dim objParam As OleDbParameter
+        Dim objCLT As Client
+        objCLT = Me
+        objCommand.Parameters.AddWithValue("?", objCLT.bArchive)
     End Sub
     Private Sub CreateParamP_CLT_LIV_NOM(ByVal objCommand As OleDbCommand)
         '        Dim objParam As OleDbParameter

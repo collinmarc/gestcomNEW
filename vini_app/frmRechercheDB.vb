@@ -256,15 +256,15 @@ Public Class frmRechercheDB
                 laNom.Text = "Nom"
                 laMotCle.Text = "Raison Sociale"
                 Me.Text = "Recherche de Client"
-                laEtat.Enabled = False
-                cboEtat.Enabled = False
+                'laEtat.Enabled = False
+                'cboEtat.Enabled = False
             Case vncEnums.vncTypeDonnee.FOURNISSEUR
                 laCode.Text = "Code"
                 laNom.Text = "Nom"
                 laMotCle.Text = "Raison Sociale"
                 Me.Text = "Recherche de Fournisseur"
-                laEtat.Enabled = False
-                cboEtat.Enabled = False
+                'laEtat.Enabled = False
+                'cboEtat.Enabled = False
             Case vncEnums.vncTypeDonnee.PRODUIT
                 laCode.Text = "Code"
                 laNom.Text = "Désignation"
@@ -346,7 +346,7 @@ Public Class frmRechercheDB
         Dim objEtat As EtatCommande
 
         Select Case m_TypeDonnees
-            Case vncEnums.vncTypeDonnee.PRODUIT
+            Case vncEnums.vncTypeDonnee.PRODUIT, vncTypeDonnee.CLIENT, vncTypeDonnee.FOURNISSEUR
                 cboEtat.Items.Add("Non Archivé")
                 cboEtat.Items.Add("Tous")
                 cboEtat.SelectedIndex = 0
@@ -432,10 +432,18 @@ Public Class frmRechercheDB
         Select Case m_TypeDonnees
             Case vncTypeDonnee.CLIENT
                 Me.m_bsrc.DataSource = GetType(vini_DB.Client)
-                m_ocol = Client.getListe(tbCode.Text, tbNom.Text, tbMotCle.Text)
+                Dim bTous As Boolean = False
+                If cboEtat.SelectedItem = "Tous" Then
+                    bTous = True
+                End If
+                m_ocol = Client.getListe(tbCode.Text, tbNom.Text, tbMotCle.Text, bTous)
             Case vncTypeDonnee.FOURNISSEUR
                 Me.m_bsrc.DataSource = GetType(vini_DB.Fournisseur)
-                m_ocol = Fournisseur.getListe(tbCode.Text, tbNom.Text, tbMotCle.Text)
+                Dim bTous As Boolean = False
+                If cboEtat.SelectedItem = "Tous" Then
+                    bTous = True
+                End If
+                m_ocol = Fournisseur.getListe(tbCode.Text, tbNom.Text, tbMotCle.Text, pbTous:=bTous)
             Case vncTypeDonnee.PRODUIT
                 Me.m_bsrc.DataSource = GetType(vini_DB.Produit)
                 'Recherche des produits , les valeurs idFournisseur et idPrecommande sont initialisées à 0

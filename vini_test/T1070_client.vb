@@ -611,6 +611,78 @@ Imports vini_DB
 
 
     End Sub
+    <TestCategory("6.1.0.0")>
+    <TestMethod()> Public Sub TV61_BARCHIVE()
+        Dim objCLT As Client
+        Dim objCLT2 As Client
+        Dim n As Integer
+
+
+        'I - Création d'un Client
+        '=========================
+        objCLT = New Client("FTEST" & Now(), "")
+        Assert.IsFalse(objCLT.bArchive)
+        objCLT.nom = "TEST"
+        objCLT.rs = "RSTEST"
+        objCLT.bArchive = True
+
+        'Save
+        Assert.IsTrue(objCLT.save(), "Insert")
+
+        'II - Rechargement d'un Client
+        '=========================
+        n = objCLT.id
+        objCLT2 = Client.createandload(n)
+        Assert.IsTrue(objCLT2.bArchive, "Load bArchive")
+
+        Assert.IsTrue(objCLT.Equals(objCLT2))
+
+        'III - Modification du Client
+        '=================================
+        ' Modification du Client
+        objCLT2.nom = objCLT2.nom + "Updated"
+        objCLT2.code = "FTEST2" & Now()
+        objCLT2.bArchive = False
+
+
+        'Save
+        Assert.IsTrue(objCLT2.save(), "Update")
+
+        'Rechargement de l'objet
+        n = objCLT2.id
+        objCLT = New Client("", "")
+        Assert.IsTrue(objCLT.load(n), "Load")
+        Assert.IsFalse(objCLT.bArchive)
+        Assert.IsTrue(objCLT.Equals(objCLT2), "Apres Update , Equals")
+
+        Dim oCol As Collection = Client.getListe(strCode:="FTEST2%")
+        Assert.AreEqual(1, oCol.Count)
+
+        'Archivage du produit
+        objCLT.bArchive = True
+        Assert.IsTrue(objCLT.save(), "Update")
+        'Rechargement de la liste normale
+        oCol = Client.getListe(strCode:="FTEST2%")
+        'Verif => il n'est pas dans la liste
+        Assert.AreEqual(0, oCol.Count)
+
+        'Rechargement de la liste Avec Tous les produits
+        oCol = Client.getListe(strCode:="FTEST2%", pbTous:=True)
+        Assert.AreEqual(1, oCol.Count)
+
+
+
+        'IV - Suppression du Client
+        '=================================
+        ' Modification du Client
+        objCLT.bDeleted = True
+        Assert.IsTrue(objCLT.save(), "Delete")
+        'Rechargement dans un autre objet
+        objCLT2 = New Client("", "")
+        Assert.IsFalse(objCLT2.load(n), "Load")
+
+
+    End Sub
 End Class
 
 

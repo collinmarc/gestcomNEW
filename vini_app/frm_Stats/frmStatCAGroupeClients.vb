@@ -186,8 +186,8 @@ Public Class frmStatCAGroupeClients
         objReport.SetParameterValue("codeClient", Trim(str))
         objReport.SetParameterValue("Origine", cbxOrigine.Text)
 
-        CrystalReportViewer1.ReportSource = objReport
         Persist.setReportConnection(objReport)
+        CrystalReportViewer1.ReportSource = objReport
     End Sub
 
     Private Sub frmStatCAClient_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load

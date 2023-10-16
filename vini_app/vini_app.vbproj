@@ -193,7 +193,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="cr\crFactureColisageOLD.vb">
+    <Compile Include="cr\ADEL\crFactureColisageOLD.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crFactureColisageOLD.rpt</DependentUpon>
@@ -301,7 +301,7 @@
     <Compile Include="frmExportQuadra.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="cr\crComparatifCommandeClientParProduit.vb">
+    <Compile Include="cr\ADEL\crComparatifCommandeClientParProduit.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crComparatifCommandeClientParProduit.rpt</DependentUpon>
@@ -314,7 +314,7 @@
       <DependentUpon>crDetailCommandeClient.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="cr\crListeCAMensuelClient.vb">
+    <Compile Include="cr\ADEL\crListeCAMensuelClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeCAMensuelClient.rpt</DependentUpon>
@@ -328,7 +328,7 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crTableauCAClient.vb">
+    <Compile Include="cr\ADEL\crTableauCAClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crTableauCAClient.rpt</DependentUpon>
@@ -392,14 +392,14 @@
     <Compile Include="frmGestParamTauxTva.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="cr\crBilanFinancierClient.vb">
+    <Compile Include="cr\ADEL\crBilanFinancierClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBilanFinancierClient.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crBilanFinancierFournisseur.vb">
+    <Compile Include="cr\ADEL\crBilanFinancierFournisseur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBilanFinancierFournisseur.rpt</DependentUpon>
@@ -413,7 +413,7 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crBLTransporteur.vb">
+    <Compile Include="cr\ADEL\crBLTransporteur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBLTransporteur.rpt</DependentUpon>
@@ -427,7 +427,7 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crBonFournisseur.vb">
+    <Compile Include="cr\ADEL\crBonFournisseur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBonFournisseur.rpt</DependentUpon>
@@ -441,14 +441,14 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crCAClient.vb">
+    <Compile Include="cr\crCA1Client.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>crCAClient.rpt</DependentUpon>
+      <DependentUpon>crCA1Client.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crCAClientProducteur.vb">
+    <Compile Include="cr\ADEL\crCAClientProducteur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crCAClientProducteur.rpt</DependentUpon>
@@ -476,7 +476,7 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crComparatifCommission.vb">
+    <Compile Include="cr\ADEL\crComparatifCommission.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crComparatifCommission.rpt</DependentUpon>
@@ -560,7 +560,7 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crListeCommandeEnAttente.vb">
+    <Compile Include="cr\ADEL\crListeCommandeEnAttente.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crListeCommandeEnAttente.rpt</DependentUpon>
@@ -679,7 +679,7 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crQteCmdArticleClient.vb">
+    <Compile Include="cr\ADEL\crQteCmdArticleClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crQteCmdArticleClient.rpt</DependentUpon>
@@ -735,10 +735,10 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crStatBilanClient.vb">
+    <Compile Include="cr\crStatBilanCommercialClient.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>crStatBilanClient.rpt</DependentUpon>
+      <DependentUpon>crStatBilanCommercialClient.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -756,7 +756,7 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crStatFournisseur.vb">
+    <Compile Include="cr\ADEL\crStatFournisseur.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crStatFournisseur.rpt</DependentUpon>
@@ -784,7 +784,7 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="cr\crSyntheseESArticle.vb">
+    <Compile Include="cr\ADEL\crSyntheseESArticle.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crSyntheseESArticle.rpt</DependentUpon>
@@ -844,13 +844,13 @@
     <Compile Include="dlgVisuStockFournisseur.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Stats\frmBilanClient.vb">
+    <Compile Include="frm_Stats\frmBilanCommercialClient.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Stats\frmCAClientProducteur.vb">
+    <Compile Include="frm_Stats\frmStatCAClientProducteur.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Stats\frmCAProducteurClient.vb">
+    <Compile Include="frm_Stats\frmStatCAProducteurClient.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCheckDatabase.Designer.vb">
@@ -1084,7 +1084,7 @@
     <Compile Include="frm_Stats\frmStat.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Stats\frmStatCAClient.vb">
+    <Compile Include="frm_Stats\frmStatCA1Client.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_Stats\frmStatCAGroupeClients.vb">
@@ -1093,7 +1093,7 @@
     <Compile Include="frm_Stats\frmStatistiques.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Stats\frmStatListeCAMensuelClient.vb">
+    <Compile Include="frm_Stats\frmStatCAMensuelClient.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_Stats\frmStatProduitFournisseur.vb">
@@ -1142,12 +1142,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="cr\crBilanFinancierClient.rpt">
+    <Content Include="cr\ADEL\crBilanFinancierClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBilanFinancierClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crBilanFinancierFournisseur.rpt">
+    <Content Include="cr\ADEL\crBilanFinancierFournisseur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBilanFinancierFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1157,7 +1157,7 @@
       <LastGenOutput>crBLBonAppro.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crBLTransporteur.rpt">
+    <Content Include="cr\ADEL\crBLTransporteur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBLTransporteur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1167,7 +1167,7 @@
       <LastGenOutput>crBonAppro.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crBonFournisseur.rpt">
+    <Content Include="cr\ADEL\crBonFournisseur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBonFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1177,12 +1177,12 @@
       <LastGenOutput>crBonLivraison.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crCAClient.rpt">
+    <Content Include="cr\crCA1Client.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crCAClient.vb</LastGenOutput>
+      <LastGenOutput>crCA1Client.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crCAClientProducteur.rpt">
+    <Content Include="cr\ADEL\crCAClientProducteur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCAClientProducteur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1202,7 +1202,7 @@
       <LastGenOutput>crCAMensuelClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crComparatifCommission.rpt">
+    <Content Include="cr\ADEL\crComparatifCommission.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crComparatifCommission.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1267,7 +1267,7 @@
       <LastGenOutput>crJournalAnnoncesLivraison.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crListeCommandeEnAttente.rpt">
+    <Content Include="cr\ADEL\crListeCommandeEnAttente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeCommandeEnAttente.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1352,7 +1352,7 @@
       <LastGenOutput>crMouvementCmdArticle.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crQteCmdArticleClient.rpt">
+    <Content Include="cr\ADEL\crQteCmdArticleClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crQteCmdArticleClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1392,9 +1392,9 @@
       <LastGenOutput>crRegistreLivraison.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crStatBilanClient.rpt">
+    <Content Include="cr\crStatBilanCommercialClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crStatBilanClient.vb</LastGenOutput>
+      <LastGenOutput>crStatBilanCommercialClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="cr\crStatCAClientProducteur.rpt">
@@ -1407,7 +1407,7 @@
       <LastGenOutput>crStatCAProducteurClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crStatFournisseur.rpt">
+    <Content Include="cr\ADEL\crStatFournisseur.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crStatFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1427,7 +1427,7 @@
       <LastGenOutput>crStockFournisseur.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crSyntheseESArticle.rpt">
+    <Content Include="cr\ADEL\crSyntheseESArticle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSyntheseESArticle.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1447,17 +1447,17 @@
       <LastGenOutput>crPrecommande.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crComparatifCommandeClientParProduit.rpt">
+    <Content Include="cr\ADEL\crComparatifCommandeClientParProduit.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crComparatifCommandeClientParProduit.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crListeCAMensuelClient.rpt">
+    <Content Include="cr\ADEL\crListeCAMensuelClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crListeCAMensuelClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crTableauCAClient.rpt">
+    <Content Include="cr\ADEL\crTableauCAClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crTableauCAClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1583,7 +1583,7 @@
     <None Include="Resources\FlecheBas.jpg" />
     <None Include="Resources\DeleteHS.png" />
     <None Include="Resources\Cloud50x50.png" />
-    <EmbeddedResource Include="cr\crFactureColisageOLD.rpt">
+    <EmbeddedResource Include="cr\ADEL\crFactureColisageOLD.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactureColisageOLD.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1624,8 +1624,8 @@
     <EmbeddedResource Include="frm_espacesFournisseurs\dlgWebBrowser.resx">
       <DependentUpon>dlgWebBrowser.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Stats\frmCAProducteurClient.resx">
-      <DependentUpon>frmCAProducteurClient.vb</DependentUpon>
+    <EmbeddedResource Include="frm_Stats\frmStatCAProducteurClient.resx">
+      <DependentUpon>frmStatCAProducteurClient.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConstantes.resx">
       <DependentUpon>frmConstantes.vb</DependentUpon>
@@ -1722,12 +1722,12 @@
       <DependentUpon>dlgVisuBonFournisseur.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Stats\frmBilanClient.resx">
-      <DependentUpon>frmBilanClient.vb</DependentUpon>
+    <EmbeddedResource Include="frm_Stats\frmBilanCommercialClient.resx">
+      <DependentUpon>frmBilanCommercialClient.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Stats\frmCAClientProducteur.resx">
-      <DependentUpon>frmCAClientProducteur.vb</DependentUpon>
+    <EmbeddedResource Include="frm_Stats\frmStatCAClientProducteur.resx">
+      <DependentUpon>frmStatCAClientProducteur.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_DonBase\frmClient.resx">
@@ -1905,8 +1905,8 @@
       <DependentUpon>frmStat.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Stats\frmStatCAClient.resx">
-      <DependentUpon>frmStatCAClient.vb</DependentUpon>
+    <EmbeddedResource Include="frm_Stats\frmStatCA1Client.resx">
+      <DependentUpon>frmStatCA1Client.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Stats\frmStatCAGroupeClients.resx">
@@ -1917,8 +1917,8 @@
       <DependentUpon>frmStatistiques.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Stats\frmStatListeCAMensuelClient.resx">
-      <DependentUpon>frmStatListeCAMensuelClient.vb</DependentUpon>
+    <EmbeddedResource Include="frm_Stats\frmStatCAMensuelClient.resx">
+      <DependentUpon>frmStatCAMensuelClient.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Stats\frmStatProduitFournisseur.resx">

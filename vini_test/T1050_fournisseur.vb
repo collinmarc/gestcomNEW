@@ -355,6 +355,78 @@ Imports vini_DB
         obj.save()
 
     End Sub
+    <TestCategory("6.1.0.0")>
+    <TestMethod()> Public Sub TV61_BARCHIVE()
+        Dim oFRN As Fournisseur
+        Dim oFRN2 As Fournisseur
+        Dim n As Integer
+
+
+        'I - Création d'un Fournisseur
+        '=========================
+        oFRN = New Fournisseur("FTEST" & Now(), "")
+        Assert.IsFalse(oFRN.bArchive)
+        oFRN.nom = "TEST"
+        oFRN.rs = "RSTEST"
+        oFRN.bArchive = True
+
+        'Save
+        Assert.IsTrue(oFRN.Save(), "Insert")
+
+        'II - Rechargement d'un Fournisseur
+        '=========================
+        n = oFRN.id
+        oFRN2 = Fournisseur.createandload(n)
+        Assert.IsTrue(oFRN2.bArchive, "Load bArchive")
+
+        Assert.IsTrue(oFRN.Equals(oFRN2))
+
+        'III - Modification du Fournisseur
+        '=================================
+        ' Modification du Fournisseur
+        oFRN2.nom = oFRN2.nom + "Updated"
+        oFRN2.code = "FTEST2" & Now()
+        oFRN2.bArchive = False
+
+
+        'Save
+        Assert.IsTrue(oFRN2.Save(), "Update")
+
+        'Rechargement de l'objet
+        n = oFRN2.id
+        oFRN = New Fournisseur("", "")
+        Assert.IsTrue(oFRN.load(n), "Load")
+        Assert.IsFalse(oFRN.bArchive)
+        Assert.IsTrue(oFRN.Equals(oFRN2), "Apres Update , Equals")
+
+        Dim oCol As List(Of Fournisseur) = Fournisseur.getListe(strCode:="FTEST2%")
+        Assert.AreEqual(1, oCol.Count)
+
+        'Archivage du produit
+        oFRN.bArchive = True
+        Assert.IsTrue(oFRN.Save(), "Update")
+        'Rechargement de la liste normale
+        oCol = Fournisseur.getListe(strCode:="FTEST2%")
+        'Verif => il n'est pas dans la liste
+        Assert.AreEqual(0, oCol.Count)
+
+        'Rechargement de la liste Avec Tous les produits
+        oCol = Fournisseur.getListe(strCode:="FTEST2%", pbTous:=True)
+        Assert.AreEqual(1, oCol.Count)
+
+
+
+        'IV - Suppression du Fournisseur
+        '=================================
+        ' Modification du Fournisseur
+        oFRN.bDeleted = True
+        Assert.IsTrue(oFRN.Save(), "Delete")
+        'Rechargement dans un autre objet
+        oFRN2 = New Fournisseur("", "")
+        Assert.IsFalse(oFRN2.load(n), "Load")
+
+
+    End Sub
 
 End Class
 

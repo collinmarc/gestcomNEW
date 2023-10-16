@@ -2,7 +2,7 @@ Option Explicit On
 Imports CrystalDecisions.Shared
 Imports CrystalDecisions.CrystalReports.Engine
 Imports vini_DB
-Public Class frmCAProducteurClient
+Public Class frmStatCAProducteurClient
     Inherits frmStatistiques
 
 #Region " Code généré par le Concepteur Windows Form "
@@ -211,7 +211,7 @@ Public Class frmCAProducteurClient
             strCodeFourn = "*"
         End If
         objReport.SetParameterValue("codeFourn", strCodeFourn)
-        objReport.SetParameterValue("Origine", Trim(cbxOrigine.text))
+        objReport.SetParameterValue("Origine", Trim(cbxOrigine.Text))
 
         Persist.setReportConnection(objReport)
         CrystalReportViewer1.ReportSource = objReport

@@ -1196,7 +1196,7 @@ Friend Class frmMain2
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 228)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 208)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1223,7 +1223,7 @@ Friend Class frmMain2
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 250)
+        Me.ClientSize = New System.Drawing.Size(890, 230)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
@@ -1523,7 +1523,7 @@ Friend Class frmMain2
 
     Private Sub mnuBilanComClient_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuStat_BilanComClient.Click
         Dim ofrm As FrmVinicom
-        ofrm = New frmBilanClient
+        ofrm = New frmBilanCommercialClient
         ofrm.MdiParent = Me
         ofrm.Show()
 
@@ -1539,7 +1539,7 @@ Friend Class frmMain2
 
     Private Sub mnuCAGroupeClients_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuStat_CAClientMensuel.Click
         Dim ofrm As FrmVinicom
-        ofrm = New frmStatListeCAMensuelClient
+        ofrm = New frmStatCAMensuelClient
 
         ofrm.MdiParent = Me
         ofrm.Show()
@@ -1732,7 +1732,7 @@ Friend Class frmMain2
     End Sub
     Private Sub mnuCA1Client_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuStat_CA1Client.Click
         Dim ofrm As FrmVinicom
-        ofrm = New frmStatCAClient
+        ofrm = New frmStatCA1Client
         ofrm.MdiParent = Me
         ofrm.Show()
 
@@ -1948,14 +1948,14 @@ Friend Class frmMain2
 
     Private Sub mnuStatCAClientProducteur_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuStat_StatCAClientProducteur.Click
         Dim ofrm As FrmVinicom
-        ofrm = New frmCAClientProducteur
+        ofrm = New frmStatCAClientProducteur
         ofrm.MdiParent = Me
         ofrm.Show()
     End Sub
 
     Private Sub mnuStatCAProducteurClient_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuStat_StatCAProducteurClient.Click
         Dim ofrm As FrmVinicom
-        ofrm = New frmCAProducteurClient
+        ofrm = New frmStatCAProducteurClient
         ofrm.MdiParent = Me
         ofrm.Show()
     End Sub

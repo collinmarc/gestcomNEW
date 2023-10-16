@@ -2,7 +2,7 @@ Option Explicit On
 Imports CrystalDecisions.Shared
 Imports CrystalDecisions.CrystalReports.Engine
 Imports vini_DB
-Public Class frmCAClientProducteur
+Public Class frmStatCAClientProducteur
     Inherits frmStatistiques
 
 #Region " Code généré par le Concepteur Windows Form "

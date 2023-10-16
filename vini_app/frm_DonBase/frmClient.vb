@@ -47,6 +47,7 @@ Public Class frmClient
     Friend WithEvents Label26 As Label
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents ckArchive As CheckBox
     Friend WithEvents cbPrecommande As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.cboTypeClient = New System.Windows.Forms.ComboBox()
@@ -64,6 +65,7 @@ Public Class frmClient
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.ckArchive = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'cboTypeClient
@@ -209,10 +211,21 @@ Public Class frmClient
         Me.TextBox4.Size = New System.Drawing.Size(350, 20)
         Me.TextBox4.TabIndex = 110
         '
+        'ckArchive
+        '
+        Me.ckArchive.AutoSize = True
+        Me.ckArchive.Location = New System.Drawing.Point(525, 10)
+        Me.ckArchive.Name = "ckArchive"
+        Me.ckArchive.Size = New System.Drawing.Size(62, 17)
+        Me.ckArchive.TabIndex = 75
+        Me.ckArchive.Text = "Archivé"
+        Me.ckArchive.UseVisualStyleBackColor = True
+        '
         'frmClient
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(968, 734)
+        Me.Controls.Add(Me.ckArchive)
         Me.Controls.Add(Me.cbxOrigine)
         Me.Controls.Add(Me.laOrigine)
         Me.Controls.Add(Me.cbxCodeTarif)
@@ -233,6 +246,7 @@ Public Class frmClient
         Me.Controls.SetChildIndex(Me.cbxCodeTarif, 0)
         Me.Controls.SetChildIndex(Me.laOrigine, 0)
         Me.Controls.SetChildIndex(Me.cbxOrigine, 0)
+        Me.Controls.SetChildIndex(Me.ckArchive, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -286,8 +300,14 @@ Public Class frmClient
 
             tbIBAN.Text = objclient.IBAN
             tbBIC.Text = objclient.BIC
+            ckArchive.Checked = objclient.bArchive
+            If ckArchive.Checked Then
+                Me.BackColor = Color.Orange
+                EnableControls(False)
+                ckArchive.Enabled = True
+            End If
         End If
-        Return bReturn
+            Return bReturn
     End Function 'AfficheElementCourant
 
     Public Overrides Function MAJElement() As Boolean
@@ -303,6 +323,7 @@ Public Class frmClient
                 objClient.Origine = cbxOrigine.Text
                 objClient.IBAN = tbIBAN.Text
                 objClient.BIC = tbBIC.Text
+                objClient.bArchive = ckArchive.Checked
 
                 bReturn = True
             Catch ex As Exception
@@ -401,5 +422,17 @@ Public Class frmClient
 
     Private Sub Label23_Click(sender As Object, e As EventArgs) Handles Label2311.Click
 
+    End Sub
+
+    Private Sub ckArchive_CheckedChanged(sender As Object, e As EventArgs) Handles ckArchive.CheckedChanged
+        If ckArchive.Checked Then
+            Me.BackColor = Color.Orange
+            EnableControls(False)
+            ckArchive.Enabled = True
+        Else
+            Me.BackColor = SystemColors.Control
+            EnableControls(True)
+            ckArchive.Enabled = True
+        End If
     End Sub
 End Class

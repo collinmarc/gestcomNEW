@@ -52,16 +52,28 @@ Public Class Fournisseur
             m_nEspFrn = value
         End Set
     End Property
+    Private _bArchive As Boolean
+    Public Property bArchive() As Boolean
+        Get
+            Return _bArchive
+        End Get
+        Set(ByVal value As Boolean)
+            If value <> bArchive Then
+                _bArchive = value
+                RaiseUpdated()
+            End If
+        End Set
+    End Property
     '=======================================================================
     '                           METHODE DE CLASSE                          |  
     'Fonction : getListe 
     'Description : Liste des Fournisseurs
     'Retour : Rend une collection de fournisseurs
     '=======================================================================
-    Public Shared Function getListe(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRs As String = "") As List(Of Fournisseur)
+    Public Shared Function getListe(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRs As String = "", Optional pbTous As Boolean = False) As List(Of Fournisseur)
         Dim colReturn As List(Of Fournisseur)
         shared_connect()
-        colReturn = ListeFRN(strCode, strNom, strRs)
+        colReturn = ListeFRN(strCode, strNom, strRs, pbTous)
         shared_disconnect()
         Return colReturn
     End Function
@@ -315,6 +327,7 @@ Public Class Fournisseur
         m_libRegion = Param.regiondefaut.valeur
         m_bExportInternet = 1
         m_dossier = ""
+        bArchive = False
     End Sub
     Public Sub New()
         MyBase.New("", "")
@@ -322,6 +335,7 @@ Public Class Fournisseur
         m_idRegion = Param.regiondefaut.id
         m_libRegion = Param.regiondefaut.valeur
         m_bExportInternet = 1
+        bArchive = False
     End Sub
 
     '=======================================================================

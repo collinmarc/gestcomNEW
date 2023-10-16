@@ -1,8 +1,7 @@
-Option Explicit On 
 Imports CrystalDecisions.Shared
 Imports CrystalDecisions.CrystalReports.Engine
 Imports vini_DB
-Public Class frmBilanClient
+Public Class frmStatCA1Client
     Inherits frmStatistiques
 
 #Region " Code généré par le Concepteur Windows Form "
@@ -14,6 +13,7 @@ Public Class frmBilanClient
         InitializeComponent()
 
         'Ajoutez une initialisation quelconque après l'appel InitializeComponent()
+
     End Sub
 
     'La méthode substituée Dispose du formulaire pour nettoyer la liste des composants.
@@ -36,11 +36,12 @@ Public Class frmBilanClient
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbAfficher As System.Windows.Forms.Button
     Friend WithEvents dtdeb As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents tbCodeClient As System.Windows.Forms.TextBox
-    Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents dtFin As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents tbcodeClient As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
+    Friend WithEvents cbRechercher As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtdeb = New System.Windows.Forms.DateTimePicker()
@@ -48,111 +49,120 @@ Public Class frmBilanClient
         Me.dtFin = New System.Windows.Forms.DateTimePicker()
         Me.cbAfficher = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.tbCodeClient = New System.Windows.Forms.TextBox()
-        Me.cbxOrigine = New System.Windows.Forms.ComboBox()
+        Me.tbcodeClient = New System.Windows.Forms.TextBox()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.cbxOrigine = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(9, 12)
+        Me.Label1.Location = New System.Drawing.Point(8, 8)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 16)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Date de début :"
+        Me.Label1.Size = New System.Drawing.Size(120, 24)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Date de Début"
         '
         'dtdeb
         '
         Me.dtdeb.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtdeb.Location = New System.Drawing.Point(99, 8)
+        Me.dtdeb.Location = New System.Drawing.Point(104, 8)
         Me.dtdeb.Name = "dtdeb"
         Me.dtdeb.Size = New System.Drawing.Size(136, 20)
-        Me.dtdeb.TabIndex = 1
+        Me.dtdeb.TabIndex = 2
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(241, 10)
+        Me.Label2.Location = New System.Drawing.Point(248, 8)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(69, 16)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Date de fin :"
+        Me.Label2.Size = New System.Drawing.Size(88, 24)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Date de Fin"
         '
         'dtFin
         '
         Me.dtFin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtFin.Location = New System.Drawing.Point(316, 8)
+        Me.dtFin.Location = New System.Drawing.Point(336, 8)
         Me.dtFin.Name = "dtFin"
         Me.dtFin.Size = New System.Drawing.Size(104, 20)
-        Me.dtFin.TabIndex = 3
+        Me.dtFin.TabIndex = 4
         '
         'cbAfficher
         '
-        Me.cbAfficher.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbAfficher.Location = New System.Drawing.Point(820, 5)
+        Me.cbAfficher.Location = New System.Drawing.Point(808, 8)
         Me.cbAfficher.Name = "cbAfficher"
         Me.cbAfficher.Size = New System.Drawing.Size(120, 23)
-        Me.cbAfficher.TabIndex = 6
+        Me.cbAfficher.TabIndex = 7
         Me.cbAfficher.Text = "Afficher"
         '
         'Label3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(437, 10)
+        Me.Label3.Location = New System.Drawing.Point(448, 8)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(66, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Code client :"
+        Me.Label3.Size = New System.Drawing.Size(64, 24)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Code Client"
         '
-        'tbCodeClient
+        'tbcodeClient
         '
-        Me.tbCodeClient.Location = New System.Drawing.Point(510, 8)
-        Me.tbCodeClient.Name = "tbCodeClient"
-        Me.tbCodeClient.Size = New System.Drawing.Size(116, 20)
-        Me.tbCodeClient.TabIndex = 5
+        Me.tbcodeClient.Location = New System.Drawing.Point(512, 8)
+        Me.tbcodeClient.Name = "tbcodeClient"
+        Me.tbcodeClient.Size = New System.Drawing.Size(100, 20)
+        Me.tbcodeClient.TabIndex = 6
+        '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(616, 8)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(104, 24)
+        Me.cbRechercher.TabIndex = 9
+        Me.cbRechercher.Text = "Rechercher"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(13, 36)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(46, 13)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Origine :"
         '
         'cbxOrigine
         '
         Me.cbxOrigine.FormattingEnabled = True
         Me.cbxOrigine.Items.AddRange(New Object() {Dossier.VINICOM, Dossier.HOBIVIN})
-        Me.cbxOrigine.Location = New System.Drawing.Point(99, 35)
+        Me.cbxOrigine.Location = New System.Drawing.Point(104, 36)
         Me.cbxOrigine.Name = "cbxOrigine"
         Me.cbxOrigine.Size = New System.Drawing.Size(136, 21)
-        Me.cbxOrigine.TabIndex = 7
+        Me.cbxOrigine.TabIndex = 11
         Me.cbxOrigine.Text = Dossier.VINICOM
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 38)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(46, 13)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Origine :"
-        '
-        'frmBilanClient
+        'frmStatCAClient
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(976, 678)
-        Me.Controls.Add(Me.Label4)
+        Me.ClientSize = New System.Drawing.Size(1000, 678)
         Me.Controls.Add(Me.cbxOrigine)
-        Me.Controls.Add(Me.tbCodeClient)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.cbRechercher)
+        Me.Controls.Add(Me.tbcodeClient)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbAfficher)
         Me.Controls.Add(Me.dtFin)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtdeb)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "frmBilanClient"
-        Me.Text = "Bilan commercial Client"
+        Me.Name = "frmStatCAClient"
+        Me.Text = "CA Client par client"
         Me.Controls.SetChildIndex(Me.Label1, 0)
         Me.Controls.SetChildIndex(Me.dtdeb, 0)
         Me.Controls.SetChildIndex(Me.Label2, 0)
         Me.Controls.SetChildIndex(Me.dtFin, 0)
         Me.Controls.SetChildIndex(Me.cbAfficher, 0)
         Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbCodeClient, 0)
-        Me.Controls.SetChildIndex(Me.cbxOrigine, 0)
+        Me.Controls.SetChildIndex(Me.tbcodeClient, 0)
+        Me.Controls.SetChildIndex(Me.cbRechercher, 0)
         Me.Controls.SetChildIndex(Me.Label4, 0)
+        Me.Controls.SetChildIndex(Me.cbxOrigine, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -160,46 +170,58 @@ Public Class frmBilanClient
 
 #End Region
 
+#Region "Méthodes privées"
+    Private Sub initFenetre()
+        dtFin.Value = Now()
+        dtdeb.Value = CDate("01/01/" & Year(Now()))
+    End Sub
+    Private Sub rechercheClient()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.CLIENT, tbcodeClient)
+
+        If Not objTiers Is Nothing Then
+            tbcodeClient.Text = objTiers.code
+        End If
+    End Sub 'rechercheClient
+#End Region
+
 
     Private Sub cbAfficher_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbAfficher.Click
+
         Dim objReport As ReportDocument
         Dim anneeN_1 As Integer
-        Dim strCodeClient As String
-        CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.GroupTree
+        Dim str As String
 
         objReport = New ReportDocument
-        objReport.Load(PATHTOREPORTS & "crStatBilanClient.rpt")
+        objReport.Load(PATHTOREPORTS & "crCAClient.rpt")
+
+
         objReport.SetParameterValue("ddeb", Me.dtdeb.Value.ToShortDateString())
         objReport.SetParameterValue("dfin", Me.dtFin.Value.ToShortDateString())
+
         anneeN_1 = Year(DateAdd(DateInterval.Year, -1, dtdeb.Value))
         objReport.SetParameterValue("N-1", anneeN_1)
-        strCodeClient = tbCodeClient.Text
-        strCodeClient = strCodeClient.Replace("%", "*")
-        If String.IsNullOrEmpty(strCodeClient) Then
-            strCodeClient = "*"
-        End If
-        objReport.SetParameterValue("codeClient", strCodeClient)
-        objReport.SetParameterValue("Origine", cbxOrigine.Text)
+
+        str = tbcodeClient.Text
+        objReport.SetParameterValue("codeClient", Trim(str))
+        str = cbxOrigine.Text
+        objReport.SetParameterValue("Origine", Trim(str))
+
 
         Persist.setReportConnection(objReport)
         CrystalReportViewer1.ReportSource = objReport
-
-
     End Sub
 
-    Protected Overrides Sub setToolbarButtons()
-        m_ToolBarNewEnabled = False
-        m_ToolBarLoadEnabled = False
-        m_ToolBarSaveEnabled = False
-        m_ToolBarDelEnabled = False
-        m_ToolBarRefreshEnabled = False
+    Private Sub frmStatCAClient_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        initFenetre()
     End Sub
 
-    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
+    Public Overrides Function getResume() As String
+        Return "CA Client"
+    End Function
 
-    End Sub
-
-    Private Sub frmBilanClient_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        dtdeb.Value = CDate("01/01/" & Year(DateTime.Now))
+    Private Sub cbRechercher_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbRechercher.Click
+        rechercheClient()
     End Sub
 End Class

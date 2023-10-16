@@ -69,11 +69,11 @@ Public Class Client
     'Description : Liste des Clients
     'Retour : Rend une collection de Clients
     '=======================================================================
-    Public Shared Function getListe(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRS As String = "") As Collection
+    Public Shared Function getListe(Optional ByVal strCode As String = "", Optional ByVal strNom As String = "", Optional ByVal strRS As String = "", Optional pbTous As Boolean = False) As Collection
         Dim colReturn As Collection
 
         Persist.shared_connect()
-        colReturn = ListeCLT(strCode, strNom, strRS)
+        colReturn = ListeCLT(strCode, strNom, strRS, pbTous:=pbTous)
         Persist.shared_disconnect()
         Return colReturn
     End Function
@@ -152,6 +152,18 @@ Public Class Client
         Get
             Return m_oPreCommande
         End Get
+    End Property
+    Private _bBarchive As Boolean
+    Public Property bArchive() As Boolean
+        Get
+            Return _bBarchive
+        End Get
+        Set(ByVal value As Boolean)
+            If value <> bArchive Then
+                RaiseUpdated()
+                _bBarchive = value
+            End If
+        End Set
     End Property
     Public Shared Function createandload(ByVal pid As Long) As Client
         '=======================================================================
@@ -413,6 +425,7 @@ Public Class Client
                 bReturn = bReturn And (objclt.CodeTarif.Equals(Me.CodeTarif))
                 bReturn = bReturn And (objclt.IBAN.Equals(Me.IBAN))
                 bReturn = bReturn And (objclt.BIC.Equals(Me.BIC))
+                bReturn = bReturn And (objclt.bArchive.Equals(Me.bArchive))
             End If
 
             Return bReturn
@@ -439,6 +452,7 @@ Public Class Client
         m_CodeTarif = "A"
         IBAN = ""
         BIC = ""
+        bArchive = False
     End Sub 'New
     Friend Sub New()
         MyBase.New("", "")
@@ -450,6 +464,7 @@ Public Class Client
         m_CodeTarif = "A"
         IBAN = ""
         BIC = ""
+        bArchive = False
     End Sub 'New
 
     '=======================================================================

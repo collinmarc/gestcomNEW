@@ -1,7 +1,7 @@
 Imports CrystalDecisions.Shared
 Imports CrystalDecisions.CrystalReports.Engine
 Imports vini_DB
-Public Class frmStatCAClient
+Public Class frmStatCAMensuelClient
     Inherits frmStatistiques
 
 #Region " Code généré par le Concepteur Windows Form "
@@ -38,10 +38,9 @@ Public Class frmStatCAClient
     Friend WithEvents dtdeb As System.Windows.Forms.DateTimePicker
     Friend WithEvents dtFin As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents tbcodeClient As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
-    Friend WithEvents cbRechercher As System.Windows.Forms.Button
+    Friend WithEvents tbcodeClient As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtdeb = New System.Windows.Forms.DateTimePicker()
@@ -50,7 +49,6 @@ Public Class frmStatCAClient
         Me.cbAfficher = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tbcodeClient = New System.Windows.Forms.TextBox()
-        Me.cbRechercher = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cbxOrigine = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
@@ -89,7 +87,7 @@ Public Class frmStatCAClient
         '
         'cbAfficher
         '
-        Me.cbAfficher.Location = New System.Drawing.Point(808, 8)
+        Me.cbAfficher.Location = New System.Drawing.Point(680, 8)
         Me.cbAfficher.Name = "cbAfficher"
         Me.cbAfficher.Size = New System.Drawing.Size(120, 23)
         Me.cbAfficher.TabIndex = 7
@@ -110,40 +108,31 @@ Public Class frmStatCAClient
         Me.tbcodeClient.Size = New System.Drawing.Size(100, 20)
         Me.tbcodeClient.TabIndex = 6
         '
-        'cbRechercher
-        '
-        Me.cbRechercher.Location = New System.Drawing.Point(616, 8)
-        Me.cbRechercher.Name = "cbRechercher"
-        Me.cbRechercher.Size = New System.Drawing.Size(104, 24)
-        Me.cbRechercher.TabIndex = 9
-        Me.cbRechercher.Text = "Rechercher"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(13, 36)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(46, 13)
-        Me.Label4.TabIndex = 10
+        Me.Label4.TabIndex = 8
         Me.Label4.Text = "Origine :"
         '
         'cbxOrigine
         '
         Me.cbxOrigine.FormattingEnabled = True
-        Me.cbxOrigine.Items.AddRange(New Object() {dOSSIER.VINICOM, DOSSIER.HOBIVIN})
-        Me.cbxOrigine.Location = New System.Drawing.Point(104, 36)
+        Me.cbxOrigine.Items.AddRange(New Object() {Dossier.VINICOM, Dossier.HOBIVIN})
+        Me.cbxOrigine.Location = New System.Drawing.Point(104, 33)
         Me.cbxOrigine.Name = "cbxOrigine"
         Me.cbxOrigine.Size = New System.Drawing.Size(136, 21)
-        Me.cbxOrigine.TabIndex = 11
-        Me.cbxOrigine.Text = dossier.VINICOM
+        Me.cbxOrigine.TabIndex = 9
+        Me.cbxOrigine.Text = Dossier.VINICOM
         '
-        'frmStatCAClient
+        'frmStatListeCAMensuelClient
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(1000, 678)
         Me.Controls.Add(Me.cbxOrigine)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.tbcodeClient)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbAfficher)
@@ -151,8 +140,8 @@ Public Class frmStatCAClient
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtdeb)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "frmStatCAClient"
-        Me.Text = "CA Client par client"
+        Me.Name = "frmStatListeCAMensuelClient"
+        Me.Text = "CA Client par type de client"
         Me.Controls.SetChildIndex(Me.Label1, 0)
         Me.Controls.SetChildIndex(Me.dtdeb, 0)
         Me.Controls.SetChildIndex(Me.Label2, 0)
@@ -160,7 +149,6 @@ Public Class frmStatCAClient
         Me.Controls.SetChildIndex(Me.cbAfficher, 0)
         Me.Controls.SetChildIndex(Me.Label3, 0)
         Me.Controls.SetChildIndex(Me.tbcodeClient, 0)
-        Me.Controls.SetChildIndex(Me.cbRechercher, 0)
         Me.Controls.SetChildIndex(Me.Label4, 0)
         Me.Controls.SetChildIndex(Me.cbxOrigine, 0)
         Me.ResumeLayout(False)
@@ -174,16 +162,8 @@ Public Class frmStatCAClient
     Private Sub initFenetre()
         dtFin.Value = Now()
         dtdeb.Value = CDate("01/01/" & Year(Now()))
+        tbcodeClient.Text = "%"
     End Sub
-    Private Sub rechercheClient()
-        Dim objTiers As Tiers
-
-        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.CLIENT, tbcodeClient)
-
-        If Not objTiers Is Nothing Then
-            tbcodeClient.Text = objTiers.code
-        End If
-    End Sub 'rechercheClient
 #End Region
 
 
@@ -194,7 +174,7 @@ Public Class frmStatCAClient
         Dim str As String
 
         objReport = New ReportDocument
-        objReport.Load(PATHTOREPORTS & "crCAClient.rpt")
+        objReport.Load(PATHTOREPORTS & "crCAMensuelClient.rpt")
 
 
         objReport.SetParameterValue("ddeb", Me.dtdeb.Value.ToShortDateString())
@@ -204,10 +184,9 @@ Public Class frmStatCAClient
         objReport.SetParameterValue("N-1", anneeN_1)
 
         str = tbcodeClient.Text
+        str = Replace(str, "%", "*")
         objReport.SetParameterValue("codeClient", Trim(str))
-        str = cbxOrigine.Text
-        objReport.SetParameterValue("Origine", Trim(str))
-
+        objReport.SetParameterValue("Origine", Trim(cbxOrigine.Text))
 
         Persist.setReportConnection(objReport)
         CrystalReportViewer1.ReportSource = objReport
@@ -215,13 +194,10 @@ Public Class frmStatCAClient
 
     Private Sub frmStatCAClient_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         initFenetre()
+        Me.Text = getResume()
     End Sub
 
     Public Overrides Function getResume() As String
-        Return "CA Client"
+        Return "Liste CA Mensuel client"
     End Function
-
-    Private Sub cbRechercher_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbRechercher.Click
-        rechercheClient()
-    End Sub
 End Class
