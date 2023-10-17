@@ -45,8 +45,12 @@ Public Class frmStatCAClientProducteur
     Friend WithEvents cbAfficher As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRechercherClient As Button
+    Friend WithEvents dbRechercherFournisseur As Button
     Friend WithEvents tbCodeclient As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dtDateDeb = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -58,7 +62,24 @@ Public Class frmStatCAClientProducteur
         Me.cbAfficher = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cbxOrigine = New System.Windows.Forms.ComboBox()
+        Me.cbRechercherClient = New System.Windows.Forms.Button()
+        Me.dbRechercherFournisseur = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label4
         '
@@ -107,13 +128,13 @@ Public Class frmStatCAClientProducteur
         '
         Me.tbCodeclient.Location = New System.Drawing.Point(468, 9)
         Me.tbCodeclient.Name = "tbCodeclient"
-        Me.tbCodeclient.Size = New System.Drawing.Size(78, 20)
+        Me.tbCodeclient.Size = New System.Drawing.Size(90, 20)
         Me.tbCodeclient.TabIndex = 6
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(599, 13)
+        Me.Label7.Location = New System.Drawing.Point(360, 41)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(92, 13)
         Me.Label7.TabIndex = 7
@@ -121,7 +142,7 @@ Public Class frmStatCAClientProducteur
         '
         'tbCodeFournisseur
         '
-        Me.tbCodeFournisseur.Location = New System.Drawing.Point(707, 10)
+        Me.tbCodeFournisseur.Location = New System.Drawing.Point(468, 38)
         Me.tbCodeFournisseur.Name = "tbCodeFournisseur"
         Me.tbCodeFournisseur.Size = New System.Drawing.Size(90, 20)
         Me.tbCodeFournisseur.TabIndex = 8
@@ -147,16 +168,34 @@ Public Class frmStatCAClientProducteur
         'cbxOrigine
         '
         Me.cbxOrigine.FormattingEnabled = True
-        Me.cbxOrigine.Items.AddRange(New Object() {Dossier.VINICOM, Dossier.HOBIVIN})
+        Me.cbxOrigine.Items.AddRange(New Object() {"VINICOM", "HOBIVIN"})
         Me.cbxOrigine.Location = New System.Drawing.Point(99, 35)
         Me.cbxOrigine.Name = "cbxOrigine"
         Me.cbxOrigine.Size = New System.Drawing.Size(96, 21)
         Me.cbxOrigine.TabIndex = 11
-        Me.cbxOrigine.Text = Dossier.VINICOM
+        Me.cbxOrigine.Text = "VINICOM"
         '
-        'frmCAClientProducteur
+        'cbRechercherClient
+        '
+        Me.cbRechercherClient.Location = New System.Drawing.Point(564, 7)
+        Me.cbRechercherClient.Name = "cbRechercherClient"
+        Me.cbRechercherClient.Size = New System.Drawing.Size(104, 24)
+        Me.cbRechercherClient.TabIndex = 12
+        Me.cbRechercherClient.Text = "Rechercher"
+        '
+        'dbRechercherFournisseur
+        '
+        Me.dbRechercherFournisseur.Location = New System.Drawing.Point(564, 37)
+        Me.dbRechercherFournisseur.Name = "dbRechercherFournisseur"
+        Me.dbRechercherFournisseur.Size = New System.Drawing.Size(104, 24)
+        Me.dbRechercherFournisseur.TabIndex = 13
+        Me.dbRechercherFournisseur.Text = "Rechercher"
+        '
+        'frmStatCAClientProducteur
         '
         Me.ClientSize = New System.Drawing.Size(952, 646)
+        Me.Controls.Add(Me.dbRechercherFournisseur)
+        Me.Controls.Add(Me.cbRechercherClient)
         Me.Controls.Add(Me.cbxOrigine)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.cbAfficher)
@@ -168,18 +207,7 @@ Public Class frmStatCAClientProducteur
         Me.Controls.Add(Me.dtDateFin)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.dtDateDeb)
-        Me.Name = "frmCAClientProducteur"
-        Me.Controls.SetChildIndex(Me.dtDateDeb, 0)
-        Me.Controls.SetChildIndex(Me.Label4, 0)
-        Me.Controls.SetChildIndex(Me.dtDateFin, 0)
-        Me.Controls.SetChildIndex(Me.Label5, 0)
-        Me.Controls.SetChildIndex(Me.tbCodeclient, 0)
-        Me.Controls.SetChildIndex(Me.Label6, 0)
-        Me.Controls.SetChildIndex(Me.Label7, 0)
-        Me.Controls.SetChildIndex(Me.tbCodeFournisseur, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label8, 0)
-        Me.Controls.SetChildIndex(Me.cbxOrigine, 0)
+        Me.Name = "frmStatCAClientProducteur"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -233,5 +261,31 @@ Public Class frmStatCAClientProducteur
 
     Private Sub frmBilanClient_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         dtDateDeb.Value = CDate("01/01/" & Year(DateTime.Now))
+    End Sub
+
+    Private Sub cbRechercherClient_Click(sender As Object, e As EventArgs) Handles cbRechercherClient.Click
+        rechercheClient()
+    End Sub
+    Private Sub rechercheClient()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.CLIENT, tbCodeclient)
+
+        If Not objTiers Is Nothing Then
+            tbCodeclient.Text = objTiers.code
+        End If
+    End Sub 'rechercheClient
+    Private Sub rechercheFournisseur()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.FOURNISSEUR, tbCodeFournisseur)
+
+        If Not objTiers Is Nothing Then
+            tbCodeFournisseur.Text = objTiers.code
+        End If
+    End Sub 'rechercheFournisseur
+
+    Private Sub dbRechercherFournisseur_Click(sender As Object, e As EventArgs) Handles dbRechercherFournisseur.Click
+        rechercheFournisseur()
     End Sub
 End Class

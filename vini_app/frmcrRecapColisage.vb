@@ -40,8 +40,11 @@ Public Class frmcrRecapColisage
     Friend WithEvents cbxDossier As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents tbIdFacture As System.Windows.Forms.TextBox
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRechercher As Button
     Friend WithEvents lblFournisseur As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtMois = New System.Windows.Forms.DateTimePicker()
         Me.cbAfficher = New System.Windows.Forms.Button()
@@ -51,7 +54,23 @@ Public Class frmcrRecapColisage
         Me.cbxDossier = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tbIdFacture = New System.Windows.Forms.TextBox()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
@@ -127,10 +146,20 @@ Public Class frmcrRecapColisage
         Me.tbIdFacture.Size = New System.Drawing.Size(130, 20)
         Me.tbIdFacture.TabIndex = 11
         '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(665, 7)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(75, 23)
+        Me.cbRechercher.TabIndex = 12
+        Me.cbRechercher.Text = "Rechercher"
+        Me.cbRechercher.UseVisualStyleBackColor = True
+        '
         'frmcrRecapColisage
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(1000, 678)
+        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.tbIdFacture)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbxDossier)
@@ -142,15 +171,6 @@ Public Class frmcrRecapColisage
         Me.Controls.Add(Me.dtMois)
         Me.Name = "frmcrRecapColisage"
         Me.Text = "Récapitulatif Colisage"
-        Me.Controls.SetChildIndex(Me.dtMois, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label1, 0)
-        Me.Controls.SetChildIndex(Me.tbCodeFourn, 0)
-        Me.Controls.SetChildIndex(Me.lblFournisseur, 0)
-        Me.Controls.SetChildIndex(Me.Label2, 0)
-        Me.Controls.SetChildIndex(Me.cbxDossier, 0)
-        Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbIdFacture, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -201,20 +221,20 @@ Public Class frmcrRecapColisage
 
         Dim objReport As New ReportDocument
         Dim strReportName As String
-            Using r1 As New crRecapColisageJournalier()
-                strReportName = r1.ResourceName
-            End Using
+        Using r1 As New crRecapColisageJournalier()
+            strReportName = r1.ResourceName
+        End Using
 
-            objReport.Load(PATHTOREPORTS & strReportName)
-                setReportConnection(objReport)
-                objReport.SetDataSource(oDS)
-                'Les paramètres sont passé juste pour informations car ils ne sont pas utilisé
+        objReport.Load(PATHTOREPORTS & strReportName)
+        setReportConnection(objReport)
+        objReport.SetDataSource(oDS)
+        'Les paramètres sont passé juste pour informations car ils ne sont pas utilisé
 
-                objReport.SetParameterValue("Periode", periode)
-                objReport.SetParameterValue("NbJour", nbJour)
-                objReport.SetParameterValue("NbJour", nbJour)
+        objReport.SetParameterValue("Periode", periode)
+        objReport.SetParameterValue("NbJour", nbJour)
+        objReport.SetParameterValue("NbJour", nbJour)
 
-                CrystalReportViewer1.ReportSource = objReport
+        CrystalReportViewer1.ReportSource = objReport
         Me.Cursor = Cursors.Default
 
     End Sub
@@ -269,4 +289,18 @@ Public Class frmcrRecapColisage
             tbCodeFourn.Visible = False
         End If
     End Sub
+
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        rechercheFournisseur()
+    End Sub
+    Private Sub rechercheFournisseur()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.FOURNISSEUR, tbCodeFourn)
+
+        If Not objTiers Is Nothing Then
+            tbCodeFourn.Text = objTiers.code
+        End If
+    End Sub 'rechercheClient
+
 End Class

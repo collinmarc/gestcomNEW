@@ -39,8 +39,11 @@ Public Class frmHistoriqueArticles
     Friend WithEvents dtdeb As System.Windows.Forms.DateTimePicker
     Friend WithEvents dtFin As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRechercher As Button
     Friend WithEvents tbCodeArticle As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtdeb = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -48,11 +51,27 @@ Public Class frmHistoriqueArticles
         Me.cbAfficher = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tbCodeArticle = New System.Windows.Forms.TextBox()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(8, 8)
+        Me.Label1.Location = New System.Drawing.Point(12, 8)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(120, 24)
         Me.Label1.TabIndex = 1
@@ -68,7 +87,7 @@ Public Class frmHistoriqueArticles
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(272, 8)
+        Me.Label2.Location = New System.Drawing.Point(270, 11)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(88, 24)
         Me.Label2.TabIndex = 3
@@ -84,7 +103,7 @@ Public Class frmHistoriqueArticles
         '
         'cbAfficher
         '
-        Me.cbAfficher.Location = New System.Drawing.Point(656, 8)
+        Me.cbAfficher.Location = New System.Drawing.Point(820, 12)
         Me.cbAfficher.Name = "cbAfficher"
         Me.cbAfficher.Size = New System.Drawing.Size(120, 23)
         Me.cbAfficher.TabIndex = 3
@@ -92,7 +111,7 @@ Public Class frmHistoriqueArticles
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(472, 8)
+        Me.Label3.Location = New System.Drawing.Point(470, 11)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(72, 24)
         Me.Label3.TabIndex = 6
@@ -105,10 +124,19 @@ Public Class frmHistoriqueArticles
         Me.tbCodeArticle.Size = New System.Drawing.Size(72, 20)
         Me.tbCodeArticle.TabIndex = 2
         '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(638, 8)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(104, 24)
+        Me.cbRechercher.TabIndex = 10
+        Me.cbRechercher.Text = "Rechercher"
+        '
         'frmHistoriqueArticles
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(992, 694)
+        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.tbCodeArticle)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbAfficher)
@@ -118,13 +146,6 @@ Public Class frmHistoriqueArticles
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmHistoriqueArticles"
         Me.Text = "Historique Articles"
-        Me.Controls.SetChildIndex(Me.Label1, 0)
-        Me.Controls.SetChildIndex(Me.dtdeb, 0)
-        Me.Controls.SetChildIndex(Me.Label2, 0)
-        Me.Controls.SetChildIndex(Me.dtFin, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbCodeArticle, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -161,4 +182,18 @@ Public Class frmHistoriqueArticles
     Private Sub frmHistoriqueArticles_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         initFenetre()
     End Sub
+
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        rechercherProduit()
+    End Sub
+    Private Sub rechercherProduit()
+        Dim obj As Produit
+
+        obj = rechercheDonnee(vncEnums.vncTypeDonnee.PRODUIT, tbCodeArticle)
+
+        If Not obj Is Nothing Then
+            tbCodeArticle.Text = obj.code
+        End If
+    End Sub 'rechercheClient
+
 End Class

@@ -121,7 +121,7 @@
   <data name="tbDesignation.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <metadata name="m_bsrcProduit.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="m_bsrcProduitRacine.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -136,7 +136,7 @@
     <value>No</value>
   </data>
   <data name="tbDesignation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>590, 20</value>
+    <value>828, 20</value>
   </data>
   <data name="tbDesignation.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbDesignation.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>7</value>
   </data>
   <data name="tbCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>104, 8</value>
@@ -178,7 +178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbCode.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>8</value>
   </data>
   <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 56</value>
@@ -205,7 +205,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>17</value>
   </data>
   <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 8</value>
@@ -220,7 +220,7 @@
     <value>2</value>
   </data>
   <data name="Label2.Text" xml:space="preserve">
-    <value>Code</value>
+    <value>Racine</value>
   </data>
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
@@ -232,61 +232,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>36</value>
-  </data>
-  <data name="tbMotDirecteur.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 8</value>
-  </data>
-  <data name="tbMotDirecteur.MaxLength" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tbMotDirecteur.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="tbMotDirecteur.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 20</value>
-  </data>
-  <data name="tbMotDirecteur.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tbMotDirecteur.Name" xml:space="preserve">
-    <value>tbMotDirecteur</value>
-  </data>
-  <data name="&gt;&gt;tbMotDirecteur.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbMotDirecteur.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbMotDirecteur.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>240, 8</value>
-  </data>
-  <data name="Label5.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 17</value>
-  </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>Mot clé</value>
-  </data>
-  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
-    <value>Label5</value>
-  </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>18</value>
   </data>
   <metadata name="m_bsrcCouleur.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>262, 17</value>
@@ -313,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboCouleur.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>13</value>
   </data>
   <metadata name="m_bsrcRegion.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>140, 17</value>
@@ -340,7 +286,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboRegion.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>14</value>
   </data>
   <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>240, 32</value>
@@ -367,7 +313,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>15</value>
   </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 32</value>
@@ -394,7 +340,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>16</value>
   </data>
   <metadata name="m_bsrcContenant.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>388, 17</value>
@@ -421,7 +367,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboContenant.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>11</value>
   </data>
   <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>424, 32</value>
@@ -448,13 +394,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
-    <value>28</value>
-  </data>
-  <data name="liNomFournisseur.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>12</value>
   </data>
   <data name="liNomFournisseur.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 88</value>
+    <value>104, 79</value>
   </data>
   <data name="liNomFournisseur.Size" type="System.Drawing.Size, System.Drawing">
     <value>590, 16</value>
@@ -475,10 +418,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;liNomFournisseur.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>19</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 88</value>
+    <value>8, 79</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 16</value>
@@ -499,89 +442,8 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>20</value>
   </data>
-  <data name="ckStock.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="ckStock.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 110</value>
-  </data>
-  <data name="ckStock.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="ckStock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 24</value>
-  </data>
-  <data name="ckStock.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="ckStock.Text" xml:space="preserve">
-    <value>Produit Plateforme</value>
-  </data>
-  <data name="&gt;&gt;ckStock.Name" xml:space="preserve">
-    <value>ckStock</value>
-  </data>
-  <data name="&gt;&gt;ckStock.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ckStock.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ckStock.ZOrder" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="Label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>454, 9</value>
-  </data>
-  <data name="Label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 16</value>
-  </data>
-  <data name="Label15.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
-  </data>
-  <data name="Label15.Text" xml:space="preserve">
-    <value>Code Statistique</value>
-  </data>
-  <data name="&gt;&gt;Label15.Name" xml:space="preserve">
-    <value>Label15</value>
-  </data>
-  <data name="&gt;&gt;Label15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label15.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label15.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="tbCodeStat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>558, 6</value>
-  </data>
-  <data name="tbCodeStat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 20</value>
-  </data>
-  <data name="tbCodeStat.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;tbCodeStat.Name" xml:space="preserve">
-    <value>tbCodeStat</value>
-  </data>
-  <data name="&gt;&gt;tbCodeStat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbCodeStat.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbCodeStat.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <metadata name="m_bsrcMvtStock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>291, 56</value>
-  </metadata>
-  <metadata name="m_bsrcTypeMvt.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>432, 56</value>
-  </metadata>
   <data name="Label16.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -607,7 +469,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label16.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>10</value>
   </data>
   <data name="cboConditionnement.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -634,205 +496,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboConditionnement.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="ckDispo.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="ckDispo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 110</value>
-  </data>
-  <data name="ckDispo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 24</value>
-  </data>
-  <data name="ckDispo.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="ckDispo.Text" xml:space="preserve">
-    <value>Produit Disponible</value>
-  </data>
-  <data name="&gt;&gt;ckDispo.Name" xml:space="preserve">
-    <value>ckDispo</value>
-  </data>
-  <data name="&gt;&gt;ckDispo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ckDispo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ckDispo.ZOrder" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="Label20.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="Label20.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>744, 83</value>
-  </data>
-  <data name="Label20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 13</value>
-  </data>
-  <data name="Label20.TabIndex" type="System.Int32, mscorlib">
-    <value>64</value>
-  </data>
-  <data name="Label20.Text" xml:space="preserve">
-    <value>Tarif A</value>
-  </data>
-  <data name="&gt;&gt;Label20.Name" xml:space="preserve">
-    <value>Label20</value>
-  </data>
-  <data name="&gt;&gt;Label20.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label20.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label20.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="tbTarifA.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="tbTarifA.Location" type="System.Drawing.Point, System.Drawing">
-    <value>797, 80</value>
-  </data>
-  <data name="tbTarifA.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 20</value>
-  </data>
-  <data name="tbTarifA.TabIndex" type="System.Int32, mscorlib">
-    <value>65</value>
-  </data>
-  <data name="tbTarifA.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tbTarifA.Name" xml:space="preserve">
-    <value>tbTarifA</value>
-  </data>
-  <data name="&gt;&gt;tbTarifA.Type" xml:space="preserve">
-    <value>vini_app.textBoxCurrency, vini_app, Version=2022.10.18.1600, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tbTarifA.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbTarifA.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="tbTarifB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="tbTarifB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>797, 106</value>
-  </data>
-  <data name="tbTarifB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 20</value>
-  </data>
-  <data name="tbTarifB.TabIndex" type="System.Int32, mscorlib">
-    <value>66</value>
-  </data>
-  <data name="tbTarifB.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tbTarifB.Name" xml:space="preserve">
-    <value>tbTarifB</value>
-  </data>
-  <data name="&gt;&gt;tbTarifB.Type" xml:space="preserve">
-    <value>vini_app.textBoxCurrency, vini_app, Version=2022.10.18.1600, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tbTarifB.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbTarifB.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="tbTarifC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="tbTarifC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>797, 131</value>
-  </data>
-  <data name="tbTarifC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 20</value>
-  </data>
-  <data name="tbTarifC.TabIndex" type="System.Int32, mscorlib">
-    <value>67</value>
-  </data>
-  <data name="tbTarifC.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tbTarifC.Name" xml:space="preserve">
-    <value>tbTarifC</value>
-  </data>
-  <data name="&gt;&gt;tbTarifC.Type" xml:space="preserve">
-    <value>vini_app.textBoxCurrency, vini_app, Version=2022.10.18.1600, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tbTarifC.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbTarifC.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="Label22.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="Label22.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>744, 109</value>
-  </data>
-  <data name="Label22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 13</value>
-  </data>
-  <data name="Label22.TabIndex" type="System.Int32, mscorlib">
-    <value>68</value>
-  </data>
-  <data name="Label22.Text" xml:space="preserve">
-    <value>Tarif B</value>
-  </data>
-  <data name="&gt;&gt;Label22.Name" xml:space="preserve">
-    <value>Label22</value>
-  </data>
-  <data name="&gt;&gt;Label22.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label22.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label22.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="Label23.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="Label23.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label23.Location" type="System.Drawing.Point, System.Drawing">
-    <value>744, 134</value>
-  </data>
-  <data name="Label23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 13</value>
-  </data>
-  <data name="Label23.TabIndex" type="System.Int32, mscorlib">
-    <value>69</value>
-  </data>
-  <data name="Label23.Text" xml:space="preserve">
-    <value>Tarif C</value>
-  </data>
-  <data name="&gt;&gt;Label23.Name" xml:space="preserve">
-    <value>Label23</value>
-  </data>
-  <data name="&gt;&gt;Label23.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label23.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label23.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="Label24.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -859,7 +523,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label24.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>6</value>
   </data>
   <data name="ComboBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -886,7 +550,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ComboBox1.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>5</value>
   </data>
   <metadata name="LogoList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>699, 56</value>
@@ -896,7 +560,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACK
-        CAAAAk1TRnQBSQFMAgEBAgEAAYgBAAGIAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CAAAAk1TRnQBSQFMAgEBAgEAAcgBAAHIAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -957,217 +621,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="Label26.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label26.Location" type="System.Drawing.Point, System.Drawing">
-    <value>499, 118</value>
-  </data>
-  <data name="Label26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 16</value>
-  </data>
-  <data name="Label26.TabIndex" type="System.Int32, mscorlib">
-    <value>78</value>
-  </data>
-  <data name="Label26.Text" xml:space="preserve">
-    <value>code Depot QUADRA</value>
-  </data>
-  <data name="&gt;&gt;Label26.Name" xml:space="preserve">
-    <value>Label26</value>
-  </data>
-  <data name="&gt;&gt;Label26.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label26.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label26.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="tbDepot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>665, 114</value>
-  </data>
-  <data name="tbDepot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 20</value>
-  </data>
-  <data name="tbDepot.TabIndex" type="System.Int32, mscorlib">
-    <value>79</value>
-  </data>
-  <data name="&gt;&gt;tbDepot.Name" xml:space="preserve">
-    <value>tbDepot</value>
-  </data>
-  <data name="&gt;&gt;tbDepot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbDepot.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbDepot.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="Label27.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="Label27.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label27.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label27.Location" type="System.Drawing.Point, System.Drawing">
-    <value>744, 160</value>
-  </data>
-  <data name="Label27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
-  </data>
-  <data name="Label27.TabIndex" type="System.Int32, mscorlib">
-    <value>81</value>
-  </data>
-  <data name="Label27.Text" xml:space="preserve">
-    <value>Tarif D</value>
-  </data>
-  <data name="&gt;&gt;Label27.Name" xml:space="preserve">
-    <value>Label27</value>
-  </data>
-  <data name="&gt;&gt;Label27.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label27.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label27.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="tbTarifD.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="tbTarifD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>797, 157</value>
-  </data>
-  <data name="tbTarifD.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 20</value>
-  </data>
-  <data name="tbTarifD.TabIndex" type="System.Int32, mscorlib">
-    <value>68</value>
-  </data>
-  <data name="tbTarifD.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tbTarifD.Name" xml:space="preserve">
-    <value>tbTarifD</value>
-  </data>
-  <data name="&gt;&gt;tbTarifD.Type" xml:space="preserve">
-    <value>vini_app.textBoxCurrency, vini_app, Version=2022.10.18.1600, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tbTarifD.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbTarifD.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tbMillesime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="tbMillesime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>885, 55</value>
-  </data>
-  <data name="tbMillesime.MaxLength" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tbMillesime.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="tbMillesime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 20</value>
-  </data>
-  <data name="tbMillesime.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="tbMillesime.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tbMillesime.Name" xml:space="preserve">
-    <value>tbMillesime</value>
-  </data>
-  <data name="&gt;&gt;tbMillesime.Type" xml:space="preserve">
-    <value>vini_app.textBoxNumeric, vini_app, Version=2022.10.18.1600, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tbMillesime.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbMillesime.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="Label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="Label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>741, 58</value>
-  </data>
-  <data name="Label7.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 17</value>
-  </data>
-  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="Label7.Text" xml:space="preserve">
-    <value>Millésime</value>
-  </data>
-  <data name="&gt;&gt;Label7.Name" xml:space="preserve">
-    <value>Label7</value>
-  </data>
-  <data name="&gt;&gt;Label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label7.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
-    <value>33</value>
-  </data>
-  <data name="ckkPrdArchive.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="ckkPrdArchive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ckkPrdArchive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>302, 110</value>
-  </data>
-  <data name="ckkPrdArchive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 24</value>
-  </data>
-  <data name="ckkPrdArchive.TabIndex" type="System.Int32, mscorlib">
-    <value>82</value>
-  </data>
-  <data name="ckkPrdArchive.Text" xml:space="preserve">
-    <value>Produit Archivé</value>
-  </data>
-  <data name="&gt;&gt;ckkPrdArchive.Name" xml:space="preserve">
-    <value>ckkPrdArchive</value>
-  </data>
-  <data name="&gt;&gt;ckkPrdArchive.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ckkPrdArchive.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ckkPrdArchive.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="DataGridView1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="dgvPrdMillesime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="MillesimeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+  <metadata name="MillesimeCode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="MillesimeCode.HeaderText" xml:space="preserve">
     <value>Millesime</value>
+  </data>
+  <metadata name="codeStat.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="codeStat.HeaderText" xml:space="preserve">
+    <value>Code Groussard</value>
   </data>
   <data name="BDisponibleDataGridViewCheckBoxColumn.HeaderText" xml:space="preserve">
     <value>Disponible</value>
@@ -1187,33 +656,30 @@
   <data name="TarifDDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>TarifD</value>
   </data>
-  <metadata name="m_bsrcMillesime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 19</value>
+  <metadata name="m_bsrcProduitMillesime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>690, 17</value>
   </metadata>
-  <data name="DataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 209</value>
+  <data name="dgvPrdMillesime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 98</value>
   </data>
-  <data name="DataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>922, 287</value>
+  <data name="dgvPrdMillesime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>922, 398</value>
   </data>
-  <data name="DataGridView1.TabIndex" type="System.Int32, mscorlib">
+  <data name="dgvPrdMillesime.TabIndex" type="System.Int32, mscorlib">
     <value>83</value>
   </data>
-  <data name="&gt;&gt;DataGridView1.Name" xml:space="preserve">
-    <value>DataGridView1</value>
+  <data name="&gt;&gt;dgvPrdMillesime.Name" xml:space="preserve">
+    <value>dgvPrdMillesime</value>
   </data>
-  <data name="&gt;&gt;DataGridView1.Type" xml:space="preserve">
+  <data name="&gt;&gt;dgvPrdMillesime.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;DataGridView1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dgvPrdMillesime.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;DataGridView1.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;dgvPrdMillesime.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <metadata name="BindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>154, 56</value>
-  </metadata>
   <data name="cbQuitter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
@@ -1239,7 +705,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbQuitter.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="cbValider.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1266,13 +732,43 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbValider.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbAjouter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="cbAjouter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbAjouter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>695, 511</value>
+  </data>
+  <data name="cbAjouter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="cbAjouter.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="cbAjouter.Text" xml:space="preserve">
+    <value>&amp;Ajouter</value>
+  </data>
+  <data name="&gt;&gt;cbAjouter.Name" xml:space="preserve">
+    <value>cbAjouter</value>
+  </data>
+  <data name="&gt;&gt;cbAjouter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbAjouter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbAjouter.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>41</value>
+    <value>165</value>
   </metadata>
   <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
     <value>5, 13</value>
@@ -1292,10 +788,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Gestion des millésimes</value>
   </data>
-  <data name="&gt;&gt;m_bsrcProduit.Name" xml:space="preserve">
-    <value>m_bsrcProduit</value>
+  <data name="&gt;&gt;m_bsrcProduitRacine.Name" xml:space="preserve">
+    <value>m_bsrcProduitRacine</value>
   </data>
-  <data name="&gt;&gt;m_bsrcProduit.Type" xml:space="preserve">
+  <data name="&gt;&gt;m_bsrcProduitRacine.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;m_bsrcCouleur.Name" xml:space="preserve">
@@ -1316,18 +812,6 @@
   <data name="&gt;&gt;m_bsrcContenant.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;m_bsrcMvtStock.Name" xml:space="preserve">
-    <value>m_bsrcMvtStock</value>
-  </data>
-  <data name="&gt;&gt;m_bsrcMvtStock.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_bsrcTypeMvt.Name" xml:space="preserve">
-    <value>m_bsrcTypeMvt</value>
-  </data>
-  <data name="&gt;&gt;m_bsrcTypeMvt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;m_bsrcConditionnement.Name" xml:space="preserve">
     <value>m_bsrcConditionnement</value>
   </data>
@@ -1346,10 +830,22 @@
   <data name="&gt;&gt;LogoList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MillesimeDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>MillesimeDataGridViewTextBoxColumn</value>
+  <data name="&gt;&gt;m_bsrcProduitMillesime.Name" xml:space="preserve">
+    <value>m_bsrcProduitMillesime</value>
   </data>
-  <data name="&gt;&gt;MillesimeDataGridViewTextBoxColumn.Type" xml:space="preserve">
+  <data name="&gt;&gt;m_bsrcProduitMillesime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MillesimeCode.Name" xml:space="preserve">
+    <value>MillesimeCode</value>
+  </data>
+  <data name="&gt;&gt;MillesimeCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;codeStat.Name" xml:space="preserve">
+    <value>codeStat</value>
+  </data>
+  <data name="&gt;&gt;codeStat.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;BDisponibleDataGridViewCheckBoxColumn.Name" xml:space="preserve">
@@ -1387,18 +883,6 @@
   </data>
   <data name="&gt;&gt;TarifDDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_bsrcMillesime.Name" xml:space="preserve">
-    <value>m_bsrcMillesime</value>
-  </data>
-  <data name="&gt;&gt;m_bsrcMillesime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BindingSource1.Name" xml:space="preserve">
-    <value>BindingSource1</value>
-  </data>
-  <data name="&gt;&gt;BindingSource1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmGestionMillesime</value>

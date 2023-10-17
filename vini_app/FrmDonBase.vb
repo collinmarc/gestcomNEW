@@ -2,9 +2,10 @@
 Public Class FrmDonBase
     Inherits FrmVinicom
 
-    Protected m_ElementCourant As Persist
+    Protected WithEvents m_ElementCourant As Persist
     Protected m_TypeDonnees As vncEnums.vncTypeDonnee
     Protected m_BloquageElementCourant As Boolean = True
+
 
 #Region "Méthodes ViniCom"
     Protected Overrides Sub setToolbarButtons()
@@ -379,6 +380,7 @@ Public Class FrmDonBase
         Return bReturn
     End Function 'SauvegardeElementcourant
 
-
-
+    Private Sub m_ElementCourant_Updated() Handles m_ElementCourant.Updated
+        setfrmUpdated()
+    End Sub
 End Class

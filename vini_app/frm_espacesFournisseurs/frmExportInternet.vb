@@ -62,6 +62,7 @@ Public Class frmExportInternet
     Friend WithEvents dateCommande As DataGridViewTextBoxColumn
     Friend WithEvents lnkFTP As LinkLabel
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents cbRechercher As Button
     Friend WithEvents dgvStatus As System.Windows.Forms.DataGridView
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
@@ -96,6 +97,7 @@ Public Class frmExportInternet
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lnkFTP = New System.Windows.Forms.LinkLabel()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         CType(Me.dgvSCmd, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcSCMD, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcStatus, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -360,10 +362,20 @@ Public Class frmExportInternet
         '
         Me.BackgroundWorker1.WorkerReportsProgress = True
         '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(327, 64)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(75, 23)
+        Me.cbRechercher.TabIndex = 140
+        Me.cbRechercher.Text = "Rechercher"
+        Me.cbRechercher.UseVisualStyleBackColor = True
+        '
         'frmExportInternet
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(863, 428)
+        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.lnkFTP)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.tbNbreTheorique)
@@ -708,4 +720,18 @@ Public Class frmExportInternet
         m_bsrcSCMD.Clear()
         m_colCommandes.Clear()
     End Sub
+
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        rechercheFournisseur()
+    End Sub
+    Private Sub rechercheFournisseur()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.FOURNISSEUR, tbCodeFournisseur)
+
+        If Not objTiers Is Nothing Then
+            tbCodeFournisseur.Text = objTiers.code
+        End If
+    End Sub 'rechercheClient
+
 End Class

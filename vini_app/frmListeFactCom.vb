@@ -39,14 +39,17 @@ Public Class frmListeFactCom
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cbxEtat As System.Windows.Forms.ComboBox
     Friend WithEvents m_bsrcEtat As System.Windows.Forms.BindingSource
-    Friend WithEvents tbCodeClient As System.Windows.Forms.TextBox
+    Friend WithEvents tbCodeFournisseur As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents rbTrieParNumero As System.Windows.Forms.RadioButton
     Friend WithEvents rbtriCodeFounisseur As System.Windows.Forms.RadioButton
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRechercher As Button
     Friend WithEvents dtFin As System.Windows.Forms.DateTimePicker
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtdeb = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -55,13 +58,29 @@ Public Class frmListeFactCom
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cbxEtat = New System.Windows.Forms.ComboBox()
         Me.m_bsrcEtat = New System.Windows.Forms.BindingSource(Me.components)
-        Me.tbCodeClient = New System.Windows.Forms.TextBox()
+        Me.tbCodeFournisseur = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.rbTrieParNumero = New System.Windows.Forms.RadioButton()
         Me.rbtriCodeFounisseur = New System.Windows.Forms.RadioButton()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         CType(Me.m_bsrcEtat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
@@ -128,12 +147,12 @@ Public Class frmListeFactCom
         '
         Me.m_bsrcEtat.DataSource = GetType(vini_DB.EtatCommande)
         '
-        'tbCodeClient
+        'tbCodeFournisseur
         '
-        Me.tbCodeClient.Location = New System.Drawing.Point(607, 8)
-        Me.tbCodeClient.Name = "tbCodeClient"
-        Me.tbCodeClient.Size = New System.Drawing.Size(120, 20)
-        Me.tbCodeClient.TabIndex = 5
+        Me.tbCodeFournisseur.Location = New System.Drawing.Point(607, 8)
+        Me.tbCodeFournisseur.Name = "tbCodeFournisseur"
+        Me.tbCodeFournisseur.Size = New System.Drawing.Size(120, 20)
+        Me.tbCodeFournisseur.TabIndex = 5
         '
         'Label3
         '
@@ -175,16 +194,26 @@ Public Class frmListeFactCom
         Me.rbtriCodeFounisseur.Text = "Code fournisseur"
         Me.rbtriCodeFounisseur.UseVisualStyleBackColor = True
         '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(734, 8)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(75, 23)
+        Me.cbRechercher.TabIndex = 14
+        Me.cbRechercher.Text = "Rechercher"
+        Me.cbRechercher.UseVisualStyleBackColor = True
+        '
         'frmListeFactCom
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(1000, 678)
+        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.rbtriCodeFounisseur)
         Me.Controls.Add(Me.rbTrieParNumero)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cbxEtat)
-        Me.Controls.Add(Me.tbCodeClient)
+        Me.Controls.Add(Me.tbCodeFournisseur)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbAfficher)
         Me.Controls.Add(Me.dtFin)
@@ -193,18 +222,6 @@ Public Class frmListeFactCom
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmListeFactCom"
         Me.Text = "Liste des factures de commission"
-        Me.Controls.SetChildIndex(Me.Label1, 0)
-        Me.Controls.SetChildIndex(Me.dtdeb, 0)
-        Me.Controls.SetChildIndex(Me.Label2, 0)
-        Me.Controls.SetChildIndex(Me.dtFin, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbCodeClient, 0)
-        Me.Controls.SetChildIndex(Me.cbxEtat, 0)
-        Me.Controls.SetChildIndex(Me.Label4, 0)
-        Me.Controls.SetChildIndex(Me.Label5, 0)
-        Me.Controls.SetChildIndex(Me.rbTrieParNumero, 0)
-        Me.Controls.SetChildIndex(Me.rbtriCodeFounisseur, 0)
         CType(Me.m_bsrcEtat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -230,7 +247,7 @@ Public Class frmListeFactCom
 
         objReport.SetParameterValue("ddeb", Me.dtdeb.Value)
         objReport.SetParameterValue("dfin", Me.dtFin.Value)
-        str = tbCodeClient.Text + "%"
+        str = tbCodeFournisseur.Text + "%"
         str = Replace(str, "%", "*")
         objReport.SetParameterValue("CODEFRN", str)
         objReport.SetParameterValue("codeEtat", cbxEtat.SelectedValue)
@@ -244,7 +261,22 @@ Public Class frmListeFactCom
         m_bsrcEtat.Add(New EtatFactCommExportee())
         m_bsrcEtat.Add(New EtatTous())
         cbxEtat.SelectedIndex = cbxEtat.Items.Count - 1
-        tbCodeClient.Text = "%"
+        tbCodeFournisseur.Text = "%"
 
     End Sub
+
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        rechercheFournisseur()
+
+    End Sub
+    Private Sub rechercheFournisseur()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.FOURNISSEUR, tbCodeFournisseur)
+
+        If Not objTiers Is Nothing Then
+            tbCodeFournisseur.Text = objTiers.code
+        End If
+    End Sub 'rechercheClient
+
 End Class

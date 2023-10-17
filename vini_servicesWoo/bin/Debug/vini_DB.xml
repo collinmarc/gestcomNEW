@@ -2494,6 +2494,18 @@ Represents the connection and commands used to retrieve and save data.
  <returns>TRUE/FALSE</returns>
  <remarks></remarks>
 </member>
+<member name="M:vini_DB.Produit.LoadMillesime">
+ <summary>
+ Chargment des produits millésimé
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:vini_DB.Produit.isCodeExistant">
+ <summary>
+ Rend Vrai si le code existe en base avec un autre Id
+ </summary>
+ <returns></returns>
+</member>
 <member name="M:vini_DB.SousCommande.getListeAExporterInternet(vini_DB.vncEnums.vncOrigineCmd,System.DateTime,System.DateTime,System.String)">
  <summary>
  Rend une liste de sous commande à Exporter par internet 

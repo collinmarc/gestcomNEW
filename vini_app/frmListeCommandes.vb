@@ -41,21 +41,40 @@ Public Class frmListeCommandes
     Friend WithEvents m_bsrcEtat As System.Windows.Forms.BindingSource
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cbxEtat As System.Windows.Forms.ComboBox
-    Friend WithEvents tbCodeFourn As System.Windows.Forms.TextBox
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRechercher As Button
+    Friend WithEvents tbCodeClient As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.dtdeb = New System.Windows.Forms.DateTimePicker
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.dtFin = New System.Windows.Forms.DateTimePicker
-        Me.cbAfficher = New System.Windows.Forms.Button
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.tbCodeFourn = New System.Windows.Forms.TextBox
+        Me.components = New System.ComponentModel.Container()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dtdeb = New System.Windows.Forms.DateTimePicker()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dtFin = New System.Windows.Forms.DateTimePicker()
+        Me.cbAfficher = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.tbCodeClient = New System.Windows.Forms.TextBox()
         Me.m_bsrcEtat = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.cbxEtat = New System.Windows.Forms.ComboBox
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cbxEtat = New System.Windows.Forms.ComboBox()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         CType(Me.m_bsrcEtat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
@@ -106,12 +125,12 @@ Public Class frmListeCommandes
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Code client"
         '
-        'tbCodeFourn
+        'tbCodeClient
         '
-        Me.tbCodeFourn.Location = New System.Drawing.Point(576, 8)
-        Me.tbCodeFourn.Name = "tbCodeFourn"
-        Me.tbCodeFourn.Size = New System.Drawing.Size(72, 20)
-        Me.tbCodeFourn.TabIndex = 2
+        Me.tbCodeClient.Location = New System.Drawing.Point(576, 8)
+        Me.tbCodeClient.Name = "tbCodeClient"
+        Me.tbCodeClient.Size = New System.Drawing.Size(72, 20)
+        Me.tbCodeClient.TabIndex = 2
         '
         'm_bsrcEtat
         '
@@ -137,13 +156,23 @@ Public Class frmListeCommandes
         Me.cbxEtat.TabIndex = 3
         Me.cbxEtat.ValueMember = "codeEtat"
         '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(655, 7)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(75, 23)
+        Me.cbRechercher.TabIndex = 14
+        Me.cbRechercher.Text = "Rechercher"
+        Me.cbRechercher.UseVisualStyleBackColor = True
+        '
         'frmListeCommandes
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(1000, 678)
+        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cbxEtat)
-        Me.Controls.Add(Me.tbCodeFourn)
+        Me.Controls.Add(Me.tbCodeClient)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbAfficher)
         Me.Controls.Add(Me.dtFin)
@@ -152,16 +181,6 @@ Public Class frmListeCommandes
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmListeCommandes"
         Me.Text = "Liste des commandes"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.Controls.SetChildIndex(Me.Label1, 0)
-        Me.Controls.SetChildIndex(Me.dtdeb, 0)
-        Me.Controls.SetChildIndex(Me.Label2, 0)
-        Me.Controls.SetChildIndex(Me.dtFin, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbCodeFourn, 0)
-        Me.Controls.SetChildIndex(Me.cbxEtat, 0)
-        Me.Controls.SetChildIndex(Me.Label4, 0)
         CType(Me.m_bsrcEtat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -188,7 +207,7 @@ Public Class frmListeCommandes
         objReport.SetParameterValue("ddeb", Me.dtdeb.Value.ToShortDateString())
         objReport.SetParameterValue("dfin", Me.dtFin.Value.ToShortDateString())
 
-        str = tbCodeFourn.Text + "%"
+        str = tbCodeClient.Text + "%"
         str = Replace(str, "%", "*")
         objReport.SetParameterValue("codeClient", Trim(str))
         objReport.SetParameterValue("codeEtat", cbxEtat.SelectedValue)
@@ -204,7 +223,21 @@ Public Class frmListeCommandes
         m_bsrcEtat.Add(New EtatCommandeEclatee())
         m_bsrcEtat.Add(New EtatTous())
         cbxEtat.SelectedIndex = cbxEtat.Items.Count - 1
-        tbCodeFourn.Text = "%"
+        tbCodeClient.Text = "%"
 
     End Sub
+
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        rechercheClient()
+    End Sub
+    Private Sub rechercheClient()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.CLIENT, tbCodeClient)
+
+        If Not objTiers Is Nothing Then
+            tbcodeClient.Text = objTiers.code
+        End If
+    End Sub 'rechercheClient
+
 End Class

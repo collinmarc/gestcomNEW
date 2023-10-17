@@ -38,15 +38,18 @@ Public Class frmStatProduitFournisseur
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents dtdeb As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents tbcodeFourn As System.Windows.Forms.TextBox
+    Friend WithEvents tbcodeFournisseur As System.Windows.Forms.TextBox
     Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
     Friend WithEvents laFiltreDossier As System.Windows.Forms.Label
     Friend WithEvents Label5 As Label
     Friend WithEvents rbDossierProduit As RadioButton
     Friend WithEvents rbOrigineCommande As RadioButton
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRechercherFournisseur As Button
     Friend WithEvents ckAfficheDetail As System.Windows.Forms.CheckBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.tbcodeFourn = New System.Windows.Forms.TextBox()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.tbcodeFournisseur = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cbAfficher = New System.Windows.Forms.Button()
         Me.dtFin = New System.Windows.Forms.DateTimePicker()
@@ -59,14 +62,30 @@ Public Class frmStatProduitFournisseur
         Me.Label5 = New System.Windows.Forms.Label()
         Me.rbDossierProduit = New System.Windows.Forms.RadioButton()
         Me.rbOrigineCommande = New System.Windows.Forms.RadioButton()
+        Me.cbRechercherFournisseur = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'tbcodeFourn
+        'CrystalReportViewer1
         '
-        Me.tbcodeFourn.Location = New System.Drawing.Point(552, 8)
-        Me.tbcodeFourn.Name = "tbcodeFourn"
-        Me.tbcodeFourn.Size = New System.Drawing.Size(100, 20)
-        Me.tbcodeFourn.TabIndex = 13
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        '
+        'tbcodeFournisseur
+        '
+        Me.tbcodeFournisseur.Location = New System.Drawing.Point(552, 8)
+        Me.tbcodeFournisseur.Name = "tbcodeFournisseur"
+        Me.tbcodeFournisseur.Size = New System.Drawing.Size(100, 20)
+        Me.tbcodeFournisseur.TabIndex = 13
         '
         'Label3
         '
@@ -119,7 +138,7 @@ Public Class frmStatProduitFournisseur
         'ckAfficheDetail
         '
         Me.ckAfficheDetail.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ckAfficheDetail.Location = New System.Drawing.Point(672, 8)
+        Me.ckAfficheDetail.Location = New System.Drawing.Point(754, 6)
         Me.ckAfficheDetail.Name = "ckAfficheDetail"
         Me.ckAfficheDetail.Size = New System.Drawing.Size(104, 24)
         Me.ckAfficheDetail.TabIndex = 15
@@ -176,17 +195,26 @@ Public Class frmStatProduitFournisseur
         Me.rbOrigineCommande.Text = "Origine de la commande"
         Me.rbOrigineCommande.UseVisualStyleBackColor = True
         '
+        'cbRechercherFournisseur
+        '
+        Me.cbRechercherFournisseur.Location = New System.Drawing.Point(658, 6)
+        Me.cbRechercherFournisseur.Name = "cbRechercherFournisseur"
+        Me.cbRechercherFournisseur.Size = New System.Drawing.Size(104, 24)
+        Me.cbRechercherFournisseur.TabIndex = 21
+        Me.cbRechercherFournisseur.Text = "Rechercher"
+        '
         'frmStatProduitFournisseur
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(992, 678)
+        Me.Controls.Add(Me.cbRechercherFournisseur)
         Me.Controls.Add(Me.rbOrigineCommande)
         Me.Controls.Add(Me.rbDossierProduit)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.laFiltreDossier)
         Me.Controls.Add(Me.cbxOrigine)
         Me.Controls.Add(Me.ckAfficheDetail)
-        Me.Controls.Add(Me.tbcodeFourn)
+        Me.Controls.Add(Me.tbcodeFournisseur)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cbAfficher)
         Me.Controls.Add(Me.dtFin)
@@ -195,19 +223,6 @@ Public Class frmStatProduitFournisseur
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmStatProduitFournisseur"
         Me.Text = "Statistiques fournisseur"
-        Me.Controls.SetChildIndex(Me.Label1, 0)
-        Me.Controls.SetChildIndex(Me.dtdeb, 0)
-        Me.Controls.SetChildIndex(Me.Label2, 0)
-        Me.Controls.SetChildIndex(Me.dtFin, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbcodeFourn, 0)
-        Me.Controls.SetChildIndex(Me.ckAfficheDetail, 0)
-        Me.Controls.SetChildIndex(Me.cbxOrigine, 0)
-        Me.Controls.SetChildIndex(Me.laFiltreDossier, 0)
-        Me.Controls.SetChildIndex(Me.Label5, 0)
-        Me.Controls.SetChildIndex(Me.rbDossierProduit, 0)
-        Me.Controls.SetChildIndex(Me.rbOrigineCommande, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -242,7 +257,7 @@ Public Class frmStatProduitFournisseur
         anneeN_1 = Year(DateAdd(DateInterval.Year, -1, dtdeb.Value))
         objReport.SetParameterValue("N-1", anneeN_1)
 
-        str = tbcodeFourn.Text
+        str = tbcodeFournisseur.Text
         str = Replace(str, "%", "*")
         objReport.SetParameterValue("codefourn", Trim(str))
 
@@ -274,4 +289,18 @@ Public Class frmStatProduitFournisseur
             laFiltreDossier.Text = "Origine Commande"
         End If
     End Sub
+
+    Private Sub cbRechercherFournisseur_Click(sender As Object, e As EventArgs) Handles cbRechercherFournisseur.Click
+        rechercheFournisseur()
+    End Sub
+    Private Sub rechercheFournisseur()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.FOURNISSEUR, tbCodeFournisseur)
+
+        If Not objTiers Is Nothing Then
+            tbCodeFournisseur.Text = objTiers.code
+        End If
+    End Sub 'rechercheFournisseur
+
 End Class

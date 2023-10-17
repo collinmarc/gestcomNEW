@@ -1,4 +1,5 @@
 Imports System.Collections.Generic
+Imports System.Text.RegularExpressions
 '===================================================================================================================================
 'Projet : Vinicom
 'Auteur : Marc Collin 
@@ -116,6 +117,7 @@ Public Class Produit
         init()
         m_bcolMvtStockUpdated = False
         Debug.Assert(m_bNew, "bNew")
+
     End Sub 'New
     Private Sub init()
         m_typedonnee = vncEnums.vncTypeDonnee.PRODUIT
@@ -143,6 +145,9 @@ Public Class Produit
         m_bcolMvtStockUpdated = False
         setQteCommande(0)
         Depot = My.Settings.CODEDEPOTQUADRA
+        bArchive = False
+        _lstProduitMillesime = New List(Of Produit)
+
     End Sub
     Public Sub New(ByVal strCode As String, ByVal oFRN As Fournisseur, ByVal pMil As Integer)
         Debug.Assert(Param.couleurdefaut.defaut, "Pas de Couleur par defaut")
@@ -239,6 +244,33 @@ Public Class Produit
             If Value <> m_code Then
                 RaiseUpdated()
                 m_code = Value
+            End If
+        End Set
+    End Property
+    Public ReadOnly Property RacineCode() As String
+        Get
+            Return Regex.Replace(code, "M[0-9][0-9]$", "")
+        End Get
+    End Property
+    Public ReadOnly Property bMillesimeCode() As Boolean
+        Get
+            Return Regex.Match(code, ".*M[0-9][0-9]$").Success
+
+        End Get
+    End Property
+    Public Property MillesimeCode() As String
+        Get
+            If bMillesimeCode Then
+                Return code.Substring(code.Length - 3, 3)
+            Else
+                Return ""
+            End If
+        End Get
+        Set(value As String)
+            If bMillesimeCode Then
+                If Regex.Match(value, "M[0-9][0-9]$").Success Then
+                    code = RacineCode & value
+                End If
             End If
         End Set
     End Property
@@ -793,7 +825,7 @@ Public Class Produit
         m_bcolMvtStockLoaded = False
 
         If bReturn Then
-            bReturn = deletePRDPReCommande() 'Suppression des Lignes de Precommande
+            bReturn = deletePRDPreCommande() 'Suppression des Lignes de Precommande
             If bReturn Then
                 bReturn = deletePRD()
             End If
@@ -1439,7 +1471,7 @@ Public Class Produit
                                                             RC_S29:=nStockAu(29),
                                                             RC_S30:=nStockAu(30),
                                                             RC_S31:=nStockAu(31),
-                                                            periode:=periode,
+                                                            PERIODE:=periode,
                                                             RC_IDPRODUIT:=oPRD.id
                                                             )
 
@@ -1577,7 +1609,55 @@ Public Class Produit
         Return bReturn
 
     End Function
+    ''' <summary>
+    ''' Chargment des produits millésimé
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function LoadMillesime() As Boolean
+        Dim bReturn As Boolean
+        bReturn = True
+        Try
+            Dim colProduit As Collection = Produit.getListe(vncTypeProduit.vncTous, RacineCode + "%", pdossier:=Me.DossierProduit)
+            lstProduitMillesime.Clear()
+            For Each oProduit As Produit In colProduit
+                If oProduit.bMillesimeCode Then
+                    oProduit.DBLoad()
+                    lstProduitMillesime.Add(oProduit)
+                End If
+            Next
 
+        Catch ex As Exception
+            setError("Produit.LoadMillesime", ex.Message)
+            bReturn = False
 
+        End Try
+        Return bReturn
+    End Function
 
+    Private _lstProduitMillesime As List(Of Produit)
+    Public ReadOnly Property lstProduitMillesime() As List(Of Produit)
+        Get
+            Return _lstProduitMillesime
+        End Get
+    End Property
+    ''' <summary>
+    ''' Rend Vrai si le code existe en base avec un autre Id
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function isCodeExistant() As Boolean
+        Dim bReturn As Boolean
+        bReturn = False
+        Try
+            Dim Result As String = executeSQLScalar("SELECT COUNT(*) FROM PRODUIT Where PRD_CODE = '" & Me.code & "' and PRD_ID <> " & Me.id)
+            If CInt(Result) > 0 Then
+                bReturn = True
+            Else
+                bReturn = False
+            End If
+        Catch ex As Exception
+            bReturn = False
+            setError("Produit.isCodeExistant", ex.Message)
+        End Try
+        Return bReturn
+    End Function
 End Class

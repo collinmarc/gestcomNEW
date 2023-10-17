@@ -39,8 +39,11 @@ Public Class frmListePalettesTRP
     Friend WithEvents dtFin As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents tbcodeClient As System.Windows.Forms.TextBox
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRechercher As Button
     Friend WithEvents ckDetail As System.Windows.Forms.CheckBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtdeb = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -49,7 +52,23 @@ Public Class frmListePalettesTRP
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tbcodeClient = New System.Windows.Forms.TextBox()
         Me.ckDetail = New System.Windows.Forms.CheckBox()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
@@ -101,7 +120,7 @@ Public Class frmListePalettesTRP
         '
         'tbcodeClient
         '
-        Me.tbcodeClient.Location = New System.Drawing.Point(528, 8)
+        Me.tbcodeClient.Location = New System.Drawing.Point(491, 7)
         Me.tbcodeClient.Name = "tbcodeClient"
         Me.tbcodeClient.Size = New System.Drawing.Size(72, 20)
         Me.tbcodeClient.TabIndex = 2
@@ -109,16 +128,26 @@ Public Class frmListePalettesTRP
         'ckDetail
         '
         Me.ckDetail.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ckDetail.Location = New System.Drawing.Point(608, 8)
+        Me.ckDetail.Location = New System.Drawing.Point(722, 11)
         Me.ckDetail.Name = "ckDetail"
         Me.ckDetail.Size = New System.Drawing.Size(144, 16)
         Me.ckDetail.TabIndex = 3
         Me.ckDetail.Text = "Liste détaillée"
         '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(570, 7)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(75, 23)
+        Me.cbRechercher.TabIndex = 7
+        Me.cbRechercher.Text = "Rechercher"
+        Me.cbRechercher.UseVisualStyleBackColor = True
+        '
         'frmListePalettesTRP
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(1000, 678)
+        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.ckDetail)
         Me.Controls.Add(Me.tbcodeClient)
         Me.Controls.Add(Me.Label3)
@@ -129,14 +158,6 @@ Public Class frmListePalettesTRP
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmListePalettesTRP"
         Me.Text = "Liste des transports de palettes effectués"
-        Me.Controls.SetChildIndex(Me.Label1, 0)
-        Me.Controls.SetChildIndex(Me.dtdeb, 0)
-        Me.Controls.SetChildIndex(Me.Label2, 0)
-        Me.Controls.SetChildIndex(Me.dtFin, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbcodeClient, 0)
-        Me.Controls.SetChildIndex(Me.ckDetail, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -171,5 +192,18 @@ Public Class frmListePalettesTRP
         Persist.setReportConnection(objReport)
         CrystalReportViewer1.ReportSource = objReport
     End Sub
+
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        rechercheClient()
+    End Sub
+    Private Sub rechercheClient()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.CLIENT, tbcodeClient)
+
+        If Not objTiers Is Nothing Then
+            tbcodeClient.Text = objTiers.code
+        End If
+    End Sub 'rechercheClient
 
 End Class

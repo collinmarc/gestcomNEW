@@ -1617,6 +1617,9 @@
       <DependentUpon>frmMain2.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMouvementArticle.resx">
+      <DependentUpon>frmMouvementArticle.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_DonBase\frmGestionMillesime.resx">
       <DependentUpon>frmGestionMillesime.vb</DependentUpon>
       <SubType>Designer</SubType>

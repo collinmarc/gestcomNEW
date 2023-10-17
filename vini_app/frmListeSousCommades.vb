@@ -41,21 +41,40 @@ Public Class frmListeSousCommandes
     Friend WithEvents m_bsrcEtat As System.Windows.Forms.BindingSource
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cbxEtat As System.Windows.Forms.ComboBox
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRechercher As Button
     Friend WithEvents tbCodeFourn As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.dtdeb = New System.Windows.Forms.DateTimePicker
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.dtFin = New System.Windows.Forms.DateTimePicker
-        Me.cbAfficher = New System.Windows.Forms.Button
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.tbCodeFourn = New System.Windows.Forms.TextBox
+        Me.components = New System.ComponentModel.Container()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dtdeb = New System.Windows.Forms.DateTimePicker()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dtFin = New System.Windows.Forms.DateTimePicker()
+        Me.cbAfficher = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.tbCodeFourn = New System.Windows.Forms.TextBox()
         Me.m_bsrcEtat = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.cbxEtat = New System.Windows.Forms.ComboBox
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cbxEtat = New System.Windows.Forms.ComboBox()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         CType(Me.m_bsrcEtat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
@@ -137,10 +156,20 @@ Public Class frmListeSousCommandes
         Me.cbxEtat.TabIndex = 12
         Me.cbxEtat.ValueMember = "codeEtat"
         '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(655, 8)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(75, 23)
+        Me.cbRechercher.TabIndex = 14
+        Me.cbRechercher.Text = "Rechercher"
+        Me.cbRechercher.UseVisualStyleBackColor = True
+        '
         'frmListeSousCommandes
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(1000, 678)
+        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cbxEtat)
         Me.Controls.Add(Me.tbCodeFourn)
@@ -152,16 +181,6 @@ Public Class frmListeSousCommandes
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmListeSousCommandes"
         Me.Text = "Liste des Sous commandes"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.Controls.SetChildIndex(Me.Label1, 0)
-        Me.Controls.SetChildIndex(Me.dtdeb, 0)
-        Me.Controls.SetChildIndex(Me.Label2, 0)
-        Me.Controls.SetChildIndex(Me.dtFin, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbCodeFourn, 0)
-        Me.Controls.SetChildIndex(Me.cbxEtat, 0)
-        Me.Controls.SetChildIndex(Me.Label4, 0)
         CType(Me.m_bsrcEtat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -209,4 +228,18 @@ Public Class frmListeSousCommandes
         tbCodeFourn.Text = "%"
 
     End Sub
+
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        rechercheFournisseur()
+    End Sub
+    Private Sub rechercheFournisseur()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.FOURNISSEUR, tbCodeFourn)
+
+        If Not objTiers Is Nothing Then
+            tbCodeFourn.Text = objTiers.code
+        End If
+    End Sub 'rechercheFournisseur
+
 End Class

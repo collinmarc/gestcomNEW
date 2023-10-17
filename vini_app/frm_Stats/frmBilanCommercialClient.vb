@@ -40,8 +40,11 @@ Public Class frmBilanCommercialClient
     Friend WithEvents tbCodeClient As System.Windows.Forms.TextBox
     Friend WithEvents cbxOrigine As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRecherche As Button
     Friend WithEvents dtFin As System.Windows.Forms.DateTimePicker
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtdeb = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -51,7 +54,23 @@ Public Class frmBilanCommercialClient
         Me.tbCodeClient = New System.Windows.Forms.TextBox()
         Me.cbxOrigine = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.cbRecherche = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
@@ -113,12 +132,12 @@ Public Class frmBilanCommercialClient
         'cbxOrigine
         '
         Me.cbxOrigine.FormattingEnabled = True
-        Me.cbxOrigine.Items.AddRange(New Object() {Dossier.VINICOM, Dossier.HOBIVIN})
+        Me.cbxOrigine.Items.AddRange(New Object() {"VINICOM", "HOBIVIN"})
         Me.cbxOrigine.Location = New System.Drawing.Point(99, 35)
         Me.cbxOrigine.Name = "cbxOrigine"
         Me.cbxOrigine.Size = New System.Drawing.Size(136, 21)
         Me.cbxOrigine.TabIndex = 7
-        Me.cbxOrigine.Text = Dossier.VINICOM
+        Me.cbxOrigine.Text = "VINICOM"
         '
         'Label4
         '
@@ -129,10 +148,19 @@ Public Class frmBilanCommercialClient
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Origine :"
         '
-        'frmBilanClient
+        'cbRecherche
+        '
+        Me.cbRecherche.Location = New System.Drawing.Point(632, 5)
+        Me.cbRecherche.Name = "cbRecherche"
+        Me.cbRecherche.Size = New System.Drawing.Size(80, 24)
+        Me.cbRecherche.TabIndex = 9
+        Me.cbRecherche.Text = "Recherche"
+        '
+        'frmBilanCommercialClient
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(976, 678)
+        Me.Controls.Add(Me.cbRecherche)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cbxOrigine)
         Me.Controls.Add(Me.tbCodeClient)
@@ -142,17 +170,8 @@ Public Class frmBilanCommercialClient
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtdeb)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "frmBilanClient"
+        Me.Name = "frmBilanCommercialClient"
         Me.Text = "Bilan commercial Client"
-        Me.Controls.SetChildIndex(Me.Label1, 0)
-        Me.Controls.SetChildIndex(Me.dtdeb, 0)
-        Me.Controls.SetChildIndex(Me.Label2, 0)
-        Me.Controls.SetChildIndex(Me.dtFin, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbCodeClient, 0)
-        Me.Controls.SetChildIndex(Me.cbxOrigine, 0)
-        Me.Controls.SetChildIndex(Me.Label4, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -202,4 +221,18 @@ Public Class frmBilanCommercialClient
     Private Sub frmBilanClient_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         dtdeb.Value = CDate("01/01/" & Year(DateTime.Now))
     End Sub
+
+    Private Sub cbRecherche_Click(sender As Object, e As EventArgs) Handles cbRecherche.Click
+        rechercheTiers()
+    End Sub
+    Private Sub rechercheTiers()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.CLIENT, tbCodeClient)
+
+        If Not objTiers Is Nothing Then
+            tbCodeClient.Text = objTiers.code
+        End If
+    End Sub 'RechercheTiers
+
 End Class

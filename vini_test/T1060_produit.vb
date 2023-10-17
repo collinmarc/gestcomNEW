@@ -675,6 +675,74 @@ Imports vini_DB
         Assert.IsTrue(objPRD.save(), "Delete" & objPRD.getErreur())
     End Sub
 
+    <TestCategory("6.1.0.0")>
+    <TestMethod()> Public Sub TV61_RACINE()
+        Dim oPrd As New Produit()
+        oPrd.code = "01123M98"
+        Assert.AreEqual("01123", oPrd.RacineCode)
+        Assert.IsTrue(oPrd.bMillesimeCode)
+        Assert.AreEqual("M98", oPrd.MillesimeCode)
+        oPrd.code = "01123MA1"
+        Assert.AreEqual("01123MA1", oPrd.RacineCode)
+        Assert.IsFalse(oPrd.bMillesimeCode)
+        Assert.AreEqual("", oPrd.MillesimeCode)
+        oPrd.code = "01123456"
+        Assert.AreEqual("01123456", oPrd.RacineCode)
+        Assert.IsFalse(oPrd.bMillesimeCode)
+        Assert.AreEqual("", oPrd.MillesimeCode)
+
+        oPrd.code = "01123M98"
+        oPrd.MillesimeCode = "M99"
+        'Modification Code
+        Assert.AreEqual("01123M99", oPrd.code)
+        oPrd.MillesimeCode = "21"
+        'Pas de modif de code => Millésime non conforme
+        Assert.AreEqual("01123M99", oPrd.code)
+        oPrd.code = "0112398"
+        oPrd.MillesimeCode = "M99"
+        'Pas de modif de code => code non corforme
+        Assert.AreEqual("0112398", oPrd.code)
+
+
+
+    End Sub
+    <TestCategory("6.1.0.0")>
+    <TestMethod()> Public Sub TV61_IsCodeExistant()
+        Dim objPRD As Produit
+        Dim objPRD2 As Produit
+        Dim n As Integer
+        Dim nIdFournisseur As Integer
+        nIdFournisseur = Fournisseur.getListe()(1).id
+
+        'I - Création d'un Produit
+        '=========================
+        objPRD = New Produit("", New Fournisseur, 1990)
+        Assert.AreEqual(False, objPRD.bArchive)
+        objPRD.code = "PTEST" & Now()
+        objPRD.nom = "Produit de TEST ARCHIVE"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        objPRD.bArchive = True
+
+        'le code Produit n'existe pas pour un autre produit
+        Assert.IsFalse(objPRD.isCodeExistant())
+
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+
+        'le code Produit n'existe pas pour un autre produit après le Save
+        Assert.IsFalse(objPRD.isCodeExistant())
+
+        objPRD2 = New Produit()
+        objPRD.code = objPRD.code
+
+        'le code Produit existe pour un autre produit 
+        Assert.IsTrue(objPRD2.isCodeExistant())
+
+    End Sub
 End Class
 
 

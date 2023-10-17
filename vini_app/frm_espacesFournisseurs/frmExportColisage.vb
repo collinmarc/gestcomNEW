@@ -41,6 +41,7 @@ Public Class frmExportColisage
     Friend WithEvents lblProgress As Label
     Friend WithEvents btn_annuler As Button
     Friend WithEvents WebBrowser1 As WebBrowser
+    Friend WithEvents cbRechercher As Button
 
     'Requis par le Concepteur Windows Form
     Private components As System.ComponentModel.IContainer
@@ -60,6 +61,7 @@ Public Class frmExportColisage
         Me.lblProgress = New System.Windows.Forms.Label()
         Me.btn_annuler = New System.Windows.Forms.Button()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'tbCodeFourn
@@ -89,7 +91,7 @@ Public Class frmExportColisage
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(213, 19)
+        Me.Label1.Location = New System.Drawing.Point(317, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 13)
         Me.Label1.TabIndex = 10
@@ -99,7 +101,7 @@ Public Class frmExportColisage
         '
         Me.dtPeriode.CustomFormat = "MMMM yyyy"
         Me.dtPeriode.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtPeriode.Location = New System.Drawing.Point(284, 15)
+        Me.dtPeriode.Location = New System.Drawing.Point(388, 16)
         Me.dtPeriode.Name = "dtPeriode"
         Me.dtPeriode.Size = New System.Drawing.Size(120, 20)
         Me.dtPeriode.TabIndex = 1
@@ -170,10 +172,20 @@ Public Class frmExportColisage
         Me.WebBrowser1.TabIndex = 15
         Me.WebBrowser1.WebBrowserShortcutsEnabled = False
         '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(202, 16)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(75, 23)
+        Me.cbRechercher.TabIndex = 16
+        Me.cbRechercher.Text = "Rechercher"
+        Me.cbRechercher.UseVisualStyleBackColor = True
+        '
         'frmExportColisage
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(988, 686)
+        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.WebBrowser1)
         Me.Controls.Add(Me.btn_annuler)
         Me.Controls.Add(Me.lblProgress)
@@ -331,4 +343,18 @@ Public Class frmExportColisage
         cbExporter.Enabled = True
 
     End Sub
+
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        rechercheFournisseur()
+    End Sub
+    Private Sub rechercheFournisseur()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.FOURNISSEUR, tbCodeFourn)
+
+        If Not objTiers Is Nothing Then
+            tbCodeFourn.Text = objTiers.code
+        End If
+    End Sub 'rechercheClient
+
 End Class

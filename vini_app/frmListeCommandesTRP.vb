@@ -40,18 +40,37 @@ Public Class frmListeCommandesTrp
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents tbcodeClient As System.Windows.Forms.TextBox
     Friend WithEvents ckCdeFacturee As System.Windows.Forms.CheckBox
+    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cbRechercher As Button
     Friend WithEvents ckbTransport As System.Windows.Forms.CheckBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.dtdeb = New System.Windows.Forms.DateTimePicker
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.dtFin = New System.Windows.Forms.DateTimePicker
-        Me.cbAfficher = New System.Windows.Forms.Button
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.tbcodeClient = New System.Windows.Forms.TextBox
-        Me.ckCdeFacturee = New System.Windows.Forms.CheckBox
-        Me.ckbTransport = New System.Windows.Forms.CheckBox
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dtdeb = New System.Windows.Forms.DateTimePicker()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dtFin = New System.Windows.Forms.DateTimePicker()
+        Me.cbAfficher = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.tbcodeClient = New System.Windows.Forms.TextBox()
+        Me.ckCdeFacturee = New System.Windows.Forms.CheckBox()
+        Me.ckbTransport = New System.Windows.Forms.CheckBox()
+        Me.cbRechercher = New System.Windows.Forms.Button()
         Me.SuspendLayout()
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.DisplayStatusBar = False
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
@@ -111,7 +130,7 @@ Public Class frmListeCommandesTrp
         'ckCdeFacturee
         '
         Me.ckCdeFacturee.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ckCdeFacturee.Location = New System.Drawing.Point(608, 8)
+        Me.ckCdeFacturee.Location = New System.Drawing.Point(722, 9)
         Me.ckCdeFacturee.Name = "ckCdeFacturee"
         Me.ckCdeFacturee.Size = New System.Drawing.Size(144, 16)
         Me.ckCdeFacturee.TabIndex = 3
@@ -120,16 +139,26 @@ Public Class frmListeCommandesTrp
         'ckbTransport
         '
         Me.ckbTransport.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ckbTransport.Location = New System.Drawing.Point(608, 24)
+        Me.ckbTransport.Location = New System.Drawing.Point(722, 25)
         Me.ckbTransport.Name = "ckbTransport"
         Me.ckbTransport.Size = New System.Drawing.Size(144, 24)
         Me.ckbTransport.TabIndex = 4
         Me.ckbTransport.Text = "Avec/sans transport"
         '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(606, 6)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(75, 23)
+        Me.cbRechercher.TabIndex = 7
+        Me.cbRechercher.Text = "Rechercher"
+        Me.cbRechercher.UseVisualStyleBackColor = True
+        '
         'frmListeCommandesTrp
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(1000, 678)
+        Me.Controls.Add(Me.cbRechercher)
         Me.Controls.Add(Me.ckbTransport)
         Me.Controls.Add(Me.ckCdeFacturee)
         Me.Controls.Add(Me.tbcodeClient)
@@ -141,16 +170,6 @@ Public Class frmListeCommandesTrp
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmListeCommandesTrp"
         Me.Text = "Liste des commandes avec transport"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.Controls.SetChildIndex(Me.Label1, 0)
-        Me.Controls.SetChildIndex(Me.dtdeb, 0)
-        Me.Controls.SetChildIndex(Me.Label2, 0)
-        Me.Controls.SetChildIndex(Me.dtFin, 0)
-        Me.Controls.SetChildIndex(Me.cbAfficher, 0)
-        Me.Controls.SetChildIndex(Me.Label3, 0)
-        Me.Controls.SetChildIndex(Me.tbcodeClient, 0)
-        Me.Controls.SetChildIndex(Me.ckCdeFacturee, 0)
-        Me.Controls.SetChildIndex(Me.ckbTransport, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -187,4 +206,16 @@ Public Class frmListeCommandesTrp
         CrystalReportViewer1.ReportSource = objReport
     End Sub
 
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        rechercheClient()
+    End Sub
+    Private Sub rechercheClient()
+        Dim objTiers As Tiers
+
+        objTiers = rechercheDonnee(vncEnums.vncTypeDonnee.CLIENT, tbcodeClient)
+
+        If Not objTiers Is Nothing Then
+            tbcodeClient.Text = objTiers.code
+        End If
+    End Sub 'rechercheClient
 End Class
