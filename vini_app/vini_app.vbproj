@@ -256,9 +256,6 @@
     <Compile Include="frmImportCommandeClientWoo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain2.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frm_DonBase\frmGestionMillesime.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -1612,10 +1609,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmImportCommandeClientWoo.resx">
       <DependentUpon>frmImportCommandeClientWoo.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain2.resx">
-      <DependentUpon>frmMain2.vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMouvementArticle.resx">
       <DependentUpon>frmMouvementArticle.vb</DependentUpon>

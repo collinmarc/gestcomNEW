@@ -6,11 +6,7 @@ Imports vini_DB
 Imports System.Resources
 Module Module1
 
-#If TEST Then
-    Public fMainForm As frmMain2
-#Else
     Public fMainForm As frmMain
-#End If
 
 
     Public frmActive As System.Windows.Forms.Form
@@ -75,12 +71,7 @@ Module Module1
 
         fLogin = Nothing
 
-#If TEST Then
-        fMainForm = New frmMain2
-#Else
         fMainForm = New frmMain
-
-#End If
         fMainForm.CurrentUser = currentuser
         fMainForm.ShowDialog()
 
