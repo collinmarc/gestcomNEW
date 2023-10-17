@@ -1275,7 +1275,7 @@ Imports System.IO
         'AND j'ajoute une autre Ligne gratuite
         objLgCmd3 = objCmd.AjouteLigne("30", m_oProduit, 1, 0, True)
         'AND J'export en WebEDI
-        objCmd.exporterWebEDI("./exportEDI.txt")
+        objCmd.exporterWebEDI("./exportEDI.txt", False)
 
         'THEN 
         'Le Fichier d'export est bien créé
@@ -1339,7 +1339,7 @@ Imports System.IO
         'AND j'ajoute une Ligne gratuite du produit 2
         objLgCmd3 = objCmd.AjouteLigne("30", oPrd2, 1, 0, True)
         'AND J'export en WebEDI
-        objCmd.exporterWebEDI("./exportEDI.txt")
+        objCmd.exporterWebEDI("./exportEDI.txt", False)
 
         'THEN 
         'Le Fichier d'export est bien créé
@@ -1505,6 +1505,101 @@ Imports System.IO
         Assert.AreEqual(CDate("06/02/1964"), objCMD2.Date_EDI)
 
     End Sub
+    <TestCategory("6.1.0.0")>
+    <TestMethod()> Public Sub T61_ExportWEBEDI()
+        'Test de l'export Code Stat à la place du code produit si Export Groussard
+        Dim objCMD As CommandeClient
+        Dim nFile As Integer
+        Dim strResult As String
+        Dim nLineNumber As Integer
+        Dim oFRN As Fournisseur
+        Dim oPRD As Produit
+        Dim oCLT As Client
+        Dim oCmd As CommandeClient
+
+
+        oFRN = New Fournisseur("FRNT61", "FRn de'' test")
+        oFRN.rs = "FRNV22"
+        oFRN.AdresseFacturation.nom = "ADF_Nom"
+        oFRN.AdresseFacturation.rue1 = "ADF_Nom"
+        oFRN.AdresseFacturation.rue2 = "ADF_Nom"
+        oFRN.AdresseFacturation.cp = "ADF_Nom"
+        oFRN.AdresseFacturation.ville = "ADF_Nom"
+        oFRN.AdresseFacturation.tel = "01010101"
+        oFRN.AdresseFacturation.fax = "02020202"
+        oFRN.AdresseFacturation.port = "03030303"
+        oFRN.AdresseFacturation.Email = "04040404"
+        Assert.IsTrue(oFRN.Save(), "FRN.Create")
+
+        oPRD = New Produit("T61_CODEPROD", oFRN, 1990)
+        oPRD.codeStat = "T61_CODESTAT"
+        Assert.IsTrue(oPRD.save(), "Prod.Create")
+
+
+        oCLT = New Client("CLTT61", "Client de' test")
+        oCLT.rs = "Client de test"
+        Assert.IsTrue(oCLT.save(), "Client.Create")
+
+
+        oCmd = New CommandeClient(oCLT)
+        oCmd.dateCommande = #6/2/1964#
+        oCmd.save()
+
+
+
+        'Creation d'une Commande
+        objCMD = New CommandeClient(oCLT)
+        objCMD.AjouteLigne("10", oPRD, 10, 10)
+        If System.IO.File.Exists("adel.txt") Then
+            System.IO.File.Delete("adel.txt")
+        End If
+        objCMD.exporterWebEDI("adel.txt", False)
+        nFile = FreeFile()
+        FileOpen(nFile, "adel.txt", OpenMode.Input, OpenAccess.Read)
+        nLineNumber = 0
+        While Not EOF(nFile)
+            nLineNumber = nLineNumber + 1
+            strResult = LineInput(nFile)
+            Console.WriteLine(strResult)
+            Assert.AreEqual(oPRD.code, Trim(strResult.Substring(294, 15)), "Code Produit")
+        End While
+        FileClose(nFile)
+        objCMD.exporterWebEDI("adel2.txt", True)
+        nFile = FreeFile()
+        FileOpen(nFile, "adel2.txt", OpenMode.Input, OpenAccess.Read)
+        nLineNumber = 0
+        While Not EOF(nFile)
+            nLineNumber = nLineNumber + 1
+            strResult = LineInput(nFile)
+            Console.WriteLine(strResult)
+            Assert.AreEqual(oPRD.codeStat, Trim(strResult.Substring(294, 15)), "Code stat")
+        End While
+        FileClose(nFile)
+        'Effacement du code stat
+        oPRD.codeStat = ""
+        objCMD.exporterWebEDI("adel3.txt", True)
+        nFile = FreeFile()
+        FileOpen(nFile, "adel3.txt", OpenMode.Input, OpenAccess.Read)
+        nLineNumber = 0
+        While Not EOF(nFile)
+            nLineNumber = nLineNumber + 1
+            strResult = LineInput(nFile)
+            Console.WriteLine(strResult)
+            Assert.AreEqual(oPRD.code, Trim(strResult.Substring(294, 15)), "Code Produit car code stat Vide")
+        End While
+        FileClose(nFile)
+        'Suppression du fichier créé
+        System.IO.File.Delete("adel.txt")
+        System.IO.File.Delete("adel2.txt")
+        System.IO.File.Delete("adel3.txt")
+        oCmd.delete()
+        oFRN.delete()
+        oCLT.delete()
+        oPRD.delete()
+
+
+    End Sub
+
 End Class
 
 

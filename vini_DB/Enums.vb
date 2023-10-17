@@ -26,6 +26,7 @@ Public Module vncEnums
         CLIENT = 1
         FOURNISSEUR = 2
         PRODUIT = 3
+        PRODUIT_COMMANDE = 31
         COMMANDECLIENT = 4
         LGCOMMANDE = 5
         BA = 6

@@ -592,7 +592,7 @@ Public Class frmCommandeClient
                 odlg = New dlgExportWebEDI()
                 odlg.Setcommande(getCommandeCourante())
                 If odlg.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                    bReturn = getCommandeCourante.exporterWebEDI(strFileName)
+                    bReturn = getCommandeCourante.exporterWebEDI(strFileName, My.Settings.bCodeStatePlateforme)
                     If bReturn Then
                         If ExportMail.SendMail(Param.SMTP_HOST,
                                                 Param.SMTP_PORT,

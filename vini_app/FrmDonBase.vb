@@ -381,6 +381,6 @@ Public Class FrmDonBase
     End Function 'SauvegardeElementcourant
 
     Private Sub m_ElementCourant_Updated() Handles m_ElementCourant.Updated
-        setfrmUpdated()
+        'setfrmUpdated()
     End Sub
 End Class

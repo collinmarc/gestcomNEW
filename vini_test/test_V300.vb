@@ -108,7 +108,7 @@ Imports vini_App
         If System.IO.File.Exists("C:/temp/adel.txt") Then
             System.IO.File.Delete("C:/temp/adel.txt")
         End If
-        objCMD.exporterWebEDI("C:/temp/adel.txt")
+        objCMD.exporterWebEDI("C:/temp/adel.txt", False)
         nFile = FreeFile()
         FileOpen(nFile, "C:/temp/adel.txt", OpenMode.Input, OpenAccess.Read)
         nLineNumber = 0

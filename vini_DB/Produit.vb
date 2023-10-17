@@ -31,6 +31,7 @@ Imports System.Text.RegularExpressions
 '===================================================================================================================================Public MustInherit Class Persist
 Public Class Produit
     Inherits Persist
+    Implements IComparable
     '==============================================================================
     Private m_code As String                'Code Article
     Private m_nom As String                 'Designation de l'article
@@ -1659,5 +1660,19 @@ Public Class Produit
             setError("Produit.isCodeExistant", ex.Message)
         End Try
         Return bReturn
+    End Function
+
+    Public Function CompareTo(obj As Object) As Integer Implements IComparable.CompareTo
+        Dim autre As Produit
+        Dim nReturn As Integer = 0
+        If obj IsNot Nothing Then
+            autre = CType(obj, Produit)
+            If autre IsNot Nothing Then
+                nReturn = autre.QteStock.CompareTo(Me.QteStock)
+            End If
+
+        End If
+
+        Return nReturn * -1
     End Function
 End Class

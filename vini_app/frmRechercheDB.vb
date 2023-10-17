@@ -1,6 +1,7 @@
 Imports vini_DB
 Imports System.Windows.Forms.Cursors
 Imports System.Collections
+Imports System.ComponentModel
 
 Public Class frmRechercheDB
     Inherits System.Windows.Forms.Form
@@ -45,20 +46,20 @@ Public Class frmRechercheDB
     Friend WithEvents cboEtat As System.Windows.Forms.ComboBox
     Friend WithEvents laEtat As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.laCode = New System.Windows.Forms.Label
-        Me.tbCode = New System.Windows.Forms.TextBox
-        Me.laNom = New System.Windows.Forms.Label
-        Me.tbNom = New System.Windows.Forms.TextBox
-        Me.laMotCle = New System.Windows.Forms.Label
-        Me.tbMotCle = New System.Windows.Forms.TextBox
-        Me.cbAfficher = New System.Windows.Forms.Button
-        Me.tbSelectionner = New System.Windows.Forms.Button
-        Me.cbAnnuler = New System.Windows.Forms.Button
-        Me.laEtat = New System.Windows.Forms.Label
-        Me.cboEtat = New System.Windows.Forms.ComboBox
+        Me.components = New System.ComponentModel.Container()
+        Me.laCode = New System.Windows.Forms.Label()
+        Me.tbCode = New System.Windows.Forms.TextBox()
+        Me.laNom = New System.Windows.Forms.Label()
+        Me.tbNom = New System.Windows.Forms.TextBox()
+        Me.laMotCle = New System.Windows.Forms.Label()
+        Me.tbMotCle = New System.Windows.Forms.TextBox()
+        Me.cbAfficher = New System.Windows.Forms.Button()
+        Me.tbSelectionner = New System.Windows.Forms.Button()
+        Me.cbAnnuler = New System.Windows.Forms.Button()
+        Me.laEtat = New System.Windows.Forms.Label()
+        Me.cboEtat = New System.Windows.Forms.ComboBox()
         Me.m_bsrc = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         CType(Me.m_bsrc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -74,10 +75,10 @@ Public Class frmRechercheDB
         'tbCode
         '
         Me.tbCode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbCode.Location = New System.Drawing.Point(80, 8)
         Me.tbCode.Name = "tbCode"
-        Me.tbCode.Size = New System.Drawing.Size(368, 20)
+        Me.tbCode.Size = New System.Drawing.Size(426, 20)
         Me.tbCode.TabIndex = 1
         '
         'laNom
@@ -91,10 +92,10 @@ Public Class frmRechercheDB
         'tbNom
         '
         Me.tbNom.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbNom.Location = New System.Drawing.Point(80, 32)
         Me.tbNom.Name = "tbNom"
-        Me.tbNom.Size = New System.Drawing.Size(368, 20)
+        Me.tbNom.Size = New System.Drawing.Size(426, 20)
         Me.tbNom.TabIndex = 2
         '
         'laMotCle
@@ -108,16 +109,16 @@ Public Class frmRechercheDB
         'tbMotCle
         '
         Me.tbMotCle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbMotCle.Location = New System.Drawing.Point(80, 56)
         Me.tbMotCle.Name = "tbMotCle"
-        Me.tbMotCle.Size = New System.Drawing.Size(368, 20)
+        Me.tbMotCle.Size = New System.Drawing.Size(426, 20)
         Me.tbMotCle.TabIndex = 3
         '
         'cbAfficher
         '
         Me.cbAfficher.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbAfficher.Location = New System.Drawing.Point(312, 80)
+        Me.cbAfficher.Location = New System.Drawing.Point(370, 80)
         Me.cbAfficher.Name = "cbAfficher"
         Me.cbAfficher.Size = New System.Drawing.Size(136, 21)
         Me.cbAfficher.TabIndex = 5
@@ -127,7 +128,7 @@ Public Class frmRechercheDB
         '
         Me.tbSelectionner.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbSelectionner.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.tbSelectionner.Location = New System.Drawing.Point(232, 560)
+        Me.tbSelectionner.Location = New System.Drawing.Point(290, 560)
         Me.tbSelectionner.Name = "tbSelectionner"
         Me.tbSelectionner.Size = New System.Drawing.Size(104, 23)
         Me.tbSelectionner.TabIndex = 7
@@ -137,7 +138,7 @@ Public Class frmRechercheDB
         '
         Me.cbAnnuler.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.cbAnnuler.Location = New System.Drawing.Point(344, 560)
+        Me.cbAnnuler.Location = New System.Drawing.Point(402, 560)
         Me.cbAnnuler.Name = "cbAnnuler"
         Me.cbAnnuler.Size = New System.Drawing.Size(104, 24)
         Me.cbAnnuler.TabIndex = 8
@@ -154,35 +155,35 @@ Public Class frmRechercheDB
         'cboEtat
         '
         Me.cboEtat.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboEtat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboEtat.Location = New System.Drawing.Point(80, 80)
         Me.cboEtat.Name = "cboEtat"
-        Me.cboEtat.Size = New System.Drawing.Size(121, 21)
+        Me.cboEtat.Size = New System.Drawing.Size(179, 21)
         Me.cboEtat.TabIndex = 4
         '
         'DataGridView1
         '
-        Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(3, 107)
+        Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidth = 10
-        Me.DataGridView1.Size = New System.Drawing.Size(441, 447)
+        Me.DataGridView1.Size = New System.Drawing.Size(499, 447)
         Me.DataGridView1.TabIndex = 9
         Me.DataGridView1.VirtualMode = True
         '
         'frmRechercheDB
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(456, 590)
+        Me.ClientSize = New System.Drawing.Size(514, 590)
         Me.ControlBox = False
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.cboEtat)
@@ -231,7 +232,7 @@ Public Class frmRechercheDB
                 Me.m_bsrc.DataSource = GetType(vini_DB.Client)
             Case vncTypeDonnee.FOURNISSEUR
                 Me.m_bsrc.DataSource = GetType(vini_DB.Fournisseur)
-            Case vncTypeDonnee.PRODUIT
+            Case vncEnums.vncTypeDonnee.PRODUIT, vncTypeDonnee.PRODUIT_COMMANDE
                 Me.m_bsrc.DataSource = GetType(vini_DB.Produit)
             Case vncTypeDonnee.COMMANDECLIENT
                 Me.m_bsrc.DataSource = GetType(vini_DB.CommandeClient)
@@ -265,7 +266,7 @@ Public Class frmRechercheDB
                 Me.Text = "Recherche de Fournisseur"
                 'laEtat.Enabled = False
                 'cboEtat.Enabled = False
-            Case vncEnums.vncTypeDonnee.PRODUIT
+            Case vncEnums.vncTypeDonnee.PRODUIT, vncTypeDonnee.PRODUIT_COMMANDE
                 laCode.Text = "Code"
                 laNom.Text = "Désignation"
                 laMotCle.Text = "Mot Clé"
@@ -346,7 +347,7 @@ Public Class frmRechercheDB
         Dim objEtat As EtatCommande
 
         Select Case m_TypeDonnees
-            Case vncEnums.vncTypeDonnee.PRODUIT, vncTypeDonnee.CLIENT, vncTypeDonnee.FOURNISSEUR
+            Case vncEnums.vncTypeDonnee.PRODUIT, vncTypeDonnee.CLIENT, vncTypeDonnee.FOURNISSEUR, vncTypeDonnee.PRODUIT_COMMANDE
                 cboEtat.Items.Add("Non Archivé")
                 cboEtat.Items.Add("Tous")
                 cboEtat.SelectedIndex = 0
@@ -400,16 +401,11 @@ Public Class frmRechercheDB
     End Sub
 
     Public Sub setidPrecommande(ByVal p_id As Integer)
-        Debug.Assert(m_TypeDonnees = vncEnums.vncTypeDonnee.PRODUIT)
         m_idPrecommande = p_id
     End Sub
     Public Sub setidFournisseur(ByVal p_id As Integer)
         Debug.Assert(m_TypeDonnees = vncEnums.vncTypeDonnee.PRODUIT)
         m_idFournisseur = p_id
-    End Sub
-    Public Sub setTypeProduit2(ByVal ptypeProduit As vncTypeProduit)
-        Debug.Assert(m_TypeDonnees = vncEnums.vncTypeDonnee.PRODUIT)
-        m_typeProduit = ptypeProduit
     End Sub
 
     Public Function getElementSelectionne() As Persist
@@ -452,6 +448,27 @@ Public Class frmRechercheDB
                     bTous = True
                 End If
                 m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, m_idFournisseur, m_idPrecommande, pTous:=bTous)
+            Case vncTypeDonnee.PRODUIT_COMMANDE
+                Me.m_bsrc.DataSource = GetType(vini_DB.Produit)
+                'Recherche des produits , les valeurs idFournisseur et idPrecommande sont initialisées à 0
+                Dim bTous As Boolean = False
+                If cboEtat.SelectedItem = "Tous" Then
+                    bTous = True
+                End If
+                m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, m_idFournisseur, 0, pTous:=bTous)
+                'Tri sur la Qte en stock
+                Dim lstProduit As New List(Of Produit)
+                For Each oPrd As Produit In m_ocol
+                    oPrd.loadcolmvtStockDepuisLeDernierMouvementInventaire()
+                    oPrd.recalculStock()
+                    lstProduit.Add(oPrd)
+                Next
+                'Tri sur la Qte en Stock (Comparer de Produit)
+                lstProduit.Sort()
+                'Realimentation de la collection
+                CType(m_ocol, Collection).Clear()
+                lstProduit.ForEach(Sub(p) CType(m_ocol, Collection).Add(p))
+
             Case vncTypeDonnee.COMMANDECLIENT
                 Me.m_bsrc.DataSource = GetType(vini_DB.CommandeClient)
                 If (tbCode.Text = "" And tbNom.Text = "" And cboEtat.SelectedItem.codeEtat = vncEnums.vncEtatCommande.vncRien) Then
@@ -532,7 +549,11 @@ Public Class frmRechercheDB
         Dim obj As Object
         Dim oCol As DataGridViewTextBoxColumn
 
-
+        m_bsrc.Clear()
+        For Each obj In m_ocol
+            m_bsrc.Add(obj)
+        Next obj
+        DataGridView1.AutoGenerateColumns = False
         DataGridView1.DataSource = m_bsrc
         DataGridView1.Columns.Clear()
         Select Case m_TypeDonnees
@@ -566,7 +587,7 @@ Public Class frmRechercheDB
                 oCol = New DataGridViewTextBoxColumn()
                 oCol.DataPropertyName = "Code"
                 oCol.HeaderText = "Code"
-                oCol.FillWeight = 50
+                oCol.FillWeight = 65
                 DataGridView1.Columns.Add(oCol)
 
                 oCol = New DataGridViewTextBoxColumn()
@@ -591,6 +612,44 @@ Public Class frmRechercheDB
                 oCol.FillWeight = 35
                 oCol.DataPropertyName = "libCouleur"
                 oCol.HeaderText = "Coul."
+                DataGridView1.Columns.Add(oCol)
+
+            Case vncEnums.vncTypeDonnee.PRODUIT_COMMANDE
+                DataGridView1.Columns.Clear()
+                oCol = New DataGridViewTextBoxColumn()
+                oCol.DataPropertyName = "Code"
+                oCol.HeaderText = "Code"
+                oCol.FillWeight = 65
+                DataGridView1.Columns.Add(oCol)
+
+                oCol = New DataGridViewTextBoxColumn()
+                oCol.DataPropertyName = "nom"
+                oCol.HeaderText = "Nom"
+                oCol.FillWeight = 228
+                DataGridView1.Columns.Add(oCol)
+
+                oCol = New DataGridViewTextBoxColumn()
+                oCol.FillWeight = 35
+                oCol.DataPropertyName = "millesime"
+                oCol.HeaderText = "Mil."
+                DataGridView1.Columns.Add(oCol)
+
+                oCol = New DataGridViewTextBoxColumn()
+                oCol.FillWeight = 35
+                oCol.DataPropertyName = "libcontenant"
+                oCol.HeaderText = "cont."
+                DataGridView1.Columns.Add(oCol)
+
+                oCol = New DataGridViewTextBoxColumn()
+                oCol.FillWeight = 35
+                oCol.DataPropertyName = "libCouleur"
+                oCol.HeaderText = "Coul."
+                DataGridView1.Columns.Add(oCol)
+
+                oCol = New DataGridViewTextBoxColumn()
+                oCol.FillWeight = 35
+                oCol.DataPropertyName = "QteStock"
+                oCol.HeaderText = "Stock"
                 DataGridView1.Columns.Add(oCol)
 
             Case vncEnums.vncTypeDonnee.COMMANDECLIENT, vncEnums.vncTypeDonnee.BA
@@ -661,14 +720,10 @@ Public Class frmRechercheDB
                 oCol.DataPropertyName = "EtatLibelle"
                 DataGridView1.Columns.Add(oCol)
         End Select
-        m_bsrc.Clear()
-        For Each obj In m_ocol
-            m_bsrc.Add(obj)
-        Next obj
 
 
         If m_bsrc.Count > 0 Then
-            m_bsrc.Position = 0
+            m_bsrc.MoveFirst()
         End If
         m_bsrc.ResetBindings(False)
         DataGridView1.Focus()

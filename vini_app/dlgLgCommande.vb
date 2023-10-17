@@ -658,7 +658,8 @@ Public Class dlgLgCommande
     Private Sub rechercheProduit()
         Debug.Assert(Not m_elementCourant Is Nothing)
         Debug.Assert(Not m_TiersCourant Is Nothing)
-        Dim colProduit As Collection
+        Dim lstProduit As List(Of Produit)
+        Dim ocol As Collection
         Dim objProduit As Produit = Nothing
         Dim frm As frmRechercheDB
         Dim objClient As Client
@@ -667,19 +668,31 @@ Public Class dlgLgCommande
         Dim prixU As Decimal = 0
 
         If tbCodeProduit.Text <> "" Then
-            colProduit = Produit.getListe(m_typeProduit, tbCodeProduit.Text)
+            ocol = Produit.getListe(m_typeProduit, tbCodeProduit.Text)
         Else
             If m_TiersCourant.typeDonnee = vncTypeDonnee.FOURNISSEUR Then
-                colProduit = Produit.getListe(m_typeProduit, , , , m_TiersCourant.id, )
+                ocol = Produit.getListe(m_typeProduit, , , , idFournisseur:=m_TiersCourant.id)
             Else
-                colProduit = Produit.getListe(m_typeProduit, , , , , m_TiersCourant.id)
+                ocol = Produit.getListe(m_typeProduit, , , , , idClient:=m_TiersCourant.id)
             End If
-
         End If
-        If colProduit.Count <> 1 Then
+        If ocol.Count <> 1 Then
+
+            lstProduit = New List(Of Produit)
+            For Each oPrd As Produit In ocol
+                lstProduit.Add(oPrd)
+                oPrd.loadcolmvtStockDepuisLeDernierMouvementInventaire()
+                oPrd.recalculStock()
+            Next
+            'Tri sur la Qte en Stock (Comparer de Produit)
+            lstProduit.Sort()
+            'Realimentation de la collection
+            ocol.Clear()
+            lstProduit.ForEach(Sub(p) ocol.Add(p))
+
             'Création de la fenêtre de recherche
             frm = New frmRechercheDB
-            frm.setTypeDonnees(vncEnums.vncTypeDonnee.PRODUIT)
+            frm.setTypeDonnees(vncEnums.vncTypeDonnee.PRODUIT_COMMANDE)
             'Liste des produits de la PRECOMMANDE si Constantes positionnée
             If COMMANDECLIENT_LISTEPRODUIT_PRECOMMANDE Then
                 If m_TiersCourant.typeDonnee = vncTypeDonnee.FOURNISSEUR Then
@@ -688,7 +701,8 @@ Public Class dlgLgCommande
                     frm.setidPrecommande(m_TiersCourant.id)
                 End If
             End If
-            frm.setListe(colProduit)
+            'Tri de la liste des produits
+            frm.setListe(ocol)
             frm.displayListe()
             'Affichage de la fenêtre
             If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
@@ -696,7 +710,7 @@ Public Class dlgLgCommande
                 objProduit = frm.getElementSelectionne()
             End If
         Else
-            objProduit = colProduit(1)
+            objProduit = lstProduit(1)
         End If
         If Not objProduit Is Nothing Then
             If objProduit.bResume Then

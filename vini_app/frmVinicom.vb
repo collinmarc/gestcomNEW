@@ -225,7 +225,7 @@ Public Class FrmVinicom
             End If
 
             frm.displayListe()
-            'Affichage de la fenêtre
+            ''Affichage de la fenêtre
             If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
                 'Si on sort par OK
                 objSel = frm.getElementSelectionne()

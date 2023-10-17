@@ -159,15 +159,6 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("V20220411")>  _
-        Public ReadOnly Property AppVersion() As String
-            Get
-                Return CType(Me("AppVersion"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("ftp.cluster002.hosting.ovh.net")>  _
         Public ReadOnly Property wooFTPHost() As String
             Get
@@ -217,6 +208,24 @@ Namespace My
         Public ReadOnly Property Paramètre() As String
             Get
                 Return CType(Me("Paramètre"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("V20221018")>  _
+        Public ReadOnly Property AppVersion() As String
+            Get
+                Return CType(Me("AppVersion"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public ReadOnly Property bCodeStatePlateforme() As Boolean
+            Get
+                Return CType(Me("bCodeStatePlateforme"),Boolean)
             End Get
         End Property
     End Class

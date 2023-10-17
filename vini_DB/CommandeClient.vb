@@ -1116,7 +1116,7 @@ Public Class CommandeClient
     'DEscription : Exporte la facture de transport dans un format WEBEDI
     'Retour : une chaine
     '=========================================================================
-    Public Function exporterWebEDI(ByVal strFileName As String) As Boolean
+    Public Function exporterWebEDI(ByVal strFileName As String, Optional pbCodeStatPlateforme As Boolean = False) As Boolean
 
         Debug.Assert(bcolLignesLoaded, "Les lignes doivent être chargées")
 
@@ -1167,6 +1167,12 @@ Public Class CommandeClient
                     '292
                     strResult = strResult + Format(oLg.num, "000")
                     '295
+                    If pbCodeStatPlateforme And Not String.IsNullOrEmpty(Trim(oLg.oProduit.codeStat)) Then
+                        strResult = strResult + Left(oLg.oProduit.codeStat + Space(15), 15)
+                    Else
+                        strResult = strResult + Left(oLg.oProduit.code + Space(15), 15)
+
+                    End If
                     strResult = strResult + Left(oLg.oProduit.code + Space(15), 15)
                     '310
                     strResult = strResult + Format(oLg.qteColis, "0000000")

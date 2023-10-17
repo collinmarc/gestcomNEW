@@ -156,7 +156,7 @@ Imports vini_DB
         If System.IO.File.Exists("./adel.txt") Then
             System.IO.File.Delete("./adel.txt")
         End If
-        objCMD.exporterWebEDI("./adel.txt")
+        objCMD.exporterWebEDI("./adel.txt", False)
         nFile = FreeFile()
         FileOpen(nFile, "./adel.txt", OpenMode.Input, OpenAccess.Read)
         nLineNumber = 0
