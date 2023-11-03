@@ -41,6 +41,7 @@ Public Class frmProduit
     Friend WithEvents Label27 As Label
     Friend WithEvents tbTarifD As textBoxCurrency
     Friend WithEvents ckArchive As CheckBox
+    Friend WithEvents cbMillesime As Button
     Private m_bAjoutmvt As Boolean
 
 #Region "Code généré par le Concepteur Windows Form "
@@ -117,7 +118,7 @@ Public Class frmProduit
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProduit))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tbDesignation = New System.Windows.Forms.TextBox()
         Me.m_bsrcProduit = New System.Windows.Forms.BindingSource(Me.components)
         Me.tbCode = New System.Windows.Forms.TextBox()
@@ -200,6 +201,7 @@ Public Class frmProduit
         Me.Label27 = New System.Windows.Forms.Label()
         Me.tbTarifD = New vini_app.textBoxCurrency()
         Me.ckArchive = New System.Windows.Forms.CheckBox()
+        Me.cbMillesime = New System.Windows.Forms.Button()
         CType(Me.m_bsrcProduit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -341,6 +343,7 @@ Public Class frmProduit
         '
         'cboContenant
         '
+        resources.ApplyResources(Me.cboContenant, "cboContenant")
         Me.cboContenant.BackColor = System.Drawing.SystemColors.Window
         Me.cboContenant.Cursor = System.Windows.Forms.Cursors.Default
         Me.cboContenant.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.m_bsrcProduit, "idContenant", True))
@@ -348,7 +351,6 @@ Public Class frmProduit
         Me.cboContenant.DisplayMember = "libelle"
         Me.cboContenant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboContenant.ForeColor = System.Drawing.SystemColors.WindowText
-        resources.ApplyResources(Me.cboContenant, "cboContenant")
         Me.cboContenant.Name = "cboContenant"
         Me.cboContenant.ValueMember = "id"
         '
@@ -652,10 +654,10 @@ Public Class frmProduit
         'QteDataGridViewTextBoxColumn
         '
         Me.QteDataGridViewTextBoxColumn.DataPropertyName = "qte"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.Format = "N0"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.QteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N0"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.QteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.QteDataGridViewTextBoxColumn.FillWeight = 4.0!
         resources.ApplyResources(Me.QteDataGridViewTextBoxColumn, "QteDataGridViewTextBoxColumn")
         Me.QteDataGridViewTextBoxColumn.Name = "QteDataGridViewTextBoxColumn"
@@ -749,10 +751,19 @@ Public Class frmProduit
         Me.ckArchive.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.m_bsrcProduit, "bArchive", True))
         Me.ckArchive.Name = "ckArchive"
         '
+        'cbMillesime
+        '
+        resources.ApplyResources(Me.cbMillesime, "cbMillesime")
+        Me.cbMillesime.BackColor = System.Drawing.Color.Coral
+        Me.cbMillesime.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.cbMillesime.Name = "cbMillesime"
+        Me.cbMillesime.UseVisualStyleBackColor = False
+        '
         'frmProduit
         '
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.cbMillesime)
         Me.Controls.Add(Me.ckArchive)
         Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.tbTarifD)
@@ -1314,5 +1325,15 @@ Public Class frmProduit
             EnableControls(True)
 
         End If
+    End Sub
+
+    Private Sub cbMillesime_Click(sender As Object, e As EventArgs) Handles cbMillesime.Click
+        Dim ofrm As frmGestionMillesime
+        ofrm = New frmGestionMillesime
+        ofrm.MdiParent = MdiParent
+
+        ofrm.Show()
+        ofrm.setElementCourant2(m_objProduitCourant)
+        ofrm.AfficheElement()
     End Sub
 End Class

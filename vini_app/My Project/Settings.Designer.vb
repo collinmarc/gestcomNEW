@@ -223,9 +223,9 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
-        Public ReadOnly Property bCodeStatePlateforme() As Boolean
+        Public ReadOnly Property bCodeStatPlateforme() As Boolean
             Get
-                Return CType(Me("bCodeStatePlateforme"),Boolean)
+                Return CType(Me("bCodeStatPlateforme"),Boolean)
             End Get
         End Property
     End Class

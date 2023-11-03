@@ -1,4 +1,8 @@
-﻿V20221018
+﻿V20231102
+	0001588: Gestion des millésimes
+	0001589: Amélioration de la gestion des millésimes
+
+V20221018
 	0001527: Import des commandes internet WooCommerce
 V20220411
 	0001492: Import des tarifs et gestion d'un tarif D

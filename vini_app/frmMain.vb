@@ -427,7 +427,8 @@ Friend Class frmMain
         'mnuGestMillesime
         '
         Me.mnuGestMillesime.Index = 3
-        Me.mnuGestMillesime.Text = "Gestion des &Millesimes"
+        Me.mnuGestMillesime.Shortcut = System.Windows.Forms.Shortcut.F4
+        Me.mnuGestMillesime.Text = "Gestion des &Millésimes"
         '
         'MenuItem11
         '
@@ -1201,7 +1202,7 @@ Friend Class frmMain
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 48)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, 65)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1228,7 +1229,7 @@ Friend Class frmMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 70)
+        Me.ClientSize = New System.Drawing.Size(890, 87)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default

@@ -324,17 +324,28 @@ Public Class FrmVinicom
 
     End Sub 'afficheFenetreFournisseur
     'Affiche la fenêtre Produit si le tag du lien est renseigné
-    Protected Sub afficheFenetreProduit(ByVal tag As String)
-        If Not IsNumeric(tag) Then
+    Protected Sub afficheFenetreProduit(ByVal pidProduit As String)
+        If Not IsNumeric(pidProduit) Then
             Exit Sub
         End If
         Dim objfrmProduit As frmProduit
         Dim objProduit As Produit
         Dim nid As Long
         Dim bReturn As Boolean
+        For Each oForm As Form In MdiParent.MdiChildren
+            If TypeOf oForm Is frmProduit Then
+                Dim ofrm As frmProduit = oForm
+                Dim oPrdouit As Produit = ofrm.getElementCourant()
+                If oPrdouit.id = pidProduit Then
+                    oForm.Activate()
+                    Exit Sub
+                End If
+            End If
+
+        Next
 
         objfrmProduit = New frmProduit
-        nid = tag
+        nid = pidProduit
         Try
             objProduit = Produit.createandload(nid)
             If objProduit.idCouleur <> 0 Then

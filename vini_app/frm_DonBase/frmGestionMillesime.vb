@@ -25,6 +25,7 @@ Public Class frmGestionMillesime
     Friend WithEvents cbValider As Button
     Friend WithEvents m_bsrcProduitMillesime As BindingSource
     Friend WithEvents cbAjouter As Button
+    Friend WithEvents millesime As DataGridViewTextBoxColumn
     Friend WithEvents MillesimeCode As DataGridViewTextBoxColumn
     Friend WithEvents codeStat As DataGridViewTextBoxColumn
     Friend WithEvents BDisponibleDataGridViewCheckBoxColumn As DataGridViewCheckBoxColumn
@@ -41,6 +42,8 @@ Public Class frmGestionMillesime
         m_TypeDonnees = vncEnums.vncTypeDonnee.PRODUIT
         InitializeComponent()
         m_ToolBarSaveEnabled = True
+        'Cette feneêtre ne bloque pas l'elément courant
+        m_BloquageElementCourant = False
     End Sub
     'La méthode substituée Dispose du formulaire pour nettoyer la liste des composants.
     Protected Overloads Overrides Sub Dispose(ByVal Disposing As Boolean)
@@ -99,10 +102,7 @@ Public Class frmGestionMillesime
         Me.LogoList = New System.Windows.Forms.ImageList(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.dgvPrdMillesime = New System.Windows.Forms.DataGridView()
-        Me.m_bsrcProduitMillesime = New System.Windows.Forms.BindingSource(Me.components)
-        Me.cbQuitter = New System.Windows.Forms.Button()
-        Me.cbValider = New System.Windows.Forms.Button()
-        Me.cbAjouter = New System.Windows.Forms.Button()
+        Me.millesime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MillesimeCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.codeStat = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BDisponibleDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -111,6 +111,10 @@ Public Class frmGestionMillesime
         Me.TarifBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.m_bsrcProduitMillesime = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cbQuitter = New System.Windows.Forms.Button()
+        Me.cbValider = New System.Windows.Forms.Button()
+        Me.cbAjouter = New System.Windows.Forms.Button()
         CType(Me.m_bsrcProduitRacine, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -304,31 +308,15 @@ Public Class frmGestionMillesime
         Me.dgvPrdMillesime.AutoGenerateColumns = False
         Me.dgvPrdMillesime.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvPrdMillesime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPrdMillesime.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MillesimeCode, Me.codeStat, Me.BDisponibleDataGridViewCheckBoxColumn, Me.BArchiveDataGridViewCheckBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifCDataGridViewTextBoxColumn, Me.TarifDDataGridViewTextBoxColumn})
+        Me.dgvPrdMillesime.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.millesime, Me.MillesimeCode, Me.codeStat, Me.BDisponibleDataGridViewCheckBoxColumn, Me.BArchiveDataGridViewCheckBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifCDataGridViewTextBoxColumn, Me.TarifDDataGridViewTextBoxColumn})
         Me.dgvPrdMillesime.DataSource = Me.m_bsrcProduitMillesime
         Me.dgvPrdMillesime.Name = "dgvPrdMillesime"
         '
-        'm_bsrcProduitMillesime
+        'millesime
         '
-        Me.m_bsrcProduitMillesime.DataSource = GetType(vini_DB.Produit)
-        '
-        'cbQuitter
-        '
-        resources.ApplyResources(Me.cbQuitter, "cbQuitter")
-        Me.cbQuitter.Name = "cbQuitter"
-        Me.cbQuitter.UseVisualStyleBackColor = True
-        '
-        'cbValider
-        '
-        resources.ApplyResources(Me.cbValider, "cbValider")
-        Me.cbValider.Name = "cbValider"
-        Me.cbValider.UseVisualStyleBackColor = True
-        '
-        'cbAjouter
-        '
-        resources.ApplyResources(Me.cbAjouter, "cbAjouter")
-        Me.cbAjouter.Name = "cbAjouter"
-        Me.cbAjouter.UseVisualStyleBackColor = True
+        Me.millesime.DataPropertyName = "millesime"
+        resources.ApplyResources(Me.millesime, "millesime")
+        Me.millesime.Name = "millesime"
         '
         'MillesimeCode
         '
@@ -389,6 +377,28 @@ Public Class frmGestionMillesime
         Me.TarifDDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
         resources.ApplyResources(Me.TarifDDataGridViewTextBoxColumn, "TarifDDataGridViewTextBoxColumn")
         Me.TarifDDataGridViewTextBoxColumn.Name = "TarifDDataGridViewTextBoxColumn"
+        '
+        'm_bsrcProduitMillesime
+        '
+        Me.m_bsrcProduitMillesime.DataSource = GetType(vini_DB.Produit)
+        '
+        'cbQuitter
+        '
+        resources.ApplyResources(Me.cbQuitter, "cbQuitter")
+        Me.cbQuitter.Name = "cbQuitter"
+        Me.cbQuitter.UseVisualStyleBackColor = True
+        '
+        'cbValider
+        '
+        resources.ApplyResources(Me.cbValider, "cbValider")
+        Me.cbValider.Name = "cbValider"
+        Me.cbValider.UseVisualStyleBackColor = True
+        '
+        'cbAjouter
+        '
+        resources.ApplyResources(Me.cbAjouter, "cbAjouter")
+        Me.cbAjouter.Name = "cbAjouter"
+        Me.cbAjouter.UseVisualStyleBackColor = True
         '
         'frmGestionMillesime
         '
@@ -547,7 +557,7 @@ Public Class frmGestionMillesime
         Dim bReturn As Boolean
         debAffiche()
         For Each oProduit As Produit In m_bsrcProduitMillesime
-            oProduit.millesime = oProduit.MillesimeCode.Replace("M", "")
+            'oProduit.millesime = oProduit.MillesimeCode.Replace("M", "")
             oProduit.save()
         Next
         finAffiche()
@@ -567,6 +577,7 @@ Public Class frmGestionMillesime
 
     Private Sub frmProduit_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         initFenetre()
+
     End Sub
 
     Protected Overrides Sub EnableControls(ByVal bEnabled As Boolean)
@@ -582,8 +593,35 @@ Public Class frmGestionMillesime
     End Sub
     Private Sub AjouterMillesime()
         Dim oProduit As New Produit
-        oProduit.code = m_objProduitCourant.code.Replace(m_objProduitCourant.MillesimeCode, "M00")
-        oProduit.codeStat = oProduit.code
+        For n As Integer = 0 To 99
+            Dim str As String
+            str = n.ToString("00")
+            If m_objProduitCourant.MillesimeCode <> "" Then
+                oProduit.code = m_objProduitCourant.code.Replace(m_objProduitCourant.MillesimeCode, "M" & str)
+                oProduit.millesime = 2000 + n
+            Else
+                oProduit.code = m_objProduitCourant.code & "M00"
+                oProduit.millesime = 2000
+            End If
+            'Les produit existe-t-il en base  ou dans la liste ?
+            If Not oProduit.isCodeExistant() Then
+                Dim bPrdOK As Boolean = True
+                For Each oPrd As Produit In m_bsrcProduitMillesime.List
+                    If oPrd.code = oProduit.code Then
+                        bPrdOK = False
+                    End If
+                Next
+                If bPrdOK Then
+                    Exit For
+                End If
+            End If
+            oProduit.code = ""
+            oProduit.millesime = 0
+        Next
+        If oProduit.code = "" Then
+            MsgBox("Il n'y a plus de codes produits disponibles pour cette racine" & m_objProduitCourant.RacineCode)
+        End If
+        oProduit.codeStat = oProduit.RacineCode
         oProduit.nom = m_objProduitCourant.nom
         oProduit.DossierProduit = m_objProduitCourant.DossierProduit
         oProduit.idFournisseur = m_objProduitCourant.idFournisseur
@@ -598,6 +636,8 @@ Public Class frmGestionMillesime
 
         m_bsrcProduitMillesime.Add(oProduit)
         m_bsrcProduitMillesime.MoveLast()
+        dgvPrdMillesime.CurrentCell = dgvPrdMillesime.CurrentRow.Cells(0)
+        dgvPrdMillesime.BeginEdit(True)
         setfrmUpdated()
 
     End Sub
@@ -631,5 +671,35 @@ Public Class frmGestionMillesime
 
     Private Sub dgvPrdMillesime_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPrdMillesime.CellEnter
         setfrmUpdated()
+    End Sub
+
+    Private Sub dgvPrdMillesime_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPrdMillesime.CellContentClick
+        If e.ColumnIndex = 1 Then
+            Dim oPrdMil As Produit
+            oPrdMil = m_bsrcProduitMillesime.Current
+            If oPrdMil.millesime = 0 Then
+                oPrdMil.millesime = CInt("20" & dgvPrdMillesime.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.replace("M", ""))
+            End If
+        End If
+    End Sub
+
+    Private Sub dgvPrdMillesime_CellValidated(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPrdMillesime.CellValidated
+        If e.ColumnIndex = 0 Then
+            Dim oPrdMil As Produit
+            oPrdMil = m_bsrcProduitMillesime.Current
+            If oPrdMil.millesime > 1000 And oPrdMil.millesime < 10000 Then
+                oPrdMil.MillesimeCode = "M" & CStr(oPrdMil.millesime).Substring(2, 2)
+            End If
+        End If
+
+    End Sub
+
+    Private Sub dgvPrdMillesime_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPrdMillesime.CellDoubleClick
+        Dim oPrd As Produit
+        oPrd = m_bsrcProduitMillesime.Current
+        If oPrd.id <> 0 Then
+
+            afficheFenetreProduit(oPrd.id)
+        End If
     End Sub
 End Class
