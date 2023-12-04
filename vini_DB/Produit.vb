@@ -211,7 +211,8 @@ Public Class Produit
     ''' <param name="pCode"> Code Produit</param>
     ''' <returns>Objet Produit ou null</returns>
     ''' <remarks></remarks>
-    Public Shared Function createandloadbyKey(ByVal pCode As String) As Produit
+    Public Shared Function createandloadbyKey(ByVal pCode As String, Optional pbLoadByCodeStat As Boolean = False) As Produit
+        Debug.Assert(Not String.IsNullOrEmpty(pCode), "Code non rempli")
         Dim objPRD As Produit
         Dim bReturn As Boolean
         Dim nId As Integer
@@ -226,12 +227,28 @@ Public Class Produit
                         objPRD = Nothing
                     End If
                 Else
-                    setError("Produit.createAndLoad", "No ID for " & pCode)
-                    objPRD = Nothing
+                    If pbLoadByCodeStat Then
+                        'Si le chargement par code ne fonctionne pas, on teste par le cod stat
+                        nId = getIDPRDByKeyStat(pCode)
+                        If nId <> -1 Then
+                            bReturn = objPRD.load(nId)
+                            If Not bReturn Then
+                                setError("Produit.createAndLoad (" & nId & ")", getErreur())
+                                objPRD = Nothing
+                            End If
+                        Else
+                            setError("Produit.createAndLoad", "No ID for " & pCode)
+                            objPRD = Nothing
+                        End If
+                    Else
+                        setError("Produit.createAndLoad", "No ID for " & pCode)
+                        objPRD = Nothing
+                    End If
                 End If
+
             End If
         Catch ex As Exception
-            setError("Fournisseur.createAndLoad", ex.ToString)
+            setError("Produit.createAndLoad", ex.ToString)
             objPRD = Nothing
         End Try
         Return objPRD

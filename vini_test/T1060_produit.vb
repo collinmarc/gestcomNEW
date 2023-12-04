@@ -743,6 +743,47 @@ Imports vini_DB
         Assert.IsTrue(objPRD2.isCodeExistant())
 
     End Sub
+    <TestCategory("6.1.0.0")>
+    <TestMethod()> Public Sub TV61_LOADBYKEYSTAT()
+        Dim objPRD As Produit
+        Dim n As Integer
+        Dim nIdFournisseur As Integer
+        nIdFournisseur = Fournisseur.getListe()(1).id
+
+        'I - Création d'un Produit
+        '=========================
+        objPRD = New Produit("", New Fournisseur, 1990)
+        Assert.AreEqual(False, objPRD.bArchive)
+        Dim strCode As String = "PTEST" & Now()
+        objPRD.code = strCode
+        Dim strCodestat As String = "PSTAT" & Now()
+        objPRD.codeStat = strCodestat
+        objPRD.nom = "Produit de TEST ARCHIVE"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+
+        'On retrouve le produit si on charge par le code
+        objPRD = Produit.createandloadbyKey(strCode)
+        Assert.IsNotNull(objPRD)
+
+        'On ne retrouve pas le produit si on charge par le codestat
+        objPRD = Produit.createandloadbyKey(strCodestat)
+        Assert.IsNull(objPRD)
+
+        'On retrouve le produit si on charge par le codestat en lui demandant de vérifier le code stat
+        objPRD = Produit.createandloadbyKey(strCodestat, True)
+        Assert.IsNotNull(objPRD)
+
+
+        objPRD.delete()
+
+    End Sub
 End Class
 
 

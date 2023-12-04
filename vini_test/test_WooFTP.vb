@@ -36,14 +36,12 @@ Imports vini_DB
 
     End Sub
     <TestMethod()> Public Sub ExportCMDWoo()
-        Dim pDossierLocal As String
         Dim oCmd As New cmdwoo()
         Dim oLg As New ligneWOO("123", 10, 15.5)
         oCmd.lignes_commande.Add(oLg)
         oLg = New ligneWOO("456", 20, 25.5)
         oCmd.lignes_commande.Add(oLg)
 
-        pDossierLocal = "./importinternet/vinicom.wine/" & Now.ToString("yyyyMMddHHmmss")
 
         cmdwoo.FTO_writeXml(oCmd, "cmdwoo.xml")
 

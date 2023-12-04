@@ -299,7 +299,7 @@ Partial Public Class frmConstantes
             My.Computer.FileSystem.CreateDirectory("./TESTFTP")
 
             DisplayStatus("Reception du fichier par FTP ")
-            If (oftp.downloadDirToDir("./TESTFTP")) Then
+            If (oftp.downloadDirToDir("./TESTFTP", False)) Then
                 If My.Computer.FileSystem.FileExists("./TESTFTP/" & "TestFTPEDI.txt") Then
                     DisplayStatus("Réception du fichier OK")
                     MsgBox("Test OK")

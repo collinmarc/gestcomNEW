@@ -30,5 +30,20 @@
     <Setting Name="wooLog" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\LOGS\importWoo.xml</Value>
     </Setting>
+    <Setting Name="wooFTPHost2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ftp.cluster002.hosting.ovh.net</Value>
+    </Setting>
+    <Setting Name="wooFTPUser2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">vinicomwgs-gestcom</Value>
+    </Setting>
+    <Setting Name="wooFTPPwd2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EdcRfv11</Value>
+    </Setting>
+    <Setting Name="wooFTPRepDistant2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TEST/Orders</Value>
+    </Setting>
+    <Setting Name="wooFTPRepLocal2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\importinternet\vinicom.wine</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

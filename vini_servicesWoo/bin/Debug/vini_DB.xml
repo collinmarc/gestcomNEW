@@ -67,7 +67,7 @@ vini_DB
  <returns>Vrai/Faux</returns>
  <remarks>Le Connecteur doit être connecté</remarks>
 </member>
-<member name="M:vini_DB.clsFTPVinicom.downloadDirToDir(System.String)">
+<member name="M:vini_DB.clsFTPVinicom.downloadDirToDir(System.String,System.Boolean)">
  <summary>
  Download All Files from Remote Directory
  </summary>
@@ -2250,6 +2250,13 @@ Represents the connection and commands used to retrieve and save data.
  <returns>ID  ou -1</returns>
  <remarks></remarks>
 </member>
+<member name="M:vini_DB.Persist.getIDPRDByKeyStat(System.String)">
+ <summary>
+ Renvoie l'ID en fonction de la clé 
+ </summary>
+ <returns>ID  ou -1</returns>
+ <remarks></remarks>
+</member>
 <member name="M:vini_DB.Persist.ListeMVTSTKDossier(System.String,System.DateTime,System.DateTime,vini_DB.vncEnums.vncEtatMVTSTK)">
  <summary>
  Rend la liste ds mouvements de Stock à facturer pour un dossier
@@ -2463,7 +2470,7 @@ Represents the connection and commands used to retrieve and save data.
  <returns></returns>
  <remarks></remarks>
 </member>
-<member name="M:vini_DB.Produit.createandloadbyKey(System.String)">
+<member name="M:vini_DB.Produit.createandloadbyKey(System.String,System.Boolean)">
  <summary>
  Constructeur pour Chargement par la clé
  </summary>

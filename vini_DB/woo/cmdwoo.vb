@@ -251,7 +251,6 @@ Public Class cmdwoo
             LoadLogImportWoo()
 
             Dim oFTP As New clsFTPVinicom(HostName, UserName, Password, dossierCMDatraiter)
-            oFTP.strLockFromFileName = "lockfrom.lock"
             If String.IsNullOrEmpty(pDossierLocal) Then
                 pDossierLocal = "./importinternet/vinicom.wine/" & Now.ToString("yyyyMMddHHmmss")
             End If
@@ -264,19 +263,8 @@ Public Class cmdwoo
             '=================================
             ' Transfert du contenu du répertoire
             '==================================
-            bReturn = oFTP.downloadDirToDir(pDossierLocal)
-            '================================
-            ' Supression des fichier distants
-            '================================
-            If pSuppressionFichierDistant Then
-                If bReturn Then
-                    tabFiles = System.IO.Directory.GetFiles(pDossierLocal, "*.xml")
-                    For Each strFile As String In tabFiles
-                        Dim oFileInfo As New System.IO.FileInfo(strFile)
-                        oFTP.deleteRemotefile(oFileInfo.Name)
-                    Next
-                End If
-            End If
+            bReturn = oFTP.downloadDirToDir(pDossierLocal, True)
+
             '================================
             ' Création des Commandes Client
             '================================
@@ -304,6 +292,8 @@ Public Class cmdwoo
                                        oCMDW.motif
                                        )
             Next
+
+
 
             LogImportWoo.writeXml()
 
@@ -360,7 +350,8 @@ Public Class cmdwoo
                 nLigne = 10
                 bImport = True
                 For Each oLg As ligneWOO In lignes_commande
-                    oProduit = Produit.createandloadbyKey(oLg.reference)
+                    'Chargement du produit avec test sur le code Stat si le code n'existe pas
+                    oProduit = Produit.createandloadbyKey(oLg.reference, True)
                     If oProduit IsNot Nothing Then
                         oReturn.AjouteLigne(nLigne, oProduit, oLg.quantite, oLg.prixunitaire)
                         nLigne = nLigne + 10

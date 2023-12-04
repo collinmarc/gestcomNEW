@@ -1,6 +1,7 @@
 ﻿V20231102
 	0001588: Gestion des millésimes
 	0001589: Amélioration de la gestion des millésimes
+	0001596: Import des commandes WooCommerce : 2 Sites en entrée
 
 V20221018
 	0001527: Import des commandes internet WooCommerce

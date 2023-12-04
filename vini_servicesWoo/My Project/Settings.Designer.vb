@@ -129,6 +129,52 @@ Namespace My
                 Return CType(Me("wooLog"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ftp.cluster002.hosting.ovh.net")>  _
+        Public ReadOnly Property wooFTPHost2() As String
+            Get
+                Return CType(Me("wooFTPHost2"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("vinicomwgs-gestcom")>  _
+        Public ReadOnly Property wooFTPUser2() As String
+            Get
+                Return CType(Me("wooFTPUser2"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("EdcRfv11")>  _
+        Public ReadOnly Property wooFTPPwd2() As String
+            Get
+                Return CType(Me("wooFTPPwd2"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("TEST/Orders")>  _
+        Public ReadOnly Property wooFTPRepDistant2() As String
+            Get
+                Return CType(Me("wooFTPRepDistant2"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\importin"& _ 
+            "ternet\vinicom.wine")>  _
+        Public ReadOnly Property wooFTPRepLocal2() As String
+            Get
+                Return CType(Me("wooFTPRepLocal2"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

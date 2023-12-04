@@ -2082,6 +2082,26 @@ Public MustInherit Class Persist
         Return nReturn
     End Function
 
+    ''' <summary>
+    ''' Renvoie l'ID en fonction de la clé 
+    ''' </summary>
+    ''' <returns>ID  ou -1</returns>
+    ''' <remarks></remarks>
+    Protected Shared Function getIDPRDByKeyStat(ByVal strKey As String) As Integer
+        Debug.Assert(Not String.IsNullOrEmpty(strKey), "strKey must be set")
+        Dim strResult As String
+        Dim nReturn As Integer
+
+        shared_connect()
+        Try
+            strResult = executeSQLQuery(" SELECT PRD_ID FROM PRODUIT WHERE PRD_CODE_STAT = '" & strKey & "'")
+            nReturn = CInt(strResult)
+        Catch ex As Exception
+            nReturn = -1
+        End Try
+        shared_disconnect()
+        Return nReturn
+    End Function
     '=======================================================================
     'Fonction : LoadPRDLight
     'Description : Chargement de l'objet en base

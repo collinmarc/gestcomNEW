@@ -95,8 +95,8 @@ Public Class clsFTPVinicom
     Public Sub New(ByVal strHost As String, ByVal strUSer As String, ByVal strPassword As String, Optional ByVal strRemoteDir As String = "")
         m_FTP = New NETFTPclient(strHost, strUSer, strPassword)
         m_RemoteDir = strRemoteDir
-        '        m_strLockFromFileName = Param.getConstante("FTP_LOCKFROMFILENAME")
-        '       m_strLockToFileName = Param.getConstante("FTP_LOCKTOFILENAME")
+        m_strLockFromFileName = "fromgestcom.lock"
+        m_strLockToFileName = "togestcom.lock"
         m_strErrorDescription = String.Empty
         m_nWaitSeconds = 2
         m_nWaitLoops = 100
@@ -434,7 +434,7 @@ Public Class clsFTPVinicom
     ''' <param name="strLocalDirName"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function downloadDirToDir(ByVal strLocalDirName As String) As Boolean
+    Public Function downloadDirToDir(ByVal strLocalDirName As String, pbDeleteFile As Boolean) As Boolean
         Dim bReturn As Boolean
 
         Try
@@ -447,7 +447,10 @@ Public Class clsFTPVinicom
                 For Each strFile As String In lstFile
                     If strFile <> "." And strFile <> ".." Then
                         If m_FTP.FtpFileExists("/" & m_RemoteDir & "/" & strFile) Then
-                            m_FTP.Download("/" & m_RemoteDir & "/" & strFile, strLocalDirName & "/" & strFile, True)
+                            bReturn = m_FTP.Download("/" & m_RemoteDir & "/" & strFile, strLocalDirName & "/" & strFile, True)
+                            If bReturn And pbDeleteFile Then
+                                m_FTP.FtpDelete("/" & m_RemoteDir & "/" & strFile)
+                            End If
                         End If
                     End If
 

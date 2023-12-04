@@ -166,13 +166,7 @@ Public Class mvtEDI
         If Not System.IO.Directory.Exists(pRepLocal) Then
             System.IO.Directory.CreateDirectory(pRepLocal)
         End If
-        oftp.downloadDirToDir(pRepLocal)
-        ' Suppression des fichier .CSV sur le répertoire Distant
-        Dim tabFiles As String() = System.IO.Directory.GetFiles(pRepLocal, "*.csv")
-        For Each strFile As String In tabFiles
-            Dim oFileInfo As New System.IO.FileInfo(strFile)
-            oftp.deleteRemotefile(oFileInfo.Name)
-        Next
+        oftp.downloadDirToDir(pRepLocal, True)
 
     End Function
     Public Shared Function getFilesCount(pSRV As String, pPort As String, pUser As String, pPassword As String, pRepDistant As String, pRepLocal As String) As Integer
