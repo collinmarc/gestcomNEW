@@ -10,6 +10,9 @@ Public Class frmCommandeClient
 
     '    Private getCommandeCourante As CommandeClient
     Private m_objSCMDCourante As SousCommande
+    Private WithEvents crwDetailCommandeClient As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Private WithEvents crwBL As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Private WithEvents crwFact As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Private m_oFactHBV As FactHBV
     Protected Shadows Function getCommandeCourante() As CommandeClient
         Return CType(getElementCourant(), CommandeClient)
@@ -74,6 +77,9 @@ Public Class frmCommandeClient
     'Elle peut être modifiée en utilisant le Concepteur Windows Form.  
     'Ne la modifiez pas en utilisant l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.crwDetailCommandeClient = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.crwBL = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.crwFact = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.btnCtrlStock = New System.Windows.Forms.Button()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.NumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -125,6 +131,49 @@ Public Class frmCommandeClient
         Me.tpLignes.Controls.SetChildIndex(Me.cbSupprimerLigne, 0)
         Me.tpLignes.Controls.SetChildIndex(Me.tbTotalTTC, 0)
         Me.tpLignes.Controls.SetChildIndex(Me.btnCtrlStock, 0)
+        '
+        'crwDetailCommandeClient
+        '
+        Me.crwDetailCommandeClient.ActiveViewIndex = -1
+        Me.crwDetailCommandeClient.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.crwDetailCommandeClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.crwDetailCommandeClient.Cursor = System.Windows.Forms.Cursors.Default
+        Me.crwDetailCommandeClient.DisplayStatusBar = False
+        Me.crwDetailCommandeClient.Location = New System.Drawing.Point(9, 8)
+        Me.crwDetailCommandeClient.Name = "crwDetailCommandeClient"
+        Me.crwDetailCommandeClient.Size = New System.Drawing.Size(603, 535)
+        Me.crwDetailCommandeClient.TabIndex = 26
+        Me.crwDetailCommandeClient.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        '
+        'crwBL
+        '
+        Me.crwBL.ActiveViewIndex = -1
+        Me.crwBL.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.crwBL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.crwBL.Cursor = System.Windows.Forms.Cursors.Default
+        Me.crwBL.DisplayStatusBar = False
+        Me.crwBL.Location = New System.Drawing.Point(9, 4)
+        Me.crwBL.Name = "crwBL"
+        Me.crwBL.Size = New System.Drawing.Size(481, 550)
+        Me.crwBL.TabIndex = 148
+        Me.crwBL.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        '
+        'crwFact
+        '
+        Me.crwFact.ActiveViewIndex = -1
+        Me.crwFact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.crwFact.Cursor = System.Windows.Forms.Cursors.Default
+        Me.crwFact.DisplayStatusBar = False
+        Me.crwFact.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.crwFact.Location = New System.Drawing.Point(0, 0)
+        Me.crwFact.Name = "crwFact"
+        Me.crwFact.Size = New System.Drawing.Size(328, 551)
+        Me.crwFact.TabIndex = 149
+        Me.crwFact.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'btnCtrlStock
         '
