@@ -67,7 +67,7 @@ vini_DB
  <returns>Vrai/Faux</returns>
  <remarks>Le Connecteur doit être connecté</remarks>
 </member>
-<member name="M:vini_DB.clsFTPVinicom.downloadDirToDir(System.String)">
+<member name="M:vini_DB.clsFTPVinicom.downloadDirToDir(System.String,System.Boolean)">
  <summary>
  Download All Files from Remote Directory
  </summary>

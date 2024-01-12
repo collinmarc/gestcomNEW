@@ -735,11 +735,10 @@ Public Class frmCommandeClient
         'Return True
     End Function 'Faxe la validation de commande
     Protected Overrides Function affichecrBL() As Boolean
-        'Choix du rapport 'Bon de Livraison Plate-forme / Bon Livraison Transporteur"
-        Dim objReport As ReportDocument
         Dim strReportName As String
         setcursorWait()
-        objReport = New ReportDocument
+        'Choix du rapport 'Bon de Livraison Plate-forme / Bon Livraison Transporteur"
+        Dim objReport As CrystalDecisions.CrystalReports.Engine.ReportDocument = New ReportDocument
         strReportName = PATHTOREPORTS & "crBonLivraison.rpt"
         objReport.Load(strReportName)
         setcrBLParameters(objReport)

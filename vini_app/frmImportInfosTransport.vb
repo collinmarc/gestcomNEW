@@ -307,7 +307,6 @@ Public Class frmImportInfosTransport
                         Dim oCol As Collection = CommandeClient.getListe(oInfos.RefCMD_BA, "", vncEtatCommande.vncRien, "")
                         If oCol.Count > 0 Then
                             oCmd = oCol(1)
-
                             Persist.executeSQLNonQuery("UPDATE COMMANDE SET CMD_LETTREVOITURE = '" & oInfos.LettreVoiture & "' , CMD_COUT_TRANSPORT = " & oInfos.coutstr & ", CMD_REFFACT_TRP = '" & oInfos.RefFactTrp & "'  WHERE CMD_ID = " & oCmd.id & "")
                             BackgroundWorker1.ReportProgress(nIndex / nMax * 100, "CMD" & oCmd.id)
                         Else

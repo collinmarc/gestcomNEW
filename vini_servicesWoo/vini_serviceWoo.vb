@@ -53,9 +53,10 @@ Public Class vini_serviceWoo
         Try
             cmdwoo.SetFTP(My.Settings.wooFTPHost, My.Settings.wooFTPUser, My.Settings.wooFTPPwd, My.Settings.wooFTPRepDistant)
             cmdwoo.Import(My.Settings.wooFTPRepLocal)
-
-            cmdwoo.SetFTP(My.Settings.wooFTPHost2, My.Settings.wooFTPUser2, My.Settings.wooFTPPwd2, My.Settings.wooFTPRepDistant2)
-            cmdwoo.Import(My.Settings.wooFTPRepLocal2)
+            If Not String.IsNullOrEmpty(My.Settings.wooFTPHost2) Then
+                cmdwoo.SetFTP(My.Settings.wooFTPHost2, My.Settings.wooFTPUser2, My.Settings.wooFTPPwd2, My.Settings.wooFTPRepDistant2)
+                cmdwoo.Import(My.Settings.wooFTPRepLocal2)
+            End If
 
         Catch ex As Exception
             Trace.WriteLine(ex.Message)

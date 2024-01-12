@@ -286,6 +286,8 @@ Friend Class frmMain
         Me.mnuCompta_ExportReglement = New System.Windows.Forms.MenuItem()
         Me.mnuCompta_ImportRglmt = New System.Windows.Forms.MenuItem()
         Me.mnuCompta_EditionFactures = New System.Windows.Forms.MenuItem()
+        Me.MenuItem23 = New System.Windows.Forms.MenuItem()
+        Me.mnuiImportInfosTransport = New System.Windows.Forms.MenuItem()
         Me.mnuFenetre = New System.Windows.Forms.MenuItem()
         Me.MenuItem14 = New System.Windows.Forms.MenuItem()
         Me.mnu_ExportMvtArticles = New System.Windows.Forms.MenuItem()
@@ -331,8 +333,6 @@ Friend Class frmMain
         Me.StatusBarDB = New System.Windows.Forms.StatusBarPanel()
         Me.StatusBarError = New System.Windows.Forms.StatusBarPanel()
         Me.StatusBarEtat = New System.Windows.Forms.StatusBarPanel()
-        Me.MenuItem23 = New System.Windows.Forms.MenuItem()
-        Me.mnuiImportInfosTransport = New System.Windows.Forms.MenuItem()
         CType(Me.StatusBarDB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarError, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatusBarEtat, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -948,6 +948,16 @@ Friend Class frmMain
         Me.mnuCompta_EditionFactures.Tag = "mnuCompta_EditionFactures"
         Me.mnuCompta_EditionFactures.Text = "Edition des factures"
         '
+        'MenuItem23
+        '
+        Me.MenuItem23.Index = 8
+        Me.MenuItem23.Text = "-"
+        '
+        'mnuiImportInfosTransport
+        '
+        Me.mnuiImportInfosTransport.Index = 9
+        Me.mnuiImportInfosTransport.Text = "Import des informations de transport"
+        '
         'mnuFenetre
         '
         Me.mnuFenetre.Index = 8
@@ -1206,7 +1216,7 @@ Friend Class frmMain
         '
         'StatusBar1
         '
-        Me.StatusBar1.Location = New System.Drawing.Point(0, 35)
+        Me.StatusBar1.Location = New System.Drawing.Point(0, -22)
         Me.StatusBar1.Name = "StatusBar1"
         Me.StatusBar1.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.StatusBarDB, Me.StatusBarError, Me.StatusBarEtat})
         Me.StatusBar1.ShowPanels = True
@@ -1229,21 +1239,11 @@ Friend Class frmMain
         Me.StatusBarEtat.Name = "StatusBarEtat"
         Me.StatusBarEtat.Width = 273
         '
-        'MenuItem23
-        '
-        Me.MenuItem23.Index = 8
-        Me.MenuItem23.Text = "-"
-        '
-        'mnuiImportInfosTransport
-        '
-        Me.mnuiImportInfosTransport.Index = 9
-        Me.mnuiImportInfosTransport.Text = "Import des informations de transport"
-        '
         'frmMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(890, 57)
+        Me.ClientSize = New System.Drawing.Size(890, 0)
         Me.Controls.Add(Me.StatusBar1)
         Me.Controls.Add(Me.mnuToolBar)
         Me.Cursor = System.Windows.Forms.Cursors.Default
