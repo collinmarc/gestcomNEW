@@ -36,31 +36,14 @@ Public Class frmLstEntreesPlateforme
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbAfficher As System.Windows.Forms.Button
     Friend WithEvents dtdeb As System.Windows.Forms.DateTimePicker
-    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents dtFin As System.Windows.Forms.DateTimePicker
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtdeb = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dtFin = New System.Windows.Forms.DateTimePicker()
         Me.cbAfficher = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'CrystalReportViewer1
-        '
-        Me.CrystalReportViewer1.ActiveViewIndex = -1
-        Me.CrystalReportViewer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.CrystalReportViewer1.DisplayStatusBar = False
-        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
-        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
-        Me.CrystalReportViewer1.TabIndex = 0
-        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
@@ -130,17 +113,16 @@ Public Class frmLstEntreesPlateforme
 
         objReport = New ReportDocument
         objReport.Load(PATHTOREPORTS & "crLstEntreesPlateforme.rpt")
-
-
         objReport.SetParameterValue("ddeb", Me.dtdeb.Value.ToShortDateString())
         objReport.SetParameterValue("dfin", Me.dtFin.Value.ToShortDateString())
-
-
         Persist.setReportConnection(objReport)
+
+        'objReport.Load(PATHTOREPORTS & "CrystalReport2.rpt")
+        CrystalReportViewer1.Enabled = True
         CrystalReportViewer1.ReportSource = objReport
     End Sub
 
     Private Sub frmLstEntreesPlateforme_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        CrystalReportViewer1.Enabled = True
     End Sub
 End Class

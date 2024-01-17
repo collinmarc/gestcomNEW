@@ -32,7 +32,6 @@ Public Class frmMouvementArticle
     Friend WithEvents cbAfficher As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents dtDFin As System.Windows.Forms.DateTimePicker
-    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents cbRechercher As Button
 
     'Requis par le Concepteur Windows Form
@@ -42,7 +41,7 @@ Public Class frmMouvementArticle
     'Elle peut être modifiée en utilisant le Concepteur Windows Form.  
     'Ne la modifiez pas en utilisant l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        'Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.tbCodeFourn = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cbAfficher = New System.Windows.Forms.Button()

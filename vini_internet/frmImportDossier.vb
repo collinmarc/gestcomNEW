@@ -215,7 +215,6 @@ Public Class frmImportDossier
         Dim nLineNumber As Integer
         Dim strResult As String = ""
         Dim tabCSV As String()
-        Dim nId As Integer
         Dim oSCMD As SousCommande
         Dim strImportFileName As String
 

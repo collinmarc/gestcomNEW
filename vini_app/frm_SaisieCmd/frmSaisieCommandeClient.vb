@@ -10,9 +10,9 @@ Public Class frmCommandeClient
 
     '    Private getCommandeCourante As CommandeClient
     Private m_objSCMDCourante As SousCommande
-    Private WithEvents crwDetailCommandeClient As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Private WithEvents crwBL As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Private WithEvents crwFact As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    'Private WithEvents crwDetailCommandeClient As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    'Private WithEvents crwBL As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    'Private WithEvents crwFact As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Private m_oFactHBV As FactHBV
     Protected Shadows Function getCommandeCourante() As CommandeClient
         Return CType(getElementCourant(), CommandeClient)
@@ -36,32 +36,32 @@ Public Class frmCommandeClient
         MyBase.Dispose(disposing)
     End Sub
     Friend WithEvents btnCtrlStock As System.Windows.Forms.Button
-    Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
-    Friend WithEvents NumDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProduitCodeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProduitNomDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents QteFactDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PrixUDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PrixHTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PrixTTCDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BGratuitDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
+    'Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
+    'Friend WithEvents NumDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents ProduitCodeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents ProduitNomDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents QteFactDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents PrixUDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents PrixHTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents PrixTTCDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents BGratuitDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents DataGridView5 As System.Windows.Forms.DataGridView
     Friend WithEvents NumDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents OProduitDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProduitCodeDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProduitNomDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProduitMilDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProduitConditionnementDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents ProduitCodeDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents ProduitNomDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents ProduitMilDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents ProduitConditionnementDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProduitContenantDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProduitCouleurDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents ProduitCouleurDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents IdFactHBVDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents QteCommandeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents QteLivDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents QteFactDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PrixUDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PrixHTDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PrixTTCDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BGratuitDataGridViewCheckBoxColumn1 As System.Windows.Forms.DataGridViewCheckBoxColumn
+    'Friend WithEvents QteCommandeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents QteLivDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents QteFactDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents PrixUDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents PrixHTDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents PrixTTCDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    'Friend WithEvents BGratuitDataGridViewCheckBoxColumn1 As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents ShortResumeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents BNewDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents BDeletedDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
@@ -77,9 +77,9 @@ Public Class frmCommandeClient
     'Elle peut être modifiée en utilisant le Concepteur Windows Form.  
     'Ne la modifiez pas en utilisant l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.crwDetailCommandeClient = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.crwBL = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.crwFact = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        'Me.crwDetailCommandeClient = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        'Me.crwBL = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        'Me.crwFact = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.btnCtrlStock = New System.Windows.Forms.Button()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.NumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -1201,8 +1201,8 @@ Public Class frmCommandeClient
     End Sub
     Protected Overrides Sub blToutOK()
         Debug.Assert(Not getCommandeCourante() Is Nothing)
-        Dim oLgCom As LgCommande
-        Dim bReturn As Boolean
+        'Dim oLgCom As LgCommande
+        'Dim bReturn As Boolean
 
         setcursorWait()
         getCommandeCourante.LivrerToutOK()

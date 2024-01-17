@@ -3,6 +3,7 @@
 	0001589: Amélioration de la gestion des millésimes
 	0001596: Import des commandes WooCommerce : 2 Sites en entrée
 	0001597: Import des informations de Transport
+	0001598: Modification entete BLivraison
 
 V20221018
 	0001527: Import des commandes internet WooCommerce

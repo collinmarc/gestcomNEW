@@ -1446,7 +1446,7 @@ Public Class Produit
                 oStockAu = nStockAu(njour)
             Next
 
-            Dim oFournisseur As Fournisseur
+            Dim oFournisseur As Fournisseur = Nothing
             If oPRD.DossierProduit = Dossier.VINICOM Then
                 oFournisseur = Fournisseur.createandload(oPRD.idFournisseur)
             End If

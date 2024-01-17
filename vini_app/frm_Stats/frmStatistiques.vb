@@ -24,6 +24,7 @@ Public Class frmStatistiques
 
         MyBase.Dispose(disposing)
     End Sub
+
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
 
     'Requis par le Concepteur Windows Form
@@ -44,17 +45,14 @@ Public Class frmStatistiques
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.CrystalReportViewer1.DisplayStatusBar = False
-        Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 107)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(954, 543)
         Me.CrystalReportViewer1.TabIndex = 0
-        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'frmStatistiques
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.ClientSize = New System.Drawing.Size(952, 646)
+        Me.ClientSize = New System.Drawing.Size(957, 653)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.Name = "frmStatistiques"
         Me.ResumeLayout(False)

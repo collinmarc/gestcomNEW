@@ -219,7 +219,6 @@ Public Class frmImportInternet
         Dim bReturn As Boolean
         Dim nFile As Integer
         Dim strResult As String = ""
-        Dim strImportFileName As String
 
         Dim strFolder As String
         setcursorWait()

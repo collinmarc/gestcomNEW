@@ -11,5 +11,26 @@ Public Class Form1
         MsgBox("Chargé")
         CrystalReportViewer1.ReportSource = oReport
         MsgBox("Affiché")
+        Dim diskOpts As New CrystalDecisions.Shared.DiskFileDestinationOptions
+        oReport = New ReportDocument()
+        MsgBox("Créé")
+        oReport.Load("./CrystalReport1.rpt")
+        MsgBox("Chargé")
+        Try
+            If Not oReport Is Nothing Then
+                oReport.ExportOptions.ExportFormatType = CrystalDecisions.Shared.ExportFormatType.PortableDocFormat
+                oReport.ExportOptions.ExportDestinationType = CrystalDecisions.Shared.ExportDestinationType.DiskFile
+                diskOpts.DiskFileName = "./test.pdf"
+                oReport.ExportOptions.DestinationOptions = diskOpts
+                oReport.Export()
+                MsgBox("exporté")
+                oReport.Close()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+
+
     End Sub
 End Class

@@ -1295,7 +1295,6 @@ vini_DB
  <summary>
   retrieve response
  </summary>
- <param name="command">Command to send Imap Server</param>
  <param name="sResultArray">Imap Server response</param>
  <returns>ImapResponseEnum type</returns>
 </member>
@@ -2237,9 +2236,6 @@ Represents the connection and commands used to retrieve and save data.
  <summary>
  Renvoie une liste des client de type intermédiaire pour une origine
  </summary>
- <param name="strCode"></param>
- <param name="strNom"></param>
- <param name="strRS"></param>
  <returns></returns>
  <remarks></remarks>
 </member>
@@ -2517,7 +2513,6 @@ Represents the connection and commands used to retrieve and save data.
  <summary>
  Rend une liste de sous commande à Exporter par internet 
  </summary>
- <param name="pTypeExport">Type d'export Fournisseur (1=ExportInternet, 2 = ExportQuadra)</param>
  <param name="pOrigine">Origine de la Commande</param>
  <param name="pddeb">Date De Debut</param>
  <param name="pdfin">Date de fin </param>

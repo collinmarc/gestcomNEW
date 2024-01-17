@@ -1,7 +1,6 @@
-Imports CrystalDecisions.CrystalReports.Engine
-Imports CrystalDecisions.Shared
 Imports System.Collections.Generic
 Imports System.Data.OleDb
+Imports CrystalDecisions.CrystalReports.Engine
 
 
 '===================================================================================================================================
@@ -507,7 +506,6 @@ Public Class SousCommande
     Friend Overrides Function delete() As Boolean
         Debug.Assert(id <> 0, "idSCommande <> 0")
         Dim bReturn As Boolean
-        Dim objLg As LgCommande
         '#857 : Les lignes de sous commandes sont maintenant indépendante des lignes de commandes
         bReturn = deletecolLgSCMD()  'suppression des lignes de sous-commandes
         Debug.Assert(bReturn, getErreur)
@@ -726,7 +724,6 @@ Public Class SousCommande
     ''' <summary>
     ''' Rend une liste de sous commande à Exporter par internet 
     ''' </summary>
-    ''' <param name="pTypeExport">Type d'export Fournisseur (1=ExportInternet, 2 = ExportQuadra)</param>
     ''' <param name="pOrigine">Origine de la Commande</param>
     ''' <param name="pddeb">Date De Debut</param>
     ''' <param name="pdfin">Date de fin </param>

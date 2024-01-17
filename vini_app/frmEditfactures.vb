@@ -52,7 +52,7 @@ Public Class frmEditfactures
             strReport = "crFactureColisageOLD.rpt"
         End If
         objReport = New ReportDocument
-        objReport.Load(strReport)
+        objReport.Load(PATHTOREPORTS & strReport)
 
         '============== RECUPERATION DES INSTANCES A EDITER ===========================
         Dim oCol As Collection

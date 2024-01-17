@@ -1000,12 +1000,12 @@ Public Class frmGestFactTRP
             objReport = New ReportDocument
             diskOpts = New DiskFileDestinationOptions
             objReport.Load(PATHTOREPORTS & "crFactureTRP.rpt")
-            objReport.SetParameterValue("IDFACTRP", getElementCourant().id)
+            objReport.SetParameterValue("idFactures", getElementCourant().id)
             objReport.SetParameterValue("BENTETE", True)
             objReport.SetParameterValue("LGNUMGAZOLE", Param.LGNUM_GAZOLE)
-            objReport.ExportOptions.ExportFormatType = CrystalDecisions.Shared.ExportFormatType.WordForWindows
+            objReport.ExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat
             objReport.ExportOptions.ExportDestinationType = CrystalDecisions.Shared.ExportDestinationType.DiskFile
-            diskOpts.DiskFileName = tbDossierStockage.Text & "\F" & Format(CInt(getElementCourant().code), "000000") & "_" & getElementCourant().oTiers.rs & "_" & getElementCourant().periode & ".doc"
+            diskOpts.DiskFileName = tbDossierStockage.Text & "\F" & Format(CInt(getElementCourant().code), "000000") & "_" & getElementCourant().oTiers.rs & "_" & getElementCourant().periode & ".pdf"
             objReport.ExportOptions.DestinationOptions = diskOpts
             Persist.setReportConnection(objReport)
             objReport.Export()

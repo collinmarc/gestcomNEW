@@ -41,12 +41,11 @@ Public Class frmListeCommandes
     Friend WithEvents m_bsrcEtat As System.Windows.Forms.BindingSource
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cbxEtat As System.Windows.Forms.ComboBox
-    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents cbRechercher As Button
     Friend WithEvents tbCodeClient As System.Windows.Forms.TextBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        'Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtdeb = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()

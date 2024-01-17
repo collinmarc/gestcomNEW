@@ -40,11 +40,10 @@ Public Class frmcrRecapColisage
     Friend WithEvents cbxDossier As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents tbIdFacture As System.Windows.Forms.TextBox
-    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents cbRechercher As Button
     Friend WithEvents lblFournisseur As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        'Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtMois = New System.Windows.Forms.DateTimePicker()
         Me.cbAfficher = New System.Windows.Forms.Button()

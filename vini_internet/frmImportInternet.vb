@@ -282,8 +282,6 @@ Public Class frmImportInternet
         Dim nFile As Integer
         Dim nLineNumber As Integer
         Dim strResult As String = ""
-        Dim tabCSV As String()
-        Dim nId As Integer
         Dim oSCMD As SousCommande
         Dim nSousCommandeTraitees As Integer ' Nbre de sousCommandes traitées
 

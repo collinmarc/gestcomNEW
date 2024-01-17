@@ -1,18 +1,28 @@
 Créer un projet avec CrystalReport 64Bits
 
+pour télécharger crystal Report
+https://origin.softwaredownloads.sap.com/public/site/index.html
+https://help.sap.com/docs/SUPPORT_CONTENT/crystalreports/3354091173.html
+
+
 Sur le poste de DV
-installer le CRforVS13SP25_0-10010309.EXE + RunTime => 
+installer le CRforVS13SP33_0-80007712.EXE + RunTime (EN MODE ADMINISTRATOR!!!)
 SAP CR, Version for Ms Visual Studio V 13.0.25.3158
 SAP CR runtime Engine for .NET Framework (64 bit) V 13.0.33.4485
 
 Création du Projet
 1) Mode de compilation AnyCPU (Desactivé le prefer 32Bits)
 2) Réinitialiser la Boite à outils
-4) Gérer les Packages NUGET : Ajout du package CrystalReports.ReportSource  13.0.4003
-5) Ajout d'un rapport CR dans le projet (Toujours copier)
+4) NE PAS UTILISER LES PACKAGES NUGET
+5) Ajout d'un rapport CR dans le projet (+Toujours copier)
 6) Ajout d'une FORM avec un CRViewer (Réinitialiser la boite à outils si necessaire)
-7) Form.Load : Créer un ReportDocument , oReport.Load, CRViewer.ReportSource = oReport
+7) Form.Load : Créer un ReportDocument , oReport.Load, CRViewer.ReportSource = oReport, oReport.Export en PDF
 
+Les refererences embarquées sont :
+CrystalDecisions.CrystalReports.Engine
+CrystalDecisions.ReportSource
+CrystalDecisions.Shared
+CrystalDecisions.Windows.Form (Si Viewer)
 
 Sur le poste client
 

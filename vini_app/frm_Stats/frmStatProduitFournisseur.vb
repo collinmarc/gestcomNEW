@@ -44,11 +44,11 @@ Public Class frmStatProduitFournisseur
     Friend WithEvents Label5 As Label
     Friend WithEvents rbDossierProduit As RadioButton
     Friend WithEvents rbOrigineCommande As RadioButton
-    Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    'Private WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents cbRechercherFournisseur As Button
     Friend WithEvents ckAfficheDetail As System.Windows.Forms.CheckBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        'Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.tbcodeFournisseur = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cbAfficher = New System.Windows.Forms.Button()

@@ -43,7 +43,7 @@ Public Class frmClient
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents BIC As Label
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label24 As Label
+    ' Friend WithEvents Label24 As Label
     Friend WithEvents Label26 As Label
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox

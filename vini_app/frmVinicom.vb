@@ -171,15 +171,17 @@ Public Class FrmVinicom
 
         If Not bTesting Then
             ofrmMain = MdiParent
-            ofrmMain.setFrmActive(Nothing)
+            If (ofrmMain IsNot Nothing) Then
+                ofrmMain.setFrmActive(Nothing)
+            End If
             'Connection à la Base de Données
             'Si la valeur GlobalConnection = "Medium"
             'Connection en début de fenêtre à la base de données
             'Sinon Chaque opération nécéessite une Connection à la base de données
             If GLOBALCONNECTION.Equals("Medium") Then
-                Persist.shared_disconnect()
+                    Persist.shared_disconnect()
+                End If
             End If
-        End If
     End Sub
 
     Public Overridable Function getResume() As String

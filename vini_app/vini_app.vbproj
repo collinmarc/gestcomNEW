@@ -67,11 +67,14 @@
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -104,6 +107,19 @@
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="AssemblyInfo.vb" />
     <Compile Include="Constants.vb" />
+    <Compile Include="cr\crBonFournisseur.vb">
+      <DependentUpon>crBonFournisseur.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cr\crDetailCommandeClient.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crDetailCommandeClient.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="cr\crEnteteHBV.vb">
       <DependentUpon>crEnteteHBV.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -118,12 +134,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="cr\ADEL\crFactureColisageOLD.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+    <Compile Include="cr\crFactureColisageOLD.vb">
       <DependentUpon>crFactureColisageOLD.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="cr\crListeFactColisageParNumero.vb">
       <DependentUpon>crListeFactColisageParNumero.rpt</DependentUpon>
@@ -160,10 +176,23 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="cr\CrystalReport2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="dlgExportWebEDI.Designer.vb">
       <DependentUpon>dlgExportWebEDI.vb</DependentUpon>
     </Compile>
     <Compile Include="dlgExportWebEDI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGeneFactColisage2.vb">
@@ -232,12 +261,6 @@
       <DependentUpon>crComparatifCommandeClientParProduit.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="cr\crDetailCommandeClient.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>crDetailCommandeClient.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="cr\ADEL\crListeCAMensuelClient.vb">
       <AutoGen>True</AutoGen>
@@ -349,13 +372,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crBonAppro.rpt</DependentUpon>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="cr\ADEL\crBonFournisseur.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>crBonFournisseur.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -772,6 +788,9 @@
     <Compile Include="frm_Stats\frmBilanCommercialClient.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_Stats\frmHistoriqueArticles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_Stats\frmStatCAClientProducteur.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -869,9 +888,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGestTarif.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmHistoriqueArticles.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmImportReglement.Designer.vb">
@@ -1092,11 +1108,6 @@
       <LastGenOutput>crBonAppro.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\ADEL\crBonFournisseur.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crBonFournisseur.vb</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="cr\crBonLivraison.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBonLivraison.vb</LastGenOutput>
@@ -1135,11 +1146,6 @@
     <Content Include="cr\crCumulVentesArticles.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCumulVentesArticles.vb</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="cr\crDetailCommandeClient.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crDetailCommandeClient.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="cr\crEntete.rpt">
@@ -1509,7 +1515,16 @@
     <None Include="Resources\FlecheBas.jpg" />
     <None Include="Resources\DeleteHS.png" />
     <None Include="Resources\Cloud50x50.png" />
-    <EmbeddedResource Include="cr\ADEL\crFactureColisageOLD.rpt">
+    <Content Include="cr\crBonFournisseur.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crBonFournisseur.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="cr\crDetailCommandeClient.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crDetailCommandeClient.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cr\crFactureColisageOLD.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFactureColisageOLD.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1519,11 +1534,19 @@
       <LastGenOutput>CrystalReport1.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="cr\CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport2.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="dlgBackupRestore.resx">
       <DependentUpon>dlgBackupRestore.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="dlgExportWebEDI.resx">
       <DependentUpon>dlgExportWebEDI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneFactColisage2.resx">
       <DependentUpon>frmGeneFactColisage2.vb</DependentUpon>
@@ -1552,6 +1575,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_espacesFournisseurs\dlgWebBrowser.resx">
       <DependentUpon>dlgWebBrowser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Stats\frmHistoriqueArticles.resx">
+      <DependentUpon>frmHistoriqueArticles.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Stats\frmStatCAProducteurClient.resx">
       <DependentUpon>frmStatCAProducteurClient.vb</DependentUpon>
@@ -1709,10 +1736,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestTarif.resx">
       <DependentUpon>frmGestTarif.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmHistoriqueArticles.resx">
-      <DependentUpon>frmHistoriqueArticles.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmJournalAnnonces.resx">
@@ -1999,6 +2022,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CsvHelper">
+      <Version>30.0.1</Version>
+    </PackageReference>
     <PackageReference Include="log4net">
       <Version>2.0.12</Version>
     </PackageReference>

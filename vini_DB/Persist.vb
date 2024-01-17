@@ -1724,9 +1724,6 @@ Public MustInherit Class Persist
     ''' <summary>
     ''' Renvoie une liste des client de type intermédiaire pour une origine
     ''' </summary>
-    ''' <param name="strCode"></param>
-    ''' <param name="strNom"></param>
-    ''' <param name="strRS"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
     Protected Shared Function ListeCLTIntegmédiairePOurOrigine(pIdTypeClientInterlediaire As Integer, ByVal pOrigine As String) As List(Of Client)
@@ -11485,7 +11482,6 @@ Public MustInherit Class Persist
                             "FROM FACTHBV WHERE FHBV_IDCOMMANDE = " & pIdCmd
         Dim bReturn As Boolean
         Dim objCommand As OleDbCommand
-        Dim objFACT As FactHBV
         Dim objRS As OleDbDataReader = Nothing
         objCommand = m_dbconn.Connection.CreateCommand()
         objCommand.Connection = m_dbconn.Connection
