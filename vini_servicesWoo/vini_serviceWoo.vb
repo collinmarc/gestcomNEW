@@ -27,7 +27,7 @@ Public Class vini_serviceWoo
 
         Trace.WriteLine("Starting...")
         Trace.WriteLine("FTP = (" & My.Settings.wooFTPHost & ":" & My.Settings.wooFTPUser & "," & My.Settings.wooFTPPwd & ")/" & My.Settings.wooFTPRepDistant)
-        Trace.WriteLine("RepLocal = " & My.Settings.wooFTPRepLocal & " Secondes")
+        Trace.WriteLine("RepLocal = " & My.Settings.wooFTPRepLocal)
         Trace.WriteLine("FTP2 = (" & My.Settings.wooFTPHost2 & ":" & My.Settings.wooFTPUser2 & "," & My.Settings.wooFTPPwd2 & ")/" & My.Settings.wooFTPRepDistant2)
         Trace.WriteLine("RepLocal2 = " & My.Settings.wooFTPRepLocal2)
         Trace.WriteLine("Intervalle = " & My.Settings.wooIntervalleSecondes & " Secondes")
@@ -51,11 +51,20 @@ Public Class vini_serviceWoo
 
     Private Sub ImporterCommandes()
         Try
+            Dim pDossierLocal As String
+            pDossierLocal = My.Settings.wooFTPRepLocal & Now.ToString("yyyyMMddHHmmss")
+
             cmdwoo.SetFTP(My.Settings.wooFTPHost, My.Settings.wooFTPUser, My.Settings.wooFTPPwd, My.Settings.wooFTPRepDistant)
-            cmdwoo.Import(My.Settings.wooFTPRepLocal)
+            Trace.WriteLine("Import1 vers " & pDossierLocal)
+
+            cmdwoo.Import(pDossierLocal)
+
             If Not String.IsNullOrEmpty(My.Settings.wooFTPHost2) Then
                 cmdwoo.SetFTP(My.Settings.wooFTPHost2, My.Settings.wooFTPUser2, My.Settings.wooFTPPwd2, My.Settings.wooFTPRepDistant2)
-                cmdwoo.Import(My.Settings.wooFTPRepLocal2)
+                pDossierLocal = My.Settings.wooFTPRepLocal2 & Now.ToString("yyyyMMddHHmmss")
+
+                Trace.WriteLine("Import2 vers " & pDossierLocal)
+                cmdwoo.Import(pDossierLocal)
             End If
 
         Catch ex As Exception

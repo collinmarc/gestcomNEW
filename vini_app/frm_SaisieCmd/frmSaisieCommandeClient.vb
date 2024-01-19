@@ -573,10 +573,6 @@ Public Class frmCommandeClient
     Public Overrides Function SauveElement() As Boolean
         Debug.Assert(Not getCommandeCourante() Is Nothing)
         Dim bReturn As Boolean
-        Trace.WriteLine("frmCommandeClient.SauveElement : tbPiedPageBL.text= " & tbPiedPageBL.Text)
-        Trace.WriteLine("frmCommandeClient.SauveElement : tbCommentaireLivraison.text= " & tbCommentaireLivraison.Text)
-        Trace.WriteLine("frmCommandeClient.SauveElement : Commande.CommLiv= " & getCommandeCourante().caracteristiqueTiers.CommLivraison.comment)
-        Trace.WriteLine("frmCommandeClient.SauveElement : Commande.CommLiv= " & getCommandeCourante().CommLivraison.comment)
         bReturn = getCommandeCourante.save
         If bReturn Then
             tbCode.Text = getCommandeCourante.code

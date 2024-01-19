@@ -1,8 +1,6 @@
 Imports System
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
-Imports NUnit.Extensions.Forms
 Imports vini_DB
-Imports vini_App
 
 
 <TestClass()> Public Class T1400_Transporteur

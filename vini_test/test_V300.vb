@@ -1,9 +1,7 @@
 'Test de la classe dbConnection
 Imports System
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
-Imports NUnit.Extensions.Forms
 Imports vini_DB
-Imports vini_App
 
 
 

@@ -1171,9 +1171,7 @@ Public Class CommandeClient
                         strResult = strResult + Left(oLg.oProduit.codeStat + Space(15), 15)
                     Else
                         strResult = strResult + Left(oLg.oProduit.code + Space(15), 15)
-
                     End If
-                    strResult = strResult + Left(oLg.oProduit.code + Space(15), 15)
                     '310
                     strResult = strResult + Format(oLg.qteColis, "0000000")
                     '317
@@ -1231,7 +1229,12 @@ Public Class CommandeClient
                         '292
                         strResult = strResult + Format(oLg.num, "000")
                         '295
-                        strResult = strResult + Left(oLg.oProduit.code + Space(15), 15)
+                        If pbCodeStatPlateforme And Not String.IsNullOrEmpty(Trim(oLg.oProduit.codeStat)) Then
+                            strResult = strResult + Left(oLg.oProduit.codeStat + Space(15), 15)
+                        Else
+                            strResult = strResult + Left(oLg.oProduit.code + Space(15), 15)
+
+                        End If
                         '310
                         strResult = strResult + Format(oLg.qteColis, "0000000")
                         '317
@@ -1255,7 +1258,7 @@ Public Class CommandeClient
             bReturn = True
         Catch ex As Exception
             bReturn = False
-            setError("CommandeClient.exporter", ex.ToString())
+            setError("CommandeClient.exporterWebEDI ERR", ex.ToString())
         End Try
         Return bReturn
     End Function 'exporterWEBEDI

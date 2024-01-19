@@ -1,14 +1,10 @@
 'Test de la classe dbConnection
 Imports System
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
-Imports NUnit.Extensions.Forms
 Imports vini_DB
-Imports vini_App
 Imports System.IO
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
-
-
 
 <TestClass()> Public Class test1150_FactureColisage
     Inherits test_Base
@@ -230,7 +226,7 @@ Imports CrystalDecisions.Shared
 
     End Sub
 
-  
+
     ''' <summary>
     ''' Test la génération du dataset Colisage
     ''' </summary>
@@ -755,7 +751,7 @@ Imports CrystalDecisions.Shared
             File.Delete("./T20_EXPORT.txt")
         End If
 
-        objFact.Exporter("./T20_EXPORT.txt")
+        objFact.exporter("./T20_EXPORT.txt")
 
         Assert.IsTrue(File.Exists("./T20_EXPORT.txt"), "le fichier d'export n'existe pas")
         strLines = File.ReadAllLines("./T20_EXPORT.txt")
@@ -861,7 +857,7 @@ Imports CrystalDecisions.Shared
             File.Delete("./T20_EXPORT.txt")
         End If
 
-        objFact.Exporter("./T20_EXPORT.txt")
+        objFact.exporter("./T20_EXPORT.txt")
 
         Assert.IsTrue(File.Exists("./T20_EXPORT.txt"), "le fichier d'export n'existe pas")
         strLines = File.ReadAllLines("./T20_EXPORT.txt")
@@ -928,7 +924,7 @@ Imports CrystalDecisions.Shared
         objFact.bDeleted = True
         Assert.IsTrue(objFact.save())
     End Sub
-     'Test l'incrémenation des codes
+    'Test l'incrémenation des codes
     <TestMethod()> Public Sub T70_GetNextCode()
 
         Dim obj1 As New FactColisageJ(m_objFRN)

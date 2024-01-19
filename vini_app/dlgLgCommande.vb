@@ -710,7 +710,7 @@ Public Class dlgLgCommande
                 objProduit = frm.getElementSelectionne()
             End If
         Else
-            objProduit = lstProduit(1)
+            objProduit = ocol(1)
         End If
         If Not objProduit Is Nothing Then
             If objProduit.bResume Then

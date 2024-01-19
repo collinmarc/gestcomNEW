@@ -2298,6 +2298,9 @@ Public MustInherit Class Persist
 
 
         If idClient <> 0 Then
+            'On recrée une commande pour oublier les anciens paramètres
+            objOLeDBCommand = m_dbconn.Connection.CreateCommand()
+
             sqlString = "SELECT PRODUIT.PRD_ID, " &
                                 " PRODUIT.PRD_CODE, " &
                                         " PRODUIT.PRD_LIBELLE, " &
@@ -2318,11 +2321,16 @@ Public MustInherit Class Persist
                                         " PRD_TARIFA, PRD_TARIFB, PRD_TARIFC"
 
             sqlString = sqlString & " FROM CLIENT INNER JOIN PRECOMMANDE ON CLIENT.CLT_ID = PRECOMMANDE.PCMD_CLT_ID INNER JOIN PRODUIT ON PRECOMMANDE.PCMD_PRD_ID = PRODUIT.PRD_ID"
-            If strWhere <> "" Then
-                strWhere = strWhere & " And "
-            End If
-            strWhere = strWhere & " PRECOMMANDE.PCMD_CLT_ID = ? "
+            strWhere = " PRECOMMANDE.PCMD_CLT_ID = ? "
             objOLeDBCommand.Parameters.AddWithValue("?", idClient)
+            If Not pbTous Then
+                If strWhere <> "" Then
+                    strWhere = strWhere & " AND "
+                End If
+                strWhere = strWhere & "PRD_BARCHIVE =  ?"
+                objOLeDBCommand.Parameters.AddWithValue("?", 0)
+            End If
+
 
         End If
 
