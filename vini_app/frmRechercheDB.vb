@@ -9,7 +9,7 @@ Public Class frmRechercheDB
     Private m_TypeDonnees As vncTypeDonnee
     Private m_ElementSelectionne As Persist
     Private m_ocol As System.Collections.ICollection
-    Private m_idPrecommande As Long
+    Private m_idClient As Long
     Private m_idFournisseur As Long
     Friend WithEvents m_bsrc As System.Windows.Forms.BindingSource
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
@@ -219,7 +219,7 @@ Public Class frmRechercheDB
         InitializeComponent()
 
         'Ajoutez une initialisation quelconque après l'appel InitializeComponent()
-        m_idPrecommande = 0
+        m_idClient = 0
         m_idFournisseur = 0
         m_typeProduit = False
 
@@ -400,8 +400,9 @@ Public Class frmRechercheDB
 
     End Sub
 
-    Public Sub setidPrecommande(ByVal p_id As Integer)
-        m_idPrecommande = p_id
+    Public Sub setidClient(ByVal p_id As Integer)
+        Me.Text = "Recherche de produit dans la precommande du client"
+        m_idClient = p_id
     End Sub
     Public Sub setidFournisseur(ByVal p_id As Integer)
         Debug.Assert(m_TypeDonnees = vncEnums.vncTypeDonnee.PRODUIT)
@@ -447,27 +448,16 @@ Public Class frmRechercheDB
                 If cboEtat.SelectedItem = "Tous" Then
                     bTous = True
                 End If
-                m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, m_idFournisseur, m_idPrecommande, pTous:=bTous)
+                m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, 0, 0, pTous:=bTous)
             Case vncTypeDonnee.PRODUIT_COMMANDE
                 Me.m_bsrc.DataSource = GetType(vini_DB.Produit)
-                'Recherche des produits , les valeurs idFournisseur et idPrecommande sont initialisées à 0
+                'Recherche des produits 
                 Dim bTous As Boolean = False
                 If cboEtat.SelectedItem = "Tous" Then
                     bTous = True
                 End If
-                m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, m_idFournisseur, 0, pTous:=bTous)
-                'Tri sur la Qte en stock
-                Dim lstProduit As New List(Of Produit)
-                For Each oPrd As Produit In m_ocol
-                    oPrd.loadcolmvtStockDepuisLeDernierMouvementInventaire()
-                    oPrd.recalculStock()
-                    lstProduit.Add(oPrd)
-                Next
-                'Tri sur la Qte en Stock (Comparer de Produit)
-                lstProduit.Sort()
-                'Realimentation de la collection
-                CType(m_ocol, Collection).Clear()
-                lstProduit.ForEach(Sub(p) CType(m_ocol, Collection).Add(p))
+                m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, 0, m_idClient, pTous:=bTous)
+                TrierLaListeDesProduitsurlaQteEnStock()
 
             Case vncTypeDonnee.COMMANDECLIENT
                 Me.m_bsrc.DataSource = GetType(vini_DB.CommandeClient)
@@ -533,6 +523,28 @@ Public Class frmRechercheDB
     End Sub 'selectionneEtSort
     Public Sub setListe(ByVal oCol As Collection)
         m_ocol = oCol
+        If m_TypeDonnees = vncTypeDonnee.PRODUIT_COMMANDE Then
+            TrierLaListeDesProduitsurlaQteEnStock()
+        End If
+    End Sub
+    Private Sub TrierLaListeDesProduitsurlaQteEnStock()
+        'S'il y en a +1 => tri sur la Qte En stock
+        Dim lstProduit As New List(Of Produit)
+        For Each oPrd As Produit In m_ocol
+            lstProduit.Add(oPrd)
+            'Pour éviter de recalculer le stock de tous les produits
+            If CType(m_ocol, Collection).Count < 100 Then
+                oPrd.loadcolmvtStockDepuisLeDernierMouvementInventaire()
+                oPrd.recalculStock()
+            End If
+        Next
+        'Tri sur la Qte en Stock (Comparer de Produit)
+        lstProduit.Sort()
+        'Realimentation de la collection
+        CType(m_ocol, Collection).Clear()
+        lstProduit.ForEach(Sub(p) CType(m_ocol, Collection).Add(p))
+
+
     End Sub
     Public Sub setCode(ByVal pcode As String)
         tbCode.Text = pcode

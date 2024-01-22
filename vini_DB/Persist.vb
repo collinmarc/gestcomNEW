@@ -2226,7 +2226,7 @@ Public MustInherit Class Persist
 
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
 
-        Dim sqlString As String = " SELECT PRODUIT.PRD_ID, PRODUIT.PRD_CODE, PRODUIT.PRD_LIBELLE, CONTENANT.CONT_LIBELLE, CONTENANT.CONT_ID, PRODUIT.PRD_MIL, RQ_Couleur.PAR_VALUE, produit.PRD_coul_Id, produit.PRD_cont_id, PRD_DISPO " &
+        Dim sqlString As String = " SELECT PRODUIT.*, CONTENANT.CONT_LIBELLE, CONTENANT.CONT_ID, RQ_Couleur.PAR_VALUE" &
                                     " FROM (CONTENANT INNER JOIN PRODUIT ON CONTENANT.CONT_ID = PRODUIT.PRD_CONT_ID) INNER JOIN RQ_Couleur ON PRODUIT.PRD_COUL_ID = RQ_Couleur.PAR_ID"
 
         Dim objOLeDBCommand As OleDbCommand
@@ -2298,38 +2298,22 @@ Public MustInherit Class Persist
 
 
         If idClient <> 0 Then
-            'On recrée une commande pour oublier les anciens paramètres
-            objOLeDBCommand = m_dbconn.Connection.CreateCommand()
 
-            sqlString = "SELECT PRODUIT.PRD_ID, " &
-                                " PRODUIT.PRD_CODE, " &
-                                        " PRODUIT.PRD_LIBELLE, " &
-                                        " PRODUIT.PRD_MOT_CLE, " &
-                                        " PRODUIT.PRD_FRN_ID, " &
-                                        " PRODUIT.PRD_CONT_ID, " &
-                                        " PRODUIT.PRD_COND_ID, " &
-                                        " PRODUIT.PRD_COUL_ID, " &
-                                        " PRODUIT.PRD_MIL, " &
-                                        " PRODUIT.PRD_RGN_ID, " &
-                                        " PRODUIT.PRD_TVA_ID, " &
-                                        " PRODUIT.PRD_DATE_DERN_INVENT, " &
-                                        " PRODUIT.PRD_QTE_STK, " &
-                                        " PRODUIT.PRD_QTE_STOCK_DERN_INVENT, " &
-                                        " PRODUIT.PRD_DISPO, " &
-                                        " PRODUIT.PRD_CODE_STAT, " &
-                                        " PRODUIT.PRD_STOCK, " &
-                                        " PRD_TARIFA, PRD_TARIFB, PRD_TARIFC"
-
+            sqlString = "SELECT PRODUIT.* "
             sqlString = sqlString & " FROM CLIENT INNER JOIN PRECOMMANDE ON CLIENT.CLT_ID = PRECOMMANDE.PCMD_CLT_ID INNER JOIN PRODUIT ON PRECOMMANDE.PCMD_PRD_ID = PRODUIT.PRD_ID"
-            strWhere = " PRECOMMANDE.PCMD_CLT_ID = ? "
-            objOLeDBCommand.Parameters.AddWithValue("?", idClient)
-            If Not pbTous Then
-                If strWhere <> "" Then
-                    strWhere = strWhere & " AND "
-                End If
-                strWhere = strWhere & "PRD_BARCHIVE =  ?"
-                objOLeDBCommand.Parameters.AddWithValue("?", 0)
+            If strWhere <> "" Then
+                strWhere = strWhere & " AND "
             End If
+            '            strWhere = strWhere & "PRD_BARCHIVE =  ?"
+            strWhere = strWhere & " PRECOMMANDE.PCMD_CLT_ID = ? "
+            objOLeDBCommand.Parameters.AddWithValue("?", idClient)
+            'If Not pbTous Then
+            '    If strWhere <> "" Then
+            '        strWhere = strWhere & " AND "
+            '    End If
+            '    strWhere = strWhere & "PRD_BARCHIVE =  ?"
+            '    objOLeDBCommand.Parameters.AddWithValue("?", 0)
+            'End If
 
 
         End If

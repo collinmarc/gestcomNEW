@@ -1467,7 +1467,7 @@ Friend Class frmMain
 
     Private Sub mnuCmdCltSaisie_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuGC_CmdCltSaisie.Click
         Dim ofrm As FrmVinicom
-        ofrm = New frmCommandeClient
+        ofrm = New frmSaisieCommandeClient
         ofrm.MdiParent = Me
         ofrm.Show()
     End Sub

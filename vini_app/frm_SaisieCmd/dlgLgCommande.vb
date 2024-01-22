@@ -655,10 +655,9 @@ Public Class dlgLgCommande
     '                   avec la liste des produits correspondant
     '                   Les produits affichées sont ceux de la precommande du client
     '====================================================================================
-    Private Sub rechercheProduit()
+    Private Sub rechercheProduit(pbPrecommande As Boolean)
         Debug.Assert(Not m_elementCourant Is Nothing)
         Debug.Assert(Not m_TiersCourant Is Nothing)
-        Dim lstProduit As List(Of Produit)
         Dim ocol As Collection
         Dim objProduit As Produit = Nothing
         Dim frm As frmRechercheDB
@@ -667,45 +666,34 @@ Public Class dlgLgCommande
         Dim qte As Decimal = 0
         Dim prixU As Decimal = 0
 
-        If tbCodeProduit.Text <> "" Then
-            ocol = Produit.getListe(m_typeProduit, tbCodeProduit.Text)
-        Else
+        If pbPrecommande Then
+            'Recherche du produit dans la précommande
             If m_TiersCourant.typeDonnee = vncTypeDonnee.FOURNISSEUR Then
                 ocol = Produit.getListe(m_typeProduit, , , , idFournisseur:=m_TiersCourant.id)
             Else
                 ocol = Produit.getListe(m_typeProduit, , , , , idClient:=m_TiersCourant.id)
             End If
+        Else
+            'Recherche du produit dans la liste des produits
+            ocol = Produit.getListe(m_typeProduit, tbCodeProduit.Text)
         End If
         If ocol.Count <> 1 Then
-
-            lstProduit = New List(Of Produit)
-            For Each oPrd As Produit In ocol
-                lstProduit.Add(oPrd)
-                oPrd.loadcolmvtStockDepuisLeDernierMouvementInventaire()
-                oPrd.recalculStock()
-            Next
-            'Tri sur la Qte en Stock (Comparer de Produit)
-            lstProduit.Sort()
-            'Realimentation de la collection
-            ocol.Clear()
-            lstProduit.ForEach(Sub(p) ocol.Add(p))
-
             'Création de la fenêtre de recherche
             frm = New frmRechercheDB
             frm.setTypeDonnees(vncEnums.vncTypeDonnee.PRODUIT_COMMANDE)
             'Liste des produits de la PRECOMMANDE si Constantes positionnée
-            If COMMANDECLIENT_LISTEPRODUIT_PRECOMMANDE Then
+            If pbPrecommande Then
                 If m_TiersCourant.typeDonnee = vncTypeDonnee.FOURNISSEUR Then
                     frm.setidFournisseur(m_TiersCourant.id)
                 Else
-                    frm.setidPrecommande(m_TiersCourant.id)
+                    frm.setidClient(m_TiersCourant.id)
                 End If
             End If
-            'Tri de la liste des produits
+            'On passe la liste à la fenêtre de recherche
             frm.setListe(ocol)
             frm.displayListe()
             'Affichage de la fenêtre
-            If frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            If frm.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 'Si on sort par OK
                 objProduit = frm.getElementSelectionne()
             End If
@@ -809,11 +797,15 @@ Public Class dlgLgCommande
     Private Sub tbCodeProduit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbCodeProduit.KeyPress
         If e.KeyChar = Microsoft.VisualBasic.ChrW(13) Then
             e.Handled = True
-            rechercheProduit()
+            If sender.Text = "" Then
+                rechercheProduit(pbPrecommande:=True)
+            Else
+                rechercheProduit(pbPrecommande:=False)
+            End If
         End If
     End Sub
     Private Sub cbProduit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbProduit.Click
-        rechercheProduit()
+        rechercheProduit(pbPrecommande:=False)
     End Sub
     Private Sub cbCalculTotal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbCalculTotal.Click
         CalculPrix()
@@ -858,13 +850,5 @@ Public Class dlgLgCommande
 
     Private Sub tbQteFact_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles tbQteFact.Validated
         CalculPrix()
-    End Sub
-
-    Private Sub tbCodeProduit_Disposed(sender As Object, e As EventArgs) Handles tbCodeProduit.Disposed
-
-    End Sub
-
-    Private Sub tbCodeProduit_CursorChanged(sender As Object, e As EventArgs) Handles tbCodeProduit.CursorChanged
-
     End Sub
 End Class

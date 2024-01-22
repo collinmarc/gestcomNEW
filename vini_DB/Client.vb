@@ -225,7 +225,7 @@ Public Class Client
     ''' <returns>Objet Fournisseur ou null</returns>
     ''' <remarks></remarks>
     Public Shared Function createandloadPrestashop(ByVal pIdPrestashop As String, pdossier As String) As Client
-        Dim oClt As Client
+        Dim oClt As Client = Nothing
         Dim bReturn As Boolean
         Dim nId As Integer
         shared_connect()

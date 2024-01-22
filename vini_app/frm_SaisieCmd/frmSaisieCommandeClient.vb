@@ -1,430 +1,74 @@
-Imports vini_DB
+ï»¿Imports vini_DB
 Imports System.IO
 Imports CrystalDecisions.Shared
 Imports CrystalDecisions.CrystalReports.Engine
 Imports System.Net.Mail
 'Imports FAXCOMLib
 
-Public Class frmCommandeClient
+Public Class frmSaisieCommandeClient
     Inherits frmSaisieCommande
 
-    '    Private getCommandeCourante As CommandeClient
     Private m_objSCMDCourante As SousCommande
-    'Private WithEvents crwDetailCommandeClient As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    'Private WithEvents crwBL As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    'Private WithEvents crwFact As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Private m_oFactHBV As FactHBV
     Protected Shadows Function getCommandeCourante() As CommandeClient
         Return CType(getElementCourant(), CommandeClient)
     End Function
 
-#Region " Code généré par le Concepteur Windows Form "
+#Region " Code gÃ©nÃ©rÃ© par le Concepteur Windows Form "
 
-    Public Sub New()
-        MyBase.New()
-        'Cet appel est requis par le Concepteur Windows Form.
-        InitializeComponent()
-    End Sub
-
-    'La méthode substituée Dispose du formulaire pour nettoyer la liste des composants.
-    Protected Overloads Overrides Sub Dispose(ByVal disposing As Boolean)
-        If disposing Then
-            If Not (components Is Nothing) Then
-                components.Dispose()
-            End If
-        End If
-        MyBase.Dispose(disposing)
-    End Sub
     Friend WithEvents btnCtrlStock As System.Windows.Forms.Button
-    'Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
-    'Friend WithEvents NumDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents ProduitCodeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents ProduitNomDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents QteFactDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents PrixUDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents PrixHTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents PrixTTCDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents BGratuitDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents DataGridView5 As System.Windows.Forms.DataGridView
-    Friend WithEvents NumDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents OProduitDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents ProduitCodeDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents ProduitNomDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents ProduitMilDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents ProduitConditionnementDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProduitContenantDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents ProduitCouleurDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents IdFactHBVDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents QteCommandeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents QteLivDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents QteFactDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents PrixUDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents PrixHTDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents PrixTTCDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    'Friend WithEvents BGratuitDataGridViewCheckBoxColumn1 As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents ShortResumeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BNewDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents BDeletedDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents BUpdatedDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents IdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TypeDonneeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BResumeDataGridViewCheckBoxColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
 
-    'Requis par le Concepteur Windows Form
-    Private components As System.ComponentModel.IContainer
 
-    'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
-    'Elle peut être modifiée en utilisant le Concepteur Windows Form.  
-    'Ne la modifiez pas en utilisant l'éditeur de code.
-    <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        'Me.crwDetailCommandeClient = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        'Me.crwBL = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        'Me.crwFact = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.btnCtrlStock = New System.Windows.Forms.Button()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
-        Me.NumDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProduitCodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProduitNomDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QteFactDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrixUDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrixHTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrixTTCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BGratuitDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.DataGridView5 = New System.Windows.Forms.DataGridView()
-        Me.NumDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OProduitDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProduitCodeDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProduitNomDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProduitMilDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProduitConditionnementDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProduitContenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProduitCouleurDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdFactHBVDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QteCommandeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QteLivDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QteFactDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrixUDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrixHTDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrixTTCDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BGratuitDataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.ShortResumeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BNewDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.BDeletedDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.BUpdatedDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeDonneeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BResumeDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.tpClient.SuspendLayout()
-        Me.tpLignes.SuspendLayout()
-        Me.tpCommentaires.SuspendLayout()
-        Me.SSTabCommandeClient.SuspendLayout()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'tpLignes
-        '
-        Me.tpLignes.Controls.Add(Me.btnCtrlStock)
-        Me.tpLignes.Controls.SetChildIndex(Me.cbAjouterLigne, 0)
-        Me.tpLignes.Controls.SetChildIndex(Me.tbTotalHT, 0)
-        Me.tpLignes.Controls.SetChildIndex(Me.cbModifierLigne, 0)
-        Me.tpLignes.Controls.SetChildIndex(Me.cbSupprimerLigne, 0)
-        Me.tpLignes.Controls.SetChildIndex(Me.tbTotalTTC, 0)
-        Me.tpLignes.Controls.SetChildIndex(Me.btnCtrlStock, 0)
-        '
-        'crwDetailCommandeClient
-        '
-        Me.crwDetailCommandeClient.ActiveViewIndex = -1
-        Me.crwDetailCommandeClient.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.crwDetailCommandeClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.crwDetailCommandeClient.Cursor = System.Windows.Forms.Cursors.Default
-        Me.crwDetailCommandeClient.DisplayStatusBar = False
-        Me.crwDetailCommandeClient.Location = New System.Drawing.Point(9, 8)
-        Me.crwDetailCommandeClient.Name = "crwDetailCommandeClient"
-        Me.crwDetailCommandeClient.Size = New System.Drawing.Size(603, 535)
-        Me.crwDetailCommandeClient.TabIndex = 26
-        Me.crwDetailCommandeClient.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
-        '
-        'crwBL
-        '
-        Me.crwBL.ActiveViewIndex = -1
-        Me.crwBL.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.crwBL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.crwBL.Cursor = System.Windows.Forms.Cursors.Default
-        Me.crwBL.DisplayStatusBar = False
-        Me.crwBL.Location = New System.Drawing.Point(9, 4)
-        Me.crwBL.Name = "crwBL"
-        Me.crwBL.Size = New System.Drawing.Size(481, 550)
-        Me.crwBL.TabIndex = 148
-        Me.crwBL.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
-        '
-        'crwFact
-        '
-        Me.crwFact.ActiveViewIndex = -1
-        Me.crwFact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.crwFact.Cursor = System.Windows.Forms.Cursors.Default
-        Me.crwFact.DisplayStatusBar = False
-        Me.crwFact.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.crwFact.Location = New System.Drawing.Point(0, 0)
-        Me.crwFact.Name = "crwFact"
-        Me.crwFact.Size = New System.Drawing.Size(328, 551)
-        Me.crwFact.TabIndex = 149
-        Me.crwFact.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
-        '
-        'btnCtrlStock
-        '
-        Me.btnCtrlStock.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCtrlStock.Location = New System.Drawing.Point(632, 524)
-        Me.btnCtrlStock.Name = "btnCtrlStock"
-        Me.btnCtrlStock.Size = New System.Drawing.Size(105, 23)
-        Me.btnCtrlStock.TabIndex = 70
-        Me.btnCtrlStock.Text = "Contrôle du stock"
-        Me.btnCtrlStock.UseVisualStyleBackColor = True
-        '
-        'DataGridView4
-        '
-        Me.DataGridView4.AllowUserToAddRows = False
-        Me.DataGridView4.AutoGenerateColumns = False
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumDataGridViewTextBoxColumn, Me.ProduitCodeDataGridViewTextBoxColumn, Me.ProduitNomDataGridViewTextBoxColumn, Me.QteFactDataGridViewTextBoxColumn, Me.PrixUDataGridViewTextBoxColumn, Me.PrixHTDataGridViewTextBoxColumn, Me.PrixTTCDataGridViewTextBoxColumn, Me.BGratuitDataGridViewCheckBoxColumn})
-        Me.DataGridView4.Location = New System.Drawing.Point(504, 74)
-        Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.Size = New System.Drawing.Size(240, 150)
-        Me.DataGridView4.TabIndex = 151
-        '
-        'NumDataGridViewTextBoxColumn
-        '
-        Me.NumDataGridViewTextBoxColumn.DataPropertyName = "num"
-        Me.NumDataGridViewTextBoxColumn.HeaderText = "num"
-        Me.NumDataGridViewTextBoxColumn.Name = "NumDataGridViewTextBoxColumn"
-        '
-        'ProduitCodeDataGridViewTextBoxColumn
-        '
-        Me.ProduitCodeDataGridViewTextBoxColumn.DataPropertyName = "ProduitCode"
-        Me.ProduitCodeDataGridViewTextBoxColumn.HeaderText = "ProduitCode"
-        Me.ProduitCodeDataGridViewTextBoxColumn.Name = "ProduitCodeDataGridViewTextBoxColumn"
-        Me.ProduitCodeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ProduitNomDataGridViewTextBoxColumn
-        '
-        Me.ProduitNomDataGridViewTextBoxColumn.DataPropertyName = "ProduitNom"
-        Me.ProduitNomDataGridViewTextBoxColumn.HeaderText = "ProduitNom"
-        Me.ProduitNomDataGridViewTextBoxColumn.Name = "ProduitNomDataGridViewTextBoxColumn"
-        Me.ProduitNomDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'QteFactDataGridViewTextBoxColumn
-        '
-        Me.QteFactDataGridViewTextBoxColumn.DataPropertyName = "qteFact"
-        Me.QteFactDataGridViewTextBoxColumn.HeaderText = "qteFact"
-        Me.QteFactDataGridViewTextBoxColumn.Name = "QteFactDataGridViewTextBoxColumn"
-        '
-        'PrixUDataGridViewTextBoxColumn
-        '
-        Me.PrixUDataGridViewTextBoxColumn.DataPropertyName = "prixU"
-        Me.PrixUDataGridViewTextBoxColumn.HeaderText = "prixU"
-        Me.PrixUDataGridViewTextBoxColumn.Name = "PrixUDataGridViewTextBoxColumn"
-        '
-        'PrixHTDataGridViewTextBoxColumn
-        '
-        Me.PrixHTDataGridViewTextBoxColumn.DataPropertyName = "prixHT"
-        Me.PrixHTDataGridViewTextBoxColumn.HeaderText = "prixHT"
-        Me.PrixHTDataGridViewTextBoxColumn.Name = "PrixHTDataGridViewTextBoxColumn"
-        '
-        'PrixTTCDataGridViewTextBoxColumn
-        '
-        Me.PrixTTCDataGridViewTextBoxColumn.DataPropertyName = "prixTTC"
-        Me.PrixTTCDataGridViewTextBoxColumn.HeaderText = "prixTTC"
-        Me.PrixTTCDataGridViewTextBoxColumn.Name = "PrixTTCDataGridViewTextBoxColumn"
-        '
-        'BGratuitDataGridViewCheckBoxColumn
-        '
-        Me.BGratuitDataGridViewCheckBoxColumn.DataPropertyName = "bGratuit"
-        Me.BGratuitDataGridViewCheckBoxColumn.HeaderText = "bGratuit"
-        Me.BGratuitDataGridViewCheckBoxColumn.Name = "BGratuitDataGridViewCheckBoxColumn"
-        '
-        'DataGridView5
-        '
-        Me.DataGridView5.AllowUserToAddRows = False
-        Me.DataGridView5.AutoGenerateColumns = False
-        Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView5.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NumDataGridViewTextBoxColumn1, Me.OProduitDataGridViewTextBoxColumn, Me.ProduitCodeDataGridViewTextBoxColumn1, Me.ProduitNomDataGridViewTextBoxColumn1, Me.ProduitMilDataGridViewTextBoxColumn, Me.ProduitConditionnementDataGridViewTextBoxColumn, Me.ProduitContenantDataGridViewTextBoxColumn, Me.ProduitCouleurDataGridViewTextBoxColumn, Me.IdFactHBVDataGridViewTextBoxColumn, Me.QteCommandeDataGridViewTextBoxColumn, Me.QteLivDataGridViewTextBoxColumn, Me.QteFactDataGridViewTextBoxColumn1, Me.PrixUDataGridViewTextBoxColumn1, Me.PrixHTDataGridViewTextBoxColumn1, Me.PrixTTCDataGridViewTextBoxColumn1, Me.BGratuitDataGridViewCheckBoxColumn1, Me.ShortResumeDataGridViewTextBoxColumn, Me.BNewDataGridViewCheckBoxColumn, Me.BDeletedDataGridViewCheckBoxColumn, Me.BUpdatedDataGridViewCheckBoxColumn, Me.IdDataGridViewTextBoxColumn, Me.TypeDonneeDataGridViewTextBoxColumn, Me.BResumeDataGridViewCheckBoxColumn})
-        Me.DataGridView5.Location = New System.Drawing.Point(525, 137)
-        Me.DataGridView5.Name = "DataGridView5"
-        Me.DataGridView5.Size = New System.Drawing.Size(240, 150)
-        Me.DataGridView5.TabIndex = 151
-        '
-        'NumDataGridViewTextBoxColumn1
-        '
-        Me.NumDataGridViewTextBoxColumn1.DataPropertyName = "num"
-        Me.NumDataGridViewTextBoxColumn1.HeaderText = "num"
-        Me.NumDataGridViewTextBoxColumn1.Name = "NumDataGridViewTextBoxColumn1"
-        '
-        'OProduitDataGridViewTextBoxColumn
-        '
-        Me.OProduitDataGridViewTextBoxColumn.DataPropertyName = "oProduit"
-        Me.OProduitDataGridViewTextBoxColumn.HeaderText = "oProduit"
-        Me.OProduitDataGridViewTextBoxColumn.Name = "OProduitDataGridViewTextBoxColumn"
-        '
-        'ProduitCodeDataGridViewTextBoxColumn1
-        '
-        Me.ProduitCodeDataGridViewTextBoxColumn1.DataPropertyName = "ProduitCode"
-        Me.ProduitCodeDataGridViewTextBoxColumn1.HeaderText = "ProduitCode"
-        Me.ProduitCodeDataGridViewTextBoxColumn1.Name = "ProduitCodeDataGridViewTextBoxColumn1"
-        Me.ProduitCodeDataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'ProduitNomDataGridViewTextBoxColumn1
-        '
-        Me.ProduitNomDataGridViewTextBoxColumn1.DataPropertyName = "ProduitNom"
-        Me.ProduitNomDataGridViewTextBoxColumn1.HeaderText = "ProduitNom"
-        Me.ProduitNomDataGridViewTextBoxColumn1.Name = "ProduitNomDataGridViewTextBoxColumn1"
-        Me.ProduitNomDataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'ProduitMilDataGridViewTextBoxColumn
-        '
-        Me.ProduitMilDataGridViewTextBoxColumn.DataPropertyName = "ProduitMil"
-        Me.ProduitMilDataGridViewTextBoxColumn.HeaderText = "ProduitMil"
-        Me.ProduitMilDataGridViewTextBoxColumn.Name = "ProduitMilDataGridViewTextBoxColumn"
-        Me.ProduitMilDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ProduitConditionnementDataGridViewTextBoxColumn
-        '
-        Me.ProduitConditionnementDataGridViewTextBoxColumn.DataPropertyName = "ProduitConditionnement"
-        Me.ProduitConditionnementDataGridViewTextBoxColumn.HeaderText = "ProduitConditionnement"
-        Me.ProduitConditionnementDataGridViewTextBoxColumn.Name = "ProduitConditionnementDataGridViewTextBoxColumn"
-        Me.ProduitConditionnementDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ProduitContenantDataGridViewTextBoxColumn
-        '
-        Me.ProduitContenantDataGridViewTextBoxColumn.DataPropertyName = "ProduitContenant"
-        Me.ProduitContenantDataGridViewTextBoxColumn.HeaderText = "ProduitContenant"
-        Me.ProduitContenantDataGridViewTextBoxColumn.Name = "ProduitContenantDataGridViewTextBoxColumn"
-        Me.ProduitContenantDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ProduitCouleurDataGridViewTextBoxColumn
-        '
-        Me.ProduitCouleurDataGridViewTextBoxColumn.DataPropertyName = "ProduitCouleur"
-        Me.ProduitCouleurDataGridViewTextBoxColumn.HeaderText = "ProduitCouleur"
-        Me.ProduitCouleurDataGridViewTextBoxColumn.Name = "ProduitCouleurDataGridViewTextBoxColumn"
-        Me.ProduitCouleurDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'IdFactHBVDataGridViewTextBoxColumn
-        '
-        Me.IdFactHBVDataGridViewTextBoxColumn.DataPropertyName = "idFactHBV"
-        Me.IdFactHBVDataGridViewTextBoxColumn.HeaderText = "idFactHBV"
-        Me.IdFactHBVDataGridViewTextBoxColumn.Name = "IdFactHBVDataGridViewTextBoxColumn"
-        '
-        'QteCommandeDataGridViewTextBoxColumn
-        '
-        Me.QteCommandeDataGridViewTextBoxColumn.DataPropertyName = "qteCommande"
-        Me.QteCommandeDataGridViewTextBoxColumn.HeaderText = "qteCommande"
-        Me.QteCommandeDataGridViewTextBoxColumn.Name = "QteCommandeDataGridViewTextBoxColumn"
-        '
-        'QteLivDataGridViewTextBoxColumn
-        '
-        Me.QteLivDataGridViewTextBoxColumn.DataPropertyName = "qteLiv"
-        Me.QteLivDataGridViewTextBoxColumn.HeaderText = "qteLiv"
-        Me.QteLivDataGridViewTextBoxColumn.Name = "QteLivDataGridViewTextBoxColumn"
-        '
-        'QteFactDataGridViewTextBoxColumn1
-        '
-        Me.QteFactDataGridViewTextBoxColumn1.DataPropertyName = "qteFact"
-        Me.QteFactDataGridViewTextBoxColumn1.HeaderText = "qteFact"
-        Me.QteFactDataGridViewTextBoxColumn1.Name = "QteFactDataGridViewTextBoxColumn1"
-        '
-        'PrixUDataGridViewTextBoxColumn1
-        '
-        Me.PrixUDataGridViewTextBoxColumn1.DataPropertyName = "prixU"
-        Me.PrixUDataGridViewTextBoxColumn1.HeaderText = "prixU"
-        Me.PrixUDataGridViewTextBoxColumn1.Name = "PrixUDataGridViewTextBoxColumn1"
-        '
-        'PrixHTDataGridViewTextBoxColumn1
-        '
-        Me.PrixHTDataGridViewTextBoxColumn1.DataPropertyName = "prixHT"
-        Me.PrixHTDataGridViewTextBoxColumn1.HeaderText = "prixHT"
-        Me.PrixHTDataGridViewTextBoxColumn1.Name = "PrixHTDataGridViewTextBoxColumn1"
-        '
-        'PrixTTCDataGridViewTextBoxColumn1
-        '
-        Me.PrixTTCDataGridViewTextBoxColumn1.DataPropertyName = "prixTTC"
-        Me.PrixTTCDataGridViewTextBoxColumn1.HeaderText = "prixTTC"
-        Me.PrixTTCDataGridViewTextBoxColumn1.Name = "PrixTTCDataGridViewTextBoxColumn1"
-        '
-        'BGratuitDataGridViewCheckBoxColumn1
-        '
-        Me.BGratuitDataGridViewCheckBoxColumn1.DataPropertyName = "bGratuit"
-        Me.BGratuitDataGridViewCheckBoxColumn1.HeaderText = "bGratuit"
-        Me.BGratuitDataGridViewCheckBoxColumn1.Name = "BGratuitDataGridViewCheckBoxColumn1"
-        '
-        'ShortResumeDataGridViewTextBoxColumn
-        '
-        Me.ShortResumeDataGridViewTextBoxColumn.DataPropertyName = "shortResume"
-        Me.ShortResumeDataGridViewTextBoxColumn.HeaderText = "shortResume"
-        Me.ShortResumeDataGridViewTextBoxColumn.Name = "ShortResumeDataGridViewTextBoxColumn"
-        Me.ShortResumeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'BNewDataGridViewCheckBoxColumn
-        '
-        Me.BNewDataGridViewCheckBoxColumn.DataPropertyName = "bNew"
-        Me.BNewDataGridViewCheckBoxColumn.HeaderText = "bNew"
-        Me.BNewDataGridViewCheckBoxColumn.Name = "BNewDataGridViewCheckBoxColumn"
-        '
-        'BDeletedDataGridViewCheckBoxColumn
-        '
-        Me.BDeletedDataGridViewCheckBoxColumn.DataPropertyName = "bDeleted"
-        Me.BDeletedDataGridViewCheckBoxColumn.HeaderText = "bDeleted"
-        Me.BDeletedDataGridViewCheckBoxColumn.Name = "BDeletedDataGridViewCheckBoxColumn"
-        '
-        'BUpdatedDataGridViewCheckBoxColumn
-        '
-        Me.BUpdatedDataGridViewCheckBoxColumn.DataPropertyName = "bUpdated"
-        Me.BUpdatedDataGridViewCheckBoxColumn.HeaderText = "bUpdated"
-        Me.BUpdatedDataGridViewCheckBoxColumn.Name = "BUpdatedDataGridViewCheckBoxColumn"
-        '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TypeDonneeDataGridViewTextBoxColumn
-        '
-        Me.TypeDonneeDataGridViewTextBoxColumn.DataPropertyName = "typeDonnee"
-        Me.TypeDonneeDataGridViewTextBoxColumn.HeaderText = "typeDonnee"
-        Me.TypeDonneeDataGridViewTextBoxColumn.Name = "TypeDonneeDataGridViewTextBoxColumn"
-        Me.TypeDonneeDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'BResumeDataGridViewCheckBoxColumn
-        '
-        Me.BResumeDataGridViewCheckBoxColumn.DataPropertyName = "bResume"
-        Me.BResumeDataGridViewCheckBoxColumn.HeaderText = "bResume"
-        Me.BResumeDataGridViewCheckBoxColumn.Name = "BResumeDataGridViewCheckBoxColumn"
-        Me.BResumeDataGridViewCheckBoxColumn.ReadOnly = True
-        '
-        'frmCommandeClient
-        '
-        Me.ClientSize = New System.Drawing.Size(1016, 659)
-        Me.Name = "frmCommandeClient"
-        Me.Text = "Saisie Commande Client"
-        Me.tpClient.ResumeLayout(False)
-        Me.tpClient.PerformLayout()
-        Me.tpLignes.ResumeLayout(False)
-        Me.tpLignes.PerformLayout()
-        Me.tpCommentaires.ResumeLayout(False)
-        Me.SSTabCommandeClient.ResumeLayout(False)
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+    'REMARQUEÂ : la procÃ©dure suivante est requise par le Concepteur Windows Form
+    'Elle peut Ãªtre modifiÃ©e en utilisant le Concepteur Windows Form.  
+    'Ne la modifiez pas en utilisant l'Ã©diteur de code.
+    '<System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+    '    Me.btnCtrlStock = New System.Windows.Forms.Button()
+    '    '        Me.tpClient.SuspendLayout()
+    '    Me.tpLignes.SuspendLayout()
+    '    '       Me.tpCommentaires.SuspendLayout()
+    '    Me.SSTabCommandeClient.SuspendLayout()
+    '    Me.SuspendLayout()
+    '    '
+    '    'tpLignes
+    '    '
+    '    Me.tpLignes.Controls.Add(Me.btnCtrlStock)
+    '    '        Me.tpLignes.Controls.SetChildIndex(Me.cbAjouterLigne, 0)
+    '    '       Me.tpLignes.Controls.SetChildIndex(Me.tbTotalHT, 0)
+    '    '      Me.tpLignes.Controls.SetChildIndex(Me.cbModifierLigne, 0)
+    '    '     Me.tpLignes.Controls.SetChildIndex(Me.cbSupprimerLigne, 0)
+    '    '    Me.tpLignes.Controls.SetChildIndex(Me.tbTotalTTC, 0)
+    '    Me.tpLignes.Controls.SetChildIndex(Me.btnCtrlStock, 0)
+    '    '
+    '    'btnCtrlStock
+    '    '
+    '    Me.btnCtrlStock.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    '    Me.btnCtrlStock.Location = New System.Drawing.Point(632, 524)
+    '    Me.btnCtrlStock.Name = "btnCtrlStock"
+    '    Me.btnCtrlStock.Size = New System.Drawing.Size(105, 23)
+    '    Me.btnCtrlStock.TabIndex = 70
+    '    Me.btnCtrlStock.Text = "ContrÃ´le du stock"
+    '    Me.btnCtrlStock.UseVisualStyleBackColor = True
+    '    '
+    '    'frmCommandeClient
+    '    '
+    '    'Me.ClientSize = New System.Drawing.Size(1016, 659)
+    '    Me.Name = "frmCommandeClient"
+    '    Me.Text = "Saisie Commande Client"
+    '    'Me.tpClient.ResumeLayout(False)
+    '    'Me.tpClient.PerformLayout()
+    '    Me.tpLignes.ResumeLayout(False)
+    '    Me.tpLignes.PerformLayout()
+    '    'Me.tpCommentaires.ResumeLayout(False)
+    '    Me.SSTabCommandeClient.ResumeLayout(False)
+    '    'CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
+    '    Me.ResumeLayout(False)
 
-    End Sub
+    'End Sub
 
 #End Region
 
-#Region "Méthodes Vinicom"
+#Region "MÃ©thodes Vinicom"
     Protected Overrides Function creerElement() As Boolean
         Debug.Assert(Not isfrmUpdated(), "La fenetre n'est pas libre")
         Dim bReturn As Boolean
@@ -543,7 +187,7 @@ Public Class frmCommandeClient
                 getCommandeCourante.typeTransport = vncEnums.vncTypeTransport.vncTrpAvance
             End If
 
-            'Transport Facturé
+            'Transport FacturÃ©
             If ckTransport.Checked = True Then
                 getCommandeCourante.bFactTransport = True
             Else
@@ -558,7 +202,7 @@ Public Class frmCommandeClient
 
         Return bReturn
     End Function
-    Public Overrides Function getResume() As String 'Rend le caption de la fenêtre
+    Public Overrides Function getResume() As String 'Rend le caption de la fenÃªtre
         If getCommandeCourante() Is Nothing Then
             Return "Gestion des Commandes Client"
         Else
@@ -566,7 +210,7 @@ Public Class frmCommandeClient
         End If
     End Function 'getResume
     ''' <summary>
-    ''' Sauvegarde de l'élement courant (Commande)
+    ''' Sauvegarde de l'Ã©lement courant (Commande)
     ''' </summary>
     ''' <returns></returns>
     ''' <remarks></remarks>
@@ -600,7 +244,7 @@ Public Class frmCommandeClient
         getCommandeCourante().changeEtat(vncActionEtatCommande.vncActionAnnLivrer)
     End Sub
     Protected Overrides Sub modifieruneLigneBL()
-        ' On ne peut modifier une ligne d'une commande livrée
+        ' On ne peut modifier une ligne d'une commande livrÃ©e
         If (getCommandeCourante().etat.codeEtat = vncEtatCommande.vncLivree And getCommandeCourante().etat.actionMvtStock = vncGenererSupprimer.vncGenerer) _
              Or getCommandeCourante().etat.codeEtat = vncEtatCommande.vncValidee Then
             MyBase.modifieruneLigneBL()
@@ -616,7 +260,7 @@ Public Class frmCommandeClient
 
         bReturn = True
         If getCommandeCourante().Date_EDI <> Nothing Then
-            If MsgBox("Cette commande a déjà été transmise, voulez-vous la re-transmettre ?", vbYesNo, "Transmission EDI") = vbNo Then
+            If MsgBox("Cette commande a dÃ©jÃ  Ã©tÃ© transmise, voulez-vous la re-transmettre ?", vbYesNo, "Transmission EDI") = vbNo Then
                 bReturn = False
             End If
         End If
@@ -646,7 +290,7 @@ Public Class frmCommandeClient
                                                 Param.SMTP_PWD,
                                                 Param.SMTP_FROM,
                                                 Me.tbMailPLTF.Text,
-                                                "Commande Client N°" + getCommandeCourante.code + " " + getCommandeCourante.oTiers.nom,
+                                                "Commande Client NÂ°" + getCommandeCourante.code + " " + getCommandeCourante.oTiers.nom,
                                                 "",
                                                 strFileName) Then
 
@@ -685,7 +329,7 @@ Public Class frmCommandeClient
 
     Protected Overrides Function affichecrDetailCommande() As Boolean
         setcursorWait()
-        'Affichage de l'état 'Détail de Commande'
+        'Affichage de l'Ã©tat 'DÃ©tail de Commande'
         Dim objReport As ReportDocument
 
         objReport = New ReportDocument
@@ -696,7 +340,7 @@ Public Class frmCommandeClient
         crwDetailCommandeClient.Zoom(1)
         restoreCursor()
         Return True
-    End Function 'Affichage de l'état de détail de commande
+    End Function 'Affichage de l'Ã©tat de dÃ©tail de commande
 
     Protected Overrides Function faxerValidationCommande() As Boolean
         'Dim diskOpts As New CrystalDecisions.Shared.DiskFileDestinationOptions
@@ -747,28 +391,28 @@ Public Class frmCommandeClient
     Protected Sub setcrBLParameters(ByVal objReport As ReportDocument)
         '===========================================================================
         'Function : setcrBLParameters
-        'Description : Passe les paramétres à L'état BLBonAppo
+        'Description : Passe les paramÃ©tres Ã  L'Ã©tat BLBonAppo
         '===========================================================================
-        'Passe les paramètres à l'état Crystal Report
+        'Passe les paramÃ¨tres Ã  l'Ã©tat Crystal Report
         setcursorWait()
         objReport.SetParameterValue("IDCOMMANDE", getCommandeCourante.id)
         restoreCursor()
-    End Sub 'Passe les paramètres à l'état Crystal Report
+    End Sub 'Passe les paramÃ¨tres Ã  l'Ã©tat Crystal Report
     Protected Overrides Function affichecrFactHBV() As Boolean
         Dim objReport As ReportDocument
         Dim strReportName As String
-        'Si la facture n'a pas été générée, il faut la générer au préalable
+        'Si la facture n'a pas Ã©tÃ© gÃ©nÃ©rÃ©e, il faut la gÃ©nÃ©rer au prÃ©alable
         Dim oCmd As CommandeClient
         oCmd = getElementCourant()
         If m_oFactHBV Is Nothing Then
-            'Rechargement de la facture si ça n'a pas déjà étét fait
+            'Rechargement de la facture si Ã§a n'a pas dÃ©jÃ  Ã©tÃ©t fait
             m_oFactHBV = FactHBV.createandloadFromCmd(oCmd.id)
         End If
         If m_oFactHBV.id = 0 Then
-            If MsgBox("La facture n'a pas été générée, voulez-vous la générer maintenant ?", MsgBoxStyle.YesNo
+            If MsgBox("La facture n'a pas Ã©tÃ© gÃ©nÃ©rÃ©e, voulez-vous la gÃ©nÃ©rer maintenant ?", MsgBoxStyle.YesNo
                       ) = MsgBoxResult.Yes Then
                 Cursor = Cursors.WaitCursor
-                'QteFact = Qte Livrée
+                'QteFact = Qte LivrÃ©e
                 For Each oLg As LgCommande In oCmd.colLignes
                     oLg.qteFact = oLg.qteLiv
                 Next
@@ -863,7 +507,7 @@ Public Class frmCommandeClient
 
     '========================================================================================
     'Fonction : faxerToutesLesSousCommandes
-    'Description : Faxe toutes les sousCommandes qui ont un numéro de fax valide
+    'Description : Faxe toutes les sousCommandes qui ont un numÃ©ro de fax valide
     '========================================================================================
     'Protected Overrides Function faxerToutesLesSousCommandes() As Boolean
     '    Dim bReturn As Boolean
@@ -886,7 +530,7 @@ Public Class frmCommandeClient
     '        '    End If
     '        'Next objSCMD
     '        If Not bToutOk Then
-    '            MsgBox("Toutes les sous-Commandes n'ont pas été transmises, Vérifiez les numéros de fax et tentez une transmission unitaire")
+    '            MsgBox("Toutes les sous-Commandes n'ont pas Ã©tÃ© transmises, VÃ©rifiez les numÃ©ros de fax et tentez une transmission unitaire")
     '        End If
     '        afficheListeSousCommande()
     '        restoreCursor()
@@ -908,10 +552,10 @@ Public Class frmCommandeClient
         setcursorWait()
         Try
             Dim oClt As Client = Client.getIntermediairePourUneOrigine(getCommandeCourante().Origine)
-            m_bsrcIntermédiaires.Clear()
-            m_bsrcIntermédiaires.Add(oClt)
-            cbxIntermédiaires.Enabled = True
-            cbxIntermédiaires.Visible = True
+            m_bsrcIntermÃ©diaires.Clear()
+            m_bsrcIntermÃ©diaires.Add(oClt)
+            cbxIntermÃ©diaires.Enabled = True
+            cbxIntermÃ©diaires.Visible = True
             laIntermediaires.Visible = True
 
             If getCommandeCourante.etat.codeEtat = vncEnums.vncEtatCommande.vncEclatee Or getCommandeCourante.etat.codeEtat = vncEnums.vncEtatCommande.vncTransmiseQuadra Then
@@ -948,7 +592,7 @@ Public Class frmCommandeClient
 
     '    setcursorWait()
     '    Try
-    '        'Pour savoir les sous-commandes ont été enregistrées, il suffit de regarder l'id de la première sous-commande
+    '        'Pour savoir les sous-commandes ont Ã©tÃ© enregistrÃ©es, il suffit de regarder l'id de la premiÃ¨re sous-commande
     '        If Not m_bsrcSousCommande.Current Is Nothing Then
     '            m_objSCMDCourante = m_bsrcSousCommande.Current
     '        End If
@@ -956,7 +600,7 @@ Public Class frmCommandeClient
     '        m_objSCMDCourante.load()
     '        bReturn = True
     '    Catch ex As Exception
-    '        Debug.Assert(False, "Impossible de sélectionner la sous-commande : ")
+    '        Debug.Assert(False, "Impossible de sÃ©lectionner la sous-commande : ")
     '        bReturn = False
     '    End Try
 
@@ -986,7 +630,7 @@ Public Class frmCommandeClient
 
         Me.Cursor = Cursors.WaitCursor
         If getCommandeCourante.etat.codeEtat <> vncEtatCommande.vncLivree Then
-            MsgBox("La Commande n'est pas dans l'état requis")
+            MsgBox("La Commande n'est pas dans l'Ã©tat requis")
             bReturn = False
         Else
             getCommandeCourante.LoadColSousCommande()
@@ -1010,13 +654,13 @@ Public Class frmCommandeClient
 
         setcursorWait()
         If getCommandeCourante.etat.codeEtat <> vncEtatCommande.vncEclatee And getCommandeCourante.etat.codeEtat <> vncEtatCommande.vncTransmiseQuadra Then
-            MsgBox("La Commande n'est pas dans l'état requis : Eclatée ou transmise")
+            MsgBox("La Commande n'est pas dans l'Ã©tat requis : EclatÃ©e ou transmise")
             bReturn = False
         Else
 
             getCommandeCourante.LoadColSousCommande()
             Debug.Assert(getCommandeCourante.colSousCommandes.Count <> 0, "Pas de sous commandes")
-            'Controle si les sous-commandes ont été facturées auquel cas il n'est pas possible de les supprimer
+            'Controle si les sous-commandes ont Ã©tÃ© facturÃ©es auquel cas il n'est pas possible de les supprimer
             bSousFacturee = False
             'vncSCMDGeneree = 10
             'vncSCMDtransmiseFax = 11
@@ -1034,7 +678,7 @@ Public Class frmCommandeClient
                     End If
                 Next
                 If bSousFacturee Then
-                    MsgBox("Au moins une sous-commande a été transmise, rapprochée ou facturée , il n'est plus possible d'annuler l'éclatement")
+                    MsgBox("Au moins une sous-commande a Ã©tÃ© transmise, rapprochÃ©e ou facturÃ©e , il n'est plus possible d'annuler l'Ã©clatement")
                     Me.Cursor = Cursors.Default
                     Return False
                 End If
@@ -1098,12 +742,12 @@ Public Class frmCommandeClient
 
     End Function 'Faxe la validation de commande
     Protected Overrides Function setcrDetailCommandeClientParameters(ByVal objReport As ReportDocument) As Boolean
-        'Passe les paramètres à l'état Crystal Report
+        'Passe les paramÃ¨tres Ã  l'Ã©tat Crystal Report
         objReport.SetParameterValue("IDCommande", getCommandeCourante.id)
         Return True
-    End Function 'Passe les paramètres à l'état Crystal Report
+    End Function 'Passe les paramÃ¨tres Ã  l'Ã©tat Crystal Report
     'Private Sub setEnabled2(ByVal pbEnabled As Boolean)
-    '    'Met à jour la Propriété Enabled des controles de la fentre
+    '    'Met Ã  jour la PropriÃ©tÃ© Enabled des controles de la fentre
     '    setcursorWait()
     '    tbCode.Enabled = pbEnabled
     '    dtDateCommande.Enabled = pbEnabled
@@ -1211,7 +855,7 @@ Public Class frmCommandeClient
         restoreCursor()
     End Sub 'BLToutOK
     'Fonction : AnnulerLivraison
-    'Description : Annule la Livraison => changement d'état , suppression des mvt de stocks à la prochaine Sauvegarde
+    'Description : Annule la Livraison => changement d'Ã©tat , suppression des mvt de stocks Ã  la prochaine Sauvegarde
     Protected Overrides Sub annulerLivraison()
         Dim oLgCom As LgCommande
         Debug.Assert(Not getCommandeCourante() Is Nothing)
@@ -1220,7 +864,7 @@ Public Class frmCommandeClient
         If getCommandeCourante.etat.codeEtat = vncEnums.vncEtatCommande.vncLivree Then
             For Each oLgCom In getCommandeCourante.colLignes
                 oLgCom.qteLiv = 0
-                'Calcul de la commission sur la Quantité Commandée
+                'Calcul de la commission sur la QuantitÃ© CommandÃ©e
                 oLgCom.CalculCommission(getCommandeCourante.Origine, CalculCommQte.CALCUL_COMMISSION_QTE_CMDE)
             Next oLgCom
             ActionAnnLivrer()
@@ -1231,7 +875,7 @@ Public Class frmCommandeClient
         restoreCursor()
     End Sub
 
-#End Region 'Méthodes Privées
+#End Region 'MÃ©thodes PrivÃ©es
 
 
     Private Sub frmCommandeClient_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -1264,7 +908,7 @@ Public Class frmCommandeClient
         restoreCursor()
     End Sub
 
-    Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick
+    Private Sub cbAjouterLigne_Click(sender As Object, e As EventArgs) Handles cbAjouterLigne.Click
 
     End Sub
 End Class

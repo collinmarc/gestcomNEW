@@ -369,12 +369,12 @@ Public Class FrmVinicom
             Exit Sub
         End If
 
-        Dim objfrmCommandeclient As frmCommandeClient
+        Dim objfrmCommandeclient As frmSaisieCommandeClient
         Dim objcommandeClient As CommandeClient
         Dim nid As Long
         Dim bReturn As Boolean
 
-        objfrmCommandeclient = New frmCommandeClient
+        objfrmCommandeclient = New frmSaisieCommandeClient
         nid = tag
         objcommandeClient = New CommandeClient(New Client("", ""))
         Try

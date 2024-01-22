@@ -63,7 +63,6 @@ Public Module VNC_Constants
     Public FAX_NOM_INTERLOCUTEUR As String
     Public FAX_TEL_INTERLOCUTEUR As String
 
-    Public Const COMMANDECLIENT_LISTEPRODUIT_PRECOMMANDE As Boolean = True ' la liste des produits lors de la saisie de commande    True => Precommande False=> Tous les produits
     Public GESTSCMD_STANDARDCOLOR As System.Drawing.Color = System.Drawing.Color.Empty
     Public GESTSCMD_EXTRACOLOR As System.Drawing.Color = System.Drawing.Color.Gray
 

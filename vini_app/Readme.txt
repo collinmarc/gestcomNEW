@@ -1,4 +1,7 @@
-﻿V20231102
+﻿V20240122
+	0001603: Recherche de produit en Saisie de commande
+
+V20231102
 	0001588: Gestion des millésimes
 	0001589: Amélioration de la gestion des millésimes
 	0001596: Import des commandes WooCommerce : 2 Sites en entrée
