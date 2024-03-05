@@ -669,13 +669,13 @@ Public Class dlgLgCommande
         If pbPrecommande Then
             'Recherche du produit dans la précommande
             If m_TiersCourant.typeDonnee = vncTypeDonnee.FOURNISSEUR Then
-                ocol = Produit.getListe(m_typeProduit, , , , idFournisseur:=m_TiersCourant.id)
+                ocol = Produit.getListeAvecStock(m_typeProduit, , , , idFournisseur:=m_TiersCourant.id)
             Else
-                ocol = Produit.getListe(m_typeProduit, , , , , idClient:=m_TiersCourant.id)
+                ocol = Produit.getListeAvecStock(m_typeProduit, , , , , idClient:=m_TiersCourant.id)
             End If
         Else
             'Recherche du produit dans la liste des produits
-            ocol = Produit.getListe(m_typeProduit, tbCodeProduit.Text)
+            ocol = Produit.getListeAvecStock(m_typeProduit, tbCodeProduit.Text)
         End If
         If ocol.Count <> 1 Then
             'Création de la fenêtre de recherche

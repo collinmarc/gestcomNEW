@@ -456,8 +456,8 @@ Public Class frmRechercheDB
                 If cboEtat.SelectedItem = "Tous" Then
                     bTous = True
                 End If
-                m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, 0, m_idClient, pTous:=bTous)
-                TrierLaListeDesProduitsurlaQteEnStock()
+                m_ocol = Produit.getListeAvecStock(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, 0, m_idClient, pTous:=bTous)
+'                TrierLaListeDesProduitsurlaQteEnStock()
 
             Case vncTypeDonnee.COMMANDECLIENT
                 Me.m_bsrc.DataSource = GetType(vini_DB.CommandeClient)
@@ -523,29 +523,29 @@ Public Class frmRechercheDB
     End Sub 'selectionneEtSort
     Public Sub setListe(ByVal oCol As Collection)
         m_ocol = oCol
-        If m_TypeDonnees = vncTypeDonnee.PRODUIT_COMMANDE Then
-            TrierLaListeDesProduitsurlaQteEnStock()
-        End If
+        'If m_TypeDonnees = vncTypeDonnee.PRODUIT_COMMANDE Then
+        'TrierLaListeDesProduitsurlaQteEnStock()
+        'End If
     End Sub
-    Private Sub TrierLaListeDesProduitsurlaQteEnStock()
-        'S'il y en a +1 => tri sur la Qte En stock
-        Dim lstProduit As New List(Of Produit)
-        For Each oPrd As Produit In m_ocol
-            lstProduit.Add(oPrd)
-            'Pour éviter de recalculer le stock de tous les produits
-            If CType(m_ocol, Collection).Count < 100 Then
-                oPrd.loadcolmvtStockDepuisLeDernierMouvementInventaire()
-                oPrd.recalculStock()
-            End If
-        Next
-        'Tri sur la Qte en Stock (Comparer de Produit)
-        lstProduit.Sort()
-        'Realimentation de la collection
-        CType(m_ocol, Collection).Clear()
-        lstProduit.ForEach(Sub(p) CType(m_ocol, Collection).Add(p))
+    'Private Sub TrierLaListeDesProduitsurlaQteEnStock()
+    '    'S'il y en a +1 => tri sur la Qte En stock
+    '    Dim lstProduit As New List(Of Produit)
+    '    For Each oPrd As Produit In m_ocol
+    '        lstProduit.Add(oPrd)
+    '        'Pour éviter de recalculer le stock de tous les produits
+    '        If CType(m_ocol, Collection).Count < 100 Then
+    '            oPrd.loadcolmvtStockDepuisLeDernierMouvementInventaire()
+    '            oPrd.recalculStock()
+    '        End If
+    '    Next
+    '    'Tri sur la Qte en Stock (Comparer de Produit)
+    '    lstProduit.Sort()
+    '    'Realimentation de la collection
+    '    CType(m_ocol, Collection).Clear()
+    '    lstProduit.ForEach(Sub(p) CType(m_ocol, Collection).Add(p))
 
 
-    End Sub
+    'End Sub
     Public Sub setCode(ByVal pcode As String)
         tbCode.Text = pcode
     End Sub
@@ -660,8 +660,8 @@ Public Class frmRechercheDB
 
                 oCol = New DataGridViewTextBoxColumn()
                 oCol.FillWeight = 35
-                oCol.DataPropertyName = "QteStock"
-                oCol.HeaderText = "Stock"
+                oCol.DataPropertyName = "QteStockTheorique"
+                oCol.HeaderText = "Stock Theo"
                 DataGridView1.Columns.Add(oCol)
 
             Case vncEnums.vncTypeDonnee.COMMANDECLIENT, vncEnums.vncTypeDonnee.BA

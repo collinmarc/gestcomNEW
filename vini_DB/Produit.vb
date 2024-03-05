@@ -72,10 +72,18 @@ Public Class Produit
     Public Shared Function getListe(ByVal pTypeProduit As vncTypeProduit, Optional ByVal strCode As String = "", Optional ByVal strlibelle As String = "", Optional ByVal strMotCle As String = "", Optional ByVal idFournisseur As Integer = 0, Optional ByVal idClient As Integer = 0, Optional pdossier As String = "", Optional pTous As Boolean = False) As Collection
         Dim colReturn As Collection
         shared_connect()
-        colReturn = ListePRD(pTypeProduit, strCode, strlibelle, strMotCle, idFournisseur, idClient, pdossier, pTous)
+        colReturn = ListePRD(pTypeProduit, strCode, strlibelle, strMotCle, idFournisseur, idClient, pdossier, pTous, pbAvecStock:=False)
         shared_disconnect()
         Return colReturn
     End Function
+    Public Shared Function getListeAvecStock(ByVal pTypeProduit As vncTypeProduit, Optional ByVal strCode As String = "", Optional ByVal strlibelle As String = "", Optional ByVal strMotCle As String = "", Optional ByVal idFournisseur As Integer = 0, Optional ByVal idClient As Integer = 0, Optional pdossier As String = "", Optional pTous As Boolean = False) As Collection
+        Dim colReturn As Collection
+        shared_connect()
+        colReturn = ListePRD(pTypeProduit, strCode, strlibelle, strMotCle, idFournisseur, idClient, pdossier, pTous, pbAvecStock:=True)
+        shared_disconnect()
+        Return colReturn
+    End Function
+
     '=======================================================================
     '                           METHODE DE CLASSE                          |  
     'Fonction : recalculdesStocks 
@@ -499,6 +507,11 @@ Public Class Produit
                 m_QteStock = Value
             End If
         End Set
+    End Property
+    Public ReadOnly Property QteStockTheorique() As Decimal
+        Get
+            Return m_QteStock - qteCommande
+        End Get
     End Property
     Public Property DateDernInventaire() As Date
         Get

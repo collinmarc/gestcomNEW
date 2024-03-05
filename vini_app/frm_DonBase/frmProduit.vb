@@ -118,7 +118,7 @@ Public Class frmProduit
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProduit))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tbDesignation = New System.Windows.Forms.TextBox()
         Me.m_bsrcProduit = New System.Windows.Forms.BindingSource(Me.components)
         Me.tbCode = New System.Windows.Forms.TextBox()
@@ -654,10 +654,10 @@ Public Class frmProduit
         'QteDataGridViewTextBoxColumn
         '
         Me.QteDataGridViewTextBoxColumn.DataPropertyName = "qte"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N0"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.QteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.Format = "N0"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.QteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
         Me.QteDataGridViewTextBoxColumn.FillWeight = 4.0!
         resources.ApplyResources(Me.QteDataGridViewTextBoxColumn, "QteDataGridViewTextBoxColumn")
         Me.QteDataGridViewTextBoxColumn.Name = "QteDataGridViewTextBoxColumn"

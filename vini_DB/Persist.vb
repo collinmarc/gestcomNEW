@@ -2219,15 +2219,22 @@ Public MustInherit Class Persist
     'Détails    :  
     'Retour : une collection
     '=======================================================================
-    Protected Shared Function ListePRD(ByVal pTypeProduit As vncTypeProduit, Optional ByVal strCode As String = "", Optional ByVal strLibelle As String = "", Optional ByVal strMotCle As String = "", Optional ByVal idFournisseur As Integer = 0, Optional ByVal idClient As Integer = 0, Optional pdossier As String = "", Optional pbTous As Boolean = False) As Collection
+    Protected Shared Function ListePRD(ByVal pTypeProduit As vncTypeProduit, Optional ByVal strCode As String = "", Optional ByVal strLibelle As String = "", Optional ByVal strMotCle As String = "", Optional ByVal idFournisseur As Integer = 0, Optional ByVal idClient As Integer = 0, Optional pdossier As String = "", Optional pbTous As Boolean = False, Optional pbAvecStock As Boolean = False) As Collection
         Dim colReturn As New Collection
         Dim strWhere As String = ""
         Dim nId As Integer
 
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
 
-        Dim sqlString As String = " SELECT PRODUIT.*, CONTENANT.CONT_LIBELLE, CONTENANT.CONT_ID, RQ_Couleur.PAR_VALUE" &
-                                    " FROM (CONTENANT INNER JOIN PRODUIT ON CONTENANT.CONT_ID = PRODUIT.PRD_CONT_ID) INNER JOIN RQ_Couleur ON PRODUIT.PRD_COUL_ID = RQ_Couleur.PAR_ID"
+        Dim sqlString As String = " SELECT PRODUIT.*, CONTENANT.CONT_LIBELLE, CONTENANT.CONT_ID, RQ_Couleur.PAR_VALUE"
+        If pbAvecStock Then
+            sqlString = sqlString & " ,PRD_QTE_COMMANDE"
+        End If
+
+        sqlString = sqlString & " FROM (CONTENANT INNER JOIN PRODUIT ON CONTENANT.CONT_ID = PRODUIT.PRD_CONT_ID) INNER JOIN RQ_Couleur ON PRODUIT.PRD_COUL_ID = RQ_Couleur.PAR_ID"
+        If pbAvecStock Then
+            sqlString = sqlString & " LEFT JOIN RQ_QTECMD_PRD ON PRODUIT.PRD_ID = RQ_QTECMD_PRD.LGCM_PRD_ID"
+        End If
 
         Dim objOLeDBCommand As OleDbCommand
         Dim objPRD As Produit

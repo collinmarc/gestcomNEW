@@ -102,6 +102,10 @@ Public Class frmGestionMillesime
         Me.LogoList = New System.Windows.Forms.ImageList(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.dgvPrdMillesime = New System.Windows.Forms.DataGridView()
+        Me.m_bsrcProduitMillesime = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cbQuitter = New System.Windows.Forms.Button()
+        Me.cbValider = New System.Windows.Forms.Button()
+        Me.cbAjouter = New System.Windows.Forms.Button()
         Me.millesime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MillesimeCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.codeStat = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -111,10 +115,6 @@ Public Class frmGestionMillesime
         Me.TarifBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.m_bsrcProduitMillesime = New System.Windows.Forms.BindingSource(Me.components)
-        Me.cbQuitter = New System.Windows.Forms.Button()
-        Me.cbValider = New System.Windows.Forms.Button()
-        Me.cbAjouter = New System.Windows.Forms.Button()
         CType(Me.m_bsrcProduitRacine, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -312,6 +312,28 @@ Public Class frmGestionMillesime
         Me.dgvPrdMillesime.DataSource = Me.m_bsrcProduitMillesime
         Me.dgvPrdMillesime.Name = "dgvPrdMillesime"
         '
+        'm_bsrcProduitMillesime
+        '
+        Me.m_bsrcProduitMillesime.DataSource = GetType(vini_DB.Produit)
+        '
+        'cbQuitter
+        '
+        resources.ApplyResources(Me.cbQuitter, "cbQuitter")
+        Me.cbQuitter.Name = "cbQuitter"
+        Me.cbQuitter.UseVisualStyleBackColor = True
+        '
+        'cbValider
+        '
+        resources.ApplyResources(Me.cbValider, "cbValider")
+        Me.cbValider.Name = "cbValider"
+        Me.cbValider.UseVisualStyleBackColor = True
+        '
+        'cbAjouter
+        '
+        resources.ApplyResources(Me.cbAjouter, "cbAjouter")
+        Me.cbAjouter.Name = "cbAjouter"
+        Me.cbAjouter.UseVisualStyleBackColor = True
+        '
         'millesime
         '
         Me.millesime.DataPropertyName = "millesime"
@@ -377,28 +399,6 @@ Public Class frmGestionMillesime
         Me.TarifDDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
         resources.ApplyResources(Me.TarifDDataGridViewTextBoxColumn, "TarifDDataGridViewTextBoxColumn")
         Me.TarifDDataGridViewTextBoxColumn.Name = "TarifDDataGridViewTextBoxColumn"
-        '
-        'm_bsrcProduitMillesime
-        '
-        Me.m_bsrcProduitMillesime.DataSource = GetType(vini_DB.Produit)
-        '
-        'cbQuitter
-        '
-        resources.ApplyResources(Me.cbQuitter, "cbQuitter")
-        Me.cbQuitter.Name = "cbQuitter"
-        Me.cbQuitter.UseVisualStyleBackColor = True
-        '
-        'cbValider
-        '
-        resources.ApplyResources(Me.cbValider, "cbValider")
-        Me.cbValider.Name = "cbValider"
-        Me.cbValider.UseVisualStyleBackColor = True
-        '
-        'cbAjouter
-        '
-        resources.ApplyResources(Me.cbAjouter, "cbAjouter")
-        Me.cbAjouter.Name = "cbAjouter"
-        Me.cbAjouter.UseVisualStyleBackColor = True
         '
         'frmGestionMillesime
         '
