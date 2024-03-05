@@ -25,3 +25,5 @@
 /.svn
 .vs
 obj
+/vini_servicesWoo/bin/Release
+/vini_servicesWoo/bin/Debug

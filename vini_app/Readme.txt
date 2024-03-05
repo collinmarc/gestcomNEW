@@ -1,4 +1,4 @@
-﻿VXXXXXXX
+﻿V20240305
 	0001629: Changement de serveur de dépot des commandes WOOCOMMERCE
 	0001628: Affichage des produit en saisie de commande triés sur le code produit + Stock Théorique
 
