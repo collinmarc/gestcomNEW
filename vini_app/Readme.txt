@@ -1,4 +1,9 @@
-﻿V20240122
+﻿VXXXXXXX
+	0001629: Changement de serveur de dépot des commandes WOOCOMMERCE
+	0001628: Affichage des produit en saisie de commande triés sur le code produit + Stock Théorique
+
+
+V20240122
 	0001603: Recherche de produit en Saisie de commande
 
 V20231102
