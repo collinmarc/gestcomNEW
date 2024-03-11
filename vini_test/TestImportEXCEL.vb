@@ -56,47 +56,46 @@ Imports System.Data
 
     End Sub
     ''' <summary>
-    ''' Test de l'export d'une souscommande vers QuadraFacturation
     ''' </summary>
     ''' <remarks></remarks>
-    <TestMethod(), Ignore()>
+    <TestMethod()>
     Public Sub T101_ImportTarif()
         Dim oFRN As New Fournisseur("FRNTEST", "TEST")
         oFRN.Save()
         Dim oProduit As New Produit("999910", oFRN, "2017")
         oProduit.TarifA = 741.85
-        oProduit.TarifA = 852.96
-        oProduit.TarifA = 963.74
+        oProduit.TarifB = 852.96
+        oProduit.TarifC = 963.74
         oProduit.save()
         Dim idProduit As Integer
         idProduit = oProduit.id
 
-        Dim oProduit2 As New Produit("999915", oFRN, "2017")
+        Dim oProduit2 As New Produit("999915M17", oFRN, "2017")
+        oProduit2.codeStat = "999915"
         oProduit2.TarifA = 741.85
-        oProduit2.TarifA = 852.96
-        oProduit2.TarifA = 963.74
+        oProduit2.TarifB = 852.96
+        oProduit2.TarifC = 963.74
         oProduit2.save()
         Dim idProduit2 As Integer
-        idProduit2 = oProduit.id
+        idProduit2 = oProduit2.id
 
-        Dim oImport As New ImportTarifGESTCOM(Environment.CurrentDirectory & "/testImportExcel.xlsx", 2, 19, 19, 19, 19)
+        Dim oImport As New ImportTarifGESTCOM("testImportTarif.csv", 1, 2, 3, 4, 5)
 
         oImport.ImportTarif()
         oProduit = Produit.createandload(idProduit)
 
-        Assert.AreEqual(123.45D, oProduit.TarifA)
-        Assert.AreEqual(123.45D, oProduit.TarifB)
-        Assert.AreEqual(123.45D, oProduit.TarifC)
+        Assert.AreEqual(2.9D, oProduit.TarifA)
+        Assert.AreEqual(2.9D, oProduit.TarifB)
+        Assert.AreEqual(3D, oProduit.TarifC)
+        Assert.AreEqual(3.6D, oProduit.TarifD)
 
         oProduit2 = Produit.createandload(idProduit2)
 
-        Assert.AreEqual(123.45D, oProduit2.TarifA)
-        Assert.AreEqual(123.45D, oProduit2.TarifB)
-        Assert.AreEqual(123.45D, oProduit2.TarifC)
+        Assert.AreEqual(7.8D, oProduit2.TarifA)
+        Assert.AreEqual(7.8D, oProduit2.TarifB)
+        Assert.AreEqual(8.7D, oProduit2.TarifC)
+        Assert.AreEqual(10.3D, oProduit2.TarifD)
 
-        oProduit.delete()
-        oProduit2.delete()
-        oFRN.delete()
 
     End Sub
     <TestMethod()>
