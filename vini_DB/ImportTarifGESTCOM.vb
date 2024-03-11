@@ -87,7 +87,8 @@ Public Class ImportTarifGESTCOM
                             Me.message = tab(m_numColCode)
                             Notifier()
                             Dim oProduit As Produit
-                            oProduit = Produit.createandloadbyKey(tab(m_numColCode))
+                            oProduit = Produit.createandloadbyKey(tab(m_numColCode), pbLoadByCodeStat:=True)
+
                             If oProduit IsNot Nothing Then
                                 Try
                                     Dim tarif As Decimal

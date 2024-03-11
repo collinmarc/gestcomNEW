@@ -231,7 +231,7 @@ Public Class Produit
                 If nId <> -1 Then
                     bReturn = objPRD.load(nId)
                     If Not bReturn Then
-                        setError("Produit.createAndLoad", getErreur())
+                        setError("Produit.createAndLoadByKey", getErreur())
                         objPRD = Nothing
                     End If
                 Else
@@ -241,22 +241,22 @@ Public Class Produit
                         If nId <> -1 Then
                             bReturn = objPRD.load(nId)
                             If Not bReturn Then
-                                setError("Produit.createAndLoad (" & nId & ")", getErreur())
+                                setError("Produit.createAndLoadByKey (" & nId & ")", getErreur())
                                 objPRD = Nothing
                             End If
                         Else
-                            setError("Produit.createAndLoad", "No ID for " & pCode)
+                            setError("Produit.createAndLoadByKey", "Produit inconnu [" & pCode & "] code et logistique")
                             objPRD = Nothing
                         End If
                     Else
-                        setError("Produit.createAndLoad", "No ID for " & pCode)
+                        setError("Produit.createAndLoadByKey", "Produit inconnu [" & pCode & "] code uniquement")
                         objPRD = Nothing
                     End If
                 End If
 
             End If
         Catch ex As Exception
-            setError("Produit.createAndLoad", ex.ToString)
+            setError("Produit.createAndLoadByKey", ex.ToString)
             objPRD = Nothing
         End Try
         Return objPRD
