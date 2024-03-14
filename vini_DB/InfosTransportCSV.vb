@@ -8,6 +8,8 @@ Public Class InfosTransportCSV
     Public Shared Function Read(pCSVFile As String) As List(Of InfosTransportCSV)
         Dim oReturn As New List(Of InfosTransportCSV)
         Using reader As New StreamReader(pCSVFile)
+            '            Dim oCulture As CultureInfo
+            '           oCulture = New CultureInfo("fr-FR")
             Using csvReader As New CsvReader(reader, My.Application.Culture)
 
                 oReturn.AddRange(csvReader.GetRecords(Of InfosTransportCSV)())
@@ -51,11 +53,11 @@ Public Class InfosTransportCSV
     End Property
     Private _Cout As Decimal
     <Index(3)>
-    Public Property Cout() As Decimal
+    Public Property Cout() As String
         Get
             Return _Cout
         End Get
-        Set(ByVal value As Decimal)
+        Set(ByVal value As String)
             _Cout = value
         End Set
     End Property

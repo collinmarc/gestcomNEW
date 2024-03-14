@@ -1,7 +1,8 @@
 ﻿V20240305
 	0001629: Changement de serveur de dépot des commandes WOOCOMMERCE
 	0001628: Affichage des produit en saisie de commande triés sur le code produit + Stock Théorique
-		0001630: Import des tarifs : sélectionner sur le code produit ou code logistique
+	0001630: Import des tarifs : sélectionner sur le code produit ou code logistique
+	0001632: Import des infos de transport : ERREUR Sur symbole decimal
 
 V20240122
 	0001603: Recherche de produit en Saisie de commande
