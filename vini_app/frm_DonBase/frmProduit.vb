@@ -1320,10 +1320,11 @@ Public Class frmProduit
             Me.BackColor = Color.Orange
             EnableControls(False)
             ckArchive.Enabled = True
+            m_objProduitCourant.bArchive = True
         Else
             Me.BackColor = SystemColors.Control
             EnableControls(True)
-
+            m_objProduitCourant.bArchive = False
         End If
     End Sub
 
@@ -1335,5 +1336,9 @@ Public Class frmProduit
         ofrm.Show()
         ofrm.setElementCourant2(m_objProduitCourant)
         ofrm.AfficheElement()
+    End Sub
+
+    Private Sub ckArchive_Validated(sender As Object, e As EventArgs) Handles ckArchive.Validated
+
     End Sub
 End Class

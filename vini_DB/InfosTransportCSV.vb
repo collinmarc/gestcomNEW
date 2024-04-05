@@ -51,7 +51,7 @@ Public Class InfosTransportCSV
             _LettreVoiture = value
         End Set
     End Property
-    Private _Cout As Decimal
+    Private _Cout As String
     <Index(3)>
     Public Property Cout() As String
         Get
