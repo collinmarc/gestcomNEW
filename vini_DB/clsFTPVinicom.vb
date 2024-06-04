@@ -416,11 +416,11 @@ Public Class clsFTPVinicom
             '            If lockTo() Then
             'Download des fichiers
             If m_FTP.FtpFileExists(strFileName) Then
-                m_FTP.Download(strFileName, strLocalDirName + "/" + pstrFileName, True)
+                bReturn = m_FTP.Download(strFileName, strLocalDirName + "/" + pstrFileName, True)
             End If
             'Libération du verrou
-            '              bReturn = unlockTo()
-            '           End If
+            bReturn = unlockTo()
+            'End If
         Catch ex As Exception
             Debug.Assert(False, "clsFTPVinicom.downloadToDir" & ex.Message)
             bReturn = False

@@ -343,6 +343,7 @@ Partial Public Class frmConstantes
         Dim strSCMD_CSV As String
         Dim strPDFFileName As String
         nFile = FreeFile()
+
         FileOpen(nFile, "./TESTFTP/test.csv", OpenMode.Output, OpenAccess.Write, OpenShare.LockWrite)
         objSCMD = SousCommande.createandload(Persist.GetSCMDMinID())
         DisplayStatus("Chargement de " & objSCMD.code)
@@ -370,7 +371,7 @@ Partial Public Class frmConstantes
 
             'Envoi du fichier tovinicom.csv
             oftp.remoteDir = Me.tbFTPVNCRemoteDir2.Text
-            oftp.uploadFile("./ToVinicom.csv")
+            oftp.uploadFile("./toVinicom.csv")
             System.IO.File.Delete("./toVinicom.csv")
 
             'Suppression et recréation du répertoire de test
