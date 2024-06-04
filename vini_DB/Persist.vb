@@ -2359,6 +2359,50 @@ Public MustInherit Class Persist
             Return New Collection
         End Try
     End Function 'ListePRD
+    ''' <summary>
+    '''  Rend la liste des produits correspondant à un code stat
+    ''' </summary>
+    ''' <param name="pstrCodeStat"></param>
+    ''' <returns></returns>
+
+    Protected Shared Function ListePRDParCodeStat(ByVal pstrCodeStat As String) As List(Of Produit)
+        Dim colReturn As New List(Of Produit)
+        Dim strWhere As String = ""
+        Dim nId As Integer
+
+        Debug.Assert(shared_isConnected(), "La database doit être ouverte")
+
+        Dim sqlString As String = " SELECT PRODUIT.PRD_ID from produit where PRD_CODE_STAT = ? AND PRD_BARCHIVE = 0 "
+
+
+        Dim objOLeDBCommand As OleDbCommand
+        Dim objPRD As Produit
+        Dim objRS As OleDbDataReader = Nothing
+        objOLeDBCommand = m_dbconn.Connection.CreateCommand()
+        objOLeDBCommand.Parameters.AddWithValue("?", pstrCodeStat)
+        objOLeDBCommand.CommandText = sqlString
+
+        Try
+            objRS = objOLeDBCommand.ExecuteReader()
+            While (objRS.Read())
+                nId = getInteger(objRS, "PRD_ID")
+                objPRD = Produit.createandload(nId)
+                colReturn.Add(objPRD)
+            End While
+            objRS.Close()
+            objRS = Nothing
+
+        Catch ex As Exception
+            setError("ListPRDParCodeStat", ex.ToString())
+            Debug.Assert(False, getErreur())
+            If objRS IsNot Nothing Then
+                objRS.Close()
+            End If
+            colReturn = New List(Of Produit)()
+        End Try
+
+        Return colReturn
+    End Function 'ListePRDBYCODESTAT
 
     Public Overrides Function toString() As String
         Return "Persist :" & m_id & "," & m_bNew & "," & m_bUpdated & "," & m_bDeleted & "," & m_bResume

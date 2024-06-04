@@ -784,6 +784,105 @@ Imports vini_DB
         objPRD.delete()
 
     End Sub
+    ''' <summary>
+    ''' Test la recherche de produit pas le code Stat
+    ''' Le plus ancien avec un stock positif
+    ''' </summary>
+    <TestCategory("6.1.0.0")>
+    <TestMethod()> Public Sub TV61_LOADBYKEYSTAT_WOO()
+        Dim objPRD As Produit
+        Dim n As Integer
+        Dim nIdFournisseur As Integer
+        Dim strCodestat As String = "PSTAT"
+        nIdFournisseur = Fournisseur.getListe()(1).id
+
+        'I - Création d'un Produit Millesime 21 Qte = 10
+        objPRD = New Produit("TESTM21", New Fournisseur, 2021)
+        objPRD.codeStat = strCodestat
+        objPRD.nom = "Produit de TEST MILLESIME21"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+        objPRD.loadcolmvtStock()
+        objPRD.ajouteLigneMvtStock(CDate("2020-01-01"), vncTypeMvt.vncMvtInventaire, 0, "Stock initial", 10)
+        Assert.IsTrue(objPRD.save(), "Update")
+
+        'I - Création d'un Produit Millesime 20 Qte = 0
+        objPRD = New Produit("TESTM20", New Fournisseur, 2021)
+        objPRD.codeStat = strCodestat
+        objPRD.nom = "Produit de TEST MILLESIME20"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+        objPRD.loadcolmvtStock()
+        objPRD.ajouteLigneMvtStock(CDate("2020-01-01"), vncTypeMvt.vncMvtInventaire, 0, "Stock initial", 0)
+        Assert.IsTrue(objPRD.save(), "Update")
+
+        'I - Création d'un Produit Millesime 22 Qte = 15
+        objPRD = New Produit("TESTM22", New Fournisseur, 2022)
+        objPRD.codeStat = strCodestat
+        objPRD.nom = "Produit de TEST MILLESIME22"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+        objPRD.loadcolmvtStock()
+        objPRD.ajouteLigneMvtStock(CDate("2020-01-01"), vncTypeMvt.vncMvtInventaire, 0, "Stock initial", 15)
+        Assert.IsTrue(objPRD.save(), "Update")
+
+        'On retrouve le produit si on charge par le code
+        objPRD = Produit.getProduitParCodestat(strCodestat)
+        Assert.IsNotNull(objPRD)
+        Assert.AreEqual("TESTM21", objPRD.code)
+        Assert.AreEqual(10D, objPRD.QteStock)
+
+        'Si le TESTM21 Passe en stock à 0 => Alors c'est le M22 qui est sélectionné
+        objPRD = Produit.createandloadbyKey("TESTM21")
+        objPRD.loadcolmvtStock()
+        objPRD.ajouteLigneMvtStock(CDate("2020-01-02"), vncTypeMvt.vncmvtRegul, 0, "Regul -10", -10)
+        Assert.IsTrue(objPRD.save(), "Update")
+        'On retrouve le produit si on charge par le code
+        objPRD = Produit.getProduitParCodestat(strCodestat)
+        Assert.IsNotNull(objPRD)
+        Assert.AreEqual("TESTM22", objPRD.code)
+        Assert.AreEqual(15D, objPRD.QteStock)
+
+
+
+        'Sil n'y a qu'unseul produit pour le code Stat on le renvoie sans regarder le Stock
+        'I - Création d'un Produit Millesime 22 Qte = 15
+        objPRD = New Produit("TESTM23", New Fournisseur, 2023)
+        objPRD.codeStat = "STAT2"
+        objPRD.nom = "Produit de TEST MILLESIME23"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+        objPRD.ajouteLigneMvtStock(CDate("2020-01-01"), vncTypeMvt.vncMvtInventaire, 0, "Stock initial", 0)
+        Assert.IsTrue(objPRD.save(), "Update")
+
+        objPRD = Produit.getProduitParCodestat("STAT2")
+        Assert.IsNotNull(objPRD)
+        Assert.AreEqual("TESTM23", objPRD.code)
+        Assert.AreEqual(0D, objPRD.QteStock)
+
+
+
+    End Sub
 End Class
 
 

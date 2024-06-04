@@ -1,5 +1,6 @@
 Imports System.Collections.Generic
 Imports System.Text.RegularExpressions
+Imports System.Data.Linq
 '===================================================================================================================================
 'Projet : Vinicom
 'Auteur : Marc Collin 
@@ -261,6 +262,45 @@ Public Class Produit
         End Try
         Return objPRD
     End Function 'Createanload
+    ''' <summary>
+    ''' Rend un produit en fonction du code logistique
+    ''' S'il y en A 1 seul => on rend le code produit
+    ''' S'il y en a plusieurs=> on rend le Produit avec le millésime le plus ancien avec un stock théorique >0
+    ''' </summary>
+    ''' <param name="pCodeStat"></param>
+    ''' <returns></returns>
+    Public Shared Function getProduitParCodestat(pCodeStat As String) As Produit
+        Dim oReturn As Produit = Nothing
+        Try
+            Dim olst As List(Of Produit)
+            olst = Persist.ListePRDParCodeStat(pCodeStat)
+            If olst.Count = 1 Then
+                oReturn = olst(0)
+            Else
+                'Parcours de la liste
+                Dim MilAncien As Integer = 999
+                For Each oProduit As Produit In olst
+                    'si Stock Theorique >0
+                    If oProduit.QteStockTheorique > 0 Then
+                        'on prend le plus ancien
+                        Dim Mil As String
+                        Mil = oProduit.code.Substring(oProduit.code.Length - 2)
+                        If IsNumeric(Mil) Then
+                            If CInt(Mil) < MilAncien Then
+                                oReturn = oProduit
+                                MilAncien = Mil
+                            End If
+                        End If
+
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            setError("Pas de produit dispo avec ce code stat : " & pCodeStat)
+            oReturn = Nothing
+        End Try
+        Return oReturn
+    End Function
 
     Public Property code() As String
         Get

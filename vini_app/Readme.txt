@@ -1,7 +1,8 @@
-﻿VXXXXXX	
+﻿V20240604	
 	0001656: Sauvegarde des produits Archivés
 	0001674: export internet : Export des codes fournisseurs
 	Adaptation au nouvel espace fournisseur
+	0001677: Modification regles de correspondance code Logistique dans l'import des commandes
 
 V20240305
 	0001629: Changement de serveur de dépot des commandes WOOCOMMERCE

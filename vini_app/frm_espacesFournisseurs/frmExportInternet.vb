@@ -554,7 +554,7 @@ Public Class frmExportInternet
             End If
             My.Computer.FileSystem.CreateDirectory(strFolder)
 
-            strFile = strFolder & "/" & EXPORTFTP_FILENAME
+            strFile = strFolder & "/" & "fromVinicom" & DateTime.Now.ToString("yyyyMMddHHmmss") & ".csv"
 
 
             'Génération des fichiers dans le répertoire temporaire

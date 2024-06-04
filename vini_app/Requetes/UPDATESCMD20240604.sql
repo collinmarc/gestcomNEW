@@ -1,0 +1,5 @@
+﻿/****** Script for SelectTopNRows command from SSMS  ******/
+UPDATE SOUSCOMMANDE 
+SET SCMD_ETAT = 10, SCMD_BEXPORT=0
+  WHERE SCMD_Etat = 15 AND YEAR(SCMD_DATE) = 2024 AND SCMD_BEXPORT = 1 AND SCMD_DATE < '2024-05-15'
+ 

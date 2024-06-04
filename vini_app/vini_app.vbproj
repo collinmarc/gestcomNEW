@@ -1427,6 +1427,9 @@
     <Content Include="Requetes\UpdateLgCmdTx06072022.sql" />
     <Content Include="Requetes\UPDATESCMD06072022.sql" />
     <Content Include="Requetes\UPDATESCMD08062022.sql" />
+    <Content Include="Requetes\UPDATESCMD20240604.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Requetes\V20211020.SQL">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

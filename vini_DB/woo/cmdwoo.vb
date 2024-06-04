@@ -350,15 +350,21 @@ Public Class cmdwoo
                 nLigne = 10
                 bImport = True
                 For Each oLg As ligneWOO In lignes_commande
-                    'Chargement du produit avec test sur le code Stat si le code n'existe pas
-                    oProduit = Produit.createandloadbyKey(oLg.reference, True)
+                    'Chargement du produit PAS DE TEST SUR LE CODE STAT
+                    oProduit = Produit.createandloadbyKey(oLg.reference)
                     If oProduit IsNot Nothing Then
                         oReturn.AjouteLigne(nLigne, oProduit, oLg.quantite, oLg.prixunitaire)
                         nLigne = nLigne + 10
                     Else
-                        bImport = False
-                        motif = "Produit [" & oLg.reference & "] inconnu"
-                        Exit For
+                        oProduit = Produit.getProduitParCodestat(oLg.reference)
+                        If oProduit IsNot Nothing Then
+                            oReturn.AjouteLigne(nLigne, oProduit, oLg.quantite, oLg.prixunitaire)
+                            nLigne = nLigne + 10
+                        Else
+                            bImport = False
+                            motif = "Produit [" & oLg.reference & "] inconnu"
+                            Exit For
+                        End If
                     End If
                 Next
             Else
