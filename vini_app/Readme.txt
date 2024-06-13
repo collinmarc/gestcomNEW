@@ -1,4 +1,7 @@
-﻿V20240604	
+﻿
+V20240613
+	0001681: Import de Commande Woo sur code Logistique ne fonctionne pas
+V20240604	
 	0001656: Sauvegarde des produits Archivés
 	0001674: export internet : Export des codes fournisseurs
 	Adaptation au nouvel espace fournisseur

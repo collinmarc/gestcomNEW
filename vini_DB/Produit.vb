@@ -272,6 +272,7 @@ Public Class Produit
     Public Shared Function getProduitParCodestat(pCodeStat As String) As Produit
         Dim oReturn As Produit = Nothing
         Try
+            shared_connect()
             Dim olst As List(Of Produit)
             olst = Persist.ListePRDParCodeStat(pCodeStat)
             If olst.Count = 1 Then
@@ -295,8 +296,9 @@ Public Class Produit
                     End If
                 Next
             End If
+            shared_disconnect()
         Catch ex As Exception
-            setError("Pas de produit dispo avec ce code stat : " & pCodeStat)
+            setError("Produit.getProduitParCodeStat ERR", ex.Message)
             oReturn = Nothing
         End Try
         Return oReturn

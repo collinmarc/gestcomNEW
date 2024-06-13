@@ -264,5 +264,28 @@ Imports vini_DB
         Assert.AreEqual(332.5D, oLgC.prixU)
     End Sub
 
+    <TestMethod(), Ignore()> Public Sub RechercheProduitcodestat()
+        While Persist.shared_isConnected()
+            Persist.shared_disconnect()
+        End While
+        Persist.ConnectionString = "Provider=SQLOLEDB.1;Data Source=BUREAU-DELL\SQLEXPRESS;Initial Catalog=vnc5;Persist Security Info=True;User ID=vinicom;Password=vinicom"
+        Dim oCmdWoo As cmdwoo
+        oCmdWoo = cmdwoo.readXML("importinternet\vinicom.wine\20240612143541\202588_20240612123517.xml")
+        Assert.IsNotNull(oCmdWoo)
+        Assert.IsTrue(oCmdWoo.check())
+        Dim oCmd As CommandeClient
+        oCmd = oCmdWoo.createCommandeClient()
+        Assert.IsNotNull(oCmd)
+
+
+        While Persist.shared_isConnected()
+            Persist.shared_disconnect()
+        End While
+        Persist.ConnectionString = "Provider=SQLOLEDB.1;Data Source=BUREAU-DELL\SQLEXPRESS;Initial Catalog=vnc5TU;Persist Security Info=True;User ID=vinicom;Password=vinicom"
+        Persist.shared_connect()
+
+    End Sub
+
+
 End Class
 

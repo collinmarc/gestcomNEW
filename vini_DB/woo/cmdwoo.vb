@@ -189,19 +189,21 @@ Public Class cmdwoo
             If bReturn Then
                 If Not String.IsNullOrEmpty(entete.customer_id) Then
                     Dim oClient As Client
-                    oClient = vini_DB.Client.createandload(entete.customer_id)
+                    oClient = vini_DB.Client.createandloadPrestashop(entete.customer_id, entete.origine)
                     If oClient Is Nothing Then
-                        motif = "Client Inconnu (" + entete.customer_id + ") "
+                        motif = "Client inconnu (" + entete.customer_id + "), dossier (" & entete.origine & ")"
                         bReturn = False
+                    Else
+
                     End If
                 End If
             End If
             If bReturn Then
                 Dim oProduit As Produit
                 For Each oLg As ligneWOO In lignes_commande
-                    oProduit = Produit.createandloadbyKey(oLg.reference)
+                    oProduit = Produit.getProduitParCodestat(oLg.reference)
                     If oProduit Is Nothing Then
-                        motif = "Produit Inconnu (" + oLg.reference + ")"
+                        motif = "Produit inconnu (" + oLg.reference + "), dossier (" & entete.origine & ")"
                         bReturn = False
                     End If
                 Next
@@ -369,7 +371,7 @@ Public Class cmdwoo
                 Next
             Else
                 bImport = False
-                motif = "Client [" & entete.customer_id & "] inconnu"
+                motif = "Client [" & entete.customer_id & "] inconnu, dossier [" & entete.origine & "]"
             End If
         Catch ex As Exception
             bImport = False
