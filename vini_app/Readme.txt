@@ -1,4 +1,7 @@
 ﻿
+VXXXX
+	0001682: L'import des commandes Hobivin reste bloqué
+
 V20240613
 	0001681: Import de Commande Woo sur code Logistique ne fonctionne pas
 V20240604	

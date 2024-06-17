@@ -458,8 +458,14 @@ Public Class clsFTPVinicom
                 Next
                 'Libération du verrou
                 bReturn = unlockTo()
+            Else
+                Trace.WriteLine("1-impossible de verouiller le serveur en mode TO")
+                If unlockTo() Then
+                    Trace.WriteLine("2-impossible de déverouiller le serveur en mode TO")
+                End If
             End If
         Catch ex As Exception
+            unlockTo()
             Debug.Assert(False, "clsFTPVinicom.downloadToDir" & ex.Message)
             bReturn = False
         End Try
