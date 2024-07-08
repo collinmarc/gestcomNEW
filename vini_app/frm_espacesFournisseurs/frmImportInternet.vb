@@ -3,6 +3,13 @@ Public Class frmImportInternet
     Inherits FrmVinicom
 
     Private m_FileName As String
+    Private m_Repertoire As String
+    Friend WithEvents Label5 As Label
+    Friend WithEvents cbRechercher As Button
+    Friend WithEvents lblNomFichier As Label
+    Friend WithEvents grpFTP As GroupBox
+    Friend WithEvents grpFichier As GroupBox
+    Friend WithEvents m_ofd As OpenFileDialog
     Private m_oFTP As clsFTPVinicom = Nothing
 
 #Region " Code généré par le Concepteur Windows Form "
@@ -59,12 +66,20 @@ Public Class frmImportInternet
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lnkHostName = New System.Windows.Forms.LinkLabel()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cbRechercher = New System.Windows.Forms.Button()
+        Me.lblNomFichier = New System.Windows.Forms.Label()
+        Me.grpFTP = New System.Windows.Forms.GroupBox()
+        Me.grpFichier = New System.Windows.Forms.GroupBox()
+        Me.m_ofd = New System.Windows.Forms.OpenFileDialog()
+        Me.grpFTP.SuspendLayout()
+        Me.grpFichier.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Label1.Location = New System.Drawing.Point(8, 24)
+        Me.Label1.Location = New System.Drawing.Point(8, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(568, 24)
         Me.Label1.TabIndex = 0
@@ -75,9 +90,9 @@ Public Class frmImportInternet
         '
         Me.cbImport.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbImport.Location = New System.Drawing.Point(8, 96)
+        Me.cbImport.Location = New System.Drawing.Point(5, 106)
         Me.cbImport.Name = "cbImport"
-        Me.cbImport.Size = New System.Drawing.Size(576, 32)
+        Me.cbImport.Size = New System.Drawing.Size(579, 32)
         Me.cbImport.TabIndex = 2
         Me.cbImport.Text = "&Importer"
         '
@@ -87,22 +102,21 @@ Public Class frmImportInternet
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbProgressBar.Location = New System.Drawing.Point(8, 193)
         Me.pbProgressBar.Name = "pbProgressBar"
-        Me.pbProgressBar.Size = New System.Drawing.Size(576, 24)
+        Me.pbProgressBar.Size = New System.Drawing.Size(579, 24)
         Me.pbProgressBar.TabIndex = 2
         '
         'laTraitement
         '
-        Me.laTraitement.Location = New System.Drawing.Point(8, 136)
+        Me.laTraitement.Location = New System.Drawing.Point(8, 142)
         Me.laTraitement.Name = "laTraitement"
-        Me.laTraitement.Size = New System.Drawing.Size(576, 16)
+        Me.laTraitement.Size = New System.Drawing.Size(576, 10)
         Me.laTraitement.TabIndex = 3
         '
         'ckFTP
         '
-        Me.ckFTP.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ckFTP.Checked = Global.vini_app.My.MySettings.Default.ckFTP_Checked
+        Me.ckFTP.Checked = True
         Me.ckFTP.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ckFTP.Location = New System.Drawing.Point(530, -3)
+        Me.ckFTP.Location = New System.Drawing.Point(11, 36)
         Me.ckFTP.Name = "ckFTP"
         Me.ckFTP.Size = New System.Drawing.Size(54, 24)
         Me.ckFTP.TabIndex = 4
@@ -115,14 +129,14 @@ Public Class frmImportInternet
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbErreurs.Location = New System.Drawing.Point(8, 223)
         Me.lbErreurs.Name = "lbErreurs"
-        Me.lbErreurs.Size = New System.Drawing.Size(576, 251)
+        Me.lbErreurs.Size = New System.Drawing.Size(579, 251)
         Me.lbErreurs.TabIndex = 8
         '
         'tbNbreLignesTraitees
         '
         Me.tbNbreLignesTraitees.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbNbreLignesTraitees.Enabled = False
-        Me.tbNbreLignesTraitees.Location = New System.Drawing.Point(526, 167)
+        Me.tbNbreLignesTraitees.Location = New System.Drawing.Point(529, 167)
         Me.tbNbreLignesTraitees.Name = "tbNbreLignesTraitees"
         Me.tbNbreLignesTraitees.Size = New System.Drawing.Size(58, 20)
         Me.tbNbreLignesTraitees.TabIndex = 18
@@ -131,7 +145,7 @@ Public Class frmImportInternet
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(401, 170)
+        Me.Label4.Location = New System.Drawing.Point(404, 170)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(118, 13)
         Me.Label4.TabIndex = 17
@@ -157,7 +171,7 @@ Public Class frmImportInternet
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(8, 52)
+        Me.Label2.Location = New System.Drawing.Point(6, 15)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 19
@@ -166,7 +180,7 @@ Public Class frmImportInternet
         'lnkHostName
         '
         Me.lnkHostName.AutoSize = True
-        Me.lnkHostName.Location = New System.Drawing.Point(78, 51)
+        Me.lnkHostName.Location = New System.Drawing.Point(75, 16)
         Me.lnkHostName.Name = "lnkHostName"
         Me.lnkHostName.Size = New System.Drawing.Size(59, 13)
         Me.lnkHostName.TabIndex = 20
@@ -177,12 +191,72 @@ Public Class frmImportInternet
         '
         Me.BackgroundWorker1.WorkerReportsProgress = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(3, 17)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(90, 13)
+        Me.Label5.TabIndex = 21
+        Me.Label5.Text = "fichier à importer :"
+        '
+        'cbRechercher
+        '
+        Me.cbRechercher.Location = New System.Drawing.Point(99, 12)
+        Me.cbRechercher.Name = "cbRechercher"
+        Me.cbRechercher.Size = New System.Drawing.Size(75, 23)
+        Me.cbRechercher.TabIndex = 22
+        Me.cbRechercher.Text = "Rechercher"
+        Me.cbRechercher.UseVisualStyleBackColor = True
+        '
+        'lblNomFichier
+        '
+        Me.lblNomFichier.AutoSize = True
+        Me.lblNomFichier.Location = New System.Drawing.Point(180, 17)
+        Me.lblNomFichier.Name = "lblNomFichier"
+        Me.lblNomFichier.Size = New System.Drawing.Size(58, 13)
+        Me.lblNomFichier.TabIndex = 23
+        Me.lblNomFichier.Text = "nomFichier"
+        '
+        'grpFTP
+        '
+        Me.grpFTP.Controls.Add(Me.lnkHostName)
+        Me.grpFTP.Controls.Add(Me.Label2)
+        Me.grpFTP.Location = New System.Drawing.Point(131, 26)
+        Me.grpFTP.Name = "grpFTP"
+        Me.grpFTP.Size = New System.Drawing.Size(452, 34)
+        Me.grpFTP.TabIndex = 24
+        Me.grpFTP.TabStop = False
+        '
+        'grpFichier
+        '
+        Me.grpFichier.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpFichier.Controls.Add(Me.lblNomFichier)
+        Me.grpFichier.Controls.Add(Me.Label5)
+        Me.grpFichier.Controls.Add(Me.cbRechercher)
+        Me.grpFichier.Location = New System.Drawing.Point(131, 58)
+        Me.grpFichier.Name = "grpFichier"
+        Me.grpFichier.Size = New System.Drawing.Size(453, 42)
+        Me.grpFichier.TabIndex = 25
+        Me.grpFichier.TabStop = False
+        '
+        'm_ofd
+        '
+        Me.m_ofd.AddExtension = False
+        Me.m_ofd.DefaultExt = "csv"
+        Me.m_ofd.FileName = "toVinicom.csv"
+        Me.m_ofd.Filter = "Fichier CSV|*.csv"
+        Me.m_ofd.InitialDirectory = "E:\Gestcom_Temp"
+        Me.m_ofd.Multiselect = True
+        Me.m_ofd.Title = "Sélection du fichier à importer"
+        '
         'frmImportInternet
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(592, 486)
-        Me.Controls.Add(Me.lnkHostName)
-        Me.Controls.Add(Me.Label2)
+        Me.ClientSize = New System.Drawing.Size(595, 486)
+        Me.Controls.Add(Me.grpFichier)
+        Me.Controls.Add(Me.grpFTP)
         Me.Controls.Add(Me.tbNbreLignesTraitees)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.tbNbLignesATraiter)
@@ -195,6 +269,10 @@ Public Class frmImportInternet
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmImportInternet"
         Me.Text = "Import Internet"
+        Me.grpFTP.ResumeLayout(False)
+        Me.grpFTP.PerformLayout()
+        Me.grpFichier.ResumeLayout(False)
+        Me.grpFichier.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -219,6 +297,8 @@ Public Class frmImportInternet
         Dim bReturn As Boolean
         Dim nFile As Integer
         Dim strResult As String = ""
+        Dim tabFiles As String()
+        Dim nNbreLignes As Integer = 0
 
         Dim strFolder As String
         setcursorWait()
@@ -231,16 +311,16 @@ Public Class frmImportInternet
                 My.Computer.FileSystem.DeleteDirectory(strFolder, FileIO.DeleteDirectoryOption.DeleteAllContents)
             End If
             My.Computer.FileSystem.CreateDirectory(strFolder)
-            'Suppression du fichier toVinicom.csv
-            If My.Computer.FileSystem.FileExists("./toVinicom.csv") Then
-                My.Computer.FileSystem.DeleteFile("./tovinicom.csv")
-            End If
-            'Activation de l'URL D'extraction
-            ActiverExportBAF()
+            ''Suppression du fichier toVinicom.csv
+            'If My.Computer.FileSystem.FileExists("./toVinicom.csv") Then
+            '    My.Computer.FileSystem.DeleteFile("./tovinicom.csv")
+            'End If
 
 
             ' Ce champsest invisible et est lu dans le fichier appConfig
             If ckFTP.Checked Then
+                'Activation de l'URL D'extraction
+                ActiverExportBAF()
                 m_oFTP = New clsFTPVinicom(Param.getConstante("CST_FTPVNC_HOST"),
                                                 Param.getConstante("CST_FTPVNC_USER"),
                                                 Param.getConstante("CST_FTPVNC_PASSWORD"),
@@ -250,13 +330,37 @@ Public Class frmImportInternet
                 m_oFTP.downloadDirToDir(strFolder, True)
                 '                m_oFTP.downloadToDir(strFolder)
             Else
-                lbErreurs.Items.Add("Connexion impossible (" + Param.getConstante("FTP_USERNAME") + " /" + Param.getConstante("FTP_PASSWORD") + ")")
+                'Tableau des noms de fichiers avec le path
+                tabFiles = m_ofd.FileNames()
+                'Tableau des noms de fichiers
+                Dim tabFileNames() As String = m_ofd.SafeFileNames()
+                For i As Integer = 0 To tabFiles.Length - 1
+                    System.IO.File.Copy(tabFiles(i), strFolder & "/" & tabFileNames(i))
+                Next
             End If
-            Dim tabFiles As String()
-            tabFiles = System.IO.Directory.GetFiles(strFolder, "*.csv")
-            For Each strFile As String In tabFiles
-                TraitementImportfichier(strFile)
+            m_Repertoire = strFolder
+
+            tabFiles = System.IO.Directory.GetFiles(m_Repertoire, "*.csv")
+            nNbreLignes = 0
+            For Each m_FileName As String In tabFiles
+                nFile = FreeFile()
+                FileOpen(nFile, m_FileName, OpenMode.Input, OpenAccess.Read)
+                'Calcul du nombre de lignes à traiter pour initaliser la ProgressBar
+                '-------------------------------------------------------------------
+                strResult = LineInput(nFile)
+                While Not EOF(nFile)
+                    strResult = LineInput(nFile)
+                    If Not String.IsNullOrEmpty(strResult) Then
+                        nNbreLignes = nNbreLignes + 1
+                    End If
+                End While
+                FileClose(nFile)
             Next
+            pbProgressBar.Minimum = 0
+            pbProgressBar.Maximum = nNbreLignes
+            tbNbLignesATraiter.Text = nNbreLignes
+
+            BackgroundWorker1.RunWorkerAsync()
 
         Catch ex As Exception
             DisplayStatus("ERREUR :" & ex.ToString())
@@ -266,40 +370,6 @@ Public Class frmImportInternet
         restoreCursor()
         Return bReturn
     End Function
-    Private Sub TraitementImportfichier(pstrImportfileName As String)
-
-        Dim bReturn As Boolean
-        Dim nFile As Integer
-        Dim nLineNumber As Integer
-        Dim strResult As String = ""
-        Dim nSousCommandeTraitees As Integer ' Nbre de sousCommandes traitées
-
-        nFile = FreeFile()
-        FileOpen(nFile, pstrImportfileName, OpenMode.Input, OpenAccess.Read)
-        'Calcul du nombre de lignes à traiter
-        nLineNumber = 0
-        'Lecture de la liste d'entete
-        strResult = LineInput(nFile)
-        While Not EOF(nFile)
-            strResult = LineInput(nFile)
-            If Not String.IsNullOrEmpty(strResult) Then
-                nLineNumber = nLineNumber + 1
-            End If
-        End While
-        FileClose(nFile)
-        pbProgressBar.Minimum = 0
-        pbProgressBar.Maximum = nLineNumber
-        tbNbLignesATraiter.Text = nLineNumber
-        nSousCommandeTraitees = 0
-        tbNbreLignesTraitees.Text = nSousCommandeTraitees
-
-
-        m_FileName = pstrImportfileName
-        BackgroundWorker1.RunWorkerAsync()
-
-        bReturn = True
-
-    End Sub
     Private Sub cdimport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbImport.Click
         import()
     End Sub
@@ -315,6 +385,11 @@ Public Class frmImportInternet
     Private Sub frmImportInternet_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         initFenetre()
         ckFTP.Enabled = True
+        ckFTP.Checked = True
+#If DEBUG Then
+        ckFTP.Checked = False
+#End If
+        cbRechercher.Enabled = True
         cbImport.Enabled = True
         lbErreurs.Enabled = True
         tbNbLignesATraiter.Enabled = True
@@ -335,33 +410,39 @@ Public Class frmImportInternet
         Dim strResult As String
         Dim nSousCommandeTraitees As Integer
         Dim oScmd As SousCommande
+        Dim tabfiles As String()
+        Dim nLineNumber As Integer = 0
 
-        nFile = FreeFile()
-        FileOpen(nFile, m_FileName, OpenMode.Input, OpenAccess.Read)
         nSousCommandeTraitees = 0
-        'Lecture de la ligne d'entete
-        strResult = LineInput(nFile)
-        While Not EOF(nFile)
-            Try
-                strResult = LineInput(nFile)
-                If Not String.IsNullOrEmpty(strResult) Then
-                    oScmd = SousCommande.ImportCSV_espfrnVNC(strResult)
-                    nSousCommandeTraitees = nSousCommandeTraitees + 1
-                    BackgroundWorker1.ReportProgress(nSousCommandeTraitees)
-                    If oScmd IsNot Nothing Then
-                        BackgroundWorker1.ReportProgress(0, oScmd.code & " TotalHT=" & oScmd.totalHTFacture.ToString("c") & " ,refFact=" & oScmd.refFactFournisseur)
-                    Else
-                        BackgroundWorker1.ReportProgress(0, "Sous commande inconnue : " & strResult)
+        tabfiles = System.IO.Directory.GetFiles(m_Repertoire, "*.csv")
+        For Each NomFichier As String In tabfiles
+            'on Traite chaque fichier 1 par 1
+            nFile = FreeFile()
+            FileOpen(nFile, NomFichier, OpenMode.Input, OpenAccess.Read)
+            'Lecture de la ligne d'entete
+            strResult = LineInput(nFile)
+            While Not EOF(nFile)
+                Try
+                    strResult = LineInput(nFile)
+                    If Not String.IsNullOrEmpty(strResult) Then
+                        oScmd = SousCommande.ImportCSV_espfrnVNC(strResult)
+                        nSousCommandeTraitees = nSousCommandeTraitees + 1
+                        BackgroundWorker1.ReportProgress(nSousCommandeTraitees)
+                        If oScmd IsNot Nothing Then
+                            BackgroundWorker1.ReportProgress(0, oScmd.code & " TotalHT=" & oScmd.totalHTFacture.ToString("c") & " ,refFact=" & oScmd.refFactFournisseur)
+                        Else
+                            BackgroundWorker1.ReportProgress(0, "Sous commande inconnue : " & strResult)
+
+                        End If
 
                     End If
+                Catch Ex As Exception
+                    BackgroundWorker1.ReportProgress(0, Ex.Message)
+                End Try
+            End While
 
-                End If
-            Catch Ex As Exception
-                BackgroundWorker1.ReportProgress(0, Ex.Message)
-            End Try
-        End While
-
-        FileClose(nFile)
+            FileClose(nFile)
+        Next
 
     End Sub
 
@@ -377,7 +458,7 @@ Public Class frmImportInternet
     Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
         If ckFTP.Checked Then
             If MsgBox("Import terminé, Suppression du fichier d'import", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                    m_oFTP.deleteRemotefile(IMPORTFTP_FILENAME)
+                m_oFTP.deleteRemotefile(IMPORTFTP_FILENAME)
             End If
         End If
     End Sub
@@ -386,5 +467,22 @@ Public Class frmImportInternet
         Dim uri_integ As Uri = New Uri(Param.getConstante("CST_FTPVNC_URL2"))
         odlg.WebBrowser1.Navigate(uri_integ)
         odlg.ShowDialog()
+    End Sub
+
+    Private Sub ckFTP_CheckedChanged(sender As Object, e As EventArgs) Handles ckFTP.CheckedChanged
+        grpFTP.Visible = ckFTP.Checked
+        grpFichier.Enabled = Not ckFTP.Checked
+        grpFichier.Visible = Not ckFTP.Checked
+        cbRechercher.Enabled = grpFichier.Visible
+    End Sub
+
+    Private Sub cbRechercher_Click(sender As Object, e As EventArgs) Handles cbRechercher.Click
+        If m_ofd.ShowDialog() = DialogResult.OK Then
+            lblNomFichier.Text = m_ofd.FileName
+        End If
+    End Sub
+
+    Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles m_ofd.FileOk
+
     End Sub
 End Class
