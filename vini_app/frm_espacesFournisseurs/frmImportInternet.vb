@@ -246,19 +246,17 @@ Public Class frmImportInternet
                                                 Param.getConstante("CST_FTPVNC_PASSWORD"),
                                                 Param.getConstante("CST_FTPVNC_REMOTEDIR2")
                                                 )
-
-                m_oFTP.downloadToDir(strFolder)
+                'Suppresssion des fichiers après téléchargement
+                m_oFTP.downloadDirToDir(strFolder, True)
+                '                m_oFTP.downloadToDir(strFolder)
             Else
                 lbErreurs.Items.Add("Connexion impossible (" + Param.getConstante("FTP_USERNAME") + " /" + Param.getConstante("FTP_PASSWORD") + ")")
             End If
-            If My.Computer.FileSystem.FileExists(strFolder & "/toVinicom.csv") Then
-                'Recopie du fichier d'import
-                TraitementImportfichier(strFolder & "/toVinicom.csv")
-                'Suppression du fichier d'import sur le seveur
-            Else
-                'pas de fichier à traité
-                DisplayStatus("Pas de fichier d'import à traiter")
-            End If
+            Dim tabFiles As String()
+            tabFiles = System.IO.Directory.GetFiles(strFolder, "*.csv")
+            For Each strFile As String In tabFiles
+                TraitementImportfichier(strFile)
+            Next
 
         Catch ex As Exception
             DisplayStatus("ERREUR :" & ex.ToString())

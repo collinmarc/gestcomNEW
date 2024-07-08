@@ -1,6 +1,7 @@
 ﻿
 VXXXX
 	0001682: L'import des commandes Hobivin reste bloqué
+	0001691: Les produits archivés apparaissent toujours dans l'état des stocks
 
 V20240613
 	0001681: Import de Commande Woo sur code Logistique ne fonctionne pas
