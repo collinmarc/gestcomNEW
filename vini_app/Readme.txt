@@ -4,9 +4,11 @@ V20240709
 	0001691: Les produits archivés apparaissent toujours dans l'état des stocks
 	0001693: Erreur d'affichage dans le journal des approvisionnement
 	0001692: Sécurisation imports
+	0001694: REcherche de produit par code logistique
 
 V20240613
 	0001681: Import de Commande Woo sur code Logistique ne fonctionne pas
+
 V20240604	
 	0001656: Sauvegarde des produits Archivés
 	0001674: export internet : Export des codes fournisseurs

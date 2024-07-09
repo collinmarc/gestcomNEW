@@ -6,17 +6,17 @@
     <id>288</id>
     <num_cde_woocommerce>202679</num_cde_woocommerce>
     <origine>VINICOM</origine>
-    <datecmd>20240708</datecmd>
+    <datecmd>20240101</datecmd>
   </entete>
   <client>
     <adresse_livraison>
-      <livraison_firstname>Véronique</livraison_firstname>
-      <livraison_name>LE BOURHIS</livraison_name>
-      <livraison_company>SARL LE BOURHIS ET FILS</livraison_company>
-      <livraison_adress1>ZA DU LAUNAY</livraison_adress1>
+      <livraison_firstname>TEST</livraison_firstname>
+      <livraison_name>TEST</livraison_name>
+      <livraison_company>TEST</livraison_company>
+      <livraison_adress1>TEST</livraison_adress1>
       <livraison_adress2></livraison_adress2>
       <livraison_postalcode>29600</livraison_postalcode>
-      <livraison_city>ST MARTIN DES CHAMPS</livraison_city>
+      <livraison_city>TEST</livraison_city>
     </adresse_livraison>
   </client>
   <lignes_commande>
