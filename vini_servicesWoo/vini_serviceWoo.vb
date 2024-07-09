@@ -55,12 +55,14 @@ Public Class vini_serviceWoo
             pDossierLocal = My.Settings.wooFTPRepLocal & Now.ToString("yyyyMMddHHmmss")
 
             cmdwoo.SetFTP(My.Settings.wooFTPHost, My.Settings.wooFTPUser, My.Settings.wooFTPPwd, My.Settings.wooFTPRepDistant)
+            cmdwoo.dossiercmdtraitees = My.Settings.wooFTPComdTraitees
             Trace.WriteLine("Import1 vers " & pDossierLocal)
 
             cmdwoo.Import(pDossierLocal)
 
             If Not String.IsNullOrEmpty(My.Settings.wooFTPHost2) Then
                 cmdwoo.SetFTP(My.Settings.wooFTPHost2, My.Settings.wooFTPUser2, My.Settings.wooFTPPwd2, My.Settings.wooFTPRepDistant2)
+                cmdwoo.dossiercmdtraitees = My.Settings.wooFTPComdTraitees2
                 pDossierLocal = My.Settings.wooFTPRepLocal2 & Now.ToString("yyyyMMddHHmmss")
 
                 Trace.WriteLine("Import2 vers " & pDossierLocal)

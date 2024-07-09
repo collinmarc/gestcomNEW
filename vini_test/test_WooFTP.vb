@@ -285,6 +285,22 @@ Imports vini_DB
         Persist.shared_connect()
 
     End Sub
+    'Test de la recopie dans le dossier traitées des commandes traitées
+    <TestMethod()> Public Sub importCMDWooTraitées()
+        Dim pDossierLocal As String
+        Dim oFTP As New clsFTPVinicom("51.91.66.95", "ftpproducteur@producteur.vinicom.fr", "DPx!C}IU~yn!!?jhe{", "TEST")
+        oFTP.uploadFile("DATATEST/TESTCMDWOO.xml")
+
+        pDossierLocal = "./importinternet/vinicom.wine/" & Now.ToString("yyyyMMddHHmmss")
+
+        'on fait l'import juste pour parcourir les fichier du FTP
+        cmdwoo.SetFTP("51.91.66.95", "ftpproducteur@producteur.vinicom.fr", "DPx!C}IU~yn!!?jhe{", "orders")
+
+        Assert.IsTrue(cmdwoo.Import(pDossierLocal))
+
+
+
+    End Sub
 
 
 End Class

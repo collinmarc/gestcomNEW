@@ -2,21 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
   <Profiles />
   <Settings>
-    <Setting Name="wooFTPHost" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">ftp.cluster002.hosting.ovh.net</Value>
-    </Setting>
-    <Setting Name="wooFTPUser" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">vinicomwgs-gestcom</Value>
-    </Setting>
-    <Setting Name="wooFTPPwd" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">EdcRfv11</Value>
-    </Setting>
-    <Setting Name="wooFTPRepLocal" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\importinternet\vinicom.wine</Value>
-    </Setting>
-    <Setting Name="wooFTPRepDistant" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">TEST/Orders</Value>
-    </Setting>
     <Setting Name="wooIntervalleSecondes" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">60</Value>
     </Setting>
@@ -30,20 +15,41 @@
     <Setting Name="wooLog" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\LOGS\importWoo.xml</Value>
     </Setting>
+    <Setting Name="wooFTPHost" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">51.91.66.95</Value>
+    </Setting>
+    <Setting Name="wooFTPUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">gestcom@vinicom.fr</Value>
+    </Setting>
+    <Setting Name="wooFTPPwd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">^[9pQ0m3Rqx7VI-Lr!</Value>
+    </Setting>
+    <Setting Name="wooFTPRepLocal" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\importinternet\vinicom.wine\</Value>
+    </Setting>
+    <Setting Name="wooFTPRepDistant" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">orders</Value>
+    </Setting>
     <Setting Name="wooFTPHost2" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">ftp.cluster002.hosting.ovh.net</Value>
+      <Value Profile="(Default)">51.91.66.95</Value>
     </Setting>
     <Setting Name="wooFTPUser2" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">vinicomwgs-gestcom</Value>
+      <Value Profile="(Default)">gestcom@hobivin.fr</Value>
     </Setting>
     <Setting Name="wooFTPPwd2" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">EdcRfv11</Value>
+      <Value Profile="(Default)">CYI$?*Rf3J^!d[1cjl</Value>
     </Setting>
     <Setting Name="wooFTPRepDistant2" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">TEST/Orders</Value>
+      <Value Profile="(Default)">orders</Value>
     </Setting>
     <Setting Name="wooFTPRepLocal2" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\importinternet\vinicom.wine</Value>
+      <Value Profile="(Default)">C:\Users\COLLIN\Documents\NEWCO\vinicom\V6\GestcomNew\vini_app\bin\Debug\importinternet\hobivin.fr\</Value>
+    </Setting>
+    <Setting Name="wooFTPComdTraitees" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">traitees</Value>
+    </Setting>
+    <Setting Name="wooFTPComdTraitees2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">traitees</Value>
     </Setting>
   </Settings>
 </SettingsFile>

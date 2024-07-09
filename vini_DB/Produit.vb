@@ -169,7 +169,7 @@ Public Class Produit
         m_code = strCode
         m_nom = ""
         m_motcle = ""
-        m_millesime = 1990
+        m_millesime = pMil
         m_idCouleur = Param.couleurdefaut.id
         m_idContenant = contenant.contenantDefaut.id
         m_libContenant = contenant.contenantDefaut.libelle
@@ -295,6 +295,20 @@ Public Class Produit
 
                     End If
                 Next
+                'Si on n' pas truové de produit avec un stock, on prend le millésime le plus récent
+                If oReturn Is Nothing Then
+                    'Parcours de la liste
+                    Dim Mil2 As Integer = 0
+                    For Each oProduit As Produit In olst
+                        If oProduit.millesime > Mil2 Then
+                            oReturn = oProduit
+                            Mil2 = oProduit.millesime
+                        End If
+
+                    Next
+
+                End If
+
             End If
             shared_disconnect()
         Catch ex As Exception

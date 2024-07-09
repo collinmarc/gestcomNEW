@@ -269,7 +269,7 @@ Public Class frmRechercheDB
             Case vncEnums.vncTypeDonnee.PRODUIT, vncTypeDonnee.PRODUIT_COMMANDE
                 laCode.Text = "Code"
                 laNom.Text = "Désignation"
-                laMotCle.Text = "Mot Clé"
+                laMotCle.Text = "Code Logistique"
                 Me.Text = "Recherche de Produit"
                 '                laEtat.Enabled = False
 '                cboEtat.Enabled = False
@@ -448,7 +448,13 @@ Public Class frmRechercheDB
                 If cboEtat.SelectedItem = "Tous" Then
                     bTous = True
                 End If
-                m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, tbMotCle.Text, 0, 0, pTous:=bTous)
+                If tbMotCle.Text = "" Then
+                    m_ocol = Produit.getListe(m_typeProduit, tbCode.Text, tbNom.Text, "", 0, 0, pTous:=bTous)
+                Else
+                    Dim olst As New Collection()
+                    olst.Add(Produit.createandloadbyKey(tbMotCle.Text, True))
+                    m_ocol = olst
+                End If
             Case vncTypeDonnee.PRODUIT_COMMANDE
                 Me.m_bsrc.DataSource = GetType(vini_DB.Produit)
                 'Recherche des produits 

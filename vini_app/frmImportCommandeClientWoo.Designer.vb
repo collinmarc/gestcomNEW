@@ -52,6 +52,8 @@ Partial Class frmImportcommandeClientWoo
         Me.ckTous = New System.Windows.Forms.CheckBox()
         Me.btnAfficher = New System.Windows.Forms.Button()
         Me.btnPurger = New System.Windows.Forms.Button()
+        Me.tbCommandesTraitees = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcLog, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,6 +64,8 @@ Partial Class frmImportcommandeClientWoo
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.tbCommandesTraitees)
+        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.btnCancel)
         Me.GroupBox1.Controls.Add(Me.ProgressBar1)
         Me.GroupBox1.Controls.Add(Me.btnImport)
@@ -131,7 +135,7 @@ Partial Class frmImportcommandeClientWoo
         '
         Me.tbRepDistant.Location = New System.Drawing.Point(347, 16)
         Me.tbRepDistant.Name = "tbRepDistant"
-        Me.tbRepDistant.Size = New System.Drawing.Size(219, 20)
+        Me.tbRepDistant.Size = New System.Drawing.Size(74, 20)
         Me.tbRepDistant.TabIndex = 7
         Me.tbRepDistant.Text = Global.vini_app.My.MySettings.Default.wooFTPRepDistant
         '
@@ -329,6 +333,23 @@ Partial Class frmImportcommandeClientWoo
         Me.btnPurger.Text = "Purger"
         Me.btnPurger.UseVisualStyleBackColor = True
         '
+        'tbCommandesTraitees
+        '
+        Me.tbCommandesTraitees.Location = New System.Drawing.Point(544, 16)
+        Me.tbCommandesTraitees.Name = "tbCommandesTraitees"
+        Me.tbCommandesTraitees.Size = New System.Drawing.Size(62, 20)
+        Me.tbCommandesTraitees.TabIndex = 26
+        Me.tbCommandesTraitees.Text = "traitees"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(427, 19)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(111, 13)
+        Me.Label8.TabIndex = 25
+        Me.Label8.Text = "Commandes traitées  :"
+        '
         'frmImportcommandeClientWoo
         '
         Me.ClientSize = New System.Drawing.Size(750, 500)
@@ -384,4 +405,6 @@ Partial Class frmImportcommandeClientWoo
     Friend WithEvents ckTous As CheckBox
     Friend WithEvents btnAfficher As Button
     Friend WithEvents btnPurger As Button
+    Friend WithEvents tbCommandesTraitees As TextBox
+    Friend WithEvents Label8 As Label
 End Class

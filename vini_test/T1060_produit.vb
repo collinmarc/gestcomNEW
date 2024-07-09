@@ -883,6 +883,86 @@ Imports vini_DB
 
 
     End Sub
+    ''' <summary>
+    ''' Test la recherche de produit pas le code Stat
+    ''' Si tous les produits ont un stock inf à 0 on prends le plus récent
+    ''' </summary>
+    <TestCategory("6.1.0.0")>
+    <TestMethod()> Public Sub TV61_LOADBYKEYSTAT_WOO2()
+        Dim objPRD As Produit
+        Dim n As Integer
+        Dim nIdFournisseur As Integer
+        Dim strCodestat As String = "PSTAT"
+        nIdFournisseur = Fournisseur.getListe()(1).id
+
+        'I - Création d'un Produit Millesime 21 Qte = -10
+        objPRD = New Produit("TESTM21", New Fournisseur, 2021)
+        objPRD.codeStat = strCodestat
+        objPRD.nom = "Produit de TEST MILLESIME21"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+        objPRD.loadcolmvtStock()
+        objPRD.ajouteLigneMvtStock(CDate("2020-01-01"), vncTypeMvt.vncMvtInventaire, 0, "Stock initial", -10)
+        Assert.IsTrue(objPRD.save(), "Update")
+
+        'I - Création d'un Produit Millesime 20 Qte = 0
+        objPRD = New Produit("TESTM20", New Fournisseur, 2020)
+        objPRD.codeStat = strCodestat
+        objPRD.nom = "Produit de TEST MILLESIME20"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+        objPRD.loadcolmvtStock()
+        objPRD.ajouteLigneMvtStock(CDate("2020-01-01"), vncTypeMvt.vncMvtInventaire, 0, "Stock initial", 0)
+        Assert.IsTrue(objPRD.save(), "Update")
+
+        'I - Création d'un Produit Millesime 22 Qte = -15
+        objPRD = New Produit("TESTM22", New Fournisseur, 2022)
+        objPRD.codeStat = strCodestat
+        objPRD.nom = "Produit de TEST MILLESIME22"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+        objPRD.loadcolmvtStock()
+        objPRD.ajouteLigneMvtStock(CDate("2020-01-01"), vncTypeMvt.vncMvtInventaire, 0, "Stock initial", -15)
+        Assert.IsTrue(objPRD.save(), "Update")
+
+        'On retrouve le produit le plus récent si on charge par le code Stat
+        objPRD = Produit.getProduitParCodestat(strCodestat)
+        Assert.IsNotNull(objPRD)
+        Assert.AreEqual("TESTM22", objPRD.code)
+        Assert.AreEqual(-15D, objPRD.QteStock)
+
+        'Si le TESTM21 Passe en stock à 10 => Alors c'est le M22 qui est sélectionné
+        objPRD = Produit.createandloadbyKey("TESTM21")
+        objPRD.loadcolmvtStock()
+        objPRD.ajouteLigneMvtStock(CDate("2020-01-02"), vncTypeMvt.vncmvtRegul, 0, "Regul +20", +20)
+        Assert.IsTrue(objPRD.save(), "Update")
+        'On retrouve le produit si on charge par le code
+        objPRD = Produit.getProduitParCodestat(strCodestat)
+        Assert.IsNotNull(objPRD)
+        Assert.AreEqual("TESTM21", objPRD.code)
+        Assert.AreEqual(10D, objPRD.QteStock)
+
+
+
+
+
+
+    End Sub
 End Class
 
 

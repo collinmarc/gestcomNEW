@@ -295,6 +295,11 @@ Public Class cmdwoo
                                        )
             Next
 
+            'Recopie des fichiers dans le dossier 'traitées'
+            oFTP.remoteDir = dossiercmdtraitees
+            For Each strFile As String In tabFiles
+                oFTP.uploadFile(strFile)
+            Next
 
 
             LogImportWoo.writeXml()

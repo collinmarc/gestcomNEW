@@ -78,6 +78,7 @@ Public Class frmImportcommandeClientWoo
         Public m_ftpPassword As String
         Public m_ftpRepDistant As String
         Public m_ftpRepLocal As String
+        Public m_ftpCommandesTraitees As String
     End Class
 
     Private Sub btnImport_Click(sender As Object, e As EventArgs) Handles btnImport.Click
@@ -87,6 +88,7 @@ Public Class frmImportcommandeClientWoo
         o.m_ftpPassword = tbFTPPassword.Text
         o.m_ftpRepDistant = tbRepDistant.Text
         o.m_ftpRepLocal = tbRepLocal.Text
+        o.m_ftpCommandesTraitees = tbCommandesTraitees.Text
         Me.Cursor = Cursors.WaitCursor
         BackgroundWorker1.RunWorkerAsync(o)
     End Sub
@@ -96,7 +98,7 @@ Public Class frmImportcommandeClientWoo
         pDossierLocal = o.m_ftpRepLocal & Now.ToString("yyyyMMddHHmmss")
 
         cmdwoo.SetFTP(o.m_ftpHost, o.m_ftpuser, o.m_ftpPassword, o.m_ftpRepDistant)
-
+        cmdwoo.dossiercmdtraitees = o.m_ftpCommandesTraitees
         cmdwoo.Import(pDossierLocal)
 
     End Sub
