@@ -446,7 +446,10 @@ Public Class clsFTPVinicom
                 Dim lstFile As List(Of String) = m_FTP.ListDirectory("/" & m_RemoteDir)
                 For Each strFile As String In lstFile
                     strFile = Replace(strFile, m_RemoteDir & "/", "")
-                    If strFile <> "." And strFile <> ".." Then
+                    If strFile.Contains("/") Then
+                        strFile = strFile.Substring(CInt(strFile.LastIndexOf("/") + 1))
+                    End If
+                    If Not strFile.EndsWith(".") And Not strFile.EndsWith("..") Then
                         If m_FTP.FtpFileExists("/" & m_RemoteDir & "/" & strFile) Then
                             bReturn = m_FTP.Download("/" & m_RemoteDir & "/" & strFile, strLocalDirName & "/" & strFile, True)
                             If bReturn And pbDeleteFile Then
