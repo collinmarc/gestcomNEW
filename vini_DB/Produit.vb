@@ -57,6 +57,7 @@ Public Class Produit
     Private m_TarifC As Decimal           'Tarif
     Private m_TarifD As Decimal           'Tarif
     Private m_bStock As Boolean             'Produit Stocké
+    Private m_bFactureColisage As Boolean             'Produit Générant des factures de colisage
     Private WithEvents m_colMvtStock As ColEventSorted       'Collection des Mouvements de Stocks
     Private m_bcolMvtStockLoaded As Boolean
     Private m_bcolMvtStockUpdated As Boolean
@@ -177,6 +178,7 @@ Public Class Produit
         m_idRegion = Param.regiondefaut.id
         m_bDisponible = True
         m_bStock = True
+        m_bFactureColisage = True
         m_idTVA = Param.TVAdefaut.id
         m_codeStat = strCode
         If oFRN Is Nothing Then
@@ -514,6 +516,21 @@ Public Class Produit
             If Value <> m_bStock Then
                 RaiseUpdated()
                 m_bStock = Value
+            End If
+        End Set
+    End Property
+    ''' <summary>
+    ''' Produit Générant des factures de colisage
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property bFactureColisage() As Boolean
+        Get
+            Return m_bFactureColisage
+        End Get
+        Set(ByVal Value As Boolean)
+            If Value <> bFactureColisage Then
+                RaiseUpdated()
+                m_bFactureColisage = Value
             End If
         End Set
     End Property
@@ -1416,6 +1433,8 @@ Public Class Produit
                     Me.bDisponible = Convert.ToBoolean(pColValue)
                 Case "PRD_STOCK"
                     Me.bStock = Convert.ToBoolean(pColValue)
+                Case "PRD_FACTURECOLISAGE"
+                    Me.bFactureColisage = Convert.ToBoolean(pColValue)
                 Case "PRD_CODE_STAT"
                     Me.codeStat = Convert.ToString(pColValue)
                 Case "PRD_DATE_DERN_INVENT"

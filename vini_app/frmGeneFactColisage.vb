@@ -496,7 +496,7 @@ Public Class frmGeneFactColisage
         Dim bReturn As Boolean
         Dim oFRN As Fournisseur
         If tbCodeFournisseur.Text = "" And cbxDossier.Text = Dossier.VINICOM Then
-            MsgBox("Saisie d'un code fournisseur Obligatoire pour le dossier VINICOM")
+            MsgBox("Saisie d'un code fournisseur obligatoire pour le dossier VINICOM")
             Return False
         End If
 
@@ -516,12 +516,12 @@ Public Class frmGeneFactColisage
                     'Recupération de la liste des Mouvements de stocks
                     '                    col = mvtStock.getListe2(ddeb, dfin, oFRN, vncEtatMVTSTK.vncMVTSTK_nFact, strDossier)
                     'A Discuter avec Mme Mathurin
-                    col = mvtStock.getListe2(ddeb, dfin, oFRN, vncEtatMVTSTK.vncMVTSTK_nFact)
+                    col = mvtStock.getListe2(ddeb, dfin, oFRN, vncEtatMVTSTK.vncMVTSTK_nFact, pbFiltreProduit:=True)
                 End If
             End If
             If strDossier = Dossier.HOBIVIN Then
                 'Recupération de la liste des Mouvements de stocks
-                col = mvtStock.getListeDossierNonFacture(strDossier, ddeb, dfin)
+                col = mvtStock.getListeDossierNonFacture(strDossier, ddeb, dfin, True)
             End If
             If col Is Nothing Then
                 bReturn = False

@@ -42,6 +42,7 @@ Public Class frmProduit
     Friend WithEvents tbTarifD As textBoxCurrency
     Friend WithEvents ckArchive As CheckBox
     Friend WithEvents cbMillesime As Button
+    Friend WithEvents CheckBox1 As CheckBox
     Private m_bAjoutmvt As Boolean
 
 #Region "Code généré par le Concepteur Windows Form "
@@ -202,6 +203,7 @@ Public Class frmProduit
         Me.tbTarifD = New vini_app.textBoxCurrency()
         Me.ckArchive = New System.Windows.Forms.CheckBox()
         Me.cbMillesime = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.m_bsrcProduit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -759,10 +761,17 @@ Public Class frmProduit
         Me.cbMillesime.Name = "cbMillesime"
         Me.cbMillesime.UseVisualStyleBackColor = False
         '
+        'CheckBox1
+        '
+        resources.ApplyResources(Me.CheckBox1, "CheckBox1")
+        Me.CheckBox1.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.m_bsrcProduit, "bFactureColisage", True))
+        Me.CheckBox1.Name = "CheckBox1"
+        '
         'frmProduit
         '
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.cbMillesime)
         Me.Controls.Add(Me.ckArchive)
         Me.Controls.Add(Me.Label27)

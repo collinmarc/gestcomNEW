@@ -14,6 +14,7 @@ Imports CrystalDecisions.Shared
     Private m_objPRD2 As Produit
     Private m_objPRD3 As Produit
     Private m_objPRD4HorsStock As Produit
+    Private m_objPRD4HorsFactureColisage As Produit
     Private m_objFRN As Fournisseur
     Private m_objFRN2 As Fournisseur
     Private m_objFRN3 As Fournisseur
@@ -74,6 +75,11 @@ Imports CrystalDecisions.Shared
         m_objPRD4HorsStock = New Produit("T60", m_objFRN, 2000)
         m_objPRD4HorsStock.bStock = False
         m_objPRD4HorsStock.save()
+
+        m_objPRD4HorsFactureColisage = New Produit("T60-HFC", m_objFRN, 2000)
+        m_objPRD4HorsFactureColisage.bStock = True
+        m_objPRD4HorsFactureColisage.bFactureColisage = False
+        m_objPRD4HorsFactureColisage.save()
 
         Persist.shared_disconnect()
     End Sub
@@ -226,6 +232,123 @@ Imports CrystalDecisions.Shared
 
     End Sub
 
+    ''' <summary>
+    ''' Test que les produit hors 'FactureColisage' ne sont pas pris dans la génaration des factures de colisage
+    ''' </summary>
+    ''' <remarks></remarks>
+    <TestMethod()> Public Sub T60_GenerationFactureColisagePrdHorsFactureColisage()
+
+        Dim oCmd As CommandeClient
+        Dim oFactCol1 As FactColisageJ
+        Dim oLgFactCol As LgFactColisage
+        Dim oLgCmd As LgCommande
+        Dim oMvtStk As mvtStock
+
+
+        'Ajout de Stockinitial
+
+        Persist.shared_connect()
+        m_objPRD.ajouteLigneMvtStock(CDate("01/01/1964"), vncTypeMvt.vncMvtInventaire, 0, "Inventaire au 31/01/1964", 120)
+        m_objPRD.savecolmvtStock()
+
+        m_objPRD4HorsStock.ajouteLigneMvtStock(CDate("01/01/1964"), vncTypeMvt.vncMvtInventaire, 0, "Inventaire au 31/01/1964", 100)
+        m_objPRD4HorsStock.savecolmvtStock()
+
+        m_objPRD4HorsFactureColisage.ajouteLigneMvtStock(CDate("01/01/1964"), vncTypeMvt.vncMvtInventaire, 0, "Inventaire au 31/01/1964", 100)
+        m_objPRD4HorsFactureColisage.savecolmvtStock()
+
+        Persist.shared_disconnect()
+
+        oCmd = New CommandeClient(m_objCLT)
+        oCmd.dateCommande = CDate("01/02/1964")
+
+        oCmd.AjouteLigne("10", m_objPRD, 12, 10.5)
+        oCmd.save()
+        oCmd.changeEtat(vncActionEtatCommande.vncActionValider)
+        ' Livraison de la commande
+        oCmd.changeEtat(vncActionEtatCommande.vncActionLivrer)
+        oCmd.dateLivraison = CDate("01/02/1964")
+        For Each oLgCmd In oCmd.colLignes
+            oLgCmd.qteLiv = oLgCmd.qteCommande
+        Next
+        oCmd.save()
+
+        ' Création d'une seconde Commande avec le produit Hors Stock
+        oCmd = New CommandeClient(m_objCLT)
+        oCmd.dateCommande = CDate("01/02/1964")
+
+        oCmd.AjouteLigne("10", m_objPRD4HorsStock, 12, 10.5)
+        oCmd.save()
+        oCmd.changeEtat(vncActionEtatCommande.vncActionValider)
+        ' Livraison de la commande
+        oCmd.changeEtat(vncActionEtatCommande.vncActionLivrer)
+        oCmd.dateLivraison = CDate("01/02/1964")
+        For Each oLgCmd In oCmd.colLignes
+            oLgCmd.qteLiv = oLgCmd.qteCommande
+        Next
+        oCmd.save()
+
+        ' Création d'une Troisième Commande avec le produit Hors Facturation
+        oCmd = New CommandeClient(m_objCLT)
+        oCmd.dateCommande = CDate("01/02/1964")
+
+        oCmd.AjouteLigne("10", m_objPRD4HorsFactureColisage, 12, 10.5)
+        oCmd.save()
+        oCmd.changeEtat(vncActionEtatCommande.vncActionValider)
+        ' Livraison de la commande
+        oCmd.changeEtat(vncActionEtatCommande.vncActionLivrer)
+        oCmd.dateLivraison = CDate("01/02/1964")
+        For Each oLgCmd In oCmd.colLignes
+            oLgCmd.qteLiv = oLgCmd.qteCommande
+        Next
+        oCmd.save()
+
+        ' Fournisseur 1
+        oFactCol1 = FactColisageJ.GenereFacture(CDate("1/02/1964"), m_objFRN, Dossier.VINICOM)
+        Assert.IsNotNull(oFactCol1, "FactCol1 generée")
+
+
+        Assert.IsTrue(oFactCol1.id = 0, "fActure non Sauvegardée")
+        Assert.AreEqual(1, oFactCol1.colLignes.Count, "1 seule ligne de Facture")
+
+        oLgFactCol = oFactCol1.colLignes(1)
+        Assert.AreEqual(m_objPRD.id, oLgFactCol.oProduit.id)
+
+
+        oFactCol1.save()
+
+
+        ' La sauvegarde met à ajour la liste des mvts de stock (etat et idFactrColisage)
+        Dim ocol As Collection
+        ' La Liste des Mvts de stocks ne concerne que les produits en stocks
+        ocol = mvtStock.getListe2(CDate("01/02/1964"), CDate("28/02/1964"), m_objFRN, vncEtatMVTSTK.vncMVTSTK_nFact)
+        Assert.AreEqual(0, ocol.Count, "Mvt.non facturés")
+
+        ocol = mvtStock.getListe2(CDate("01/01/1964"), CDate("28/02/1964"), m_objFRN, vncEtatMVTSTK.vncMVTSTK_Fact)
+        Assert.IsTrue(ocol.Count = 1, "Mvt facturés")
+        For Each oMvtStk In ocol
+            Assert.AreEqual(oFactCol1.id, oMvtStk.idFactColisage, "ID Facture colisage")
+        Next
+
+        'La Suppression de la facture libère les mouvements de stocks
+        oFactCol1.bDeleted = True
+        oFactCol1.save()
+
+        ocol = mvtStock.getListe2(CDate("01/02/1964"), CDate("28/02/1964"), m_objFRN, vncEtatMVTSTK.vncMVTSTK_nFact)
+        Assert.IsTrue(ocol.Count = 1, "Mvt.non facturés")
+        For Each oMvtStk In ocol
+            Assert.AreEqual(0, oMvtStk.idFactColisage, "ID Facture colisage")
+        Next
+        ocol = mvtStock.getListe2(CDate("01/01/1964"), CDate("28/02/1964"), m_objFRN, vncEtatMVTSTK.vncMVTSTK_Fact)
+        Assert.AreEqual(0, ocol.Count, "Mvt facturés")
+
+
+        oCmd.bDeleted = True
+        oCmd.save()
+
+
+
+    End Sub
 
     ''' <summary>
     ''' Test la génération du dataset Colisage
@@ -1398,12 +1521,12 @@ Imports CrystalDecisions.Shared
 
         ' La sauvegarde met à ajour la liste des mvts de stock (etat et idFactrColisage)
         Dim ocol As Collection
-        ocol = mvtStock.getListeDossierNonFacture(Dossier.HOBIVIN, CDate("01/02/2019"), CDate("28/02/2019"))
+        ocol = mvtStock.getListeDossierNonFacture(Dossier.HOBIVIN, CDate("01/02/2019"), CDate("28/02/2019"), False)
         Assert.AreEqual(0, ocol.Count, "Mvt.non facturés")
 
         oFactCol1.bDeleted = True
         oFactCol1.save()
-        ocol = mvtStock.getListeDossierNonFacture(Dossier.HOBIVIN, CDate("01/02/2019"), CDate("28/02/2019"))
+        ocol = mvtStock.getListeDossierNonFacture(Dossier.HOBIVIN, CDate("01/02/2019"), CDate("28/02/2019"), False)
         Assert.IsTrue(ocol.Count > 0, "Mvt.non facturés")
         For Each oMvtStk In ocol
             Assert.AreEqual(0, oMvtStk.idFactColisage, "ID Facture colisage")

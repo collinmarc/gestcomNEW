@@ -334,7 +334,7 @@ Public Class mvtStock
         Return colReturn
     End Function 'getListe
 
-    Public Shared Function getListe2(ByVal pDateDebut As Date, ByVal pDateFin As Date, Optional ByVal pFournisseur As Fournisseur = Nothing, Optional ByVal pEtat As vncEtatMVTSTK = vncEtatMVTSTK.vncMVTSTK_Tous, Optional pdossier As String = "") As Collection
+    Public Shared Function getListe2(ByVal pDateDebut As Date, ByVal pDateFin As Date, Optional ByVal pFournisseur As Fournisseur = Nothing, Optional ByVal pEtat As vncEtatMVTSTK = vncEtatMVTSTK.vncMVTSTK_Tous, Optional pdossier As String = "", Optional pbFiltreProduit As Boolean = True) As Collection
         '=======================================================================
         'Fonction : getListe()
         'Description : Rend une liste des mvt de stocks pour les produits en Stock avec un filtre éventuel sur l'ID du fournisseur
@@ -344,7 +344,7 @@ Public Class mvtStock
         Dim colReturn As Collection
 
         Persist.shared_connect()
-        colReturn = Persist.ListeMVTSTK2(pDateDebut, pDateFin, pFournisseur, pEtat, pdossier)
+        colReturn = Persist.ListeMVTSTK2(pDateDebut, pDateFin, pFournisseur, pbFiltreProduit, pEtat, pdossier)
         Persist.shared_disconnect()
         Return colReturn
     End Function 'getListe
@@ -356,21 +356,21 @@ Public Class mvtStock
     ''' <param name="pDateFin"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Shared Function getListeDossierNonFacture(pDossier As String, ByVal pDateDebut As Date, ByVal pDateFin As Date) As Collection
+    Public Shared Function getListeDossierNonFacture(pDossier As String, ByVal pDateDebut As Date, ByVal pDateFin As Date, pbFiltreProduit As Boolean) As Collection
 
         Dim colReturn As Collection
 
         Persist.shared_connect()
-        colReturn = Persist.ListeMVTSTKDossier(pDossier, pDateDebut, pDateFin, vncEtatMVTSTK.vncMVTSTK_nFact)
+        colReturn = Persist.ListeMVTSTKDossier(pDossier, pDateDebut, pDateFin, vncEtatMVTSTK.vncMVTSTK_nFact, pbFiltreProduit)
         Persist.shared_disconnect()
         Return colReturn
     End Function 'getListeDossierNonFacture
-    Public Shared Function getListeDossierFacture(pDossier As String, ByVal pDateDebut As Date, ByVal pDateFin As Date) As Collection
+    Public Shared Function getListeDossierFacture(pDossier As String, ByVal pDateDebut As Date, ByVal pDateFin As Date, pbFiltreProduit As Boolean) As Collection
 
         Dim colReturn As Collection
 
         Persist.shared_connect()
-        colReturn = Persist.ListeMVTSTKDossier(pDossier, pDateDebut, pDateFin, vncEtatMVTSTK.vncMVTSTK_Fact)
+        colReturn = Persist.ListeMVTSTKDossier(pDossier, pDateDebut, pDateFin, vncEtatMVTSTK.vncMVTSTK_Fact, pbFiltreProduit)
         Persist.shared_disconnect()
         Return colReturn
     End Function 'getListeDossierFacture

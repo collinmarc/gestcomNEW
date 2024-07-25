@@ -66,7 +66,6 @@ Public Class frmcrRecapColisage
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
         Me.CrystalReportViewer1.DisplayStatusBar = False
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(13, 77)
-        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(927, 557)
         Me.CrystalReportViewer1.TabIndex = 0
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None

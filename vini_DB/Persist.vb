@@ -1797,6 +1797,7 @@ Public MustInherit Class Persist
                                     "PRD_QTE_STOCK_DERN_INVENT, " &
                                     "PRD_DISPO , " &
                                     "PRD_STOCK, " &
+                                    "PRD_FACTURECOLISAGE, " &
                                     "PRD_CODE_STAT," &
                                     "PRD_TARIFA," &
                                     "PRD_TARIFB," &
@@ -1806,7 +1807,7 @@ Public MustInherit Class Persist
                                     "PRD_BARCHIVE, " &
                                     "PRD_DEPOT " &
                                     " ) VALUES (" &
-                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
+                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -1835,6 +1836,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_QTE_STOCK_DERN_INVENT(objOLeDBCommand)
         CreateParamP_PRD_DISPO(objOLeDBCommand)
         CreateParamP_PRD_STOCK(objOLeDBCommand)
+        CreateParamP_PRD_FACTURECOLISAGE(objOLeDBCommand)
         CreateParamP_PRD_CODE_STAT(objOLeDBCommand)
         CreateParamP_PRD_TARIFA(objOLeDBCommand)
         CreateParamP_PRD_TARIFB(objOLeDBCommand)
@@ -1904,6 +1906,7 @@ Public MustInherit Class Persist
                                     "PRD_QTE_STOCK_DERN_INVENT = ? , " &
                                     "PRD_DISPO = ? , " &
                                     "PRD_STOCK = ? , " &
+                                    "PRD_FACTURECOLISAGE = ? , " &
                                     "PRD_QTE_STK = ? ," &
                                     "PRD_CODE_STAT = ? ,  " &
                                     "PRD_TARIFA = ? ,  " &
@@ -1938,6 +1941,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_QTE_STOCK_DERN_INVENT(objOLeDBCommand)
         CreateParamP_PRD_DISPO(objOLeDBCommand)
         CreateParamP_PRD_STOCK(objOLeDBCommand)
+        CreateParamP_PRD_FACTURECOLISAGE(objOLeDBCommand)
         CreateParamP_PRD_QTE_STK(objOLeDBCommand)
         CreateParamP_PRD_CODE_STAT(objOLeDBCommand)
         CreateParamP_PRD_TARIFA(objOLeDBCommand)
@@ -1998,6 +2002,7 @@ Public MustInherit Class Persist
                                                   & "FOURNISSEUR.FRN_NOM , " _
                                                   & "RQ_Tva.PAR_VALUE AS TVA, " _
                                                   & "PRODUIT.PRD_STOCK, " _
+                                                  & "PRODUIT.PRD_FACTURECOLISAGE, " _
                                                   & "RQ_QTECMD_PRD.PRD_QTE_COMMANDE, " _
                                                   & "PRD_TARIFA, " _
                                                   & "PRD_TARIFB, " _
@@ -2874,7 +2879,7 @@ Public MustInherit Class Persist
     'Détails    :  
     'Retour : une collection triée
     '=======================================================================
-    Protected Shared Function ListeMVTSTK2(ByVal pddeb As Date, ByVal pdfin As Date, ByVal pFournisseur As Fournisseur, Optional ByVal pEtat As vncEtatMVTSTK = vncEtatMVTSTK.vncMVTSTK_Tous, Optional pDossier As String = "") As Collection
+    Protected Shared Function ListeMVTSTK2(ByVal pddeb As Date, ByVal pdfin As Date, ByVal pFournisseur As Fournisseur, pbFiltreProduit As Boolean, Optional ByVal pEtat As vncEtatMVTSTK = vncEtatMVTSTK.vncMVTSTK_Tous, Optional pDossier As String = "") As Collection
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
 
         Dim objCommand As OleDbCommand
@@ -2908,7 +2913,9 @@ Public MustInherit Class Persist
         End If
         If (pDossier <> "") Then
             strWhere = strWhere & " AND PRODUIT.PRD_DOSSIER = ? "
-
+        End If
+        If (pbFiltreProduit) Then
+            strWhere = strWhere & " AND PRODUIT.PRD_FACTURECOLISAGE = 1 "
         End If
 
         strWhere = strWhere & " AND PRODUIT.PRD_FRN_ID = ? "
@@ -2980,7 +2987,7 @@ Public MustInherit Class Persist
     ''' <param name="pEtat">Etat des Mouvement de Stock</param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Protected Shared Function ListeMVTSTKDossier(pdossier As String, ByVal pddeb As Date, ByVal pdfin As Date, pEtat As vncEtatMVTSTK) As Collection
+    Protected Shared Function ListeMVTSTKDossier(pdossier As String, ByVal pddeb As Date, ByVal pdfin As Date, pEtat As vncEtatMVTSTK, pbFiltreProduit As Boolean) As Collection
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
 
         Dim objCommand As OleDbCommand
@@ -3001,14 +3008,17 @@ Public MustInherit Class Persist
 
 
 
-        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM]," & _
-                                  " STK_ETAT, STK_IDFACTCOLISAGE " & _
+        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM]," &
+                                  " STK_ETAT, STK_IDFACTCOLISAGE " &
                                   " FROM MVT_STOCK  INNER JOIN PRODUIT ON MVT_STOCK.STK_PRD_ID = PRODUIT.PRD_ID"
         Dim strOrder As String = " STK_DATE ASC, MVT_STOCK.STK_TYPE DESC"
         Dim strWhere As String = " MVT_STOCK.STK_DATE >= ? AND  " _
                                     & " MVT_STOCK.STK_DATE <= ? AND " _
                                     & " PRODUIT.PRD_STOCK = 1"
 
+        If pbFiltreProduit Then
+            strWhere = strWhere & " AND PRODUIT.PRD_FACTURECOLISAGE = 1 "
+        End If
         If pEtat <> vncEtatMVTSTK.vncMVTSTK_Tous Then
             strWhere = strWhere & " AND  MVT_STOCK.STK_ETAT = ? "
         End If
@@ -4250,6 +4260,12 @@ Public MustInherit Class Persist
         Dim objPRD As Produit
         objPRD = Me
         objCommand.Parameters.AddWithValue("?", objPRD.bArchive)
+    End Sub
+    Private Sub CreateParamP_PRD_FACTURECOLISAGE(ByVal objCommand As OleDbCommand)
+        '        Dim objParam As OleDbParameter
+        Dim objPRD As Produit
+        objPRD = Me
+        objCommand.Parameters.AddWithValue("?", objPRD.bFactureColisage)
     End Sub
     Private Sub CreateParamP_PRD_STOCK(ByVal objCommand As OleDbCommand)
         '        Dim objParam As OleDbParameter

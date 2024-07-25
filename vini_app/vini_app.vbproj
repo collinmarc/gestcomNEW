@@ -195,9 +195,6 @@
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGeneFactColisage2.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmGeneFactCom2.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -1449,6 +1446,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Requetes\V20220105.sql" />
+    <Content Include="Requetes\V20240724.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Requetes\V20220411.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1553,10 +1553,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmGeneFactColisage2.resx">
-      <DependentUpon>frmGeneFactColisage2.vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneFactCom2.resx">
       <DependentUpon>frmGeneFactCom2.vb</DependentUpon>

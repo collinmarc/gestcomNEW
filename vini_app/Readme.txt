@@ -1,4 +1,5 @@
-﻿
+﻿V20240725
+	0001696: Ajout d'un indicateur Facture de colisage sur la fiche produit
 V20240709
 	0001682: L'import des commandes Hobivin reste bloqué
 	0001691: Les produits archivés apparaissent toujours dans l'état des stocks

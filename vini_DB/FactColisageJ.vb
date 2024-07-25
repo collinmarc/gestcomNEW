@@ -347,10 +347,10 @@ Public Class FactColisageJ
         For Each olgFactCol In colLignes
             'Recupération de la Liste des mouvements de stocks
             If dossierFact = Dossier.VINICOM Then
-                oColmvt = mvtStock.getListe2(dateDebut, dateFin, oFournisseur, vncEtatMVTSTK.vncMVTSTK_nFact)
+                oColmvt = mvtStock.getListe2(dateDebut, dateFin, oFournisseur, vncEtatMVTSTK.vncMVTSTK_nFact, pbFiltreProduit:=True)
             End If
             If dossierFact = Dossier.HOBIVIN Then
-                oColmvt = mvtStock.getListeDossierNonFacture(dossierFact, dateDebut, dateFin)
+                oColmvt = mvtStock.getListeDossierNonFacture(dossierFact, dateDebut, dateFin, True)
             End If
 
             For Each omvtStock In oColmvt
@@ -417,10 +417,10 @@ Public Class FactColisageJ
         For Each olgFactCol In colLignes
             'Recupération de la Liste des mouvements de stocks
             If dossierFact = Dossier.VINICOM Then
-                oColmvt = mvtStock.getListe2(dateDebut, dateFin, oFournisseur, vncEtatMVTSTK.vncMVTSTK_Fact)
+                oColmvt = mvtStock.getListe2(dateDebut, dateFin, oFournisseur, vncEtatMVTSTK.vncMVTSTK_Fact, pbFiltreProduit:=True)
             End If
             If dossierFact = Dossier.HOBIVIN Then
-                oColmvt = mvtStock.getListeDossierFacture(dossierFact, dateDebut, dateFin)
+                oColmvt = mvtStock.getListeDossierFacture(dossierFact, dateDebut, dateFin, True)
             End If
             For Each omvtStock In oColmvt
                 omvtStock.idFactColisage = 0
@@ -770,7 +770,7 @@ Public Class FactColisageJ
             End If
             'chargement des Mouvements de Stocks depuis le dernier inventaire et Calcul du Stock initial
             For Each oPRD As Produit In colPRD
-                If oPRD.bDisponible Then
+                If oPRD.bDisponible And oPRD.bFactureColisage Then
                     oPRD.load()
                     oPRD.loadcolmvtStockDepuisLeDernierMouvementInventaire()
                     oPRD.GenereDataSetRecapColisage(pdDeb, pdFin, pCout, pDS)
@@ -824,7 +824,7 @@ Public Class FactColisageJ
             End If
             'chargement des Mouvements de Stocks depuis le dernier inventaire et Calcul du Stock initial
             For Each oPRD As Produit In colPRD
-                If oPRD.bDisponible Then
+                If oPRD.bDisponible And oPRD.bFactureColisage Then
                     oPRD.load()
                     oPRD.loadcolmvtStockFactureColisage(pIdFactCol)
                     oPRD.GenereDataSetRecapColisage(pIdFactCol, pCout, pDS)
