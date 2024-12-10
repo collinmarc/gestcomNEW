@@ -1,0 +1,22 @@
+﻿/****** Suppression des factures de colisage de novembre  ******/
+/** MOUVEMENTS DE STOCK **/
+UPDATE MVT_STOCK SET STK_IDFACTCOLISAGE = 0 , STK_ETAT = 0
+where STK_IDFACTCOLISAGE in (SELECT [FCOL_ID]
+  FROM [FACTCOLISAGE]
+  WHERE FCOL_periode = 'novembre 2024')
+  
+DELETE
+  FROM [MVT_STOCK]
+  where STK_TYPE = 1 AND STK_DATE = '2024-11-01';
+/** LIGNE DE FACTURE **/  
+  DELETE From LGFACTCOLISAGE where LGCOL_FACTCOL_ID in (SELECT [FCOL_ID]
+  FROM [FACTCOLISAGE]
+  WHERE FCOL_periode = 'novembre 2024')
+
+/** FACTURES **/  
+DELETE  FROM [FACTCOLISAGE]
+  WHERE FCOL_periode = 'novembre 2024';
+
+/** CONSTANTES **/  
+UPDATE CONSTANTES SET CST_DERN_NUM_FACT_COLISAGE = 9790;
+
