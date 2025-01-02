@@ -29,6 +29,8 @@ Public Class frmGestionMillesime
     Friend WithEvents MillesimeCode As DataGridViewTextBoxColumn
     Friend WithEvents codeStat As DataGridViewTextBoxColumn
     Friend WithEvents BDisponibleDataGridViewCheckBoxColumn As DataGridViewCheckBoxColumn
+    Friend WithEvents bStock As DataGridViewCheckBoxColumn
+    Friend WithEvents bFactureColisage As DataGridViewCheckBoxColumn
     Friend WithEvents BArchiveDataGridViewCheckBoxColumn As DataGridViewCheckBoxColumn
     Friend WithEvents TarifADataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TarifBDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -110,6 +112,8 @@ Public Class frmGestionMillesime
         Me.MillesimeCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.codeStat = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BDisponibleDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.bStock = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.bFactureColisage = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.BArchiveDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.TarifADataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -308,7 +312,7 @@ Public Class frmGestionMillesime
         Me.dgvPrdMillesime.AutoGenerateColumns = False
         Me.dgvPrdMillesime.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvPrdMillesime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPrdMillesime.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.millesime, Me.MillesimeCode, Me.codeStat, Me.BDisponibleDataGridViewCheckBoxColumn, Me.BArchiveDataGridViewCheckBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifCDataGridViewTextBoxColumn, Me.TarifDDataGridViewTextBoxColumn})
+        Me.dgvPrdMillesime.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.millesime, Me.MillesimeCode, Me.codeStat, Me.BDisponibleDataGridViewCheckBoxColumn, Me.bStock, Me.bFactureColisage, Me.BArchiveDataGridViewCheckBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifCDataGridViewTextBoxColumn, Me.TarifDDataGridViewTextBoxColumn})
         Me.dgvPrdMillesime.DataSource = Me.m_bsrcProduitMillesime
         Me.dgvPrdMillesime.Name = "dgvPrdMillesime"
         '
@@ -357,6 +361,18 @@ Public Class frmGestionMillesime
         Me.BDisponibleDataGridViewCheckBoxColumn.DataPropertyName = "bDisponible"
         resources.ApplyResources(Me.BDisponibleDataGridViewCheckBoxColumn, "BDisponibleDataGridViewCheckBoxColumn")
         Me.BDisponibleDataGridViewCheckBoxColumn.Name = "BDisponibleDataGridViewCheckBoxColumn"
+        '
+        'bStock
+        '
+        Me.bStock.DataPropertyName = "bStock"
+        resources.ApplyResources(Me.bStock, "bStock")
+        Me.bStock.Name = "bStock"
+        '
+        'bFactureColisage
+        '
+        Me.bFactureColisage.DataPropertyName = "bFactureColisage"
+        resources.ApplyResources(Me.bFactureColisage, "bFactureColisage")
+        Me.bFactureColisage.Name = "bFactureColisage"
         '
         'BArchiveDataGridViewCheckBoxColumn
         '
@@ -633,6 +649,8 @@ Public Class frmGestionMillesime
         oProduit.TarifB = m_objProduitCourant.TarifB
         oProduit.TarifC = m_objProduitCourant.TarifC
         oProduit.TarifD = m_objProduitCourant.TarifD
+        oProduit.bStock = m_objProduitCourant.bStock
+        oProduit.bFactureColisage = m_objProduitCourant.bFactureColisage
 
         m_bsrcProduitMillesime.Add(oProduit)
         m_bsrcProduitMillesime.MoveLast()

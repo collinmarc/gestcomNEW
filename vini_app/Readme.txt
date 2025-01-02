@@ -1,4 +1,6 @@
-﻿V20240725
+﻿VXXXXXXX
+	0001742: L'ajout d'un millésime sur un produit plateforme
+V20240725
 	0001696: Ajout d'un indicateur Facture de colisage sur la fiche produit
 V20240709
 	0001682: L'import des commandes Hobivin reste bloqué
