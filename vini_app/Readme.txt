@@ -1,5 +1,7 @@
 ﻿VXXXXXXX
 	0001742: L'ajout d'un millésime sur un produit plateforme
+V20250115
+	0001746: MAJ des etats crRegistreLivraison et crLstEntreePlateforme
 V20240725
 	0001696: Ajout d'un indicateur Facture de colisage sur la fiche produit
 V20240709
