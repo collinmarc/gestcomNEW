@@ -1,5 +1,6 @@
 ﻿VXXXXXXX
-	0001742: L'ajout d'un millésime sur un produit plateforme
+	0001742: L'ajout d'un millésime sur un produit plateforme => MAJ du flag
+
 V20250115
 	0001746: MAJ des etats crRegistreLivraison et crLstEntreePlateforme
 V20240725

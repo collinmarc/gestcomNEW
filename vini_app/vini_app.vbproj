@@ -119,6 +119,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>crDetailCommandeClient.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="cr\crEnteteHBV.vb">
       <DependentUpon>crEnteteHBV.rpt</DependentUpon>
@@ -1530,6 +1531,7 @@
     <EmbeddedResource Include="cr\crDetailCommandeClient.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crDetailCommandeClient.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="cr\crFactureColisageOLD.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
