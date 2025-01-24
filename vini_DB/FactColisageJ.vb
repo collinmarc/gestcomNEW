@@ -355,7 +355,7 @@ Public Class FactColisageJ
 
             For Each omvtStock In oColmvt
                 objPRD = New Produit()
-                objPRD.DBLoadLight(omvtStock.idProduit)
+                objPRD.DBLoad2(omvtStock.idProduit)
                 If (objPRD.bStock) Then
                     omvtStock.idFactColisage = Me.id
                     omvtStock.changeEtat(vncActionFactColisage.vncActionFacturer)

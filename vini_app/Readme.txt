@@ -1,4 +1,6 @@
 ﻿VXXXXXXX
+		0001769: L'indicateur Facturecolisage est désactivé automatiquement
+V20250122
 	0001742: L'ajout d'un millésime sur un produit plateforme => MAJ du flag
 
 V20250115

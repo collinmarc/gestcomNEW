@@ -149,6 +149,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="cr\crListeFactColisageParNumero - Copier.vb">
+      <DependentUpon>crListeFactColisageParNumero - Copier.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="cr\crListeFactComParNumero.vb">
       <DependentUpon>crListeFactComParNumero.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1457,6 +1464,7 @@
     <Content Include="Requetes\V20220110.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Requetes\V20250121170000.sql" />
     <Content Include="Requetes\V6002-UpdateCLT_ORIGINE.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1500,11 +1508,6 @@
       <LastGenOutput>crListeFactTRPParNumero.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr\crListeFactColisageParNumero.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crListeFactColisageParNumero.vb</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="cr\crRecapColisageJournalier.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRecapColisageJournalier.vb</LastGenOutput>
@@ -1538,6 +1541,16 @@
       <LastGenOutput>crFactureColisageOLD.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Content Include="cr\crListeFactColisageParNumero - Copier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crListeFactColisageParNumero - Copier.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cr\crListeFactColisageParNumero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crListeFactColisageParNumero.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="cr\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.vb</LastGenOutput>

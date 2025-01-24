@@ -7675,7 +7675,7 @@ Public MustInherit Class Persist
             shared_connect()
             For Each objLGCMD In objCMD.colLignes
                 '                objLGCMD.oProduit.load()
-                objLGCMD.oProduit.DBLoadLight()
+                objLGCMD.oProduit.DBLoad2()
             Next
             shared_disconnect()
 
@@ -7695,31 +7695,31 @@ Public MustInherit Class Persist
     Protected Function UPDATEcolLGCMD() As Boolean
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "La Commande.id  <> 0")
-        Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.COMMANDECLIENT Or _
-                    m_typedonnee = vncEnums.vncTypeDonnee.SSCOMMANDE Or _
+        Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.COMMANDECLIENT Or
+                    m_typedonnee = vncEnums.vncTypeDonnee.SSCOMMANDE Or
                     m_typedonnee = vncEnums.vncTypeDonnee.BA _
                     , "Objet de type CommandeClient ou SousCommande requis")
 
 
-        Dim sqlString As String = "UPDATE LIGNE_COMMANDE SET " & _
-                                    " LGCM_CMD_ID = ? ," & _
-                                    " LGCM_SCMD_ID= ? ," & _
-                                    " LGCM_BA_ID= ? ," & _
-                                    " LGCM_NUM= ? ," & _
-                                    " LGCM_PRD_ID = ? ," & _
-                                    " LGCM_QTE_COMMANDE = ? ," & _
-                                    " LGCM_QTE_LIV = ? ," & _
-                                    " LGCM_QTE_FACT = ? ," & _
-                                    " LGCM_PRIX_UNITAIRE = ? ," & _
-                                    " LGCM_PRIX_HT = ? ," & _
-                                    " LGCM_PRIX_TTC= ? ," & _
-                                    " LGCM_POIDS = ? , " & _
-                                    " LGCM_QTE_COLIS = ? , " & _
-                                    " LGCM_TXCOMM = ? , " & _
-                                    " LGCM_MTCOMM = ? , " & _
-                                    " LGCM_BGRATUIT = ? , " & _
-                                    " LGCM_BECLATEE = ?" & _
-                                    " WHERE " & _
+        Dim sqlString As String = "UPDATE LIGNE_COMMANDE SET " &
+                                    " LGCM_CMD_ID = ? ," &
+                                    " LGCM_SCMD_ID= ? ," &
+                                    " LGCM_BA_ID= ? ," &
+                                    " LGCM_NUM= ? ," &
+                                    " LGCM_PRD_ID = ? ," &
+                                    " LGCM_QTE_COMMANDE = ? ," &
+                                    " LGCM_QTE_LIV = ? ," &
+                                    " LGCM_QTE_FACT = ? ," &
+                                    " LGCM_PRIX_UNITAIRE = ? ," &
+                                    " LGCM_PRIX_HT = ? ," &
+                                    " LGCM_PRIX_TTC= ? ," &
+                                    " LGCM_POIDS = ? , " &
+                                    " LGCM_QTE_COLIS = ? , " &
+                                    " LGCM_TXCOMM = ? , " &
+                                    " LGCM_MTCOMM = ? , " &
+                                    " LGCM_BGRATUIT = ? , " &
+                                    " LGCM_BECLATEE = ?" &
+                                    " WHERE " &
                                     " LGCM_ID = ?"
         Dim objCommand As OleDbCommand
         Dim objCMD As Commande
@@ -7816,52 +7816,52 @@ Public MustInherit Class Persist
 
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "Le Client doit être Sauvegardé")
-        Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.BA Or _
-                     m_typedonnee = vncEnums.vncTypeDonnee.COMMANDECLIENT Or _
+        Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.BA Or
+                     m_typedonnee = vncEnums.vncTypeDonnee.COMMANDECLIENT Or
                      m_typedonnee = vncEnums.vncTypeDonnee.SSCOMMANDE _
                         , "Objet de type CommandeClient ou SousCommande ou bonAppro requis")
         objCMD = Me
         Debug.Assert(Not objCMD.colLignes Is Nothing, "ColLignes is Nothing")
 
 
-        Dim sqlString As String = "INSERT INTO LIGNE_COMMANDE (" & _
-                                    "LGCM_NUM," & _
-                                    "LGCM_CODE," & _
-                                    "LGCM_CMD_ID," & _
-                                    "LGCM_SCMD_ID," & _
-                                    "LGCM_PRD_ID," & _
-                                    "LGCM_QTE_COMMANDE," & _
-                                    "LGCM_QTE_LIV," & _
-                                    "LGCM_QTE_FACT," & _
-                                    "LGCM_PRIX_UNITAIRE," & _
-                                    "LGCM_PRIX_HT," & _
-                                    "LGCM_PRIX_TTC," & _
-                                    "LGCM_BGRATUIT," & _
-                                    "LGCM_BECLATEE, " & _
-                                    "LGCM_POIDS, " & _
-                                    "LGCM_QTE_COLIS, " & _
-                                    "LGCM_TXCOMM, " & _
-                                    "LGCM_MTCOMM, " & _
-                                    "LGCM_BA_ID " & _
-                                    ") VALUES ( " & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "?" & _
+        Dim sqlString As String = "INSERT INTO LIGNE_COMMANDE (" &
+                                    "LGCM_NUM," &
+                                    "LGCM_CODE," &
+                                    "LGCM_CMD_ID," &
+                                    "LGCM_SCMD_ID," &
+                                    "LGCM_PRD_ID," &
+                                    "LGCM_QTE_COMMANDE," &
+                                    "LGCM_QTE_LIV," &
+                                    "LGCM_QTE_FACT," &
+                                    "LGCM_PRIX_UNITAIRE," &
+                                    "LGCM_PRIX_HT," &
+                                    "LGCM_PRIX_TTC," &
+                                    "LGCM_BGRATUIT," &
+                                    "LGCM_BECLATEE, " &
+                                    "LGCM_POIDS, " &
+                                    "LGCM_QTE_COLIS, " &
+                                    "LGCM_TXCOMM, " &
+                                    "LGCM_MTCOMM, " &
+                                    "LGCM_BA_ID " &
+                                    ") VALUES ( " &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "?" &
                                   " )"
         Dim objCommand As OleDbCommand
         Dim objCommand2 As OleDbCommand
@@ -7983,8 +7983,8 @@ Public MustInherit Class Persist
     Protected Function deletecolLgCMD() As Boolean
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "Id <> 0")
-        Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.BA Or _
-                     m_typedonnee = vncEnums.vncTypeDonnee.COMMANDECLIENT Or _
+        Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.BA Or
+                     m_typedonnee = vncEnums.vncTypeDonnee.COMMANDECLIENT Or
                      m_typedonnee = vncEnums.vncTypeDonnee.SSCOMMANDE _
                         , "Objet de type CommandeClient ou SousCommande ou bonAppro requis")
 
@@ -8212,7 +8212,7 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT CMD_ID, CMD_CODE, CMD_DATE, FRN_ID , FRN_CODE, FRN_RS, CMD_ETAT " & _
+        Dim sqlString As String = "SELECT CMD_ID, CMD_CODE, CMD_DATE, FRN_ID , FRN_CODE, FRN_RS, CMD_ETAT " &
                                     "FROM BONAPPRO , FOURNISSEUR "
         Dim strWhere As String = " BONAPPRO.CMD_FRN_ID = FOURNISSEUR.FRN_ID "
         Dim objCommand As OleDbCommand
@@ -8327,8 +8327,8 @@ Public MustInherit Class Persist
         Dim colReturn As New Collection
         Dim colTemp As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT " & _
-                                    "CMD_ID, FRN_ID " & _
+        Dim sqlString As String = "SELECT " &
+                                    "CMD_ID, FRN_ID " &
                                   " FROM BONAPPRO, FOURNISSEUR "
 
         Dim strWhere As String = " BONAPPRO.CMD_FRN_ID = FOURNISSEUR.FRN_ID "
@@ -8531,136 +8531,136 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         objBA = CType(Me, BonAppro)
 
-        Dim sqlString As String = "INSERT INTO BONAPPRO( " & _
-                                    "CMD_FRN_ID," & _
-                                    "CMD_DATE," & _
-                                    "CMD_DATE_VALID," & _
-                                    "CMD_DATE_LIV," & _
-                                    "CMD_DATE_ENLEV," & _
-                                    "CMD_REF_LIV," & _
-                                    "CMD_ETAT," & _
-                                    "CMD_TOTAL_HT," & _
-                                    "CMD_TOTAL_TTC," & _
-                                    "CMD_TYPE," & _
-                                    "CMD_TYPE_TRANSPORT," & _
-                                    "CMD_CODE," & _
-                                    "CMD_CLT_LIV_NOM," & _
-                                    "CMD_CLT_LIV_RUE1," & _
-                                    "CMD_CLT_LIV_RUE2," & _
-                                    "CMD_CLT_LIV_CP," & _
-                                    "CMD_CLT_LIV_VILLE," & _
-                                    "CMD_CLT_LIV_TEL," & _
-                                    "CMD_CLT_LIV_FAX," & _
-                                    "CMD_CLT_LIV_PORT," & _
-                                    "CMD_CLT_LIV_EMAIL," & _
-                                    "CMD_CLT_ADR_IDENT," & _
-                                    "CMD_CLT_FACT_NOM," & _
-                                    "CMD_CLT_FACT_RUE1," & _
-                                    "CMD_CLT_FACT_RUE2," & _
-                                    "CMD_CLT_FACT_CP," & _
-                                    "CMD_CLT_FACT_VILLE," & _
-                                    "CMD_CLT_FACT_TEL," & _
-                                    "CMD_CLT_FACT_FAX," & _
-                                    "CMD_CLT_FACT_PORT," & _
-                                    "CMD_CLT_FACT_EMAIL," & _
-                                    "CMD_CLT_RGLMT_ID," & _
-                                    "CMD_CLT_BANQUE," & _
-                                    "CMD_CLT_RIB1," & _
-                                    "CMD_CLT_RIB2," & _
-                                    "CMD_CLT_RIB3," & _
-                                    "CMD_CLT_RIB4," & _
-                                    "CMD_COM_LIBRE," & _
-                                    "CMD_COM_COM," & _
-                                    "CMD_COM_LIV," & _
-                                    "CMD_COM_FACT," & _
-                                    "CMD_TRP_ID," & _
-                                    "CMD_TRP_CODE," & _
-                                    "CMD_TRP_NOM," & _
-                                    "CMD_TRP_RUE1," & _
-                                    "CMD_TRP_RUE2," & _
-                                    "CMD_TRP_CP," & _
-                                    "CMD_TRP_VILLE," & _
-                                    "CMD_TRP_TEL," & _
-                                    "CMD_TRP_FAX," & _
-                                    "CMD_TRP_PORT," & _
-                                    "CMD_TRP_EMAIL," & _
-                                    "CMD_QTE_COLIS," & _
-                                    "CMD_QTE_PAL_PREP," & _
-                                    "CMD_QTE_PAL_NONPREP," & _
-                                    "CMD_POIDS," & _
-                                    "CMD_PU_PAL_PREP," & _
-                                    "CMD_PU_PAL_NONPREP," & _
-                                    "CMD_MT_TRANSPORT," & _
-                                    "CMD_LETTREVOITURE," & _
-                                    "CMD_COUT_TRANSPORT," & _
-                                    "CMD_REFFACT_TRP," & _
-                                    "CMD_CLT_NOM," & _
-                                    "CMD_CLT_RS" & _
-                                  " ) VALUES ( " & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? , " & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "?" & _
+        Dim sqlString As String = "INSERT INTO BONAPPRO( " &
+                                    "CMD_FRN_ID," &
+                                    "CMD_DATE," &
+                                    "CMD_DATE_VALID," &
+                                    "CMD_DATE_LIV," &
+                                    "CMD_DATE_ENLEV," &
+                                    "CMD_REF_LIV," &
+                                    "CMD_ETAT," &
+                                    "CMD_TOTAL_HT," &
+                                    "CMD_TOTAL_TTC," &
+                                    "CMD_TYPE," &
+                                    "CMD_TYPE_TRANSPORT," &
+                                    "CMD_CODE," &
+                                    "CMD_CLT_LIV_NOM," &
+                                    "CMD_CLT_LIV_RUE1," &
+                                    "CMD_CLT_LIV_RUE2," &
+                                    "CMD_CLT_LIV_CP," &
+                                    "CMD_CLT_LIV_VILLE," &
+                                    "CMD_CLT_LIV_TEL," &
+                                    "CMD_CLT_LIV_FAX," &
+                                    "CMD_CLT_LIV_PORT," &
+                                    "CMD_CLT_LIV_EMAIL," &
+                                    "CMD_CLT_ADR_IDENT," &
+                                    "CMD_CLT_FACT_NOM," &
+                                    "CMD_CLT_FACT_RUE1," &
+                                    "CMD_CLT_FACT_RUE2," &
+                                    "CMD_CLT_FACT_CP," &
+                                    "CMD_CLT_FACT_VILLE," &
+                                    "CMD_CLT_FACT_TEL," &
+                                    "CMD_CLT_FACT_FAX," &
+                                    "CMD_CLT_FACT_PORT," &
+                                    "CMD_CLT_FACT_EMAIL," &
+                                    "CMD_CLT_RGLMT_ID," &
+                                    "CMD_CLT_BANQUE," &
+                                    "CMD_CLT_RIB1," &
+                                    "CMD_CLT_RIB2," &
+                                    "CMD_CLT_RIB3," &
+                                    "CMD_CLT_RIB4," &
+                                    "CMD_COM_LIBRE," &
+                                    "CMD_COM_COM," &
+                                    "CMD_COM_LIV," &
+                                    "CMD_COM_FACT," &
+                                    "CMD_TRP_ID," &
+                                    "CMD_TRP_CODE," &
+                                    "CMD_TRP_NOM," &
+                                    "CMD_TRP_RUE1," &
+                                    "CMD_TRP_RUE2," &
+                                    "CMD_TRP_CP," &
+                                    "CMD_TRP_VILLE," &
+                                    "CMD_TRP_TEL," &
+                                    "CMD_TRP_FAX," &
+                                    "CMD_TRP_PORT," &
+                                    "CMD_TRP_EMAIL," &
+                                    "CMD_QTE_COLIS," &
+                                    "CMD_QTE_PAL_PREP," &
+                                    "CMD_QTE_PAL_NONPREP," &
+                                    "CMD_POIDS," &
+                                    "CMD_PU_PAL_PREP," &
+                                    "CMD_PU_PAL_NONPREP," &
+                                    "CMD_MT_TRANSPORT," &
+                                    "CMD_LETTREVOITURE," &
+                                    "CMD_COUT_TRANSPORT," &
+                                    "CMD_REFFACT_TRP," &
+                                    "CMD_CLT_NOM," &
+                                    "CMD_CLT_RS" &
+                                  " ) VALUES ( " &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? , " &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "?" &
                                     " )"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -8773,73 +8773,73 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "CMD_FRN_ID," & _
-                                    "CMD_DATE," & _
-                                    "CMD_DATE_VALID," & _
-                                    "CMD_DATE_LIV," & _
-                                    "CMD_DATE_ENLEV," & _
-                                    "CMD_REF_LIV," & _
-                                    "CMD_ETAT," & _
-                                    "CMD_TOTAL_HT," & _
-                                    "CMD_TOTAL_TTC," & _
-                                    "CMD_TYPE," & _
-                                    "CMD_TYPE_TRANSPORT," & _
-                                    "CMD_CODE," & _
-                                    "CMD_CLT_NOM," & _
-                                    "CMD_CLT_RS," & _
-                                    "CMD_CLT_LIV_NOM," & _
-                                    "CMD_CLT_LIV_RUE1," & _
-                                    "CMD_CLT_LIV_RUE2," & _
-                                    "CMD_CLT_LIV_CP," & _
-                                    "CMD_CLT_LIV_VILLE," & _
-                                    "CMD_CLT_LIV_TEL," & _
-                                    "CMD_CLT_LIV_FAX," & _
-                                    "CMD_CLT_LIV_PORT," & _
-                                    "CMD_CLT_LIV_EMAIL," & _
-                                    "CMD_CLT_ADR_IDENT," & _
-                                    "CMD_CLT_FACT_NOM," & _
-                                    "CMD_CLT_FACT_RUE1," & _
-                                    "CMD_CLT_FACT_RUE2," & _
-                                    "CMD_CLT_FACT_CP," & _
-                                    "CMD_CLT_FACT_VILLE," & _
-                                    "CMD_CLT_FACT_TEL," & _
-                                    "CMD_CLT_FACT_FAX," & _
-                                    "CMD_CLT_FACT_PORT," & _
-                                    "CMD_CLT_FACT_EMAIL," & _
-                                    "CMD_CLT_RGLMT_ID," & _
-                                    "CMD_CLT_BANQUE," & _
-                                    "CMD_CLT_RIB1," & _
-                                    "CMD_CLT_RIB2," & _
-                                    "CMD_CLT_RIB3," & _
-                                    "CMD_CLT_RIB4," & _
-                                    "CMD_COM_LIBRE," & _
-                                    "CMD_COM_COM," & _
-                                    "CMD_COM_LIV," & _
-                                    "CMD_COM_FACT," & _
-                                    "CMD_TRP_ID," & _
-                                    "CMD_TRP_CODE," & _
-                                    "CMD_TRP_NOM," & _
-                                    "CMD_TRP_RUE1," & _
-                                    "CMD_TRP_RUE2," & _
-                                    "CMD_TRP_CP," & _
-                                    "CMD_TRP_VILLE," & _
-                                    "CMD_TRP_TEL," & _
-                                    "CMD_TRP_FAX," & _
-                                    "CMD_TRP_PORT," & _
-                                    "CMD_TRP_EMAIL, " & _
-                                    "CMD_QTE_COLIS, " & _
-                                    "CMD_QTE_PAL_PREP, " & _
-                                    "CMD_QTE_PAL_NONPREP, " & _
-                                    "CMD_POIDS, " & _
-                                    "CMD_PU_PAL_PREP, " & _
-                                    "CMD_PU_PAL_NONPREP, " & _
-                                    "CMD_MT_TRANSPORT, " & _
-                                    "CMD_LETTREVOITURE, " & _
-                                    "CMD_COUT_TRANSPORT, " & _
-                                    "CMD_REFFACT_TRP, " & _
-                                    "RQ_MODEREGLEMENT.PAR_VALUE " & _
-                                    " FROM BONAPPRO  LEFT OUTER JOIN RQ_ModeReglement ON BONAPPRO.CMD_CLT_RGLMT_ID = RQ_ModeReglement.PAR_ID WHERE  " & _
+        Dim sqlString As String = "SELECT " &
+                                    "CMD_FRN_ID," &
+                                    "CMD_DATE," &
+                                    "CMD_DATE_VALID," &
+                                    "CMD_DATE_LIV," &
+                                    "CMD_DATE_ENLEV," &
+                                    "CMD_REF_LIV," &
+                                    "CMD_ETAT," &
+                                    "CMD_TOTAL_HT," &
+                                    "CMD_TOTAL_TTC," &
+                                    "CMD_TYPE," &
+                                    "CMD_TYPE_TRANSPORT," &
+                                    "CMD_CODE," &
+                                    "CMD_CLT_NOM," &
+                                    "CMD_CLT_RS," &
+                                    "CMD_CLT_LIV_NOM," &
+                                    "CMD_CLT_LIV_RUE1," &
+                                    "CMD_CLT_LIV_RUE2," &
+                                    "CMD_CLT_LIV_CP," &
+                                    "CMD_CLT_LIV_VILLE," &
+                                    "CMD_CLT_LIV_TEL," &
+                                    "CMD_CLT_LIV_FAX," &
+                                    "CMD_CLT_LIV_PORT," &
+                                    "CMD_CLT_LIV_EMAIL," &
+                                    "CMD_CLT_ADR_IDENT," &
+                                    "CMD_CLT_FACT_NOM," &
+                                    "CMD_CLT_FACT_RUE1," &
+                                    "CMD_CLT_FACT_RUE2," &
+                                    "CMD_CLT_FACT_CP," &
+                                    "CMD_CLT_FACT_VILLE," &
+                                    "CMD_CLT_FACT_TEL," &
+                                    "CMD_CLT_FACT_FAX," &
+                                    "CMD_CLT_FACT_PORT," &
+                                    "CMD_CLT_FACT_EMAIL," &
+                                    "CMD_CLT_RGLMT_ID," &
+                                    "CMD_CLT_BANQUE," &
+                                    "CMD_CLT_RIB1," &
+                                    "CMD_CLT_RIB2," &
+                                    "CMD_CLT_RIB3," &
+                                    "CMD_CLT_RIB4," &
+                                    "CMD_COM_LIBRE," &
+                                    "CMD_COM_COM," &
+                                    "CMD_COM_LIV," &
+                                    "CMD_COM_FACT," &
+                                    "CMD_TRP_ID," &
+                                    "CMD_TRP_CODE," &
+                                    "CMD_TRP_NOM," &
+                                    "CMD_TRP_RUE1," &
+                                    "CMD_TRP_RUE2," &
+                                    "CMD_TRP_CP," &
+                                    "CMD_TRP_VILLE," &
+                                    "CMD_TRP_TEL," &
+                                    "CMD_TRP_FAX," &
+                                    "CMD_TRP_PORT," &
+                                    "CMD_TRP_EMAIL, " &
+                                    "CMD_QTE_COLIS, " &
+                                    "CMD_QTE_PAL_PREP, " &
+                                    "CMD_QTE_PAL_NONPREP, " &
+                                    "CMD_POIDS, " &
+                                    "CMD_PU_PAL_PREP, " &
+                                    "CMD_PU_PAL_NONPREP, " &
+                                    "CMD_MT_TRANSPORT, " &
+                                    "CMD_LETTREVOITURE, " &
+                                    "CMD_COUT_TRANSPORT, " &
+                                    "CMD_REFFACT_TRP, " &
+                                    "RQ_MODEREGLEMENT.PAR_VALUE " &
+                                    " FROM BONAPPRO  LEFT OUTER JOIN RQ_ModeReglement ON BONAPPRO.CMD_CLT_RGLMT_ID = RQ_ModeReglement.PAR_ID WHERE  " &
                                    " CMD_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -9227,8 +9227,8 @@ Public MustInherit Class Persist
             End If
             bReturn = False
         End Try
-            Debug.Assert(bReturn, "LoadBA:" & getErreur())
-            Return bReturn
+        Debug.Assert(bReturn, "LoadBA:" & getErreur())
+        Return bReturn
     End Function 'LoadBA
     Protected Function updateBA() As Boolean
         '=======================================================================
@@ -9243,71 +9243,71 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "ID<>0")
 
-        Dim sqlString As String = "UPDATE BONAPPRO SET " & _
-                                    "CMD_FRN_ID = ? , " & _
-                                    "CMD_DATE = ? , " & _
-                                    "CMD_DATE_VALID = ? , " & _
-                                    "CMD_DATE_LIV = ? , " & _
-                                    "CMD_DATE_ENLEV = ? , " & _
-                                    "CMD_REF_LIV = ? , " & _
-                                    "CMD_ETAT = ? , " & _
-                                    "CMD_TOTAL_HT= ? ," & _
-                                    "CMD_TOTAL_TTC= ? ," & _
-                                    "CMD_TYPE= ? ," & _
-                                    "CMD_TYPE_TRANSPORT= ? ," & _
-                                    "CMD_CODE = ? ," & _
-                                    "CMD_CLT_LIV_NOM = ? ," & _
-                                    "CMD_CLT_LIV_RUE1= ? ," & _
-                                    "CMD_CLT_LIV_RUE2= ? ," & _
-                                    "CMD_CLT_LIV_CP= ? ," & _
-                                    "CMD_CLT_LIV_VILLE= ? ," & _
-                                    "CMD_CLT_LIV_TEL= ? ," & _
-                                    "CMD_CLT_LIV_FAX= ? ," & _
-                                    "CMD_CLT_LIV_PORT= ? ," & _
-                                    "CMD_CLT_LIV_EMAIL= ? ," & _
-                                    "CMD_CLT_ADR_IDENT= ? ," & _
-                                    "CMD_CLT_FACT_NOM= ? ," & _
-                                    "CMD_CLT_FACT_RUE1= ? ," & _
-                                    "CMD_CLT_FACT_RUE2= ? ," & _
-                                    "CMD_CLT_FACT_CP= ? ," & _
-                                    "CMD_CLT_FACT_VILLE= ? ," & _
-                                    "CMD_CLT_FACT_TEL= ? ," & _
-                                    "CMD_CLT_FACT_FAX= ? ," & _
-                                    "CMD_CLT_FACT_PORT= ? ," & _
-                                    "CMD_CLT_FACT_EMAIL= ? ," & _
-                                    "CMD_CLT_RGLMT_ID= ? ," & _
-                                    "CMD_CLT_BANQUE= ? ," & _
-                                    "CMD_CLT_RIB1= ? ," & _
-                                    "CMD_CLT_RIB2= ? ," & _
-                                    "CMD_CLT_RIB3= ? ," & _
-                                    "CMD_CLT_RIB4= ? ," & _
-                                    "CMD_COM_LIBRE= ? ," & _
-                                    "CMD_COM_COM= ? ," & _
-                                    "CMD_COM_LIV= ? ," & _
-                                    "CMD_COM_FACT= ? ," & _
-                                    "CMD_TRP_ID= ? ," & _
-                                    "CMD_TRP_CODE= ? ," & _
-                                    "CMD_TRP_NOM= ? ," & _
-                                    "CMD_TRP_RUE1= ? ," & _
-                                    "CMD_TRP_RUE2= ? ," & _
-                                    "CMD_TRP_CP= ? ," & _
-                                    "CMD_TRP_VILLE= ? ," & _
-                                    "CMD_TRP_TEL= ? ," & _
-                                    "CMD_TRP_FAX= ? ," & _
-                                    "CMD_TRP_PORT= ? ," & _
-                                    "CMD_TRP_EMAIL= ? ," & _
-                                    "CMD_QTE_COLIS= ? ," & _
-                                    "CMD_QTE_PAL_PREP= ? ," & _
-                                    "CMD_QTE_PAL_NONPREP= ? ," & _
-                                    "CMD_PU_PAL_PREP= ? ," & _
-                                    "CMD_PU_PAL_NONPREP= ? ," & _
-                                    "CMD_POIDS= ? , " & _
-                                    "CMD_MT_TRANSPORT= ? , " & _
-                                    "CMD_LETTREVOITURE= ? , " & _
-                                    "CMD_COUT_TRANSPORT= ? , " & _
-                                    "CMD_REFFACT_TRP= ? , " & _
-                                    "CMD_CLT_NOM= ? ," & _
-                                    "CMD_CLT_RS= ? " & _
+        Dim sqlString As String = "UPDATE BONAPPRO SET " &
+                                    "CMD_FRN_ID = ? , " &
+                                    "CMD_DATE = ? , " &
+                                    "CMD_DATE_VALID = ? , " &
+                                    "CMD_DATE_LIV = ? , " &
+                                    "CMD_DATE_ENLEV = ? , " &
+                                    "CMD_REF_LIV = ? , " &
+                                    "CMD_ETAT = ? , " &
+                                    "CMD_TOTAL_HT= ? ," &
+                                    "CMD_TOTAL_TTC= ? ," &
+                                    "CMD_TYPE= ? ," &
+                                    "CMD_TYPE_TRANSPORT= ? ," &
+                                    "CMD_CODE = ? ," &
+                                    "CMD_CLT_LIV_NOM = ? ," &
+                                    "CMD_CLT_LIV_RUE1= ? ," &
+                                    "CMD_CLT_LIV_RUE2= ? ," &
+                                    "CMD_CLT_LIV_CP= ? ," &
+                                    "CMD_CLT_LIV_VILLE= ? ," &
+                                    "CMD_CLT_LIV_TEL= ? ," &
+                                    "CMD_CLT_LIV_FAX= ? ," &
+                                    "CMD_CLT_LIV_PORT= ? ," &
+                                    "CMD_CLT_LIV_EMAIL= ? ," &
+                                    "CMD_CLT_ADR_IDENT= ? ," &
+                                    "CMD_CLT_FACT_NOM= ? ," &
+                                    "CMD_CLT_FACT_RUE1= ? ," &
+                                    "CMD_CLT_FACT_RUE2= ? ," &
+                                    "CMD_CLT_FACT_CP= ? ," &
+                                    "CMD_CLT_FACT_VILLE= ? ," &
+                                    "CMD_CLT_FACT_TEL= ? ," &
+                                    "CMD_CLT_FACT_FAX= ? ," &
+                                    "CMD_CLT_FACT_PORT= ? ," &
+                                    "CMD_CLT_FACT_EMAIL= ? ," &
+                                    "CMD_CLT_RGLMT_ID= ? ," &
+                                    "CMD_CLT_BANQUE= ? ," &
+                                    "CMD_CLT_RIB1= ? ," &
+                                    "CMD_CLT_RIB2= ? ," &
+                                    "CMD_CLT_RIB3= ? ," &
+                                    "CMD_CLT_RIB4= ? ," &
+                                    "CMD_COM_LIBRE= ? ," &
+                                    "CMD_COM_COM= ? ," &
+                                    "CMD_COM_LIV= ? ," &
+                                    "CMD_COM_FACT= ? ," &
+                                    "CMD_TRP_ID= ? ," &
+                                    "CMD_TRP_CODE= ? ," &
+                                    "CMD_TRP_NOM= ? ," &
+                                    "CMD_TRP_RUE1= ? ," &
+                                    "CMD_TRP_RUE2= ? ," &
+                                    "CMD_TRP_CP= ? ," &
+                                    "CMD_TRP_VILLE= ? ," &
+                                    "CMD_TRP_TEL= ? ," &
+                                    "CMD_TRP_FAX= ? ," &
+                                    "CMD_TRP_PORT= ? ," &
+                                    "CMD_TRP_EMAIL= ? ," &
+                                    "CMD_QTE_COLIS= ? ," &
+                                    "CMD_QTE_PAL_PREP= ? ," &
+                                    "CMD_QTE_PAL_NONPREP= ? ," &
+                                    "CMD_PU_PAL_PREP= ? ," &
+                                    "CMD_PU_PAL_NONPREP= ? ," &
+                                    "CMD_POIDS= ? , " &
+                                    "CMD_MT_TRANSPORT= ? , " &
+                                    "CMD_LETTREVOITURE= ? , " &
+                                    "CMD_COUT_TRANSPORT= ? , " &
+                                    "CMD_REFFACT_TRP= ? , " &
+                                    "CMD_CLT_NOM= ? ," &
+                                    "CMD_CLT_RS= ? " &
                                     " WHERE CMD_ID = ?"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -9414,23 +9414,23 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "FCT_CODE," & _
-                                    "FCT_ETAT," & _
-                                    "FCT_FRN_ID," & _
-                                    "FCT_DATE," & _
-                                    "FCT_DATE_STAT," & _
-                                    "FCT_TOTAL_HT," & _
-                                    "FCT_TOTAL_TTC," & _
-                                    "FCT_PERIODE," & _
-                                    "FCT_COM_FACT," & _
-                                    "FCT_MONTANT_REGLEMENT," & _
-                                    "FCT_DATE_REGLEMENT," & _
-                                    "FCT_REF_REGLEMENT," & _
-                                    "FCT_IDMODEREGLEMENT," & _
-                                    "FCT_DECHEANCE," & _
-                                    "FCT_BINTERNET" & _
-                                    " FROM FACTCOM WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    "FCT_CODE," &
+                                    "FCT_ETAT," &
+                                    "FCT_FRN_ID," &
+                                    "FCT_DATE," &
+                                    "FCT_DATE_STAT," &
+                                    "FCT_TOTAL_HT," &
+                                    "FCT_TOTAL_TTC," &
+                                    "FCT_PERIODE," &
+                                    "FCT_COM_FACT," &
+                                    "FCT_MONTANT_REGLEMENT," &
+                                    "FCT_DATE_REGLEMENT," &
+                                    "FCT_REF_REGLEMENT," &
+                                    "FCT_IDMODEREGLEMENT," &
+                                    "FCT_DECHEANCE," &
+                                    "FCT_BINTERNET" &
+                                    " FROM FACTCOM WHERE " &
                                    " FCT_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -9566,9 +9566,9 @@ Public MustInherit Class Persist
         Dim objSCMD As SousCommande
         Dim oCol As Collection = New Collection
 
-        Dim sqlString As String = "SELECT " & _
-                                    "SCMD_ID, SCMD_FRN_ID" & _
-                                  " FROM SOUSCOMMANDE" & _
+        Dim sqlString As String = "SELECT " &
+                                    "SCMD_ID, SCMD_FRN_ID" &
+                                  " FROM SOUSCOMMANDE" &
                                   " WHERE SCMD_FACT_ID = ? "
 
         objCommand = New OleDbCommand
@@ -9630,38 +9630,38 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         objFACT = CType(Me, FactCom)
 
-        Dim sqlString As String = "INSERT INTO FACTCOM( " & _
-                                    "FCT_CODE," & _
-                                    "FCT_ETAT," & _
-                                    "FCT_FRN_ID," & _
-                                    "FCT_DATE," & _
-                                    "FCT_DATE_STAT," & _
-                                    "FCT_TOTAL_HT," & _
-                                    "FCT_TOTAL_TTC," & _
-                                    "FCT_PERIODE," & _
-                                    "FCT_COM_FACT," & _
-                                    "FCT_MONTANT_REGLEMENT," & _
-                                    "FCT_DATE_REGLEMENT," & _
-                                    "FCT_REF_REGLEMENT," & _
-                                    "FCT_IDMODEREGLEMENT," & _
-                                    "FCT_DECHEANCE," & _
-                                    "FCT_BINTERNET" & _
-                                  " ) VALUES ( " & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? " & _
+        Dim sqlString As String = "INSERT INTO FACTCOM( " &
+                                    "FCT_CODE," &
+                                    "FCT_ETAT," &
+                                    "FCT_FRN_ID," &
+                                    "FCT_DATE," &
+                                    "FCT_DATE_STAT," &
+                                    "FCT_TOTAL_HT," &
+                                    "FCT_TOTAL_TTC," &
+                                    "FCT_PERIODE," &
+                                    "FCT_COM_FACT," &
+                                    "FCT_MONTANT_REGLEMENT," &
+                                    "FCT_DATE_REGLEMENT," &
+                                    "FCT_REF_REGLEMENT," &
+                                    "FCT_IDMODEREGLEMENT," &
+                                    "FCT_DECHEANCE," &
+                                    "FCT_BINTERNET" &
+                                  " ) VALUES ( " &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? " &
                                     " )"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -9734,22 +9734,22 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "ID<>0")
         objSCMD = CType(Me, FactCom)
 
-        Dim sqlString As String = "UPDATE FACTCOM SET " & _
-                                    "FCT_CODE = ? ," & _
-                                    "FCT_ETAT = ? ," & _
-                                    "FCT_FRN_ID = ? ," & _
-                                    "FCT_DATE = ? ," & _
-                                    "FCT_DATE_STAT = ? ," & _
-                                    "FCT_TOTAL_HT = ? ," & _
-                                    "FCT_TOTAL_TTC = ? ," & _
-                                    "FCT_PERIODE = ? ," & _
-                                    "FCT_COM_FACT = ? ," & _
-                                    "FCT_MONTANT_REGLEMENT = ? ," & _
-                                    "FCT_DATE_REGLEMENT = ? ," & _
-                                    "FCT_REF_REGLEMENT = ? , " & _
-                                    "FCT_IDMODEREGLEMENT = ? , " & _
-                                    "FCT_DECHEANCE = ? , " & _
-                                    "FCT_BINTERNET = ? " & _
+        Dim sqlString As String = "UPDATE FACTCOM SET " &
+                                    "FCT_CODE = ? ," &
+                                    "FCT_ETAT = ? ," &
+                                    "FCT_FRN_ID = ? ," &
+                                    "FCT_DATE = ? ," &
+                                    "FCT_DATE_STAT = ? ," &
+                                    "FCT_TOTAL_HT = ? ," &
+                                    "FCT_TOTAL_TTC = ? ," &
+                                    "FCT_PERIODE = ? ," &
+                                    "FCT_COM_FACT = ? ," &
+                                    "FCT_MONTANT_REGLEMENT = ? ," &
+                                    "FCT_DATE_REGLEMENT = ? ," &
+                                    "FCT_REF_REGLEMENT = ? , " &
+                                    "FCT_IDMODEREGLEMENT = ? , " &
+                                    "FCT_DECHEANCE = ? , " &
+                                    "FCT_BINTERNET = ? " &
                                     " WHERE FCT_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -9831,7 +9831,7 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT FCT_ID, FCT_CODE, FCT_DATE, FRN_ID , FRN_CODE, FRN_RS, FCT_ETAT, FCT_TOTAL_HT , FCT_TOTAL_TTC, FCT_BINTERNET " & _
+        Dim sqlString As String = "SELECT FCT_ID, FCT_CODE, FCT_DATE, FRN_ID , FRN_CODE, FRN_RS, FCT_ETAT, FCT_TOTAL_HT , FCT_TOTAL_TTC, FCT_BINTERNET " &
                                     "FROM FACTCOM , FOURNISSEUR "
         Dim strWhere As String = " FACTCOM.FCT_FRN_ID = FOURNISSEUR.FRN_ID "
         Dim objCommand As OleDbCommand
@@ -9956,9 +9956,9 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT FCT_ID, FCT_CODE, FCT_DATE, FRN_ID , FRN_CODE, FRN_RS, FCT_TOTAL_HT , FCT_TOTAL_TTC, FCT_BINTERNET " & _
+        Dim sqlString As String = "SELECT FCT_ID, FCT_CODE, FCT_DATE, FRN_ID , FRN_CODE, FRN_RS, FCT_TOTAL_HT , FCT_TOTAL_TTC, FCT_BINTERNET " &
                                     "FROM RQ_FACTURES, FACTCOM , FOURNISSEUR "
-        Dim strWhere As String = " FACTCOM.FCT_FRN_ID = FOURNISSEUR.FRN_ID AND RQ_FACTURES.FACT_ID = FCT_ID AND RQ_FACTURES.FACT_TYPEFACT = " & vncEnums.vncTypeDonnee.FACTCOMM & _
+        Dim strWhere As String = " FACTCOM.FCT_FRN_ID = FOURNISSEUR.FRN_ID AND RQ_FACTURES.FACT_ID = FCT_ID AND RQ_FACTURES.FACT_TYPEFACT = " & vncEnums.vncTypeDonnee.FACTCOMM &
         " AND (RQ_FACTURES.FACT_TOTAL_REGLEMENT IS NULL OR RQ_FACTURES.FACT_TOTAL_REGLEMENT < RQ_FACTURES.FACT_TOTAL_TTC)"
         Dim objCommand As OleDbCommand
         Dim objFACT As FactCom
@@ -10148,7 +10148,7 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT FTRP_ID, FTRP_CODE, FTRP_DATE, FTRP_CLT_ID , CLT_CODE, CLT_RS, FTRP_ETAT, FTRP_TOTAL_HT, FTRP_TOTAL_TTC, FTRP_BINTERNET " & _
+        Dim sqlString As String = "SELECT FTRP_ID, FTRP_CODE, FTRP_DATE, FTRP_CLT_ID , CLT_CODE, CLT_RS, FTRP_ETAT, FTRP_TOTAL_HT, FTRP_TOTAL_TTC, FTRP_BINTERNET " &
                                     "FROM FACTTRP , CLIENT "
         Dim strWhere As String = " FACTTRP.FTRP_CLT_ID = CLIENT.CLT_ID "
         Dim objCommand As OleDbCommand
@@ -10281,9 +10281,9 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT FTRP_ID, FTRP_CODE, FTRP_DATE, CLT_ID , CLT_CODE, CLT_RS, FTRP_TOTAL_HT , FTRP_TOTAL_TTC, FTRP_BINTERNET " & _
+        Dim sqlString As String = "SELECT FTRP_ID, FTRP_CODE, FTRP_DATE, CLT_ID , CLT_CODE, CLT_RS, FTRP_TOTAL_HT , FTRP_TOTAL_TTC, FTRP_BINTERNET " &
                                     "FROM RQ_FACTURES, FACTTRP , CLIENT"
-        Dim strWhere As String = " FACTTRP.FTRP_CLT_ID = CLIENT.CLT_ID AND RQ_FACTURES.FACT_ID = FTRP_ID AND RQ_FACTURES.FACT_TYPEFACT = " & vncEnums.vncTypeDonnee.FACTTRP & _
+        Dim strWhere As String = " FACTTRP.FTRP_CLT_ID = CLIENT.CLT_ID AND RQ_FACTURES.FACT_ID = FTRP_ID AND RQ_FACTURES.FACT_TYPEFACT = " & vncEnums.vncTypeDonnee.FACTTRP &
         " AND (RQ_FACTURES.FACT_TOTAL_REGLEMENT IS NULL OR RQ_FACTURES.FACT_TOTAL_REGLEMENT < RQ_FACTURES.FACT_TOTAL_TTC)"
         Dim objCommand As OleDbCommand
         Dim objFACT As FactTRP
@@ -10392,8 +10392,8 @@ Public MustInherit Class Persist
         Dim colReturn As New Collection
         Dim colTemp As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT " & _
-                                    "FTRP_ID, CLT_ID " & _
+        Dim sqlString As String = "SELECT " &
+                                    "FTRP_ID, CLT_ID " &
                                   " FROM FACTTRP, CLIENT "
 
         Dim strWhere As String = " FACTTRP.FTRP_CLT_ID = CLIENT.CLT_ID "
@@ -10501,38 +10501,38 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         objFACT = CType(Me, FactTRP)
 
-        Dim sqlString As String = "INSERT INTO FACTTRP( " & _
-                                    "FTRP_CODE," & _
-                                    "FTRP_ETAT," & _
-                                    "FTRP_CLT_ID," & _
-                                    "FTRP_DATE," & _
-                                    "FTRP_TOTAL_TAXES," & _
-                                    "FTRP_TOTAL_HT," & _
-                                    "FTRP_TOTAL_TTC," & _
-                                    "FTRP_PERIODE," & _
-                                    "FTRP_COM_FACT," & _
-                                    "FTRP_MONTANT_REGLEMENT," & _
-                                    "FTRP_DATE_REGLEMENT," & _
-                                    "FTRP_REF_REGLEMENT," & _
-                                    "FTRP_IDMODEREGLEMENT," & _
-                                    "FTRP_DECHEANCE," & _
-                                    "FTRP_BINTERNET" & _
-                                  " ) VALUES ( " & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? " & _
+        Dim sqlString As String = "INSERT INTO FACTTRP( " &
+                                    "FTRP_CODE," &
+                                    "FTRP_ETAT," &
+                                    "FTRP_CLT_ID," &
+                                    "FTRP_DATE," &
+                                    "FTRP_TOTAL_TAXES," &
+                                    "FTRP_TOTAL_HT," &
+                                    "FTRP_TOTAL_TTC," &
+                                    "FTRP_PERIODE," &
+                                    "FTRP_COM_FACT," &
+                                    "FTRP_MONTANT_REGLEMENT," &
+                                    "FTRP_DATE_REGLEMENT," &
+                                    "FTRP_REF_REGLEMENT," &
+                                    "FTRP_IDMODEREGLEMENT," &
+                                    "FTRP_DECHEANCE," &
+                                    "FTRP_BINTERNET" &
+                                  " ) VALUES ( " &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? " &
                                     " )"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -10666,23 +10666,23 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "FTRP_CODE," & _
-                                    "FTRP_ETAT," & _
-                                    "FTRP_CLT_ID," & _
-                                    "FTRP_DATE," & _
-                                    "FTRP_TOTAL_HT," & _
-                                    "FTRP_TOTAL_TTC," & _
-                                    "FTRP_TOTAL_TAXES," & _
-                                    "FTRP_PERIODE," & _
-                                    "FTRP_COM_FACT," & _
-                                    "FTRP_MONTANT_REGLEMENT," & _
-                                    "FTRP_DATE_REGLEMENT," & _
-                                    "FTRP_REF_REGLEMENT," & _
-                                    "FTRP_IDMODEREGLEMENT," & _
-                                    "FTRP_DECHEANCE," & _
-                                    "FTRP_BINTERNET" & _
-                                    " FROM FACTTRP WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    "FTRP_CODE," &
+                                    "FTRP_ETAT," &
+                                    "FTRP_CLT_ID," &
+                                    "FTRP_DATE," &
+                                    "FTRP_TOTAL_HT," &
+                                    "FTRP_TOTAL_TTC," &
+                                    "FTRP_TOTAL_TAXES," &
+                                    "FTRP_PERIODE," &
+                                    "FTRP_COM_FACT," &
+                                    "FTRP_MONTANT_REGLEMENT," &
+                                    "FTRP_DATE_REGLEMENT," &
+                                    "FTRP_REF_REGLEMENT," &
+                                    "FTRP_IDMODEREGLEMENT," &
+                                    "FTRP_DECHEANCE," &
+                                    "FTRP_BINTERNET" &
+                                    " FROM FACTTRP WHERE " &
                                    " FTRP_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -10815,22 +10815,22 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "ID<>0")
         objFact = CType(Me, FactTRP)
 
-        Dim sqlString As String = "UPDATE FACTTRP SET " & _
-                                    "FTRP_CODE = ? ," & _
-                                    "FTRP_ETAT = ? ," & _
-                                    "FTRP_CLT_ID = ? ," & _
-                                    "FTRP_DATE = ? ," & _
-                                    "FTRP_TOTAL_TAXES = ? ," & _
-                                    "FTRP_TOTAL_HT = ? ," & _
-                                    "FTRP_TOTAL_TTC = ? ," & _
-                                    "FTRP_PERIODE = ? ," & _
-                                    "FTRP_COM_FACT = ? ," & _
-                                    "FTRP_MONTANT_REGLEMENT = ? ," & _
-                                    "FTRP_DATE_REGLEMENT = ? ," & _
-                                    "FTRP_REF_REGLEMENT = ? , " & _
-                                    "FTRP_IDMODEREGLEMENT = ?," & _
-                                    "FTRP_DECHEANCE = ?," & _
-                                    "FTRP_BINTERNET = ?" & _
+        Dim sqlString As String = "UPDATE FACTTRP SET " &
+                                    "FTRP_CODE = ? ," &
+                                    "FTRP_ETAT = ? ," &
+                                    "FTRP_CLT_ID = ? ," &
+                                    "FTRP_DATE = ? ," &
+                                    "FTRP_TOTAL_TAXES = ? ," &
+                                    "FTRP_TOTAL_HT = ? ," &
+                                    "FTRP_TOTAL_TTC = ? ," &
+                                    "FTRP_PERIODE = ? ," &
+                                    "FTRP_COM_FACT = ? ," &
+                                    "FTRP_MONTANT_REGLEMENT = ? ," &
+                                    "FTRP_DATE_REGLEMENT = ? ," &
+                                    "FTRP_REF_REGLEMENT = ? , " &
+                                    "FTRP_IDMODEREGLEMENT = ?," &
+                                    "FTRP_DECHEANCE = ?," &
+                                    "FTRP_BINTERNET = ?" &
                                     " WHERE FTRP_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -10926,38 +10926,38 @@ Public MustInherit Class Persist
         Debug.Assert(Not objFactTRP.colLignes Is Nothing, "ColLignes is Nothing")
 
 
-        Dim sqlString As String = "INSERT INTO LGFACTTRP (" & _
-                                    "LGTRP_NUM," & _
-                                    "LGTRP_FACTTRP_ID," & _
-                                    "LGTRP_CMDCLT_ID," & _
-                                    "LGTRP_TRPEUR," & _
-                                    "LGTRP_DATE_LIV," & _
-                                    "LGTRP_REF_LIV," & _
-                                    "LGTRP_DATE_CMD," & _
-                                    "LGTRP_REF_CMD," & _
-                                    "LGTRP_QTE_COLIS," & _
-                                    "LGTRP_QTE_PAL_PREP," & _
-                                    "LGTRP_QTE_PAL_NONPREP," & _
-                                    "LGTRP_PU_PAL_PREP," & _
-                                    "LGTRP_PU_PAL_NONPREP," & _
-                                    "LGTRP_POIDS," & _
-                                    "LGTRP_MT_HT" & _
-                                    ") VALUES ( " & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "?" & _
+        Dim sqlString As String = "INSERT INTO LGFACTTRP (" &
+                                    "LGTRP_NUM," &
+                                    "LGTRP_FACTTRP_ID," &
+                                    "LGTRP_CMDCLT_ID," &
+                                    "LGTRP_TRPEUR," &
+                                    "LGTRP_DATE_LIV," &
+                                    "LGTRP_REF_LIV," &
+                                    "LGTRP_DATE_CMD," &
+                                    "LGTRP_REF_CMD," &
+                                    "LGTRP_QTE_COLIS," &
+                                    "LGTRP_QTE_PAL_PREP," &
+                                    "LGTRP_QTE_PAL_NONPREP," &
+                                    "LGTRP_PU_PAL_PREP," &
+                                    "LGTRP_PU_PAL_NONPREP," &
+                                    "LGTRP_POIDS," &
+                                    "LGTRP_MT_HT" &
+                                    ") VALUES ( " &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "?" &
                                   " )"
         Dim sqlString2 As String = "UPDATE COMMANDE SET CMD_IDFACTTRP = ? WHERE CMD_ID = ?"
         Dim sqlString3 As String = "SELECT MAX(LGTRP_ID) FROM LGFACTTRP"
@@ -11064,23 +11064,23 @@ Public MustInherit Class Persist
         Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.FACTTRP, "Objet de type FACTTRP requis")
 
 
-        Dim sqlString As String = "UPDATE LGFACTTRP SET " & _
-                                    "LGTRP_NUM = ? ," & _
-                                    "LGTRP_FACTTRP_ID = ? ," & _
-                                    "LGTRP_CMDCLT_ID= ? , " & _
-                                    "LGTRP_TRPEUR= ? , " & _
-                                    "LGTRP_DATE_LIV= ? , " & _
-                                    "LGTRP_REF_LIV= ? , " & _
-                                    "LGTRP_DATE_CMD= ? , " & _
-                                    "LGTRP_REF_CMD= ? , " & _
-                                    "LGTRP_QTE_COLIS= ? , " & _
-                                    "LGTRP_QTE_PAL_PREP= ? , " & _
-                                    "LGTRP_QTE_PAL_NONPREP= ? , " & _
-                                    "LGTRP_PU_PAL_PREP= ? , " & _
-                                    "LGTRP_PU_PAL_NONPREP= ? , " & _
-                                    "LGTRP_POIDS = ? , " & _
-                                    "LGTRP_MT_HT = ? " & _
-                                    " WHERE " & _
+        Dim sqlString As String = "UPDATE LGFACTTRP SET " &
+                                    "LGTRP_NUM = ? ," &
+                                    "LGTRP_FACTTRP_ID = ? ," &
+                                    "LGTRP_CMDCLT_ID= ? , " &
+                                    "LGTRP_TRPEUR= ? , " &
+                                    "LGTRP_DATE_LIV= ? , " &
+                                    "LGTRP_REF_LIV= ? , " &
+                                    "LGTRP_DATE_CMD= ? , " &
+                                    "LGTRP_REF_CMD= ? , " &
+                                    "LGTRP_QTE_COLIS= ? , " &
+                                    "LGTRP_QTE_PAL_PREP= ? , " &
+                                    "LGTRP_QTE_PAL_NONPREP= ? , " &
+                                    "LGTRP_PU_PAL_PREP= ? , " &
+                                    "LGTRP_PU_PAL_NONPREP= ? , " &
+                                    "LGTRP_POIDS = ? , " &
+                                    "LGTRP_MT_HT = ? " &
+                                    " WHERE " &
                                     " LGTRP_ID = ?"
         Dim objCommand As OleDbCommand
         Dim objFact As FactTRP
@@ -11150,24 +11150,24 @@ Public MustInherit Class Persist
         Dim objFACTTRP As FactTRP
         Dim objLGTRP As LgFactTRP
 
-        Dim sqlString As String = "SELECT " & _
-                                    "LGTRP_ID," & _
-                                    "LGTRP_NUM," & _
-                                    "LGTRP_FACTTRP_ID," & _
-                                    "LGTRP_CMDCLT_ID," & _
-                                    "LGTRP_TRPEUR," & _
-                                    "LGTRP_DATE_LIV," & _
-                                    "LGTRP_REF_LIV," & _
-                                    "LGTRP_DATE_CMD," & _
-                                    "LGTRP_REF_CMD," & _
-                                    "LGTRP_QTE_COLIS," & _
-                                    "LGTRP_QTE_PAL_PREP," & _
-                                    "LGTRP_QTE_PAL_NONPREP," & _
-                                    "LGTRP_PU_PAL_PREP," & _
-                                    "LGTRP_PU_PAL_NONPREP," & _
-                                    "LGTRP_POIDS," & _
-                                    "LGTRP_MT_HT" & _
-                                  " FROM LGFACTTRP" & _
+        Dim sqlString As String = "SELECT " &
+                                    "LGTRP_ID," &
+                                    "LGTRP_NUM," &
+                                    "LGTRP_FACTTRP_ID," &
+                                    "LGTRP_CMDCLT_ID," &
+                                    "LGTRP_TRPEUR," &
+                                    "LGTRP_DATE_LIV," &
+                                    "LGTRP_REF_LIV," &
+                                    "LGTRP_DATE_CMD," &
+                                    "LGTRP_REF_CMD," &
+                                    "LGTRP_QTE_COLIS," &
+                                    "LGTRP_QTE_PAL_PREP," &
+                                    "LGTRP_QTE_PAL_NONPREP," &
+                                    "LGTRP_PU_PAL_PREP," &
+                                    "LGTRP_PU_PAL_NONPREP," &
+                                    "LGTRP_POIDS," &
+                                    "LGTRP_MT_HT" &
+                                  " FROM LGFACTTRP" &
                                   " WHERE LGTRP_FACTTRP_ID = ? ORDER BY LGTRP_NUM"
 
         objCommand = New OleDbCommand
@@ -11290,18 +11290,18 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_FTRP_CODE(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , objCMD.code)
+        objCommand.Parameters.AddWithValue("?", objCMD.code)
 
     End Sub
     Private Sub CreateParameterP_FTRP_ETAT(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , objCMD.etat.codeEtat)
+        objCommand.Parameters.AddWithValue("?", objCMD.etat.codeEtat)
     End Sub
     Private Sub CreateParameterP_FTRP_CLT_ID(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , objCMD.oTiers.id)
+        objCommand.Parameters.AddWithValue("?", objCMD.oTiers.id)
 
     End Sub
     Private Sub CreateParameterP_FTRP_DATE(ByVal objCommand As OleDbCommand)
@@ -11313,18 +11313,18 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_FTRP_TOTAL_TAXES(ByVal objCommand As OleDbCommand)
         Dim objCMD As FactTRP
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , objCMD.montantTaxes)
+        objCommand.Parameters.AddWithValue("?", objCMD.montantTaxes)
     End Sub
     Private Sub CreateParameterP_FTRP_TOTAL_HT(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , CDbl(objCMD.totalHT))
+        objCommand.Parameters.AddWithValue("?", CDbl(objCMD.totalHT))
     End Sub
 
     Private Sub CreateParameterP_FTRP_TOTAL_TTC(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , CDbl(objCMD.totalTTC))
+        objCommand.Parameters.AddWithValue("?", CDbl(objCMD.totalTTC))
     End Sub
     Private Sub CreateParameterP_FTRP_COM_FACT(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
@@ -11339,13 +11339,13 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_FTRP_MONTANT_REGLEMENT(ByVal objCommand As OleDbCommand)
         Dim objCMD As FactTRP
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , CDbl(objCMD.montantReglement))
+        objCommand.Parameters.AddWithValue("?", CDbl(objCMD.montantReglement))
 
     End Sub
     Private Sub CreateParameterP_FTRP_DATE_REGLEMENT(ByVal objCommand As OleDbCommand)
         Dim objCMD As FactTRP
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , objCMD.dateReglement)
+        objCommand.Parameters.AddWithValue("?", objCMD.dateReglement)
 
     End Sub
     Private Sub CreateParameterP_FTRP_REF_REGLEMENT(ByVal objCommand As OleDbCommand)
@@ -11356,7 +11356,7 @@ Public MustInherit Class Persist
     Private Sub CreateParameterP_FTRP_IDMODEREGLEMENT(ByVal objCommand As OleDbCommand)
         Dim objCMD As FactTRP
         objCMD = Me
-        objCommand.Parameters.AddWithValue("?" , objCMD.idModeReglement)
+        objCommand.Parameters.AddWithValue("?", objCMD.idModeReglement)
     End Sub
     Private Sub CreateParameterP_FTRP_DECHEANCE(ByVal objCommand As OleDbCommand)
         Dim objCMD As FactTRP
@@ -11385,28 +11385,28 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         objFACT = CType(Me, FactHBV)
 
-        Dim sqlString As String = "INSERT INTO FACTHBV( " & _
-                                    "FHBV_CODE," & _
-                                    "FHBV_ETAT," & _
-                                    "FHBV_CLT_ID," & _
-                                    "FHBV_DATE," & _
-                                    "FHBV_TOTAL_HT," & _
-                                    "FHBV_TOTAL_TTC," & _
-                                    "FHBV_COM_FACT," & _
-                                    "FHBV_IDMODEREGLEMENT," & _
-                                    "FHBV_DECHEANCE," & _
-                                    "FHBV_IDCOMMANDE" & _
-                                  " ) VALUES ( " & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? " & _
+        Dim sqlString As String = "INSERT INTO FACTHBV( " &
+                                    "FHBV_CODE," &
+                                    "FHBV_ETAT," &
+                                    "FHBV_CLT_ID," &
+                                    "FHBV_DATE," &
+                                    "FHBV_TOTAL_HT," &
+                                    "FHBV_TOTAL_TTC," &
+                                    "FHBV_COM_FACT," &
+                                    "FHBV_IDMODEREGLEMENT," &
+                                    "FHBV_DECHEANCE," &
+                                    "FHBV_IDCOMMANDE" &
+                                  " ) VALUES ( " &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? " &
                                     " )"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -11537,7 +11537,7 @@ Public MustInherit Class Persist
     ''' <returns></returns>
     ''' <remarks></remarks>
     Protected Function loadFACTHBVFromCmd(pIdCmd As Long) As Boolean
-        Dim sqlString As String = "SELECT FHBV_ID " & _
+        Dim sqlString As String = "SELECT FHBV_ID " &
                             "FROM FACTHBV WHERE FHBV_IDCOMMANDE = " & pIdCmd
         Dim bReturn As Boolean
         Dim objCommand As OleDbCommand
@@ -11572,19 +11572,19 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "FHBV_CODE," & _
-                                    "FHBV_ETAT," & _
-                                    "FHBV_CLT_ID," & _
-                                    "FHBV_DATE," & _
-                                    "FHBV_TOTAL_HT," & _
-                                    "FHBV_TOTAL_TTC," & _
-                                    "FHBV_TOTAL_TAXES," & _
-                                    "FHBV_COM_FACT," & _
-                                    "FHBV_IDMODEREGLEMENT," & _
-                                    "FHBV_DECHEANCE," & _
-                                    "FHBV_IDCOMMANDE" & _
-                                    " FROM FACTHBV WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    "FHBV_CODE," &
+                                    "FHBV_ETAT," &
+                                    "FHBV_CLT_ID," &
+                                    "FHBV_DATE," &
+                                    "FHBV_TOTAL_HT," &
+                                    "FHBV_TOTAL_TTC," &
+                                    "FHBV_TOTAL_TAXES," &
+                                    "FHBV_COM_FACT," &
+                                    "FHBV_IDMODEREGLEMENT," &
+                                    "FHBV_DECHEANCE," &
+                                    "FHBV_IDCOMMANDE" &
+                                    " FROM FACTHBV WHERE " &
                                    " FHBV_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -11687,17 +11687,17 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "ID<>0")
         objFact = CType(Me, FactHBV)
 
-        Dim sqlString As String = "UPDATE FACTHBV SET " & _
-                                    "FHBV_CODE = ? ," & _
-                                    "FHBV_ETAT = ? ," & _
-                                    "FHBV_CLT_ID = ? ," & _
-                                    "FHBV_DATE = ? ," & _
-                                    "FHBV_TOTAL_HT = ? ," & _
-                                    "FHBV_TOTAL_TTC = ? ," & _
-                                    "FHBV_COM_FACT = ? ," & _
-                                    "FHBV_IDMODEREGLEMENT = ?," & _
-                                    "FHBV_DECHEANCE = ?," & _
-                                    "FHBV_IDCOMMANDE = ?" & _
+        Dim sqlString As String = "UPDATE FACTHBV SET " &
+                                    "FHBV_CODE = ? ," &
+                                    "FHBV_ETAT = ? ," &
+                                    "FHBV_CLT_ID = ? ," &
+                                    "FHBV_DATE = ? ," &
+                                    "FHBV_TOTAL_HT = ? ," &
+                                    "FHBV_TOTAL_TTC = ? ," &
+                                    "FHBV_COM_FACT = ? ," &
+                                    "FHBV_IDMODEREGLEMENT = ?," &
+                                    "FHBV_DECHEANCE = ?," &
+                                    "FHBV_IDCOMMANDE = ?" &
                                     " WHERE FHBV_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -11762,8 +11762,8 @@ Public MustInherit Class Persist
         Try
 
             'Marquage de toutes les lignes de factures
-            Dim sqlStringMARK As String = "UPDATE LIGNE_FACTHBV SET " & _
-                                        "LGFHBV_ETAT = 1 " & _
+            Dim sqlStringMARK As String = "UPDATE LIGNE_FACTHBV SET " &
+                                        "LGFHBV_ETAT = 1 " &
                                         "WHERE LGFHBV_FACT_ID =  " & Me.id
 
 
@@ -11790,7 +11790,7 @@ Public MustInherit Class Persist
                 End If
             Next oLg
             'Suppression des autres lignes
-            Dim sqlStringDLT As String = "DELETE LIGNE_FACTHBV " & _
+            Dim sqlStringDLT As String = "DELETE LIGNE_FACTHBV " &
                                         "WHERE LGFHBV_ETAT=1 AND LGFHBV_FACT_ID =  " & Me.id
 
 
@@ -11820,28 +11820,28 @@ Public MustInherit Class Persist
             oFact = Me
 
 
-            Dim sqlString As String = "INSERT INTO LIGNE_FACTHBV (" & _
-                                        "LGFHBV_FACT_ID," & _
-                                        "LGFHBV_PRD_ID," & _
-                                        "LGFHBV_QTE_COMMANDE," & _
-                                        "LGFHBV_QTE_LIV," & _
-                                        "LGFHBV_QTE_FACT," & _
-                                        "LGFHBV_PRIX_UNITAIRE," & _
-                                        "LGFHBV_PRIX_HT," & _
-                                        "LGFHBV_PRIX_TTC," & _
-                                        "LGFHBV_BGRATUIT," & _
-                                        "LGFHBV_ETAT" & _
-                                        ") VALUES ( " & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "?, " & _
-                                        "0" & _
+            Dim sqlString As String = "INSERT INTO LIGNE_FACTHBV (" &
+                                        "LGFHBV_FACT_ID," &
+                                        "LGFHBV_PRD_ID," &
+                                        "LGFHBV_QTE_COMMANDE," &
+                                        "LGFHBV_QTE_LIV," &
+                                        "LGFHBV_QTE_FACT," &
+                                        "LGFHBV_PRIX_UNITAIRE," &
+                                        "LGFHBV_PRIX_HT," &
+                                        "LGFHBV_PRIX_TTC," &
+                                        "LGFHBV_BGRATUIT," &
+                                        "LGFHBV_ETAT" &
+                                        ") VALUES ( " &
+                                        "? ," &
+                                        "? ," &
+                                        "? ," &
+                                        "? ," &
+                                        "? ," &
+                                        "? ," &
+                                        "? ," &
+                                        "? ," &
+                                        "?, " &
+                                        "0" &
                                       " )"
             Dim sqlString3 As String = "SELECT MAX(LGFHBV_ID) FROM LIGNE_FACTHBV"
             Dim objCommand As OleDbCommand
@@ -11929,17 +11929,17 @@ Public MustInherit Class Persist
             objCommand = m_dbconn.Connection.CreateCommand()
             objCommand.Transaction = m_dbconn.transaction
 
-            Dim sqlString As String = "UPDATE LIGNE_FACTHBV SET " & _
-                                        "LGFHBV_FACT_ID= ?," & _
-                                        "LGFHBV_PRD_ID= ?," & _
-                                        "LGFHBV_QTE_COMMANDE= ? " & " , " & _
-                                        "LGFHBV_QTE_LIV= ? " & " , " & _
-                                        "LGFHBV_QTE_FACT= ? " & "  ," & _
-                                        "LGFHBV_PRIX_UNITAIRE= ?" & " , " & _
-                                        "LGFHBV_PRIX_HT= ?" & " , " & _
-                                        "LGFHBV_PRIX_TTC=?" & " , " & _
-                                        "LGFHBV_BGRATUIT=?" & " , " & _
-                                        "LGFHBV_ETAT=0 " & _
+            Dim sqlString As String = "UPDATE LIGNE_FACTHBV SET " &
+                                        "LGFHBV_FACT_ID= ?," &
+                                        "LGFHBV_PRD_ID= ?," &
+                                        "LGFHBV_QTE_COMMANDE= ? " & " , " &
+                                        "LGFHBV_QTE_LIV= ? " & " , " &
+                                        "LGFHBV_QTE_FACT= ? " & "  ," &
+                                        "LGFHBV_PRIX_UNITAIRE= ?" & " , " &
+                                        "LGFHBV_PRIX_HT= ?" & " , " &
+                                        "LGFHBV_PRIX_TTC=?" & " , " &
+                                        "LGFHBV_BGRATUIT=?" & " , " &
+                                        "LGFHBV_ETAT=0 " &
                                         "WHERE LGFHBV_ID = ?"
             objCommand.CommandText = sqlString
             objCommand.Parameters.AddWithValue("?", pLg.idFactHBV)
@@ -11989,18 +11989,18 @@ Public MustInherit Class Persist
 
         objFACTHBV = CType(Me, FactHBV)
 
-        Dim sqlString As String = "SELECT " & _
-                                    "LGFHBV_ID," & _
-                                    "LGFHBV_FACT_ID," & _
-                                    "LGFHBV_PRD_ID," & _
-                                    "LGFHBV_QTE_COMMANDE," & _
-                                    "LGFHBV_QTE_LIV," & _
-                                    "LGFHBV_QTE_FACT," & _
-                                    "LGFHBV_PRIX_UNITAIRE," & _
-                                    "LGFHBV_PRIX_HT," & _
-                                    "LGFHBV_PRIX_TTC," & _
-                                    "LGFHBV_BGRATUIT" & _
-                                  " FROM LIGNE_FACTHBV" & _
+        Dim sqlString As String = "SELECT " &
+                                    "LGFHBV_ID," &
+                                    "LGFHBV_FACT_ID," &
+                                    "LGFHBV_PRD_ID," &
+                                    "LGFHBV_QTE_COMMANDE," &
+                                    "LGFHBV_QTE_LIV," &
+                                    "LGFHBV_QTE_FACT," &
+                                    "LGFHBV_PRIX_UNITAIRE," &
+                                    "LGFHBV_PRIX_HT," &
+                                    "LGFHBV_PRIX_TTC," &
+                                    "LGFHBV_BGRATUIT" &
+                                  " FROM LIGNE_FACTHBV" &
                                   " WHERE LGFHBV_FACT_ID =  " & objFACTHBV.id
 
         objCommand = New OleDbCommand
@@ -12132,7 +12132,7 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT FHBV_ID " & _
+        Dim sqlString As String = "SELECT FHBV_ID " &
                                     "FROM FACTHBV, CLIENT "
         Dim strWhere As String = " FHBV_CLT_ID = CLT_ID"
         Dim objCommand As OleDbCommand
@@ -12218,8 +12218,8 @@ Public MustInherit Class Persist
         Dim colReturn As New Collection
         Dim colTemp As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT " & _
-                                    "FHBV_ID, CLT_ID " & _
+        Dim sqlString As String = "SELECT " &
+                                    "FHBV_ID, CLT_ID " &
                                   " FROM FACTHBV, CLIENT "
 
         Dim strWhere As String = " FACTHBV.FHBV_CLT_ID = CLIENT.CLT_ID "
@@ -12335,7 +12335,7 @@ Public MustInherit Class Persist
         objCommand.Parameters.AddWithValue("?", objCMD.dateCommande)
 
     End Sub
-     Private Sub CreateParameterP_FHBV_TOTAL_HT(ByVal objCommand As OleDbCommand)
+    Private Sub CreateParameterP_FHBV_TOTAL_HT(ByVal objCommand As OleDbCommand)
         Dim objCMD As Commande
         objCMD = Me
         objCommand.Parameters.AddWithValue("?", CDbl(objCMD.totalHT))
@@ -12351,7 +12351,7 @@ Public MustInherit Class Persist
         objCMD = Me
         objCommand.Parameters.AddWithValue("?", truncate(objCMD.CommFacturation.comment, 50))
     End Sub
-     Private Sub CreateParameterP_FHBV_IDMODEREGLEMENT(ByVal objCommand As OleDbCommand)
+    Private Sub CreateParameterP_FHBV_IDMODEREGLEMENT(ByVal objCommand As OleDbCommand)
         Dim objCMD As FactHBV
         objCMD = Me
         objCommand.Parameters.AddWithValue("?", objCMD.idModeReglement)
@@ -12385,40 +12385,40 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         objFACT = CType(Me, FactColisageJ)
 
-        Dim sqlString As String = "INSERT INTO FACTCOLISAGE( " & _
-                                    "FCOL_CODE," & _
-                                    "FCOL_ETAT," & _
-                                    "FCOL_FRN_ID," & _
-                                    "FCOL_DATE," & _
-                                    "FCOL_TOTAL_TAXES," & _
-                                    "FCOL_TOTAL_HT," & _
-                                    "FCOL_TOTAL_TTC," & _
-                                    "FCOL_PERIODE," & _
-                                    "FCOL_COM_FACT," & _
-                                    "FCOL_MONTANT_REGLEMENT," & _
-                                    "FCOL_DATE_REGLEMENT," & _
-                                    "FCOL_REF_REGLEMENT," & _
-                                    "FCOL_IDMODEREGLEMENT," & _
-                                    "FCOL_DECHEANCE," & _
-                                    "FCOL_BINTERNET," & _
-                                    "FCOL_DOSSIER" & _
-                                  " ) VALUES ( " & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? ," & _
-                                    "? " & _
+        Dim sqlString As String = "INSERT INTO FACTCOLISAGE( " &
+                                    "FCOL_CODE," &
+                                    "FCOL_ETAT," &
+                                    "FCOL_FRN_ID," &
+                                    "FCOL_DATE," &
+                                    "FCOL_TOTAL_TAXES," &
+                                    "FCOL_TOTAL_HT," &
+                                    "FCOL_TOTAL_TTC," &
+                                    "FCOL_PERIODE," &
+                                    "FCOL_COM_FACT," &
+                                    "FCOL_MONTANT_REGLEMENT," &
+                                    "FCOL_DATE_REGLEMENT," &
+                                    "FCOL_REF_REGLEMENT," &
+                                    "FCOL_IDMODEREGLEMENT," &
+                                    "FCOL_DECHEANCE," &
+                                    "FCOL_BINTERNET," &
+                                    "FCOL_DOSSIER" &
+                                  " ) VALUES ( " &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? ," &
+                                    "? " &
                                     " )"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -12520,24 +12520,24 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "FCOL_CODE," & _
-                                    "FCOL_ETAT," & _
-                                    "FCOL_FRN_ID," & _
-                                    "FCOL_DATE," & _
-                                    "FCOL_TOTAL_HT," & _
-                                    "FCOL_TOTAL_TTC," & _
-                                    "FCOL_TOTAL_TAXES," & _
-                                    "FCOL_PERIODE," & _
-                                    "FCOL_COM_FACT," & _
-                                    "FCOL_MONTANT_REGLEMENT," & _
-                                    "FCOL_DATE_REGLEMENT," & _
-                                    "FCOL_REF_REGLEMENT," & _
-                                    "FCOL_IDMODEREGLEMENT," & _
-                                    "FCOL_DECHEANCE," & _
-                                    "FCOL_BINTERNET," & _
-                                    "FCOL_DOSSIER " & _
-                                    " FROM FactColisage WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    "FCOL_CODE," &
+                                    "FCOL_ETAT," &
+                                    "FCOL_FRN_ID," &
+                                    "FCOL_DATE," &
+                                    "FCOL_TOTAL_HT," &
+                                    "FCOL_TOTAL_TTC," &
+                                    "FCOL_TOTAL_TAXES," &
+                                    "FCOL_PERIODE," &
+                                    "FCOL_COM_FACT," &
+                                    "FCOL_MONTANT_REGLEMENT," &
+                                    "FCOL_DATE_REGLEMENT," &
+                                    "FCOL_REF_REGLEMENT," &
+                                    "FCOL_IDMODEREGLEMENT," &
+                                    "FCOL_DECHEANCE," &
+                                    "FCOL_BINTERNET," &
+                                    "FCOL_DOSSIER " &
+                                    " FROM FactColisage WHERE " &
                                    " FCOL_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -12675,23 +12675,23 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "ID<>0")
         objFact = CType(Me, FactColisageJ)
 
-        Dim sqlString As String = "UPDATE FactColisage SET " & _
-                                    "FCOL_CODE = ? ," & _
-                                    "FCOL_ETAT = ? ," & _
-                                    "FCOL_FRN_ID = ? ," & _
-                                    "FCOL_DATE = ? ," & _
-                                    "FCOL_TOTAL_TAXES = ? ," & _
-                                    "FCOL_TOTAL_HT = ? ," & _
-                                    "FCOL_TOTAL_TTC = ? ," & _
-                                    "FCOL_PERIODE = ? ," & _
-                                    "FCOL_COM_FACT = ? ," & _
-                                    "FCOL_MONTANT_REGLEMENT = ? ," & _
-                                    "FCOL_DATE_REGLEMENT = ? ," & _
-                                    "FCOL_REF_REGLEMENT = ? , " & _
-                                    "FCOL_IDMODEREGLEMENT = ?, " & _
-                                    "FCOL_DECHEANCE = ?, " & _
-                                    "FCOL_BINTERNET = ?, " & _
-                                    "FCOL_DOSSIER = ? " & _
+        Dim sqlString As String = "UPDATE FactColisage SET " &
+                                    "FCOL_CODE = ? ," &
+                                    "FCOL_ETAT = ? ," &
+                                    "FCOL_FRN_ID = ? ," &
+                                    "FCOL_DATE = ? ," &
+                                    "FCOL_TOTAL_TAXES = ? ," &
+                                    "FCOL_TOTAL_HT = ? ," &
+                                    "FCOL_TOTAL_TTC = ? ," &
+                                    "FCOL_PERIODE = ? ," &
+                                    "FCOL_COM_FACT = ? ," &
+                                    "FCOL_MONTANT_REGLEMENT = ? ," &
+                                    "FCOL_DATE_REGLEMENT = ? ," &
+                                    "FCOL_REF_REGLEMENT = ? , " &
+                                    "FCOL_IDMODEREGLEMENT = ?, " &
+                                    "FCOL_DECHEANCE = ?, " &
+                                    "FCOL_BINTERNET = ?, " &
+                                    "FCOL_DOSSIER = ? " &
                                     " WHERE FCOL_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -12788,20 +12788,20 @@ Public MustInherit Class Persist
         Debug.Assert(Not objFactColisageJ.colLignes Is Nothing, "ColLignes is Nothing")
 
 
-        Dim sqlString As String = "INSERT INTO LGFACTCOLISAGE (" & _
-                                    "LGCOL_NUM," & _
-                                    "LGCOL_FACTCOL_ID," & _
-                                    "LGCOL_QTE," & _
-                                    "LGCOL_PU," & _
-                                    "LGCOL_MT_HT," & _
-                                    "LGCOL_PRD_ID" & _
-                                    ") VALUES ( " & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? ," & _
-                                        "? " & _
+        Dim sqlString As String = "INSERT INTO LGFACTCOLISAGE (" &
+                                    "LGCOL_NUM," &
+                                    "LGCOL_FACTCOL_ID," &
+                                    "LGCOL_QTE," &
+                                    "LGCOL_PU," &
+                                    "LGCOL_MT_HT," &
+                                    "LGCOL_PRD_ID" &
+                                    ") VALUES ( " &
+                                        "? ," &
+                                        "? ," &
+                                        "? ," &
+                                        "? ," &
+                                        "? ," &
+                                        "? " &
                                 " )"
         Dim sqlString3 As String = "SELECT MAX(LGCOL_ID) FROM LGFactColisage"
         Dim objCommand As OleDbCommand
@@ -12875,14 +12875,14 @@ Public MustInherit Class Persist
         Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.FACTCOL, "Objet de type FactColisage requis")
 
 
-        Dim sqlString As String = "UPDATE LGFactColisage SET " & _
-                                    "LGCOL_NUM = ? ," & _
-                                    "LGCOL_FACTCOL_ID = ? ," & _
-                                    "LGCOL_QTE= ? , " & _
-                                    "LGCOL_PU= ? , " & _
-                                    "LGCOL_MT_HT = ?, " & _
-                                    "LGCOL_PRD_ID = ? " & _
-                                    " WHERE " & _
+        Dim sqlString As String = "UPDATE LGFactColisage SET " &
+                                    "LGCOL_NUM = ? ," &
+                                    "LGCOL_FACTCOL_ID = ? ," &
+                                    "LGCOL_QTE= ? , " &
+                                    "LGCOL_PU= ? , " &
+                                    "LGCOL_MT_HT = ?, " &
+                                    "LGCOL_PRD_ID = ? " &
+                                    " WHERE " &
                                     " LGCOL_ID = ?"
         Dim objCommand As OleDbCommand
         Dim objFact As FactColisageJ
@@ -12943,15 +12943,15 @@ Public MustInherit Class Persist
         Dim objRS As OleDbDataReader = Nothing
         Dim objFactColisage As FactColisageJ
 
-        Dim sqlString As String = "SELECT " & _
-                                    "LGCOL_ID," & _
-                                    "LGCOL_NUM," & _
-                                    "LGCOL_FACTCOL_ID," & _
-                                    "LGCOL_QTE," & _
-                                    "LGCOL_PU," & _
-                                    "LGCOL_MT_HT, " & _
-                                    "LGCOL_PRD_ID " & _
-                                  " FROM LGFactColisage" & _
+        Dim sqlString As String = "SELECT " &
+                                    "LGCOL_ID," &
+                                    "LGCOL_NUM," &
+                                    "LGCOL_FACTCOL_ID," &
+                                    "LGCOL_QTE," &
+                                    "LGCOL_PU," &
+                                    "LGCOL_MT_HT, " &
+                                    "LGCOL_PRD_ID " &
+                                  " FROM LGFactColisage" &
                                   " WHERE LGCOL_FACTCOL_ID = ? ORDER BY LGCOL_NUM"
 
         objCommand = New OleDbCommand
@@ -13019,7 +13019,7 @@ Public MustInherit Class Persist
 
                 'Ajout de la ligne dans le client, le prix de la commande n'est pas recalculé!!!
                 Try
-                    oProduit.DBLoadLight()
+                    oProduit.DBLoad2()
                     objLG = objFactColisage.AjouteLigne(lgnum, oProduit, qtecommande, prixU, p_prixHT:=prixHT)
                     If objLG Is Nothing Then
                         Throw New Exception("Impossible d'ajouter la ligne de Facture de colisage" & lgnum)
@@ -13171,8 +13171,8 @@ Public MustInherit Class Persist
         Dim colReturn As New Collection
         Dim colTemp As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT " & _
-                                    "FCOL_ID, FRN_ID " & _
+        Dim sqlString As String = "SELECT " &
+                                    "FCOL_ID, FRN_ID " &
                                   " FROM FACTCOLISAGE INNER JOIN FOURNISSEUR ON FACTCOLISAGE.FCOL_FRN_ID = FOURNISSEUR.FRN_ID "
 
         Dim strWhere As String = ""
@@ -13266,9 +13266,9 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT FCOL_ID, FCOL_CODE, FCOL_DATE, FRN_ID , FRN_CODE, FRN_RS, FCOL_TOTAL_HT , FCOL_TOTAL_TTC, FCOL_BINTERNET " & _
+        Dim sqlString As String = "SELECT FCOL_ID, FCOL_CODE, FCOL_DATE, FRN_ID , FRN_CODE, FRN_RS, FCOL_TOTAL_HT , FCOL_TOTAL_TTC, FCOL_BINTERNET " &
                                     "FROM RQ_FACTURES, FACTCOLISAGE , FOURNISSEUR "
-        Dim strWhere As String = " FACTCOLISAGE.FCOL_FRN_ID = FOURNISSEUR.FRN_ID AND RQ_FACTURES.FACT_ID = FCOL_ID AND RQ_FACTURES.FACT_TYPEFACT = " & vncEnums.vncTypeDonnee.FACTCOL & _
+        Dim strWhere As String = " FACTCOLISAGE.FCOL_FRN_ID = FOURNISSEUR.FRN_ID AND RQ_FACTURES.FACT_ID = FCOL_ID AND RQ_FACTURES.FACT_TYPEFACT = " & vncEnums.vncTypeDonnee.FACTCOL &
         " AND (RQ_FACTURES.FACT_TOTAL_REGLEMENT IS NULL OR RQ_FACTURES.FACT_TOTAL_REGLEMENT < RQ_FACTURES.FACT_TOTAL_TTC)"
         Dim objCommand As OleDbCommand
         Dim objFACT As FactColisageJ
@@ -13468,7 +13468,7 @@ Public MustInherit Class Persist
 
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
 
-        Dim sqlString As String = " SELECT USR_ID,USR_CODE, USR_PASSWORD, USR_ROLE " & _
+        Dim sqlString As String = " SELECT USR_ID,USR_CODE, USR_PASSWORD, USR_ROLE " &
                                   "  FROM USERS "
 
         Dim objCommand As OleDbCommand
@@ -13528,8 +13528,8 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = " SELECT USR_CODE, USR_PASSWORD, USR_ROLE " & _
-                                  "  FROM USERS " & _
+        Dim sqlString As String = " SELECT USR_CODE, USR_PASSWORD, USR_ROLE " &
+                                  "  FROM USERS " &
                                   " WHERE USR_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -13587,8 +13587,8 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = " SELECT RGH_TAG, RGH_ROLE, RGH_DROIT, RGH_TEXT" & _
-                                  "  FROM USERSRIGHTS " & _
+        Dim sqlString As String = " SELECT RGH_TAG, RGH_ROLE, RGH_DROIT, RGH_TEXT" &
+                                  "  FROM USERSRIGHTS " &
                                   " WHERE RGH_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -13659,8 +13659,8 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
         'On ne charge que les lignes interdites par role
-        Dim sqlString As String = " SELECT RGH_TAG, RGH_DROIT, RGH_TEXT" & _
-                                  "  FROM USERSRIGHTS WHERE RGH_DROIT = 0 and " & _
+        Dim sqlString As String = " SELECT RGH_TAG, RGH_DROIT, RGH_TEXT" &
+                                  "  FROM USERSRIGHTS WHERE RGH_DROIT = 0 and " &
                                   "  RGH_ROLE = ?"
 
         Dim objCommand As OleDbCommand
@@ -13730,14 +13730,14 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         obj = CType(Me, aut_user)
 
-        Dim sqlString As String = " INSERT INTO USERS (" & _
-                                    " USR_CODE , " & _
-                                    " USR_PASSWORD , " & _
-                                    " USR_ROLE  " & _
-                                    " ) VALUES (" & _
-                                    " ? , " & _
-                                    " ? , " & _
-                                    " ? " & _
+        Dim sqlString As String = " INSERT INTO USERS (" &
+                                    " USR_CODE , " &
+                                    " USR_PASSWORD , " &
+                                    " USR_ROLE  " &
+                                    " ) VALUES (" &
+                                    " ? , " &
+                                    " ? , " &
+                                    " ? " &
                                     " )"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -13786,7 +13786,7 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = " DELETE FROM USERSRIGHTS" & _
+        Dim sqlString As String = " DELETE FROM USERSRIGHTS" &
                                   " WHERE RGH_ROLE = ?"
 
         Dim objCommand As OleDbCommand
@@ -13849,16 +13849,16 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         obj = CType(Me, aut_right)
 
-        Dim sqlString As String = " INSERT INTO USERSRIGHTS (" & _
-                                    " RGH_TAG , " & _
-                                    " RGH_ROLE , " & _
-                                    " RGH_DROIT,  " & _
-                                    " RGH_TEXT  " & _
-                                    " ) VALUES (" & _
-                                    " ? , " & _
-                                    " ? , " & _
-                                    " ? , " & _
-                                    " ? " & _
+        Dim sqlString As String = " INSERT INTO USERSRIGHTS (" &
+                                    " RGH_TAG , " &
+                                    " RGH_ROLE , " &
+                                    " RGH_DROIT,  " &
+                                    " RGH_TEXT  " &
+                                    " ) VALUES (" &
+                                    " ? , " &
+                                    " ? , " &
+                                    " ? , " &
+                                    " ? " &
                                     " )"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -13905,10 +13905,10 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         obj = CType(Me, aut_user)
 
-        Dim sqlString As String = " UPDATE USERS SET" & _
-                                    " USR_CODE  = ? , " & _
-                                    " USR_PASSWORD = ? , " & _
-                                    " USR_ROLE  =? " & _
+        Dim sqlString As String = " UPDATE USERS SET" &
+                                    " USR_CODE  = ? , " &
+                                    " USR_PASSWORD = ? , " &
+                                    " USR_ROLE  =? " &
                                     " WHERE USR_ID = ? "
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -13995,8 +13995,8 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT " & _
-                                    "CMD_ID " & _
+        Dim sqlString As String = "SELECT " &
+                                    "CMD_ID " &
                                   " FROM COMMANDE "
 
         Dim strWhere As String = " COMMANDE.CMD_ETAT > 2 "
@@ -14152,10 +14152,10 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT TRP_ID,  TRP_CODE, TRP_NOM," & _
-                                    " TRP_LIV_RUE1, TRP_LIV_RUE2, TRP_LIV_CP, TRP_LIV_VILLE, " & _
-                                    " TRP_LIV_TEL, TRP_LIV_FAX, TRP_LIV_PORT, TRP_LIV_EMAIL, TRP_DEFAUT " & _
-                                  " FROM TRANSPORTEUR" & _
+        Dim sqlString As String = "SELECT TRP_ID,  TRP_CODE, TRP_NOM," &
+                                    " TRP_LIV_RUE1, TRP_LIV_RUE2, TRP_LIV_CP, TRP_LIV_VILLE, " &
+                                    " TRP_LIV_TEL, TRP_LIV_FAX, TRP_LIV_PORT, TRP_LIV_EMAIL, TRP_DEFAUT " &
+                                  " FROM TRANSPORTEUR" &
                                   " WHERE TRANSPORTEUR.TRP_ID=? "
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -14276,8 +14276,8 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         objTRP = CType(Me, Transporteur)
 
-        Dim sqlString As String = "INSERT INTO TRANSPORTEUR( " & _
-                                    "TRP_CODE, TRP_NOM, TRP_LIV_RUE1,  TRP_LIV_RUE2,TRP_LIV_CP,TRP_LIV_VILLE,TRP_LIV_TEL,TRP_LIV_FAX,TRP_LIV_PORT,TRP_LIV_EMAIL, TRP_DEFAUT " & _
+        Dim sqlString As String = "INSERT INTO TRANSPORTEUR( " &
+                                    "TRP_CODE, TRP_NOM, TRP_LIV_RUE1,  TRP_LIV_RUE2,TRP_LIV_CP,TRP_LIV_VILLE,TRP_LIV_TEL,TRP_LIV_FAX,TRP_LIV_PORT,TRP_LIV_EMAIL, TRP_DEFAUT " &
                                     ") VALUES (?,?,?,?,?,?,?,?,?,?,?)"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -14345,17 +14345,17 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "ID<>0")
 
-        Dim sqlString As String = "UPDATE TRANSPORTEUR SET TRP_NOM = ?, " & _
-                                        "TRP_CODE = ? , " & _
-                                        "TRP_LIV_RUE1 = ? , " & _
-                                        "TRP_LIV_RUE2 = ? , " & _
-                                        "TRP_LIV_CP = ? , " & _
-                                        "TRP_LIV_VILLE = ? , " & _
-                                        "TRP_LIV_TEL = ? , " & _
-                                        "TRP_LIV_FAX = ? , " & _
-                                        "TRP_LIV_PORT = ? , " & _
-                                        "TRP_LIV_EMAIL = ? , " & _
-                                        "TRP_DEFAUT = ? , " & _
+        Dim sqlString As String = "UPDATE TRANSPORTEUR SET TRP_NOM = ?, " &
+                                        "TRP_CODE = ? , " &
+                                        "TRP_LIV_RUE1 = ? , " &
+                                        "TRP_LIV_RUE2 = ? , " &
+                                        "TRP_LIV_CP = ? , " &
+                                        "TRP_LIV_VILLE = ? , " &
+                                        "TRP_LIV_TEL = ? , " &
+                                        "TRP_LIV_FAX = ? , " &
+                                        "TRP_LIV_PORT = ? , " &
+                                        "TRP_LIV_EMAIL = ? , " &
+                                        "TRP_DEFAUT = ? , " &
                                   " WHERE TRP_ID = ?"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -14441,9 +14441,9 @@ Public MustInherit Class Persist
 
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
 
-        Dim sqlString As String = "SELECT TRP_ID,  TRP_CODE, TRP_NOM," & _
-                                    " TRP_LIV_RUE1, TRP_LIV_RUE2, TRP_LIV_CP, TRP_LIV_VILLE, " & _
-                                    " TRP_LIV_TEL, TRP_LIV_FAX, TRP_LIV_PORT, TRP_LIV_EMAIL, TRP_DEFAUT " & _
+        Dim sqlString As String = "SELECT TRP_ID,  TRP_CODE, TRP_NOM," &
+                                    " TRP_LIV_RUE1, TRP_LIV_RUE2, TRP_LIV_CP, TRP_LIV_VILLE, " &
+                                    " TRP_LIV_TEL, TRP_LIV_FAX, TRP_LIV_PORT, TRP_LIV_EMAIL, TRP_DEFAUT " &
                                   " FROM TRANSPORTEUR"
 
         Dim objCommand As OleDbCommand
@@ -15396,15 +15396,15 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         objParam = CType(Me, Param)
 
-        Dim sqlString As String = "INSERT INTO PARAMETRE( " & _
-                                    "PAR_CODE," & _
-                                    "PAR_TYPE," & _
-                                    "PAR_VALUE, " & _
-                                    "PAR_DEFAUT, " & _
-                                    "PAR_VALUE2, " & _
-                                    "PAR_DDEB_ECHEANCE " & _
-                                    " ) VALUES (" & _
-                                    "?,?,?,?,?,?" & _
+        Dim sqlString As String = "INSERT INTO PARAMETRE( " &
+                                    "PAR_CODE," &
+                                    "PAR_TYPE," &
+                                    "PAR_VALUE, " &
+                                    "PAR_DEFAUT, " &
+                                    "PAR_VALUE2, " &
+                                    "PAR_DDEB_ECHEANCE " &
+                                    " ) VALUES (" &
+                                    "?,?,?,?,?,?" &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -15469,13 +15469,13 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "ID<>0")
         objParam = CType(Me, Param)
 
-        Dim sqlString As String = "UPDATE PARAMETRE  SET " & _
-                                    "PAR_CODE= ? , " & _
-                                    "PAR_TYPE = ? , " & _
-                                    "PAR_VALUE = ? , " & _
-                                    "PAR_DEFAUT = ? , " & _
-                                    "PAR_VALUE2 = ? , " & _
-                                    "PAR_DDEB_ECHEANCE = ?  " & _
+        Dim sqlString As String = "UPDATE PARAMETRE  SET " &
+                                    "PAR_CODE= ? , " &
+                                    "PAR_TYPE = ? , " &
+                                    "PAR_VALUE = ? , " &
+                                    "PAR_DEFAUT = ? , " &
+                                    "PAR_VALUE2 = ? , " &
+                                    "PAR_DDEB_ECHEANCE = ?  " &
                                   " WHERE PAR_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
 
@@ -15611,15 +15611,15 @@ Public MustInherit Class Persist
         Debug.Assert(m_id = 0, "ID=0")
         objParam = CType(Me, contenant)
 
-        Dim sqlString As String = "INSERT INTO CONTENANT( " & _
-                                    "CONT_CODE," & _
-                                    "CONT_LIBELLE," & _
-                                    "CONT_CENT, " & _
-                                    "CONT_BOUT, " & _
-                                    "CONT_DEFAUT, " & _
-                                    "CONT_POIDS" & _
-                                    " ) VALUES (" & _
-                                    "?,?,?,?,?,?" & _
+        Dim sqlString As String = "INSERT INTO CONTENANT( " &
+                                    "CONT_CODE," &
+                                    "CONT_LIBELLE," &
+                                    "CONT_CENT, " &
+                                    "CONT_BOUT, " &
+                                    "CONT_DEFAUT, " &
+                                    "CONT_POIDS" &
+                                    " ) VALUES (" &
+                                    "?,?,?,?,?,?" &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -15754,13 +15754,13 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "ID<>0")
         objContenant = CType(Me, contenant)
 
-        Dim sqlString As String = "UPDATE CONTENANT  SET " & _
-                                    "CONT_CODE= ? , " & _
-                                    "CONT_LIBELLE = ? , " & _
-                                    "CONT_CENT = ? , " & _
-                                    "CONT_DEFAUT = ? , " & _
-                                    "CONT_BOUT = ? , " & _
-                                    "CONT_POIDS= ?  " & _
+        Dim sqlString As String = "UPDATE CONTENANT  SET " &
+                                    "CONT_CODE= ? , " &
+                                    "CONT_LIBELLE = ? , " &
+                                    "CONT_CENT = ? , " &
+                                    "CONT_DEFAUT = ? , " &
+                                    "CONT_BOUT = ? , " &
+                                    "CONT_POIDS= ?  " &
                                   " WHERE CONT_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
 

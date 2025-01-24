@@ -506,7 +506,7 @@ Imports vini_DB
         Assert.IsTrue(obj.save())
         nid = obj.id
         obj = New Produit()
-        obj.DBLoadLight(nid)
+        obj.DBLoad2(nid)
         Assert.AreEqual(Dossier.HOBIVIN, obj.DossierProduit)
         Assert.IsTrue(obj.save())
 
@@ -961,6 +961,54 @@ Imports vini_DB
 
 
 
+
+    End Sub
+    <TestMethod()> Public Sub TstFactColisageLight()
+        Dim objPRD As Produit
+        Dim objPRD2 As Produit
+        Dim n As Integer
+        Dim nIdFournisseur As Integer
+        nIdFournisseur = Fournisseur.getListe()(1).id
+
+        'I - Création d'un Produit
+        '=========================
+        objPRD = New Produit("", New Fournisseur, 1990)
+        Assert.AreEqual(False, objPRD.bArchive)
+        objPRD.code = "PTEST" & Now()
+        objPRD.nom = "Produit de TEST ARCHIVE"
+        objPRD.idFournisseur = Fournisseur.getListe()(1).id
+        objPRD.TarifA = 11.5
+        objPRD.TarifB = 12.5
+        objPRD.TarifC = 13.5
+        objPRD.Depot = "01"
+        objPRD.bStock = True
+        objPRD.bFactureColisage = True
+
+        'Save
+        Assert.IsTrue(objPRD.save(), "Insert")
+
+        'II - Rechargement d'un Produit en mode Light
+        '=========================
+        Dim oPRD2 As New Produit()
+        oPRD2.DBLoad2(objPRD.id)
+
+        'III - Modification du Produit
+        '=================================
+        ' Modification du Produit
+        oPRD2.nom = objPRD.nom & "2"
+        Assert.IsTrue(oPRD2.save(), "Update")
+
+        'Rechargement de l'objet
+        objPRD = Produit.createandload(oPRD2.id)
+        Assert.IsTrue(objPRD.bStock)
+        Assert.IsTrue(objPRD.bFactureColisage)
+
+
+        'IV - Suppression du Produit
+        '=================================
+        ' Modification du Produit
+        objPRD.bDeleted = True
+        Assert.IsTrue(objPRD.save(), "Delete" & objPRD.getErreur())
 
     End Sub
 End Class

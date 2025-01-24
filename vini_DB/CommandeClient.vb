@@ -1046,7 +1046,7 @@ Public Class CommandeClient
                 loadcolLignes()
             End If
             For Each objLgCMD In colLignes
-                objLgCMD.oProduit.DBLoadLight()
+                objLgCMD.oProduit.DBLoad2()
                 If objLgCMD.oProduit.bStock Then
                     strErreurLg = ""
                     If nidProduit <> objLgCMD.oProduit.id Then
@@ -1076,7 +1076,7 @@ Public Class CommandeClient
             Next objLgCMD
 
             If nidProduit <> 0 Then
-                objLgCMD.oProduit.DBLoadLight()
+                objLgCMD.oProduit.DBLoad2()
                 If objLgCMD.oProduit.bStock Then
                     'Pour le dernier produit chargé
                     colMvtStock = mvtStock.getListe(nidProduit, m_id)

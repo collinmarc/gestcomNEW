@@ -895,14 +895,14 @@ Public Class Produit
     'Détails    : Appelle LoadPRD (de Persist) 
     'Retour : Rend Vrai si le chargement s'est correctement effectué
     '=======================================================================
-    Public Function DBLoadLight(Optional ByVal pid As Integer = 0) As Boolean
+    Public Function DBLoad2(Optional ByVal pid As Integer = 0) As Boolean
         Dim bReturn As Boolean
         init()
         shared_connect()
         If pid <> 0 Then
             m_id = pid
         End If
-        bReturn = loadPRDLight()
+        bReturn = loadPRD()
         shared_disconnect()
         'Mise à jour des indicateurs
         If bReturn Then
