@@ -12,7 +12,7 @@ Public Class frmProduit
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents tbTarifA As vini_app.textBoxCurrency
     Friend WithEvents tbTarifB As vini_app.textBoxCurrency
-    Friend WithEvents tbTarifC As vini_app.textBoxCurrency
+    Friend WithEvents tbTarifC120 As vini_app.textBoxCurrency
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents m_bsrcProduit As System.Windows.Forms.BindingSource
@@ -39,10 +39,14 @@ Public Class frmProduit
     Friend WithEvents Label26 As Label
     Friend WithEvents tbDepot As TextBox
     Friend WithEvents Label27 As Label
-    Friend WithEvents tbTarifD As textBoxCurrency
+    Friend WithEvents tbTarifC60 As textBoxCurrency
     Friend WithEvents ckArchive As CheckBox
     Friend WithEvents cbMillesime As Button
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents Label28 As Label
+    Friend WithEvents tbTarifC30b As textBoxCurrency
+    Friend WithEvents Label29 As Label
+    Friend WithEvents tbTarifE As textBoxCurrency
     Private m_bAjoutmvt As Boolean
 
 #Region "Code généré par le Concepteur Windows Form "
@@ -180,7 +184,7 @@ Public Class frmProduit
         Me.Label20 = New System.Windows.Forms.Label()
         Me.tbTarifA = New vini_app.textBoxCurrency()
         Me.tbTarifB = New vini_app.textBoxCurrency()
-        Me.tbTarifC = New vini_app.textBoxCurrency()
+        Me.tbTarifC120 = New vini_app.textBoxCurrency()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -200,10 +204,14 @@ Public Class frmProduit
         Me.Label26 = New System.Windows.Forms.Label()
         Me.tbDepot = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.tbTarifD = New vini_app.textBoxCurrency()
+        Me.tbTarifC60 = New vini_app.textBoxCurrency()
         Me.ckArchive = New System.Windows.Forms.CheckBox()
         Me.cbMillesime = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.tbTarifC30b = New vini_app.textBoxCurrency()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.tbTarifE = New vini_app.textBoxCurrency()
         CType(Me.m_bsrcProduit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -613,11 +621,11 @@ Public Class frmProduit
         Me.tbTarifB.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifB", True))
         Me.tbTarifB.Name = "tbTarifB"
         '
-        'tbTarifC
+        'tbTarifC120
         '
-        resources.ApplyResources(Me.tbTarifC, "tbTarifC")
-        Me.tbTarifC.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifC", True))
-        Me.tbTarifC.Name = "tbTarifC"
+        resources.ApplyResources(Me.tbTarifC120, "tbTarifC120")
+        Me.tbTarifC120.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifC120b", True))
+        Me.tbTarifC120.Name = "tbTarifC120"
         '
         'Label22
         '
@@ -741,11 +749,11 @@ Public Class frmProduit
         resources.ApplyResources(Me.Label27, "Label27")
         Me.Label27.Name = "Label27"
         '
-        'tbTarifD
+        'tbTarifC60
         '
-        resources.ApplyResources(Me.tbTarifD, "tbTarifD")
-        Me.tbTarifD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifD", True))
-        Me.tbTarifD.Name = "tbTarifD"
+        resources.ApplyResources(Me.tbTarifC60, "tbTarifC60")
+        Me.tbTarifC60.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifC60b", True))
+        Me.tbTarifC60.Name = "tbTarifC60"
         '
         'ckArchive
         '
@@ -767,15 +775,41 @@ Public Class frmProduit
         Me.CheckBox1.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.m_bsrcProduit, "bFactureColisage", True))
         Me.CheckBox1.Name = "CheckBox1"
         '
+        'Label28
+        '
+        resources.ApplyResources(Me.Label28, "Label28")
+        Me.Label28.Name = "Label28"
+        '
+        'tbTarifC30b
+        '
+        resources.ApplyResources(Me.tbTarifC30b, "tbTarifC30b")
+        Me.tbTarifC30b.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifC36b", True))
+        Me.tbTarifC30b.Name = "tbTarifC30b"
+        '
+        'Label29
+        '
+        resources.ApplyResources(Me.Label29, "Label29")
+        Me.Label29.Name = "Label29"
+        '
+        'tbTarifE
+        '
+        resources.ApplyResources(Me.tbTarifE, "tbTarifE")
+        Me.tbTarifE.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifE", True))
+        Me.tbTarifE.Name = "tbTarifE"
+        '
         'frmProduit
         '
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.Label29)
+        Me.Controls.Add(Me.tbTarifE)
+        Me.Controls.Add(Me.Label28)
+        Me.Controls.Add(Me.tbTarifC30b)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.cbMillesime)
         Me.Controls.Add(Me.ckArchive)
         Me.Controls.Add(Me.Label27)
-        Me.Controls.Add(Me.tbTarifD)
+        Me.Controls.Add(Me.tbTarifC60)
         Me.Controls.Add(Me.tbDepot)
         Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.tbStockAu)
@@ -788,7 +822,7 @@ Public Class frmProduit
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.tbTarifC)
+        Me.Controls.Add(Me.tbTarifC120)
         Me.Controls.Add(Me.tbTarifB)
         Me.Controls.Add(Me.tbTarifA)
         Me.Controls.Add(Me.Label20)

@@ -39,13 +39,13 @@ Public Class frmcrListeTarif
     Friend WithEvents cbxTarif As System.Windows.Forms.ComboBox
     Friend WithEvents cbAfficher As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.cbAfficher = New System.Windows.Forms.Button
-        Me.Label1 = New System.Windows.Forms.Label
+        Me.components = New System.ComponentModel.Container()
+        Me.cbAfficher = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.m_bsrcFournisseur = New System.Windows.Forms.BindingSource(Me.components)
-        Me.cbxFournisseur = New System.Windows.Forms.ComboBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.cbxTarif = New System.Windows.Forms.ComboBox
+        Me.cbxFournisseur = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cbxTarif = New System.Windows.Forms.ComboBox()
         CType(Me.m_bsrcFournisseur, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -93,7 +93,7 @@ Public Class frmcrListeTarif
         'cbxTarif
         '
         Me.cbxTarif.FormattingEnabled = True
-        Me.cbxTarif.Items.AddRange(New Object() {"A", "B", "C", "*"})
+        Me.cbxTarif.Items.AddRange(New Object() {"A", "B", "C120b", "C60b", "C36b", "E", "*"})
         Me.cbxTarif.Location = New System.Drawing.Point(679, 5)
         Me.cbxTarif.Name = "cbxTarif"
         Me.cbxTarif.Size = New System.Drawing.Size(51, 21)
@@ -110,7 +110,6 @@ Public Class frmcrListeTarif
         Me.Controls.Add(Me.cbAfficher)
         Me.Name = "frmcrListeTarif"
         Me.Text = "Edition du Tarif"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Controls.SetChildIndex(Me.cbAfficher, 0)
         Me.Controls.SetChildIndex(Me.Label1, 0)
         Me.Controls.SetChildIndex(Me.cbxFournisseur, 0)

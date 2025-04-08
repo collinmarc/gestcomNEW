@@ -560,7 +560,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACK
-        CAAAAk1TRnQBSQFMAgEBAgEAAfABAAHwAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CAAAAk1TRnQBSQFMAgEBAgEAARABAQEQAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -668,11 +668,29 @@
   <data name="TarifBDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>TarifB</value>
   </data>
-  <data name="TarifCDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>TarifC</value>
+  <metadata name="TarifC120b.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="TarifC120b.HeaderText" xml:space="preserve">
+    <value>TarifC120b</value>
   </data>
-  <data name="TarifDDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>TarifD</value>
+  <metadata name="TarifC60b.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="TarifC60b.HeaderText" xml:space="preserve">
+    <value>TarifC60b</value>
+  </data>
+  <metadata name="TarifC36b.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="TarifC36b.HeaderText" xml:space="preserve">
+    <value>TarifC36b</value>
+  </data>
+  <metadata name="TarifE.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="TarifE.HeaderText" xml:space="preserve">
+    <value>TarifE</value>
   </data>
   <metadata name="m_bsrcProduitMillesime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>690, 17</value>
@@ -908,16 +926,28 @@
   <data name="&gt;&gt;TarifBDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TarifCDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>TarifCDataGridViewTextBoxColumn</value>
+  <data name="&gt;&gt;TarifC120b.Name" xml:space="preserve">
+    <value>TarifC120b</value>
   </data>
-  <data name="&gt;&gt;TarifCDataGridViewTextBoxColumn.Type" xml:space="preserve">
+  <data name="&gt;&gt;TarifC120b.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TarifDDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>TarifDDataGridViewTextBoxColumn</value>
+  <data name="&gt;&gt;TarifC60b.Name" xml:space="preserve">
+    <value>TarifC60b</value>
   </data>
-  <data name="&gt;&gt;TarifDDataGridViewTextBoxColumn.Type" xml:space="preserve">
+  <data name="&gt;&gt;TarifC60b.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TarifC36b.Name" xml:space="preserve">
+    <value>TarifC36b</value>
+  </data>
+  <data name="&gt;&gt;TarifC36b.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TarifE.Name" xml:space="preserve">
+    <value>TarifE</value>
+  </data>
+  <data name="&gt;&gt;TarifE.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

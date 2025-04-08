@@ -1113,8 +1113,8 @@
     </Content>
     <Content Include="cr\crBonAppro.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crBonAppro.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <LastGenOutput>crBonAppro1.vb</LastGenOutput>
     </Content>
     <Content Include="cr\crBonLivraison.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

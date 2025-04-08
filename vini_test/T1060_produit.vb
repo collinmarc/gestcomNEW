@@ -95,7 +95,7 @@ Imports vini_DB
         objPRD = New Produit("", New Fournisseur, 1990)
         Assert.AreEqual(CDec(0), objPRD.TarifA, "Tarif A")
         Assert.AreEqual(CDec(0), objPRD.TarifB, "Tarif B")
-        Assert.AreEqual(CDec(0), objPRD.TarifC, "Tarif B")
+        Assert.AreEqual(CDec(0), objPRD.TarifC120b, "Tarif B")
         objPRD.code = "FTEST" & Now()
         objPRD.nom = "Produit de test'fklfdkl&й#'(-и_за)=}}]@^\`|[{#~"
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
@@ -110,10 +110,10 @@ Imports vini_DB
         objPRD.idCouleur = Param.colCouleur(Param.colCouleur.Count).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         Assert.AreEqual(CDec(11.5), objPRD.TarifA, " TarifA")
         Assert.AreEqual(CDec(12.5), objPRD.TarifB, " TarifB")
-        Assert.AreEqual(CDec(13.5), objPRD.TarifC, "TarifC")
+        Assert.AreEqual(CDec(13.5), objPRD.TarifC120b, "TarifC")
         objPRD.Depot = "01"
 
 
@@ -135,7 +135,7 @@ Imports vini_DB
         objPRD2 = Produit.createandload(n)
         Assert.AreEqual(CDec(11.5), objPRD2.TarifA, "Load TarifA")
         Assert.AreEqual(CDec(12.5), objPRD2.TarifB, "Load TarifB")
-        Assert.AreEqual(CDec(13.5), objPRD2.TarifC, "Load TarifC")
+        Assert.AreEqual(CDec(13.5), objPRD2.TarifC120b, "Load TarifC")
         Assert.AreEqual("01", objPRD2.Depot)
         Assert.IsTrue(objPRD.Equals(objPRD2))
 
@@ -148,7 +148,7 @@ Imports vini_DB
         objPRD2.idCouleur = Param.colCouleur(Param.colCouleur.Count - 1).id
         objPRD2.TarifA = 15.15
         objPRD2.TarifB = 16.16
-        objPRD2.TarifC = 17.17
+        objPRD2.TarifC120b = 17.17
         objPRD2.Depot = "02"
 
         'Test des indicateurs Avant le Save
@@ -167,7 +167,7 @@ Imports vini_DB
         objPRD = Produit.createandload(n)
         Assert.AreEqual(CDec(15.15), objPRD.TarifA, "Load TarifA")
         Assert.AreEqual(CDec(16.16), objPRD.TarifB, "Load TarifB")
-        Assert.AreEqual(CDec(17.17), objPRD.TarifC, "Load TarifC")
+        Assert.AreEqual(CDec(17.17), objPRD.TarifC120b, "Load TarifC")
         Assert.AreEqual("02", objPRD.Depot)
         Assert.IsTrue(objPRD.Equals(objPRD2))
 
@@ -566,9 +566,9 @@ Imports vini_DB
         objPRD.idCouleur = Param.colCouleur(Param.colCouleur.Count).id
 
 
-        Assert.AreEqual(CDec(0), objPRD.TarifD, "Tarif D")
-        objPRD.TarifD = 14.5
-        Assert.AreEqual(CDec(14.5), objPRD.TarifD, " TarifD")
+        Assert.AreEqual(CDec(0), objPRD.TarifC60b, "Tarif D")
+        objPRD.TarifC60b = 14.5
+        Assert.AreEqual(CDec(14.5), objPRD.TarifC60b, " TarifD")
         'Save
         Assert.IsTrue(objPRD.save(), "Insert" & objPRD.getErreur)
 
@@ -576,27 +576,27 @@ Imports vini_DB
         '=========================
         n = objPRD.id
         objPRD2 = Produit.createandload(n)
-        Assert.AreEqual(CDec(14.5), objPRD2.TarifD, "Load TarifD")
+        Assert.AreEqual(CDec(14.5), objPRD2.TarifC60b, "Load TarifD")
         Assert.IsTrue(objPRD.Equals(objPRD2))
 
         'III - Modification du Produit
         '=================================
         ' Modification du Produit
-        objPRD2.TarifD = 18.17
+        objPRD2.TarifC60b = 18.17
 
         Assert.IsTrue(objPRD2.save(), "Update" & objPRD.getErreur)
         'Rechargement de l'objet
         n = objPRD2.id
         objPRD = Produit.createandload(n)
-        Assert.AreEqual(CDec(18.17), objPRD.TarifD, "Load TarifD")
+        Assert.AreEqual(CDec(18.17), objPRD.TarifC60b, "Load TarifD")
         Assert.IsTrue(objPRD.Equals(objPRD2))
 
 
         '
         objPRD.TarifA = 10.5
         objPRD.TarifB = 11.5
-        objPRD.TarifC = 12.5
-        objPRD.TarifD = 13.5
+        objPRD.TarifC120b = 12.5
+        objPRD.TarifC60b = 13.5
 
 
         Assert.AreEqual(13.5D, objPRD.Tarif("D"))
@@ -625,7 +625,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         objPRD.bArchive = True
 
@@ -723,7 +723,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         objPRD.bArchive = True
 
@@ -762,7 +762,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
 
         'Save
@@ -803,7 +803,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         'Save
         Assert.IsTrue(objPRD.save(), "Insert")
@@ -818,7 +818,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         'Save
         Assert.IsTrue(objPRD.save(), "Insert")
@@ -833,7 +833,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         'Save
         Assert.IsTrue(objPRD.save(), "Insert")
@@ -868,7 +868,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         'Save
         Assert.IsTrue(objPRD.save(), "Insert")
@@ -902,7 +902,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         'Save
         Assert.IsTrue(objPRD.save(), "Insert")
@@ -917,7 +917,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         'Save
         Assert.IsTrue(objPRD.save(), "Insert")
@@ -932,7 +932,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         'Save
         Assert.IsTrue(objPRD.save(), "Insert")
@@ -979,7 +979,7 @@ Imports vini_DB
         objPRD.idFournisseur = Fournisseur.getListe()(1).id
         objPRD.TarifA = 11.5
         objPRD.TarifB = 12.5
-        objPRD.TarifC = 13.5
+        objPRD.TarifC120b = 13.5
         objPRD.Depot = "01"
         objPRD.bStock = True
         objPRD.bFactureColisage = True

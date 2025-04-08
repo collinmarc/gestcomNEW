@@ -6,15 +6,19 @@ Public Class frmGestTarif
     Friend WithEvents m_bsrcProduit As System.Windows.Forms.BindingSource
     Friend WithEvents m_bsrcFournisseur As System.Windows.Forms.BindingSource
     Friend WithEvents lbFournisseur As System.Windows.Forms.ListBox
-    Friend WithEvents CodeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NomDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents MillesimeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents LibCouleurDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents LibConditionnementDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents LibContenantDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TarifADataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TarifBDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TarifCDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CodeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NomDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MillesimeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LibCouleurDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LibConditionnementDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LibContenantDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TarifADataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TarifBDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TarifC120b As DataGridViewTextBoxColumn
+    Friend WithEvents TarifC60b As DataGridViewTextBoxColumn
+    Friend WithEvents TarifC36b As DataGridViewTextBoxColumn
+    Friend WithEvents TarifE As DataGridViewTextBoxColumn
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 
 #Region " Code généré par le Concepteur Windows Form "
@@ -47,20 +51,29 @@ Public Class frmGestTarif
     'Elle peut être modifiée en utilisant le Concepteur Windows Form.  
     'Ne la modifiez pas en utilisant l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.m_bsrcProduit = New System.Windows.Forms.BindingSource(Me.components)
         Me.m_bsrcFournisseur = New System.Windows.Forms.BindingSource(Me.components)
-        Me.lbFournisseur = New System.Windows.Forms.ListBox
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
-        Me.CodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.NomDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.MillesimeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.LibCouleurDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.LibConditionnementDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.LibContenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.TarifADataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.TarifBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.TarifCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.lbFournisseur = New System.Windows.Forms.ListBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.CodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MillesimeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LibCouleurDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LibConditionnementDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LibContenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifADataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifC120b = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifC60b = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifC36b = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.m_bsrcProduit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcFournisseur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,7 +94,7 @@ Public Class frmGestTarif
         Me.lbFournisseur.FormattingEnabled = True
         Me.lbFournisseur.Location = New System.Drawing.Point(12, 12)
         Me.lbFournisseur.Name = "lbFournisseur"
-        Me.lbFournisseur.Size = New System.Drawing.Size(337, 602)
+        Me.lbFournisseur.Size = New System.Drawing.Size(302, 602)
         Me.lbFournisseur.TabIndex = 0
         Me.lbFournisseur.ValueMember = "id"
         '
@@ -91,11 +104,12 @@ Public Class frmGestTarif
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodeDataGridViewTextBoxColumn, Me.NomDataGridViewTextBoxColumn, Me.MillesimeDataGridViewTextBoxColumn, Me.LibCouleurDataGridViewTextBoxColumn, Me.LibConditionnementDataGridViewTextBoxColumn, Me.LibContenantDataGridViewTextBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifCDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CodeDataGridViewTextBoxColumn, Me.NomDataGridViewTextBoxColumn, Me.MillesimeDataGridViewTextBoxColumn, Me.LibCouleurDataGridViewTextBoxColumn, Me.LibConditionnementDataGridViewTextBoxColumn, Me.LibContenantDataGridViewTextBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifC120b, Me.TarifC60b, Me.TarifC36b, Me.TarifE})
         Me.DataGridView1.DataSource = Me.m_bsrcProduit
-        Me.DataGridView1.Location = New System.Drawing.Point(380, 12)
+        Me.DataGridView1.Location = New System.Drawing.Point(320, 12)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(594, 588)
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.Size = New System.Drawing.Size(675, 588)
         Me.DataGridView1.TabIndex = 1
         '
         'CodeDataGridViewTextBoxColumn
@@ -149,6 +163,8 @@ Public Class frmGestTarif
         'TarifADataGridViewTextBoxColumn
         '
         Me.TarifADataGridViewTextBoxColumn.DataPropertyName = "TarifA"
+        DataGridViewCellStyle1.Format = "C2"
+        Me.TarifADataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
         Me.TarifADataGridViewTextBoxColumn.HeaderText = "Tarif A"
         Me.TarifADataGridViewTextBoxColumn.Name = "TarifADataGridViewTextBoxColumn"
         Me.TarifADataGridViewTextBoxColumn.Width = 50
@@ -156,26 +172,56 @@ Public Class frmGestTarif
         'TarifBDataGridViewTextBoxColumn
         '
         Me.TarifBDataGridViewTextBoxColumn.DataPropertyName = "TarifB"
+        DataGridViewCellStyle2.Format = "C2"
+        Me.TarifBDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.TarifBDataGridViewTextBoxColumn.HeaderText = "Tarif B"
         Me.TarifBDataGridViewTextBoxColumn.Name = "TarifBDataGridViewTextBoxColumn"
         Me.TarifBDataGridViewTextBoxColumn.Width = 50
         '
-        'TarifCDataGridViewTextBoxColumn
+        'TarifC120b
         '
-        Me.TarifCDataGridViewTextBoxColumn.DataPropertyName = "TarifC"
-        Me.TarifCDataGridViewTextBoxColumn.HeaderText = "Tarif C"
-        Me.TarifCDataGridViewTextBoxColumn.Name = "TarifCDataGridViewTextBoxColumn"
-        Me.TarifCDataGridViewTextBoxColumn.Width = 50
+        Me.TarifC120b.DataPropertyName = "TarifC120b"
+        DataGridViewCellStyle3.Format = "C2"
+        Me.TarifC120b.DefaultCellStyle = DataGridViewCellStyle3
+        Me.TarifC120b.HeaderText = "TarifC120b"
+        Me.TarifC120b.Name = "TarifC120b"
+        Me.TarifC120b.Width = 50
+        '
+        'TarifC60b
+        '
+        Me.TarifC60b.DataPropertyName = "TarifC60b"
+        DataGridViewCellStyle4.Format = "C2"
+        Me.TarifC60b.DefaultCellStyle = DataGridViewCellStyle4
+        Me.TarifC60b.HeaderText = "TarifC60b"
+        Me.TarifC60b.Name = "TarifC60b"
+        Me.TarifC60b.Width = 50
+        '
+        'TarifC36b
+        '
+        Me.TarifC36b.DataPropertyName = "TarifC36b"
+        DataGridViewCellStyle5.Format = "C2"
+        Me.TarifC36b.DefaultCellStyle = DataGridViewCellStyle5
+        Me.TarifC36b.HeaderText = "TarifC36b"
+        Me.TarifC36b.Name = "TarifC36b"
+        Me.TarifC36b.Width = 50
+        '
+        'TarifE
+        '
+        Me.TarifE.DataPropertyName = "TarifE"
+        DataGridViewCellStyle6.Format = "C2"
+        Me.TarifE.DefaultCellStyle = DataGridViewCellStyle6
+        Me.TarifE.HeaderText = "TarifE"
+        Me.TarifE.Name = "TarifE"
+        Me.TarifE.Width = 50
         '
         'frmGestTarif
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(997, 630)
+        Me.ClientSize = New System.Drawing.Size(1003, 630)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.lbFournisseur)
         Me.Name = "frmGestTarif"
         Me.Text = "Gestion de tarif"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.m_bsrcProduit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.m_bsrcFournisseur, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -25,6 +25,8 @@ Public Class frmGestionMillesime
     Friend WithEvents cbValider As Button
     Friend WithEvents m_bsrcProduitMillesime As BindingSource
     Friend WithEvents cbAjouter As Button
+    Friend WithEvents TarifCDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TarifDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents millesime As DataGridViewTextBoxColumn
     Friend WithEvents MillesimeCode As DataGridViewTextBoxColumn
     Friend WithEvents codeStat As DataGridViewTextBoxColumn
@@ -34,8 +36,10 @@ Public Class frmGestionMillesime
     Friend WithEvents BArchiveDataGridViewCheckBoxColumn As DataGridViewCheckBoxColumn
     Friend WithEvents TarifADataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TarifBDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TarifCDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TarifDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TarifC120b As DataGridViewTextBoxColumn
+    Friend WithEvents TarifC60b As DataGridViewTextBoxColumn
+    Friend WithEvents TarifC36b As DataGridViewTextBoxColumn
+    Friend WithEvents TarifE As DataGridViewTextBoxColumn
     Private m_bAjoutmvt As Boolean
 
 #Region "Code généré par le Concepteur Windows Form "
@@ -79,6 +83,8 @@ Public Class frmGestionMillesime
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tbDesignation = New System.Windows.Forms.TextBox()
         Me.m_bsrcProduitRacine = New System.Windows.Forms.BindingSource(Me.components)
         Me.tbCode = New System.Windows.Forms.TextBox()
@@ -117,8 +123,10 @@ Public Class frmGestionMillesime
         Me.BArchiveDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.TarifADataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TarifCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TarifDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifC120b = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifC60b = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifC36b = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.m_bsrcProduitRacine, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -312,7 +320,7 @@ Public Class frmGestionMillesime
         Me.dgvPrdMillesime.AutoGenerateColumns = False
         Me.dgvPrdMillesime.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvPrdMillesime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPrdMillesime.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.millesime, Me.MillesimeCode, Me.codeStat, Me.BDisponibleDataGridViewCheckBoxColumn, Me.bStock, Me.bFactureColisage, Me.BArchiveDataGridViewCheckBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifCDataGridViewTextBoxColumn, Me.TarifDDataGridViewTextBoxColumn})
+        Me.dgvPrdMillesime.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.millesime, Me.MillesimeCode, Me.codeStat, Me.BDisponibleDataGridViewCheckBoxColumn, Me.bStock, Me.bFactureColisage, Me.BArchiveDataGridViewCheckBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifC120b, Me.TarifC60b, Me.TarifC36b, Me.TarifE})
         Me.dgvPrdMillesime.DataSource = Me.m_bsrcProduitMillesime
         Me.dgvPrdMillesime.Name = "dgvPrdMillesime"
         '
@@ -398,23 +406,37 @@ Public Class frmGestionMillesime
         resources.ApplyResources(Me.TarifBDataGridViewTextBoxColumn, "TarifBDataGridViewTextBoxColumn")
         Me.TarifBDataGridViewTextBoxColumn.Name = "TarifBDataGridViewTextBoxColumn"
         '
-        'TarifCDataGridViewTextBoxColumn
+        'TarifC120b
         '
-        Me.TarifCDataGridViewTextBoxColumn.DataPropertyName = "TarifC"
+        Me.TarifC120b.DataPropertyName = "TarifC120b"
         DataGridViewCellStyle3.Format = "C2"
-        DataGridViewCellStyle3.NullValue = "0"
-        Me.TarifCDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
-        resources.ApplyResources(Me.TarifCDataGridViewTextBoxColumn, "TarifCDataGridViewTextBoxColumn")
-        Me.TarifCDataGridViewTextBoxColumn.Name = "TarifCDataGridViewTextBoxColumn"
+        Me.TarifC120b.DefaultCellStyle = DataGridViewCellStyle3
+        resources.ApplyResources(Me.TarifC120b, "TarifC120b")
+        Me.TarifC120b.Name = "TarifC120b"
         '
-        'TarifDDataGridViewTextBoxColumn
+        'TarifC60b
         '
-        Me.TarifDDataGridViewTextBoxColumn.DataPropertyName = "TarifD"
+        Me.TarifC60b.DataPropertyName = "TarifC60b"
         DataGridViewCellStyle4.Format = "C2"
-        DataGridViewCellStyle4.NullValue = "0"
-        Me.TarifDDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
-        resources.ApplyResources(Me.TarifDDataGridViewTextBoxColumn, "TarifDDataGridViewTextBoxColumn")
-        Me.TarifDDataGridViewTextBoxColumn.Name = "TarifDDataGridViewTextBoxColumn"
+        Me.TarifC60b.DefaultCellStyle = DataGridViewCellStyle4
+        resources.ApplyResources(Me.TarifC60b, "TarifC60b")
+        Me.TarifC60b.Name = "TarifC60b"
+        '
+        'TarifC36b
+        '
+        Me.TarifC36b.DataPropertyName = "TarifC36b"
+        DataGridViewCellStyle5.Format = "C2"
+        Me.TarifC36b.DefaultCellStyle = DataGridViewCellStyle5
+        resources.ApplyResources(Me.TarifC36b, "TarifC36b")
+        Me.TarifC36b.Name = "TarifC36b"
+        '
+        'TarifE
+        '
+        Me.TarifE.DataPropertyName = "TarifE"
+        DataGridViewCellStyle6.Format = "C2"
+        Me.TarifE.DefaultCellStyle = DataGridViewCellStyle6
+        resources.ApplyResources(Me.TarifE, "TarifE")
+        Me.TarifE.Name = "TarifE"
         '
         'frmGestionMillesime
         '
@@ -647,8 +669,10 @@ Public Class frmGestionMillesime
         oProduit.idConditionnement = m_objProduitCourant.idConditionnement
         oProduit.TarifA = m_objProduitCourant.TarifA
         oProduit.TarifB = m_objProduitCourant.TarifB
-        oProduit.TarifC = m_objProduitCourant.TarifC
-        oProduit.TarifD = m_objProduitCourant.TarifD
+        oProduit.TarifC120b = m_objProduitCourant.TarifC120b
+        oProduit.TarifC60b = m_objProduitCourant.TarifC60b
+        oProduit.TarifC36b = m_objProduitCourant.TarifC36b
+        oProduit.TarifE = m_objProduitCourant.TarifE
         oProduit.bStock = m_objProduitCourant.bStock
         oProduit.bFactureColisage = m_objProduitCourant.bFactureColisage
 

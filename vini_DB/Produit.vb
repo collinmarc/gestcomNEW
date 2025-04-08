@@ -52,10 +52,12 @@ Public Class Produit
     Private m_idFournisseur As Integer         'Id du Fournisseur
     Private m_nomFournisseur As String      'Nom du Fournisseur
     Private m_qteCommande As Decimal           'qte en commande
-    Private m_TarifA As Decimal           'Tarif 
+    Private m_TarifA As Decimal           'Tarif A
     Private m_TarifB As Decimal           'Tarif
-    Private m_TarifC As Decimal           'Tarif
-    Private m_TarifD As Decimal           'Tarif
+    Private m_TarifC120b As Decimal           'Tarif
+    Private m_TarifC60b As Decimal           'Tarif
+    Private m_TarifC36b As Decimal           'Tarif
+    Private m_TarifE As Decimal           'Tarif
     Private m_bStock As Boolean             'Produit Stocké
     Private m_bFactureColisage As Boolean             'Produit Générant des factures de colisage
     Private WithEvents m_colMvtStock As ColEventSorted       'Collection des Mouvements de Stocks
@@ -147,8 +149,8 @@ Public Class Produit
         m_colMvtStock = New ColEventSorted
         m_TarifA = 0
         m_TarifB = 0
-        m_TarifC = 0
-        m_TarifD = 0
+        m_TarifC120b = 0
+        m_TarifC60b = 0
         m_Dossier = vini_DB.Dossier.VINICOM
         'Pour un nouveau produit on considère que la collection est chargée,
         'elle sera considérée comme non-chargée lors du load du produit
@@ -626,10 +628,14 @@ Public Class Produit
                     Return TarifA
                 Case "B"
                     Return TarifB
-                Case "C"
-                    Return TarifC
-                Case "D"
-                    Return TarifD
+                Case "C120b"
+                    Return TarifC120b
+                Case "C60b"
+                    Return TarifC60b
+                Case "C36b"
+                    Return TarifC36b
+                Case "E"
+                    Return TarifE
             End Select
         End Get
     End Property
@@ -655,25 +661,47 @@ Public Class Produit
             End If
         End Set
     End Property
-    Public Property TarifC() As Decimal
+    Public Property TarifC120b() As Decimal
         Get
-            Return m_TarifC
+            Return m_TarifC120b
         End Get
         Set(ByVal Value As Decimal)
-            If Value <> m_TarifC Then
+            If Value <> m_TarifC120b Then
                 RaiseUpdated()
-                m_TarifC = Value
+                m_TarifC120b = Value
             End If
         End Set
     End Property
-    Public Property TarifD() As Decimal
+    Public Property TarifC60b() As Decimal
         Get
-            Return m_TarifD
+            Return m_TarifC60b
         End Get
         Set(ByVal Value As Decimal)
-            If Value <> m_TarifD Then
+            If Value <> m_TarifC60b Then
                 RaiseUpdated()
-                m_TarifD = Value
+                m_TarifC60b = Value
+            End If
+        End Set
+    End Property
+    Public Property TarifC36b() As Decimal
+        Get
+            Return m_TarifC36b
+        End Get
+        Set(ByVal Value As Decimal)
+            If Value <> m_TarifC36b Then
+                RaiseUpdated()
+                m_TarifC36b = Value
+            End If
+        End Set
+    End Property
+    Public Property TarifE() As Decimal
+        Get
+            Return m_TarifE
+        End Get
+        Set(ByVal Value As Decimal)
+            If Value <> m_TarifE Then
+                RaiseUpdated()
+                m_TarifE = Value
             End If
         End Set
     End Property
@@ -852,8 +880,10 @@ Public Class Produit
             bReturn = bReturn And (bStock.Equals(objPrd.bStock))
             bReturn = bReturn And (TarifA.Equals(objPrd.TarifA))
             bReturn = bReturn And (TarifB.Equals(objPrd.TarifB))
-            bReturn = bReturn And (TarifC.Equals(objPrd.TarifC))
-            bReturn = bReturn And (TarifD.Equals(objPrd.TarifD))
+            bReturn = bReturn And (TarifC120b.Equals(objPrd.TarifC120b))
+            bReturn = bReturn And (TarifC60b.Equals(objPrd.TarifC60b))
+            bReturn = bReturn And (TarifC36b.Equals(objPrd.TarifC36b))
+            bReturn = bReturn And (TarifE.Equals(objPrd.TarifE))
             bReturn = bReturn And (Depot.Equals(objPrd.Depot))
             bReturn = bReturn And (bArchive.Equals(objPrd.bArchive))
 
@@ -1465,10 +1495,14 @@ Public Class Produit
                     Me.TarifA = Convert.ToString(pColValue)
                 Case "PRD_TARIFB"
                     Me.TarifB = Convert.ToString(pColValue)
-                Case "PRD_TARIFC"
-                    Me.TarifC = Convert.ToString(pColValue)
-                Case "PRD_TARIFD"
-                    Me.TarifD = Convert.ToString(pColValue)
+                Case "PRD_TARIFC120B"
+                    Me.TarifC120b = Convert.ToString(pColValue)
+                Case "PRD_TARIFC60B"
+                    Me.TarifC60b = Convert.ToString(pColValue)
+                Case "PRD_TARIFC36B"
+                    Me.TarifC36b = Convert.ToString(pColValue)
+                Case "PRD_TARIFE"
+                    Me.TarifE = Convert.ToString(pColValue)
                 Case "PRD_DOSSIER"
                     Me.DossierProduit = Convert.ToString(pColValue)
                 Case "PRD_QTE_COMMANDE"

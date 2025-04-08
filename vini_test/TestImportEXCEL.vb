@@ -65,7 +65,7 @@ Imports System.Data
         Dim oProduit As New Produit("999910", oFRN, "2017")
         oProduit.TarifA = 741.85
         oProduit.TarifB = 852.96
-        oProduit.TarifC = 963.74
+        oProduit.TarifC120b = 963.74
         oProduit.save()
         Dim idProduit As Integer
         idProduit = oProduit.id
@@ -74,27 +74,31 @@ Imports System.Data
         oProduit2.codeStat = "999915"
         oProduit2.TarifA = 741.85
         oProduit2.TarifB = 852.96
-        oProduit2.TarifC = 963.74
+        oProduit2.TarifC120b = 963.74
         oProduit2.save()
         Dim idProduit2 As Integer
         idProduit2 = oProduit2.id
 
-        Dim oImport As New ImportTarifGESTCOM("testImportTarif.csv", 1, 2, 3, 4, 5)
+        Dim oImport As New ImportTarifGESTCOM("testImportTarif.csv", 1, 2, 3, 4, 5, 6, 7)
 
         oImport.ImportTarif()
         oProduit = Produit.createandload(idProduit)
 
         Assert.AreEqual(2.9D, oProduit.TarifA)
         Assert.AreEqual(2.9D, oProduit.TarifB)
-        Assert.AreEqual(3D, oProduit.TarifC)
-        Assert.AreEqual(3.6D, oProduit.TarifD)
+        Assert.AreEqual(3D, oProduit.TarifC120b)
+        Assert.AreEqual(3.6D, oProduit.TarifC60b)
+        Assert.AreEqual(4.7D, oProduit.TarifC36b)
+        Assert.AreEqual(5.8D, oProduit.TarifE)
 
         oProduit2 = Produit.createandload(idProduit2)
 
         Assert.AreEqual(7.8D, oProduit2.TarifA)
         Assert.AreEqual(7.8D, oProduit2.TarifB)
-        Assert.AreEqual(8.7D, oProduit2.TarifC)
-        Assert.AreEqual(10.3D, oProduit2.TarifD)
+        Assert.AreEqual(8.7D, oProduit2.TarifC120b)
+        Assert.AreEqual(10.3D, oProduit2.TarifC60b)
+        Assert.AreEqual(11.4D, oProduit2.TarifC36b)
+        Assert.AreEqual(12.5D, oProduit2.TarifE)
 
 
     End Sub
@@ -117,53 +121,53 @@ Imports System.Data
         oProduit = New Produit("123002H", oFRN, "2017")
         oProduit.TarifA = 741.85D
         oProduit.TarifB = 852.96D
-        oProduit.TarifC = 963.74D
-        oProduit.TarifD = 741.12D
+        oProduit.TarifC120b = 963.74D
+        oProduit.TarifC60b = 741.12D
         oProduit.save()
         Dim idProduit As Integer
         idProduit = oProduit.id
 
         Dim oProduit2 As New Produit("156001H", oFRN, "2017")
         oProduit2.TarifA = 741.85D
-        oProduit2.TarifA = 852.96D
-        oProduit2.TarifA = 963.74D
-        oProduit2.TarifA = 123.45D
+        oProduit2.TarifB = 852.96D
+        oProduit2.TarifC120b = 963.74D
+        oProduit2.TarifC60b = 123.45D
         oProduit2.save()
         Dim idProduit2 As Integer
         idProduit2 = oProduit2.id
 
-        Dim oImport As New ImportTarifGESTCOM(pFileName:=Environment.CurrentDirectory & "/tarif import Gescom.csv", pNumColCode:=1, pNumColTarifA:=2, pNumColTarifB:=3, pNumColTarifC:=4, pNumColTarifD:=5)
+        Dim oImport As New ImportTarifGESTCOM(pFileName:=Environment.CurrentDirectory & "/tarif import Gescom.csv", pNumColCode:=1, pNumColTarifA:=2, pNumColTarifB:=3, pNumColTarifC120b:=4, pNumColTarifC60b:=5, pNumColTarifC36b:=0, pNumColTarifE:=0)
 
         oImport.ImportTarif()
         oProduit = Produit.createandload(idProduit)
 
         Assert.AreEqual(2.9D, oProduit.TarifA)
         Assert.AreEqual(2.9D, oProduit.TarifB)
-        Assert.AreEqual(3D, oProduit.TarifC)
-        Assert.AreEqual(3.6D, oProduit.TarifD)
+        Assert.AreEqual(3D, oProduit.TarifC120b)
+        Assert.AreEqual(3.6D, oProduit.TarifC60b)
 
         oProduit2 = Produit.createandload(idProduit2)
 
         Assert.AreEqual(7.8D, oProduit2.TarifA)
         Assert.AreEqual(7.8D, oProduit2.TarifB)
-        Assert.AreEqual(8.7D, oProduit2.TarifC)
-        Assert.AreEqual(10.3D, oProduit2.TarifD)
+        Assert.AreEqual(8.7D, oProduit2.TarifC120b)
+        Assert.AreEqual(10.3D, oProduit2.TarifC60b)
 
         oProduit = Produit.createandload(idProduit)
-        oProduit.TarifD = 1.1D
+        oProduit.TarifC60b = 1.1D
         oProduit.TarifB = 1.2D
-        oProduit.TarifC = 1.3D
-        oProduit.TarifD = 1.4D
+        oProduit.TarifC120b = 1.3D
+        oProduit.TarifC60b = 1.4D
         oProduit.save()
         'Import en ommetant les Col B et D
-        oImport = New ImportTarifGESTCOM(pFileName:=Environment.CurrentDirectory & "/tarif import Gescom.csv", pNumColCode:=1, pNumColTarifA:=2, pNumColTarifB:=0, pNumColTarifC:=4, pNumColTarifD:=0)
+        oImport = New ImportTarifGESTCOM(pFileName:=Environment.CurrentDirectory & "/tarif import Gescom.csv", pNumColCode:=1, pNumColTarifA:=2, pNumColTarifB:=0, pNumColTarifC120b:=4, pNumColTarifC60b:=0, pNumColTarifC36b:=0, pNumColTarifE:=0)
         oImport.ImportTarif()
         oProduit = Produit.createandload(idProduit)
 
         Assert.AreEqual(2.9D, oProduit.TarifA)
         Assert.AreEqual(1.2D, oProduit.TarifB)
-        Assert.AreEqual(3D, oProduit.TarifC)
-        Assert.AreEqual(1.4D, oProduit.TarifD)
+        Assert.AreEqual(3D, oProduit.TarifC120b)
+        Assert.AreEqual(1.4D, oProduit.TarifC60b)
 
 
         oProduit.delete()
@@ -174,7 +178,7 @@ Imports System.Data
     <TestMethod()>
     Public Sub T101_GetNbreLignes()
 
-        Dim oImport As New ImportTarifGESTCOM(Environment.CurrentDirectory & "/tarif import Gescom.csv", 1, 0, 0, 0, 0)
+        Dim oImport As New ImportTarifGESTCOM(Environment.CurrentDirectory & "/tarif import Gescom.csv", 1, 0, 0, 0, 0, 0, 0)
 
         Assert.AreNotEqual(0, oImport.getNbreLignes())
 

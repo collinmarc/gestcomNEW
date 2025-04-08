@@ -48,6 +48,7 @@ Public Class frmClient
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents ckArchive As CheckBox
+    Friend WithEvents Label24 As Label
     Friend WithEvents cbPrecommande As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.cboTypeClient = New System.Windows.Forms.ComboBox()
@@ -122,7 +123,7 @@ Public Class frmClient
         '
         Me.cbxCodeTarif.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbxCodeTarif.FormattingEnabled = True
-        Me.cbxCodeTarif.Items.AddRange(New Object() {"A", "B", "C", "D"})
+        Me.cbxCodeTarif.Items.AddRange(New Object() {"A", "B", "C120b", "C60b", "C36b", "E"})
         Me.cbxCodeTarif.Location = New System.Drawing.Point(842, 53)
         Me.cbxCodeTarif.Name = "cbxCodeTarif"
         Me.cbxCodeTarif.Size = New System.Drawing.Size(117, 21)

@@ -1655,7 +1655,7 @@ Imports System.IO
         oPRDVNC.DossierProduit = Dossier.VINICOM
         oPRDVNC.TarifA = 10
         oPRDVNC.TarifB = 11
-        oPRDVNC.TarifC = 12
+        oPRDVNC.TarifC120b = 12
         Assert.IsTrue(oPRDVNC.save())
 
         'Création d'une commande client origine "HOBIVIN" 

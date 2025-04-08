@@ -1801,13 +1801,15 @@ Public MustInherit Class Persist
                                     "PRD_CODE_STAT," &
                                     "PRD_TARIFA," &
                                     "PRD_TARIFB," &
-                                    "PRD_TARIFC, " &
-                                    "PRD_TARIFD, " &
+                                    "PRD_TARIFC120b, " &
+                                    "PRD_TARIFC60b, " &
+                                    "PRD_TARIFC36b, " &
+                                    "PRD_TARIFE, " &
                                     "PRD_DOSSIER, " &
                                     "PRD_BARCHIVE, " &
                                     "PRD_DEPOT " &
                                     " ) VALUES (" &
-                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
+                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -1840,8 +1842,10 @@ Public MustInherit Class Persist
         CreateParamP_PRD_CODE_STAT(objOLeDBCommand)
         CreateParamP_PRD_TARIFA(objOLeDBCommand)
         CreateParamP_PRD_TARIFB(objOLeDBCommand)
-        CreateParamP_PRD_TARIFC(objOLeDBCommand)
-        CreateParamP_PRD_TARIFD(objOLeDBCommand)
+        CreateParamP_PRD_TARIFC120b(objOLeDBCommand)
+        CreateParamP_PRD_TARIFC60b(objOLeDBCommand)
+        CreateParamP_PRD_TARIFC36b(objOLeDBCommand)
+        CreateParamP_PRD_TARIFE(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
         CreateParamP_PRD_BARCHIVE(objOLeDBCommand)
         CreateParamP_PRD_DEPOT(objOLeDBCommand)
@@ -1867,9 +1871,9 @@ Public MustInherit Class Persist
             objRS = Nothing
         End If
         If bReturn Then
-            m_dbconn.transaction.commit()
+            m_dbconn.transaction.Commit()
         Else
-            m_dbconn.transaction.RollBack()
+            m_dbconn.transaction.Rollback()
         End If
 
         Debug.Assert(bReturn, getErreur())
@@ -1911,8 +1915,10 @@ Public MustInherit Class Persist
                                     "PRD_CODE_STAT = ? ,  " &
                                     "PRD_TARIFA = ? ,  " &
                                     "PRD_TARIFB = ? ,  " &
-                                    "PRD_TARIFC = ? , " &
-                                    "PRD_TARIFD = ? , " &
+                                    "PRD_TARIFC120b = ? , " &
+                                    "PRD_TARIFC60b = ? , " &
+                                    "PRD_TARIFC36b = ? , " &
+                                    "PRD_TARIFE = ? , " &
                                     "PRD_DOSSIER = ?,  " &
                                     "PRD_BARCHIVE = ?,  " &
                                     "PRD_DEPOT = ?  " &
@@ -1946,8 +1952,10 @@ Public MustInherit Class Persist
         CreateParamP_PRD_CODE_STAT(objOLeDBCommand)
         CreateParamP_PRD_TARIFA(objOLeDBCommand)
         CreateParamP_PRD_TARIFB(objOLeDBCommand)
-        CreateParamP_PRD_TARIFC(objOLeDBCommand)
-        CreateParamP_PRD_TARIFD(objOLeDBCommand)
+        CreateParamP_PRD_TARIFC120b(objOLeDBCommand)
+        CreateParamP_PRD_TARIFC60b(objOLeDBCommand)
+        CreateParamP_PRD_TARIFC36b(objOLeDBCommand)
+        CreateParamP_PRD_TARIFE(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
         CreateParamP_PRD_BARCHIVE(objOLeDBCommand)
         CreateParamP_PRD_DEPOT(objOLeDBCommand)
@@ -2006,8 +2014,10 @@ Public MustInherit Class Persist
                                                   & "RQ_QTECMD_PRD.PRD_QTE_COMMANDE, " _
                                                   & "PRD_TARIFA, " _
                                                   & "PRD_TARIFB, " _
-                                                  & "PRD_TARIFC, " _
-                                                  & "PRD_TARIFD, " _
+                                                  & "PRD_TARIFC120b, " _
+                                                  & "PRD_TARIFC60b, " _
+                                                  & "PRD_TARIFC36b, " _
+                                                  & "PRD_TARIFE, " _
                                                   & "PRD_DOSSIER, " _
                                                   & "PRD_BARCHIVE, " _
                                                   & "PRD_DEPOT" &
@@ -2132,7 +2142,8 @@ Public MustInherit Class Persist
                                         " PRODUIT.PRD_DISPO, " &
                                         " PRODUIT.PRD_CODE_STAT, " &
                                         " PRODUIT.PRD_STOCK, " &
-                                        " PRD_TARIFA, PRD_TARIFB, PRD_TARIFC," &
+                                        " PRD_TARIFA, PRD_TARIFB, PRD_TARIFC120b," &
+                                        " PRD_TARIFC60b, PRD_TARIFC36b, PRD_TARIFE," &
                                         " PRODUIT.PRD_DOSSIER, " &
                                         " PRODUIT.PRD_DEPOT " &
                                         " FROM PRODUIT  " &
@@ -2473,22 +2484,22 @@ Public MustInherit Class Persist
 
         objPrecommande = CType(Me, preCommande)
 
-        Dim sqlString As String = "INSERT INTO PRECOMMANDE( " & _
-                                    "PCMD_CLT_ID, " & _
-                                    "PCMD_PRD_ID, " & _
-                                    "PCMD_QTE_HAB, " & _
-                                    "PCMD_QTE_DERN, " & _
-                                    "PCMD_PRIXU, " & _
-                                    "PCMD_DATEDERNCMD, " & _
-                                    "PCMD_REFDERNCMD )" & _
-                                  " VALUES (" & _
-                                  "? ," & _
-                                  "? ," & _
-                                  "? ," & _
-                                  "? , " & _
-                                  "? , " & _
-                                  "? , " & _
-                                  "?" & _
+        Dim sqlString As String = "INSERT INTO PRECOMMANDE( " &
+                                    "PCMD_CLT_ID, " &
+                                    "PCMD_PRD_ID, " &
+                                    "PCMD_QTE_HAB, " &
+                                    "PCMD_QTE_DERN, " &
+                                    "PCMD_PRIXU, " &
+                                    "PCMD_DATEDERNCMD, " &
+                                    "PCMD_REFDERNCMD )" &
+                                  " VALUES (" &
+                                  "? ," &
+                                  "? ," &
+                                  "? ," &
+                                  "? , " &
+                                  "? , " &
+                                  "? , " &
+                                  "?" &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objOLeDBCommand2 As OleDbCommand
@@ -2506,12 +2517,12 @@ Public MustInherit Class Persist
 
         bReturn = True
         CreateParameterP_ID(objOLeDBCommand)
-        Dim oParam1 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?" , OleDbType.Integer)
-        Dim oParam2 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?" , OleDbType.Double)
-        Dim oParam3 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?" , OleDbType.Double)
-        Dim oParam4 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?" , OleDbType.Double)
-        Dim oParam5 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?" , OleDbType.Date)
-        Dim oParam6 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?" , OleDbType.VarChar)
+        Dim oParam1 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?", OleDbType.Integer)
+        Dim oParam2 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?", OleDbType.Double)
+        Dim oParam3 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?", OleDbType.Double)
+        Dim oParam4 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?", OleDbType.Double)
+        Dim oParam5 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?", OleDbType.Date)
+        Dim oParam6 As OleDbParameter = objOLeDBCommand.Parameters.AddWithValue("?", OleDbType.VarChar)
         For Each objLgPrecom In colLg
             Try
                 oParam1.Value = objLgPrecom.idProduit
@@ -2539,9 +2550,9 @@ Public MustInherit Class Persist
             End Try
         Next
         If bReturn Then
-            m_dbconn.transaction.commit()
+            m_dbconn.transaction.Commit()
         Else
-            m_dbconn.transaction.RollBack()
+            m_dbconn.transaction.Rollback()
         End If
 
         Debug.Assert(bReturn, getErreur())
@@ -2577,8 +2588,8 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = "SELECT PCMD_ID, PCMD_PRD_ID, PCMD_QTE_HAB, PCMD_QTE_DERN , PCMD_PRIXU, PCMD_DATEDERNCMD,PCMD_REFDERNCMD, PRODUIT.PRD_CODE, PRODUIT.PRD_LIBELLE, PRODUIT.PRD_MIL, RQ_CONDITIONNEMENT.PAR_CODE" & _
-                                  " FROM (PRECOMMANDE INNER JOIN PRODUIT ON PRECOMMANDE.PCMD_PRD_ID = PRODUIT.PRD_ID) INNER JOIN RQ_CONDITIONNEMENT ON PRODUIT.PRD_COND_ID = RQ_CONDITIONNEMENT.PAR_ID" & _
+        Dim sqlString As String = "SELECT PCMD_ID, PCMD_PRD_ID, PCMD_QTE_HAB, PCMD_QTE_DERN , PCMD_PRIXU, PCMD_DATEDERNCMD,PCMD_REFDERNCMD, PRODUIT.PRD_CODE, PRODUIT.PRD_LIBELLE, PRODUIT.PRD_MIL, RQ_CONDITIONNEMENT.PAR_CODE" &
+                                  " FROM (PRECOMMANDE INNER JOIN PRODUIT ON PRECOMMANDE.PCMD_PRD_ID = PRODUIT.PRD_ID) INNER JOIN RQ_CONDITIONNEMENT ON PRODUIT.PRD_COND_ID = RQ_CONDITIONNEMENT.PAR_ID" &
                                   " WHERE PRECOMMANDE.PCMD_CLT_ID=? "
         Dim sqlORDERBY As String = " ORDER BY PRODUIT.PRD_CODE"
 
@@ -2647,13 +2658,13 @@ Public MustInherit Class Persist
 
         '                                    " PCMD_CLT_ID = P_PCMD_CLT_ID," & _
         '                                    " PCMD_PRD_ID = P_PCMD_PRD_ID," & _
-        Dim sqlString As String = "UPDATE PRECOMMANDE SET " & _
-                                    " PCMD_QTE_DERN = ?," & _
-                                    " PCMD_QTE_HAB = ?," & _
-                                    " PCMD_PRIXU = ?," & _
-                                    " PCMD_DATEDERNCMD = ?," & _
-                                    " PCMD_REFDERNCMD = ?" & _
-                                    " WHERE " & _
+        Dim sqlString As String = "UPDATE PRECOMMANDE SET " &
+                                    " PCMD_QTE_DERN = ?," &
+                                    " PCMD_QTE_HAB = ?," &
+                                    " PCMD_PRIXU = ?," &
+                                    " PCMD_DATEDERNCMD = ?," &
+                                    " PCMD_REFDERNCMD = ?" &
+                                    " WHERE " &
                                     " PCMD_ID = ?"
         Dim objOLeDBCommand As OleDbCommand
         Dim objPreCommande As preCommande
@@ -2714,7 +2725,7 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(pidProduit <> 0, "L'idProduit doit être renseigné")
 
-        Dim objCommand As OLEDBCommand
+        Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
         '        Dim objParam As OleDbParameter
         Dim colReturn As New ColEventSorted
@@ -2731,22 +2742,22 @@ Public MustInherit Class Persist
 
 
 
-        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM]" & _
+        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM]" &
                                   " FROM MVT_STOCK "
         Dim strOrder As String = " STK_DATE DESC, MVT_STOCK.STK_TYPE DESC"
         Dim strWhere As String = " MVT_STOCK.STK_PRD_ID = ? "
 
         If pIDCmd <> -1 Then
-            If Len(Trim(strwhere)) <> 0 Then
-                strwhere = strwhere & " AND "
+            If Len(Trim(strWhere)) <> 0 Then
+                strWhere = strWhere & " AND "
             End If
             strWhere = strWhere & " MVT_STOCK.STK_TYPE = ? "
-            strwhere = strwhere & " AND "
+            strWhere = strWhere & " AND "
             strWhere = strWhere & " MVT_STOCK.STK_REF_ID = ? "
         End If
 
 
-        sqlString = sqlString & " WHERE " & strwhere & " ORDER BY " & strOrder
+        sqlString = sqlString & " WHERE " & strWhere & " ORDER BY " & strOrder
         objCommand = New OleDbCommand
         objCommand.Connection = m_dbconn.Connection
         objCommand.CommandText = sqlString
@@ -2757,11 +2768,11 @@ Public MustInherit Class Persist
 
         Try
             Dim objParam As OleDbParameter
-            objParam = objCommand.Parameters.AddWithValue("?" , pidProduit)
+            objParam = objCommand.Parameters.AddWithValue("?", pidProduit)
             If pIDCmd <> -1 Then
-                objParam = objCommand.Parameters.AddWithValue("?" , ptypeMvt)
+                objParam = objCommand.Parameters.AddWithValue("?", ptypeMvt)
 
-                objParam = objCommand.Parameters.AddWithValue("?" , pIDCmd)
+                objParam = objCommand.Parameters.AddWithValue("?", pIDCmd)
 
             End If
 
@@ -2818,7 +2829,7 @@ Public MustInherit Class Persist
 
 
 
-        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM], STK_IDFACTCOLISAGE" & _
+        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM], STK_IDFACTCOLISAGE" &
                                   " FROM MVT_STOCK AS MVT1"
         Dim strWhere As String = " STK_PRD_ID = ? "
         strWhere = strWhere & "AND STK_DATE >= (SELECT Max(STK_DATE) FROM MVT_STOCK AS MVT2 WHERE MVT2.STK_PRD_ID= MVT1.STK_PRD_ID and MVT2.STK_TYPE = " & vncTypeMvt.vncMvtInventaire & ")"
@@ -3105,7 +3116,7 @@ Public MustInherit Class Persist
 
 
 
-        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM]" & _
+        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM]" &
                                   " FROM MVT_STOCK "
         Dim strOrder As String = " STK_DATE DESC, MVT_STOCK.STK_TYPE DESC"
         Dim strWhere As String = ""
@@ -3267,8 +3278,8 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
 
-        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM], [STK_ETAT], [STK_IDFACTCOLISAGE] " & _
-                                  "  FROM MVT_STOCK " & _
+        Dim sqlString As String = " SELECT [STK_ID], [STK_PRD_ID], [STK_DATE], [STK_TYPE], [STK_REF_ID], [STK_LIB], [STK_QTE], [STK_COMM], [STK_ETAT], [STK_IDFACTCOLISAGE] " &
+                                  "  FROM MVT_STOCK " &
                                   " WHERE STK_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -3330,26 +3341,26 @@ Public MustInherit Class Persist
         'Debug.Assert(m_id = 0, "ID=0")
         obj = CType(Me, mvtStock)
 
-        Dim sqlString As String = " INSERT INTO MVT_STOCK (" & _
-                                    " STK_PRD_ID , " & _
-                                    " STK_DATE , " & _
-                                    " STK_TYPE , " & _
-                                    " STK_REF_ID , " & _
-                                    " STK_LIB , " & _
-                                    " STK_QTE , " & _
-                                    " STK_COMM ,  " & _
-                                    " STK_ETAT , " & _
-                                    " STK_IDFACTCOLISAGE  " & _
-                                    " ) VALUES (" & _
-                                    " ? , " & _
-                                    " ? , " & _
-                                    " ? , " & _
-                                    " ? , " & _
-                                    " ? , " & _
-                                    " ? , " & _
-                                    " ? ,  " & _
-                                    " ? ,  " & _
-                                    " ?  " & _
+        Dim sqlString As String = " INSERT INTO MVT_STOCK (" &
+                                    " STK_PRD_ID , " &
+                                    " STK_DATE , " &
+                                    " STK_TYPE , " &
+                                    " STK_REF_ID , " &
+                                    " STK_LIB , " &
+                                    " STK_QTE , " &
+                                    " STK_COMM ,  " &
+                                    " STK_ETAT , " &
+                                    " STK_IDFACTCOLISAGE  " &
+                                    " ) VALUES (" &
+                                    " ? , " &
+                                    " ? , " &
+                                    " ? , " &
+                                    " ? , " &
+                                    " ? , " &
+                                    " ? , " &
+                                    " ? ,  " &
+                                    " ? ,  " &
+                                    " ?  " &
                                     " )"
         Dim objCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -3392,9 +3403,9 @@ Public MustInherit Class Persist
             objRS.Close()
         End If
         If bReturn Then
-            m_dbconn.transaction.commit()
+            m_dbconn.transaction.Commit()
         Else
-            m_dbconn.transaction.RollBack()
+            m_dbconn.transaction.Rollback()
         End If
 
         '    Debug.Assert(m_id <> 0, "ID=0")
@@ -3416,16 +3427,16 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "ID<>0")
 
-        Dim sqlString As String = " UPDATE MVT_STOCK SET " & _
-                                    " STK_PRD_ID = ? , " & _
-                                    " STK_DATE =  ? , " & _
-                                    " STK_TYPE = ? , " & _
-                                    " STK_REF_ID = ? , " & _
-                                    " STK_LIB = ? , " & _
-                                    " STK_QTE = ? , " & _
-                                    " STK_COMM = ? , " & _
-                                    " STK_ETAT = ? , " & _
-                                    " STK_IDFACTCOLISAGE = ? " & _
+        Dim sqlString As String = " UPDATE MVT_STOCK SET " &
+                                    " STK_PRD_ID = ? , " &
+                                    " STK_DATE =  ? , " &
+                                    " STK_TYPE = ? , " &
+                                    " STK_REF_ID = ? , " &
+                                    " STK_LIB = ? , " &
+                                    " STK_QTE = ? , " &
+                                    " STK_COMM = ? , " &
+                                    " STK_ETAT = ? , " &
+                                    " STK_IDFACTCOLISAGE = ? " &
                                   " WHERE STK_ID = ?"
         Dim objCommand As OleDbCommand
 
@@ -4050,7 +4061,7 @@ Public MustInherit Class Persist
         '        Dim objParam As OleDbParameter
         Dim objCLT As Client
         objCLT = Me
-        objCommand.Parameters.AddWithValue("?", Truncate(objCLT.AdresseLivraison.fax,50))
+        objCommand.Parameters.AddWithValue("?", truncate(objCLT.AdresseLivraison.fax, 50))
     End Sub
     Private Sub CreateParamP_CLT_LIV_PORT(ByVal objCommand As OleDbCommand)
         '        Dim objParam As OleDbParameter
@@ -4157,7 +4168,7 @@ Public MustInherit Class Persist
     Private Sub CreateParamP_CLT_CODETARIF(ByVal objCommand As OleDbCommand)
         Dim objCLT As Client
         objCLT = Me
-        objCommand.Parameters.AddWithValue("?", truncate(objCLT.CodeTarif, 2))
+        objCommand.Parameters.AddWithValue("?", objCLT.CodeTarif)
     End Sub
     'Fournisseur - Code Compta
     Private Sub CreateParamP_CLT_CODECOMPTA(ByVal objCommand As OleDbCommand)
@@ -4301,15 +4312,25 @@ Public MustInherit Class Persist
         objPRD = Me
         objCommand.Parameters.AddWithValue("?", objPRD.TarifB)
     End Sub
-    Private Sub CreateParamP_PRD_TARIFC(ByVal objCommand As OleDbCommand)
+    Private Sub CreateParamP_PRD_TARIFC120b(ByVal objCommand As OleDbCommand)
         Dim objPRD As Produit
         objPRD = Me
-        objCommand.Parameters.AddWithValue("?", objPRD.TarifC)
+        objCommand.Parameters.AddWithValue("?", objPRD.TarifC120b)
     End Sub
-    Private Sub CreateParamP_PRD_TARIFD(ByVal objCommand As OleDbCommand)
+    Private Sub CreateParamP_PRD_TARIFC60b(ByVal objCommand As OleDbCommand)
         Dim objPRD As Produit
         objPRD = Me
-        objCommand.Parameters.AddWithValue("?", objPRD.TarifD)
+        objCommand.Parameters.AddWithValue("?", objPRD.TarifC60b)
+    End Sub
+    Private Sub CreateParamP_PRD_TARIFC36b(ByVal objCommand As OleDbCommand)
+        Dim objPRD As Produit
+        objPRD = Me
+        objCommand.Parameters.AddWithValue("?", objPRD.TarifC36b)
+    End Sub
+    Private Sub CreateParamP_PRD_TARIFE(ByVal objCommand As OleDbCommand)
+        Dim objPRD As Produit
+        objPRD = Me
+        objCommand.Parameters.AddWithValue("?", objPRD.TarifE)
     End Sub
 #End Region
 #End Region
@@ -4320,7 +4341,7 @@ Public MustInherit Class Persist
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT CMD_ID, CMD_CODE, CMD_DATE, CLT_ID , CLT_CODE, CLT_RS, CMD_ETAT , CMD_TOTAL_HT " & _
+        Dim sqlString As String = "SELECT CMD_ID, CMD_CODE, CMD_DATE, CLT_ID , CLT_CODE, CLT_RS, CMD_ETAT , CMD_TOTAL_HT " &
                                     " FROM COMMANDE , CLIENT "
         Dim strWhere As String = " COMMANDE.CMD_CLT_ID = CLIENT.CLT_ID "
         Dim objCommand As OleDbCommand
@@ -4965,9 +4986,9 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
         Debug.Assert(Me.GetType.Name.Equals("Client"), "Object de Type Client Requis")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "COUNT(*)" & _
-                                    " FROM COMMANDE WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    "COUNT(*)" &
+                                    " FROM COMMANDE WHERE " &
                                    " CMD_CLT_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -5019,9 +5040,9 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
         Debug.Assert(Me.GetType.Name.Equals("Produit"), "Object de Type Produit Requis")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "COUNT(*)" & _
-                                    " FROM LIGNE_COMMANDE WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    "COUNT(*)" &
+                                    " FROM LIGNE_COMMANDE WHERE " &
                                    " LGCM_PRD_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -5070,9 +5091,9 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
         Debug.Assert(Me.GetType.Name.Equals("Fournisseur"), "Object de Type Fournisseur Requis")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "COUNT(*)" & _
-                                    " FROM PRODUIT WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    "COUNT(*)" &
+                                    " FROM PRODUIT WHERE " &
                                    " PRD_FRN_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -5123,9 +5144,9 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
         Debug.Assert(Me.GetType.Name.Equals("Fournisseur"), "Object de Type Fournisseur Requis")
 
-        Dim sqlString As String = "SELECT " & _
-                                    "COUNT(*)" & _
-                                    " FROM BONAPPRO WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    "COUNT(*)" &
+                                    " FROM BONAPPRO WHERE " &
                                    " CMD_FRN_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -5177,9 +5198,9 @@ Public MustInherit Class Persist
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
         Debug.Assert(Me.GetType.Name.Equals("CommandeClient"), "Object de Type CommandeClient Requis")
 
-        Dim sqlString As String = "SELECT " & _
-                                    " COUNT(*) " & _
-                                    " FROM SOUSCOMMANDE WHERE " & _
+        Dim sqlString As String = "SELECT " &
+                                    " COUNT(*) " &
+                                    " FROM SOUSCOMMANDE WHERE " &
                                    " SCMD_CMD_ID = ?"
 
         Dim objCommand As OleDbCommand
@@ -5471,7 +5492,7 @@ Public MustInherit Class Persist
         Debug.Assert(Me.GetType().Name.Equals("CommandeClient"))
 
 
-        Dim sqlString As String = "DELETE FROM SOUSCOMMANDE WHERE SCMD_CMD_ID=? " & _
+        Dim sqlString As String = "DELETE FROM SOUSCOMMANDE WHERE SCMD_CMD_ID=? " &
                                     " AND SCMD_FACT_ID is NULL"
         Dim sqlString2 As String = "UPDATE LIGNE_COMMANDE SET LGCM_SCMD_ID = NULL WHERE LGCM_CMD_ID=? "
         Dim objCommand As OleDbCommand
@@ -6735,7 +6756,7 @@ Public MustInherit Class Persist
         Return colReturn
     End Function 'ListeSCMDAFacturerCom
 
-    Private Shared Function selectSCMD(ByVal objCommand As OleDbCommand) As List (of SousCommande)
+    Private Shared Function selectSCMD(ByVal objCommand As OleDbCommand) As List(Of SousCommande)
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Dim colReturn As New List(Of SousCommande)
         Dim objSCMD As SousCommande
@@ -7010,8 +7031,8 @@ Public MustInherit Class Persist
         Dim colReturn As New Collection
         Dim colTemp As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT " & _
-                                    "FCT_ID, FRN_ID " & _
+        Dim sqlString As String = "SELECT " &
+                                    "FCT_ID, FRN_ID " &
                                   " FROM FACTCOM, FOURNISSEUR "
 
         Dim strWhere As String = " FACTCOM.FCT_FRN_ID = FOURNISSEUR.FRN_ID "
@@ -7111,8 +7132,8 @@ Public MustInherit Class Persist
         Dim colTemp As New Collection
         Dim colId As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT " & _
-                                    "CMD_ID, CLT_ID " & _
+        Dim sqlString As String = "SELECT " &
+                                    "CMD_ID, CLT_ID " &
                                   " FROM COMMANDE, CLIENT "
 
         Dim strWhere As String = " COMMANDE.CMD_CLT_ID = CLIENT.CLT_ID "
@@ -7215,8 +7236,8 @@ Public MustInherit Class Persist
         Dim colReturn As New Collection
         Dim colTemp As New Collection
         '        Dim objParam As OleDbParameter
-        Dim sqlString As String = "SELECT " & _
-                                    "CMD_ID, CLT_ID " & _
+        Dim sqlString As String = "SELECT " &
+                                    "CMD_ID, CLT_ID " &
                                   " FROM COMMANDE, CLIENT "
 
         Dim strWhere As String = " COMMANDE.CMD_CLT_ID = CLIENT.CLT_ID "
@@ -7325,43 +7346,43 @@ Public MustInherit Class Persist
         Dim objCMD As CommandeClient
         Dim objSCMD As SousCommande
 
-        Dim sqlString As String = "SELECT " & _
-                                    "SCMD_ID," & _
-                                    "SCMD_CODE," & _
-                                    "SCMD_ETAT," & _
-                                    "SCMD_CMD_ID," & _
-                                    "SCMD_FACT_ID," & _
-                                    "SCMD_FRN_ID," & _
-                                    "SCMD_DATE," & _
-                                    "SCMD_TOTAL_HT," & _
-                                    "SCMD_TOTAL_TTC," & _
-                                    "SCMD_DATE_LIV," & _
-                                    "SCMD_TRP_NOM," & _
-                                    "SCMD_TRP_RUE1," & _
-                                    "SCMD_TRP_RUE2," & _
-                                    "SCMD_TRP_CP," & _
-                                    "SCMD_TRP_VILLE," & _
-                                    "SCMD_TRP_TEL," & _
-                                    "SCMD_TRP_FAX," & _
-                                    "sCMD_TRP_PORT," & _
-                                    "sCMD_TRP_EMAIL," & _
-                                    "SCMD_COM_COM," & _
-                                    "SCMD_COM_LIV," & _
-                                    "SCMD_COM_FACT," & _
-                                    "sCMD_COM_LIBRE," & _
-                                    "sCMD_REF_LIV," & _
-                                    "SCMD_FACT_REF," & _
-                                    "SCMD_FACT_DATE," & _
-                                    "SCMD_FACT_TOTAL_HT," & _
-                                    "SCMD_FACT_TOTAL_TTC," & _
-                                    "SCMD_COM_BASE," & _
-                                    "SCMD_COM_TAUX," & _
-                                    "SCMD_COM_MONTANT," & _
-                                    "SCMD_CLT_ID, " & _
-                                    "CMD_CODE " & _
-                                    " FROM SOUSCOMMANDE , COMMANDE " & _
-                                    "WHERE " & _
-                                    "SCMD_CMD_ID = CMD_ID AND " & _
+        Dim sqlString As String = "SELECT " &
+                                    "SCMD_ID," &
+                                    "SCMD_CODE," &
+                                    "SCMD_ETAT," &
+                                    "SCMD_CMD_ID," &
+                                    "SCMD_FACT_ID," &
+                                    "SCMD_FRN_ID," &
+                                    "SCMD_DATE," &
+                                    "SCMD_TOTAL_HT," &
+                                    "SCMD_TOTAL_TTC," &
+                                    "SCMD_DATE_LIV," &
+                                    "SCMD_TRP_NOM," &
+                                    "SCMD_TRP_RUE1," &
+                                    "SCMD_TRP_RUE2," &
+                                    "SCMD_TRP_CP," &
+                                    "SCMD_TRP_VILLE," &
+                                    "SCMD_TRP_TEL," &
+                                    "SCMD_TRP_FAX," &
+                                    "sCMD_TRP_PORT," &
+                                    "sCMD_TRP_EMAIL," &
+                                    "SCMD_COM_COM," &
+                                    "SCMD_COM_LIV," &
+                                    "SCMD_COM_FACT," &
+                                    "sCMD_COM_LIBRE," &
+                                    "sCMD_REF_LIV," &
+                                    "SCMD_FACT_REF," &
+                                    "SCMD_FACT_DATE," &
+                                    "SCMD_FACT_TOTAL_HT," &
+                                    "SCMD_FACT_TOTAL_TTC," &
+                                    "SCMD_COM_BASE," &
+                                    "SCMD_COM_TAUX," &
+                                    "SCMD_COM_MONTANT," &
+                                    "SCMD_CLT_ID, " &
+                                    "CMD_CODE " &
+                                    " FROM SOUSCOMMANDE , COMMANDE " &
+                                    "WHERE " &
+                                    "SCMD_CMD_ID = CMD_ID AND " &
                                     "SCMD_CMD_ID = ? "
 
         objCommand = New OleDbCommand
@@ -7445,8 +7466,8 @@ Public MustInherit Class Persist
 
         Debug.Assert(shared_isConnected(), "La database doit être ouverte")
         Debug.Assert(m_id <> 0, "L'id doit être renseigné")
-        Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.BA Or _
-                     m_typedonnee = vncEnums.vncTypeDonnee.COMMANDECLIENT Or _
+        Debug.Assert(m_typedonnee = vncEnums.vncTypeDonnee.BA Or
+                     m_typedonnee = vncEnums.vncTypeDonnee.COMMANDECLIENT Or
                      m_typedonnee = vncEnums.vncTypeDonnee.SSCOMMANDE _
                         , "Objet de type CommandeClient ou SousCommande ou bonAppro requis")
         Dim objCommand As OleDbCommand
@@ -7475,27 +7496,27 @@ Public MustInherit Class Persist
         Dim MtComm As Decimal
 
 
-        Dim sqlString As String = "SELECT " & _
-                                    "LGCM_ID," & _
-                                    "LGCM_NUM," & _
-                                    "LGCM_CMD_ID," & _
-                                    "LGCM_SCMD_ID," & _
-                                    "LGCM_BA_ID," & _
-                                    "LGCM_NUM," & _
-                                    "LGCM_PRD_ID," & _
-                                    "LGCM_QTE_COMMANDE," & _
-                                    "LGCM_QTE_LIV," & _
-                                    "LGCM_QTE_FACT," & _
-                                    "LGCM_PRIX_UNITAIRE," & _
-                                    "LGCM_PRIX_HT," & _
-                                    "LGCM_PRIX_TTC," & _
-                                    "LGCM_BGRATUIT, " & _
-                                    "LGCM_BECLATEE, " & _
-                                    "LGCM_POIDS, " & _
-                                    "LGCM_QTE_COLIS, " & _
-                                    "LGCM_TXCOMM, " & _
-                                    "LGCM_MTCOMM, " & _
-                                    "PRD_CODE" & _
+        Dim sqlString As String = "SELECT " &
+                                    "LGCM_ID," &
+                                    "LGCM_NUM," &
+                                    "LGCM_CMD_ID," &
+                                    "LGCM_SCMD_ID," &
+                                    "LGCM_BA_ID," &
+                                    "LGCM_NUM," &
+                                    "LGCM_PRD_ID," &
+                                    "LGCM_QTE_COMMANDE," &
+                                    "LGCM_QTE_LIV," &
+                                    "LGCM_QTE_FACT," &
+                                    "LGCM_PRIX_UNITAIRE," &
+                                    "LGCM_PRIX_HT," &
+                                    "LGCM_PRIX_TTC," &
+                                    "LGCM_BGRATUIT, " &
+                                    "LGCM_BECLATEE, " &
+                                    "LGCM_POIDS, " &
+                                    "LGCM_QTE_COLIS, " &
+                                    "LGCM_TXCOMM, " &
+                                    "LGCM_MTCOMM, " &
+                                    "PRD_CODE" &
                                     " FROM PRODUIT INNER JOIN LIGNE_COMMANDE ON (PRODUIT.PRD_ID = LIGNE_COMMANDE.LGCM_PRD_ID) "
         '                                  " FROM LIGNE_COMMANDE  "
         Dim strClauseWhereCMDCLT As String = " WHERE LIGNE_COMMANDE.LGCM_CMD_ID = ? "
@@ -15268,22 +15289,23 @@ Public MustInherit Class Persist
     ''' </summary>
     ''' <param name="strSQL"></param>
     ''' <returns></returns>
-    Public Shared Function executeSQLScalar(ByVal strSQL As String) As String
+    Public Shared Function executeSQLScalar(ByVal strSQL As String) As Integer
 
         Dim objCommand As OleDbCommand
-        Dim sReturn As String
+        Dim sReturn As Integer
         Try
             shared_connect()
             objCommand = New OleDbCommand(strSQL, m_dbconn.Connection)
             Dim obj As Object = objCommand.ExecuteScalar()
-            If obj <> Nothing Then
-                sReturn = objCommand.ExecuteScalar().ToString
+            If IsNumeric(obj) Then
+                sReturn = obj
             Else
-                sReturn = ""
+                sReturn = -1
             End If
             shared_disconnect()
         Catch e As Exception
-            sReturn = String.Empty
+
+            sReturn = -1
         End Try
 
         Return sReturn
