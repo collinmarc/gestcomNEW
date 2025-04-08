@@ -1,0 +1,9 @@
+/* import FlatFile from produitsaArchiver.csv to table prouitsaarchiver */
+
+DROP TABLE IF EXISTS PRODUIT_SAV;
+
+SELECT *
+INTO PRODUIT_SAV
+FROM PRODUIT;
+
+UPDATE PRODUIT SET PRD_BARCHIVE = 1 where PRD_CODE in (SELECT PRD_CODE from PRODUITSAARCHIVER);

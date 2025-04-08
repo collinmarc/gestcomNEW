@@ -5,6 +5,8 @@ Public Class dlgLgCommande
     Private m_TiersCourant As Tiers
     Private m_bModif As Boolean
     Private m_bAffichageEncours As Boolean
+    Friend WithEvents CbxTarif As ComboBox
+    Public WithEvents Label3 As Label
     Private m_typeProduit As vncTypeProduit
     'Modification ou Création de lignes
 
@@ -35,7 +37,6 @@ Public Class dlgLgCommande
     Public WithEvents tbQteFact As vini_app.textBoxNumeric
     Public WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents cbCalculTotal As System.Windows.Forms.Button
-    Public WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents tbTotalTTC As textBoxCurrency
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Public WithEvents tbQteLiv As vini_app.textBoxNumeric
@@ -44,9 +45,7 @@ Public Class dlgLgCommande
     Public WithEvents ckGratuit As System.Windows.Forms.CheckBox
     Public WithEvents tbQteCom As vini_app.textBoxNumeric
     Public WithEvents Label12 As System.Windows.Forms.Label
-    Public WithEvents Label11 As System.Windows.Forms.Label
     Public WithEvents Label10 As System.Windows.Forms.Label
-    Public WithEvents Label9 As System.Windows.Forms.Label
     Public WithEvents Label6 As System.Windows.Forms.Label
     Public WithEvents Label5 As System.Windows.Forms.Label
     Public WithEvents cbAnnuler As System.Windows.Forms.Button
@@ -57,38 +56,37 @@ Public Class dlgLgCommande
     Friend WithEvents laStockReel As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Me.cbProduit = New System.Windows.Forms.Button
-        Me.tbCodeProduit = New System.Windows.Forms.TextBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.liProduit = New System.Windows.Forms.LinkLabel
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.grpQtePrix = New System.Windows.Forms.GroupBox
-        Me.Label18 = New System.Windows.Forms.Label
-        Me.cbCalculTotal = New System.Windows.Forms.Button
-        Me.Label17 = New System.Windows.Forms.Label
-        Me.Label16 = New System.Windows.Forms.Label
-        Me.ckGratuit = New System.Windows.Forms.CheckBox
-        Me.Label12 = New System.Windows.Forms.Label
-        Me.Label11 = New System.Windows.Forms.Label
-        Me.Label10 = New System.Windows.Forms.Label
-        Me.Label9 = New System.Windows.Forms.Label
-        Me.Label6 = New System.Windows.Forms.Label
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.cbAnnuler = New System.Windows.Forms.Button
-        Me.cbValider = New System.Windows.Forms.Button
-        Me.laStockTheo = New System.Windows.Forms.Label
-        Me.laStockCommande = New System.Windows.Forms.Label
-        Me.Label13 = New System.Windows.Forms.Label
-        Me.laStockReel = New System.Windows.Forms.Label
-        Me.Label8 = New System.Windows.Forms.Label
-        Me.tbNumLigne = New vini_app.textBoxNumeric
-        Me.tbQteFact = New vini_app.textBoxNumeric
-        Me.tbTotalTTC = New vini_app.textBoxCurrency
-        Me.tbQteLiv = New vini_app.textBoxNumeric
-        Me.tbPrixUHT = New vini_app.textBoxCurrency
-        Me.tbTotalHT = New vini_app.textBoxCurrency
-        Me.tbQteCom = New vini_app.textBoxNumeric
+        Me.cbProduit = New System.Windows.Forms.Button()
+        Me.tbCodeProduit = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.liProduit = New System.Windows.Forms.LinkLabel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.grpQtePrix = New System.Windows.Forms.GroupBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.cbCalculTotal = New System.Windows.Forms.Button()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.ckGratuit = New System.Windows.Forms.CheckBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cbAnnuler = New System.Windows.Forms.Button()
+        Me.cbValider = New System.Windows.Forms.Button()
+        Me.laStockTheo = New System.Windows.Forms.Label()
+        Me.laStockCommande = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.laStockReel = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.CbxTarif = New System.Windows.Forms.ComboBox()
+        Me.tbNumLigne = New vini_app.textBoxNumeric()
+        Me.tbQteFact = New vini_app.textBoxNumeric()
+        Me.tbTotalTTC = New vini_app.textBoxCurrency()
+        Me.tbQteLiv = New vini_app.textBoxNumeric()
+        Me.tbPrixUHT = New vini_app.textBoxCurrency()
+        Me.tbTotalHT = New vini_app.textBoxCurrency()
+        Me.tbQteCom = New vini_app.textBoxNumeric()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.grpQtePrix.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -114,7 +112,7 @@ Public Class dlgLgCommande
         Me.tbCodeProduit.MaxLength = 0
         Me.tbCodeProduit.Name = "tbCodeProduit"
         Me.tbCodeProduit.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tbCodeProduit.Size = New System.Drawing.Size(129, 19)
+        Me.tbCodeProduit.Size = New System.Drawing.Size(129, 20)
         Me.tbCodeProduit.TabIndex = 0
         '
         'Label2
@@ -162,7 +160,6 @@ Public Class dlgLgCommande
         Me.grpQtePrix.Controls.Add(Me.tbQteFact)
         Me.grpQtePrix.Controls.Add(Me.Label18)
         Me.grpQtePrix.Controls.Add(Me.cbCalculTotal)
-        Me.grpQtePrix.Controls.Add(Me.Label17)
         Me.grpQtePrix.Controls.Add(Me.tbTotalTTC)
         Me.grpQtePrix.Controls.Add(Me.Label16)
         Me.grpQtePrix.Controls.Add(Me.tbQteLiv)
@@ -171,9 +168,7 @@ Public Class dlgLgCommande
         Me.grpQtePrix.Controls.Add(Me.ckGratuit)
         Me.grpQtePrix.Controls.Add(Me.tbQteCom)
         Me.grpQtePrix.Controls.Add(Me.Label12)
-        Me.grpQtePrix.Controls.Add(Me.Label11)
         Me.grpQtePrix.Controls.Add(Me.Label10)
-        Me.grpQtePrix.Controls.Add(Me.Label9)
         Me.grpQtePrix.Controls.Add(Me.Label6)
         Me.grpQtePrix.Controls.Add(Me.Label5)
         Me.grpQtePrix.Location = New System.Drawing.Point(8, 80)
@@ -202,18 +197,6 @@ Public Class dlgLgCommande
         Me.cbCalculTotal.Size = New System.Drawing.Size(40, 24)
         Me.cbCalculTotal.TabIndex = 4
         Me.cbCalculTotal.Text = "&Calc"
-        '
-        'Label17
-        '
-        Me.Label17.BackColor = System.Drawing.SystemColors.Control
-        Me.Label17.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label17.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label17.Location = New System.Drawing.Point(232, 168)
-        Me.Label17.Name = "Label17"
-        Me.Label17.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label17.Size = New System.Drawing.Size(41, 17)
-        Me.Label17.TabIndex = 52
-        Me.Label17.Text = "Euros"
         '
         'Label16
         '
@@ -250,18 +233,6 @@ Public Class dlgLgCommande
         Me.Label12.TabIndex = 50
         Me.Label12.Text = "&Qte Livrée"
         '
-        'Label11
-        '
-        Me.Label11.BackColor = System.Drawing.SystemColors.Control
-        Me.Label11.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label11.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label11.Location = New System.Drawing.Point(232, 120)
-        Me.Label11.Name = "Label11"
-        Me.Label11.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label11.Size = New System.Drawing.Size(41, 17)
-        Me.Label11.TabIndex = 49
-        Me.Label11.Text = "Euros"
-        '
         'Label10
         '
         Me.Label10.BackColor = System.Drawing.SystemColors.Control
@@ -273,18 +244,6 @@ Public Class dlgLgCommande
         Me.Label10.Size = New System.Drawing.Size(81, 17)
         Me.Label10.TabIndex = 48
         Me.Label10.Text = "Prix&U HT"
-        '
-        'Label9
-        '
-        Me.Label9.BackColor = System.Drawing.SystemColors.Control
-        Me.Label9.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label9.Location = New System.Drawing.Point(232, 144)
-        Me.Label9.Name = "Label9"
-        Me.Label9.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label9.Size = New System.Drawing.Size(41, 17)
-        Me.Label9.TabIndex = 47
-        Me.Label9.Text = "Euros"
         '
         'Label6
         '
@@ -380,6 +339,15 @@ Public Class dlgLgCommande
         Me.Label8.TabIndex = 36
         Me.Label8.Text = "Stock Réel"
         '
+        'CbxTarif
+        '
+        Me.CbxTarif.FormattingEnabled = True
+        Me.CbxTarif.Items.AddRange(New Object() {"A", "B", "C120b", "C60b", "C36b", "E"})
+        Me.CbxTarif.Location = New System.Drawing.Point(96, 59)
+        Me.CbxTarif.Name = "CbxTarif"
+        Me.CbxTarif.Size = New System.Drawing.Size(49, 21)
+        Me.CbxTarif.TabIndex = 41
+        '
         'tbNumLigne
         '
         Me.tbNumLigne.BackColor = System.Drawing.SystemColors.Window
@@ -468,11 +436,25 @@ Public Class dlgLgCommande
         Me.tbQteCom.TabIndex = 0
         Me.tbQteCom.Text = "0"
         '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.SystemColors.Control
+        Me.Label3.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label3.Location = New System.Drawing.Point(8, 59)
+        Me.Label3.Name = "Label3"
+        Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label3.Size = New System.Drawing.Size(73, 17)
+        Me.Label3.TabIndex = 42
+        Me.Label3.Text = "Code &tarif"
+        '
         'dlgLgCommande
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(762, 272)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.CbxTarif)
         Me.Controls.Add(Me.laStockTheo)
         Me.Controls.Add(Me.laStockCommande)
         Me.Controls.Add(Me.Label13)
@@ -553,6 +535,10 @@ Public Class dlgLgCommande
             AfficheProduit(m_elementCourant.oProduit)
         Else
             cbProduit.Visible = True
+        End If
+        If m_TiersCourant.typeDonnee = vncEnums.vncTypeDonnee.CLIENT Then
+            Dim oClient As Client = m_TiersCourant
+            CbxTarif.SelectedItem = oClient.CodeTarif
         End If
         tbQteCom.Text = m_elementCourant.qteCommande.ToString()
         tbQteLiv.Text = m_elementCourant.qteLiv.ToString()
@@ -828,6 +814,10 @@ Public Class dlgLgCommande
     End Sub
 
     Private Sub dlgLgCommande_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        If m_TiersCourant.typeDonnee <> vncEnums.vncTypeDonnee.CLIENT Then
+            CbxTarif.Visible = False
+        End If
+
         Me.tbCodeProduit.Focus()
     End Sub
 #End Region
@@ -850,5 +840,21 @@ Public Class dlgLgCommande
 
     Private Sub tbQteFact_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles tbQteFact.Validated
         CalculPrix()
+    End Sub
+
+    Private Sub CbxTarif_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxTarif.SelectedIndexChanged
+        Dim objClient As Client
+        If Not String.IsNullOrEmpty(Me.tbCodeProduit.Text) Then
+            If m_TiersCourant.typeDonnee = vncEnums.vncTypeDonnee.CLIENT Then
+                objClient = m_TiersCourant
+                Dim oProduit As Produit = Produit.createandloadbyKey(Me.tbCodeProduit.Text)
+                If oProduit IsNot Nothing Then
+                    ' Récupération du code tarif
+                    tbPrixUHT.Text = oProduit.Tarif(CbxTarif.Text)
+                    CalculPrix()
+                End If
+            End If
+        End If
+
     End Sub
 End Class

@@ -1465,6 +1465,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Requetes\V20250121170000.sql" />
+    <Content Include="Requetes\V20250408120000-Archivage.sql" />
+    <Content Include="Requetes\V20250408120000.sql" />
     <Content Include="Requetes\V6002-UpdateCLT_ORIGINE.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1593,6 +1595,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_espacesFournisseurs\dlgWebBrowser.resx">
       <DependentUpon>dlgWebBrowser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_SaisieCmd\dlgLgCommande.resx">
+      <DependentUpon>dlgLgCommande.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_SaisieCmd\frmSaisieCommandeClient.resx">
       <DependentUpon>frmSaisieCommandeClient.vb</DependentUpon>

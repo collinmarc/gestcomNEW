@@ -1,5 +1,7 @@
 ﻿VXXXXXXX
 		0001769: L'indicateur Facturecolisage est désactivé automatiquement
+		0001790: Ajout de nouveau tarifs sur les produits
+
 V20250122
 	0001742: L'ajout d'un millésime sur un produit plateforme => MAJ du flag
 
