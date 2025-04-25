@@ -47,6 +47,8 @@ Public Class frmProduit
     Friend WithEvents tbTarifC30b As textBoxCurrency
     Friend WithEvents Label29 As Label
     Friend WithEvents tbTarifE As textBoxCurrency
+    Friend WithEvents Label30 As Label
+    Friend WithEvents tbTarifD As textBoxCurrency
     Private m_bAjoutmvt As Boolean
 
 #Region "Code généré par le Concepteur Windows Form "
@@ -123,7 +125,7 @@ Public Class frmProduit
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProduit))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tbDesignation = New System.Windows.Forms.TextBox()
         Me.m_bsrcProduit = New System.Windows.Forms.BindingSource(Me.components)
         Me.tbCode = New System.Windows.Forms.TextBox()
@@ -212,6 +214,8 @@ Public Class frmProduit
         Me.tbTarifC30b = New vini_app.textBoxCurrency()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.tbTarifE = New vini_app.textBoxCurrency()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.tbTarifD = New vini_app.textBoxCurrency()
         CType(Me.m_bsrcProduit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcRegion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -664,10 +668,10 @@ Public Class frmProduit
         'QteDataGridViewTextBoxColumn
         '
         Me.QteDataGridViewTextBoxColumn.DataPropertyName = "qte"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.Format = "N0"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.QteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "N0"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.QteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.QteDataGridViewTextBoxColumn.FillWeight = 4.0!
         resources.ApplyResources(Me.QteDataGridViewTextBoxColumn, "QteDataGridViewTextBoxColumn")
         Me.QteDataGridViewTextBoxColumn.Name = "QteDataGridViewTextBoxColumn"
@@ -797,10 +801,23 @@ Public Class frmProduit
         Me.tbTarifE.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifE", True))
         Me.tbTarifE.Name = "tbTarifE"
         '
+        'Label30
+        '
+        resources.ApplyResources(Me.Label30, "Label30")
+        Me.Label30.Name = "Label30"
+        '
+        'tbTarifD
+        '
+        resources.ApplyResources(Me.tbTarifD, "tbTarifD")
+        Me.tbTarifD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.m_bsrcProduit, "TarifD", True))
+        Me.tbTarifD.Name = "tbTarifD"
+        '
         'frmProduit
         '
         resources.ApplyResources(Me, "$this")
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.Label30)
+        Me.Controls.Add(Me.tbTarifD)
         Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.tbTarifE)
         Me.Controls.Add(Me.Label28)

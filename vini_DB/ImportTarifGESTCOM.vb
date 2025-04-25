@@ -11,9 +11,10 @@ Public Class ImportTarifGESTCOM
     Private m_numColTarifC120b As Integer
     Private m_numColTarifC60b As Integer
     Private m_numColTarifC36b As Integer
+    Private m_numColTarifD As Integer
     Private m_numColTarifE As Integer
     Private m_numColCode As Integer
-    Public Sub New(pFileName As String, pNumColCode As Integer, pNumColTarifA As Integer, pNumColTarifB As Integer, pNumColTarifC120b As Integer, pNumColTarifC60b As Integer, pNumColTarifC36b As Integer, pNumColTarifE As Integer)
+    Public Sub New(pFileName As String, pNumColCode As Integer, pNumColTarifA As Integer, pNumColTarifB As Integer, pNumColTarifC120b As Integer, pNumColTarifC60b As Integer, pNumColTarifC36b As Integer, pNumColTarifD As Integer, pNumColTarifE As Integer)
         m_FileName = pFileName
         m_numColCode = pNumColCode - 1
         m_numColTarifA = pNumColTarifA - 1
@@ -21,6 +22,7 @@ Public Class ImportTarifGESTCOM
         m_numColTarifC120b = pNumColTarifC120b - 1
         m_numColTarifC60b = pNumColTarifC60b - 1
         m_numColTarifC36b = pNumColTarifC36b - 1
+        m_numColTarifD = pNumColTarifD - 1
         m_numColTarifE = pNumColTarifE - 1
 
     End Sub
@@ -115,6 +117,10 @@ Public Class ImportTarifGESTCOM
                                     If m_numColTarifC36b <> -1 Then
                                         tarif = Convert.ToDecimal(tab(m_numColTarifC36b).Replace(",", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator).Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator))
                                         oProduit.TarifC36b = tarif
+                                    End If
+                                    If m_numColTarifD <> -1 Then
+                                        tarif = Convert.ToDecimal(tab(m_numColTarifD).Replace(",", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator).Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+                                        oProduit.TarifD = tarif
                                     End If
                                     If m_numColTarifE <> -1 Then
                                         tarif = Convert.ToDecimal(tab(m_numColTarifE).Replace(",", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator).Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator))

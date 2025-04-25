@@ -1,4 +1,6 @@
-﻿V20250424180000
+﻿V20250425120000
+	0001796: Tarif D
+V20250424180000
 		0001769: L'indicateur Facturecolisage est désactivé automatiquement
 		0001790: Ajout de nouveau tarifs sur les produits
 		0001795: Archivage des produits selon liste fournie par Mr fagnou

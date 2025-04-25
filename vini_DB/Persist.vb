@@ -1804,12 +1804,13 @@ Public MustInherit Class Persist
                                     "PRD_TARIFC120b, " &
                                     "PRD_TARIFC60b, " &
                                     "PRD_TARIFC36b, " &
+                                    "PRD_TARIFD, " &
                                     "PRD_TARIFE, " &
                                     "PRD_DOSSIER, " &
                                     "PRD_BARCHIVE, " &
                                     "PRD_DEPOT " &
                                     " ) VALUES (" &
-                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
+                                    "? , ? ,?,? , ? ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? " &
                                     " )"
         Dim objOLeDBCommand As OleDbCommand
         Dim objRS As OleDbDataReader = Nothing
@@ -1845,6 +1846,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_TARIFC120b(objOLeDBCommand)
         CreateParamP_PRD_TARIFC60b(objOLeDBCommand)
         CreateParamP_PRD_TARIFC36b(objOLeDBCommand)
+        CreateParamP_PRD_TARIFD(objOLeDBCommand)
         CreateParamP_PRD_TARIFE(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
         CreateParamP_PRD_BARCHIVE(objOLeDBCommand)
@@ -1918,6 +1920,7 @@ Public MustInherit Class Persist
                                     "PRD_TARIFC120b = ? , " &
                                     "PRD_TARIFC60b = ? , " &
                                     "PRD_TARIFC36b = ? , " &
+                                    "PRD_TARIFD = ? , " &
                                     "PRD_TARIFE = ? , " &
                                     "PRD_DOSSIER = ?,  " &
                                     "PRD_BARCHIVE = ?,  " &
@@ -1955,6 +1958,7 @@ Public MustInherit Class Persist
         CreateParamP_PRD_TARIFC120b(objOLeDBCommand)
         CreateParamP_PRD_TARIFC60b(objOLeDBCommand)
         CreateParamP_PRD_TARIFC36b(objOLeDBCommand)
+        CreateParamP_PRD_TARIFD(objOLeDBCommand)
         CreateParamP_PRD_TARIFE(objOLeDBCommand)
         CreateParamP_PRD_DOSSIER(objOLeDBCommand)
         CreateParamP_PRD_BARCHIVE(objOLeDBCommand)
@@ -2017,6 +2021,7 @@ Public MustInherit Class Persist
                                                   & "PRD_TARIFC120b, " _
                                                   & "PRD_TARIFC60b, " _
                                                   & "PRD_TARIFC36b, " _
+                                                  & "PRD_TARIFD, " _
                                                   & "PRD_TARIFE, " _
                                                   & "PRD_DOSSIER, " _
                                                   & "PRD_BARCHIVE, " _
@@ -4331,6 +4336,11 @@ Public MustInherit Class Persist
         Dim objPRD As Produit
         objPRD = Me
         objCommand.Parameters.AddWithValue("?", objPRD.TarifE)
+    End Sub
+    Private Sub CreateParamP_PRD_TARIFD(ByVal objCommand As OleDbCommand)
+        Dim objPRD As Produit
+        objPRD = Me
+        objCommand.Parameters.AddWithValue("?", objPRD.TarifD)
     End Sub
 #End Region
 #End Region

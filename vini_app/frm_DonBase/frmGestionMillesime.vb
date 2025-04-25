@@ -39,6 +39,7 @@ Public Class frmGestionMillesime
     Friend WithEvents TarifC120b As DataGridViewTextBoxColumn
     Friend WithEvents TarifC60b As DataGridViewTextBoxColumn
     Friend WithEvents TarifC36b As DataGridViewTextBoxColumn
+    Friend WithEvents TarifD As DataGridViewTextBoxColumn
     Friend WithEvents TarifE As DataGridViewTextBoxColumn
     Private m_bAjoutmvt As Boolean
 
@@ -85,6 +86,7 @@ Public Class frmGestionMillesime
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tbDesignation = New System.Windows.Forms.TextBox()
         Me.m_bsrcProduitRacine = New System.Windows.Forms.BindingSource(Me.components)
         Me.tbCode = New System.Windows.Forms.TextBox()
@@ -126,6 +128,7 @@ Public Class frmGestionMillesime
         Me.TarifC120b = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifC60b = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifC36b = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TarifD = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.m_bsrcProduitRacine, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.m_bsrcCouleur, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -320,7 +323,7 @@ Public Class frmGestionMillesime
         Me.dgvPrdMillesime.AutoGenerateColumns = False
         Me.dgvPrdMillesime.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvPrdMillesime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPrdMillesime.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.millesime, Me.MillesimeCode, Me.codeStat, Me.BDisponibleDataGridViewCheckBoxColumn, Me.bStock, Me.bFactureColisage, Me.BArchiveDataGridViewCheckBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifC120b, Me.TarifC60b, Me.TarifC36b, Me.TarifE})
+        Me.dgvPrdMillesime.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.millesime, Me.MillesimeCode, Me.codeStat, Me.BDisponibleDataGridViewCheckBoxColumn, Me.bStock, Me.bFactureColisage, Me.BArchiveDataGridViewCheckBoxColumn, Me.TarifADataGridViewTextBoxColumn, Me.TarifBDataGridViewTextBoxColumn, Me.TarifC120b, Me.TarifC60b, Me.TarifC36b, Me.TarifD, Me.TarifE})
         Me.dgvPrdMillesime.DataSource = Me.m_bsrcProduitMillesime
         Me.dgvPrdMillesime.Name = "dgvPrdMillesime"
         '
@@ -430,11 +433,19 @@ Public Class frmGestionMillesime
         resources.ApplyResources(Me.TarifC36b, "TarifC36b")
         Me.TarifC36b.Name = "TarifC36b"
         '
+        'TarifD
+        '
+        Me.TarifD.DataPropertyName = "TarifD"
+        DataGridViewCellStyle6.Format = "C2"
+        Me.TarifD.DefaultCellStyle = DataGridViewCellStyle6
+        resources.ApplyResources(Me.TarifD, "TarifD")
+        Me.TarifD.Name = "TarifD"
+        '
         'TarifE
         '
         Me.TarifE.DataPropertyName = "TarifE"
-        DataGridViewCellStyle6.Format = "C2"
-        Me.TarifE.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle7.Format = "C2"
+        Me.TarifE.DefaultCellStyle = DataGridViewCellStyle7
         resources.ApplyResources(Me.TarifE, "TarifE")
         Me.TarifE.Name = "TarifE"
         '
@@ -672,6 +683,7 @@ Public Class frmGestionMillesime
         oProduit.TarifC120b = m_objProduitCourant.TarifC120b
         oProduit.TarifC60b = m_objProduitCourant.TarifC60b
         oProduit.TarifC36b = m_objProduitCourant.TarifC36b
+        oProduit.TarifD = m_objProduitCourant.TarifD
         oProduit.TarifE = m_objProduitCourant.TarifE
         oProduit.bStock = m_objProduitCourant.bStock
         oProduit.bFactureColisage = m_objProduitCourant.bFactureColisage

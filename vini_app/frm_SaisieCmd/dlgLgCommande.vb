@@ -63,10 +63,16 @@ Public Class dlgLgCommande
         Me.liProduit = New System.Windows.Forms.LinkLabel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.grpQtePrix = New System.Windows.Forms.GroupBox()
+        Me.tbQteFact = New vini_app.textBoxNumeric()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.cbCalculTotal = New System.Windows.Forms.Button()
+        Me.tbTotalTTC = New vini_app.textBoxCurrency()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.tbQteLiv = New vini_app.textBoxNumeric()
+        Me.tbPrixUHT = New vini_app.textBoxCurrency()
+        Me.tbTotalHT = New vini_app.textBoxCurrency()
         Me.ckGratuit = New System.Windows.Forms.CheckBox()
+        Me.tbQteCom = New vini_app.textBoxNumeric()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -80,12 +86,6 @@ Public Class dlgLgCommande
         Me.Label8 = New System.Windows.Forms.Label()
         Me.CbxTarif = New System.Windows.Forms.ComboBox()
         Me.tbNumLigne = New vini_app.textBoxNumeric()
-        Me.tbQteFact = New vini_app.textBoxNumeric()
-        Me.tbTotalTTC = New vini_app.textBoxCurrency()
-        Me.tbQteLiv = New vini_app.textBoxNumeric()
-        Me.tbPrixUHT = New vini_app.textBoxCurrency()
-        Me.tbTotalHT = New vini_app.textBoxCurrency()
-        Me.tbQteCom = New vini_app.textBoxNumeric()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.grpQtePrix.SuspendLayout()
         Me.SuspendLayout()
@@ -177,6 +177,20 @@ Public Class dlgLgCommande
         Me.grpQtePrix.TabIndex = 2
         Me.grpQtePrix.TabStop = False
         '
+        'tbQteFact
+        '
+        Me.tbQteFact.AcceptsReturn = True
+        Me.tbQteFact.BackColor = System.Drawing.SystemColors.Window
+        Me.tbQteFact.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbQteFact.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.tbQteFact.Location = New System.Drawing.Point(112, 64)
+        Me.tbQteFact.MaxLength = 0
+        Me.tbQteFact.Name = "tbQteFact"
+        Me.tbQteFact.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.tbQteFact.Size = New System.Drawing.Size(112, 20)
+        Me.tbQteFact.TabIndex = 2
+        Me.tbQteFact.Text = "0"
+        '
         'Label18
         '
         Me.Label18.BackColor = System.Drawing.SystemColors.Control
@@ -198,6 +212,15 @@ Public Class dlgLgCommande
         Me.cbCalculTotal.TabIndex = 4
         Me.cbCalculTotal.Text = "&Calc"
         '
+        'tbTotalTTC
+        '
+        Me.tbTotalTTC.AcceptsReturn = True
+        Me.tbTotalTTC.Location = New System.Drawing.Point(112, 160)
+        Me.tbTotalTTC.Name = "tbTotalTTC"
+        Me.tbTotalTTC.Size = New System.Drawing.Size(112, 20)
+        Me.tbTotalTTC.TabIndex = 6
+        Me.tbTotalTTC.Text = "0"
+        '
         'Label16
         '
         Me.Label16.ForeColor = System.Drawing.SystemColors.ControlText
@@ -206,6 +229,45 @@ Public Class dlgLgCommande
         Me.Label16.Size = New System.Drawing.Size(80, 23)
         Me.Label16.TabIndex = 51
         Me.Label16.Text = "Total &TTC"
+        '
+        'tbQteLiv
+        '
+        Me.tbQteLiv.BackColor = System.Drawing.SystemColors.Window
+        Me.tbQteLiv.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbQteLiv.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.tbQteLiv.Location = New System.Drawing.Point(112, 40)
+        Me.tbQteLiv.MaxLength = 0
+        Me.tbQteLiv.Name = "tbQteLiv"
+        Me.tbQteLiv.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.tbQteLiv.Size = New System.Drawing.Size(112, 20)
+        Me.tbQteLiv.TabIndex = 1
+        Me.tbQteLiv.Text = "0"
+        '
+        'tbPrixUHT
+        '
+        Me.tbPrixUHT.BackColor = System.Drawing.SystemColors.Window
+        Me.tbPrixUHT.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbPrixUHT.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.tbPrixUHT.Location = New System.Drawing.Point(112, 112)
+        Me.tbPrixUHT.MaxLength = 0
+        Me.tbPrixUHT.Name = "tbPrixUHT"
+        Me.tbPrixUHT.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.tbPrixUHT.Size = New System.Drawing.Size(113, 20)
+        Me.tbPrixUHT.TabIndex = 3
+        Me.tbPrixUHT.Text = "0"
+        '
+        'tbTotalHT
+        '
+        Me.tbTotalHT.BackColor = System.Drawing.SystemColors.Window
+        Me.tbTotalHT.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbTotalHT.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.tbTotalHT.Location = New System.Drawing.Point(112, 136)
+        Me.tbTotalHT.MaxLength = 0
+        Me.tbTotalHT.Name = "tbTotalHT"
+        Me.tbTotalHT.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.tbTotalHT.Size = New System.Drawing.Size(113, 20)
+        Me.tbTotalHT.TabIndex = 5
+        Me.tbTotalHT.Text = "0"
         '
         'ckGratuit
         '
@@ -220,6 +282,19 @@ Public Class dlgLgCommande
         Me.ckGratuit.TabIndex = 40
         Me.ckGratuit.Text = "&Gratuit"
         Me.ckGratuit.UseVisualStyleBackColor = False
+        '
+        'tbQteCom
+        '
+        Me.tbQteCom.BackColor = System.Drawing.SystemColors.Window
+        Me.tbQteCom.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.tbQteCom.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.tbQteCom.Location = New System.Drawing.Point(112, 16)
+        Me.tbQteCom.MaxLength = 0
+        Me.tbQteCom.Name = "tbQteCom"
+        Me.tbQteCom.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.tbQteCom.Size = New System.Drawing.Size(112, 20)
+        Me.tbQteCom.TabIndex = 0
+        Me.tbQteCom.Text = "0"
         '
         'Label12
         '
@@ -342,7 +417,7 @@ Public Class dlgLgCommande
         'CbxTarif
         '
         Me.CbxTarif.FormattingEnabled = True
-        Me.CbxTarif.Items.AddRange(New Object() {"A", "B", "C120b", "C60b", "C36b", "E"})
+        Me.CbxTarif.Items.AddRange(New Object() {"A", "B", "C120b", "C60b", "C36b", "D", "E"})
         Me.CbxTarif.Location = New System.Drawing.Point(96, 59)
         Me.CbxTarif.Name = "CbxTarif"
         Me.CbxTarif.Size = New System.Drawing.Size(49, 21)
@@ -360,81 +435,6 @@ Public Class dlgLgCommande
         Me.tbNumLigne.Size = New System.Drawing.Size(49, 20)
         Me.tbNumLigne.TabIndex = 12
         Me.tbNumLigne.Text = "0"
-        '
-        'tbQteFact
-        '
-        Me.tbQteFact.AcceptsReturn = True
-        Me.tbQteFact.BackColor = System.Drawing.SystemColors.Window
-        Me.tbQteFact.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.tbQteFact.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.tbQteFact.Location = New System.Drawing.Point(112, 64)
-        Me.tbQteFact.MaxLength = 0
-        Me.tbQteFact.Name = "tbQteFact"
-        Me.tbQteFact.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tbQteFact.Size = New System.Drawing.Size(112, 20)
-        Me.tbQteFact.TabIndex = 2
-        Me.tbQteFact.Text = "0"
-        '
-        'tbTotalTTC
-        '
-        Me.tbTotalTTC.AcceptsReturn = True
-        Me.tbTotalTTC.Location = New System.Drawing.Point(112, 160)
-        Me.tbTotalTTC.Name = "tbTotalTTC"
-        Me.tbTotalTTC.Size = New System.Drawing.Size(112, 20)
-        Me.tbTotalTTC.TabIndex = 6
-        Me.tbTotalTTC.Text = "0"
-        '
-        'tbQteLiv
-        '
-        Me.tbQteLiv.BackColor = System.Drawing.SystemColors.Window
-        Me.tbQteLiv.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.tbQteLiv.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.tbQteLiv.Location = New System.Drawing.Point(112, 40)
-        Me.tbQteLiv.MaxLength = 0
-        Me.tbQteLiv.Name = "tbQteLiv"
-        Me.tbQteLiv.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tbQteLiv.Size = New System.Drawing.Size(112, 20)
-        Me.tbQteLiv.TabIndex = 1
-        Me.tbQteLiv.Text = "0"
-        '
-        'tbPrixUHT
-        '
-        Me.tbPrixUHT.BackColor = System.Drawing.SystemColors.Window
-        Me.tbPrixUHT.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.tbPrixUHT.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.tbPrixUHT.Location = New System.Drawing.Point(112, 112)
-        Me.tbPrixUHT.MaxLength = 0
-        Me.tbPrixUHT.Name = "tbPrixUHT"
-        Me.tbPrixUHT.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tbPrixUHT.Size = New System.Drawing.Size(113, 20)
-        Me.tbPrixUHT.TabIndex = 3
-        Me.tbPrixUHT.Text = "0"
-        '
-        'tbTotalHT
-        '
-        Me.tbTotalHT.BackColor = System.Drawing.SystemColors.Window
-        Me.tbTotalHT.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.tbTotalHT.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.tbTotalHT.Location = New System.Drawing.Point(112, 136)
-        Me.tbTotalHT.MaxLength = 0
-        Me.tbTotalHT.Name = "tbTotalHT"
-        Me.tbTotalHT.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tbTotalHT.Size = New System.Drawing.Size(113, 20)
-        Me.tbTotalHT.TabIndex = 5
-        Me.tbTotalHT.Text = "0"
-        '
-        'tbQteCom
-        '
-        Me.tbQteCom.BackColor = System.Drawing.SystemColors.Window
-        Me.tbQteCom.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.tbQteCom.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.tbQteCom.Location = New System.Drawing.Point(112, 16)
-        Me.tbQteCom.MaxLength = 0
-        Me.tbQteCom.Name = "tbQteCom"
-        Me.tbQteCom.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tbQteCom.Size = New System.Drawing.Size(112, 20)
-        Me.tbQteCom.TabIndex = 0
-        Me.tbQteCom.Text = "0"
         '
         'Label3
         '
@@ -844,14 +844,16 @@ Public Class dlgLgCommande
 
     Private Sub CbxTarif_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxTarif.SelectedIndexChanged
         Dim objClient As Client
-        If Not String.IsNullOrEmpty(Me.tbCodeProduit.Text) Then
-            If m_TiersCourant.typeDonnee = vncEnums.vncTypeDonnee.CLIENT Then
-                objClient = m_TiersCourant
-                Dim oProduit As Produit = Produit.createandloadbyKey(Me.tbCodeProduit.Text)
-                If oProduit IsNot Nothing Then
-                    ' Récupération du code tarif
-                    tbPrixUHT.Text = oProduit.Tarif(CbxTarif.Text)
-                    CalculPrix()
+        If Not m_bAffichageEncours Then
+            If Not String.IsNullOrEmpty(Me.tbCodeProduit.Text) Then
+                If m_TiersCourant.typeDonnee = vncEnums.vncTypeDonnee.CLIENT Then
+                    objClient = m_TiersCourant
+                    Dim oProduit As Produit = Produit.createandloadbyKey(Me.tbCodeProduit.Text)
+                    If oProduit IsNot Nothing Then
+                        ' Récupération du code tarif
+                        tbPrixUHT.Text = oProduit.Tarif(CbxTarif.Text)
+                        CalculPrix()
+                    End If
                 End If
             End If
         End If

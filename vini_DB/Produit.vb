@@ -57,6 +57,7 @@ Public Class Produit
     Private m_TarifC120b As Decimal           'Tarif
     Private m_TarifC60b As Decimal           'Tarif
     Private m_TarifC36b As Decimal           'Tarif
+    Private m_TarifD As Decimal           'Tarif
     Private m_TarifE As Decimal           'Tarif
     Private m_bStock As Boolean             'Produit Stocké
     Private m_bFactureColisage As Boolean             'Produit Générant des factures de colisage
@@ -634,6 +635,8 @@ Public Class Produit
                     Return TarifC60b
                 Case "C36b"
                     Return TarifC36b
+                Case "D"
+                    Return TarifD
                 Case "E"
                     Return TarifE
             End Select
@@ -691,6 +694,17 @@ Public Class Produit
             If Value <> m_TarifC36b Then
                 RaiseUpdated()
                 m_TarifC36b = Value
+            End If
+        End Set
+    End Property
+    Public Property TarifD() As Decimal
+        Get
+            Return m_TarifD
+        End Get
+        Set(ByVal Value As Decimal)
+            If Value <> m_TarifD Then
+                RaiseUpdated()
+                m_TarifD = Value
             End If
         End Set
     End Property
@@ -883,6 +897,7 @@ Public Class Produit
             bReturn = bReturn And (TarifC120b.Equals(objPrd.TarifC120b))
             bReturn = bReturn And (TarifC60b.Equals(objPrd.TarifC60b))
             bReturn = bReturn And (TarifC36b.Equals(objPrd.TarifC36b))
+            bReturn = bReturn And (TarifD.Equals(objPrd.TarifD))
             bReturn = bReturn And (TarifE.Equals(objPrd.TarifE))
             bReturn = bReturn And (Depot.Equals(objPrd.Depot))
             bReturn = bReturn And (bArchive.Equals(objPrd.bArchive))
@@ -1501,6 +1516,8 @@ Public Class Produit
                     Me.TarifC60b = Convert.ToString(pColValue)
                 Case "PRD_TARIFC36B"
                     Me.TarifC36b = Convert.ToString(pColValue)
+                Case "PRD_TARIFD"
+                    Me.TarifD = Convert.ToString(pColValue)
                 Case "PRD_TARIFE"
                     Me.TarifE = Convert.ToString(pColValue)
                 Case "PRD_DOSSIER"

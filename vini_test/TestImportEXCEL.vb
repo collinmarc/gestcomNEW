@@ -79,7 +79,7 @@ Imports System.Data
         Dim idProduit2 As Integer
         idProduit2 = oProduit2.id
 
-        Dim oImport As New ImportTarifGESTCOM("testImportTarif.csv", 1, 2, 3, 4, 5, 6, 7)
+        Dim oImport As New ImportTarifGESTCOM("testImportTarif.csv", 1, 2, 3, 4, 5, 6, 7, 8)
 
         oImport.ImportTarif()
         oProduit = Produit.createandload(idProduit)
@@ -89,6 +89,7 @@ Imports System.Data
         Assert.AreEqual(3D, oProduit.TarifC120b)
         Assert.AreEqual(3.6D, oProduit.TarifC60b)
         Assert.AreEqual(4.7D, oProduit.TarifC36b)
+        Assert.AreEqual(4.8D, oProduit.TarifD)
         Assert.AreEqual(5.8D, oProduit.TarifE)
 
         oProduit2 = Produit.createandload(idProduit2)
@@ -98,6 +99,7 @@ Imports System.Data
         Assert.AreEqual(8.7D, oProduit2.TarifC120b)
         Assert.AreEqual(10.3D, oProduit2.TarifC60b)
         Assert.AreEqual(11.4D, oProduit2.TarifC36b)
+        Assert.AreEqual(11.5D, oProduit2.TarifD)
         Assert.AreEqual(12.5D, oProduit2.TarifE)
 
 
@@ -136,7 +138,7 @@ Imports System.Data
         Dim idProduit2 As Integer
         idProduit2 = oProduit2.id
 
-        Dim oImport As New ImportTarifGESTCOM(pFileName:=Environment.CurrentDirectory & "/tarif import Gescom.csv", pNumColCode:=1, pNumColTarifA:=2, pNumColTarifB:=3, pNumColTarifC120b:=4, pNumColTarifC60b:=5, pNumColTarifC36b:=0, pNumColTarifE:=0)
+        Dim oImport As New ImportTarifGESTCOM(pFileName:=Environment.CurrentDirectory & "/tarif import Gescom.csv", pNumColCode:=1, pNumColTarifA:=2, pNumColTarifB:=3, pNumColTarifC120b:=4, pNumColTarifC60b:=5, pNumColTarifC36b:=0, pNumColTarifD:=0, pNumColTarifE:=0)
 
         oImport.ImportTarif()
         oProduit = Produit.createandload(idProduit)
@@ -160,7 +162,7 @@ Imports System.Data
         oProduit.TarifC60b = 1.4D
         oProduit.save()
         'Import en ommetant les Col B et D
-        oImport = New ImportTarifGESTCOM(pFileName:=Environment.CurrentDirectory & "/tarif import Gescom.csv", pNumColCode:=1, pNumColTarifA:=2, pNumColTarifB:=0, pNumColTarifC120b:=4, pNumColTarifC60b:=0, pNumColTarifC36b:=0, pNumColTarifE:=0)
+        oImport = New ImportTarifGESTCOM(pFileName:=Environment.CurrentDirectory & "/tarif import Gescom.csv", pNumColCode:=1, pNumColTarifA:=2, pNumColTarifB:=0, pNumColTarifC120b:=4, pNumColTarifC60b:=0, pNumColTarifC36b:=0, pNumColTarifD:=0, pNumColTarifE:=0)
         oImport.ImportTarif()
         oProduit = Produit.createandload(idProduit)
 
@@ -178,7 +180,7 @@ Imports System.Data
     <TestMethod()>
     Public Sub T101_GetNbreLignes()
 
-        Dim oImport As New ImportTarifGESTCOM(Environment.CurrentDirectory & "/tarif import Gescom.csv", 1, 0, 0, 0, 0, 0, 0)
+        Dim oImport As New ImportTarifGESTCOM(Environment.CurrentDirectory & "/tarif import Gescom.csv", 1, 0, 0, 0, 0, 0, 0, 0)
 
         Assert.AreNotEqual(0, oImport.getNbreLignes())
 

@@ -123,7 +123,7 @@ Public Class frmClient
         '
         Me.cbxCodeTarif.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbxCodeTarif.FormattingEnabled = True
-        Me.cbxCodeTarif.Items.AddRange(New Object() {"A", "B", "C120b", "C60b", "C36b", "E"})
+        Me.cbxCodeTarif.Items.AddRange(New Object() {"A", "B", "C120b", "C60b", "C36b", "D", "E"})
         Me.cbxCodeTarif.Location = New System.Drawing.Point(842, 53)
         Me.cbxCodeTarif.Name = "cbxCodeTarif"
         Me.cbxCodeTarif.Size = New System.Drawing.Size(117, 21)

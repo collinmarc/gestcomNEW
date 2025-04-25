@@ -31,6 +31,6 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyVersion("2022.11.30.2030")>
 
-<Assembly: AssemblyFileVersionAttribute("2025.04.24.1700")>
+<Assembly: AssemblyFileVersionAttribute("2025.04.25.1200")>
 <Assembly: System.Runtime.CompilerServices.InternalsVisibleTo("vini_test")>
 <Assembly: System.Runtime.CompilerServices.InternalsVisibleTo("vini_app")>
