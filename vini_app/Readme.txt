@@ -1,6 +1,7 @@
-﻿VXXXXXXX
+﻿V20250424180000
 		0001769: L'indicateur Facturecolisage est désactivé automatiquement
 		0001790: Ajout de nouveau tarifs sur les produits
+		0001795: Archivage des produits selon liste fournie par Mr fagnou
 
 V20250122
 	0001742: L'ajout d'un millésime sur un produit plateforme => MAJ du flag
