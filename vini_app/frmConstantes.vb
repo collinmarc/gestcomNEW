@@ -35,6 +35,7 @@ Partial Public Class frmConstantes
 
 
         Call init_vini_service()
+        ActiveDesactiveStockIt()
 
     End Sub
 
@@ -524,5 +525,29 @@ Partial Public Class frmConstantes
 
     Private Sub TextBox16_TextChanged(sender As Object, e As EventArgs) Handles TextBox16.TextChanged
 
+    End Sub
+
+    Private Sub ckStockIT_CheckedChanged(sender As Object, e As EventArgs) Handles ckStockIT.CheckedChanged
+        ActiveDesactiveStockIt()
+    End Sub
+
+    Private Sub ActiveDesactiveStockIt()
+        If ckStockIT.Checked Then
+            If TabControl1.TabPages.ContainsKey(tpWEBEDI.Name) Then
+                TabControl1.TabPages.RemoveByKey(tpWEBEDI.Name)
+            End If
+            If Not TabControl1.TabPages.ContainsKey(tpSTOCKIT.Name) Then
+                TabControl1.TabPages.Add(tpSTOCKIT)
+            End If
+            'Me.DsVinicom1.CONSTANTES(0).CST_BSTOCKIT = 1
+        Else
+            If Not TabControl1.TabPages.ContainsKey(tpWEBEDI.Name) Then
+                TabControl1.TabPages.Add(tpWEBEDI)
+            End If
+            If TabControl1.TabPages.ContainsKey(tpSTOCKIT.Name) Then
+                TabControl1.TabPages.RemoveByKey(tpSTOCKIT.Name)
+            End If
+            'Me.DsVinicom1.CONSTANTES(0).CST_BSTOCKIT = 0
+        End If
     End Sub
 End Class

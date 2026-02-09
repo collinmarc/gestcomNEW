@@ -368,24 +368,21 @@ Public Class clsFTPVinicom
 
                 oInf = New FileInfo(strLocalFileName)
                 Dim targetFileName As String
-                        If String.IsNullOrEmpty(remoteDir) Then
-                            targetFileName = oInf.Name
-                        Else
-                            targetFileName = remoteDir & "/" & oInf.Name
+                If String.IsNullOrEmpty(remoteDir) Then
+                    targetFileName = oInf.Name
+                Else
+                    targetFileName = remoteDir & "/" & oInf.Name
 
-                        End If
+                End If
 
-                    If m_FTP.Upload(strLocalFileName, targetFileName) Then
-                        nReturn = nReturn + 1
-                    Else
-                        If Not String.IsNullOrEmpty(m_strErrorDescription) Then
-                                m_strErrorDescription = m_strErrorDescription + vbCrLf
-                            End If
-                            m_strErrorDescription = m_strErrorDescription + "Erreur FTP"
-                        End If
-                'Libération du verrou
-                WaitnSeconds(1)
-                unlockfrom()
+                If m_FTP.Upload(strLocalFileName, targetFileName) Then
+                    nReturn = nReturn + 1
+                Else
+                    If Not String.IsNullOrEmpty(m_strErrorDescription) Then
+                        m_strErrorDescription = m_strErrorDescription + vbCrLf
+                    End If
+                    m_strErrorDescription = m_strErrorDescription + "Erreur FTP"
+                End If
             End If
         Catch ex As Exception
             Debug.Assert(False, "clsFTPVinicom.uploadFromDir" & ex.Message)

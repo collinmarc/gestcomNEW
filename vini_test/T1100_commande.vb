@@ -1600,6 +1600,104 @@ Imports System.IO
 
     End Sub
 
+    <TestMethod()> Public Sub T62_ExportStockIt()
+        'Test de l'export Au format StockIt
+        Dim nFile As Integer
+        Dim strResult As String
+        Dim nLineNumber As Integer
+        Dim oFRN As Fournisseur
+        Dim oPRD As Produit
+        Dim oCLT As Client
+        Dim oCmd As CommandeClient
+
+
+        oFRN = New Fournisseur("FRNT62", "FRn de'' test")
+        oFRN.rs = "FRNV22"
+        oFRN.AdresseFacturation.nom = "ADF_Nom"
+        oFRN.AdresseFacturation.rue1 = "ADF_Nom"
+        oFRN.AdresseFacturation.rue2 = "ADF_Nom"
+        oFRN.AdresseFacturation.cp = "ADF_Nom"
+        oFRN.AdresseFacturation.ville = "ADF_Nom"
+        oFRN.AdresseFacturation.tel = "01010101"
+        oFRN.AdresseFacturation.fax = "02020202"
+        oFRN.AdresseFacturation.port = "03030303"
+        oFRN.AdresseFacturation.Email = "04040404"
+        Assert.IsTrue(oFRN.Save(), "FRN.Create")
+
+        oPRD = New Produit("T62_CODEPROD", oFRN, 1990)
+        oPRD.codeStat = "T61_CODESTAT"
+        oPRD.nom = "Produit de test"
+        Assert.IsTrue(oPRD.save(), "Prod.Create")
+
+
+        oCLT = New Client("CLTT62", "Client de' test")
+        oCLT.rs = "Client de test"
+        oCLT.AdresseLivraison.nom = "CLIENT Decimal de test"
+        oCLT.AdresseLivraison.rue1 = "RUE1"
+        oCLT.AdresseLivraison.rue2 = "RUE2"
+        oCLT.AdresseLivraison.cp = "35999"
+        oCLT.AdresseLivraison.ville = "chasné "
+
+        Assert.IsTrue(oCLT.save(), "Client.Create")
+
+
+        'Creation d'une Commande
+        oCmd = New CommandeClient(oCLT)
+        oCmd.dateCommande = #6/2/1964#
+        oCmd.dateLivraison = #8/2/1964#
+        oCmd.save()
+
+        oCmd.AjouteLigne("10", oPRD, 10, 10)
+        oCmd.save()
+
+        oCmd.exporterStockit("adel.txt", False)
+        Assert.IsTrue(File.Exists("adel.txt"))
+
+        nFile = FreeFile()
+        FileOpen(nFile, "adel.txt", OpenMode.Input, OpenAccess.Read)
+        nLineNumber = 0
+        While Not EOF(nFile)
+            nLineNumber = nLineNumber + 1
+            strResult = LineInput(nFile)
+        End While
+        FileClose(nFile)
+        Assert.IsTrue(nLineNumber = 5, "il n'y a pas 4 lignes dans le fichier adel.txt")
+
+        FileOpen(nFile, "adel.txt", OpenMode.Input, OpenAccess.Read)
+        nLineNumber = 0
+        strResult = LineInput(nFile)
+        Console.WriteLine(strResult)
+        Dim fields1 As String() = strResult.Split("|")
+        Assert.AreEqual(fields1(0), "FR")
+
+        strResult = LineInput(nFile)
+        Console.WriteLine(strResult)
+        Dim fields2 As String() = strResult.Split("|")
+        Assert.AreEqual(fields2(0), "CL")
+
+        strResult = LineInput(nFile)
+        Console.WriteLine(strResult)
+        Dim fields3 As String() = strResult.Split("|")
+        Assert.AreEqual(fields3(0), "ST")
+
+        strResult = LineInput(nFile)
+        Console.WriteLine(strResult)
+        Dim fields4 As String() = strResult.Split("|")
+        Assert.AreEqual(fields4(0), "BL")
+
+        strResult = LineInput(nFile)
+        Console.WriteLine(strResult)
+        Dim fields5 As String() = strResult.Split("|")
+        Assert.AreEqual(fields5(0), "DT")
+
+        FileClose(nFile)
+        oCmd.delete()
+        oFRN.delete()
+        oCLT.delete()
+        oPRD.delete()
+
+
+    End Sub
 End Class
 
 

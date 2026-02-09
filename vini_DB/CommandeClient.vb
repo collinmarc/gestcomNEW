@@ -1113,7 +1113,7 @@ Public Class CommandeClient
 
     '========================================================================
     'fonction : exporter
-    'DEscription : Exporte la facture de transport dans un format WEBEDI
+    'DEscription : Exporte la Commande dans un format WEBEDI
     'Retour : une chaine
     '=========================================================================
     Public Function exporterWebEDI(ByVal strFileName As String, Optional pbCodeStatPlateforme As Boolean = False) As Boolean
@@ -1262,6 +1262,241 @@ Public Class CommandeClient
         End Try
         Return bReturn
     End Function 'exporterWEBEDI
+    Public Function exporterStockit(ByVal strFileName As String, pSendFTP As Boolean) As Boolean
+
+        Debug.Assert(bcolLignesLoaded, "Les lignes doivent être chargées")
+
+        'Dim nvcEntete As System.Collections.Specialized.NameValueCollection
+        'Dim nvcLigne As System.Collections.Specialized.NameValueCollection
+        Dim bReturn As Boolean
+        Dim nFile As Integer
+        Dim oLg As LgCommande
+        Dim strResult As String
+        Try
+            nFile = FreeFile()
+            FileOpen(nFile, strFileName, OpenMode.Output, OpenAccess.Write, OpenShare.LockWrite)
+            strResult = creerLineFR(nFile)
+            strResult = creerLineCL(nFile)
+            strResult = creerLineST(nFile)
+            strResult = creerLineBL(nFile)
+            Dim nLigne As Integer = 0
+            For Each oLg In m_colLignes
+                If Not oLg.bGratuit Then
+                    'Cumul des qte commandées du même produit 
+                    Dim nQteComm As Decimal = oLg.qteCommande
+                    For Each oLgG As LgCommande In m_colLignes
+                        If oLgG.bGratuit And oLgG.oProduit.id = oLg.oProduit.id Then
+                            nQteComm = nQteComm + oLgG.qteCommande
+                        End If
+                    Next
+
+                    creerLineDT(nFile, oLg, strResult, nLigne)
+                End If
+            Next oLg
+            'On REcparcours la Liste pour vérifier qu'il n'y a pas de produit gratuits tout seul (Echantillons)
+            For Each oLg In m_colLignes
+                If oLg.bGratuit Then
+                    'Y-a-t-il une ligne non gratuite ?
+                    Dim bLignePayante As Boolean = False
+                    For Each oLgG As LgCommande In m_colLignes
+                        If Not oLgG.bGratuit And oLgG.oProduit.id = oLg.oProduit.id Then
+                            bLignePayante = True
+                        End If
+                    Next
+                    If Not bLignePayante Then
+                        'Il n'y a pas de lignes payantes associées à la ligne gratuite
+                        Dim nQteComm As Decimal = oLg.qteCommande
+                        creerLineDT(nFile, oLg, strResult, nLigne)
+                    End If
+                End If
+            Next oLg
+            FileClose(nFile)
+            If pSendFTP Then
+                Dim oftp As clsFTPVinicom
+                oftp = New clsFTPVinicom(Param.getConstante("CST_FTPVND_HOST"), Param.getConstante("CST_FTPVND_USER"), Param.getConstante("CST_FTPVND_PASSWORD"), Param.getConstante("CST_FTPVND_REMOTEDIR"))
+                oftp.uploadFile(strFileName)
+            End If
+
+
+            bReturn = True
+        Catch ex As Exception
+            bReturn = False
+            setError("CommandeClient.exporterStockIt ERR", ex.ToString())
+        End Try
+        Return bReturn
+    End Function 'exporterStockIt
+
+    Private Sub creerLineDT(nFile As Integer, oLg As LgCommande, ByRef strResult As String, ByRef nLigne As Integer)
+        strResult = "DT"
+        strResult = strResult & "|"
+        nLigne = nLigne & 1
+        strResult = strResult & nLigne 'Numero de ligne
+        strResult = strResult & "|"
+        strResult = strResult & Me.code 'Numero de BL
+        strResult = strResult & "|"
+        strResult = strResult & oLg.oProduit.code 'Code Produit
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Code EAN
+        strResult = strResult & "|"
+        strResult = strResult & oLg.oProduit.nom 'Désignation 
+        strResult = strResult & "|"
+        strResult = strResult & "" 'N° LOT
+        strResult = strResult & "|"
+        strResult = strResult & "" 'N° Palette
+        strResult = strResult & "|"
+        strResult = strResult & oLg.prixU 'Prix unitaire
+        strResult = strResult & "|"
+        strResult = strResult & "" 'unité prix
+        strResult = strResult & "|"
+        strResult = strResult & "" ' Remise
+        strResult = strResult & "|"
+        strResult = strResult & oLg.poids 'Poids net
+        strResult = strResult & "|"
+        strResult = strResult & "" 'unité poids
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Volume
+        strResult = strResult & "|"
+        strResult = strResult & "" 'unité volume
+        strResult = strResult & "|"
+        strResult = strResult & "" 'CLUO
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Date expiration
+        strResult = strResult & "|"
+        strResult = strResult & "" 'UR1 Annoncée
+        strResult = strResult & "0"
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Libellé UR
+        strResult = strResult & "|"
+        strResult = strResult & "0" 'Libellé UC2 annoncé
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Libellé UC2 
+        strResult = strResult & "|"
+        strResult = strResult & "0" 'Libellé UV3 annoncé
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Libellé UV3 
+        strResult = strResult & "|"
+        strResult = strResult & "" 'N° Carton
+        strResult = strResult & "|"
+        strResult = strResult & "" 'manquant UR
+        strResult = strResult & "|"
+        strResult = strResult & "" 'manquant UC
+        strResult = strResult & "|"
+        strResult = strResult & "" 'manquant UV
+        strResult = strResult & "|"
+        strResult = strResult & "" 'code blocage
+        strResult = strResult & "|"
+        strResult = strResult & "" 'description blocage
+        strResult = strResult & "|"
+        strResult = strResult & "TYPELIGNE" 'Type de ligne
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Information Diverses
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Famille
+        strResult = strResult & "|"
+        strResult = strResult & oLg.num 'N°Commande Ligne
+        strResult = strResult & "|"
+        strResult = strResult & "" 'codeProvenance
+        strResult = strResult & "|"
+        strResult = strResult & "" 'code Destinatation
+        strResult = strResult & "|"
+        strResult = strResult & "" 'N° Autre
+        strResult = strResult & "|"
+        strResult = strResult & "" 'code AEN UC
+        strResult = strResult & "|"
+        strResult = strResult & "" 'indice
+        strResult = Replace(strResult, vbCrLf, "--")
+        strResult = Replace(strResult, vbCr, "-")
+        strResult = Replace(strResult, vbLf, "-")
+        strResult = Replace(strResult, vbNullChar, "-")
+        strResult = Replace(strResult, vbTab, "-")
+        strResult = Replace(strResult, vbBack, "-")
+        PrintLine(nFile, strResult)
+    End Sub
+
+    Private Function creerLineBL(pNfile As Integer) As String
+        Dim strResult As String = "BL"
+        strResult = strResult & "|"
+        strResult = strResult & Me.code
+        strResult = strResult & "|"
+        strResult = strResult & "02"
+        strResult = strResult & "|"
+        strResult = strResult & Format(Me.dateLivraison, "yyyyMMdd") 'Date de Livraison
+        strResult = strResult & "|"
+        strResult = strResult & Me.code 'Numero de commande
+        strResult = strResult & "|"
+        strResult = strResult & Format(Me.dateCommande, "yyyyMMdd") 'Date de Commande
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Provenance
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Numero véhicule
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Chauffeur
+        strResult = strResult & "|"
+        strResult = strResult & "" 'code transporteur
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Nomtransporteur
+        strResult = strResult & "|"
+        strResult = strResult & oTiers.nom  'nomDestinataire
+        strResult = strResult & "|"
+        strResult = strResult & oTiers.AdresseLivraison.rue1  'Adresse1
+        strResult = strResult & "|"
+        strResult = strResult & oTiers.AdresseLivraison.rue2  'Adresse2
+        strResult = strResult & "|"
+        strResult = strResult & ""  'Adresse3
+        strResult = strResult & "|"
+        strResult = strResult & oTiers.AdresseLivraison.cp  'codepostal Destinaitaire
+        strResult = strResult & "|"
+        strResult = strResult & oTiers.AdresseLivraison.ville  'Ville Destinaitaire
+        strResult = strResult & "|"
+        strResult = strResult & ""  'Pays Destinaitaire
+        strResult = strResult & "|"
+        strResult = strResult & ""  'Commentaire
+        strResult = strResult & "|"
+        strResult = strResult & ""  'Autres
+        strResult = strResult & "|"
+        strResult = strResult & ""  'Qualifant Date
+        strResult = strResult & "|"
+        strResult = strResult & ""  'Code adresse destinaitaire
+        strResult = strResult & "|"
+        strResult = strResult & Me.oTiers.AdresseLivraison.tel  'Telephone destinataire
+        strResult = strResult & "|"
+        strResult = strResult & Me.oTiers.AdresseLivraison.Email  'Email destinataire
+        strResult = strResult & "|"
+        strResult = strResult & ""  'Valeur contre remboursement
+        strResult = strResult & "|"
+        strResult = strResult & ""  'Valeur déclarée
+        strResult = strResult & "|"
+        strResult = strResult & ""  'codePays Destinataire
+        strResult = strResult & "|"
+        strResult = strResult & ""  'code Livraison
+        strResult = strResult & "|"
+        PrintLine(pNfile, strResult)
+        Return strResult
+    End Function
+    Private Function creerLineST(nFile As Integer) As String
+        Dim strResult As String = "ST"
+        strResult = strResult & "|"
+        strResult = strResult & "CODE" 'Code du stockeur
+        PrintLine(nFile, strResult)
+        Return strResult
+    End Function
+
+    Private Function creerLineCL(nFile As Integer) As String
+        Dim strResult As String = "CL"
+        strResult = strResult & "|"
+        strResult = strResult & Me.TiersCode
+        PrintLine(nFile, strResult)
+        Return strResult
+    End Function
+
+    Private Shared Function creerLineFR(nFile As Integer) As String
+        Dim strResult As String = "FR"
+        strResult = strResult & "|"
+        strResult = strResult & "CODECLIENT"
+        PrintLine(nFile, strResult)
+        Return strResult
+    End Function
+
 
     'Exportation des sous commandes d'ue commande
     'Public Function faxerTout(ByVal pFAX_Path As String, ByVal pPathToReports As String, ByVal PFax_Nom_Interlocuteur As String, ByVal pFAX_Tel_Interlocuteur As String, ByVal pFAX_Subject As String, ByVal pFAX_Notes As String, ByVal pFAX_BSENDCOVERPAGE As Boolean) As Boolean

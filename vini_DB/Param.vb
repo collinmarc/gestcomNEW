@@ -599,4 +599,55 @@ Public Class Param
         End Get
     End Property
 
+    Public Shared ReadOnly Property STOCKIT_BSTOCKIT() As String
+        Get
+            Return getConstante("CST_BSTOCKIT")
+        End Get
+    End Property
+    Public Shared ReadOnly Property STOCKIT_FTP1_URL() As String
+        Get
+            Return getConstante("CST_STOCKIT_FTP1_URL")
+        End Get
+    End Property
+    Public Shared ReadOnly Property STOCKIT_FTP1_USER() As String
+        Get
+            Return getConstante("CST_STOCKIT_FTP1_USER")
+        End Get
+    End Property
+    Public Shared ReadOnly Property STOCKIT_FTP1_PWD() As String
+        Get
+            Return getConstante("CST_STOCKIT_FTP1_PWD")
+        End Get
+    End Property
+    Public Shared ReadOnly Property CST_STOCKIT_FTP1_DOSSIER() As String
+        Get
+            Return getConstante("CST_STOCKIT_FTP1_DOSSIER")
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property STOCKIT_FTP2_URL() As String
+        Get
+            Return getConstante("CST_STOCKIT_FTP2_URL")
+        End Get
+    End Property
+    Public Shared ReadOnly Property STOCKIT_FTP2_USER() As String
+        Get
+            Return getConstante("CST_STOCKIT_FTP2_USER")
+        End Get
+    End Property
+    Public Shared ReadOnly Property STOCKIT_FTP2_PWD() As String
+        Get
+            Return getConstante("CST_STOCKIT_FTP2_PWD")
+        End Get
+    End Property
+    Public Shared ReadOnly Property CST_STOCKIT_FTP2_DOSSIER() As String
+        Get
+            Return getConstante("CST_STOCKIT_FTP2_DOSSIER")
+        End Get
+    End Property
+    Public Shared ReadOnly Property CST_STOCKIT_NOMCLIENT() As String
+        Get
+            Return getConstante("CST_STOCKIT_FTP2_NOMCLIENT")
+        End Get
+    End Property
 End Class

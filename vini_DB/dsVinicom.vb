@@ -15,3 +15,9 @@
     End Class
 
 End Class
+
+Namespace dsVinicomTableAdapters
+
+    Partial Public Class CONSTANTESTableAdapter
+    End Class
+End Namespace
