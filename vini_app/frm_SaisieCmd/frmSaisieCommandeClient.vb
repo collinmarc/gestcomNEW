@@ -281,31 +281,27 @@ Public Class frmSaisieCommandeClient
                 odlg = New dlgExportWebEDI()
                 odlg.Setcommande(getCommandeCourante())
                 If odlg.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                    bReturn = getCommandeCourante.exporterWebEDI(strFileName, My.Settings.bCodeStatPlateforme)
-                    If bReturn Then
-                        If ExportMail.SendMail(Param.SMTP_HOST,
-                                                Param.SMTP_PORT,
-                                                Param.SMTP_SSL,
-                                                Param.SMTP_USER,
-                                                Param.SMTP_PWD,
-                                                Param.SMTP_FROM,
-                                                Me.tbMailPLTF.Text,
-                                                "Commande Client N°" + getCommandeCourante.code + " " + getCommandeCourante.oTiers.nom,
-                                                "",
-                                                strFileName) Then
-
-                            getCommandeCourante().Date_EDI = DateTime.Now
-                            lblDateTransmissionEDI.Text = "Transmise le " + getCommandeCourante().Date_EDI.ToShortDateString()
-
-                        Else
-                            MsgBox("Erreur en envoi de Mail" + ExportMail.Message)
-                        End If
-                        My.Computer.FileSystem.DeleteFile(strFileName)
+                    If Param.STOCKIT_BSTOCKIT Then
+                        bReturn = getCommandeCourante.exporterSTOCKIT(strFileName, True)
                     Else
-                        MsgBox("Erreur en Export-Creation du fichier, Recommencer plus tard")
+                        bReturn = getCommandeCourante.exporterWebEDI(strFileName, My.Settings.bCodeStatPlateforme)
+                        If bReturn Then
+                            ExportMail.SendMail(Param.SMTP_HOST,
+                                                        Param.SMTP_PORT,
+                                                        Param.SMTP_SSL,
+                                                        Param.SMTP_USER,
+                                                        Param.SMTP_PWD,
+                                                        Param.SMTP_FROM,
+                                                        Me.tbMailPLTF.Text,
+                                                        "Commande Client N°" + getCommandeCourante.code + " " + getCommandeCourante.oTiers.nom,
+                                                        "",
+                                                        strFileName)
+                        End If
+
+
                     End If
-                Else
-                    bReturn = False
+                    getCommandeCourante().Date_EDI = DateTime.Now
+                    lblDateTransmissionEDI.Text = "Transmise le " + getCommandeCourante().Date_EDI.ToShortDateString()
                 End If
             Catch ex As Exception
                 MsgBox("Erreur en Export-Creation du message, Recommencer plus tard" + ex.Message)
@@ -896,6 +892,11 @@ Public Class frmSaisieCommandeClient
                 tbMtComm.Visible = False
             End If
             SSTabCommandeClient.TabPages.RemoveByKey(tpFactHbv.Name)
+
+            If Param.STOCKIT_BSTOCKIT Then
+                tbMailPLTF.Visible = False
+                cbMailBLPLTFRM.Text = "ENVOI STOCKIT"
+            End If
         End If
 
     End Sub

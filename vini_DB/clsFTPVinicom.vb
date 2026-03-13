@@ -72,6 +72,15 @@ Public Class clsFTPVinicom
             Return m_strErrorDescription
         End Get
     End Property
+    Private _bUseLock As Boolean = True
+    Public Property bUseLock() As Boolean
+        Get
+            Return _bUseLock
+        End Get
+        Set(ByVal value As Boolean)
+            _bUseLock = value
+        End Set
+    End Property
     '=======================================================================
     'Fonction : ToString()
     'Description : Rend l'objet sous forme de String
@@ -140,11 +149,15 @@ Public Class clsFTPVinicom
     Public Function lockFrom() As Boolean
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
         Dim bReturn As Boolean
-        m_strErrorDescription = String.Empty
-        If String.IsNullOrEmpty(m_strLockFromFileName) Then
-            bReturn = True
+        If bUseLock Then
+            m_strErrorDescription = String.Empty
+            If String.IsNullOrEmpty(m_strLockFromFileName) Then
+                bReturn = True
+            Else
+                bReturn = lock(m_strLockFromFileName)
+            End If
         Else
-            bReturn = lock(m_strLockFromFileName)
+            bReturn = True
         End If
         Return bReturn
     End Function ' lockFrom
@@ -157,11 +170,15 @@ Public Class clsFTPVinicom
     Public Function lockTo() As Boolean
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
         Dim bReturn As Boolean
-        m_strErrorDescription = String.Empty
-        If String.IsNullOrEmpty(m_strLockToFileName) Then
-            bReturn = True
+        If bUseLock Then
+            m_strErrorDescription = String.Empty
+            If String.IsNullOrEmpty(m_strLockToFileName) Then
+                bReturn = True
+            Else
+                bReturn = lock(m_strLockToFileName)
+            End If
         Else
-            bReturn = lock(m_strLockToFileName)
+            bReturn = True
         End If
         Return bReturn
     End Function ' lockTo
@@ -175,12 +192,16 @@ Public Class clsFTPVinicom
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
 
         Dim bReturn As Boolean
-        If String.IsNullOrEmpty(m_strLockFromFileName) Then
-            bReturn = True
-        Else
+        If bUseLock Then
+            If String.IsNullOrEmpty(m_strLockFromFileName) Then
+                bReturn = True
+            Else
 
-            m_strErrorDescription = String.Empty
-            bReturn = unlock(m_strLockFromFileName)
+                m_strErrorDescription = String.Empty
+                bReturn = unlock(m_strLockFromFileName)
+            End If
+        Else
+            bReturn = True
         End If
         Return bReturn
     End Function ' unlockFrom
@@ -194,12 +215,15 @@ Public Class clsFTPVinicom
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
 
         Dim bReturn As Boolean
-
-        m_strErrorDescription = String.Empty
-        If String.IsNullOrEmpty(m_strLockToFileName) Then
-            bReturn = True
+        If bUseLock Then
+            m_strErrorDescription = String.Empty
+            If String.IsNullOrEmpty(m_strLockToFileName) Then
+                bReturn = True
+            Else
+                bReturn = unlock(m_strLockToFileName)
+            End If
         Else
-            bReturn = unlock(m_strLockToFileName)
+            bReturn = True
         End If
         Return bReturn
     End Function ' unlockTo
@@ -215,30 +239,32 @@ Public Class clsFTPVinicom
         Dim i As Integer
         'Dim fso As New Scripting.FileSystemObject
         Dim nFile As Integer
+        If bUseLock Then
+            bReturn = False
+            For i = 0 To m_nWaitLoops
+                If Not m_FTP.FtpFileExists(strFileName) Then
+                    bReturn = True
+                    Exit For
+                End If
+                WaitnSeconds(m_nWaitSeconds)
+            Next i
 
-        bReturn = False
-        For i = 0 To m_nWaitLoops
-            If Not m_FTP.FtpFileExists(strFileName) Then
-                bReturn = True
-                Exit For
+            If bReturn Then
+                If m_FTP.FtpFileExists("semaphore") Then
+                    m_FTP.FtpRename("semaphore", strFileName)
+                Else
+                    'Creation d'un fichier temporaire
+                    nFile = FreeFile()
+                    FileOpen(nFile, "./semaphore", OpenMode.Output, OpenAccess.Write)
+                    WriteLine(nFile, Now())
+                    FileClose(nFile)
+                    m_FTP.Upload("./semaphore", strFileName)
+                End If
+                bReturn = m_FTP.FtpFileExists(strFileName)
             End If
-            WaitnSeconds(m_nWaitSeconds)
-        Next i
-
-        If bReturn Then
-            If m_FTP.FtpFileExists("semaphore") Then
-                m_FTP.FtpRename("semaphore", strFileName)
-            Else
-                'Creation d'un fichier temporaire
-                nFile = FreeFile()
-                FileOpen(nFile, "./semaphore", OpenMode.Output, OpenAccess.Write)
-                WriteLine(nFile, Now())
-                FileClose(nFile)
-                m_FTP.Upload("./semaphore", strFileName)
-            End If
-            bReturn = m_FTP.FtpFileExists(strFileName)
+        Else
+            bReturn = True
         End If
-
         Return bReturn
     End Function ' lock
     '=======================================================================
@@ -250,11 +276,15 @@ Public Class clsFTPVinicom
     Private Function unlock(ByVal strFileName As String) As Boolean
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
         Dim bReturn As Boolean
-        If m_FTP.FtpFileExists(strFileName) Then
-            m_FTP.FtpRename(strFileName, "semaphore")
-        End If
+        If bUseLock Then
+            If m_FTP.FtpFileExists(strFileName) Then
+                m_FTP.FtpRename(strFileName, "semaphore")
+            End If
 
-        bReturn = m_FTP.FtpFileExists("semaphore")
+            bReturn = m_FTP.FtpFileExists("semaphore")
+        Else
+            bReturn = True
+        End If
         Return bReturn
     End Function ' unlock
     ''' <summary>
@@ -266,12 +296,15 @@ Public Class clsFTPVinicom
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
 
         Dim bReturn As Boolean
-
-        If String.IsNullOrEmpty(m_strLockFromFileName) Then
-            bReturn = True
+        If bUseLock Then
+            If String.IsNullOrEmpty(m_strLockFromFileName) Then
+                bReturn = True
+            Else
+                m_strErrorDescription = String.Empty
+                bReturn = isLock(m_strLockToFileName)
+            End If
         Else
-            m_strErrorDescription = String.Empty
-            bReturn = isLock(m_strLockToFileName)
+            bReturn = True
         End If
         Return bReturn
     End Function 'IsLockTo
@@ -283,12 +316,16 @@ Public Class clsFTPVinicom
     Public Function IsLockFrom() As Boolean
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
         Dim bReturn As Boolean
-        m_strErrorDescription = String.Empty
-        If String.IsNullOrEmpty(m_strLockFromFileName) Then
-            bReturn = False
-        Else
+        If bUseLock Then
+            m_strErrorDescription = String.Empty
+            If String.IsNullOrEmpty(m_strLockFromFileName) Then
+                bReturn = False
+            Else
 
-            bReturn = isLock(m_strLockFromFileName)
+                bReturn = isLock(m_strLockFromFileName)
+            End If
+        Else
+            bReturn = True
         End If
         Return bReturn
     End Function 'IsLockFrom
@@ -301,7 +338,11 @@ Public Class clsFTPVinicom
     Private Function isLock(ByVal strFileName As String) As Boolean
         Debug.Assert(m_FTP.isConnected, "Le connecteur FTP n'est pas connecté")
         Dim bReturn As Boolean
-        bReturn = m_FTP.FtpFileExists(strFileName)
+        If bUseLock Then
+            bReturn = m_FTP.FtpFileExists(strFileName)
+        Else
+            bReturn = True
+        End If
         Return bReturn
     End Function
     '=======================================================================

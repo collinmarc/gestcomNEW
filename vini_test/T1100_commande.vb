@@ -1650,7 +1650,7 @@ Imports System.IO
         oCmd.AjouteLigne("10", oPRD, 10, 10)
         oCmd.save()
 
-        oCmd.exporterStockit("adel.txt", False)
+        oCmd.exporterSTOCKIT("adel.txt", False)
         Assert.IsTrue(File.Exists("adel.txt"))
 
         nFile = FreeFile()

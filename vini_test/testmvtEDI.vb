@@ -265,7 +265,7 @@ Imports System.IO
         Assert.IsTrue(System.IO.File.Exists("TSTEDI//testGroussard.csv"))
 
         'THEN
-        mvtEDI.VerificationCommandes("TSTEDI//testGroussard.csv")
+        mvtEDI.VerificationCommandesGROUSSARD("TSTEDI//testGroussard.csv")
         objCmd = CommandeClient.getListe(strCode, "", vncEtatCommande.vncRien, "")(1)
         objCmd.load()
         'L'état de la Ccommande est Livrée
@@ -318,7 +318,7 @@ Imports System.IO
         Assert.IsTrue(System.IO.File.Exists("TSTEDI//testGroussard.csv"))
 
         'THEN
-        mvtEDI.VerificationCommandes("TSTEDI//testGroussard.csv")
+        mvtEDI.VerificationCommandesGROUSSARD("TSTEDI//testGroussard.csv")
         objCmd = CommandeClient.getListe(strCode, "", vncEtatCommande.vncRien, "")(1)
         objCmd.load()
         'L'état de la Ccommande est restée à l'état Validée
@@ -417,7 +417,7 @@ Imports System.IO
         Assert.IsTrue(System.IO.File.Exists("TSTEDI//testGroussard.csv"))
 
         'AND on lance la vérifcation de commande
-        mvtEDI.VerificationCommandes("TSTEDI//testGroussard.csv")
+        mvtEDI.VerificationCommandesGROUSSARD("TSTEDI//testGroussard.csv")
 
         'La Première commande n'est pas Livrée
         objCmd = CommandeClient.getListe(strCode, "", vncEtatCommande.vncRien, "")(1)

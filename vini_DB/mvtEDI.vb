@@ -161,6 +161,9 @@ Public Class mvtEDI
         '        Récupération du fichier FTP
         Dim oftp As clsFTPVinicom
         oftp = New clsFTPVinicom(pSRV, pUser, pPassword, pRepDistant)
+        If Param.STOCKIT_BSTOCKIT Then
+            oftp.bUseLock = False
+        End If
 
 
         If Not System.IO.Directory.Exists(pRepLocal) Then
@@ -184,14 +187,108 @@ Public Class mvtEDI
         Return nReturn
 
     End Function
-
     Public Shared Function VerificationCommandes(pFileName As String) As List(Of MsgLivraison)
+        Trace.WriteLine("mvtEDI.VerificationCommandes: Debut")
+        Dim olstReturn As List(Of MsgLivraison)
+        If Param.STOCKIT_BSTOCKIT Then
+            olstReturn = VerificationCommandesSTOCKIT(pFileName)
+        Else
+            olstReturn = VerificationCommandesGROUSSARD(pFileName)
+        End If
+        Trace.WriteLine("mvtEDI.VerificationCommandes: Fin")
+        Return olstReturn
+    End Function
+    Public Shared Function VerificationCommandesSTOCKIT(pFileName As String) As List(Of MsgLivraison)
+        Trace.WriteLine("mvtEDI.VerificationCommandesSTOCKIT: Debut")
+        Dim bReturn As Boolean
+        Dim plstMsg As New List(Of MsgLivraison)
+        Dim oStockIt As New STOCKIT(pFileName)
+        Dim NumCmd As String = ""
+        Dim ocol As Collection = New Collection()
+        Dim oCmd As CommandeClient = Nothing
+        Try
+            Dim bOk As Boolean = True
+            Trace.WriteLine("mvtEDI.VerificationCommandesSTOCKIT: CodeCLIENTVINIDIS")
+            If oStockIt.getCodeClientVINIDIS <> Param.STOCKIT_NOMCLIENT Then
+                Dim omsg As New MsgLivraison()
+                omsg.Message = "Nomclient non reconnu => " & oStockIt.getCodeClientVINIDIS
+                omsg.Resultat = 2
+                plstMsg.Add(omsg)
+                bOk = False
+            End If
+            If bOk Then
+                Trace.WriteLine("mvtEDI.VerificationCommandesSTOCKIT: NumBL")
+                NumCmd = oStockIt.getNumBL()
+                If String.IsNullOrEmpty(NumCmd) Then
+                    Dim omsg As New MsgLivraison()
+                    omsg.Message = "NumCmd illisible => " & oStockIt.getLigneBL().ToString()
+                    omsg.Resultat = 2
+                    plstMsg.Add(omsg)
+                    bOk = False
+                End If
+            End If
+            If bOk Then
+                Trace.WriteLine("mvtEDI.VerificationCommandesSTOCKIT: NumCommande")
+                ocol = CommandeClient.getListe(strCode:=NumCmd, strNomClient:="", pEtat:=vncEtatCommande.vncRien, pOrigine:="")
+                If ocol.Count() = 0 Then
+                    Dim omsg As New MsgLivraison()
+                    omsg.Message = "Numéro de commande inconnu [" & NumCmd & "]"
+                    omsg.Resultat = 2
+                    plstMsg.Add(omsg)
+                    bOk = False
+                Else
+                End If
+            End If
+            If bOk Then
+                Trace.WriteLine("mvtEDI.VerificationCommandesSTOCKIT: EtatCommande")
+                oCmd = ocol(1)
+                If oCmd.etat.codeEtat <> vncEtatCommande.vncValidee Then
+                    Dim omsg As New MsgLivraison()
+                    omsg.Message = "La commande [" & oCmd.code & "] n'est pas validée => " & NumCmd & "[" & oCmd.EtatLibelle & "]"
+                    omsg.Resultat = 2
+                    plstMsg.Add(omsg)
+                    bOk = False
+                End If
+            End If
+            If bOk Then
+                Trace.WriteLine("mvtEDI.VerificationCommandesSTOCKIT: Colis")
+                Dim omsg As New MsgLivraison()
+                oCmd.load()
+                If oCmd.qteColis = oStockIt.getNbrecolisTotal Then
+                    oCmd.LivrerToutOK()
+                    oCmd.save()
+                    omsg.Message = "Commande [" & oCmd.code & "] correctement traitée"
+                    omsg.Resultat = 0
+                    plstMsg.Add(omsg)
+                Else
+                    omsg.Message = "Commande [" & oCmd.code & "] non Livrée : " & oCmd.qteColis & " colis attendus, " & oStockIt.getNbrecolisTotal & "colis livrés"
+                    omsg.Resultat = 1
+                    plstMsg.Add(omsg)
+                End If
+                bReturn = bOk
+            End If
+        Catch ex As Exception
+            Dim omsg As New MsgLivraison()
+            omsg.Message = ex.Message
+            omsg.Resultat = 2
+            plstMsg.Add(omsg)
+            setError("mvtEDI.VerificationCommandesSTOCKIT ERR" & ex.Message)
+            bReturn = False
+        End Try
+        Trace.WriteLine("mvtEDI.VerificationCommandesSTOCKIT: Fin")
+        Return plstMsg
+    End Function
+
+    Public Shared Function VerificationCommandesGROUSSARD(pFileName As String) As List(Of MsgLivraison)
+        Trace.WriteLine("mvtEDI.VerificationCommandesGROUSSARD: Debut")
         Dim bReturn As Boolean
         Dim plstCumuls As List(Of mvtEDI)
         Dim plstMsg As New List(Of MsgLivraison)
 
         Try
+            Trace.WriteLine("mvtEDI.VerificationCommandesGROUSSARD: GetListFromFile")
             plstCumuls = getListFromFile(pFileName)
+            Trace.WriteLine("mvtEDI.VerificationCommandesGROUSSARD: GetListCumuls")
             plstCumuls = getListCumuls(plstCumuls)
             Dim ocmd As CommandeClient
             Dim oCol As Collection
@@ -201,27 +298,30 @@ Public Class mvtEDI
                 omsg.NbreColisLivre = omvt.Sortie
                 omsg.DateMessage = DateTime.Now
                 'Chargement de la commande 'Tous dossiers Confondus'
+                Trace.WriteLine("mvtEDI.VerificationCommandesGROUSSARD: Chrgmt commande")
                 oCol = CommandeClient.getListe(strCode:=omvt.NumCMD, strNomClient:="", pEtat:=vncEtatCommande.vncRien, pOrigine:="")
                 If oCol.Count > 0 Then
                     ocmd = oCol(1)
                     ocmd.load()
+                    Trace.WriteLine("mvtEDI.VerificationCommandesGROUSSARD: Etat commande")
                     If ocmd.etat.codeEtat = vncEtatCommande.vncValidee Then
+                        Trace.WriteLine("mvtEDI.VerificationCommandesGROUSSARD: Colis")
                         If ocmd.qteColis = omvt.Sortie Then
                             ocmd.LivrerToutOK()
                             ocmd.save()
-                            omsg.Message = "Commande correctement traitée"
+                            omsg.Message = "Commande [" & ocmd.code & "] correctement traitée"
                             omsg.Resultat = 0
                         Else
-                            omsg.Message = "Commande non Livrée : " & ocmd.qteColis & " colis attendus, " & omvt.Sortie & "colis livrés"
+                            omsg.Message = "Commande [" & ocmd.code & "] non Livrée : " & ocmd.qteColis & " colis attendus, " & omvt.Sortie & "colis livrés"
                             omsg.Resultat = 1
 
                         End If
                     Else
-                        omsg.Message = "Commande non Livrée : Commande non validée"
+                        omsg.Message = "Commande [" & omvt.NumCMD & "] non Livrée : Commande non validée"
                         omsg.Resultat = 1
                     End If
                 Else
-                    omsg.Message = "Commande non traitée : Commande inconnue"
+                    omsg.Message = "Commande [" & omvt.NumCMD & "] non traitée : Commande inconnue"
                     omsg.Resultat = 2
                 End If
                 plstMsg.Add(omsg)
@@ -230,9 +330,10 @@ Public Class mvtEDI
             Dim omsg As New MsgLivraison()
             omsg.Message = ex.Message
             omsg.Resultat = 2
-            setError("mvtEDI.VerificationCommandes ERR" & ex.Message)
+            setError("mvtEDI.VerificationCommandesGROUSSARD ERR" & ex.Message)
             bReturn = False
         End Try
+        Trace.WriteLine("mvtEDI.VerificationCommandesGROUSSARD: FIN")
         Return plstMsg
     End Function
 

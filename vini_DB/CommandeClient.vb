@@ -1110,7 +1110,6 @@ Public Class CommandeClient
         End Get
     End Property
 
-
     '========================================================================
     'fonction : exporter
     'DEscription : Exporte la Commande dans un format WEBEDI
@@ -1262,7 +1261,7 @@ Public Class CommandeClient
         End Try
         Return bReturn
     End Function 'exporterWEBEDI
-    Public Function exporterStockit(ByVal strFileName As String, pSendFTP As Boolean) As Boolean
+    Public Function exporterSTOCKIT(ByVal strFileName As String, pSendFTP As Boolean) As Boolean
 
         Debug.Assert(bcolLignesLoaded, "Les lignes doivent être chargées")
 
@@ -1313,7 +1312,8 @@ Public Class CommandeClient
             FileClose(nFile)
             If pSendFTP Then
                 Dim oftp As clsFTPVinicom
-                oftp = New clsFTPVinicom(Param.getConstante("CST_FTPVND_HOST"), Param.getConstante("CST_FTPVND_USER"), Param.getConstante("CST_FTPVND_PASSWORD"), Param.getConstante("CST_FTPVND_REMOTEDIR"))
+                oftp = New clsFTPVinicom(Param.STOCKIT_FTP1_URL, Param.STOCKIT_FTP1_USER, Param.STOCKIT_FTP1_PWD, Param.STOCKIT_FTP1_DOSSIER)
+                oftp.ftpConnection.isConnected()
                 oftp.uploadFile(strFileName)
             End If
 
@@ -1334,44 +1334,48 @@ Public Class CommandeClient
         strResult = strResult & "|"
         strResult = strResult & Me.code 'Numero de BL
         strResult = strResult & "|"
-        strResult = strResult & oLg.oProduit.code 'Code Produit
+        strResult = strResult & oLg.oProduit.codeStat 'Code Produit
         strResult = strResult & "|"
         strResult = strResult & "" 'Code EAN
         strResult = strResult & "|"
         strResult = strResult & oLg.oProduit.nom 'Désignation 
         strResult = strResult & "|"
-        strResult = strResult & "" 'N° LOT
+        strResult = strResult & oLg.oProduit.millesime
         strResult = strResult & "|"
         strResult = strResult & "" 'N° Palette
         strResult = strResult & "|"
-        strResult = strResult & oLg.prixU 'Prix unitaire
+        strResult = strResult & "" ''Prix unitaire
+        '        strResult = strResult & oLg.prixU.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) 'Prix unitaire
         strResult = strResult & "|"
         strResult = strResult & "" 'unité prix
         strResult = strResult & "|"
         strResult = strResult & "" ' Remise
         strResult = strResult & "|"
-        strResult = strResult & oLg.poids 'Poids net
+        strResult = strResult & "" 'Poids net
         strResult = strResult & "|"
-        strResult = strResult & "" 'unité poids
+        strResult = strResult & "" 'unité poids net
+        strResult = strResult & "|"
+        strResult = strResult & "" 'Poids Brut
+        strResult = strResult & "|"
+        strResult = strResult & "" 'unité poids Brut
         strResult = strResult & "|"
         strResult = strResult & "" 'Volume
         strResult = strResult & "|"
         strResult = strResult & "" 'unité volume
         strResult = strResult & "|"
-        strResult = strResult & "" 'CLUO
+        strResult = strResult & "" 'DLUO
         strResult = strResult & "|"
         strResult = strResult & "" 'Date expiration
         strResult = strResult & "|"
         strResult = strResult & "" 'UR1 Annoncée
-        strResult = strResult & "0"
         strResult = strResult & "|"
         strResult = strResult & "" 'Libellé UR
         strResult = strResult & "|"
-        strResult = strResult & "0" 'Libellé UC2 annoncé
+        strResult = strResult & oLg.qteColis ' UC2 annoncé
         strResult = strResult & "|"
         strResult = strResult & "" 'Libellé UC2 
         strResult = strResult & "|"
-        strResult = strResult & "0" 'Libellé UV3 annoncé
+        strResult = strResult & oLg.qteCommande 'Libellé UV3 annoncé = Nombre de bouteilles
         strResult = strResult & "|"
         strResult = strResult & "" 'Libellé UV3 
         strResult = strResult & "|"
@@ -1387,7 +1391,12 @@ Public Class CommandeClient
         strResult = strResult & "|"
         strResult = strResult & "" 'description blocage
         strResult = strResult & "|"
-        strResult = strResult & "TYPELIGNE" 'Type de ligne
+        'Type de Ligne
+        If oLg.oProduit.millesime = 0 Then
+            strResult = strResult & Param.STOCKIT_TYPELIGNE1
+        Else
+            strResult = strResult & Param.STOCKIT_TYPELIGNE2
+        End If
         strResult = strResult & "|"
         strResult = strResult & "" 'Information Diverses
         strResult = strResult & "|"
@@ -1404,21 +1413,15 @@ Public Class CommandeClient
         strResult = strResult & "" 'code AEN UC
         strResult = strResult & "|"
         strResult = strResult & "" 'indice
-        strResult = Replace(strResult, vbCrLf, "--")
-        strResult = Replace(strResult, vbCr, "-")
-        strResult = Replace(strResult, vbLf, "-")
-        strResult = Replace(strResult, vbNullChar, "-")
-        strResult = Replace(strResult, vbTab, "-")
-        strResult = Replace(strResult, vbBack, "-")
         PrintLine(nFile, strResult)
     End Sub
 
     Private Function creerLineBL(pNfile As Integer) As String
         Dim strResult As String = "BL"
         strResult = strResult & "|"
-        strResult = strResult & Me.code
+        strResult = strResult & Me.code 'Numero du BL
         strResult = strResult & "|"
-        strResult = strResult & "02"
+        strResult = strResult & "02" ' Type de BL
         strResult = strResult & "|"
         strResult = strResult & Format(Me.dateLivraison, "yyyyMMdd") 'Date de Livraison
         strResult = strResult & "|"
@@ -1476,7 +1479,7 @@ Public Class CommandeClient
     Private Function creerLineST(nFile As Integer) As String
         Dim strResult As String = "ST"
         strResult = strResult & "|"
-        strResult = strResult & "CODE" 'Code du stockeur
+        strResult = strResult & Param.STOCKIT_CODESTOCKEUR
         PrintLine(nFile, strResult)
         Return strResult
     End Function
@@ -1485,6 +1488,15 @@ Public Class CommandeClient
         Dim strResult As String = "CL"
         strResult = strResult & "|"
         strResult = strResult & Me.TiersCode
+        strResult = strResult & "|" 'nom
+        strResult = strResult & "|" 'adresse1
+        strResult = strResult & "|" 'adresse2
+        strResult = strResult & "|" 'adresse3
+        strResult = strResult & "|" 'code postal
+        strResult = strResult & "|" 'ville
+        strResult = strResult & "|" 'pays
+        strResult = strResult & "|" & CommentaireLivraisonText 'Commentaires
+
         PrintLine(nFile, strResult)
         Return strResult
     End Function
@@ -1492,7 +1504,15 @@ Public Class CommandeClient
     Private Shared Function creerLineFR(nFile As Integer) As String
         Dim strResult As String = "FR"
         strResult = strResult & "|"
-        strResult = strResult & "CODECLIENT"
+        strResult = strResult & Param.STOCKIT_NOMCLIENT
+        strResult = strResult & "|" 'nom
+        strResult = strResult & "|" 'adresse1
+        strResult = strResult & "|" 'adresse2
+        strResult = strResult & "|" 'adresse3
+        strResult = strResult & "|" 'cp
+        strResult = strResult & "|" 'ville
+        strResult = strResult & "|" ' pays
+
         PrintLine(nFile, strResult)
         Return strResult
     End Function

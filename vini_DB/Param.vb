@@ -619,7 +619,7 @@ Public Class Param
             Return getConstante("CST_STOCKIT_FTP1_PWD")
         End Get
     End Property
-    Public Shared ReadOnly Property CST_STOCKIT_FTP1_DOSSIER() As String
+    Public Shared ReadOnly Property STOCKIT_FTP1_DOSSIER() As String
         Get
             Return getConstante("CST_STOCKIT_FTP1_DOSSIER")
         End Get
@@ -640,14 +640,34 @@ Public Class Param
             Return getConstante("CST_STOCKIT_FTP2_PWD")
         End Get
     End Property
-    Public Shared ReadOnly Property CST_STOCKIT_FTP2_DOSSIER() As String
+    Public Shared ReadOnly Property STOCKIT_FTP2_DOSSIER() As String
         Get
             Return getConstante("CST_STOCKIT_FTP2_DOSSIER")
         End Get
     End Property
-    Public Shared ReadOnly Property CST_STOCKIT_NOMCLIENT() As String
+    Public Shared ReadOnly Property STOCKIT_NOMCLIENT() As String
         Get
-            Return getConstante("CST_STOCKIT_FTP2_NOMCLIENT")
+            Return getConstante("CST_STOCKIT_NOMCLIENT")
+        End Get
+    End Property
+    Public Shared ReadOnly Property STOCKIT_CODESTOCKEUR() As String
+        Get
+            Return getConstante("CST_STOCKIT_NOMSTOCKEUR")
+        End Get
+    End Property
+    Public Shared ReadOnly Property STOCKIT_TYPEBL() As String
+        Get
+            Return getConstante("CST_STOCKIT_TYPEBL")
+        End Get
+    End Property
+    Public Shared ReadOnly Property STOCKIT_TYPELIGNE1() As String
+        Get
+            Return getConstante("CST_STOCKIT_TYPELIGNE1")
+        End Get
+    End Property
+    Public Shared ReadOnly Property STOCKIT_TYPELIGNE2() As String
+        Get
+            Return getConstante("CST_STOCKIT_TYPELIGNE2")
         End Get
     End Property
 End Class

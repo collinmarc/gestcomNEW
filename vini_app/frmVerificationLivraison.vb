@@ -1,6 +1,6 @@
 Imports vini_DB
 Imports System.ComponentModel
-
+Imports System.Linq
 
 Public Class frmVerificationLivraison
     Inherits FrmDonBase
@@ -428,34 +428,53 @@ Public Class frmVerificationLivraison
     End Sub
 
     Private Function VerificationInfosLivraison(bgw As BackgroundWorker, pFTP As Boolean, pAffichageOK As Boolean, Optional pFileName As String = "") As Boolean
+        Trace.WriteLine("frmVerificationLivraison.VerificationinfosLivraison: Debut")
         Dim olst As New List(Of MsgLivraison)
         '    Récupération du fichier à traiter
+        Dim strSRV As String
+        Dim strUser As String
+        Dim strpwd As String
+        Dim strPort As String
+        Dim strRepDistant As String
+        Dim strRepLocal As String
         If pFTP Then
+            If Param.STOCKIT_BSTOCKIT Then
+                Trace.WriteLine("frmVerificationLivraison.VerificationinfosLivraison: FTP STOCKIT")
+                strSRV = Param.STOCKIT_FTP2_URL
+                strUser = Param.STOCKIT_FTP2_USER
+                strpwd = Param.STOCKIT_FTP2_PWD
+                strPort = ""
+                strRepDistant = Param.STOCKIT_FTP2_DOSSIER
+                strRepLocal = Param.getConstante("CST_FTPEDI_REPLOCAL")
 
-            '        Récupération du fichier FTP
-            Dim strSRV As String = Param.getConstante("CST_FTPEDI_SRV")
-            Dim strUser As String = Param.getConstante("CST_FTPEDI_USER")
-            Dim strpwd As String = Param.getConstante("CST_FTPEDI_PWD")
-            Dim strPort As String = Param.getConstante("CST_FTPEDI_PORT")
-            Dim strRepDistant As String = Param.getConstante("CST_FTPEDI_REP")
-            Dim strRepLocal As String = Param.getConstante("CST_FTPEDI_REPLOCAL")
+            Else
+                Trace.WriteLine("frmVerificationLivraison.VerificationinfosLivraison: FTP GROUSSARD")
+                '        Récupération du fichier FTP
+                strSRV = Param.getConstante("CST_FTPEDI_SRV")
+                strUser = Param.getConstante("CST_FTPEDI_USER")
+                strpwd = Param.getConstante("CST_FTPEDI_PWD")
+                strPort = Param.getConstante("CST_FTPEDI_PORT")
+                strRepDistant = Param.getConstante("CST_FTPEDI_REP")
+                strRepLocal = Param.getConstante("CST_FTPEDI_REPLOCAL")
+            End If
             'Dim nFiles As Integer
 
 
             If Not System.IO.Directory.Exists(strRepLocal) Then
                 System.IO.Directory.CreateDirectory(strRepLocal)
             End If
+            Trace.WriteLine("frmVerificationLivraison.VerificationinfosLivraison: RECUP FICHIER SRV")
             bgw.ReportProgress(10, "Récupération des fichiers sur le serveur")
-            '            DisplayStatus("Récupération des fichiers sur le serveur")
-            'nFiles = mvtEDI.getFilesCount(strSRV, strPort, strUser, strpwd, strRepDistant, strRepLocal)
             mvtEDI.getFilesFromFTP(strSRV, strPort, strUser, strpwd, strRepDistant, strRepLocal)
 
+            Dim tabFiles As String() = System.IO.Directory.GetFiles(strRepLocal, "*.*")
+            tabFiles = tabFiles.Where(Function(f) Not f.EndsWith("TRT", StringComparison.OrdinalIgnoreCase)).ToArray
 
-            Dim tabFiles As String() = System.IO.Directory.GetFiles(strRepLocal, "*.csv")
-
+            Trace.WriteLine("frmVerificationLivraison.VerificationinfosLivraison: Parcours des fichiers [" & tabFiles.Length & "]")
             ' Parcours des fichiers .CSV
             Dim nCount As Integer = 0
             For Each strFile As String In tabFiles
+                Trace.WriteLine("frmVerificationLivraison.VerificationinfosLivraison: TRT Fichier [" & strFile & "]")
                 nCount = nCount + 1
                 Dim oMsg As New MsgLivraison()
                 oMsg.Message = "Traietement du fichier " & strFile
@@ -539,15 +558,30 @@ Public Class frmVerificationLivraison
 
     Private Sub DisplayNbFichierAtraiter()
         '        Récupération du fichier FTP
-        Dim strSRV As String = Param.getConstante("CST_FTPEDI_SRV")
-        Dim strUser As String = Param.getConstante("CST_FTPEDI_USER")
-        Dim strpwd As String = Param.getConstante("CST_FTPEDI_PWD")
-        Dim strPort As String = Param.getConstante("CST_FTPEDI_PORT")
-        Dim strRepDistant As String = Param.getConstante("CST_FTPEDI_REP")
-        Dim strRepLocal As String = Param.getConstante("CST_FTPEDI_REPLOCAL")
+        Dim strSRV As String = ""
+        Dim strUser As String = ""
+        Dim strpwd As String = ""
+        Dim strPort As String = ""
+        Dim strRepDistant As String = ""
+        Dim strRepLocal As String = ""
+        If Param.STOCKIT_BSTOCKIT Then
+            strSRV = Param.STOCKIT_FTP2_URL
+            strUser = Param.STOCKIT_FTP2_USER
+            strpwd = Param.STOCKIT_FTP2_PWD
+            strRepDistant = Param.STOCKIT_FTP2_DOSSIER
+
+            strRepLocal = Param.getConstante("CST_FTPEDI_REPLOCAL")
+
+        Else
+            strSRV = Param.getConstante("CST_FTPEDI_SRV")
+            strUser = Param.getConstante("CST_FTPEDI_USER")
+            strpwd = Param.getConstante("CST_FTPEDI_PWD")
+            strPort = Param.getConstante("CST_FTPEDI_PORT")
+            strRepDistant = Param.getConstante("CST_FTPEDI_REP")
+            strRepLocal = Param.getConstante("CST_FTPEDI_REPLOCAL")
+        End If
+
         Dim nFiles As Integer
-
-
         nFiles = mvtEDI.getFilesCount(strSRV, strPort, strUser, strpwd, strRepDistant, strRepLocal)
         If nFiles = 0 Then
             lblNbFichiersATraiter.Text = "IL N'Y A PAS DE FICHIERS A TRAITER"

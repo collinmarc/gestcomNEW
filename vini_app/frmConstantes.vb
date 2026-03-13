@@ -273,7 +273,7 @@ Partial Public Class frmConstantes
     End Sub
 
 
-    Private Sub cbTestFTPEDI_Click(sender As Object, e As EventArgs) Handles cbTestFTPEDI.Click
+    Private Sub cbTestFTPEDI_Click(sender As Object, e As EventArgs)
         TestFTPEDI()
     End Sub
 
@@ -540,6 +540,7 @@ Partial Public Class frmConstantes
                 TabControl1.TabPages.Add(tpSTOCKIT)
             End If
             'Me.DsVinicom1.CONSTANTES(0).CST_BSTOCKIT = 1
+            grpFTPGroussard.Visible = False
         Else
             If Not TabControl1.TabPages.ContainsKey(tpWEBEDI.Name) Then
                 TabControl1.TabPages.Add(tpWEBEDI)
@@ -548,6 +549,77 @@ Partial Public Class frmConstantes
                 TabControl1.TabPages.RemoveByKey(tpSTOCKIT.Name)
             End If
             'Me.DsVinicom1.CONSTANTES(0).CST_BSTOCKIT = 0
+            grpFTPGroussard.Visible = True
         End If
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+
+        testFTPSTOCKIT()
+
+    End Sub
+    Private Sub testFTPSTOCKIT()
+
+        Dim oftp As clsFTPVinicom
+        DisplayStatus("")
+
+        setcursorWait()
+
+        'If My.Computer.FileSystem.DirectoryExists("./TESTFTP") Then
+        '    My.Computer.FileSystem.DeleteDirectory("./TESTFTP", FileIO.DeleteDirectoryOption.DeleteAllContents)
+        'End If
+        My.Computer.FileSystem.CreateDirectory("./TESTFTP")
+
+        Dim nbFile As Integer
+        Dim nFile As Integer
+        Dim objSCMD As SousCommande
+        Dim objCMD As CommandeClient
+        Dim strSCMD_CSV As String
+        Dim strPDFFileName As String
+        objSCMD = SousCommande.createandload(Persist.GetSCMDMinID())
+        Trace.WriteLine("frmCoonstante.TestFTPSTOCKIT:Scmd Chargée[" & objSCMD.id & "]")
+        objCMD = CommandeClient.createandload(objSCMD.idCommandeClient)
+        Trace.WriteLine("frmCoonstante.TestFTPSTOCKIT:Cmd Chargée[" & objCMD.id & "]")
+
+        objCMD.exporterSTOCKIT("./TESTFTP/TestStockIt.txt", False)
+        Trace.WriteLine("frmConstante.TestFTPSTOCKIT:Ficher STOCKIT Créé")
+        MsgBox("frmConstante.TestFTPSTOCKIT:Ficher STOCKIT Créé")
+
+
+        'on se connecte au FTP
+        oftp = New clsFTPVinicom(Param.STOCKIT_FTP1_URL, Param.STOCKIT_FTP1_USER, Param.STOCKIT_FTP1_PWD, Param.STOCKIT_FTP1_DOSSIER)
+        oftp.uploadFile("./TESTFTP/TestStockit.txt")
+        Trace.WriteLine("frmConstante.TestFTPSTOCKIT:Ficher STOCKIT Exporté")
+        MsgBox("frmConstante.TestFTPSTOCKIT:Ficher STOCKIT Exporté")
+        nbFile = oftp.getRemoteFileCount()
+        'On le supprime rapidement pour éviter qu'il ne soit pris en compte par le spooler
+        oftp.deleteRemotefile("TestStockit.txt")
+        Trace.WriteLine("frmConstante.TestFTPSTOCKIT:nbFichier Lu" & nbFile)
+        MsgBox("" & nbFile & " fichier déposé")
+        'ensuite en dépose le fichier dans le répertoire de retour
+        oftp = New clsFTPVinicom(Param.STOCKIT_FTP2_URL, Param.STOCKIT_FTP2_USER, Param.STOCKIT_FTP2_PWD, Param.STOCKIT_FTP2_DOSSIER)
+        oftp.uploadFile("./TESTFTP/TestStockit.txt")
+        Trace.WriteLine("frmConstante.TestFTPSTOCKIT:Fichier déposé pour le retour")
+        MsgBox("frmConstante.TestFTPSTOCKIT:Fichier déposé pour le retour")
+        'Récupération du fichier
+        System.IO.File.Delete("./TESTFTP/TestStockit.txt")
+        oftp.downloadDirToDir("./TESTFTP", True)
+        'Vérification qu'il a bien été supprimé
+        'Vérification qu'il existe Bien
+        If System.IO.File.Exists("./TESTFTP/TestStockit.txt") Then
+            MsgBox("Le Fichier est bien récupéré")
+            Dim olst1 As List(Of MsgLivraison)
+            olst1 = mvtEDI.VerificationCommandes("./TESTFTP/TestStockit.txt")
+            Dim msg As String = ""
+            For Each omsg As MsgLivraison In olst1
+                msg = msg & omsg.Message & vbCrLf
+            Next
+            MsgBox(msg)
+        Else
+            MsgBox("Le fichier n'est pas récupéré")
+        End If
+
+        restoreCursor()
+    End Sub
+
 End Class

@@ -1,4 +1,8 @@
-﻿V20250425120000
+﻿V20260225090000
+	0001867: intégration STOCKIT
+	0001869: Lors de la vérification des Infos de livraison, les fichiers .TRT continuent d'être traitées
+
+V20250425120000
 	0001796: Tarif D
 V20250424180000
 		0001769: L'indicateur Facturecolisage est désactivé automatiquement

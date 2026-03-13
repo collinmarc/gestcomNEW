@@ -262,6 +262,7 @@
     <Compile Include="ImportTarifGESTCOM.vb" />
     <Compile Include="InfosTransportCSV.vb" />
     <Compile Include="MillesimeProduit.vb" />
+    <Compile Include="STOCKIT.cls" />
     <Compile Include="woo\cmdwoo.vb" />
     <Compile Include="MsgLivraison.vb" />
     <Compile Include="mvtEDI.vb" />

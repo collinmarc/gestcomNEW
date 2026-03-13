@@ -71,6 +71,8 @@ Partial Class frmConstantes
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.tabVinicom = New System.Windows.Forms.TabPage()
         Me.tbCompteBanque = New System.Windows.Forms.TextBox()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsVinicom1 = New vini_DB.dsVinicom()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CST_SOC1_CMPT_PRODTextBox = New System.Windows.Forms.TextBox()
         Me.CST_SOC1_CMPT_TVATextBox = New System.Windows.Forms.TextBox()
@@ -142,6 +144,7 @@ Partial Class frmConstantes
         Me.CST_TAXES_TRPTextBox = New System.Windows.Forms.TextBox()
         Me.CST_TX_COMMISSIONTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.grpFTPGroussard = New System.Windows.Forms.GroupBox()
         Me.btnTestFTPvnc = New System.Windows.Forms.Button()
         Me.tbFTPVNCUrl2 = New System.Windows.Forms.TextBox()
         Me.Label40 = New System.Windows.Forms.Label()
@@ -168,57 +171,6 @@ Partial Class frmConstantes
         Me.Label34 = New System.Windows.Forms.Label()
         Me.tbftpvnd_host = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.tbFTPEDIRepLocal = New System.Windows.Forms.TextBox()
-        Me.cbTestFTPEDI = New System.Windows.Forms.Button()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.tbFTPEDIRep = New System.Windows.Forms.TextBox()
-        Me.tbFTPEDIPwd = New System.Windows.Forms.TextBox()
-        Me.tbFTPEDIUser = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.tbFTPEDIPort = New System.Windows.Forms.TextBox()
-        Me.tbFTPEDISRV = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.tpWEBEDI = New System.Windows.Forms.TabPage()
-        Me.ckWEBEDI_SSL = New System.Windows.Forms.CheckBox()
-        Me.tbWEBEDI_Destinataire = New System.Windows.Forms.TextBox()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.tbWEBEDI_SMTPPWD = New System.Windows.Forms.TextBox()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.tbWEBEDI_SMTPuser = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.tbWEBEDI_TEMP = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.cbTestWebEdi = New System.Windows.Forms.Button()
-        Me.tbWEBEDI_SMTPFROM = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.tbWEBEDI_SMTPPORT = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.tbWEBEDI_SMTPHOST = New System.Windows.Forms.TextBox()
-        Me.tpSTOCKIT = New System.Windows.Forms.TabPage()
-        Me.Label67 = New System.Windows.Forms.Label()
-        Me.TextBox31 = New System.Windows.Forms.TextBox()
-        Me.Label58 = New System.Windows.Forms.Label()
-        Me.TextBox23 = New System.Windows.Forms.TextBox()
-        Me.Label64 = New System.Windows.Forms.Label()
-        Me.TextBox24 = New System.Windows.Forms.TextBox()
-        Me.Label65 = New System.Windows.Forms.Label()
-        Me.TextBox29 = New System.Windows.Forms.TextBox()
-        Me.Label66 = New System.Windows.Forms.Label()
-        Me.TextBox30 = New System.Windows.Forms.TextBox()
-        Me.Label57 = New System.Windows.Forms.Label()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.Label59 = New System.Windows.Forms.Label()
-        Me.TextBox25 = New System.Windows.Forms.TextBox()
-        Me.Label60 = New System.Windows.Forms.Label()
-        Me.TextBox26 = New System.Windows.Forms.TextBox()
-        Me.Label61 = New System.Windows.Forms.Label()
-        Me.TextBox27 = New System.Windows.Forms.TextBox()
-        Me.Label62 = New System.Windows.Forms.Label()
-        Me.TextBox28 = New System.Windows.Forms.TextBox()
-        Me.Label63 = New System.Windows.Forms.Label()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.ckCheck = New System.Windows.Forms.CheckBox()
         Me.tbImapNSec = New System.Windows.Forms.TextBox()
@@ -293,26 +245,84 @@ Partial Class frmConstantes
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.Label47 = New System.Windows.Forms.Label()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.tpWEBEDI = New System.Windows.Forms.TabPage()
+        Me.ckWEBEDI_SSL = New System.Windows.Forms.CheckBox()
+        Me.tbWEBEDI_Destinataire = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.tbWEBEDI_SMTPPWD = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.tbWEBEDI_SMTPuser = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.tbWEBEDI_TEMP = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cbTestWebEdi = New System.Windows.Forms.Button()
+        Me.tbWEBEDI_SMTPFROM = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.tbWEBEDI_SMTPPORT = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.tbWEBEDI_SMTPHOST = New System.Windows.Forms.TextBox()
+        Me.tpSTOCKIT = New System.Windows.Forms.TabPage()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label71 = New System.Windows.Forms.Label()
+        Me.TextBox35 = New System.Windows.Forms.TextBox()
+        Me.Label70 = New System.Windows.Forms.Label()
+        Me.TextBox34 = New System.Windows.Forms.TextBox()
+        Me.Label69 = New System.Windows.Forms.Label()
+        Me.TextBox33 = New System.Windows.Forms.TextBox()
+        Me.Label68 = New System.Windows.Forms.Label()
+        Me.TextBox32 = New System.Windows.Forms.TextBox()
+        Me.Label67 = New System.Windows.Forms.Label()
+        Me.TextBox31 = New System.Windows.Forms.TextBox()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.TextBox23 = New System.Windows.Forms.TextBox()
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.TextBox24 = New System.Windows.Forms.TextBox()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.TextBox29 = New System.Windows.Forms.TextBox()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.TextBox30 = New System.Windows.Forms.TextBox()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.TextBox25 = New System.Windows.Forms.TextBox()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.TextBox26 = New System.Windows.Forms.TextBox()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.TextBox27 = New System.Windows.Forms.TextBox()
+        Me.Label62 = New System.Windows.Forms.Label()
+        Me.TextBox28 = New System.Windows.Forms.TextBox()
+        Me.Label63 = New System.Windows.Forms.Label()
         Me.CST_VERSION_BDTextBox = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
         Me.ckStockIT = New System.Windows.Forms.CheckBox()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DsVinicom1 = New vini_DB.dsVinicom()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.tbFTPEDIRepLocal = New System.Windows.Forms.TextBox()
+        Me.cbTestFTPEDI = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.tbFTPEDIRep = New System.Windows.Forms.TextBox()
+        Me.tbFTPEDIPwd = New System.Windows.Forms.TextBox()
+        Me.tbFTPEDIUser = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.tbFTPEDIPort = New System.Windows.Forms.TextBox()
+        Me.tbFTPEDISRV = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsVinicom1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabVinidis.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
-        Me.tpWEBEDI.SuspendLayout()
-        Me.tpSTOCKIT.SuspendLayout()
+        Me.grpFTPGroussard.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.TabPage6.SuspendLayout()
         Me.TabPage8.SuspendLayout()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsVinicom1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tpWEBEDI.SuspendLayout()
+        Me.tpSTOCKIT.SuspendLayout()
         Me.SuspendLayout()
         '
         'CST_SOC_NOMSOCLabel
@@ -792,6 +802,16 @@ Partial Class frmConstantes
         Me.tbCompteBanque.Name = "tbCompteBanque"
         Me.tbCompteBanque.Size = New System.Drawing.Size(100, 20)
         Me.tbCompteBanque.TabIndex = 26
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataMember = "CONSTANTES"
+        Me.BindingSource1.DataSource = Me.DsVinicom1
+        '
+        'DsVinicom1
+        '
+        Me.DsVinicom1.DataSetName = "dsVinicom"
+        Me.DsVinicom1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -1492,6 +1512,7 @@ Partial Class frmConstantes
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.grpFTPGroussard)
         Me.TabPage5.Controls.Add(Me.btnTestFTPvnc)
         Me.TabPage5.Controls.Add(Me.tbFTPVNCUrl2)
         Me.TabPage5.Controls.Add(Me.Label40)
@@ -1518,18 +1539,6 @@ Partial Class frmConstantes
         Me.TabPage5.Controls.Add(Me.Label34)
         Me.TabPage5.Controls.Add(Me.tbftpvnd_host)
         Me.TabPage5.Controls.Add(Me.Label35)
-        Me.TabPage5.Controls.Add(Me.Label22)
-        Me.TabPage5.Controls.Add(Me.tbFTPEDIRepLocal)
-        Me.TabPage5.Controls.Add(Me.cbTestFTPEDI)
-        Me.TabPage5.Controls.Add(Me.Label21)
-        Me.TabPage5.Controls.Add(Me.tbFTPEDIRep)
-        Me.TabPage5.Controls.Add(Me.tbFTPEDIPwd)
-        Me.TabPage5.Controls.Add(Me.tbFTPEDIUser)
-        Me.TabPage5.Controls.Add(Me.Label18)
-        Me.TabPage5.Controls.Add(Me.tbFTPEDIPort)
-        Me.TabPage5.Controls.Add(Me.tbFTPEDISRV)
-        Me.TabPage5.Controls.Add(Me.Label17)
-        Me.TabPage5.Controls.Add(Me.Label16)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
@@ -1537,6 +1546,26 @@ Partial Class frmConstantes
         Me.TabPage5.TabIndex = 6
         Me.TabPage5.Text = "FTP"
         Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'grpFTPGroussard
+        '
+        Me.grpFTPGroussard.Controls.Add(Me.Label22)
+        Me.grpFTPGroussard.Controls.Add(Me.tbFTPEDIRepLocal)
+        Me.grpFTPGroussard.Controls.Add(Me.cbTestFTPEDI)
+        Me.grpFTPGroussard.Controls.Add(Me.Label21)
+        Me.grpFTPGroussard.Controls.Add(Me.tbFTPEDIRep)
+        Me.grpFTPGroussard.Controls.Add(Me.tbFTPEDIPwd)
+        Me.grpFTPGroussard.Controls.Add(Me.tbFTPEDIUser)
+        Me.grpFTPGroussard.Controls.Add(Me.Label18)
+        Me.grpFTPGroussard.Controls.Add(Me.tbFTPEDIPort)
+        Me.grpFTPGroussard.Controls.Add(Me.tbFTPEDISRV)
+        Me.grpFTPGroussard.Controls.Add(Me.Label17)
+        Me.grpFTPGroussard.Location = New System.Drawing.Point(3, 333)
+        Me.grpFTPGroussard.Name = "grpFTPGroussard"
+        Me.grpFTPGroussard.Size = New System.Drawing.Size(759, 140)
+        Me.grpFTPGroussard.TabIndex = 61
+        Me.grpFTPGroussard.TabStop = False
+        Me.grpFTPGroussard.Text = "FTP EDI Retour de livraison GROUSSARD"
         '
         'btnTestFTPvnc
         '
@@ -1761,488 +1790,6 @@ Partial Class frmConstantes
         Me.Label35.Size = New System.Drawing.Size(292, 13)
         Me.Label35.TabIndex = 43
         Me.Label35.Text = "FTP Espace Fournisseur VINIDIS (Stock-Colisage)"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(13, 450)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(62, 13)
-        Me.Label22.TabIndex = 29
-        Me.Label22.Text = "Rép Local :"
-        '
-        'tbFTPEDIRepLocal
-        '
-        Me.tbFTPEDIRepLocal.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REPLOCAL", True))
-        Me.tbFTPEDIRepLocal.Location = New System.Drawing.Point(105, 443)
-        Me.tbFTPEDIRepLocal.Name = "tbFTPEDIRepLocal"
-        Me.tbFTPEDIRepLocal.Size = New System.Drawing.Size(432, 20)
-        Me.tbFTPEDIRepLocal.TabIndex = 28
-        '
-        'cbTestFTPEDI
-        '
-        Me.cbTestFTPEDI.Location = New System.Drawing.Point(639, 377)
-        Me.cbTestFTPEDI.Name = "cbTestFTPEDI"
-        Me.cbTestFTPEDI.Size = New System.Drawing.Size(89, 25)
-        Me.cbTestFTPEDI.TabIndex = 27
-        Me.cbTestFTPEDI.Text = "Test"
-        Me.cbTestFTPEDI.UseVisualStyleBackColor = True
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(16, 424)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(67, 13)
-        Me.Label21.TabIndex = 26
-        Me.Label21.Text = "Rép distant :"
-        '
-        'tbFTPEDIRep
-        '
-        Me.tbFTPEDIRep.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REP", True))
-        Me.tbFTPEDIRep.Location = New System.Drawing.Point(105, 417)
-        Me.tbFTPEDIRep.Name = "tbFTPEDIRep"
-        Me.tbFTPEDIRep.Size = New System.Drawing.Size(432, 20)
-        Me.tbFTPEDIRep.TabIndex = 24
-        '
-        'tbFTPEDIPwd
-        '
-        Me.tbFTPEDIPwd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_PWD", True))
-        Me.tbFTPEDIPwd.Location = New System.Drawing.Point(318, 391)
-        Me.tbFTPEDIPwd.Name = "tbFTPEDIPwd"
-        Me.tbFTPEDIPwd.Size = New System.Drawing.Size(219, 20)
-        Me.tbFTPEDIPwd.TabIndex = 23
-        '
-        'tbFTPEDIUser
-        '
-        Me.tbFTPEDIUser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_USER", True))
-        Me.tbFTPEDIUser.Location = New System.Drawing.Point(105, 391)
-        Me.tbFTPEDIUser.Name = "tbFTPEDIUser"
-        Me.tbFTPEDIUser.Size = New System.Drawing.Size(203, 20)
-        Me.tbFTPEDIUser.TabIndex = 22
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(16, 391)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(59, 13)
-        Me.Label18.TabIndex = 21
-        Me.Label18.Text = "Utilisateur :"
-        '
-        'tbFTPEDIPort
-        '
-        Me.tbFTPEDIPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_PORT", True))
-        Me.tbFTPEDIPort.Location = New System.Drawing.Point(553, 362)
-        Me.tbFTPEDIPort.Name = "tbFTPEDIPort"
-        Me.tbFTPEDIPort.Size = New System.Drawing.Size(36, 20)
-        Me.tbFTPEDIPort.TabIndex = 20
-        '
-        'tbFTPEDISRV
-        '
-        Me.tbFTPEDISRV.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_SRV", True))
-        Me.tbFTPEDISRV.Location = New System.Drawing.Point(105, 362)
-        Me.tbFTPEDISRV.Name = "tbFTPEDISRV"
-        Me.tbFTPEDISRV.Size = New System.Drawing.Size(432, 20)
-        Me.tbFTPEDISRV.TabIndex = 19
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(13, 362)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(50, 13)
-        Me.Label17.TabIndex = 18
-        Me.Label17.Text = "Serveur :"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(15, 337)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(166, 13)
-        Me.Label16.TabIndex = 17
-        Me.Label16.Text = "FTP EDI Retour de livraison"
-        '
-        'tpWEBEDI
-        '
-        Me.tpWEBEDI.Controls.Add(Me.ckWEBEDI_SSL)
-        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_Destinataire)
-        Me.tpWEBEDI.Controls.Add(Me.Label28)
-        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPPWD)
-        Me.tpWEBEDI.Controls.Add(Me.Label27)
-        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPuser)
-        Me.tpWEBEDI.Controls.Add(Me.Label26)
-        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_TEMP)
-        Me.tpWEBEDI.Controls.Add(Me.Label8)
-        Me.tpWEBEDI.Controls.Add(Me.cbTestWebEdi)
-        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPFROM)
-        Me.tpWEBEDI.Controls.Add(Me.Label7)
-        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPPORT)
-        Me.tpWEBEDI.Controls.Add(Me.Label6)
-        Me.tpWEBEDI.Controls.Add(Me.Label5)
-        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPHOST)
-        Me.tpWEBEDI.Location = New System.Drawing.Point(4, 22)
-        Me.tpWEBEDI.Name = "tpWEBEDI"
-        Me.tpWEBEDI.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpWEBEDI.Size = New System.Drawing.Size(768, 479)
-        Me.tpWEBEDI.TabIndex = 7
-        Me.tpWEBEDI.Text = "WEBEDI"
-        Me.tpWEBEDI.UseVisualStyleBackColor = True
-        '
-        'ckWEBEDI_SSL
-        '
-        Me.ckWEBEDI_SSL.AutoSize = True
-        Me.ckWEBEDI_SSL.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.BindingSource1, "CST_EDI_SSL", True))
-        Me.ckWEBEDI_SSL.Location = New System.Drawing.Point(233, 50)
-        Me.ckWEBEDI_SSL.Name = "ckWEBEDI_SSL"
-        Me.ckWEBEDI_SSL.Size = New System.Drawing.Size(46, 17)
-        Me.ckWEBEDI_SSL.TabIndex = 15
-        Me.ckWEBEDI_SSL.Text = "SSL"
-        Me.ckWEBEDI_SSL.UseVisualStyleBackColor = True
-        '
-        'tbWEBEDI_Destinataire
-        '
-        Me.tbWEBEDI_Destinataire.Location = New System.Drawing.Point(120, 231)
-        Me.tbWEBEDI_Destinataire.Name = "tbWEBEDI_Destinataire"
-        Me.tbWEBEDI_Destinataire.Size = New System.Drawing.Size(415, 20)
-        Me.tbWEBEDI_Destinataire.TabIndex = 14
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(13, 234)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(101, 13)
-        Me.Label28.TabIndex = 13
-        Me.Label28.Text = "Destinataire de test "
-        '
-        'tbWEBEDI_SMTPPWD
-        '
-        Me.tbWEBEDI_SMTPPWD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_PWD", True))
-        Me.tbWEBEDI_SMTPPWD.Location = New System.Drawing.Point(105, 101)
-        Me.tbWEBEDI_SMTPPWD.Name = "tbWEBEDI_SMTPPWD"
-        Me.tbWEBEDI_SMTPPWD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.tbWEBEDI_SMTPPWD.Size = New System.Drawing.Size(430, 20)
-        Me.tbWEBEDI_SMTPPWD.TabIndex = 12
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(10, 101)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(66, 13)
-        Me.Label27.TabIndex = 11
-        Me.Label27.Text = "SMTP pwd :"
-        '
-        'tbWEBEDI_SMTPuser
-        '
-        Me.tbWEBEDI_SMTPuser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_USER", True))
-        Me.tbWEBEDI_SMTPuser.Location = New System.Drawing.Point(105, 73)
-        Me.tbWEBEDI_SMTPuser.Name = "tbWEBEDI_SMTPuser"
-        Me.tbWEBEDI_SMTPuser.Size = New System.Drawing.Size(430, 20)
-        Me.tbWEBEDI_SMTPuser.TabIndex = 10
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(9, 75)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(66, 13)
-        Me.Label26.TabIndex = 9
-        Me.Label26.Text = "SMTP user :"
-        '
-        'tbWEBEDI_TEMP
-        '
-        Me.tbWEBEDI_TEMP.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_TEMP", True))
-        Me.tbWEBEDI_TEMP.Location = New System.Drawing.Point(105, 166)
-        Me.tbWEBEDI_TEMP.Name = "tbWEBEDI_TEMP"
-        Me.tbWEBEDI_TEMP.Size = New System.Drawing.Size(432, 20)
-        Me.tbWEBEDI_TEMP.TabIndex = 8
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(5, 150)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(112, 13)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "Répertoire Temporaire"
-        '
-        'cbTestWebEdi
-        '
-        Me.cbTestWebEdi.Location = New System.Drawing.Point(630, 228)
-        Me.cbTestWebEdi.Name = "cbTestWebEdi"
-        Me.cbTestWebEdi.Size = New System.Drawing.Size(110, 24)
-        Me.cbTestWebEdi.TabIndex = 6
-        Me.cbTestWebEdi.Text = "TEST"
-        Me.cbTestWebEdi.UseVisualStyleBackColor = True
-        '
-        'tbWEBEDI_SMTPFROM
-        '
-        Me.tbWEBEDI_SMTPFROM.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_FROM", True))
-        Me.tbWEBEDI_SMTPFROM.Location = New System.Drawing.Point(105, 127)
-        Me.tbWEBEDI_SMTPFROM.Name = "tbWEBEDI_SMTPFROM"
-        Me.tbWEBEDI_SMTPFROM.Size = New System.Drawing.Size(432, 20)
-        Me.tbWEBEDI_SMTPFROM.TabIndex = 5
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(5, 130)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(69, 13)
-        Me.Label7.TabIndex = 4
-        Me.Label7.Text = "SMTP From :"
-        '
-        'tbWEBEDI_SMTPPORT
-        '
-        Me.tbWEBEDI_SMTPPORT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_PORT", True))
-        Me.tbWEBEDI_SMTPPORT.Location = New System.Drawing.Point(105, 46)
-        Me.tbWEBEDI_SMTPPORT.Name = "tbWEBEDI_SMTPPORT"
-        Me.tbWEBEDI_SMTPPORT.Size = New System.Drawing.Size(87, 20)
-        Me.tbWEBEDI_SMTPPORT.TabIndex = 3
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(9, 49)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(65, 13)
-        Me.Label6.TabIndex = 2
-        Me.Label6.Text = "SMTP Port :"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(9, 23)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(68, 13)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "SMTP Host :"
-        '
-        'tbWEBEDI_SMTPHOST
-        '
-        Me.tbWEBEDI_SMTPHOST.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_HOST", True))
-        Me.tbWEBEDI_SMTPHOST.Location = New System.Drawing.Point(105, 20)
-        Me.tbWEBEDI_SMTPHOST.Name = "tbWEBEDI_SMTPHOST"
-        Me.tbWEBEDI_SMTPHOST.Size = New System.Drawing.Size(433, 20)
-        Me.tbWEBEDI_SMTPHOST.TabIndex = 0
-        '
-        'tpSTOCKIT
-        '
-        Me.tpSTOCKIT.Controls.Add(Me.Label67)
-        Me.tpSTOCKIT.Controls.Add(Me.TextBox31)
-        Me.tpSTOCKIT.Controls.Add(Me.Label58)
-        Me.tpSTOCKIT.Controls.Add(Me.TextBox23)
-        Me.tpSTOCKIT.Controls.Add(Me.Label64)
-        Me.tpSTOCKIT.Controls.Add(Me.TextBox24)
-        Me.tpSTOCKIT.Controls.Add(Me.Label65)
-        Me.tpSTOCKIT.Controls.Add(Me.TextBox29)
-        Me.tpSTOCKIT.Controls.Add(Me.Label66)
-        Me.tpSTOCKIT.Controls.Add(Me.TextBox30)
-        Me.tpSTOCKIT.Controls.Add(Me.Label57)
-        Me.tpSTOCKIT.Controls.Add(Me.Label56)
-        Me.tpSTOCKIT.Controls.Add(Me.Label59)
-        Me.tpSTOCKIT.Controls.Add(Me.TextBox25)
-        Me.tpSTOCKIT.Controls.Add(Me.Label60)
-        Me.tpSTOCKIT.Controls.Add(Me.TextBox26)
-        Me.tpSTOCKIT.Controls.Add(Me.Label61)
-        Me.tpSTOCKIT.Controls.Add(Me.TextBox27)
-        Me.tpSTOCKIT.Controls.Add(Me.Label62)
-        Me.tpSTOCKIT.Controls.Add(Me.TextBox28)
-        Me.tpSTOCKIT.Controls.Add(Me.Label63)
-        Me.tpSTOCKIT.Location = New System.Drawing.Point(4, 22)
-        Me.tpSTOCKIT.Name = "tpSTOCKIT"
-        Me.tpSTOCKIT.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpSTOCKIT.Size = New System.Drawing.Size(768, 479)
-        Me.tpSTOCKIT.TabIndex = 11
-        Me.tpSTOCKIT.Text = "STOCKIT"
-        Me.tpSTOCKIT.UseVisualStyleBackColor = True
-        '
-        'Label67
-        '
-        Me.Label67.AutoSize = True
-        Me.Label67.Location = New System.Drawing.Point(8, 354)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(104, 13)
-        Me.Label67.TabIndex = 52
-        Me.Label67.Text = "code client VINIDIS:"
-        '
-        'TextBox31
-        '
-        Me.TextBox31.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_NOMCLIENT", True))
-        Me.TextBox31.Location = New System.Drawing.Point(190, 351)
-        Me.TextBox31.Name = "TextBox31"
-        Me.TextBox31.Size = New System.Drawing.Size(201, 20)
-        Me.TextBox31.TabIndex = 53
-        '
-        'Label58
-        '
-        Me.Label58.AutoSize = True
-        Me.Label58.Location = New System.Drawing.Point(8, 308)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(116, 13)
-        Me.Label58.TabIndex = 50
-        Me.Label58.Text = "FTP dossier de lecture:"
-        '
-        'TextBox23
-        '
-        Me.TextBox23.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP2_DOSSIER", True))
-        Me.TextBox23.Location = New System.Drawing.Point(190, 305)
-        Me.TextBox23.Name = "TextBox23"
-        Me.TextBox23.Size = New System.Drawing.Size(438, 20)
-        Me.TextBox23.TabIndex = 51
-        '
-        'Label64
-        '
-        Me.Label64.AutoSize = True
-        Me.Label64.Location = New System.Drawing.Point(10, 282)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(96, 13)
-        Me.Label64.TabIndex = 48
-        Me.Label64.Text = "FTP mot de passe:"
-        '
-        'TextBox24
-        '
-        Me.TextBox24.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP2_PWD", True))
-        Me.TextBox24.Location = New System.Drawing.Point(190, 279)
-        Me.TextBox24.Name = "TextBox24"
-        Me.TextBox24.Size = New System.Drawing.Size(201, 20)
-        Me.TextBox24.TabIndex = 49
-        '
-        'Label65
-        '
-        Me.Label65.AutoSize = True
-        Me.Label65.Location = New System.Drawing.Point(8, 256)
-        Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(77, 13)
-        Me.Label65.TabIndex = 46
-        Me.Label65.Text = "FTP utilisateur:"
-        '
-        'TextBox29
-        '
-        Me.TextBox29.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP2_USER", True))
-        Me.TextBox29.Location = New System.Drawing.Point(190, 253)
-        Me.TextBox29.Name = "TextBox29"
-        Me.TextBox29.Size = New System.Drawing.Size(201, 20)
-        Me.TextBox29.TabIndex = 47
-        '
-        'Label66
-        '
-        Me.Label66.AutoSize = True
-        Me.Label66.Location = New System.Drawing.Point(8, 234)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(55, 13)
-        Me.Label66.TabIndex = 44
-        Me.Label66.Text = "FTP URL:"
-        '
-        'TextBox30
-        '
-        Me.TextBox30.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP2_URL", True))
-        Me.TextBox30.Location = New System.Drawing.Point(190, 227)
-        Me.TextBox30.Name = "TextBox30"
-        Me.TextBox30.Size = New System.Drawing.Size(201, 20)
-        Me.TextBox30.TabIndex = 45
-        '
-        'Label57
-        '
-        Me.Label57.AutoSize = True
-        Me.Label57.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label57.Location = New System.Drawing.Point(8, 201)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(182, 13)
-        Me.Label57.TabIndex = 43
-        Me.Label57.Text = "Paramètre de réception des BL"
-        '
-        'Label56
-        '
-        Me.Label56.AutoSize = True
-        Me.Label56.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label56.Location = New System.Drawing.Point(11, 52)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(152, 13)
-        Me.Label56.TabIndex = 42
-        Me.Label56.Text = "Paramètre d'envoi des BL"
-        '
-        'Label59
-        '
-        Me.Label59.AutoSize = True
-        Me.Label59.Location = New System.Drawing.Point(8, 160)
-        Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(111, 13)
-        Me.Label59.TabIndex = 35
-        Me.Label59.Text = "FTP dossier de dépot:"
-        '
-        'TextBox25
-        '
-        Me.TextBox25.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP1_DOSSIER", True))
-        Me.TextBox25.Location = New System.Drawing.Point(190, 157)
-        Me.TextBox25.Name = "TextBox25"
-        Me.TextBox25.Size = New System.Drawing.Size(438, 20)
-        Me.TextBox25.TabIndex = 36
-        '
-        'Label60
-        '
-        Me.Label60.AutoSize = True
-        Me.Label60.Location = New System.Drawing.Point(10, 134)
-        Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(96, 13)
-        Me.Label60.TabIndex = 33
-        Me.Label60.Text = "FTP mot de passe:"
-        '
-        'TextBox26
-        '
-        Me.TextBox26.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP1_PWD", True))
-        Me.TextBox26.Location = New System.Drawing.Point(190, 131)
-        Me.TextBox26.Name = "TextBox26"
-        Me.TextBox26.Size = New System.Drawing.Size(201, 20)
-        Me.TextBox26.TabIndex = 34
-        '
-        'Label61
-        '
-        Me.Label61.AutoSize = True
-        Me.Label61.Location = New System.Drawing.Point(8, 108)
-        Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(77, 13)
-        Me.Label61.TabIndex = 31
-        Me.Label61.Text = "FTP utilisateur:"
-        '
-        'TextBox27
-        '
-        Me.TextBox27.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP1_USER", True))
-        Me.TextBox27.Location = New System.Drawing.Point(190, 105)
-        Me.TextBox27.Name = "TextBox27"
-        Me.TextBox27.Size = New System.Drawing.Size(201, 20)
-        Me.TextBox27.TabIndex = 32
-        '
-        'Label62
-        '
-        Me.Label62.AutoSize = True
-        Me.Label62.Location = New System.Drawing.Point(8, 86)
-        Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(55, 13)
-        Me.Label62.TabIndex = 29
-        Me.Label62.Text = "FTP URL:"
-        '
-        'TextBox28
-        '
-        Me.TextBox28.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP1_URL", True))
-        Me.TextBox28.Location = New System.Drawing.Point(190, 79)
-        Me.TextBox28.Name = "TextBox28"
-        Me.TextBox28.Size = New System.Drawing.Size(201, 20)
-        Me.TextBox28.TabIndex = 30
-        '
-        'Label63
-        '
-        Me.Label63.AutoSize = True
-        Me.Label63.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label63.Location = New System.Drawing.Point(8, 14)
-        Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(293, 13)
-        Me.Label63.TabIndex = 41
-        Me.Label63.Text = "Paramétre d'échange avec la plateforme STOCKIT"
         '
         'TabPage7
         '
@@ -2960,6 +2507,471 @@ Partial Class frmConstantes
         Me.TextBox11.Size = New System.Drawing.Size(259, 20)
         Me.TextBox11.TabIndex = 16
         '
+        'tpWEBEDI
+        '
+        Me.tpWEBEDI.Controls.Add(Me.ckWEBEDI_SSL)
+        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_Destinataire)
+        Me.tpWEBEDI.Controls.Add(Me.Label28)
+        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPPWD)
+        Me.tpWEBEDI.Controls.Add(Me.Label27)
+        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPuser)
+        Me.tpWEBEDI.Controls.Add(Me.Label26)
+        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_TEMP)
+        Me.tpWEBEDI.Controls.Add(Me.Label8)
+        Me.tpWEBEDI.Controls.Add(Me.cbTestWebEdi)
+        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPFROM)
+        Me.tpWEBEDI.Controls.Add(Me.Label7)
+        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPPORT)
+        Me.tpWEBEDI.Controls.Add(Me.Label6)
+        Me.tpWEBEDI.Controls.Add(Me.Label5)
+        Me.tpWEBEDI.Controls.Add(Me.tbWEBEDI_SMTPHOST)
+        Me.tpWEBEDI.Location = New System.Drawing.Point(4, 22)
+        Me.tpWEBEDI.Name = "tpWEBEDI"
+        Me.tpWEBEDI.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpWEBEDI.Size = New System.Drawing.Size(768, 479)
+        Me.tpWEBEDI.TabIndex = 7
+        Me.tpWEBEDI.Text = "WEBEDI"
+        Me.tpWEBEDI.UseVisualStyleBackColor = True
+        '
+        'ckWEBEDI_SSL
+        '
+        Me.ckWEBEDI_SSL.AutoSize = True
+        Me.ckWEBEDI_SSL.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.BindingSource1, "CST_EDI_SSL", True))
+        Me.ckWEBEDI_SSL.Location = New System.Drawing.Point(233, 50)
+        Me.ckWEBEDI_SSL.Name = "ckWEBEDI_SSL"
+        Me.ckWEBEDI_SSL.Size = New System.Drawing.Size(46, 17)
+        Me.ckWEBEDI_SSL.TabIndex = 15
+        Me.ckWEBEDI_SSL.Text = "SSL"
+        Me.ckWEBEDI_SSL.UseVisualStyleBackColor = True
+        '
+        'tbWEBEDI_Destinataire
+        '
+        Me.tbWEBEDI_Destinataire.Location = New System.Drawing.Point(120, 231)
+        Me.tbWEBEDI_Destinataire.Name = "tbWEBEDI_Destinataire"
+        Me.tbWEBEDI_Destinataire.Size = New System.Drawing.Size(415, 20)
+        Me.tbWEBEDI_Destinataire.TabIndex = 14
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(13, 234)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(101, 13)
+        Me.Label28.TabIndex = 13
+        Me.Label28.Text = "Destinataire de test "
+        '
+        'tbWEBEDI_SMTPPWD
+        '
+        Me.tbWEBEDI_SMTPPWD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_PWD", True))
+        Me.tbWEBEDI_SMTPPWD.Location = New System.Drawing.Point(105, 101)
+        Me.tbWEBEDI_SMTPPWD.Name = "tbWEBEDI_SMTPPWD"
+        Me.tbWEBEDI_SMTPPWD.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.tbWEBEDI_SMTPPWD.Size = New System.Drawing.Size(430, 20)
+        Me.tbWEBEDI_SMTPPWD.TabIndex = 12
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(10, 101)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(66, 13)
+        Me.Label27.TabIndex = 11
+        Me.Label27.Text = "SMTP pwd :"
+        '
+        'tbWEBEDI_SMTPuser
+        '
+        Me.tbWEBEDI_SMTPuser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_USER", True))
+        Me.tbWEBEDI_SMTPuser.Location = New System.Drawing.Point(105, 73)
+        Me.tbWEBEDI_SMTPuser.Name = "tbWEBEDI_SMTPuser"
+        Me.tbWEBEDI_SMTPuser.Size = New System.Drawing.Size(430, 20)
+        Me.tbWEBEDI_SMTPuser.TabIndex = 10
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(9, 75)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(66, 13)
+        Me.Label26.TabIndex = 9
+        Me.Label26.Text = "SMTP user :"
+        '
+        'tbWEBEDI_TEMP
+        '
+        Me.tbWEBEDI_TEMP.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_TEMP", True))
+        Me.tbWEBEDI_TEMP.Location = New System.Drawing.Point(105, 166)
+        Me.tbWEBEDI_TEMP.Name = "tbWEBEDI_TEMP"
+        Me.tbWEBEDI_TEMP.Size = New System.Drawing.Size(432, 20)
+        Me.tbWEBEDI_TEMP.TabIndex = 8
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(5, 150)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(112, 13)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "Répertoire Temporaire"
+        '
+        'cbTestWebEdi
+        '
+        Me.cbTestWebEdi.Location = New System.Drawing.Point(630, 228)
+        Me.cbTestWebEdi.Name = "cbTestWebEdi"
+        Me.cbTestWebEdi.Size = New System.Drawing.Size(110, 24)
+        Me.cbTestWebEdi.TabIndex = 6
+        Me.cbTestWebEdi.Text = "TEST"
+        Me.cbTestWebEdi.UseVisualStyleBackColor = True
+        '
+        'tbWEBEDI_SMTPFROM
+        '
+        Me.tbWEBEDI_SMTPFROM.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_FROM", True))
+        Me.tbWEBEDI_SMTPFROM.Location = New System.Drawing.Point(105, 127)
+        Me.tbWEBEDI_SMTPFROM.Name = "tbWEBEDI_SMTPFROM"
+        Me.tbWEBEDI_SMTPFROM.Size = New System.Drawing.Size(432, 20)
+        Me.tbWEBEDI_SMTPFROM.TabIndex = 5
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(5, 130)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(69, 13)
+        Me.Label7.TabIndex = 4
+        Me.Label7.Text = "SMTP From :"
+        '
+        'tbWEBEDI_SMTPPORT
+        '
+        Me.tbWEBEDI_SMTPPORT.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_PORT", True))
+        Me.tbWEBEDI_SMTPPORT.Location = New System.Drawing.Point(105, 46)
+        Me.tbWEBEDI_SMTPPORT.Name = "tbWEBEDI_SMTPPORT"
+        Me.tbWEBEDI_SMTPPORT.Size = New System.Drawing.Size(87, 20)
+        Me.tbWEBEDI_SMTPPORT.TabIndex = 3
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(9, 49)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(65, 13)
+        Me.Label6.TabIndex = 2
+        Me.Label6.Text = "SMTP Port :"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(9, 23)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(68, 13)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "SMTP Host :"
+        '
+        'tbWEBEDI_SMTPHOST
+        '
+        Me.tbWEBEDI_SMTPHOST.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_HOST", True))
+        Me.tbWEBEDI_SMTPHOST.Location = New System.Drawing.Point(105, 20)
+        Me.tbWEBEDI_SMTPHOST.Name = "tbWEBEDI_SMTPHOST"
+        Me.tbWEBEDI_SMTPHOST.Size = New System.Drawing.Size(433, 20)
+        Me.tbWEBEDI_SMTPHOST.TabIndex = 0
+        '
+        'tpSTOCKIT
+        '
+        Me.tpSTOCKIT.Controls.Add(Me.Button4)
+        Me.tpSTOCKIT.Controls.Add(Me.Label71)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox35)
+        Me.tpSTOCKIT.Controls.Add(Me.Label70)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox34)
+        Me.tpSTOCKIT.Controls.Add(Me.Label69)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox33)
+        Me.tpSTOCKIT.Controls.Add(Me.Label68)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox32)
+        Me.tpSTOCKIT.Controls.Add(Me.Label67)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox31)
+        Me.tpSTOCKIT.Controls.Add(Me.Label58)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox23)
+        Me.tpSTOCKIT.Controls.Add(Me.Label64)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox24)
+        Me.tpSTOCKIT.Controls.Add(Me.Label65)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox29)
+        Me.tpSTOCKIT.Controls.Add(Me.Label66)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox30)
+        Me.tpSTOCKIT.Controls.Add(Me.Label57)
+        Me.tpSTOCKIT.Controls.Add(Me.Label56)
+        Me.tpSTOCKIT.Controls.Add(Me.Label59)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox25)
+        Me.tpSTOCKIT.Controls.Add(Me.Label60)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox26)
+        Me.tpSTOCKIT.Controls.Add(Me.Label61)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox27)
+        Me.tpSTOCKIT.Controls.Add(Me.Label62)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox28)
+        Me.tpSTOCKIT.Controls.Add(Me.Label63)
+        Me.tpSTOCKIT.Location = New System.Drawing.Point(4, 22)
+        Me.tpSTOCKIT.Name = "tpSTOCKIT"
+        Me.tpSTOCKIT.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpSTOCKIT.Size = New System.Drawing.Size(768, 479)
+        Me.tpSTOCKIT.TabIndex = 11
+        Me.tpSTOCKIT.Text = "STOCKIT"
+        Me.tpSTOCKIT.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(672, 450)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 62
+        Me.Button4.Text = "Test"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.Location = New System.Drawing.Point(8, 456)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(164, 13)
+        Me.Label71.TabIndex = 60
+        Me.Label71.Text = "TypeLigne2(avec millesime) (DT):"
+        '
+        'TextBox35
+        '
+        Me.TextBox35.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_TYPELIGNE2", True))
+        Me.TextBox35.Location = New System.Drawing.Point(190, 453)
+        Me.TextBox35.Name = "TextBox35"
+        Me.TextBox35.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox35.TabIndex = 61
+        '
+        'Label70
+        '
+        Me.Label70.AutoSize = True
+        Me.Label70.Location = New System.Drawing.Point(8, 432)
+        Me.Label70.Name = "Label70"
+        Me.Label70.Size = New System.Drawing.Size(164, 13)
+        Me.Label70.TabIndex = 58
+        Me.Label70.Text = "TypeLigne1(Sans millesime) (DT):"
+        '
+        'TextBox34
+        '
+        Me.TextBox34.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_TYPELIGNE1", True))
+        Me.TextBox34.Location = New System.Drawing.Point(190, 429)
+        Me.TextBox34.Name = "TextBox34"
+        Me.TextBox34.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox34.TabIndex = 59
+        '
+        'Label69
+        '
+        Me.Label69.AutoSize = True
+        Me.Label69.Location = New System.Drawing.Point(8, 406)
+        Me.Label69.Name = "Label69"
+        Me.Label69.Size = New System.Drawing.Size(73, 13)
+        Me.Label69.TabIndex = 56
+        Me.Label69.Text = "Code BL (BL):"
+        '
+        'TextBox33
+        '
+        Me.TextBox33.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_TYPEBL", True))
+        Me.TextBox33.Location = New System.Drawing.Point(190, 403)
+        Me.TextBox33.Name = "TextBox33"
+        Me.TextBox33.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox33.TabIndex = 57
+        '
+        'Label68
+        '
+        Me.Label68.AutoSize = True
+        Me.Label68.Location = New System.Drawing.Point(8, 380)
+        Me.Label68.Name = "Label68"
+        Me.Label68.Size = New System.Drawing.Size(104, 13)
+        Me.Label68.TabIndex = 54
+        Me.Label68.Text = "Code Stockeur (ST):"
+        '
+        'TextBox32
+        '
+        Me.TextBox32.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_NOMSTOCKEUR", True))
+        Me.TextBox32.Location = New System.Drawing.Point(190, 377)
+        Me.TextBox32.Name = "TextBox32"
+        Me.TextBox32.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox32.TabIndex = 55
+        '
+        'Label67
+        '
+        Me.Label67.AutoSize = True
+        Me.Label67.Location = New System.Drawing.Point(8, 354)
+        Me.Label67.Name = "Label67"
+        Me.Label67.Size = New System.Drawing.Size(124, 13)
+        Me.Label67.TabIndex = 52
+        Me.Label67.Text = "code client VINIDIS(FR):"
+        '
+        'TextBox31
+        '
+        Me.TextBox31.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_NOMCLIENT", True))
+        Me.TextBox31.Location = New System.Drawing.Point(190, 351)
+        Me.TextBox31.Name = "TextBox31"
+        Me.TextBox31.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox31.TabIndex = 53
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(8, 308)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(116, 13)
+        Me.Label58.TabIndex = 50
+        Me.Label58.Text = "FTP dossier de lecture:"
+        '
+        'TextBox23
+        '
+        Me.TextBox23.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP2_DOSSIER", True))
+        Me.TextBox23.Location = New System.Drawing.Point(190, 305)
+        Me.TextBox23.Name = "TextBox23"
+        Me.TextBox23.Size = New System.Drawing.Size(438, 20)
+        Me.TextBox23.TabIndex = 51
+        '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Location = New System.Drawing.Point(10, 282)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(96, 13)
+        Me.Label64.TabIndex = 48
+        Me.Label64.Text = "FTP mot de passe:"
+        '
+        'TextBox24
+        '
+        Me.TextBox24.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP2_PWD", True))
+        Me.TextBox24.Location = New System.Drawing.Point(190, 279)
+        Me.TextBox24.Name = "TextBox24"
+        Me.TextBox24.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox24.TabIndex = 49
+        '
+        'Label65
+        '
+        Me.Label65.AutoSize = True
+        Me.Label65.Location = New System.Drawing.Point(8, 256)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(77, 13)
+        Me.Label65.TabIndex = 46
+        Me.Label65.Text = "FTP utilisateur:"
+        '
+        'TextBox29
+        '
+        Me.TextBox29.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP2_USER", True))
+        Me.TextBox29.Location = New System.Drawing.Point(190, 253)
+        Me.TextBox29.Name = "TextBox29"
+        Me.TextBox29.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox29.TabIndex = 47
+        '
+        'Label66
+        '
+        Me.Label66.AutoSize = True
+        Me.Label66.Location = New System.Drawing.Point(8, 234)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(55, 13)
+        Me.Label66.TabIndex = 44
+        Me.Label66.Text = "FTP URL:"
+        '
+        'TextBox30
+        '
+        Me.TextBox30.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP2_URL", True))
+        Me.TextBox30.Location = New System.Drawing.Point(190, 227)
+        Me.TextBox30.Name = "TextBox30"
+        Me.TextBox30.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox30.TabIndex = 45
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label57.Location = New System.Drawing.Point(8, 201)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(182, 13)
+        Me.Label57.TabIndex = 43
+        Me.Label57.Text = "Paramètre de réception des BL"
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label56.Location = New System.Drawing.Point(11, 52)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(152, 13)
+        Me.Label56.TabIndex = 42
+        Me.Label56.Text = "Paramètre d'envoi des BL"
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.Location = New System.Drawing.Point(8, 160)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(111, 13)
+        Me.Label59.TabIndex = 35
+        Me.Label59.Text = "FTP dossier de dépot:"
+        '
+        'TextBox25
+        '
+        Me.TextBox25.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP1_DOSSIER", True))
+        Me.TextBox25.Location = New System.Drawing.Point(190, 157)
+        Me.TextBox25.Name = "TextBox25"
+        Me.TextBox25.Size = New System.Drawing.Size(438, 20)
+        Me.TextBox25.TabIndex = 36
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Location = New System.Drawing.Point(10, 134)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(96, 13)
+        Me.Label60.TabIndex = 33
+        Me.Label60.Text = "FTP mot de passe:"
+        '
+        'TextBox26
+        '
+        Me.TextBox26.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP1_PWD", True))
+        Me.TextBox26.Location = New System.Drawing.Point(190, 131)
+        Me.TextBox26.Name = "TextBox26"
+        Me.TextBox26.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox26.TabIndex = 34
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(8, 108)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(77, 13)
+        Me.Label61.TabIndex = 31
+        Me.Label61.Text = "FTP utilisateur:"
+        '
+        'TextBox27
+        '
+        Me.TextBox27.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP1_USER", True))
+        Me.TextBox27.Location = New System.Drawing.Point(190, 105)
+        Me.TextBox27.Name = "TextBox27"
+        Me.TextBox27.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox27.TabIndex = 32
+        '
+        'Label62
+        '
+        Me.Label62.AutoSize = True
+        Me.Label62.Location = New System.Drawing.Point(8, 86)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(55, 13)
+        Me.Label62.TabIndex = 29
+        Me.Label62.Text = "FTP URL:"
+        '
+        'TextBox28
+        '
+        Me.TextBox28.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_FTP1_URL", True))
+        Me.TextBox28.Location = New System.Drawing.Point(190, 79)
+        Me.TextBox28.Name = "TextBox28"
+        Me.TextBox28.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox28.TabIndex = 30
+        '
+        'Label63
+        '
+        Me.Label63.AutoSize = True
+        Me.Label63.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label63.Location = New System.Drawing.Point(8, 14)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(293, 13)
+        Me.Label63.TabIndex = 41
+        Me.Label63.Text = "Paramétre d'échange avec la plateforme STOCKIT"
+        '
         'CST_VERSION_BDTextBox
         '
         Me.CST_VERSION_BDTextBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -2999,15 +3011,98 @@ Partial Class frmConstantes
         Me.ckStockIT.Text = "Interface StockIt"
         Me.ckStockIT.UseVisualStyleBackColor = True
         '
-        'BindingSource1
+        'Label22
         '
-        Me.BindingSource1.DataMember = "CONSTANTES"
-        Me.BindingSource1.DataSource = Me.DsVinicom1
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(22, 120)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(62, 13)
+        Me.Label22.TabIndex = 41
+        Me.Label22.Text = "Rép Local :"
         '
-        'DsVinicom1
+        'tbFTPEDIRepLocal
         '
-        Me.DsVinicom1.DataSetName = "dsVinicom"
-        Me.DsVinicom1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.tbFTPEDIRepLocal.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REPLOCAL", True))
+        Me.tbFTPEDIRepLocal.Location = New System.Drawing.Point(114, 113)
+        Me.tbFTPEDIRepLocal.Name = "tbFTPEDIRepLocal"
+        Me.tbFTPEDIRepLocal.Size = New System.Drawing.Size(432, 20)
+        Me.tbFTPEDIRepLocal.TabIndex = 40
+        '
+        'cbTestFTPEDI
+        '
+        Me.cbTestFTPEDI.Location = New System.Drawing.Point(648, 47)
+        Me.cbTestFTPEDI.Name = "cbTestFTPEDI"
+        Me.cbTestFTPEDI.Size = New System.Drawing.Size(89, 25)
+        Me.cbTestFTPEDI.TabIndex = 39
+        Me.cbTestFTPEDI.Text = "Test"
+        Me.cbTestFTPEDI.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(25, 94)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(67, 13)
+        Me.Label21.TabIndex = 38
+        Me.Label21.Text = "Rép distant :"
+        '
+        'tbFTPEDIRep
+        '
+        Me.tbFTPEDIRep.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REP", True))
+        Me.tbFTPEDIRep.Location = New System.Drawing.Point(114, 87)
+        Me.tbFTPEDIRep.Name = "tbFTPEDIRep"
+        Me.tbFTPEDIRep.Size = New System.Drawing.Size(432, 20)
+        Me.tbFTPEDIRep.TabIndex = 37
+        '
+        'tbFTPEDIPwd
+        '
+        Me.tbFTPEDIPwd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_PWD", True))
+        Me.tbFTPEDIPwd.Location = New System.Drawing.Point(327, 61)
+        Me.tbFTPEDIPwd.Name = "tbFTPEDIPwd"
+        Me.tbFTPEDIPwd.Size = New System.Drawing.Size(219, 20)
+        Me.tbFTPEDIPwd.TabIndex = 36
+        '
+        'tbFTPEDIUser
+        '
+        Me.tbFTPEDIUser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_USER", True))
+        Me.tbFTPEDIUser.Location = New System.Drawing.Point(114, 61)
+        Me.tbFTPEDIUser.Name = "tbFTPEDIUser"
+        Me.tbFTPEDIUser.Size = New System.Drawing.Size(203, 20)
+        Me.tbFTPEDIUser.TabIndex = 35
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(25, 61)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(59, 13)
+        Me.Label18.TabIndex = 34
+        Me.Label18.Text = "Utilisateur :"
+        '
+        'tbFTPEDIPort
+        '
+        Me.tbFTPEDIPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_PORT", True))
+        Me.tbFTPEDIPort.Location = New System.Drawing.Point(562, 32)
+        Me.tbFTPEDIPort.Name = "tbFTPEDIPort"
+        Me.tbFTPEDIPort.Size = New System.Drawing.Size(36, 20)
+        Me.tbFTPEDIPort.TabIndex = 33
+        '
+        'tbFTPEDISRV
+        '
+        Me.tbFTPEDISRV.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_SRV", True))
+        Me.tbFTPEDISRV.Location = New System.Drawing.Point(114, 32)
+        Me.tbFTPEDISRV.Name = "tbFTPEDISRV"
+        Me.tbFTPEDISRV.Size = New System.Drawing.Size(432, 20)
+        Me.tbFTPEDISRV.TabIndex = 32
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(22, 32)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(50, 13)
+        Me.Label17.TabIndex = 31
+        Me.Label17.Text = "Serveur :"
         '
         'frmConstantes
         '
@@ -3026,6 +3121,8 @@ Partial Class frmConstantes
         Me.TabControl1.ResumeLayout(False)
         Me.tabVinicom.ResumeLayout(False)
         Me.tabVinicom.PerformLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsVinicom1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabVinidis.ResumeLayout(False)
         Me.TabVinidis.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
@@ -3036,18 +3133,18 @@ Partial Class frmConstantes
         Me.TabPage4.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
-        Me.tpWEBEDI.ResumeLayout(False)
-        Me.tpWEBEDI.PerformLayout()
-        Me.tpSTOCKIT.ResumeLayout(False)
-        Me.tpSTOCKIT.PerformLayout()
+        Me.grpFTPGroussard.ResumeLayout(False)
+        Me.grpFTPGroussard.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
         Me.TabPage8.PerformLayout()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsVinicom1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tpWEBEDI.ResumeLayout(False)
+        Me.tpWEBEDI.PerformLayout()
+        Me.tpSTOCKIT.ResumeLayout(False)
+        Me.tpSTOCKIT.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -3206,18 +3303,6 @@ Partial Class frmConstantes
     Friend WithEvents Label28 As Label
     Friend WithEvents ckWEBEDI_SSL As CheckBox
     Friend WithEvents TabPage5 As TabPage
-    Friend WithEvents Label22 As Label
-    Friend WithEvents tbFTPEDIRepLocal As TextBox
-    Friend WithEvents cbTestFTPEDI As Button
-    Friend WithEvents Label21 As Label
-    Friend WithEvents tbFTPEDIRep As TextBox
-    Friend WithEvents tbFTPEDIPwd As TextBox
-    Friend WithEvents tbFTPEDIUser As TextBox
-    Friend WithEvents Label18 As Label
-    Friend WithEvents tbFTPEDIPort As TextBox
-    Friend WithEvents tbFTPEDISRV As TextBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label16 As Label
     Friend WithEvents TabPage6 As TabPage
     Friend WithEvents FTP_LOCKTOFILENAMELabel As Label
     Friend WithEvents FTP_LOCKTOFILENAMETextBox As TextBox
@@ -3328,4 +3413,25 @@ Partial Class frmConstantes
     Friend WithEvents TextBox28 As TextBox
     Friend WithEvents Label63 As Label
     Friend WithEvents ckStockIT As CheckBox
+    Friend WithEvents Label68 As Label
+    Friend WithEvents TextBox32 As TextBox
+    Friend WithEvents Label69 As Label
+    Friend WithEvents TextBox33 As TextBox
+    Friend WithEvents Label71 As Label
+    Friend WithEvents TextBox35 As TextBox
+    Friend WithEvents Label70 As Label
+    Friend WithEvents TextBox34 As TextBox
+    Friend WithEvents Button4 As Button
+    Friend WithEvents grpFTPGroussard As GroupBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents tbFTPEDIRepLocal As TextBox
+    Friend WithEvents cbTestFTPEDI As Button
+    Friend WithEvents Label21 As Label
+    Friend WithEvents tbFTPEDIRep As TextBox
+    Friend WithEvents tbFTPEDIPwd As TextBox
+    Friend WithEvents tbFTPEDIUser As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents tbFTPEDIPort As TextBox
+    Friend WithEvents tbFTPEDISRV As TextBox
+    Friend WithEvents Label17 As Label
 End Class

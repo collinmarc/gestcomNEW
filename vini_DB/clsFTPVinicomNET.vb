@@ -161,7 +161,7 @@ Public Class NETFTPclient
         Using fs As FileStream = fi.OpenRead()
             Try
                 'open request to send
-                Using rs As Stream = ftp.GetRequestStream()
+                Using rs As Stream = ftp.GetRequestStream()   'c'est ici que se fait la connection !!!!
                     Do
                         dataRead = fs.Read(content, 0, BufferSize)
                         rs.Write(content, 0, dataRead)
@@ -171,6 +171,10 @@ Public Class NETFTPclient
                 End Using
 
             Catch generatedExceptionName As Exception
+                Trace.WriteLine("CLSFTPVINICOM.Upload ERR : " & generatedExceptionName.Message)
+                If generatedExceptionName.InnerException IsNot Nothing Then
+                    Trace.WriteLine("CLSFTPVINICOM.Upload ERR : " & generatedExceptionName.InnerException.Message)
+                End If
             Finally
                 'ensure file closed
                 fs.Close()
