@@ -198,7 +198,7 @@ Public Class mvtEDI
         Trace.WriteLine("mvtEDI.VerificationCommandes: Fin")
         Return olstReturn
     End Function
-    Public Shared Function VerificationCommandesSTOCKIT(pFileName As String) As List(Of MsgLivraison)
+    Public Shared Function VerificationCommandesSTOCKIT(pFileName As String, Optional pbRenameFile As Boolean = True) As List(Of MsgLivraison)
         Trace.WriteLine("mvtEDI.VerificationCommandesSTOCKIT: Debut")
         Dim bReturn As Boolean
         Dim plstMsg As New List(Of MsgLivraison)
@@ -275,6 +275,11 @@ Public Class mvtEDI
             setError("mvtEDI.VerificationCommandesSTOCKIT ERR" & ex.Message)
             bReturn = False
         End Try
+        If pbRenameFile Then
+            'Renommer le fichier (ajout extension .TRT)
+            System.IO.File.Copy(pFileName, pFileName & ".TRT", True)
+            System.IO.File.Delete(pFileName)
+        End If
         Trace.WriteLine("mvtEDI.VerificationCommandesSTOCKIT: Fin")
         Return plstMsg
     End Function

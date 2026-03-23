@@ -1,4 +1,6 @@
-﻿V20260225090000
+﻿V20260323160000
+	0001870: Les fichiers EDI Stockit ne sont pas renommés après avoir été traités
+V20260225090000
 	0001867: intégration STOCKIT
 	0001869: Lors de la vérification des Infos de livraison, les fichiers .TRT continuent d'être traitées
 
