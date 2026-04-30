@@ -274,6 +274,8 @@ Partial Class frmConstantes
         Me.Label5 = New System.Windows.Forms.Label()
         Me.tbWEBEDI_SMTPHOST = New System.Windows.Forms.TextBox()
         Me.tpSTOCKIT = New System.Windows.Forms.TabPage()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.TextBox36 = New System.Windows.Forms.TextBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label71 = New System.Windows.Forms.Label()
         Me.TextBox35 = New System.Windows.Forms.TextBox()
@@ -308,8 +310,6 @@ Partial Class frmConstantes
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
         Me.ckStockIT = New System.Windows.Forms.CheckBox()
-        Me.TextBox36 = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2809,6 +2809,23 @@ Partial Class frmConstantes
         Me.tpSTOCKIT.Text = "STOCKIT"
         Me.tpSTOCKIT.UseVisualStyleBackColor = True
         '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(8, 30)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(150, 13)
+        Me.Label16.TabIndex = 64
+        Me.Label16.Text = "Rép local de prép des fichiers:"
+        '
+        'TextBox36
+        '
+        Me.TextBox36.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REPLOCAL", True))
+        Me.TextBox36.Location = New System.Drawing.Point(190, 30)
+        Me.TextBox36.Name = "TextBox36"
+        Me.TextBox36.Size = New System.Drawing.Size(432, 20)
+        Me.TextBox36.TabIndex = 63
+        '
         'Button4
         '
         Me.Button4.Location = New System.Drawing.Point(672, 450)
@@ -2830,9 +2847,9 @@ Partial Class frmConstantes
         'TextBox35
         '
         Me.TextBox35.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_TYPELIGNE2", True))
-        Me.TextBox35.Location = New System.Drawing.Point(190, 453)
+        Me.TextBox35.Location = New System.Drawing.Point(228, 453)
         Me.TextBox35.Name = "TextBox35"
-        Me.TextBox35.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox35.Size = New System.Drawing.Size(163, 20)
         Me.TextBox35.TabIndex = 61
         '
         'Label70
@@ -2847,9 +2864,9 @@ Partial Class frmConstantes
         'TextBox34
         '
         Me.TextBox34.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_STOCKIT_TYPELIGNE1", True))
-        Me.TextBox34.Location = New System.Drawing.Point(190, 429)
+        Me.TextBox34.Location = New System.Drawing.Point(228, 429)
         Me.TextBox34.Name = "TextBox34"
-        Me.TextBox34.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox34.Size = New System.Drawing.Size(163, 20)
         Me.TextBox34.TabIndex = 59
         '
         'Label69
@@ -3107,23 +3124,6 @@ Partial Class frmConstantes
         Me.ckStockIT.TabIndex = 5
         Me.ckStockIT.Text = "Interface StockIt"
         Me.ckStockIT.UseVisualStyleBackColor = True
-        '
-        'TextBox36
-        '
-        Me.TextBox36.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REPLOCAL", True))
-        Me.TextBox36.Location = New System.Drawing.Point(190, 30)
-        Me.TextBox36.Name = "TextBox36"
-        Me.TextBox36.Size = New System.Drawing.Size(432, 20)
-        Me.TextBox36.TabIndex = 63
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(8, 30)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(150, 13)
-        Me.Label16.TabIndex = 64
-        Me.Label16.Text = "Rép local de prép des fichiers:"
         '
         'frmConstantes
         '
