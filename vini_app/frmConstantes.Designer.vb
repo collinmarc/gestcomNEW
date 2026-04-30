@@ -145,6 +145,17 @@ Partial Class frmConstantes
         Me.CST_TX_COMMISSIONTextBox = New System.Windows.Forms.TextBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.grpFTPGroussard = New System.Windows.Forms.GroupBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.tbFTPEDIRepLocal = New System.Windows.Forms.TextBox()
+        Me.cbTestFTPEDI = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.tbFTPEDIRep = New System.Windows.Forms.TextBox()
+        Me.tbFTPEDIPwd = New System.Windows.Forms.TextBox()
+        Me.tbFTPEDIUser = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.tbFTPEDIPort = New System.Windows.Forms.TextBox()
+        Me.tbFTPEDISRV = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.btnTestFTPvnc = New System.Windows.Forms.Button()
         Me.tbFTPVNCUrl2 = New System.Windows.Forms.TextBox()
         Me.Label40 = New System.Windows.Forms.Label()
@@ -297,17 +308,8 @@ Partial Class frmConstantes
         Me.Label25 = New System.Windows.Forms.Label()
         Me.dtpdateMAj = New System.Windows.Forms.DateTimePicker()
         Me.ckStockIT = New System.Windows.Forms.CheckBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.tbFTPEDIRepLocal = New System.Windows.Forms.TextBox()
-        Me.cbTestFTPEDI = New System.Windows.Forms.Button()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.tbFTPEDIRep = New System.Windows.Forms.TextBox()
-        Me.tbFTPEDIPwd = New System.Windows.Forms.TextBox()
-        Me.tbFTPEDIUser = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.tbFTPEDIPort = New System.Windows.Forms.TextBox()
-        Me.tbFTPEDISRV = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
+        Me.TextBox36 = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.tabVinicom.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1567,6 +1569,99 @@ Partial Class frmConstantes
         Me.grpFTPGroussard.TabStop = False
         Me.grpFTPGroussard.Text = "FTP EDI Retour de livraison GROUSSARD"
         '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(22, 120)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(62, 13)
+        Me.Label22.TabIndex = 41
+        Me.Label22.Text = "Rép Local :"
+        '
+        'tbFTPEDIRepLocal
+        '
+        Me.tbFTPEDIRepLocal.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REPLOCAL", True))
+        Me.tbFTPEDIRepLocal.Location = New System.Drawing.Point(114, 113)
+        Me.tbFTPEDIRepLocal.Name = "tbFTPEDIRepLocal"
+        Me.tbFTPEDIRepLocal.Size = New System.Drawing.Size(432, 20)
+        Me.tbFTPEDIRepLocal.TabIndex = 40
+        '
+        'cbTestFTPEDI
+        '
+        Me.cbTestFTPEDI.Location = New System.Drawing.Point(648, 47)
+        Me.cbTestFTPEDI.Name = "cbTestFTPEDI"
+        Me.cbTestFTPEDI.Size = New System.Drawing.Size(89, 25)
+        Me.cbTestFTPEDI.TabIndex = 39
+        Me.cbTestFTPEDI.Text = "Test"
+        Me.cbTestFTPEDI.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(25, 94)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(67, 13)
+        Me.Label21.TabIndex = 38
+        Me.Label21.Text = "Rép distant :"
+        '
+        'tbFTPEDIRep
+        '
+        Me.tbFTPEDIRep.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REP", True))
+        Me.tbFTPEDIRep.Location = New System.Drawing.Point(114, 87)
+        Me.tbFTPEDIRep.Name = "tbFTPEDIRep"
+        Me.tbFTPEDIRep.Size = New System.Drawing.Size(432, 20)
+        Me.tbFTPEDIRep.TabIndex = 37
+        '
+        'tbFTPEDIPwd
+        '
+        Me.tbFTPEDIPwd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_PWD", True))
+        Me.tbFTPEDIPwd.Location = New System.Drawing.Point(327, 61)
+        Me.tbFTPEDIPwd.Name = "tbFTPEDIPwd"
+        Me.tbFTPEDIPwd.Size = New System.Drawing.Size(219, 20)
+        Me.tbFTPEDIPwd.TabIndex = 36
+        '
+        'tbFTPEDIUser
+        '
+        Me.tbFTPEDIUser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_USER", True))
+        Me.tbFTPEDIUser.Location = New System.Drawing.Point(114, 61)
+        Me.tbFTPEDIUser.Name = "tbFTPEDIUser"
+        Me.tbFTPEDIUser.Size = New System.Drawing.Size(203, 20)
+        Me.tbFTPEDIUser.TabIndex = 35
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(25, 61)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(59, 13)
+        Me.Label18.TabIndex = 34
+        Me.Label18.Text = "Utilisateur :"
+        '
+        'tbFTPEDIPort
+        '
+        Me.tbFTPEDIPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_PORT", True))
+        Me.tbFTPEDIPort.Location = New System.Drawing.Point(562, 32)
+        Me.tbFTPEDIPort.Name = "tbFTPEDIPort"
+        Me.tbFTPEDIPort.Size = New System.Drawing.Size(36, 20)
+        Me.tbFTPEDIPort.TabIndex = 33
+        '
+        'tbFTPEDISRV
+        '
+        Me.tbFTPEDISRV.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_SRV", True))
+        Me.tbFTPEDISRV.Location = New System.Drawing.Point(114, 32)
+        Me.tbFTPEDISRV.Name = "tbFTPEDISRV"
+        Me.tbFTPEDISRV.Size = New System.Drawing.Size(432, 20)
+        Me.tbFTPEDISRV.TabIndex = 32
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(22, 32)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(50, 13)
+        Me.Label17.TabIndex = 31
+        Me.Label17.Text = "Serveur :"
+        '
         'btnTestFTPvnc
         '
         Me.btnTestFTPvnc.Location = New System.Drawing.Point(647, 154)
@@ -2674,6 +2769,8 @@ Partial Class frmConstantes
         '
         'tpSTOCKIT
         '
+        Me.tpSTOCKIT.Controls.Add(Me.Label16)
+        Me.tpSTOCKIT.Controls.Add(Me.TextBox36)
         Me.tpSTOCKIT.Controls.Add(Me.Button4)
         Me.tpSTOCKIT.Controls.Add(Me.Label71)
         Me.tpSTOCKIT.Controls.Add(Me.TextBox35)
@@ -2726,9 +2823,9 @@ Partial Class frmConstantes
         Me.Label71.AutoSize = True
         Me.Label71.Location = New System.Drawing.Point(8, 456)
         Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(164, 13)
+        Me.Label71.Size = New System.Drawing.Size(176, 13)
         Me.Label71.TabIndex = 60
-        Me.Label71.Text = "TypeLigne2(avec millesime) (DT):"
+        Me.Label71.Text = "TypeLigne2(avec millesime) (DT37):"
         '
         'TextBox35
         '
@@ -2743,9 +2840,9 @@ Partial Class frmConstantes
         Me.Label70.AutoSize = True
         Me.Label70.Location = New System.Drawing.Point(8, 432)
         Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(164, 13)
+        Me.Label70.Size = New System.Drawing.Size(176, 13)
         Me.Label70.TabIndex = 58
-        Me.Label70.Text = "TypeLigne1(Sans millesime) (DT):"
+        Me.Label70.Text = "TypeLigne1(Sans millesime) (DT37):"
         '
         'TextBox34
         '
@@ -2760,9 +2857,9 @@ Partial Class frmConstantes
         Me.Label69.AutoSize = True
         Me.Label69.Location = New System.Drawing.Point(8, 406)
         Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(73, 13)
+        Me.Label69.Size = New System.Drawing.Size(78, 13)
         Me.Label69.TabIndex = 56
-        Me.Label69.Text = "Code BL (BL):"
+        Me.Label69.Text = "Type BL (BL3):"
         '
         'TextBox33
         '
@@ -2777,9 +2874,9 @@ Partial Class frmConstantes
         Me.Label68.AutoSize = True
         Me.Label68.Location = New System.Drawing.Point(8, 380)
         Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(104, 13)
+        Me.Label68.Size = New System.Drawing.Size(110, 13)
         Me.Label68.TabIndex = 54
-        Me.Label68.Text = "Code Stockeur (ST):"
+        Me.Label68.Text = "Code Stockeur (ST2):"
         '
         'TextBox32
         '
@@ -2794,9 +2891,9 @@ Partial Class frmConstantes
         Me.Label67.AutoSize = True
         Me.Label67.Location = New System.Drawing.Point(8, 354)
         Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(124, 13)
+        Me.Label67.Size = New System.Drawing.Size(130, 13)
         Me.Label67.TabIndex = 52
-        Me.Label67.Text = "code client VINIDIS(FR):"
+        Me.Label67.Text = "code client VINIDIS(FR2):"
         '
         'TextBox31
         '
@@ -3011,98 +3108,22 @@ Partial Class frmConstantes
         Me.ckStockIT.Text = "Interface StockIt"
         Me.ckStockIT.UseVisualStyleBackColor = True
         '
-        'Label22
+        'TextBox36
         '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(22, 120)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(62, 13)
-        Me.Label22.TabIndex = 41
-        Me.Label22.Text = "Rép Local :"
+        Me.TextBox36.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REPLOCAL", True))
+        Me.TextBox36.Location = New System.Drawing.Point(190, 30)
+        Me.TextBox36.Name = "TextBox36"
+        Me.TextBox36.Size = New System.Drawing.Size(432, 20)
+        Me.TextBox36.TabIndex = 63
         '
-        'tbFTPEDIRepLocal
+        'Label16
         '
-        Me.tbFTPEDIRepLocal.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REPLOCAL", True))
-        Me.tbFTPEDIRepLocal.Location = New System.Drawing.Point(114, 113)
-        Me.tbFTPEDIRepLocal.Name = "tbFTPEDIRepLocal"
-        Me.tbFTPEDIRepLocal.Size = New System.Drawing.Size(432, 20)
-        Me.tbFTPEDIRepLocal.TabIndex = 40
-        '
-        'cbTestFTPEDI
-        '
-        Me.cbTestFTPEDI.Location = New System.Drawing.Point(648, 47)
-        Me.cbTestFTPEDI.Name = "cbTestFTPEDI"
-        Me.cbTestFTPEDI.Size = New System.Drawing.Size(89, 25)
-        Me.cbTestFTPEDI.TabIndex = 39
-        Me.cbTestFTPEDI.Text = "Test"
-        Me.cbTestFTPEDI.UseVisualStyleBackColor = True
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(25, 94)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(67, 13)
-        Me.Label21.TabIndex = 38
-        Me.Label21.Text = "Rép distant :"
-        '
-        'tbFTPEDIRep
-        '
-        Me.tbFTPEDIRep.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REP", True))
-        Me.tbFTPEDIRep.Location = New System.Drawing.Point(114, 87)
-        Me.tbFTPEDIRep.Name = "tbFTPEDIRep"
-        Me.tbFTPEDIRep.Size = New System.Drawing.Size(432, 20)
-        Me.tbFTPEDIRep.TabIndex = 37
-        '
-        'tbFTPEDIPwd
-        '
-        Me.tbFTPEDIPwd.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_PWD", True))
-        Me.tbFTPEDIPwd.Location = New System.Drawing.Point(327, 61)
-        Me.tbFTPEDIPwd.Name = "tbFTPEDIPwd"
-        Me.tbFTPEDIPwd.Size = New System.Drawing.Size(219, 20)
-        Me.tbFTPEDIPwd.TabIndex = 36
-        '
-        'tbFTPEDIUser
-        '
-        Me.tbFTPEDIUser.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_USER", True))
-        Me.tbFTPEDIUser.Location = New System.Drawing.Point(114, 61)
-        Me.tbFTPEDIUser.Name = "tbFTPEDIUser"
-        Me.tbFTPEDIUser.Size = New System.Drawing.Size(203, 20)
-        Me.tbFTPEDIUser.TabIndex = 35
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(25, 61)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(59, 13)
-        Me.Label18.TabIndex = 34
-        Me.Label18.Text = "Utilisateur :"
-        '
-        'tbFTPEDIPort
-        '
-        Me.tbFTPEDIPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_PORT", True))
-        Me.tbFTPEDIPort.Location = New System.Drawing.Point(562, 32)
-        Me.tbFTPEDIPort.Name = "tbFTPEDIPort"
-        Me.tbFTPEDIPort.Size = New System.Drawing.Size(36, 20)
-        Me.tbFTPEDIPort.TabIndex = 33
-        '
-        'tbFTPEDISRV
-        '
-        Me.tbFTPEDISRV.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_SRV", True))
-        Me.tbFTPEDISRV.Location = New System.Drawing.Point(114, 32)
-        Me.tbFTPEDISRV.Name = "tbFTPEDISRV"
-        Me.tbFTPEDISRV.Size = New System.Drawing.Size(432, 20)
-        Me.tbFTPEDISRV.TabIndex = 32
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(22, 32)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(50, 13)
-        Me.Label17.TabIndex = 31
-        Me.Label17.Text = "Serveur :"
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(8, 30)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(150, 13)
+        Me.Label16.TabIndex = 64
+        Me.Label16.Text = "Rép local de prép des fichiers:"
         '
         'frmConstantes
         '
@@ -3434,4 +3455,6 @@ Partial Class frmConstantes
     Friend WithEvents tbFTPEDIPort As TextBox
     Friend WithEvents tbFTPEDISRV As TextBox
     Friend WithEvents Label17 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents TextBox36 As TextBox
 End Class

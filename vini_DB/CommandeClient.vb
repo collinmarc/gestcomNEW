@@ -1279,6 +1279,7 @@ Public Class CommandeClient
             strResult = creerLineST(nFile)
             strResult = creerLineBL(nFile)
             Dim nLigne As Integer = 0
+            'Parcours des lignes non gratuites
             For Each oLg In m_colLignes
                 If Not oLg.bGratuit Then
                     'Cumul des qte commandées du même produit 
@@ -1288,7 +1289,7 @@ Public Class CommandeClient
                             nQteComm = nQteComm + oLgG.qteCommande
                         End If
                     Next
-
+                    oLg.qteCommande = nQteComm 'Modification de la quantité commandée pour ajouter les gratuits)
                     creerLineDT(nFile, oLg, strResult, nLigne)
                 End If
             Next oLg
@@ -1304,7 +1305,7 @@ Public Class CommandeClient
                     Next
                     If Not bLignePayante Then
                         'Il n'y a pas de lignes payantes associées à la ligne gratuite
-                        Dim nQteComm As Decimal = oLg.qteCommande
+                        '                        Dim nQteComm As Decimal = oLg.qteCommande
                         creerLineDT(nFile, oLg, strResult, nLigne)
                     End If
                 End If
@@ -1317,6 +1318,9 @@ Public Class CommandeClient
                 oftp.uploadFile(strFileName)
             End If
 
+            'Rechargement des lignes
+            m_colLignes.clear()
+            loadcolLignes()
 
             bReturn = True
         Catch ex As Exception
@@ -1329,7 +1333,7 @@ Public Class CommandeClient
     Private Sub creerLineDT(nFile As Integer, oLg As LgCommande, ByRef strResult As String, ByRef nLigne As Integer)
         strResult = "DT"
         strResult = strResult & "|"
-        nLigne = nLigne & 1
+        nLigne = nLigne + 1
         strResult = strResult & nLigne 'Numero de ligne
         strResult = strResult & "|"
         strResult = strResult & Me.code 'Numero de BL
@@ -1421,7 +1425,7 @@ Public Class CommandeClient
         strResult = strResult & "|"
         strResult = strResult & Me.code 'Numero du BL
         strResult = strResult & "|"
-        strResult = strResult & "02" ' Type de BL
+        strResult = strResult & Param.getConstante("CST_STOCKIT_TYPEBL")
         strResult = strResult & "|"
         strResult = strResult & Format(Me.dateLivraison, "yyyyMMdd") 'Date de Livraison
         strResult = strResult & "|"

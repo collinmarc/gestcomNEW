@@ -1,4 +1,7 @@
-﻿V20260323160000
+﻿V20260430150000
+	0001872: Export WEBEDI STOCKIT
+
+V20260323160000
 	0001870: Les fichiers EDI Stockit ne sont pas renommés après avoir été traités
 V20260225090000
 	0001867: intégration STOCKIT
