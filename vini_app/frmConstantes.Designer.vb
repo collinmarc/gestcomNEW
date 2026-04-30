@@ -2820,7 +2820,7 @@ Partial Class frmConstantes
         '
         'TextBox36
         '
-        Me.TextBox36.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_FTPEDI_REPLOCAL", True))
+        Me.TextBox36.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "CST_EDI_TEMP", True))
         Me.TextBox36.Location = New System.Drawing.Point(190, 30)
         Me.TextBox36.Name = "TextBox36"
         Me.TextBox36.Size = New System.Drawing.Size(432, 20)
