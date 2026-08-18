@@ -1274,6 +1274,7 @@ Public Class CommandeClient
         Try
             nFile = FreeFile()
             FileOpen(nFile, strFileName, OpenMode.Output, OpenAccess.Write, OpenShare.LockWrite)
+            Me.oTiers.load()
             strResult = creerLineFR(nFile)
             strResult = creerLineCL(nFile)
             strResult = creerLineST(nFile)
@@ -1490,16 +1491,16 @@ Public Class CommandeClient
 
     Private Function creerLineCL(nFile As Integer) As String
         Dim strResult As String = "CL"
-        strResult = strResult & "|"
-        strResult = strResult & Me.TiersCode
-        strResult = strResult & "|" 'nom
-        strResult = strResult & "|" 'adresse1
-        strResult = strResult & "|" 'adresse2
-        strResult = strResult & "|" 'adresse3
-        strResult = strResult & "|" 'code postal
-        strResult = strResult & "|" 'ville
-        strResult = strResult & "|" 'pays
-        strResult = strResult & "|" & CommentaireLivraisonText 'Commentaires
+        strResult = strResult & "|" 'CL 1
+        strResult = strResult & Me.TiersCode 'Code 2
+        strResult = strResult & "|" & Me.oTiers.AdresseLivraisonNom  'Nom 3
+        strResult = strResult & "|" & Me.oTiers.AdresseLivraisonRue1  'Rue1 4
+        strResult = strResult & "|" & Me.oTiers.AdresseLivraisonRue2  'Rue2 5
+        strResult = strResult & "|" 'adresse3 6
+        strResult = strResult & "|" & Me.oTiers.AdresseLivraisonCP ' CP 7
+        strResult = strResult & "|" & Me.oTiers.AdresseLivraisonVille ' Ville 8
+        strResult = strResult & "|" 'pays 9 
+        strResult = strResult & "|" & Me.CommentaireLivraisonText.Replace(vbCrLf, "-").Replace(vbCr, "-").Replace(vbLf, "-") 'Commentaires 10 
 
         PrintLine(nFile, strResult)
         Return strResult
