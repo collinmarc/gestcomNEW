@@ -622,4 +622,7 @@ Partial Public Class frmConstantes
         restoreCursor()
     End Sub
 
+    Private Sub Label70_Click(sender As Object, e As EventArgs) Handles Label70.Click
+
+    End Sub
 End Class

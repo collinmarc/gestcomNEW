@@ -2842,7 +2842,7 @@ Partial Class frmConstantes
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(176, 13)
         Me.Label71.TabIndex = 60
-        Me.Label71.Text = "TypeLigne2(avec millesime) (DT37):"
+        Me.Label71.Text = "TypeLigne2(avec millesime) (DT32):"
         '
         'TextBox35
         '
@@ -2859,7 +2859,7 @@ Partial Class frmConstantes
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(176, 13)
         Me.Label70.TabIndex = 58
-        Me.Label70.Text = "TypeLigne1(Sans millesime) (DT37):"
+        Me.Label70.Text = "TypeLigne1(Sans millesime) (DT32):"
         '
         'TextBox34
         '
